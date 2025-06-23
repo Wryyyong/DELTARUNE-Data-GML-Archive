@@ -1,24 +1,25 @@
 audio_stop_all();
-global.lang_loaded = "";
+var chapstring = string(chaptertoload_temp);
+var parameters = get_chapter_switch_parameters();
 
-if (reload_textures) {
-	_tex_array = texturegroup_get_textures("chapter_0" + string(chaptertoload_temp));
-	
-	for (var i = 0; i < array_length(_tex_array); i++)
-		texture_prefetch(_tex_array[i]);
-}
-
-switch (chaptertoload_temp) {
-	case 1:
-		room_goto(ROOM_INITIALIZE_ch1);
+switch (os_type) {
+	case os_windows:
+		game_change("/chapter" + chapstring + "_windows", "-game data.win" + parameters);
 		break;
 	
-	case 2:
-		room_goto(ROOM_INITIALIZE);
+	case os_switch:
+		game_change("rom:/chapter" + chapstring + "_switch/", parameters);
+		break;
+	
+	case os_ps4:
+		game_change("", "-game /app0/games/chapter" + chapstring + "_ps4/game.win" + parameters);
+		break;
+	
+	case os_ps5:
+		game_change("", "-game /app0/games/chapter" + chapstring + "_ps5/game.win" + parameters);
+		break;
+	
+	case os_macosx:
+		game_change("chapter" + chapstring + "_mac", parameters);
 		break;
 }
-
-var _tex_array = texturegroup_get_textures("chapter_select");
-
-for (var i = 0; i < array_length(_tex_array); i++)
-	texture_flush(_tex_array[i]);

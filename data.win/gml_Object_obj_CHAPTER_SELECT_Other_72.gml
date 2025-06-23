@@ -34,53 +34,19 @@ if (ds_map_find_value(async_load, "id") == global.savedata_async_id) {
 		
 		global.lang = _lang;
 		scr_controls_default();
-		audio_group_load(1);
-		
-		if (global.savedata == -1 || global.savedata == undefined) {
-			var error_message = instance_create(0, 0, obj_savedata_error);
-			error_message.error_type = "save_data_corrupt";
-			exit;
-		}
+		audio_group_load(0);
 		
 		if (ossafe_file_exists("true_config.ini")) {
-			first_time = false;
 			ossafe_ini_open("true_config.ini");
 			global.lang = ini_read_string("LANG", "LANG", _lang);
 			ossafe_ini_close();
 		}
 		
-		text_font = (global.lang == "en") ? 4 : 11;
+		text_font = (global.lang == "en") ? 2 : 1;
 		yes = (global.lang == "en") ? "Yes" : "はい";
 		no = (global.lang == "en") ? "No" : "いいえ";
 		chapname[1] = (global.lang == "en") ? "The Beginning" : "はじまり";
 		chapname[2] = (global.lang == "en") ? "A Cyber's World" : "サイバーワールド";
-		
-		if (ossafe_file_exists("dr.ini"))
-			first_time = false;
-		
-		if (ossafe_file_exists_ch1("filech1_0"))
-			first_time = false;
-		
-		if (ossafe_file_exists_ch1("filech1_1"))
-			first_time = false;
-		
-		if (ossafe_file_exists_ch1("filech1_2"))
-			first_time = false;
-		
-		if (ossafe_file_exists_ch1("filech1_3"))
-			first_time = false;
-		
-		if (ossafe_file_exists_ch1("filech1_4"))
-			first_time = false;
-		
-		if (ossafe_file_exists_ch1("filech1_5"))
-			first_time = false;
-		
-		if (variable_global_exists("store_prompt")) {
-			if (global.store_prompt)
-				first_time = false;
-		}
-		
 		init_loaded = true;
 	}
 }

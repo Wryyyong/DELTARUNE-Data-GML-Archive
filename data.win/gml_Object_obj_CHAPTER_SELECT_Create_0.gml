@@ -1,76 +1,30 @@
-var _tex_array = texturegroup_get_textures("chapter_select");
-
-for (var i = 0; i < array_length(_tex_array); i++)
-	texture_prefetch(_tex_array[i]);
-
-global.is_console = os_type == os_switch || os_type == os_ps4;
-global.chapter_debug_init = false;
+global.is_console = os_type == os_switch || os_type == os_ps4 || os_type == os_ps5;
 global.savedata_async_id = -1;
 global.savedata_async_load = false;
 global.savedata_error = false;
 global.savedata_debuginfo = "";
 global.savedata_pause = false;
-global.version = "1.15";
-
-if (os_type == os_switch)
-	global.version = "1.07";
-
-if (os_type == os_ps4)
-	global.version = "1.07";
-
 init_loaded = false;
-chapter_is_loading = false;
-reload_textures = true;
 window_set_caption("DELTARUNE Chapter 1&2");
-
-if (instance_exists(obj_time_ch1)) {
-	with (obj_time_ch1)
-		instance_destroy();
-}
-
-if (instance_exists(obj_time)) {
-	with (obj_time)
-		instance_destroy();
-}
-
-if (instance_exists(obj_debugcontroller_ch1)) {
-	with (obj_debugcontroller_ch1)
-		instance_destroy();
-}
-
-if (variable_global_exists("chapter_return")) {
-	global.lang_loaded = "";
-	reload_textures = global.chapter != global.chapter_return;
-	chaptertoload_temp = global.chapter_return;
-	
-	if (chaptertoload_temp >= 0) {
-		global.chapter_return = -1;
-		snd_free_all();
-		alarm[2] = 5;
-		
-		if (reload_textures)
-			alarm[3] = 1;
-		
-		exit;
-	}
-}
+window_enable_borderless_fullscreen(true);
+global.launcher = true;
+var launch_data = scr_init_launch_parameters();
 
 if (os_type == os_switch && !variable_global_exists("switchlogin")) {
-	var _id = -1;
+	global.switchlogin = launch_data.switch_id;
 	
-	while (_id < 0)
-		_id = switch_accounts_select_account(true, false, false);
+	while (global.switchlogin < 0)
+		global.switchlogin = switch_accounts_select_account(true, false, false);
 	
-	global.switchlogin = _id;
-	switch_accounts_open_user(global.switchlogin);
+	if (!switch_accounts_is_user_open(global.switchlogin))
+		switch_accounts_open_user(global.switchlogin);
 }
 
-first_time = global.is_console;
 display_height = display_get_height();
 display_width = display_get_width();
 window_size_multiplier = 1;
 
-for (_ww = 2; _ww < 6; _ww += 1) {
+for (var _ww = 2; _ww < 6; _ww += 1) {
 	if (display_width > (640 * _ww) && display_height > (480 * _ww))
 		window_size_multiplier = _ww;
 }
@@ -88,11 +42,22 @@ if (global.is_console) {
 }
 
 global.debug = 0;
+var _locale = os_get_language();
+var _lang = (substr(_locale, 1, 2) != "ja") ? "en" : "ja";
+global.lang = _lang;
+
+if (ossafe_file_exists("true_config.ini")) {
+	ossafe_ini_open("true_config.ini");
+	global.lang = ini_read_string("LANG", "LANG", _lang);
+	ossafe_ini_close();
+}
+
+text_font = 2;
 con = "init";
 file_found = false;
 highestUncompletedChapter = 0;
 highestCompletedChapter = 0;
-stringset = "0";
+my_stringset = "0";
 yes = "Yes";
 no = "No";
 mpos = 0;
@@ -115,7 +80,6 @@ chapname[4] = " - - ";
 chapname[5] = " - - ";
 chapname[6] = " - - ";
 chapname[7] = " - - ";
-text_font = 4;
 roominit = 0;
 scale = 1;
 fadeout = 1;
@@ -126,8 +90,11 @@ confirm_choice_index = 0;
 move_noise = false;
 select_noise = false;
 old_savedata_check = false;
+global.versionno = "v1";
+version_text = global.versionno + " ";
+version_text_alpha = 0;
 
-for (var i = 0; i < 10; i += 1) {
+for (i = 0; i < 10; i += 1) {
 	global.input_pressed[i] = 0;
 	global.input_held[i] = 0;
 	global.input_released[i] = 0;
@@ -145,8 +112,8 @@ if (global.is_console) {
 	
 	ossafe_savedata_load();
 } else {
-	var _locale = os_get_language();
-	var _lang = (substr(_locale, 1, 2) != "ja") ? "en" : "ja";
+	_locale = os_get_language();
+	_lang = (substr(_locale, 1, 2) != "ja") ? "en" : "ja";
 	global.lang = _lang;
 	
 	if (ossafe_file_exists("true_config.ini")) {
@@ -157,12 +124,12 @@ if (global.is_console) {
 		ossafe_ini_close();
 	}
 	
-	text_font = (global.lang == "en") ? 4 : 11;
+	text_font = (global.lang == "en") ? 2 : 1;
 	yes = (global.lang == "en") ? "Yes" : "はい";
 	no = (global.lang == "en") ? "No" : "いいえ";
 	chapname[1] = (global.lang == "en") ? "The Beginning" : "はじまり";
 	chapname[2] = (global.lang == "en") ? "A Cyber's World" : "サイバーワールド";
 	scr_controls_default();
-	audio_group_load(1);
+	audio_group_load(0);
 	init_loaded = true;
 }

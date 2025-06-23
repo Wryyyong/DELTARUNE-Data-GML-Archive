@@ -1,12 +1,4 @@
-if (global.is_console) {
-	if (chapter_is_loading) {
-		draw_set_font(fnt_mainbig);
-		draw_set_halign(fa_center);
-		draw_text(320, 250, "LOADING...");
-	}
-}
-
-if (!audio_group_is_loaded(1))
+if (!audio_group_is_loaded(0))
 	exit;
 
 if (!init_loaded)
@@ -22,9 +14,6 @@ if (timer < 20)
 	timer++;
 
 if (con == "init") {
-	if (timer == 1)
-		loop = audio_play_sound(AUDIO_DRONE, 15, 1);
-	
 	if (timer == 15)
 		con = "start";
 }
@@ -47,8 +36,6 @@ if (con == "start") {
 			file_found = true;
 	}
 	
-	show_debug_message("highestCompletedChapter:" + string(highestCompletedChapter));
-	
 	for (var i = 0; i < 7; i++) {
 		var filename = "filech" + string(i) + "_";
 		
@@ -58,8 +45,6 @@ if (con == "start") {
 		if (highestUncompletedChapter > 0)
 			file_found = true;
 	}
-	
-	show_debug_message("highestUncompletedChapter:" + string(highestUncompletedChapter));
 	
 	if (file_found == false) {
 		con = "nofile";
@@ -105,10 +90,10 @@ if (con == "nofile") {
 	draw_text_transformed(xx, (((20 * scale) + yy) - fadescaled) + (mspace * 1), no, scale, scale, 0);
 	
 	if (mpos == 0)
-		draw_sprite_ext(spr_heart_launcher, 0, xx - ((string_width(yes) / 2) * scale) - (13 * scale), (((20 * scale) + yy) - fadescaled) + (mspace * mpos) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
+		draw_sprite_ext(spr_heart, 0, xx - ((string_width(yes) / 2) * scale) - (13 * scale), (((20 * scale) + yy) - fadescaled) + (mspace * mpos) + (4 * scale), scale, scale, 0, c_white, (fademax - fade) / fademax);
 	
 	if (mpos == 1)
-		draw_sprite_ext(spr_heart_launcher, 0, xx - ((string_width(no) / 2) * scale) - (13 * scale), (((20 * scale) + yy) - fadescaled) + (mspace * mpos) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
+		draw_sprite_ext(spr_heart, 0, xx - ((string_width(no) / 2) * scale) - (13 * scale), (((20 * scale) + yy) - fadescaled) + (mspace * mpos) + (4 * scale), scale, scale, 0, c_white, (fademax - fade) / fademax);
 	
 	if (up_p()) {
 		mpos--;
@@ -193,10 +178,10 @@ if (con == "startNextChapter") {
 	draw_text_transformed(xx, (yy - fadescaled) + (mspace * 2), select_text, scale, scale, 0);
 	
 	if (mpos == 0)
-		draw_sprite_ext(spr_heart_launcher, 0, xx - ((string_width(stringset2) / 2) * scale) - (13 * scale), (yy - fadescaled) + (mspace * 1) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
+		draw_sprite_ext(spr_heart, 0, xx - ((string_width(stringset2) / 2) * scale) - (13 * scale), (yy - fadescaled) + (mspace * 1) + (4 * scale), scale, scale, 0, c_white, (fademax - fade) / fademax);
 	
 	if (mpos == 1)
-		draw_sprite_ext(spr_heart_launcher, 0, xx - ((string_width(select_text) / 2) * scale) - (13 * scale), (yy - fadescaled) + (mspace * 2) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
+		draw_sprite_ext(spr_heart, 0, xx - ((string_width(select_text) / 2) * scale) - (13 * scale), (yy - fadescaled) + (mspace * 2) + (4 * scale), scale, scale, 0, c_white, (fademax - fade) / fademax);
 	
 	if (up_p()) {
 		mpos--;
@@ -230,8 +215,6 @@ if (con == "startNextChapter") {
 
 if (con == "continueChapter") {
 	if (highestUncompletedChapter == 0 || highestUncompletedChapter > latestAvailableChapter || highestCompletedChapter > latestAvailableChapter) {
-		show_debug_message("highestUncompletedChapter=" + string(highestUncompletedChapter));
-		show_debug_message("highestCompletedChapter=" + string(highestCompletedChapter));
 		con = "nofile";
 		exit;
 	}
@@ -269,10 +252,10 @@ if (con == "continueChapter") {
 	draw_text_transformed(xx, (yy - fadescaled) + (mspace * 2), no, scale, scale, 0);
 	
 	if (mpos == 0)
-		draw_sprite_ext(spr_heart_launcher, 0, xx - ((string_width(yes) / 2) * scale) - (13 * scale), (yy - fadescaled) + (mspace * 1) + (mspace * mpos) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
+		draw_sprite_ext(spr_heart, 0, xx - ((string_width(yes) / 2) * scale) - (13 * scale), (yy - fadescaled) + (mspace * 1) + (mspace * mpos) + (4 * scale), scale, scale, 0, c_white, (fademax - fade) / fademax);
 	
 	if (mpos == 1)
-		draw_sprite_ext(spr_heart_launcher, 0, xx - ((string_width(no) / 2) * scale) - (13 * scale), (yy - fadescaled) + (mspace * 1) + (mspace * mpos) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
+		draw_sprite_ext(spr_heart, 0, xx - ((string_width(no) / 2) * scale) - (13 * scale), (yy - fadescaled) + (mspace * 1) + (mspace * mpos) + (4 * scale), scale, scale, 0, c_white, (fademax - fade) / fademax);
 	
 	if (up_p()) {
 		mpos--;
@@ -306,7 +289,7 @@ if (con == "continueChapter") {
 }
 
 if (con == "chapterselect") {
-	quit = (global.lang == "en") ? "Quit" : "とじる";
+	quit = (global.lang == "en") ? "Quit" : "終了";
 	chapterstring = "Chapter";
 	
 	if (chapterselectinit == 0) {
@@ -343,7 +326,7 @@ if (con == "chapterselect") {
 		mpos++;
 		
 		if (mpos > (latestAvailableChapter - 1))
-			mpos = global.is_console ? 1 : 7;
+			mpos = 7;
 	}
 	
 	if (console)
@@ -354,9 +337,8 @@ if (con == "chapterselect") {
 	xx = 35 * scale;
 	yy = 10 * scale;
 	mspace = 30 * scale;
-	var max_options = 7;
 	
-	for (var i = 0; i < max_options; i++) {
+	for (var i = 0; i < 7; i++) {
 		var mycolor = c_gray;
 		
 		if (i < latestAvailableChapter)
@@ -369,9 +351,7 @@ if (con == "chapterselect") {
 		draw_sprite_ext(spr_chapterIcon, i, xx + (234 * scale), -fadescaled + yy + (i * 30 * scale), scale, scale, 0, mycolor, 1 - (fade / fademax));
 		draw_set_color(mycolor);
 		draw_set_halign(fa_left);
-		draw_set_font(fnt_main);
 		draw_text_transformed(xx, -fadescaled + yy + (mspace * i) + (3 * scale), chapterstring + " " + string(i + 1), scale, scale, 0);
-		draw_set_font(text_font);
 		draw_set_halign(fa_center);
 		draw_text_transformed(176 * scale, -fadescaled + yy + (mspace * i) + (3 * scale), chapname[i + 1], scale, scale, 0);
 		draw_set_halign(fa_left);
@@ -386,7 +366,7 @@ if (con == "chapterselect") {
 		heart_xpos = 130 * scale;
 	}
 	
-	draw_sprite_ext(spr_heart_launcher, 0, heart_xpos, heart_ypos, scale / 2, scale / 2, 1, c_white, (fademax - fade) / fademax);
+	draw_sprite_ext(spr_heart, 0, heart_xpos, heart_ypos, scale, scale, 1, c_white, (fademax - fade) / fademax);
 	
 	if (!console) {
 		var mycolor = c_white;
@@ -413,9 +393,17 @@ if (con == "chapterselect") {
 			chaptertoload = mpos + 1;
 		}
 	}
+	
+	draw_set_alpha(0.4);
+	draw_set_halign(fa_right);
+	draw_set_color(c_white);
+	draw_set_font(fnt_main);
+	draw_text_transformed(626, (-fadescaled + yy + 440) - 11, "(C) Toby Fox 2018-2024", 1, 1, 0);
+	draw_set_alpha(1);
+	draw_set_halign(fa_left);
 } else if (con == "gameloadConfirm") {
 	stringPlay = (global.lang == "en") ? "Play" : "プレイする";
-	stringDoNot = (global.lang == "en") ? "Do Not" : "しない";
+	stringDoNot = (global.lang == "en") ? "Do Not" : "もどる";
 	space = 30 * scale;
 	
 	for (var i = 0; i < 6; i++)
@@ -448,10 +436,9 @@ if (con == "chapterselect") {
 		heart_xpos = (106 * scale) + (confirm_choice_index * 95 * scale);
 	
 	var heart_ypos = yy + (7 * scale) + (mpos * 30 * scale);
-	draw_sprite_ext(spr_heart_launcher, 0, heart_xpos, heart_ypos, scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
-	var max_options = 7;
+	draw_sprite_ext(spr_heart, 0, heart_xpos, heart_ypos, scale, scale, 0, c_white, (fademax - fade) / fademax);
 	
-	for (var i = 0; i < max_options; i++) {
+	for (var i = 0; i < 7; i++) {
 		var mycolor = c_gray;
 		
 		if (i < latestAvailableChapter)
@@ -464,9 +451,7 @@ if (con == "chapterselect") {
 		draw_sprite_ext(spr_chapterIcon, i, xx + (234 * scale), (-fade * scale) + yy + (i * 30 * scale), scale, scale, 0, mycolor, 1 - (fade / fademax));
 		draw_set_color(mycolor);
 		draw_set_halign(fa_left);
-		draw_set_font(fnt_main);
 		draw_text_transformed(xx, -fade + yy + (mspace * i) + (3 * scale), chapterstring + " " + string(i + 1), scale, scale, 0);
-		draw_set_font(text_font);
 		draw_set_halign(fa_center);
 		
 		if (mpos == i) {
@@ -492,6 +477,14 @@ if (con == "chapterselect") {
 		draw_set_halign(fa_left);
 		draw_set_color(c_white);
 	}
+	
+	draw_set_alpha(0.4);
+	draw_set_halign(fa_right);
+	draw_set_color(c_white);
+	draw_set_font(fnt_main);
+	draw_text_transformed(626, 449, "(C) Toby Fox 2018-2024", 1, 1, 0);
+	draw_set_alpha(1);
+	draw_set_halign(fa_left);
 	
 	if (!console) {
 		var mycolor = c_white;
@@ -523,6 +516,17 @@ if (con == "chapterselect") {
 	}
 }
 
+if (spr_aftereffect == 0) {
+	version_text_alpha = lerp(version_text_alpha, 0.4, 0.1);
+	draw_set_alpha(version_text_alpha);
+	draw_set_halign(fa_left);
+	draw_set_color(c_white);
+	draw_set_font(fnt_main);
+	draw_text_transformed(14, 449, "DELTARUNE " + version_text, 1, 1, 0);
+	draw_set_alpha(1);
+	draw_set_halign(fa_left);
+}
+
 if (con == "gameload") {
 	if (spr_aftereffect == 0) {
 		spr_aftereffect = sprite_create_from_surface(application_surface, 0, 0, room_width, room_height, false, false, 0, 0);
@@ -531,8 +535,6 @@ if (con == "gameload") {
 	}
 	
 	if (chaptertoload != 0) {
-		audio_sound_gain(loop, 0, 500);
-		
 		switch (chaptertoload) {
 			case 1:
 				audio_play_sound(AUDIO_APPEARANCE, 50, 0);
@@ -546,7 +548,6 @@ if (con == "gameload") {
 		chaptertoload_temp = chaptertoload;
 		chaptertoload = 0;
 		alarm[2] = 60;
-		alarm[3] = 50;
 	}
 	
 	draw_sprite_ext(spr_aftereffect, 0, room_width / 2, yy, xscale, yscale, 0, c_white, fadeout);

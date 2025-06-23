@@ -301,24 +301,36 @@ function scr_load_ch1() {
 			global.charauto[i] = 0;
 	}
 	
-	if (global.flag[279] == 0) {
-		global.flag[279] = 1;
-		var room_index = global.currentroom;
-		var room_offset = room_index;
+	var room_id = global.currentroom;
+	
+	if (room_id < 10000) {
+		if (global.flag[279] == 0) {
+			global.flag[279] = 1;
+			var room_index = room_id;
+			var room_offset = room_index;
+			
+			if (room_index < 281)
+				room_offset = 281 + room_index;
+			
+			room_id = room_offset;
+		}
 		
-		if (room_index < 281)
-			room_offset = 281 + room_index;
+		room_id += (global.chapter * 10000);
+		global.currentroom = room_id;
 		
-		global.currentroom = room_offset;
+		if (global.filechoice != 9) {
+			var valid_room_index = scr_get_valid_room(global.chapter, global.currentroom);
+			global.currentroom = scr_get_id_by_room_index(valid_room_index);
+			
+			if (global.currentroom == scr_get_id_by_room_index(326) && global.plot >= 33)
+				global.currentroom = scr_get_id_by_room_index(330);
+			
+			if (global.currentroom == scr_get_id_by_room_index(377) && global.plot >= 130)
+				global.currentroom = scr_get_id_by_room_index(378);
+		}
 	}
 	
-	if (global.filechoice != 9)
-		global.currentroom = scr_get_valid_room(global.chapter, global.currentroom);
-	
-	__loadedroom = global.currentroom;
-	
-	if (__loadedroom == 377 && global.plot >= 130)
-		__loadedroom = 378;
+	__loadedroom = scr_get_room_by_id(global.currentroom);
 	
 	if (scr_dogcheck_ch1())
 		__loadedroom = 412;

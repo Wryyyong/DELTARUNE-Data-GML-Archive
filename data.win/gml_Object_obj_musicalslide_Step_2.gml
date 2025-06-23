@@ -235,6 +235,12 @@ if (state == 3) {
 		y = _camY + ease_out_cubic(_percent, other.lanesEndY, -other.lanesEndY, 1);
 		y = max(y, _camY + 10);
 		
+		if (active && !hit)
+			event_user(0);
+		
+		yChange = y - _camY - lastY;
+		lastY = y - _camY;
+		
 		if (image_alpha >= 1)
 			active = 1;
 		

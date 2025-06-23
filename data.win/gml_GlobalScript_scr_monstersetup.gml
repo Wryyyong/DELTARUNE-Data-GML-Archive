@@ -1386,7 +1386,7 @@ function scr_monstersetup() {
 			global.canactral[myself][1] = 1;
 			global.actnameral[myself][1] = stringsetloc("FluffyGuard", "scr_monstersetup_slash_scr_monstersetup_gml_1703_0");
 			global.actdescral[myself][1] = stringsetloc("Orbiting#shield", "scr_monstersetup_slash_scr_monstersetup_gml_1701_0");
-			global.actcostral[myself][1] = 80;
+			global.actcostral[myself][1] = 40;
 		}
 	}
 	

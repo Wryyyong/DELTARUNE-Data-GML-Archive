@@ -1,3 +1,5 @@
+nointeract = 1;
+
 if (con != 5 || bouncethisframe) {
 	if (gulped == 0) {
 		snd_play(snd_swallow);

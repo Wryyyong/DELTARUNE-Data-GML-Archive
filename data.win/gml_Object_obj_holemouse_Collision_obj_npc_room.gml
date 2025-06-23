@@ -1,4 +1,4 @@
-if (room == room_dw_city_mice2) {
+if (nointeract == 0 && room == room_dw_city_mice2) {
 	with (other) {
 		scaredNoelle = instance_create(x, y, obj_noelle_scared);
 		scaredNoelle.con = 0;

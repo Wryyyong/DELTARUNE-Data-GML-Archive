@@ -12,6 +12,6 @@ if (alarm[0] > 0)
 if (other.active == 0)
 	exit;
 
-hp -= 10;
+hp -= 3;
 alarm[0] = 10;
 snd_play(snd_hurt1);

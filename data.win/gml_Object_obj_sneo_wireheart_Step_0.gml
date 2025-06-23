@@ -176,6 +176,10 @@ if (con == 2 || con == 3 || con == 10) {
 					
 					radialshot.sprite_index = spr_diamondbullet;
 					radialshot.direction = ((i / radial) * 180) + 110 + dir;
+					
+					if (special == 1)
+						radialshot.direction += random_range(-10, 10);
+					
 					radialshot.image_angle = radialshot.direction;
 					radialshot.active = 1;
 					radialshot.speed = 1;

@@ -637,7 +637,7 @@ function scr_itemuse(arg0) {
 			break;
 		
 		case 313:
-			if (global.flag[952] == 0) {
+			if (room >= room_dw_cyber_intro_1 && global.flag[952] == 0) {
 				global.flag[952] = 1;
 				scr_speaker("no_name");
 				msgsetloc(0, "* You held the crystal up to your eye./", "scr_itemuse_slash_scr_itemuse_gml_616_0");

@@ -6,11 +6,15 @@ if (funnycheat > 5) {
 			global.monsterat[myself] += 0.5;
 		else
 			global.monsterat[myself] = 26;
+		
+		hellmode = 1;
 	} else if (global.tempflag[37] < 4) {
 		if (global.monsterat[myself] < 22)
 			global.monsterat[myself] += 0.25;
 		else
 			global.monsterat[myself] = 22;
+		
+		hellmode = 1;
 	} else if (global.tempflag[37] < 6) {
 		if (global.monsterat[myself] < 18)
 			global.monsterat[myself] += 0.1;

@@ -4,7 +4,7 @@ with (obj_fadeout)
 	instance_destroy();
 
 d.image_blend = c_white;
-d.fadespeed = -0.02;
+d.fadespeed = -0.034;
 global.turntimer = 1;
 
 with (obj_sneo_lastattack)

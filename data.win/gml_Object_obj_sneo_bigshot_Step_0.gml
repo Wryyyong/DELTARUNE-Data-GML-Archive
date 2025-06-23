@@ -36,7 +36,7 @@ if (sprite_index == spr_sneo_bigshot_l) {
 if (timer != 0)
 	timer++;
 
-if (timer > 16) {
+if (timer > 13) {
 	instance_destroy();
 	snd_volume(snd_rumble, 0, 70);
 	obj_spamton_neo_enemy.stoprumblesfx = 70;

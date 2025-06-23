@@ -45,6 +45,9 @@ if (TYPE == 1) {
 	if (SUBTYPE == 1)
 		global.currentsong[0] = snd_init("AUDIO_STORY.ogg");
 	
+	if (SUBTYPE >= 1)
+		global.tempflag[39] = 1;
+	
 	global.currentsong[1] = mus_loop_ext(global.currentsong[0], 1, 0.95);
 }
 
@@ -108,13 +111,13 @@ TWOBUFFER = 0;
 THREAT = 0;
 TEMPMESSAGE = " ";
 MESSAGETIMER = 0;
-version_text = "1.06";
+version_text = "1.07";
 
 if (os_type == os_switch)
-	version_text = "1.03a";
+	version_text = "1.03b";
 
 if (os_type == os_ps4)
-	version_text = "1.02";
+	version_text = "1.03";
 
 for (i = 0; i < 3; i += 1)
 	FILE[i] = 0;

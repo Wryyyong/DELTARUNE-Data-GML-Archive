@@ -4,12 +4,12 @@ if (autocomplete == 0) {
 			snd_play(snd_noelle_scared);
 			jumpy = 20;
 			
-			if (instance_exists(obj_controller_city_mice2) && obj_controller_city_mice2.victory == 0) {
+			if (i_ex(obj_controller_city_mice2)) {
 				targetx = 370;
 				targety = 166;
 			}
 			
-			if (instance_exists(obj_controller_city_mice2) && obj_controller_city_mice2.victory == 1) {
+			if (instance_exists(obj_controller_city_mice2) && obj_controller_city_mice2.victory == 1 && obj_controller_city_mice2.con != -2) {
 				targetx = 860;
 				targety = 238;
 			}

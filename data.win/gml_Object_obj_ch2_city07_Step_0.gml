@@ -83,6 +83,7 @@ if (con == 1) {
 	c_imagespeed(0);
 	c_wait(15);
 	c_mus("free_all");
+	c_wait(5);
 	c_mus2("initloop", "queen.ogg", 0);
 	c_pannable(1);
 	c_pan(1070, 0, 30);
@@ -1164,6 +1165,7 @@ if (susie_heal) {
 	heal_timer++;
 	
 	if (heal_beam == -1) {
+		snd_stop_all();
 		snd_play(snd_spell_cure_slight_smaller);
 		heal_beam = scr_dark_marker(su_actor.x + 100, su_actor.y + 65, spr_cutscene_18_susie_heal_small);
 		heal_beam.image_speed = 0.25;

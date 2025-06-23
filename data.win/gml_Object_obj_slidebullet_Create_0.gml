@@ -6,3 +6,6 @@ image_yscale = 2;
 active = 0;
 target = 3;
 damage = 16;
+yChange = 0;
+lastY = 0;
+hit = 0;

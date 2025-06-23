@@ -631,6 +631,7 @@ if (global.fighting == 1) {
 					global.monsterattackname[myself] = "HeartAttackNeo";
 					dc = scr_bulletspawner(x, y, obj_sneo_bulletcontroller);
 					dc.type = 1.5;
+					dc.special = hellmode;
 				} else if (rr == 3) {
 					global.monsterattackname[myself] = "FootballPipis";
 					dc = scr_bulletspawner(x, y, obj_sneo_bulletcontroller);
@@ -653,6 +654,7 @@ if (global.fighting == 1) {
 					global.monsterattackname[myself] = "SneoFaceAttack";
 					dc = scr_bulletspawner(x, y, obj_sneo_bulletcontroller);
 					dc.type = 12;
+					dc.special = hellmode;
 					faceattackcount++;
 				} else if (rr == 8) {
 					global.monsterattackname[myself] = "Phonecall";
@@ -697,10 +699,10 @@ if (global.fighting == 1) {
 					scr_turntimer(300);
 				
 				if (rr == 2)
-					scr_turntimer(750);
+					scr_turntimer(750 + (hellmode * 450));
 				
 				if (rr == 2 && difficulty == 1)
-					scr_turntimer(850);
+					scr_turntimer(850 + (hellmode * 450));
 				
 				if (rr == 2 && difficulty == 6)
 					scr_turntimer(150);
@@ -1384,10 +1386,17 @@ if (global.fighting == 1) {
 			actingral = 0;
 			actcon = 1;
 			
-			if (instance_number(obj_sneo_tiny_ralsei) < 5) {
+			if (instance_number(obj_sneo_tiny_ralsei) < 4) {
 				var simultext = (simultotal == 1) ? stringsetloc("* The power Ralsei's fluffy warmth surrounds you!./%", "obj_spamton_neo_enemy_slash_Step_0_gml_643_0") : stringsetloc("* Ralsei defended you!/%", "obj_spamton_neo_enemy_slash_Step_0_gml_643_1");
 				msgset(0, simultext);
 				scr_battletext_default();
+				var aa = 0;
+				
+				for (var i = 0; i < instance_number(obj_sneo_tiny_ralsei); i++) {
+					fluff[i] = instance_find(obj_sneo_tiny_ralsei, i);
+					fluff[i].place = aa * 90;
+					aa++;
+				}
 				
 				repeat (2) {
 					instance_create(x, y, obj_sneo_tiny_ralsei);
@@ -1405,7 +1414,7 @@ if (global.fighting == 1) {
 						for (var i = 0; i < instance_number(obj_sneo_tiny_ralsei); i += 1) {
 							enemy[i] = instance_find(obj_sneo_tiny_ralsei, i);
 							enemy[i].place = a;
-							a += 120;
+							a += 180;
 						}
 					}
 					
@@ -1413,7 +1422,7 @@ if (global.fighting == 1) {
 						for (var i = 0; i < instance_number(obj_sneo_tiny_ralsei); i += 1) {
 							enemy[i] = instance_find(obj_sneo_tiny_ralsei, i);
 							enemy[i].place = a;
-							a += 180;
+							a += 270;
 						}
 					}
 				}

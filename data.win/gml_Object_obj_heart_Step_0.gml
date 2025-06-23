@@ -55,6 +55,11 @@ if (canmove) {
 	
 	if (press_u == 1)
 		py = -wspeed;
+	
+	if (button2_h()) {
+		px = ceil(px * 0.5);
+		py = ceil(py * 0.5);
+	}
 }
 
 xmeet = 0;

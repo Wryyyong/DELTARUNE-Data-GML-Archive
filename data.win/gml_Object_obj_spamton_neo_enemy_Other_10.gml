@@ -35,6 +35,9 @@ if (phaseturn == 4) {
 if (phaseturn == 5) {
 	rr = 8.5;
 	difficulty = 0;
+	
+	if (hellmode == 1)
+		difficulty = 2;
 }
 
 if (phaseturn == 6) {
@@ -61,7 +64,7 @@ if (phaseturn == 10) {
 	rr = 8.5;
 	difficulty = 2;
 	
-	if (nothitduringphonehands == 1) {
+	if (nothitduringphonehands == 1 || hellmode == 1) {
 		rr = 8.5;
 		difficulty = 1;
 	}

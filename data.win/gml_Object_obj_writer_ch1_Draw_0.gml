@@ -740,7 +740,7 @@ for (n = 1; n < pos; n += 1) {
 		}
 		
 		if (global.lang == "en") {
-			if (myfont == 4) {
+			if (myfont == 5) {
 				if (mychar == "w")
 					wx += 2;
 				

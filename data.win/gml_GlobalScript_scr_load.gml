@@ -306,14 +306,21 @@ function scr_load() {
 	global.lastsavedlv = global.lv;
 	audio_group_set_gain(1, global.flag[15], 0);
 	audio_set_master_gain(0, global.flag[17]);
+	var room_id = global.currentroom;
 	
-	if (global.filechoice != 9)
-		global.currentroom = scr_get_valid_room(global.chapter, global.currentroom);
+	if (room_id < 10000) {
+		room_id += (global.chapter * 10000);
+		global.currentroom = room_id;
+		
+		if (global.filechoice != 9) {
+			global.currentroom = scr_get_valid_room(global.chapter, global.currentroom);
+			
+			if (global.currentroom == scr_get_id_by_room_index(71) && global.plot >= 11)
+				global.currentroom = scr_get_id_by_room_index(72);
+		}
+	}
 	
-	__loadedroom = global.currentroom;
-	
-	if (__loadedroom == 71 && global.plot >= 11)
-		__loadedroom = 72;
+	__loadedroom = scr_get_room_by_id(global.currentroom);
 	
 	if (scr_dogcheck())
 		__loadedroom = choose(233, 1);

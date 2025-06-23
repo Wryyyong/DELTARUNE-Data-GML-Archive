@@ -711,13 +711,13 @@ if (con < 76) {
 		snd_play_ch1(snd_laz_c_ch1);
 		
 		with (k)
-			scr_anim_ch1(3819, 0.25);
+			scr_anim_ch1(3822, 0.25);
 		
 		with (s)
-			scr_anim_ch1(3845, 0.25);
+			scr_anim_ch1(3848, 0.25);
 		
 		with (r)
-			scr_anim_ch1(3860, 0.25);
+			scr_anim_ch1(3863, 0.25);
 		
 		con = 61;
 		alarm[4] = 30;
@@ -988,7 +988,7 @@ if (con >= 76 && con < 150) {
 		snd_play_ch1(snd_heavyswing_ch1);
 		
 		with (king)
-			scr_anim_ch1(4123, 0.1);
+			scr_anim_ch1(4126, 0.1);
 		
 		con = 82;
 		alarm[4] = 50;
@@ -1194,7 +1194,7 @@ if (con >= 76 && con < 150) {
 	
 	if (con == 110) {
 		with (r) {
-			scr_anim_ch1(3867, 0.25);
+			scr_anim_ch1(3870, 0.25);
 			x -= 10;
 			y -= 10;
 		}
@@ -1388,7 +1388,7 @@ if (con >= 76 && con < 150) {
 		k.disto = disto;
 		
 		with (k) {
-			scr_anim_ch1(3829, 0.5);
+			scr_anim_ch1(3832, 0.5);
 			move_towards_point(s.x + 60, s.y + 10, disto);
 		}
 		

@@ -298,22 +298,22 @@ function scr_texttype() {
 	}
 	
 	if (font_set && global.lang == "ja") {
-		if (myfont == 10) {
+		if (myfont == 11) {
 			hspace = ((hspace * 26) / 16) + 1;
 			
 			if (vspace == 32)
 				vspace = 36;
-		} else if (myfont == 8) {
-			hspace = ((hspace * 13) / 8) + 1;
-		} else if (myfont == 6) {
-			textscale = 0.5;
-			hspace = ((hspace * 13) / 8) + 3;
-		} else if (myfont == 12) {
-			textscale = 0.5;
+		} else if (myfont == 9) {
 			hspace = ((hspace * 13) / 8) + 1;
 		} else if (myfont == 7) {
+			textscale = 0.5;
+			hspace = ((hspace * 13) / 8) + 3;
+		} else if (myfont == 14) {
+			textscale = 0.5;
+			hspace = ((hspace * 13) / 8) + 1;
+		} else if (myfont == 8) {
 			hspace = ((hspace * 26) / 16) + 1;
-		} else if (myfont == 9) {
+		} else if (myfont == 10) {
 			hspace = ((hspace * 13) / 8) + 1;
 		}
 		

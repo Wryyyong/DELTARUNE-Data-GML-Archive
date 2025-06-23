@@ -75,6 +75,7 @@ if (show_laser_beam) {
 	gpu_set_colorwriteenable(false, false, false, true);
 	draw_set_alpha(0);
 	scr_draw_sprite_tiled_area(spr_cutscene_26_laser_cityscape_mask, 0, drawx, drawy, drawx, drawy, room_width, room_height, 1, 1, c_white, main_alpha);
+	draw_rectangle(drawx, cameray() + 190, camerax() + view_wport[0], cameray() + view_hport[0], false);
 	draw_set_alpha(1);
 	gpu_set_blendenable(true);
 	gpu_set_colorwriteenable(true, true, true, true);
@@ -95,6 +96,7 @@ if (show_mini_fountains) {
 	gpu_set_colorwriteenable(false, false, false, true);
 	draw_set_alpha(0);
 	scr_draw_sprite_tiled_area(spr_cutscene_26_laser_cityscape_mask, 0, drawx, drawy, drawx, drawy, room_width, room_height, 1, 1, c_white, mini_alpha);
+	draw_rectangle(drawx, cameray() + 190, camerax() + view_wport[0], cameray() + view_hport[0], false);
 	draw_set_alpha(1);
 	gpu_set_blendenable(true);
 	gpu_set_colorwriteenable(true, true, true, true);
@@ -194,6 +196,7 @@ if (show_hands) {
 	gpu_set_colorwriteenable(false, false, false, true);
 	draw_set_alpha(0);
 	scr_draw_sprite_tiled_area(spr_cutscene_26_laser_cityscape_mask, 0, drawx, drawy, drawx, drawy, room_width, room_height, 1, 1, c_white, knife_alpha);
+	draw_rectangle(drawx, cameray() + 190, camerax() + view_wport[0], cameray() + view_hport[0], false);
 	draw_set_alpha(1);
 	gpu_set_blendenable(true);
 	gpu_set_colorwriteenable(true, true, true, true);

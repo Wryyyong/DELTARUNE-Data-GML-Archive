@@ -815,10 +815,10 @@ if (type == 1) {
 			instance_create(obj_growtangle.x, obj_growtangle.y, obj_spamton_warped_box);
 		
 		if (type == 23) {
-			d.bullettype = 586;
+			d.bullettype = 587;
 			d.firingspeed = 10;
 		} else if (type == 24) {
-			d.bullettype = 587;
+			d.bullettype = 588;
 			d.firingspeed = 28;
 			btimer = 10;
 		}

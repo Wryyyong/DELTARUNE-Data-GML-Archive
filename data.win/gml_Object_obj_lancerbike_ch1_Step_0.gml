@@ -203,7 +203,7 @@ if (racecon == 1) {
 		sy = s.y;
 		s_moveup = 1;
 	} else if (instance_exists(obj_susieenemy_ch1)) {
-		s = 1610;
+		s = 1614;
 		sy = s.y;
 		s_moveup = 1;
 	}

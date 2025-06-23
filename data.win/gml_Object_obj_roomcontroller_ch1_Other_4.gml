@@ -1,2 +1,1 @@
-global.currentroom = room;
-show_debug_message("global.currentroom : " + string(room_get_name(room)));
+global.currentroom = scr_get_id_by_room_index(room);

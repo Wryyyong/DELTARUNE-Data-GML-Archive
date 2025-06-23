@@ -14,6 +14,9 @@ old_savedata_check = false;
 if (global.is_console) {
 	ossafe_savedata_load_ch1();
 } else {
+	global.chapter = 1;
+	global.filechoice = 0;
+	global.plot = 0;
 	scr_84_init_localization_ch1();
 	scr_84_load_ini_ch1();
 	scr_gamestart_ch1();

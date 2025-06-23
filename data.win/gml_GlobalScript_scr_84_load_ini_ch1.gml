@@ -32,14 +32,21 @@ function scr_84_load_ini_ch1() {
 		
 		for (i = 0; i < 3; i += 1) {
 			if (FILE[i] == 1) {
-				var room_index = ini_read_real("G" + string(i), "Room", 0);
-				var room_offset = room_index;
+				var room_id = ini_read_real("G" + string(i), "Room", scr_get_id_by_room_index(room));
 				
-				if (room_index < 281)
-					room_offset = 281 + room_index;
+				if (room_id < 10000) {
+					room_index = room_id;
+					var room_offset = room_index;
+					
+					if (room_index < 281)
+						room_offset = 281 + room_index;
+					
+					room_id = room_offset;
+					room_id += 10000;
+				}
 				
-				room_offset = scr_get_valid_room(1, room_offset);
-				PLACE[i] = scr_roomname_ch1(room_offset);
+				var room_index = scr_get_valid_room(1, room_id);
+				PLACE[i] = scr_roomname_ch1(room_index);
 				TIME[i] = ini_read_real("G" + string(i), "Time", 0);
 				NAME[i] = ini_read_string("G" + string(i), "Name", "------");
 				LEVEL[i] = 1;

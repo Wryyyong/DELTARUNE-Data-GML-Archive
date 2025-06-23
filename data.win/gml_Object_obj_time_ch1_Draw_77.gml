@@ -24,12 +24,12 @@ if (os_type == os_switch || os_type == os_ps4) {
 			draw_set_color(c_white);
 		}
 	} else {
-		var room_id = global.currentroom;
+		var room_id = scr_get_room_by_id(global.currentroom);
 		
 		if (instance_exists(obj_savepoint_ch1))
 			global.disable_border = false;
 		
-		if (room_id == 282 || room_id == 1638 || room_id == 420 || room_id == 426 || room_id == 416 || room_id == 412 || room_id == 316 || room_id == 321)
+		if (room_id == 282 || room_id == 1642 || room_id == 420 || room_id == 426 || room_id == 416 || room_id == 412 || room_id == 316 || room_id == 321)
 			global.disable_border = true;
 	}
 	

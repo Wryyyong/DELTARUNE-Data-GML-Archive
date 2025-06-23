@@ -1,8 +1,8 @@
 function scr_get_valid_room(arg0, arg1, arg2 = 0) {
 	var chapter = arg0;
-	var room_index = arg1;
+	var room_id = arg1;
 	var plot = arg2;
-	var current_room = new scr_valid_room(room_index, plot);
+	var current_room = new scr_valid_room(scr_get_room_by_id(room_id), plot);
 	var valid_rooms;
 	
 	if (chapter == 1)
@@ -14,9 +14,8 @@ function scr_get_valid_room(arg0, arg1, arg2 = 0) {
 	var is_valid = false;
 	
 	for (var i = 0; i < array_length_1d(valid_rooms); i++) {
-		if (current_room.room_index == valid_rooms[i].room_index) {
+		if (scr_get_id_by_room_index(current_room.room_index) == scr_get_id_by_room_index(valid_rooms[i].room_index)) {
 			is_valid = true;
-			show_debug_message("1 found matching room: " + string(room_get_name(current_room.room_index)));
 			break;
 		}
 	}
@@ -25,18 +24,15 @@ function scr_get_valid_room(arg0, arg1, arg2 = 0) {
 		current_room.room_index++;
 		
 		for (var i = 0; i < array_length_1d(valid_rooms); i++) {
-			if (current_room.room_index == valid_rooms[i].room_index) {
+			if (scr_get_id_by_room_index(current_room.room_index) == scr_get_id_by_room_index(valid_rooms[i].room_index)) {
 				is_valid = true;
-				show_debug_message("2 found matching adjusted room: " + string(room_get_name(current_room.room_index)));
 				break;
 			}
 		}
 	}
 	
-	if (!is_valid) {
+	if (!is_valid)
 		current_room.room_index--;
-		show_debug_message("trying to load invalid room: " + string(room_get_name(current_room.room_index)));
-	}
 	
 	return current_room.room_index;
 }

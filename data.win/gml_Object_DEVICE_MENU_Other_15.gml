@@ -1,7 +1,7 @@
 iniwrite = ossafe_ini_open("dr.ini");
 _NEWNAME = ini_read_string(scr_ini_chapter(global.chapter, MENUCOORD[2]), "Name", "------");
 _NEWTIME = ini_read_real(scr_ini_chapter(global.chapter, MENUCOORD[2]), "Time", 0);
-var room_index = scr_get_valid_room(global.chapter, ini_read_real(scr_ini_chapter(global.chapter, MENUCOORD[2]), "Room", 0));
+var room_index = scr_get_valid_room(global.chapter, ini_read_real(scr_ini_chapter(global.chapter, MENUCOORD[2]), "Room", scr_get_id_by_room_index(room)));
 _NEWROOM = room_index;
 _NEWLEVEL = ini_read_real(scr_ini_chapter(global.chapter, MENUCOORD[2]), "Level", 0);
 _NEWDATE = ini_read_real(scr_ini_chapter(global.chapter, MENUCOORD[2]), "Date", 0);

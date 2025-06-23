@@ -495,8 +495,8 @@ if (init == 0) {
 			menuTextYScale[0] = 1;
 			menuTextXScale[1] = 1;
 			menuTextYScale[1] = 1;
-			menuTextFont[0] = 11;
-			menuTextFont[1] = 11;
+			menuTextFont[0] = 13;
+			menuTextFont[1] = 13;
 			menuTextScaleType[1] = 1;
 			menuX[1] = xx + 160;
 			menuSpacingX[1] = 180;

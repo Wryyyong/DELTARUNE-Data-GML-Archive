@@ -51,7 +51,6 @@ hurtflashtimer = 3;
 if ((type == 1 && obj_spamton_neo_enemy.eyeshp <= 0) || (type == 2 && obj_spamton_neo_enemy.nosehp <= 0) || (type == 3 && obj_spamton_neo_enemy.mouthhp <= 0)) {
 	broken = 1;
 	image_index = 2;
-	snd_volume(snd_rocket, 1, 0);
 	snd_play(snd_rocket);
 	explodetimer = 16;
 }

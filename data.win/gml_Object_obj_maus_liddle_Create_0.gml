@@ -15,5 +15,5 @@ amplitude = 0;
 maxamplitude = 9 + random(5);
 xx = camerax();
 yy = cameray();
-creator = 768;
+creator = 769;
 captured = 0;

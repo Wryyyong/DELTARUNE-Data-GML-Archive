@@ -1,4 +1,4 @@
-if (obj_mainchara.x > 440 && obj_mainchara.y < 300 && con == -1) {
+if (obj_mainchara.x > 400 && obj_mainchara.y < 300 && con == -1) {
 	con = 1;
 	global.interact = 1;
 	global.facing = 1;

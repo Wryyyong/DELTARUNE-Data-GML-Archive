@@ -3,7 +3,7 @@ global.savedata_async_load = false;
 snd_play(snd_error);
 is_active = true;
 global.savedata_pause = true;
-font_face = (global.lang == "en") ? 3 : 10;
+font_face = (global.lang == "en") ? 4 : 11;
 scale = 2;
 type = "default";
 error_type = "save_failed";

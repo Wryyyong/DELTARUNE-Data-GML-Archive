@@ -10,13 +10,13 @@ global.savedata_async_load = false;
 global.savedata_error = false;
 global.savedata_debuginfo = "";
 global.savedata_pause = false;
-global.version = "1.10";
+global.version = "1.12";
 
 if (os_type == os_switch)
-	global.version = "1.06";
+	global.version = "1.07";
 
 if (os_type == os_ps4)
-	global.version = "1.06";
+	global.version = "1.07";
 
 init_loaded = false;
 chapter_is_loading = false;
@@ -37,6 +37,9 @@ if (instance_exists(obj_debugcontroller_ch1)) {
 	with (obj_debugcontroller_ch1)
 		instance_destroy();
 }
+
+if (steam_initialised() && !i_ex(obj_steam_manager))
+	instance_create(0, 0, obj_steam_manager);
 
 if (variable_global_exists("chapter_return")) {
 	global.lang_loaded = "";
@@ -75,9 +78,11 @@ for (_ww = 2; _ww < 6; _ww += 1) {
 		window_size_multiplier = _ww;
 }
 
-if (window_size_multiplier > 1) {
-	window_set_size(640 * window_size_multiplier, 480 * window_size_multiplier);
-	alarm[0] = 1;
+if (!window_get_fullscreen()) {
+	if (window_size_multiplier > 1) {
+		window_set_size(640 * window_size_multiplier, 480 * window_size_multiplier);
+		alarm[0] = 1;
+	}
 }
 
 if (global.is_console) {
@@ -113,7 +118,7 @@ chapname[4] = " - - ";
 chapname[5] = " - - ";
 chapname[6] = " - - ";
 chapname[7] = " - - ";
-text_font = 3;
+text_font = 4;
 roominit = 0;
 scale = 1;
 fadeout = 1;
@@ -150,12 +155,12 @@ if (global.is_console) {
 	if (ossafe_file_exists("true_config.ini")) {
 		ossafe_ini_open("true_config.ini");
 		global.lang = ini_read_string("LANG", "LANG", _lang);
-		var is_fullscreen = ini_read_real("SCREEN", "FULLSCREEN", 0);
+		var is_fullscreen = ini_read_real("SCREEN", "FULLSCREEN", 0) || window_get_fullscreen();
 		window_set_fullscreen(is_fullscreen);
 		ossafe_ini_close();
 	}
 	
-	text_font = (global.lang == "en") ? 3 : 10;
+	text_font = (global.lang == "en") ? 4 : 11;
 	yes = (global.lang == "en") ? "Yes" : "はい";
 	no = (global.lang == "en") ? "No" : "いいえ";
 	chapname[1] = (global.lang == "en") ? "The Beginning" : "はじまり";

@@ -67,9 +67,6 @@ if (global.monster[myself] == 1) {
 		if (shieldjustbroke == 1)
 			shieldjustbroke = 0;
 		
-		if (global.monsterhp[myself] <= 0)
-			snd_free(global.batmusic[0]);
-		
 		sprite_index = spr_queen_hurt;
 		
 		if (hspeed == 0) {
@@ -218,10 +215,8 @@ if (global.monster[myself] == 1) {
 		wintimer++;
 		
 		if (bardlymercy > 99) {
-			if (wintimer == 1) {
-				snd_free(global.batmusic[0]);
+			if (wintimer == 1)
 				sprite_index = spr_queen_chair_1_old;
-			}
 			
 			if (wintimer == 90)
 				endcon = 1;
@@ -1445,6 +1440,8 @@ if (scr_debug())
 	attackdebug = scr_attack_override(attackdebug, 10, "Queen");
 
 if (endcon == 1) {
+	snd_free(global.batmusic[0]);
+	
 	if (defeat_cutscene_version == 0) {
 		msgsetloc(0, "Not Bad You&Foolish Children/%", "obj_queen_enemy_slash_Step_0_gml_1067_0");
 		endcon = 2;

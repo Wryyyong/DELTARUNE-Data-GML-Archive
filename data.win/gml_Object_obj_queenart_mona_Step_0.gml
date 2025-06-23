@@ -164,8 +164,8 @@ if (trackpos >= 18.862 && trackpos <= 18.902)
 
 if (id == bossid && con != 3) {
 	if (flamesfx == 1) {
-		snd_stop(snd_rocket);
-		flame = snd_play_pitch(snd_rocket, 1.5);
+		snd_stop(snd_rocket_mona);
+		flame = snd_play_pitch(snd_rocket_mona, 1.5);
 		snd_volume(flame, 0.35, 0);
 		flamesfx = 0;
 	}

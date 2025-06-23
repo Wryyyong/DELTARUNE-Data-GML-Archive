@@ -1,4 +1,4 @@
-global.currentroom = room;
+global.currentroom = scr_get_id_by_room_index(room);
 visible = 1;
 image_xscale = 2;
 image_yscale = 2;

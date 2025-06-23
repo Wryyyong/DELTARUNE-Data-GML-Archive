@@ -43,7 +43,7 @@ if (global.screen_border_active && border_alpha >= 0) {
 	if (instance_exists(obj_savepoint))
 		global.disable_border = false;
 	
-	if (room_id == 27 || room_id == 881 || room_id == 244 || room_id == 240 || room_id == 233 || room_id == 11 || room_id == 12 || room_id == 2)
+	if (room_id == 27 || room_id == 882 || room_id == 244 || room_id == 240 || room_id == 233 || room_id == 11 || room_id == 12 || room_id == 2)
 		global.disable_border = true;
 }
 

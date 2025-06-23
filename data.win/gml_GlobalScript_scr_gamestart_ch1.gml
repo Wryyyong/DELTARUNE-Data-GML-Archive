@@ -271,8 +271,8 @@ function scr_gamestart_ch1() {
 	global.ladef = 0;
 	global.facing = 0;
 	global.flag[15] = 1;
-	global.flag[16] = 1;
-	global.flag[17] = 1;
+	global.flag[16] = 0.85;
+	global.flag[17] = 0.6;
 	
 	for (i = 0; i < 10; i += 1) {
 		global.input_pressed[i] = 0;

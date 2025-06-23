@@ -497,3 +497,10 @@ lastphase = global.flag[915];
 phasechange = false;
 init = 0;
 failstate = global.flag[916];
+
+if (global.flag[916] == 1 && global.plot >= 72 && room == room_dw_city_cheesemaze) {
+	global.flag[360] = 1;
+	
+	with (obj_mazecheese)
+		instance_destroy();
+}

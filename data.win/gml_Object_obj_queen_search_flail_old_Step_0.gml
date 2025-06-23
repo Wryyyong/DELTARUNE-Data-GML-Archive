@@ -1,6 +1,6 @@
 if (broken > 0) {
 	if (broken == 1) {
-		direction = scr_getlaunchdirection(18, 631 - x, 0.75, 1);
+		direction = scr_getlaunchdirection(18, 632 - x, 0.75, 1);
 		speed = 18;
 		gravity = 0.75;
 		var chaindirection = point_direction(xstart, ystart, x, y);

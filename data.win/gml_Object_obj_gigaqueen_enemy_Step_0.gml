@@ -142,6 +142,8 @@ if (global.monster[myself] == 1) {
 		}
 		
 		if ((o_boxingcontroller.wireframe_boxing == 0 && o_boxinghud.sub_healthbar_count == 0) && o_boxingqueen.health_count <= (o_boxingqueen.health_count_max * 0.27)) {
+			breathattack = 0;
+			
 			if (finalconvcon == 0) {
 				msgsetloc(0, "Kris&Susie&Other Guy/%", "obj_gigaqueen_enemy_slash_Step_0_gml_73_0_b");
 				ballooncon = 14;

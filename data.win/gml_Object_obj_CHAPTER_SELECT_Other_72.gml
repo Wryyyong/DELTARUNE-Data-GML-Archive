@@ -49,7 +49,7 @@ if (ds_map_find_value(async_load, "id") == global.savedata_async_id) {
 			ossafe_ini_close();
 		}
 		
-		text_font = (global.lang == "en") ? 3 : 10;
+		text_font = (global.lang == "en") ? 4 : 11;
 		yes = (global.lang == "en") ? "Yes" : "はい";
 		no = (global.lang == "en") ? "No" : "いいえ";
 		chapname[1] = (global.lang == "en") ? "The Beginning" : "はじまり";

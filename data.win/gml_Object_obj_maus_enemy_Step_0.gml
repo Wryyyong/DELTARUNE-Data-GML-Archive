@@ -393,7 +393,7 @@ if (global.myfight == 3) {
 			var acttriggered = 0;
 			
 			for (var __i = 1; __i < 3; __i++) {
-				if (global.actingtarget[__i] == myself && global.char[__i] > 0) {
+				if ((global.actingtarget[__i] == myself && global.char[__i] > 0 && global.charspecial[__i] == 0) || (global.chartarget[__i] == myself && (global.charspecial[__i] == 100 || global.charspecial[__i] == 3))) {
 					if (global.char[__i] == 3)
 						acttriggered = 1;
 					
@@ -401,6 +401,14 @@ if (global.myfight == 3) {
 					global.actingsimul[__i] = 0;
 					global.actingsingle[__i] = 0;
 					global.faceaction[__i] = 0;
+					
+					if (global.charspecial[__i] == 100 || global.charspecial[__i] == 3) {
+						global.charspecial[__i] = 0;
+						global.charaction[__i] = 0;
+						
+						with (obj_spellphase)
+							instance_destroy();
+					}
 				}
 			}
 			

@@ -1,6 +1,5 @@
 if (init == 0) {
 	snd_stop(snd_rocket);
-	snd_volume(snd_rocket, 1, 0);
 	snd_play(snd_rocket);
 	init = 1;
 	timer = 2;

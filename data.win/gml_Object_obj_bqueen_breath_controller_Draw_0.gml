@@ -46,7 +46,6 @@ if (timer > 9) {
 			bulletcountmax = choose(2, 3, 4, 5);
 	} else {
 		snd_stop(snd_rocket);
-		snd_volume(snd_rocket, 1, 0);
 		snd_play_pitch(snd_rocket, 0.5 + random(1));
 		d = instance_create(x, y, obj_bqueen_breath);
 		
@@ -77,7 +76,6 @@ if (timer2 > 9 && difficulty == 1) {
 			bulletcount2max = choose(2, 3, 4, 5);
 	} else {
 		snd_stop(snd_rocket);
-		snd_volume(snd_rocket, 1, 0);
 		snd_play_pitch(snd_rocket, 0.5 + random(1));
 		d = instance_create(x, y, obj_bqueen_breath);
 		

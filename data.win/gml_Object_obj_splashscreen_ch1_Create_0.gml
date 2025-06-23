@@ -53,4 +53,4 @@ if (os_type == os_ps4) {
 
 check_undertale = (global.lang == "en") ? "Check Out UNDERTALE" : "「UNDERTALE」をチェック";
 start_dr = (global.lang == "en") ? "Start DELTARUNE" : "「DELTARUNE」をプレイ";
-global.currentroom = room;
+global.currentroom = scr_get_id_by_room_index(room);

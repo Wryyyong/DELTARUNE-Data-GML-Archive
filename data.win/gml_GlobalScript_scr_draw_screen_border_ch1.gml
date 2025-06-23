@@ -20,10 +20,10 @@ function scr_draw_screen_border_ch1(arg0) {
 			var room_id = room;
 			var _border_image = global.darkzone ? border_dark_ch1 : border_light_ch1;
 			
-			if (room_id == 413 || room_id == 1642 || room_id == 420 || room_id == 418)
+			if (room_id == 413 || room_id == 1646 || room_id == 420 || room_id == 418)
 				_border_image = border_dark_ch1;
 			
-			if (room_id == 282 || room_id == 1638 || room_id == 420 || room_id == 426 || room_id == 416 || room_id == 412 || room_id == 316 || room_id == 321)
+			if (room_id == 282 || room_id == 1642 || room_id == 420 || room_id == 426 || room_id == 416 || room_id == 412 || room_id == 316 || room_id == 321)
 				obj_time_ch1.border_alpha = 0;
 			else if (room_id == 313 || room_id == 411)
 				obj_time_ch1.border_fade_out = obj_time_ch1.border_alpha > 0;
@@ -68,7 +68,7 @@ function scr_draw_screen_border_ch1(arg0) {
 			if (ossafe_file_exists_ch1("filech1_5"))
 				game_won = true;
 			
-			if ((room_id == 413 || room_id == 1642 || room_id == 420) && game_won == true) {
+			if ((room_id == 413 || room_id == 1646 || room_id == 420) && game_won == true) {
 				_border_image = border_dark_ch1;
 				obj_time_ch1.border_alpha = 1;
 			}
@@ -76,7 +76,7 @@ function scr_draw_screen_border_ch1(arg0) {
 			scr_draw_background_ps4_ch1(_border_image, 0, 0);
 			global.disable_border = obj_time_ch1.border_alpha != 1;
 		} else if (border_id == "Simple" || border_id == "シンプル") {
-			var room_id = global.currentroom;
+			var room_id = scr_get_room_by_id(global.currentroom);
 			
 			if (instance_exists(obj_savepoint_ch1))
 				obj_time_ch1.border_alpha = 1;

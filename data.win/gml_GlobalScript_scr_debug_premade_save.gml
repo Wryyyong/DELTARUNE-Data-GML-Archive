@@ -145,7 +145,7 @@ function scr_debug_premade_save() {
 	ini_write_real("G" + string(filechoice), "Level", 1);
 	ini_write_real("G" + string(filechoice), "Love", 1);
 	ini_write_real("G" + string(filechoice), "Time", 14400);
-	ini_write_real("G" + string(filechoice), "Room", 28);
+	ini_write_real("G" + string(filechoice), "Room", scr_get_id_by_room_index(28));
 	ini_write_real("G" + string(filechoice), "InitLang", global.flag[912]);
 	ossafe_ini_close();
 }

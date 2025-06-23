@@ -1,6 +1,6 @@
 scr_depth_ch1();
 alarm[2] = 2;
-global.currentroom = room;
+global.currentroom = scr_get_id_by_room_index(room);
 autorun = 0;
 bg = 0;
 

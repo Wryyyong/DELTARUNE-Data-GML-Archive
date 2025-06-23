@@ -15,7 +15,7 @@ function scr_save() {
 		ini_write_real(scr_ini_chapter(global.chapter, global.filechoice), "Love", global.llv);
 		ini_write_real(scr_ini_chapter(global.chapter, global.filechoice), "Time", global.time);
 		ini_write_real(scr_ini_chapter(global.chapter, global.filechoice), "Date", date_current_datetime());
-		ini_write_real(scr_ini_chapter(global.chapter, global.filechoice), "Room", room);
+		ini_write_real(scr_ini_chapter(global.chapter, global.filechoice), "Room", scr_get_id_by_room_index(room));
 		ini_write_real(scr_ini_chapter(global.chapter, global.filechoice), "InitLang", global.flag[912]);
 		var uraboss = 0;
 		

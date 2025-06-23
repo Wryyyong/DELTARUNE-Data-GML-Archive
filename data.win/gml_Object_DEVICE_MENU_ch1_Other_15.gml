@@ -1,14 +1,21 @@
 iniwrite = ossafe_ini_open_ch1("dr.ini");
 _NEWNAME = ini_read_string("G" + string(MENUCOORD[2]), "Name", "------");
 _NEWTIME = ini_read_real("G" + string(MENUCOORD[2]), "Time", 0);
-var room_index = ini_read_real("G" + string(MENUCOORD[2]), "Room", 0);
-var room_offset = room_index;
+var room_id = ini_read_real("G" + string(MENUCOORD[2]), "Room", scr_get_id_by_room_index(room));
 
-if (room_index < 281)
-	room_offset = 281 + room_index;
+if (room_id < 10000) {
+	room_index = room_id;
+	var room_offset = room_index;
+	
+	if (room_index < 281)
+		room_offset = 281 + room_index;
+	
+	room_id = room_offset;
+	room_id += 10000;
+}
 
-room_offset = scr_get_valid_room(1, room_offset);
-_NEWROOM = room_offset;
+var room_index = scr_get_valid_room(1, room_id);
+_NEWROOM = room_index;
 _NEWLEVEL = ini_read_real("G" + string(MENUCOORD[2]), "Level", 0);
 _NEWINITLANG = ini_read_real("G" + string(MENUCOORD[2]), "InitLang", 0);
 ini_write_string("G" + string(MENUCOORD[3]), "Name", _NEWNAME);

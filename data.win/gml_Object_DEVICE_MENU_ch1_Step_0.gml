@@ -28,6 +28,7 @@ if (MENU_NO == 1 || MENU_NO == 4 || MENU_NO == 6 || MENU_NO == 7) {
 					scr_windowcaption_ch1(scr_84_get_lang_string_ch1("DEVICE_MENU_slash_Step_0_gml_35_0"));
 					snd_free_all_ch1();
 					obj_loadscreen_ch1.loaded = true;
+					input_enabled = false;
 					
 					if (ossafe_file_exists_ch1("keyconfig_" + string(global.filechoice) + ".ini")) {
 						ossafe_ini_open_ch1("keyconfig_" + string(global.filechoice) + ".ini");

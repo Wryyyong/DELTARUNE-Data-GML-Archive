@@ -29,7 +29,7 @@ if (global.plot > 1) {
 	con = 1;
 	alarm[4] = 30;
 	global.interact = 1;
-	k = 1351;
+	k = 1353;
 	t = scr_marker_ch1(195, 240, spr_toriel_lt_ch1);
 	
 	with (t)

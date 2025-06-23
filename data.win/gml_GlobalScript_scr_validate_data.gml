@@ -520,7 +520,7 @@ function scr_validate_data(arg0) {
 	
 	var test_room = ossafe_file_text_read_real(myfileid);
 	
-	if (test_room != global.currentroom) {
+	if (scr_get_room_by_id(test_room) != scr_get_room_by_id(global.currentroom)) {
 		ds_map_destroy(myfileid);
 		return false;
 	} else {

@@ -40,7 +40,7 @@ if (surface_exists(surface)) {
 	surface_set_target(surface);
 	
 	if (hidebg == 0)
-		draw_background(2207, 0, 0);
+		draw_background(2206, 0, 0);
 	
 	if (hidebg == 1) {
 		draw_set_color(c_black);

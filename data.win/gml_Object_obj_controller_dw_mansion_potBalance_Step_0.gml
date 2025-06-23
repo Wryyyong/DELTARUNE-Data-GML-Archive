@@ -76,6 +76,9 @@ if (con == 3) {
 }
 
 if (con == 4) {
+	if (i_ex(obj_balancepot))
+		obj_balancepot.con = 1;
+	
 	con = 5;
 	alarm[1] = 30;
 	c_sel(su);

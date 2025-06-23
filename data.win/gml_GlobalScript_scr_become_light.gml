@@ -5,6 +5,15 @@ function scr_become_light() {
 	if (scr_keyitemcheck(2)) {
 		if (scr_litemcheck(8) == 0)
 			scr_litemget(8);
+	} else {
+		scr_litemremove(8);
+	}
+	
+	if (scr_keyitemcheck(13)) {
+		if (scr_litemcheck(11) == 0)
+			scr_litemget(11);
+	} else {
+		scr_litemremove(11);
 	}
 	
 	global.lhp = ceil(global.hp[1] / global.maxhp[1]) * global.lmaxhp;

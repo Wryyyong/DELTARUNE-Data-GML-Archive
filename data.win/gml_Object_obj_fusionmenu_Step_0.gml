@@ -403,7 +403,7 @@ if (init == 0) {
 				optionText[_n][j] = " ";
 				
 				if (global.is_console || obj_gamecontroller.gamepad_active) {
-					optionTopComment[_n][j] = stringsetloc("   Place       Return", "obj_fusionmenu_slash_Step_0_gml_462_0");
+					optionTopComment[_n][j] = stringsetloc("      Place                 Return", "obj_fusionmenu_slash_Step_0_gml_462_0");
 					display_buttons = 1;
 				} else {
 					optionTopComment[_n][j] = stringsetsubloc("~1: Place   ~2: Return", scr_get_input_name(4), scr_get_input_name(5), "obj_fusionmenu_slash_Step_0_gml_434_0");

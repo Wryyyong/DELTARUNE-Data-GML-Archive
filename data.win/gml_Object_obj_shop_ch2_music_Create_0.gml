@@ -138,3 +138,4 @@ if (global.plot >= 200 || global.chapter > 2)
 
 previous_song = "cyber_shop.ogg";
 is_playing = 1;
+audio_timer = 0;

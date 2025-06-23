@@ -3411,7 +3411,7 @@ function scr_text(arg0) {
 			global.choicemsg[3] = stringsetloc(" ", "scr_text_slash_scr_text_gml_3623_0");
 			scr_speaker("no_name");
 			msgsetloc(0, "\\M0* ..^1. hey!!/", "scr_text_slash_scr_text_gml_3625_0");
-			var myname = (global.flag[259] == 1) ? stringsetloc("Hyper-Potato-Mouse!", "scr_text_slash_scr_text_gml_3626_0") : stringsetloc("Crisper!!", "scr_text_slash_scr_text_gml_3626_1");
+			var myname = (global.flag[259] == 2) ? stringsetloc("Hyper-Potato-Mouse!", "scr_text_slash_scr_text_gml_3626_0") : stringsetloc("Crisper!!", "scr_text_slash_scr_text_gml_3626_1");
 			msgnextsubloc("\\M1* ~1^1!/", myname, "scr_text_slash_scr_text_gml_3627_0");
 			msgnextloc("\\M2* I missed you^1, y'hear!? Hahaha!^1! Missed you all day!!/", "scr_text_slash_scr_text_gml_3628_0");
 			msgnextloc("\\M0* Didja miss..^1. me?/", "scr_text_slash_scr_text_gml_3629_0");
@@ -3458,7 +3458,7 @@ function scr_text(arg0) {
 				
 				msgnextsubloc("* ~1 is on the case!/", onionname, "scr_text_slash_scr_text_gml_3672_0");
 				msgnextloc("\\M3* (That's my name^1, right?)/", "scr_text_slash_scr_text_gml_3673_0");
-				var myname = (global.flag[259] == 1) ? stringsetloc("Mouse!!", "scr_text_slash_scr_text_gml_3674_0") : stringsetloc("Kiss!", "scr_text_slash_scr_text_gml_3674_1");
+				var myname = (global.flag[259] == 2) ? stringsetloc("Mouse!!", "scr_text_slash_scr_text_gml_3674_0") : stringsetloc("Kiss!", "scr_text_slash_scr_text_gml_3674_1");
 				msgnextsubloc("\\M0* See you^1, ~1^1!/%", myname, "scr_text_slash_scr_text_gml_3675_0");
 			} else {
 				global.flag[425] = 2;

@@ -3,7 +3,7 @@ function scr_getbuttonsprite(arg0, arg1) {
 	var isString = arg1;
 	var button = noone;
 	var is_dualshock = os_type == os_ps4 || obj_gamecontroller.gamepad_type == 1;
-	var button_sprite = -4;
+	var button_sprite = button_questionmark;
 	var invert = is_dualshock && (global.typer == 50 || global.typer == 70 || global.typer == 71);
 	
 	if (isString) {

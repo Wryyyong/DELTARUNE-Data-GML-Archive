@@ -643,30 +643,56 @@ for (var i = 0; i < 8; i += 1) {
 					wireheart.bossx = x + 10;
 					wireheart.bossy = y + 80;
 					wireheart.type = 0;
-					wireheart.target = obj_sneo_bulletcontroller.target;
-					wireheart.damage = obj_sneo_bulletcontroller.damage;
+					wireheart.target = 3;
+					
+					if (scr_sideb_get_phase() > 2) {
+						wireheart.target = obj_sneo_bulletcontroller.target;
+						wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.8);
+					} else {
+						wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.6);
+					}
 				} else if (hearttype == 1) {
 					wireheart = instance_create(x + 10, y + 80, obj_sneo_wireheart);
 					wireheart.boss = id;
 					wireheart.bossx = x + 10;
 					wireheart.bossy = y + 80;
 					wireheart.type = 0;
-					wireheart.target = obj_sneo_bulletcontroller.target;
-					wireheart.damage = obj_sneo_bulletcontroller.damage;
+					wireheart.target = 3;
+					
+					if (scr_sideb_get_phase() > 2) {
+						wireheart.target = obj_sneo_bulletcontroller.target;
+						wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.8);
+					} else {
+						wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.6);
+					}
+					
 					wireheart = instance_create(x + 10, y + 80, obj_sneo_wireheart);
 					wireheart.boss = id;
 					wireheart.bossx = x + 10;
 					wireheart.bossy = y + 80;
 					wireheart.type = 1;
-					wireheart.target = obj_sneo_bulletcontroller.target;
-					wireheart.damage = obj_sneo_bulletcontroller.damage;
+					wireheart.target = 3;
+					
+					if (scr_sideb_get_phase() > 2) {
+						wireheart.target = obj_sneo_bulletcontroller.target;
+						wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.8);
+					} else {
+						wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.6);
+					}
+					
 					wireheart = instance_create(x + 10, y + 80, obj_sneo_wireheart);
 					wireheart.boss = id;
 					wireheart.bossx = x + 10;
 					wireheart.bossy = y + 80;
 					wireheart.type = 1;
-					wireheart.target = obj_sneo_bulletcontroller.target;
-					wireheart.damage = obj_sneo_bulletcontroller.damage;
+					wireheart.target = 3;
+					
+					if (scr_sideb_get_phase() > 2) {
+						wireheart.target = obj_sneo_bulletcontroller.target;
+						wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.8);
+					} else {
+						wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.6);
+					}
 				} else if (hearttype == 2) {
 					wireheart = instance_create(x + 10, y + 80, obj_sneo_wireheart);
 					wireheart.boss = id;
@@ -674,8 +700,14 @@ for (var i = 0; i < 8; i += 1) {
 					wireheart.bossy = y + 80;
 					wireheart.type = 0;
 					wireheart.bighearttype = 1;
-					wireheart.target = obj_sneo_bulletcontroller.target;
-					wireheart.damage = obj_sneo_bulletcontroller.damage;
+					wireheart.target = 3;
+					
+					if (scr_sideb_get_phase() > 2) {
+						wireheart.target = obj_sneo_bulletcontroller.target;
+						wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.8);
+					} else {
+						wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.6);
+					}
 				} else if (hearttype == 3) {
 					if (makehearttype == 0) {
 						wireheart = instance_create(x + 10, y + 80, obj_sneo_wireheart);
@@ -683,8 +715,14 @@ for (var i = 0; i < 8; i += 1) {
 						wireheart.bossx = x + 10;
 						wireheart.bossy = y + 80;
 						wireheart.type = 1;
-						wireheart.target = obj_sneo_bulletcontroller.target;
-						wireheart.damage = obj_sneo_bulletcontroller.damage;
+						wireheart.target = 3;
+						
+						if (scr_sideb_get_phase() > 2) {
+							wireheart.target = obj_sneo_bulletcontroller.target;
+							wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.8);
+						} else {
+							wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.6);
+						}
 					}
 					
 					if (makehearttype == 0 || makehearttype == 3) {
@@ -693,8 +731,15 @@ for (var i = 0; i < 8; i += 1) {
 						wireheart.bossx = x + 10;
 						wireheart.bossy = y + 80;
 						wireheart.type = 3;
-						wireheart.target = obj_sneo_bulletcontroller.target;
-						wireheart.damage = obj_sneo_bulletcontroller.damage;
+						wireheart.target = 3;
+						
+						if (scr_sideb_get_phase() > 2) {
+							wireheart.target = obj_sneo_bulletcontroller.target;
+							wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.8);
+						} else {
+							wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.6);
+						}
+						
 						wireheart.altbiter = 3;
 					}
 					
@@ -704,8 +749,15 @@ for (var i = 0; i < 8; i += 1) {
 						wireheart.bossx = x + 10;
 						wireheart.bossy = y + 80;
 						wireheart.type = 3;
-						wireheart.target = obj_sneo_bulletcontroller.target;
-						wireheart.damage = obj_sneo_bulletcontroller.damage;
+						wireheart.target = 3;
+						
+						if (scr_sideb_get_phase() > 2) {
+							wireheart.target = obj_sneo_bulletcontroller.target;
+							wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.8);
+						} else {
+							wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.6);
+						}
+						
 						wireheart.altbiter = 4;
 					}
 				} else if (hearttype == 4) {
@@ -715,8 +767,14 @@ for (var i = 0; i < 8; i += 1) {
 						wireheart.bossx = x + 10;
 						wireheart.bossy = y + 80;
 						wireheart.type = 1;
-						wireheart.target = obj_sneo_bulletcontroller.target;
-						wireheart.damage = obj_sneo_bulletcontroller.damage;
+						wireheart.target = 3;
+						
+						if (scr_sideb_get_phase() > 2) {
+							wireheart.target = obj_sneo_bulletcontroller.target;
+							wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.8);
+						} else {
+							wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.6);
+						}
 					}
 					
 					if (makehearttype == 0 || makehearttype == 3) {
@@ -725,8 +783,14 @@ for (var i = 0; i < 8; i += 1) {
 						wireheart.bossx = x + 10;
 						wireheart.bossy = y + 80;
 						wireheart.type = 4;
-						wireheart.target = obj_sneo_bulletcontroller.target;
-						wireheart.damage = obj_sneo_bulletcontroller.damage;
+						wireheart.target = 3;
+						
+						if (scr_sideb_get_phase() > 2) {
+							wireheart.target = obj_sneo_bulletcontroller.target;
+							wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.8);
+						} else {
+							wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.6);
+						}
 					}
 					
 					if (makehearttype == 0 || makehearttype == 4) {
@@ -735,8 +799,14 @@ for (var i = 0; i < 8; i += 1) {
 						wireheart.bossx = x + 10;
 						wireheart.bossy = y + 80;
 						wireheart.type = 4;
-						wireheart.target = obj_sneo_bulletcontroller.target;
-						wireheart.damage = obj_sneo_bulletcontroller.damage;
+						wireheart.target = 3;
+						
+						if (scr_sideb_get_phase() > 2) {
+							wireheart.target = obj_sneo_bulletcontroller.target;
+							wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.8);
+						} else {
+							wireheart.damage = floor(global.monsterat[obj_spamton_neo_enemy.myself] * 5 * 0.6);
+						}
 					}
 				}
 				

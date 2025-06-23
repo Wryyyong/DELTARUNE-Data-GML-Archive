@@ -52,7 +52,7 @@ if (con == 1) {
 	c_facing("r");
 	c_emote("!", 30, 0);
 	c_sel(kr);
-	c_script_instance(id, snd_play_pitch, 25, 56, 0.5 + random(1.2));
+	c_script_instance(id, snd_play_pitch, 25, 57, 0.5 + random(1.2));
 	c_shakestep_x(15, -4, 15, 25, 5, 1);
 	c_wait(150);
 	c_script_instance_stop(id, snd_play_pitch);

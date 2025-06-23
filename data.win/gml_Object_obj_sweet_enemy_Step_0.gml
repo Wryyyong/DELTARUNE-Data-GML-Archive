@@ -147,7 +147,7 @@ if (global.monster[myself] == 1) {
 				}
 			}
 			
-			scr_turntimer(235);
+			scr_turntimer(185);
 			turns += 1;
 			global.typer = 6;
 			global.fc = 0;

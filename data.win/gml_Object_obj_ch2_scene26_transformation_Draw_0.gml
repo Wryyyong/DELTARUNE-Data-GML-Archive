@@ -1,7 +1,7 @@
-if (image_alpha < 1)
-	image_alpha += 0.05;
+if (screen_fade < 1)
+	screen_fade += 0.05;
 
-if (image_alpha < 0)
+if (screen_fade < 0)
 	exit;
 
 if (image_play) {
@@ -18,8 +18,13 @@ if (image_play) {
 
 draw_self();
 
-if (image_alpha < 1)
+if (screen_fade < 1) {
+	draw_set_color(c_white);
+	draw_set_alpha(1 - screen_fade);
+	draw_rectangle(camerax(), cameray(), camerax() + 640, cameray() + 480, false);
+	draw_set_alpha(1);
 	exit;
+}
 
 af = scr_afterimage();
 af.fadeSpeed = 0.25;

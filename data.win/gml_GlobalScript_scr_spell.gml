@@ -459,13 +459,15 @@ function scr_spell(arg0, arg1) {
 			var healamount = 10;
 			
 			for (var __j = 0; __j < 3; __j++) {
-				healamount = 10;
-				star = __j;
-				
-				if (global.hp[global.char[star]] <= 0)
-					healamount = ceil(global.maxhp[global.char[star]] / 4) + abs(global.hp[global.char[star]]);
-				
-				scr_healitemspell(healamount);
+				if (global.char[__j] > 0) {
+					healamount = 10;
+					star = __j;
+					
+					if (global.hp[global.char[star]] <= 0)
+						healamount = ceil(global.maxhp[global.char[star]] / 4) + abs(global.hp[global.char[star]]);
+					
+					scr_healitemspell(healamount);
+				}
 			}
 			
 			break;
@@ -474,13 +476,15 @@ function scr_spell(arg0, arg1) {
 			var healamount = 50;
 			
 			for (var __j = 0; __j < 3; __j++) {
-				healamount = 50;
-				star = __j;
-				
-				if (global.hp[global.char[star]] <= 0)
-					healamount = 999;
-				
-				scr_healitemspell(healamount);
+				if (global.char[__j] > 0) {
+					healamount = 50;
+					star = __j;
+					
+					if (global.hp[global.char[star]] <= 0)
+						healamount = 999;
+					
+					scr_healitemspell(healamount);
+				}
 			}
 			
 			break;

@@ -339,8 +339,11 @@ if (con == 7 && obj_ch2_scene26_cityscape.knife_hover && customcon == 1) {
 		c_sel(kr);
 		c_facing("l");
 		c_var_instance(id, "winelaser", 1);
-		c_wait(6);
 		c_var_instance(queenwinehand, "image_index", 1);
+		c_wait(4);
+		c_sel(no);
+		c_depth(96849);
+		c_wait(4);
 		c_soundplay(snd_shadowpendant);
 		c_wait(15);
 		c_wait(3);
@@ -355,7 +358,7 @@ if (con == 7 && obj_ch2_scene26_cityscape.knife_hover && customcon == 1) {
 		c_facing("r");
 		c_sel(kr);
 		c_facing("r");
-		c_wait(15);
+		c_wait(7);
 		c_sel(ra);
 		c_soundplay(snd_impact);
 		c_autowalk(0);
@@ -376,7 +379,8 @@ if (con == 7 && obj_ch2_scene26_cityscape.knife_hover && customcon == 1) {
 		c_sel(no);
 		c_shakeobj();
 		c_sprite(spr_noelle_kneel);
-		c_wait(10);
+		c_wait(15);
+		c_depth(no_actor.depth + 100);
 		c_var_instance(queenwinehand, "image_index", 0);
 		c_wait(15);
 		c_var_lerp_instance(queenwinehand, "y", 149, queenwinehand.y, 15);

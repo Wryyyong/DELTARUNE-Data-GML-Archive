@@ -22,6 +22,13 @@ function scr_gameover() {
 	if (global.chapter == 2) {
 		if (room == room_dw_mansion_b_west_2f)
 			global.tempflag[33]++;
+		
+		if (room == room_dw_mansion_east_4f_d && i_ex(obj_queen_enemy)) {
+			global.hp[1] = global.maxhp[1];
+			global.hp[2] = global.maxhp[2];
+			global.hp[3] = global.maxhp[3];
+			scr_tempsave();
+		}
 	}
 	
 	if (global.flag[35] == 0) {

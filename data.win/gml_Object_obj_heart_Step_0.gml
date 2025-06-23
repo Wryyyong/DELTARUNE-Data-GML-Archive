@@ -258,6 +258,9 @@ if (color == 1) {
 	if (z_hold >= 40)
 		image_index = 2;
 	
+	if (z_charge < 15)
+		chargeshotcount = 0;
+	
 	if (z_hold >= 40 && button1_r()) {
 		snd_stop(chargeshot_sound);
 		snd_play(snd_chargeshot_fire);
@@ -272,6 +275,12 @@ if (color == 1) {
 		z_hold = 0;
 		chargeshot_delay = 5;
 		image_index = 0;
+		chargeshotcount++;
+		
+		if (chargeshotcount > 1) {
+			with (obj_spamton_neo_enemy)
+				funnycheat += 1;
+		}
 		
 		if (global.chapter == 2 && instance_exists(obj_spamton_neo_enemy))
 			obj_spamton_neo_enemy.bigshotused = 1;

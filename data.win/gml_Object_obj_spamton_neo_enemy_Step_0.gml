@@ -995,7 +995,7 @@ if (global.fighting == 1) {
 			snd_play(snd_damage);
 			dmgwriter = instance_create(x + 64, y + 62, obj_dmgwriter);
 			dmgwriter.damage = 684 + irandom(20);
-			dmgwriter.type = 0;
+			dmgwriter.type = 6;
 			dmgwriter.depth = -999999;
 			alarm[4] = 3;
 		}
@@ -1006,7 +1006,7 @@ if (global.fighting == 1) {
 			snd_play(snd_damage);
 			dmgwriter = instance_create(x + 84, y + 90, obj_dmgwriter);
 			dmgwriter.damage = 684 + irandom(20);
-			dmgwriter.type = 0;
+			dmgwriter.type = 6;
 			dmgwriter.depth = -999999;
 			alarm[4] = 3;
 		}
@@ -1017,7 +1017,7 @@ if (global.fighting == 1) {
 			snd_play(snd_damage);
 			dmgwriter = instance_create(x + 66, y + 119, obj_dmgwriter);
 			dmgwriter.damage = 684 + irandom(20);
-			dmgwriter.type = 0;
+			dmgwriter.type = 6;
 			dmgwriter.depth = -999999;
 			alarm[4] = 1;
 		}

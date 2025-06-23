@@ -29,6 +29,11 @@ if (room == room_dw_city_traffic_3) {
 	}
 }
 
+if (room == room_dw_city_traffic_4) {
+	global.entrance = 23;
+	room_goto(room_dw_city_spamton_alley);
+}
+
 if (room == room_dw_city_man) {
 	global.entrance = 24;
 	room_goto(room_dw_city_traffic_3);

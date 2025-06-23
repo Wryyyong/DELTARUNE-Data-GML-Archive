@@ -101,3 +101,4 @@ shine_timer = 0;
 miniflash = 0;
 f = 2;
 big_square = -4;
+streak_timer = 0;

@@ -104,6 +104,28 @@ if (room == room_dw_mansion_east_1f_e) {
 	itemflag = 141;
 }
 
+if (room == room_dw_castle_west_cliff || room == room_dw_mansion_b_east_transformed) {
+	itemidchest = 21;
+	itemflag = 142;
+	var qualify = 0;
+	
+	if (global.flag[468] > 0)
+		qualify = 1;
+	
+	if (global.flag[142] == 1)
+		qualify = 0;
+	
+	if (global.flag[571] == 1 || global.flag[468] == 2)
+		itemtype = "weapon";
+	else
+		itemtype = "armor";
+	
+	if (qualify == 0) {
+		instance_destroy();
+		visible = false;
+	}
+}
+
 if (global.flag[itemflag] == 1)
 	image_index = 1;
 

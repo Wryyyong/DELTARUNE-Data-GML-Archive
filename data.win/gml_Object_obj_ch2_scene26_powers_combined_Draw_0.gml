@@ -41,48 +41,48 @@ if (con == 4) {
 		thrash_con = 3;
 }
 
-if (con >= 5) {
+if (con >= 5 || (con == 4 && shine_timer >= 40)) {
 	draw_set_color(c_white);
 	draw_rectangle(camerax(), cameray(), camerax() + 640, cameray() + 480, false);
 	
-	if (shine_timer == (4 / f)) {
+	if (streak_timer == (4 / f)) {
 		line = instance_create(camerax() + 20 + irandom(120), cameray() + 652 + irandom(32), obj_anime_bg_line);
 		line.image_blend = #8EAAEA;
 		line.depth = depth - 1;
 	}
 	
-	if (shine_timer == (24 / f)) {
+	if (streak_timer == (24 / f)) {
 		line = instance_create(camerax() + 20 + irandom(120), cameray() + 652 + irandom(32), obj_anime_bg_line);
 		line.image_blend = #8EAAEA;
 		line.depth = depth - 1;
 	}
 	
-	if (shine_timer == (44 / f)) {
+	if (streak_timer == (44 / f)) {
 		line = instance_create(camerax() + 20 + irandom(120), cameray() + 652 + irandom(32), obj_anime_bg_line);
 		line.image_blend = #8EAAEA;
 		line.depth = depth - 1;
 	}
 	
-	if (shine_timer == (14 / f)) {
+	if (streak_timer == (14 / f)) {
 		line = instance_create((camerax() + 620) - irandom(120), cameray() + 652 + irandom(32), obj_anime_bg_line);
 		line.image_blend = #8EAAEA;
 		line.depth = depth - 1;
 	}
 	
-	if (shine_timer == (34 / f)) {
+	if (streak_timer == (34 / f)) {
 		line = instance_create((camerax() + 620) - irandom(120), cameray() + 652 + irandom(32), obj_anime_bg_line);
 		line.image_blend = #8EAAEA;
 		line.depth = depth - 1;
 	}
 	
-	if (shine_timer == (44 / f)) {
+	if (streak_timer == (44 / f)) {
 		line = instance_create((camerax() + 620) - irandom(120), cameray() + 652 + irandom(32), obj_anime_bg_line);
 		line.image_blend = #8EAAEA;
 		line.depth = depth - 1;
 	}
 	
-	shine_timer++;
+	streak_timer++;
 	
-	if (shine_timer >= (50 / f))
-		shine_timer = 0;
+	if (streak_timer >= (50 / f))
+		streak_timer = 0;
 }

@@ -74,7 +74,7 @@ if (destroyed == 1) {
 		with (piece) {
 			scr_script_delayed(scr_afterimage_cut, i * 2);
 			scr_script_delayed(snd_play, i * 2, snd_bomb);
-			scr_script_delayed(snd_volume, i * 2, 141, 0.5, 0);
+			scr_script_delayed(snd_volume, i * 2, 142, 0.5, 0);
 			scr_doom(id, (i * 2) + 1);
 		}
 	}

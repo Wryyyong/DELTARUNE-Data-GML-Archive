@@ -23,6 +23,7 @@ if (instance_exists(obj_npc_butler)) {
 			eraser = 1;
 			noAlertSound = 1;
 			frozen = 0;
+			offscreen_frozen = 0;
 		}
 		
 		instance_destroy();

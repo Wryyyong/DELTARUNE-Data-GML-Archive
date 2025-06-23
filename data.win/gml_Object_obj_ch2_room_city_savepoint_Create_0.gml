@@ -1,5 +1,8 @@
 con = -1;
 
+if (global.plot < 75)
+	global.plot = 75;
+
 if (global.plot < 100) {
 	capntalked = 0;
 	sweetnpc = instance_create(210, 100, obj_npc_room_animated);

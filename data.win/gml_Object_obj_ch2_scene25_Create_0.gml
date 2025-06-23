@@ -22,6 +22,11 @@ if (scr_sideb_get_phase() >= 3) {
 	
 	instance_destroy();
 } else {
+	with (obj_mainchara) {
+		x = 26;
+		y = 246;
+	}
+	
 	if (global.tempflag[31] == 1)
 		shortened = 1;
 	

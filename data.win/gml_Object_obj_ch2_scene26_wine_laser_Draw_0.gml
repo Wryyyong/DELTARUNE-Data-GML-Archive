@@ -1,10 +1,10 @@
 depth = 96850;
 laserx = x + (27 * image_xscale);
-lasery = y - (12 * image_yscale);
+lasery = y - (6 * image_yscale);
 beam_power = 0;
 
 if (timer < 0) {
-	timer++;
+	timer += 1.25;
 	
 	if (timer < -10)
 		exit;
@@ -17,8 +17,20 @@ if (timer > 0)
 	beam_power = clamp(0, 5, beam_power / 2);
 
 if (trailstart > 0 && trailend < 640) {
-	draw_set_color(merge_color(#B5E61D, c_white, clamp(scr_remapvalue(35, 45, timer, 0, 1), 0, 1)));
-	draw_rectangle(trailstart + camerax(), 310, trailend + camerax(), 314, false);
+	var _wine_color = merge_color(#B5E61D, c_white, clamp(scr_remapvalue(35, 45, timer, 0, 1), 0, 1));
+	draw_set_color(_wine_color);
+	
+	if ((trailend + camerax()) < (noelle_x - 80))
+		draw_rectangle(trailend + camerax(), 310, min(noelle_x - 80, trailstart + camerax()), 314, false);
+	
+	var _swerveleft = clamp((trailend + camerax()) - (noelle_x - 80), 0, 160);
+	var _swerveright = clamp((trailstart + camerax()) - (noelle_x - 80), 0, 160 - _swerveleft);
+	
+	if (_swerveleft < 160 && _swerveright > 0)
+		draw_sprite_part_ext(spr_cutscene_26_laser_swerve, 0, _swerveleft, 0, _swerveright, 160, (noelle_x - 80) + _swerveleft, 272, 1, 1, _wine_color, 1);
+	
+	if ((trailstart + camerax()) > (noelle_x + 80))
+		draw_rectangle(max(trailend + camerax(), noelle_x + 80), 310, trailstart + camerax(), 314, false);
 }
 
 if (timer >= 40) {
@@ -41,7 +53,7 @@ if (timer >= 40) {
 	d.image_xscale = 2;
 	d.image_yscale = 2;
 	d.image_speed = 0.75;
-	d.depth -= bombdepth;
+	d.depth -= bombdepth + 1;
 	
 	with (d)
 		scr_depth();
@@ -139,8 +151,9 @@ for (i = 0; i < 2; i++) {
 }
 
 gpu_set_blendmode(bm_subtract);
-draw_rectangle(0, 315, 640, 480, false);
-draw_circle(noelle_x - camerax(), 315, 40, 0);
+draw_rectangle(0, 315, noelle_x - camerax() - 80, 480, false);
+draw_rectangle(0, 345, 640, 480, false);
+draw_sprite(spr_cutscene_26_laser_swerve, 1, noelle_x - camerax(), 313);
 gpu_set_blendmode(bm_normal);
 surface_reset_target();
 draw_surface(laser_surface, camerax(), cameray());

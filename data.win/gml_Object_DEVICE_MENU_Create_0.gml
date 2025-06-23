@@ -108,7 +108,7 @@ TWOBUFFER = 0;
 THREAT = 0;
 TEMPMESSAGE = " ";
 MESSAGETIMER = 0;
-version_text = "1.00";
+version_text = "1.05";
 
 if (os_type == os_switch)
 	version_text = "1.03a";

@@ -104,8 +104,3 @@ if (victory == 1) {
 		instance_destroy();
 	}
 }
-
-if (keyboard_check_pressed(vk_space)) {
-	obj_mainchara.x = 4244;
-	obj_mainchara.y = 364;
-}

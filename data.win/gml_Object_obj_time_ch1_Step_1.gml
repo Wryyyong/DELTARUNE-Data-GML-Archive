@@ -119,3 +119,12 @@ if (border_fade_out) {
 			border_alpha = 1;
 	}
 }
+
+if (scr_debug_ch1()) {
+	if (keyboard_check_pressed(192)) {
+		if (room_speed == 30)
+			room_speed = 150 - (140 * keyboard_check(vk_control));
+		else
+			room_speed = 30;
+	}
+}

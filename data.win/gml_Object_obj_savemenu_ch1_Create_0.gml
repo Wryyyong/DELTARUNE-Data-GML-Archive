@@ -25,6 +25,7 @@ if (ossafe_file_exists_ch1("dr.ini")) {
 	if (room_index < 281)
 		room_offset = 281 + room_index;
 	
+	room_offset = scr_get_valid_room(1, room_offset);
 	roome = room_offset;
 	ossafe_ini_close_ch1();
 	ossafe_savedata_save_ch1();

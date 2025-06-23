@@ -309,9 +309,11 @@ function scr_load() {
 	if (is_valid) {
 		audio_group_set_gain(1, global.flag[15], 0);
 		audio_set_master_gain(0, global.flag[17]);
+		global.currentroom = scr_get_valid_room(global.chapter, global.currentroom);
 		__loadedroom = global.currentroom;
-		debug_message(string(__loadedroom));
-		debug_message(string(233));
+		
+		if (__loadedroom == 71 && global.plot >= 11)
+			__loadedroom = 72;
 		
 		if (scr_dogcheck())
 			__loadedroom = choose(233, 1);

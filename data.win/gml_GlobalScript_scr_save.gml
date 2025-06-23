@@ -34,6 +34,7 @@ function scr_save() {
 		}
 		
 		ini_write_real(scr_ini_chapter(global.chapter, global.filechoice), "UraBoss", uraboss);
+		ini_write_string(scr_ini_chapter(global.chapter, global.filechoice), "Version", global.version);
 		ossafe_ini_close();
 		ossafe_savedata_save();
 	}

@@ -312,7 +312,11 @@ function scr_load_ch1() {
 		global.currentroom = room_offset;
 	}
 	
+	global.currentroom = scr_get_valid_room(global.chapter, global.currentroom);
 	__loadedroom = global.currentroom;
+	
+	if (__loadedroom == 377 && global.plot >= 130)
+		__loadedroom = 378;
 	
 	if (scr_dogcheck_ch1())
 		__loadedroom = 412;

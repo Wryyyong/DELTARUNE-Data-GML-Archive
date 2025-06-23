@@ -38,6 +38,7 @@ function scr_84_load_ini_ch1() {
 				if (room_index < 281)
 					room_offset = 281 + room_index;
 				
+				room_offset = scr_get_valid_room(1, room_offset);
 				PLACE[i] = scr_roomname_ch1(room_offset);
 				TIME[i] = ini_read_real("G" + string(i), "Time", 0);
 				NAME[i] = ini_read_string("G" + string(i), "Name", "------");

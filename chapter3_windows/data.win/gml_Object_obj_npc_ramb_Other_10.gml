@@ -59,7 +59,7 @@ if (room == room_dw_green_room && !d_ex() && global.interact == 0) {
 			msgsetsubloc(0, "\\M1* Kris^1! Bang-up job getting ~1-rank^1, luv^1! For that^1, a little prize...~2", rank_letter, sentence_end, "obj_npc_ramb_slash_Other_10_gml_78_0");
 			
 			if (noroom) {
-				var item_type = (rank_rewards[rank_index][1] == "armor") ? stringsetloc("ARMORs", "obj_npc_ramb_slash_Other_10_gml_82_0_b") : stringsetloc("ITEMs", "obj_npc_ramb_slash_Other_10_gml_82_1");
+				var item_type = (rank_reward_category == "armor") ? stringsetloc("ARMORs", "obj_npc_ramb_slash_Other_10_gml_82_0_b") : stringsetloc("ITEMs", "obj_npc_ramb_slash_Other_10_gml_82_1");
 				msgnextsubloc("\\M3* Ah^1, you're holding too many \\cY~1\\cW^1, luv. Get rid of something?/%", item_type, "obj_npc_ramb_slash_Other_10_gml_83_0");
 			} else {
 				get_prize(get_item_text);

@@ -20,7 +20,7 @@ if (arrive_start) {
 	arrive_timer++;
 	
 	if (arrive_timer == 1) {
-		instance_activate_object(nubert_collider);
+		enable_collider();
 		
 		with (nubert_marker) {
 			sprite_index = spr_npc_nubert_hole_arrive;
@@ -33,7 +33,7 @@ if (arrive_start) {
 		with (nubert_marker)
 			image_speed = 0;
 		
-		instance_activate_object(nubert_readable);
+		enable_readable();
 	}
 	
 	if (arrive_timer >= 270 && !d_ex() && global.interact == 0) {
@@ -48,14 +48,14 @@ if (leave) {
 	leave_timer++;
 	
 	if (leave_timer == 1) {
-		instance_deactivate_object(nubert_readable);
+		disable_readable();
 		nubert_marker.sprite_index = spr_npc_nubert_hole_leave;
 		nubert_marker.image_index = 0;
 		nubert_marker.image_speed = 0.2;
 	}
 	
 	if (leave_timer == 30) {
-		instance_deactivate_object(nubert_collider);
+		disable_collider();
 		nubert_marker.image_speed = 0;
 		leave_timer = 0;
 		leave = false;
@@ -73,9 +73,4 @@ if (move_nubert) {
 	
 	with (nubert_marker)
 		scr_depth();
-	
-	nubert_readable.x = nubert_marker.x;
-	nubert_readable.y = nubert_marker.y;
-	nubert_collider.x = nubert_marker.x;
-	nubert_collider.y = nubert_marker.y + 20;
 }

@@ -51,6 +51,9 @@ function get_weapon_by_lw_id(arg0) {
 		}
 	}
 	
+	if (weapon == -4)
+		weapon = weapon_list[0];
+	
 	return weapon;
 }
 
@@ -65,6 +68,9 @@ function get_weapon_by_dw_id(arg0) {
 			break;
 		}
 	}
+	
+	if (weapon == -4)
+		weapon = weapon_list[0];
 	
 	return weapon;
 }

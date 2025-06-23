@@ -34,7 +34,7 @@ if (room == room_dw_castle_west_cliff) {
 	}
 }
 
-if (room == room_board_postshadowmantle) {
+if (room == room_board_postshadowmantle || room == room_dw_green_room) {
 	itemtype = "armor";
 	itemidchest = 23;
 	itemflag = 1067;

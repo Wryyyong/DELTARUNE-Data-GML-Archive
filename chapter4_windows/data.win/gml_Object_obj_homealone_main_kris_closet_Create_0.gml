@@ -26,7 +26,9 @@ if (scr_flag_get(737) == 1) {
 	with (closet_marker)
 		depth = 95999;
 	
-	instance_deactivate_object(obj_homealone_treat_catcher);
+	with (obj_homealone_treat_catcher)
+		instance_destroy();
+	
 	catcher_marker = scr_marker(514, 474, spr_noellehouse_treat_catcher_kris);
 	
 	with (catcher_marker)

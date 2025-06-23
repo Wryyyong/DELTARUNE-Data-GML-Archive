@@ -2,7 +2,9 @@ con = -99;
 
 if (global.chapter == 4) {
 	if (global.plot >= 100 && global.plot < 300) {
-		instance_deactivate_object(obj_doorX_musfade);
+		with (obj_doorX_musfade)
+			instance_destroy();
+		
 		var door_block = instance_create(140, 170, obj_solidblock);
 		
 		with (door_block) {

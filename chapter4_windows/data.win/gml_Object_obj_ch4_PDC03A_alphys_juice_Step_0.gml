@@ -7,13 +7,11 @@ if (juice_success && !d_ex() && !susie_check) {
 	scr_speaker("susie");
 	msgsetloc(0, "\\E7* Woah^1, nice juice combo. Looks cool./%", "obj_ch4_PDC03A_alphys_juice_slash_Step_0_gml_15_0");
 	d_make();
-	instance_deactivate_object(obj_readable_room1);
 }
 
 if (susie_con == 1 && !d_ex()) {
 	susie_con = 2;
 	global.interact = 0;
-	instance_activate_object(obj_readable_room1);
 }
 
 if (con == 1 && !d_ex()) {

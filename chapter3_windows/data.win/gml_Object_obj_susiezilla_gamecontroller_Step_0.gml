@@ -6,19 +6,6 @@ if (scr_debug() && keyboard_check_pressed(ord("T"))) {
 		hp = maxhp;
 }
 
-if (keyboard_check_pressed(vk_f5)) {
-	with (obj_minigame_quit_ui)
-		instance_destroy();
-	
-	susiezilla_destroy();
-	
-	with (obj_ch3_tennashouter)
-		instance_destroy();
-	
-	with (obj_ch3_tennashouter_alt)
-		instance_destroy();
-}
-
 timer++;
 
 if (started && (timer % 30) == 0)

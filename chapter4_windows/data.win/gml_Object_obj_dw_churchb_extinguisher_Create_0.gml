@@ -85,7 +85,7 @@ if (global.entrance == 7) {
 	}
 }
 
-if (global.plot < 240 && global.plot > 238)
+if (global.plot < 240 && global.plot > 238.6)
 	global.plot = 240;
 
 if (scr_debug()) {

@@ -343,7 +343,14 @@ if (con == 4 && !d_ex()) {
 if (con == 6 && !i_ex(obj_cutscene_master)) {
 	global.interact = 0;
 	global.facing = 0;
-	instance_activate_object(obj_doorX_musfade);
+	var front_door = instance_create(594, 149, obj_doorX_musfade);
+	
+	with (front_door) {
+		doorFacing = 0;
+		doorPreset = 1;
+		doorFadeMusic = 1;
+	}
+	
 	instance_destroy(door_readable);
 	
 	with (obj_caterpillarchara) {

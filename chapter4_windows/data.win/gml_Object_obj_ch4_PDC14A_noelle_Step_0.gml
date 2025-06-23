@@ -47,7 +47,9 @@ if (con == 0) {
 		alarm[0] = 1;
 		global.facing = 0;
 		exit_block = instance_create(320, 40, obj_homealone_solid);
-		instance_deactivate_object(obj_homealone_vent_hidden);
+		
+		with (obj_homealone_vent_hidden)
+			instance_destroy();
 	}
 }
 
@@ -412,7 +414,15 @@ if (con == 16 && !i_ex(obj_cutscene_master)) {
 	if (exit_block != -4)
 		instance_destroy(exit_block);
 	
-	instance_activate_object(obj_homealone_vent_hidden);
+	if (!i_ex(obj_homealone_vent_hidden)) {
+		var vent_hidden = instance_create(320, 38, obj_homealone_vent_hidden);
+		
+		with (vent_hidden) {
+			room_name = 162;
+			vent_name = "noelle";
+			load_type = "left";
+		}
+	}
 }
 
 if (con == 20 && !d_ex() && customcon == 1) {

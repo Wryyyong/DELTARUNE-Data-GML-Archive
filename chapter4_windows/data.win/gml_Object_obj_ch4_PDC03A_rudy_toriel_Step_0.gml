@@ -566,17 +566,48 @@ if (con == 85 && !i_ex(obj_cutscene_master)) {
 if (disable_npcs) {
 	disable_npcs = false;
 	toriel_npc.visible = 0;
-	instance_deactivate_object(rudy_npc);
-	instance_deactivate_object(toriel_npc);
-	instance_deactivate_object(noelle_npc);
+	
+	with (rudy_npc) {
+		visible = 0;
+		x = -100;
+		y = -100;
+	}
+	
+	with (toriel_npc) {
+		visible = 0;
+		x = -100;
+		y = -100;
+	}
+	
+	with (noelle_npc) {
+		visible = 0;
+		x = -100;
+		y = -100;
+	}
 }
 
 if (enable_npcs) {
 	enable_npcs = false;
 	toriel_npc.visible = 1;
-	instance_activate_object(rudy_npc);
-	instance_activate_object(toriel_npc);
-	instance_activate_object(noelle_npc);
+	
+	with (rudy_npc) {
+		x = xstart;
+		y = ystart;
+		visible = 1;
+	}
+	
+	with (toriel_npc) {
+		x = xstart;
+		y = ystart;
+		visible = 1;
+	}
+	
+	with (noelle_npc) {
+		x = xstart;
+		y = ystart;
+		visible = 1;
+	}
+	
 	rudy_npc.sprite_index = spr_rudy_juice_walk_left;
 }
 

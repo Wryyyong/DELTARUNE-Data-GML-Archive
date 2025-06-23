@@ -6473,8 +6473,11 @@ function scr_text(arg0) {
 			if (global.choice == 0) {
 				scr_speaker("noelle");
 				msgsetloc(0, "\\E3* Th-thanks^1, Kris.../%", "scr_text_slash_scr_text_gml_7062_0");
-				obj_mouseSpawnSwitch.backeddown = 1;
-				obj_mouseSpawnSwitch.introCon = 8;
+				
+				with (obj_mouseSpawnSwitch) {
+					backeddown = 1;
+					introCon = 8;
+				}
 			}
 			
 			if (global.choice == 1) {
@@ -6490,15 +6493,20 @@ function scr_text(arg0) {
 			if (global.choice == 0) {
 				scr_speaker("noelle");
 				msgsetloc(0, "\\E3* Th-thanks^1, Kris.../%", "scr_text_slash_scr_text_gml_7082_0");
-				obj_mouseSpawnSwitch.backeddown = 1;
-				obj_mouseSpawnSwitch.introCon = 8;
+				
+				with (obj_mouseSpawnSwitch) {
+					backeddown = 1;
+					introCon = 8;
+				}
 			}
 			
 			if (global.choice == 1) {
 				scr_speaker("noelle");
 				msgsetloc(0, "\\EB* ..^1. I..^1. I.../", "scr_text_slash_scr_text_gml_7090_0");
 				msgnextloc("\\EB* .../%", "scr_text_slash_scr_text_gml_7091_0");
-				obj_mouseSpawnSwitch.introCon = 131;
+				
+				with (obj_mouseSpawnSwitch)
+					introCon = 131;
 			}
 			
 			break;

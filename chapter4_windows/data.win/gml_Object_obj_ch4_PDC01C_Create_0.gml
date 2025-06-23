@@ -22,8 +22,8 @@ if (global.plot <= 20) {
 		susie_marker.image_speed = 0.15;
 		susie_marker.depth = table_marker.depth - 10;
 		
-		if (i_ex(obj_doorX_musfade))
-			instance_deactivate_object(obj_doorX_musfade);
+		with (obj_doorX_musfade)
+			instance_destroy();
 		
 		door_readable = instance_create(595, 150, obj_readable_room1);
 	} else {
@@ -39,11 +39,11 @@ if (global.plot <= 20) {
 	else
 		plate_marker.x -= 10;
 	
-	if (i_ex(obj_doorA))
-		instance_deactivate_object(obj_doorA);
+	with (obj_doorA)
+		instance_destroy();
 	
-	if (i_ex(obj_markerB))
-		instance_deactivate_object(obj_markerB);
+	with (obj_markerB)
+		instance_destroy();
 	
 	bathroom_readable = instance_create(84, 164, obj_readable_room1);
 	pancake_readable_kris = instance_create(310, 180, obj_readable_room1);

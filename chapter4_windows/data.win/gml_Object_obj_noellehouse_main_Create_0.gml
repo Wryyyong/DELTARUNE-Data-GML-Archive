@@ -14,7 +14,8 @@ disable_vents = function() {
 	with (vent_kitchen)
 		scr_depth();
 	
-	instance_deactivate_object(obj_homealone_vent_overlay);
+	with (obj_homealone_vent_overlay)
+		instance_destroy();
 };
 
 var santa_table = scr_marker(704, 486, spr_noellehouse_table);

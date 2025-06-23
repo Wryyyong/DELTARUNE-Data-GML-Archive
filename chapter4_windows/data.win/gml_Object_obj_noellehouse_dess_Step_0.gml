@@ -115,7 +115,9 @@ if (!init_heart) {
 	if (scr_flag_get(7) == 0)
 		scr_flag_set(7, 1);
 	
-	instance_deactivate_object(obj_homealone_vent_overlay);
+	with (obj_homealone_vent_overlay)
+		instance_destroy();
+	
 	overlay = instance_create(0, 0, obj_noellehouse_basement_overlay);
 	
 	with (overlay) {
@@ -132,7 +134,7 @@ if (!init_heart) {
 	if (scr_debug()) {
 		if (global.tempflag[90] == 1) {
 			global.interact = 1;
-			instance_activate_object(obj_homealone_vent_overlay);
+			instance_create(0, 0, obj_homealone_vent_overlay);
 			
 			with (overlay)
 				instance_destroy();
@@ -182,7 +184,7 @@ if (!init_heart) {
 		if (global.tempflag[90] == 2) {
 			global.interact = 1;
 			con = 50;
-			instance_activate_object(obj_homealone_vent_overlay);
+			instance_create(0, 0, obj_homealone_vent_overlay);
 			
 			with (overlay)
 				instance_destroy();
@@ -265,7 +267,7 @@ if (kris_bed_hide) {
 		
 		if (heart_fall_timer == 1) {
 			global.interact = 1;
-			instance_activate_object(obj_homealone_vent_overlay);
+			instance_create(0, 0, obj_homealone_vent_overlay);
 			
 			with (overlay)
 				instance_destroy();

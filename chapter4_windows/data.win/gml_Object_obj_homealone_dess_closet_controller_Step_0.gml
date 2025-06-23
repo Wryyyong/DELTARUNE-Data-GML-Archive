@@ -63,7 +63,10 @@ if (con == 1) {
 	guitar_marker.depth = obj_homealone_heart.depth + 20;
 	ladder_marker = scr_marker(295, 69, spr_noellehouse_dess_closet_ladder);
 	ladder_marker.depth = kris.depth + 10;
-	instance_deactivate_object(obj_npc_room);
+	
+	with (obj_npc_room)
+		instance_destroy();
+	
 	kris_pickup = true;
 	
 	with (kris) {

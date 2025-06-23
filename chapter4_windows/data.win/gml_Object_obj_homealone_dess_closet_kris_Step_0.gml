@@ -393,7 +393,7 @@ if (cringe_mode) {
 	}
 }
 
-if (tired_mode) {
+if (tired_mode && attackhit == 0) {
 	if (attack_number >= 5) {
 		tired_mode = false;
 		is_tired = true;

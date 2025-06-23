@@ -494,7 +494,7 @@ if (engaged == true) {
 		}
 	}
 	
-	if (buffer < 0) {
+	if (buffer < 0 && obj_board_camera.con == 0 && obj_board_camera.shift == "none") {
 		if (button1_p()) {
 			buffer = 3;
 			dock = 0;
@@ -513,9 +513,24 @@ if (engaged == true) {
 			if (facing == 3)
 				cx = -32;
 			
-			dock = instance_place(x + cx, y + cy, obj_board_dock);
+			dock = collision_rectangle(x + cx + 12, y + cy + 12, x + cx + 20, y + cy + 20, obj_board_dock, false, true);
 			
-			if (i_ex(dock)) {
+			if (instance_exists(dock)) {
+				myx = dock.x;
+				myy = dock.y;
+				
+				if (facing == 0)
+					myy -= 32;
+				
+				if (facing == 2)
+					myy += 32;
+				
+				if (facing == 1)
+					myx -= 32;
+				
+				if (facing == 3)
+					myx += 32;
+				
 				global.interact = 1;
 				disembark = 1;
 				canfreemove = 0;
@@ -528,21 +543,6 @@ if (disembark == 1) {
 	with (obj_mainchara_board)
 		boat = false;
 	
-	myx = dock.x;
-	myy = dock.y;
-	
-	if (facing == 0)
-		myy -= 32;
-	
-	if (facing == 2)
-		myy += 32;
-	
-	if (facing == 1)
-		myx -= 32;
-	
-	if (facing == 3)
-		myx += 32;
-	
 	disembark = 2;
 	disembarktimer = 0;
 }
@@ -550,17 +550,25 @@ if (disembark == 1) {
 if (disembark == 2) {
 	disembarktimer++;
 	
-	if (x < myx)
-		x += 2;
+	if (abs(x - myx) > 1) {
+		if (x < myx)
+			x += 2;
+		
+		if (x > myx)
+			x -= 2;
+	} else {
+		x = myx;
+	}
 	
-	if (x > myx)
-		x -= 2;
-	
-	if (y < myy)
-		y += 2;
-	
-	if (y > myy)
-		y -= 2;
+	if (abs(y - myy) > 1) {
+		if (y < myy)
+			y += 2;
+		
+		if (y > myy)
+			y -= 2;
+	} else {
+		y = myy;
+	}
 	
 	if ((x == myx && y == myy) || disembarktimer > 16) {
 		setxy(myx, myy);

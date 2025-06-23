@@ -162,7 +162,7 @@ if (global.plot < 150) {
 	} else {
 		with (obj_doorAny) {
 			if (x < 40)
-				instance_deactivate_object(id);
+				instance_destroy();
 		}
 		
 		var door_cover_marker = scr_dark_marker(40, 36, spr_dw_green_room_door_cover);
@@ -413,3 +413,6 @@ if (global.entrance == 8) {
 	scr_marker_ext(530, 240, 2706, 2, 2, 0.05, 1);
 	scr_marker_ext(582, 236, 4677, 2, 2, 1/30, 0);
 }
+
+if (global.flag[1067] == 0 && global.flag[1055] >= 6 && global.plot >= 280)
+	instance_create(874, 86, obj_treasure_room);

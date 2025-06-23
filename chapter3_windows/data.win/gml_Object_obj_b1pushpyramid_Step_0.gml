@@ -110,8 +110,18 @@ if (active == 1) {
 	if (susiewalkcon == 10) {
 		targ = instance_nearest(susie.x, susie.y, obj_board_grabbablegrass);
 		
-		if (i_ex(targ))
-			scr_pathfind_to_point("susie", targ.x, targ.y, 0);
+		if (i_ex(targ)) {
+			if (point_in_rectangle(targ.x, targ.y, board_tilex(0), board_tiley(0), board_tilex(11), board_tiley(7))) {
+				scr_pathfind_to_point("susie", targ.x, targ.y, 2);
+			} else {
+				scr_pathfind_end("susie");
+				targ = -4;
+				debug_print("no target");
+				susiewalkcon = 99;
+				susie.sleepy = true;
+				scr_play_susie_recording("0W");
+			}
+		}
 		
 		susietime = 0;
 		susiewalkcon = 11;

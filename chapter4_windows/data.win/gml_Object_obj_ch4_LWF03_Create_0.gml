@@ -58,8 +58,8 @@ if (global.plot >= 300 && global.plot < 310) {
 			instance_destroy();
 	}
 	
-	if (i_ex(obj_doorX_musfade))
-		instance_deactivate_object(obj_doorX_musfade);
+	with (obj_doorX_musfade)
+		instance_destroy();
 	
 	var chair_marker = scr_marker(422, 106, spr_chairiel_empty);
 	
@@ -81,11 +81,11 @@ if (global.plot >= 300 && global.plot < 310) {
 	
 	door_readable = instance_create(595, 150, obj_readable_room1);
 	
-	if (i_ex(obj_doorA))
-		instance_deactivate_object(obj_doorA);
+	with (obj_doorA)
+		instance_destroy();
 	
-	if (i_ex(obj_markerB))
-		instance_deactivate_object(obj_markerB);
+	with (obj_markerB)
+		instance_destroy();
 	
 	bathroom_readable = instance_create(84, 164, obj_readable_room1);
 	var window_marker_a = (scr_flag_get(654) == 1) ? scr_marker(237, 54, spr_torhouse_windows_dark_small) : scr_marker(237, 54, spr_torhouse_windows_dark_small_figures_left);

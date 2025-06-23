@@ -12,5 +12,5 @@ vcon = 0;
 vcontimer = 0;
 rareal = 0;
 tenna = 0;
-targ = 0;
+targ = -4;
 susietime = 0;

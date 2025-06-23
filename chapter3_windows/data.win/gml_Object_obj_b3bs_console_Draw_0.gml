@@ -33,9 +33,6 @@ if (view_current == 0) {
 		var redcol = merge_color(c_white, c_red, reddening);
 		var controllerText = global.is_console || obj_gamecontroller.gamepad_active;
 		
-		if (scr_debug())
-			controllerText = true;
-		
 		if (controllerText) {
 			var zSpr = scr_getbuttonsprite(global.input_g[4], false);
 			var butoffset = 4;

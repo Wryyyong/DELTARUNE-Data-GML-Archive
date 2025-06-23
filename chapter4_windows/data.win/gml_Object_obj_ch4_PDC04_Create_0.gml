@@ -29,8 +29,8 @@ if (global.plot < 30) {
 	door_blocker.visible = 0;
 	leave_con = 0;
 	
-	if (i_ex(obj_doorAny))
-		instance_deactivate_object(obj_doorAny);
+	with (obj_doorAny)
+		instance_destroy();
 } else {
 	instance_destroy();
 }

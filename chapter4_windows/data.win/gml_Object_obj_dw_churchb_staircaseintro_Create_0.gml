@@ -84,6 +84,7 @@ scr_musicer("alt_church_lobby.ogg", undefined, undefined, undefined, fadetime);
 
 if (global.plot >= 240) {
 	con = 40;
+	scr_setparty(1, 1);
 	
 	if (scr_debug()) {
 	}

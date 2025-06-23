@@ -236,3 +236,16 @@ function scr_store_ura_result(arg0, arg1, arg2) {
 	
 	scr_set_ura_value(arg0, slot, new_result);
 }
+
+function scr_get_vhs_ini_value() {
+	var _ini_file = ossafe_ini_open("dr.ini");
+	var _ini_value = ini_read_real("VHS", "watched", 0);
+	ossafe_ini_close();
+	return _ini_value;
+}
+
+function scr_set_vhs_ini_value(arg0) {
+	var iniwrite = ossafe_ini_open("dr.ini");
+	ini_write_real("VHS", "watched", arg0);
+	ossafe_ini_close();
+}

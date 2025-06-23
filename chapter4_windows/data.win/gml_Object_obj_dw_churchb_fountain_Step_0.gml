@@ -65,8 +65,12 @@ if (con == 0) {
 	alarm[0] = 1;
 	global.interact = 1;
 	global.facing = 0;
-	instance_deactivate_object(obj_floorshadow);
-	instance_deactivate_object(obj_sprhighlight);
+	
+	with (obj_floorshadow)
+		instance_destroy();
+	
+	with (obj_sprhighlight)
+		instance_destroy();
 }
 
 if (con == 2) {
@@ -178,8 +182,8 @@ if (clean_up) {
 	with (obj_caterpillarchara)
 		scr_caterpillar_interpolate();
 	
-	instance_activate_object(obj_floorshadow);
-	instance_activate_object(obj_sprhighlight);
+	shadinit = 0;
+	exit;
 }
 
 if (con == 3 && !i_ex(obj_cutscene_master)) {

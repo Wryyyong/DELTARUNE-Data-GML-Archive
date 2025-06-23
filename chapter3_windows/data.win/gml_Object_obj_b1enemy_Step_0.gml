@@ -19,9 +19,6 @@ if (ralsei == 0) {
 	}
 }
 
-if (tenna == 0)
-	tenna = 157;
-
 if (init == 0) {
 	if (i_ex(obj_board_tree_static)) {
 		var image_ind = obj_board_tree_static.image_index;
@@ -68,8 +65,10 @@ if (active == 1) {
 		var weedcount = 0;
 		
 		with (obj_board_grabbablegrass) {
-			if (active)
+			if (active) {
 				weedcount++;
+				show_debug_message_concat(weedcount, ": ", xstart, " , ", ystart);
+			}
 		}
 		
 		if (global.flag[1020] == 0)
@@ -103,17 +102,29 @@ if (active == 1) {
 	if (susiewalkcon == 10) {
 		targ = instance_nearest(susie.x, susie.y, obj_board_grabbablegrass);
 		
-		if (i_ex(targ))
-			scr_pathfind_to_point("susie", targ.x, targ.y, 2);
+		if (i_ex(targ)) {
+			if (point_in_rectangle(targ.x, targ.y, board_tilex(0), board_tiley(0), board_tilex(11), board_tiley(7))) {
+				scr_pathfind_to_point("susie", targ.x, targ.y, 0);
+			} else {
+				scr_pathfind_end("susie");
+				targ = -4;
+				debug_print("no target");
+				susiewalkcon = 99;
+				susie.sleepy = true;
+				scr_play_susie_recording("0W");
+			}
+		}
 		
 		susietime = 0;
 		susiewalkcon = 11;
 	}
 	
 	if (susiewalkcon == 11) {
-		if (abs(susie.x - targ.x) < 2 && abs(susie.y - targ.y) < 2) {
-			scr_pathfind_end("susie");
-			susiewalkcon = 12;
+		if (instance_exists(targ)) {
+			if (abs(susie.x - targ.x) < 2 && abs(susie.y - targ.y) < 2) {
+				scr_pathfind_end("susie");
+				susiewalkcon = 12;
+			}
 		}
 	}
 	
@@ -144,7 +155,9 @@ if (visitcon == 1) {
 	}
 	
 	if (talkcon == 1 && active) {
-		tenna.bounce = 1;
+		with (obj_actor_tenna)
+			bounce = 1;
+		
 		var tetalk = stringsetloc("Enemy!! Careful, brave heroes!!", "obj_b1enemy_slash_Step_0_gml_145_0");
 		scr_couchtalk(tetalk, "tenna", 2, 90);
 		talkcon++;
@@ -164,7 +177,9 @@ if (visitcon == 1) {
 }
 
 if (visitcon == 200) {
-	tenna.bounce = true;
+	with (obj_actor_tenna)
+		bounce = 1;
+	
 	var tetalk = stringsetloc("Wow, absolutely spineless, folks!!", "obj_b1enemy_slash_Step_0_gml_167_0");
 	scr_couchtalk(tetalk, "tenna", 2);
 	snd_play_delay(67, 15);

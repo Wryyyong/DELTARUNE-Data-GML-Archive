@@ -254,7 +254,12 @@ if (con == 2) {
 }
 
 if (con == 3 && customcon == 1 && !d_ex()) {
+	con = 4;
 	customcon = 0;
+	
+	if (scr_get_vhs_ini_value() == 1)
+		con = 10;
+	
 	c_waitcustom_end();
 	c_mus2("volume", 0, 15);
 	c_speaker("tenna");
@@ -269,6 +274,13 @@ if (con == 3 && customcon == 1 && !d_ex()) {
 	c_mus("free_all");
 	c_wait(60);
 	c_pannable(0);
+	c_waitcustom();
+}
+
+if (con == 4 && customcon == 1) {
+	con = 20;
+	customcon = 0;
+	c_waitcustom_end();
 	c_sel(kr);
 	c_facing("d");
 	c_var_instance(spotlight_fx, "visible", 0);
@@ -277,8 +289,53 @@ if (con == 3 && customcon == 1 && !d_ex()) {
 	c_terminatekillactors();
 }
 
-if (con == 3 && !i_ex(obj_cutscene_master)) {
+if (con == 10 && customcon == 1 && !d_ex()) {
+	con = 11;
+	
+	with (spotlight_fx)
+		instance_destroy();
+	
+	with (blackall)
+		depth = 5000;
+	
+	camerax_set(0);
+	cameray_set(0);
+	global.choice = -1;
+	global.choicemsg[0] = (global.lang == "ja") ? "#VTRを#スキップ" : "#Skip the#video";
+	global.choicemsg[1] = (global.lang == "ja") ? "#それでも#まだ見る" : "#Try and#watch anyway";
+	global.choicemsg[2] = stringset("");
+	global.choicemsg[3] = stringset("");
+	var prompt_text = (global.lang == "ja") ? "＊ おーっとぉ！&　 VTRの様子がおかしいぞ！/" : "* W-Wait^1! The VHS isn't working!/";
+	scr_speaker("tenna");
+	msgset(0, prompt_text);
+	msgnext("\\C2 ");
+	var d = d_make();
+	d.zurasu = 0;
+}
+
+if (con == 11 && global.choice != -1) {
+	k_d();
+	
+	if (global.choice == 0) {
+		con = 15;
+	} else {
+		con = 4;
+		c_waitcustom_end();
+		c_wait(30);
+		c_waitcustom();
+	}
+}
+
+if (con == 15 && !d_ex()) {
+	con = 99;
 	global.plot = 50;
+	room_goto(room_dw_tv_cutscene1g);
+	exit;
+}
+
+if (con == 20 && !i_ex(obj_cutscene_master)) {
+	global.plot = 50;
+	scr_set_vhs_ini_value(1);
 	con = 99;
 	room_goto(room_dw_couch_video);
 }

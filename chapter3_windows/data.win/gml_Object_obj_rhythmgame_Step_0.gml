@@ -185,7 +185,7 @@ if (song_id >= 0 && song_loaded == false && loadsong >= 1) {
 	song_loaded = true;
 }
 
-if (tenna_boss && keyboard_check_pressed(ord("V"))) {
+if (scr_debug() && tenna_boss && keyboard_check_pressed(ord("V"))) {
 	auto_play = true;
 	song_done = true;
 }

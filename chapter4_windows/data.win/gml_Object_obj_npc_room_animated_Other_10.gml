@@ -341,7 +341,7 @@ if (room == room_alphysalley) {
 		scr_speaker("catty");
 		msgsetloc(0, "\\E8* OMG^1! Krissy!!^1! Do you^1, like^1, want some of my free milk!?/", "obj_npc_room_animated_slash_Other_10_gml_423_0");
 		scr_anyface_next("susie", 5);
-		msgnextloc("\\E5* (That's MY free milk^1, you furry degenerate...)/%", "obj_npc_room_animated_slash_Other_10_gml_425_0");
+		msgnextloc("\\E5* (That's MY free milk^1, you furry freak...)/%", "obj_npc_room_animated_slash_Other_10_gml_425_0");
 	} else {
 		scr_speaker("catty");
 		msgsetloc(0, "\\E6* Like^1, don't be shy^1! It's my milk and I love sharing!!/", "obj_npc_room_animated_slash_Other_10_gml_429_0");

@@ -395,9 +395,25 @@ if (con == 62 && !i_ex(obj_cutscene_master)) {
 	global.interact = 0;
 	global.facing = 0;
 	scr_flag_set(1068, 1);
+	var door_a = instance_create(34, 105, obj_doorAny);
 	
-	with (obj_doorAny)
-		instance_activate_object(obj_doorAny);
+	with (door_a) {
+		image_xscale = 2;
+		image_yscale = 2;
+		doorRoom = 147;
+		doorEntrance = "B";
+		doorPreset = 1;
+	}
+	
+	var door_b = instance_create(26, 184, obj_doorAny);
+	
+	with (door_b) {
+		image_xscale = 1.5;
+		image_yscale = 0.6;
+		doorRoom = 147;
+		doorEntrance = "B";
+		doorPreset = 1;
+	}
 	
 	with (lancer_npc)
 		instance_destroy();

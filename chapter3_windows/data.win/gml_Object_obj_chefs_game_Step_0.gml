@@ -172,6 +172,15 @@ if (gameover) {
 				timer = -1;
 			}
 		} else {
+			if (i_ex(obj_tenna_zoom) || i_ex(obj_tenna_enemy)) {
+				with (obj_tenna_zoom) {
+					con = 2;
+					timer = -1;
+				}
+				
+				exit;
+			}
+			
 			snd_free_all();
 			scr_flag_set(7, 0);
 			

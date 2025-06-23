@@ -13,6 +13,6 @@ abandontimer = 0;
 susiewalkcon = 0;
 suplay = -1;
 suwalktimer = 0;
-targ = 0;
+targ = -4;
 susietime = 0;
 ptime = 0;

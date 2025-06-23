@@ -40,6 +40,21 @@ with (screenshot_tenna) {
 	scr_script_delayed(scr_lerpvar, other.textfade, "image_alpha", 1, 0, other.tennafade, 2, "out");
 }
 
+if (scr_get_vhs_ini_value() == 1) {
+	screenshot_tenna.visible = false;
+	var skip_overlay = scr_dark_marker(-10, 10, spr_pixel_white);
+	var fade_time = (textfade + tennafade) - 6;
+	
+	with (skip_overlay) {
+		image_blend = c_black;
+		image_xscale = 999;
+		image_yscale = 999;
+		depth = -100;
+		scr_lerpvar("image_alpha", 1, 0, fade_time);
+		scr_doom(id, fade_time + 1);
+	}
+}
+
 bgleft = scr_marker(0, 0, spr_dw_tv_cutscene1g_fakebg);
 bgright = scr_marker(320, 0, spr_dw_tv_cutscene1g_fakebg);
 bgleft.image_index = 0;

@@ -1,17 +1,5 @@
-if (!audio_group_is_loaded(0))
+if (!_init)
 	exit;
-
-if (!init_loaded)
-	exit;
-
-if (roominit == 0) {
-	surface_resize(application_surface, room_width, room_height);
-	
-	if (room == PLACE_CHAPTER_SELECT_2x)
-		scale = 2;
-	
-	roominit = 1;
-}
 
 for (var i = 0; i < 10; i += 1) {
 	global.input_released[i] = 0;

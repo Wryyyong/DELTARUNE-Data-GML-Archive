@@ -458,6 +458,14 @@ if (con == 31 && !d_ex() && lcon == 3) {
 }
 
 if (con == 35) {
+	var victory = false;
+	
+	with (obj_battlecontroller)
+		victory = victoried;
+	
+	if (victory && s.visible == 0)
+		s.visible = 1;
+	
 	if (!instance_exists(obj_battlecontroller)) {
 		snd_free_all();
 		

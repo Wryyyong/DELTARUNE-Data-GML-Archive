@@ -9,6 +9,9 @@ if (global.interact == 0) {
 			instance_destroy();
 		}
 		
+		with (obj_darkcontroller)
+			charcon = 0;
+		
 		snd_play(snd_bell);
 		
 		if (obj_starwalker_overworld.beatcon == 0) {

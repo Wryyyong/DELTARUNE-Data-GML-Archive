@@ -3,6 +3,7 @@ keyboard_active = 1;
 axis_value = 0.4;
 fullscreen_toggle = 0;
 window_center_toggle = 0;
+isfullscreen = 0;
 screenshot_number = 0;
 border_fade_out = false;
 border_fade_in = false;
@@ -17,16 +18,27 @@ screenshot = -1;
 if (instance_number(obj_time) > 1) {
 	instance_destroy();
 } else {
-	display_height = display_get_height();
-	display_width = display_get_width();
+	var setfull = false;
+	
+	if (!global.is_console) {
+		ini_open("true_config.ini");
+		setfull = ini_read_real("SCREEN", "FULLSCREEN", 0);
+		ini_close();
+		
+		if (setfull)
+			window_set_fullscreen(true);
+	}
+	
+	var display_height = display_get_height();
+	var display_width = display_get_width();
 	window_size_multiplier = 1;
 	
-	for (_ww = 2; _ww < 6; _ww += 1) {
+	for (var _ww = 2; _ww < 12; _ww += 1) {
 		if (display_width > (640 * _ww) && display_height > (480 * _ww))
 			window_size_multiplier = _ww;
 	}
 	
-	if (window_size_multiplier > 1) {
+	if (window_size_multiplier > 1 && !setfull && !global.launcher) {
 		window_set_size(640 * window_size_multiplier, 480 * window_size_multiplier);
 		window_center_toggle = 1;
 	}

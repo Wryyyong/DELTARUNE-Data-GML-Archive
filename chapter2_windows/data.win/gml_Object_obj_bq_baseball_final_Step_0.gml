@@ -54,20 +54,14 @@ if (hit == 1) {
 		ybase = y;
 	}
 	
-	if (hit_timer == (90 / f)) {
-		snd_play(snd_wing);
-		snd_pitch(snd_wing, 0.7);
-	}
+	if (hit_timer == (90 / f))
+		snd_pitch(snd_play(snd_wing), 0.7);
 	
-	if (hit_timer == (160 / f)) {
-		snd_play(snd_wing);
-		snd_pitch(snd_wing, 1);
-	}
+	if (hit_timer == (160 / f))
+		snd_pitch(snd_play(snd_wing), 1);
 	
-	if (hit_timer == (220 / f)) {
-		snd_play(snd_wing);
-		snd_pitch(snd_wing, 1.3);
-	}
+	if (hit_timer == (220 / f))
+		snd_pitch(snd_play(snd_wing), 1.3);
 	
 	if (hit_timer > 0 && hit_timer < (40 / f)) {
 		x = (xbase + (40 / hit_timer)) - irandom(80 / hit_timer);

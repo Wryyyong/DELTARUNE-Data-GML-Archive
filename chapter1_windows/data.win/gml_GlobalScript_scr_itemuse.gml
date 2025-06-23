@@ -45,7 +45,9 @@ function scr_itemuse(arg0) {
 			
 			if (_gc == 2) {
 				scr_itemcomment(suspos, scr_84_get_lang_string("scr_itemuse_slash_scr_itemuse_gml_47_0"));
-				scr_itemcomment(ralpos, scr_84_get_lang_string("scr_itemuse_slash_scr_itemuse_gml_48_0"));
+				
+				if (scr_havechar(3))
+					scr_itemcomment(ralpos, scr_84_get_lang_string("scr_itemuse_slash_scr_itemuse_gml_48_0"));
 			}
 			
 			if (_gc == 3) {

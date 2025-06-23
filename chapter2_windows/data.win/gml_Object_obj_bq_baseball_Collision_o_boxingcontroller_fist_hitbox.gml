@@ -36,13 +36,10 @@ if (hit == 0 && o_boxingcontroller.hit_baseball_check == 0 && y < c) {
 	
 	with (o_boxingcontroller) {
 		if (duckactive == 1) {
-			if (arcade == 1) {
-				snd_pitch(snd_squeaky_bc, 0.75 + random(0.5));
-				snd_play(snd_squeaky_bc);
-			} else {
-				snd_pitch(snd_squeaky, 0.75 + random(0.5));
-				snd_play(snd_squeaky);
-			}
+			if (arcade == 1)
+				snd_pitch(snd_play(snd_squeaky_bc), 0.75 + random(0.5));
+			else
+				snd_pitch(snd_play(snd_squeaky), 0.75 + random(0.5));
 			
 			color_fade_alpha = 1;
 			global.hp[1] += 4;

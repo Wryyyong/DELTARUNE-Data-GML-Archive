@@ -10,13 +10,15 @@ _NEWURABOSS = ini_read_real(scr_ini_chapter(global.chapter, MENUCOORD[2]), "UraB
 _NEWVERSION = ini_read_string(scr_ini_chapter(global.chapter, MENUCOORD[2]), "Version", "0");
 ini_write_string(scr_ini_chapter(global.chapter, MENUCOORD[3]), "Name", _NEWNAME);
 ini_write_real(scr_ini_chapter(global.chapter, MENUCOORD[3]), "Time", _NEWTIME);
-ini_write_real(scr_ini_chapter(global.chapter, MENUCOORD[3]), "Room", _NEWROOM);
+ini_write_real(scr_ini_chapter(global.chapter, MENUCOORD[3]), "Room", scr_get_id_by_room_index(_NEWROOM));
 ini_write_real(scr_ini_chapter(global.chapter, MENUCOORD[3]), "Level", _NEWLEVEL);
 ini_write_real(scr_ini_chapter(global.chapter, MENUCOORD[3]), "Date", _NEWDATE);
 ini_write_real(scr_ini_chapter(global.chapter, MENUCOORD[3]), "InitLang", _NEWINITLANG);
 ini_write_real(scr_ini_chapter(global.chapter, MENUCOORD[3]), "UraBoss", _NEWURABOSS);
 ini_write_string(scr_ini_chapter(global.chapter, MENUCOORD[3]), "Version", _NEWVERSION);
 ossafe_ini_close();
+var result = scr_get_ura_value(global.chapter, MENUCOORD[2]);
+scr_store_ura_result(global.chapter, MENUCOORD[3], result);
 FILE[MENUCOORD[3]] = 1;
 PLACE[MENUCOORD[3]] = PLACE[MENUCOORD[2]];
 TIME[MENUCOORD[3]] = TIME[MENUCOORD[2]];

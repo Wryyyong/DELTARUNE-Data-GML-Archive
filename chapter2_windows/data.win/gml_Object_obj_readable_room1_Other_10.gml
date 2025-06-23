@@ -1319,7 +1319,7 @@ if (room == room_lw_conbini) {
 		msgnextloc("* (..^1. It's incredibly deep and holds all sorts of things.)/%", "obj_readable_room1_slash_Other_10_gml_1652_0");
 	}
 	
-	if (x > 200 && y < 80) {
+	if (x > 200 && x < 210 && y < 80) {
 		scr_speaker("no_name");
 		msgsetloc(0, "* LOOSE EGGS $1/", "obj_readable_room1_slash_Other_10_gml_1659_0");
 		msgnextloc("* (It's too much responsibility for an egg.)/%", "obj_readable_room1_slash_Other_10_gml_1660_0");

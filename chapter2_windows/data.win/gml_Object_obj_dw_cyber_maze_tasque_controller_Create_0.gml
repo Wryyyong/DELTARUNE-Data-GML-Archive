@@ -33,5 +33,10 @@ if (global.flag[539] != 0) {
 		enem1.pacetype = 21;
 		enem2 = instance_create(564, 586, obj_chaseenemy);
 		enem2.pacetype = 22;
+		
+		with (obj_chaseenemy) {
+			touchflag = 539;
+			eraser = 1;
+		}
 	}
 }

@@ -1,1 +1,2 @@
 debug = false;
+god = false;

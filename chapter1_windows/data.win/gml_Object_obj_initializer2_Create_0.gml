@@ -1,4 +1,8 @@
 global.is_console = os_type == os_switch || os_type == os_ps4;
+
+if (!global.is_console)
+	window_enable_borderless_fullscreen(true);
+
 var launch_data = scr_init_launch_parameters();
 global.launcher = launch_data.is_launcher;
 
@@ -6,18 +10,14 @@ if (global.launcher) {
 	if (os_type == os_switch && !variable_global_exists("switchlogin")) {
 		global.switchlogin = launch_data.switch_id;
 		
-		if (global.switchlogin >= 0) {
-			if (switch_accounts_is_user_open(global.switchlogin)) {
-				switch_save_data_unmount();
-				switch_accounts_close_user(global.switchlogin);
-			}
-		}
+		if (global.switchlogin >= 0)
+			switch_save_data_mount(global.switchlogin);
 		
 		while (global.switchlogin < 0)
 			global.switchlogin = switch_accounts_select_account(true, false, false);
 		
-		switch_accounts_open_user(global.switchlogin);
-		switch_save_data_mount(global.switchlogin);
+		if (!switch_accounts_is_user_open(global.switchlogin))
+			switch_accounts_open_user(global.switchlogin);
 	}
 } else if (os_type == os_switch && !variable_global_exists("switchlogin")) {
 	var _id = -1;
@@ -40,7 +40,7 @@ global.savedata_async_id = -1;
 global.savedata_async_load = false;
 global.savedata_error = false;
 global.savedata_debuginfo = "";
-global.version = "1.17";
+global.version = "1.19";
 
 if (os_type == os_switch)
 	global.version = "1.07";

@@ -33,8 +33,7 @@ if (hit != 1) {
 	
 	with (o_boxingcontroller) {
 		if (duckactive == 1) {
-			snd_pitch(snd_squeaky, 0.75 + random(0.5));
-			snd_play(snd_squeaky);
+			snd_pitch(snd_play(snd_squeaky), 0.75 + random(0.5));
 			color_fade_alpha = 1;
 			global.hp[1] += 4;
 			

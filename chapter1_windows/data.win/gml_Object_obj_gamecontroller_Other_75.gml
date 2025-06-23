@@ -5,7 +5,20 @@ switch (ds_map_find_value(async_load, "event_type")) {
 		if (gamepad_is_connected(pad)) {
 			gamepad_active = 1;
 			gamepad_id = pad;
-			gamepad_type = (gamepad_get_description(gamepad_id) == "Sony DualShock 4") ? 1 : 0;
+			var is_ps_controller = false;
+			var gamepad_description = gamepad_get_description(gamepad_id);
+			
+			switch (gamepad_description) {
+				case "Sony DualShock 4":
+					is_ps_controller = true;
+					break;
+				
+				case "DualSense Wireless Controller":
+					is_ps_controller = true;
+					break;
+			}
+			
+			gamepad_type = is_ps_controller ? 1 : 0;
 		}
 		
 		break;

@@ -23,4 +23,5 @@ function scr_save() {
 	ini_write_string("G" + string(global.filechoice), "Version", global.version);
 	ossafe_ini_close();
 	ossafe_savedata_save();
+	scr_store_ura_result(global.chapter, global.filechoice, uraboss);
 }

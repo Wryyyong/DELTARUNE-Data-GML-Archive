@@ -300,6 +300,24 @@ if (MENU_NO >= 0) {
 			draw_set_color(COL_B);
 		
 		draw_text_shadow(204, 190, CHSELECTTEXT);
+		
+		if (!global.is_console) {
+			QUITTEXT = "End Program";
+			
+			if (global.lang == "ja")
+				QUITTEXT = "終了";
+			
+			if (TYPE == 0)
+				QUITTEXT = string_upper(QUITTEXT);
+			
+			draw_set_color(COL_A);
+			
+			if (MENUCOORD[0] == 7)
+				draw_set_color(COL_B);
+			
+			draw_text_shadow(204, 210, QUITTEXT);
+		}
+		
 		draw_set_color(COL_A);
 		
 		if (MENUCOORD[0] == 6)
@@ -372,6 +390,13 @@ if (MENU_NO >= 0) {
 	draw_set_color(COL_B);
 	draw_text_shadow(40, 30, TEMPCOMMENT);
 	MESSAGETIMER -= 1;
+	
+	if (MENU_NO == 0) {
+		if (MENUCOORD[0] == 7) {
+			HEARTX = 190;
+			HEARTY = 215;
+		}
+	}
 }
 
 if (abs(HEARTX - HEARTXCUR) <= 2)
@@ -389,5 +414,6 @@ if (TYPE == 1)
 else
 	draw_set_color(COL_A);
 
+draw_set_font(fnt_main);
 draw_text_shadow(__view_get(e__VW.XView, 0) + 8, __view_get(e__VW.YView, 0) + 4, "CHAPTER 1");
 draw_set_color(c_white);

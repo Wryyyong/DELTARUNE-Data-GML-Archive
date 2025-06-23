@@ -402,7 +402,7 @@ if (con == 31 && !d_ex()) {
 if (con == 33) {
 	con = 34;
 	snd_play(snd_joker_laugh0);
-	global.typer = 35;
+	global.typer = 6;
 	global.fc = 0;
 	scr_keyitemget(13);
 	global.msg[0] = scr_84_get_lang_string("obj_jokerbattleevent_slash_Step_0_gml_362_0");

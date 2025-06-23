@@ -1,8 +1,6 @@
 if (hp < 1) {
-	if (active == 1) {
-		snd_play(snd_hurt1);
-		snd_pitch(snd_hurt1, 2);
-	}
+	if (active == 1)
+		snd_pitch(snd_play(snd_hurt1), 2);
 	
 	active = 0;
 	image_alpha -= 0.05;

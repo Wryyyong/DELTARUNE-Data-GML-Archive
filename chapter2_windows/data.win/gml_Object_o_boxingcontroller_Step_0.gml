@@ -511,8 +511,7 @@ if (punchcon >= 1 && arcade_end == 0) {
 		friction = 2 * f;
 		punchcon = 2;
 		punchtimer = 0;
-		snd_play(motor_upper_quick_high);
-		snd_pitch(motor_upper_quick_high, 1.25);
+		snd_pitch(snd_play(motor_upper_quick_high), 1.25);
 	}
 	
 	if (punchcon == 2) {
@@ -1006,11 +1005,11 @@ if (punchcon >= 1 && arcade_end == 0) {
 					
 					if (duckactive == 1) {
 						if (arcade) {
-							snd_pitch(snd_squeaky_bc, 0.75 + random(0.5));
-							snd_play(snd_squeaky_bc);
+							var snd = snd_play(snd_squeaky_bc);
+							snd_pitch(snd, 0.75 + random(0.5));
 						} else {
-							snd_pitch(snd_squeaky, 0.75 + random(0.5));
-							snd_play(snd_squeaky);
+							var snd = snd_play(snd_squeaky);
+							snd_pitch(snd, 0.75 + random(0.5));
 						}
 						
 						color_fade_alpha = 1;

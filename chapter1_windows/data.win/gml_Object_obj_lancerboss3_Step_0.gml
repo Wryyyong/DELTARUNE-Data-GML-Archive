@@ -41,6 +41,9 @@ if (global.monster[myself] == 1 && defeated == 0) {
 				with (global.monsterinstance[0]) {
 					event_user(12);
 					event_user(1);
+					
+					if (global.turntimer < 150)
+						global.turntimer = 150;
 				}
 				
 				global.monsterhp[0] = 40;

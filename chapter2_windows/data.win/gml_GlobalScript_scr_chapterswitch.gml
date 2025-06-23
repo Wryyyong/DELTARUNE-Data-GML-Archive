@@ -4,7 +4,7 @@ function scr_chapterswitch(arg0 = 0) {
 	if (arg0 == 0) {
 		switch (os_type) {
 			case os_windows:
-				game_change("/../", "-game data.win");
+				game_change("/../", "-game data.win" + parameters);
 				break;
 			
 			case os_switch:

@@ -11,6 +11,9 @@ function scr_init_launch_parameters() {
 			} else if (string_pos("switch_", param) != 0) {
 				var param_parts = string_split(param, "_");
 				param_data.switch_id = real(param_parts[1]);
+			} else if (string_pos("returning_", param) != 0) {
+				var param_parts = string_split(param, "_");
+				param_data.returning = real(param_parts[1]);
 			}
 		}
 	}
@@ -21,11 +24,11 @@ function scr_init_launch_parameters() {
 function launch_parameters() constructor {
 	is_launcher = true;
 	switch_id = -1;
+	returning = 0;
 }
 
 function get_chapter_switch_parameters() {
 	var launch_data = new launch_parameters();
-	launch_data.is_launcher = global.launcher;
 	
 	if (os_type == os_switch && variable_global_exists("switchlogin"))
 		launch_data.switch_id = global.switchlogin;
@@ -33,11 +36,15 @@ function get_chapter_switch_parameters() {
 	var parameters = [];
 	parameters[0] = "launcher";
 	parameters[1] = "switch_" + string(launch_data.switch_id);
+	parameters[2] = "returning_" + string(launch_data.returning);
 	var param_formatted = "";
 	
 	for (var i = 0; i < array_length(parameters); i++)
 		param_formatted += (" " + string(parameters[i]));
 	
-	show_debug_message("**** formatted parameters: " + string(param_formatted));
 	return param_formatted;
+}
+
+function is_original_launcher(arg0) {
+	return arg0.returning == 0;
 }

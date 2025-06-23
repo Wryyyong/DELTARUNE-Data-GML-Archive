@@ -1047,8 +1047,7 @@ if (global.fighting == 1) {
 				krs = scr_act_charsprite("kris", spr_krisb_attack, 0.25, 1);
 				krs.depth = obj_herokris.depth + 1;
 				alarm[4] = 14;
-				snd_play(snd_scytheburst);
-				snd_pitch(snd_scytheburst, 1.2);
+				snd_pitch(snd_play(snd_scytheburst), 1.2);
 				att = instance_create(x + 57, y + 76, obj_basicattack);
 				att.image_xscale = 2;
 				att.image_yscale = 2;
@@ -1068,8 +1067,7 @@ if (global.fighting == 1) {
 				krs = scr_act_charsprite("kris", spr_krisb_attack, 0.25, 1);
 				krs.depth = obj_herokris.depth + 1;
 				alarm[4] = 14;
-				snd_play(snd_scytheburst);
-				snd_pitch(snd_scytheburst, 0.8);
+				snd_pitch(snd_play(snd_scytheburst), 0.8);
 				att = instance_create(x + 57, y + 76, obj_basicattack);
 				att.image_xscale = -2;
 				att.image_yscale = 2;

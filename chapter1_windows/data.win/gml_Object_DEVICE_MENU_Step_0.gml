@@ -164,6 +164,9 @@ if (MENU_NO == 1 || MENU_NO == 4 || MENU_NO == 6 || MENU_NO == 7) {
 				ini_write_real("G" + string(MENUCOORD[5]), "Love", 0);
 				ini_write_real("G" + string(MENUCOORD[5]), "Time", 0);
 				ini_write_real("G" + string(MENUCOORD[5]), "Room", 0);
+				ini_write_real("G" + string(MENUCOORD[5]), "Date", 0);
+				ini_write_real("G" + string(MENUCOORD[5]), "UraBoss", 0);
+				ini_write_string("G" + string(MENUCOORD[5]), "Version", "0");
 				ossafe_ini_close();
 				ossafe_savedata_save();
 				
@@ -350,12 +353,17 @@ if (MENU_NO == 2 || MENU_NO == 3 || MENU_NO == 5) {
 }
 
 if (MENU_NO == 0) {
+	var memloc = MENUCOORD[0];
+	
 	if (down_p()) {
 		if (MENUCOORD[0] < 3) {
 			MENUCOORD[0] += 1;
 			MOVENOISE = 1;
-		} else if (MENUCOORD[0] != 6) {
+		} else if (MENUCOORD[0] == 3 || MENUCOORD[0] == 4) {
 			MENUCOORD[0] = 6;
+			MOVENOISE = 1;
+		} else if (MENUCOORD[0] == 5) {
+			MENUCOORD[0] = 7;
 			MOVENOISE = 1;
 		}
 	}
@@ -367,19 +375,27 @@ if (MENU_NO == 0) {
 			else if (MENUCOORD[0] == 3 || MENUCOORD[0] == 4 || MENUCOORD[0] == 5)
 				MENUCOORD[0] = 2;
 			else if (MENUCOORD[0] == 6)
-				MENUCOORD[0] -= 2;
+				MENUCOORD[0] = 4;
+			else if (MENUCOORD[0] == 7)
+				MENUCOORD[0] = 5;
 			
 			MOVENOISE = 1;
 		}
 	}
 	
 	if (right_p()) {
-		if (MENUCOORD[0] >= 3 && MENUCOORD[0] <= 5) {
+		if (MENUCOORD[0] >= 3 && MENUCOORD[0] < 5) {
 			MOVENOISE = 1;
 			MENUCOORD[0] += 1;
-			
-			if (MENUCOORD[0] > 5)
-				MENUCOORD[0] = 3;
+		} else if (MENUCOORD[0] == 5) {
+			MOVENOISE = 1;
+			MENUCOORD[0] = 3;
+		} else if (MENUCOORD[0] == 6) {
+			MOVENOISE = 1;
+			MENUCOORD[0] = 7;
+		} else if (MENUCOORD[0] == 7) {
+			MOVENOISE = 1;
+			MENUCOORD[0] = 6;
 		}
 	}
 	
@@ -390,6 +406,19 @@ if (MENU_NO == 0) {
 			
 			if (MENUCOORD[0] < 3)
 				MENUCOORD[0] = 5;
+		} else if (MENUCOORD[0] == 6) {
+			MOVENOISE = 1;
+			MENUCOORD[0] = 7;
+		} else if (MENUCOORD[0] == 7) {
+			MOVENOISE = 1;
+			MENUCOORD[0] = 6;
+		}
+	}
+	
+	if (global.is_console) {
+		if (MENUCOORD[0] == 7) {
+			MENUCOORD[0] = memloc;
+			MOVENOISE = false;
 		}
 	}
 	
@@ -433,6 +462,13 @@ if (MENU_NO == 0) {
 			ONEBUFFER = 2;
 			TWOBUFFER = 2;
 			SELNOISE = 1;
+		}
+		
+		if (MENUCOORD[0] == 7) {
+			ONEBUFFER = 2;
+			TWOBUFFER = 2;
+			SELNOISE = 1;
+			game_end();
 		}
 	}
 }

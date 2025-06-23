@@ -15,10 +15,8 @@ if (deathtimer > 0) {
 if (duckmode) {
 	var thrashcon = obj_rouxls_enemy.thrashcon;
 	
-	if ((thrashcon == 3 || thrashcon == 5) && thrash.stomp != 0) {
-		snd_pitch(snd_squeaky, (thrash.stomp == 1) ? 1.25 : 1);
-		snd_play(snd_squeaky);
-	}
+	if ((thrashcon == 3 || thrashcon == 5) && thrash.stomp != 0)
+		snd_pitch(snd_play(snd_squeaky), (thrash.stomp == 1) ? 1.25 : 1);
 }
 
 thrash.stomp = 0;

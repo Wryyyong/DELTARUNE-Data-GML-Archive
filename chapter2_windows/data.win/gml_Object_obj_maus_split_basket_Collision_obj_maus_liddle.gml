@@ -20,6 +20,5 @@ if (other.con == 5 && other.captured == 0) {
 		actfailure = 0;
 	
 	snd_stop(snd_squeaky);
-	snd_play(snd_squeaky);
-	snd_volume(snd_squeaky, noisevol, 0);
+	snd_volume(snd_play(snd_squeaky), noisevol, 0);
 }

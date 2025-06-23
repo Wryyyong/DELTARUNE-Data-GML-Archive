@@ -21,6 +21,7 @@ function scr_init_launch_parameters() {
 function launch_parameters() constructor {
 	is_launcher = false;
 	switch_id = -1;
+	returning = 0;
 }
 
 function get_chapter_switch_parameters() {
@@ -33,6 +34,7 @@ function get_chapter_switch_parameters() {
 	var parameters = [];
 	parameters[0] = "launcher";
 	parameters[1] = "switch_" + string(launch_data.switch_id);
+	parameters[2] = "returning_" + string(global.chapter);
 	var param_formatted = "";
 	
 	for (var i = 0; i < array_length(parameters); i++)

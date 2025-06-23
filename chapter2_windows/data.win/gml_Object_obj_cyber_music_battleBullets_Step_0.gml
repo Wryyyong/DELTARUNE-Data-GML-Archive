@@ -16,14 +16,29 @@ if (timer == 45) {
 
 if (timer == 60) {
 	snd_stop(global.currentsong[1]);
-	global.currentsong[0] = snd_init("cyber_battle_prelude.ogg");
-	global.currentsong[1] = mus_loop_ext(global.currentsong[0], 1, 1);
+	musLoad = snd_init("cyber_battle_prelude.ogg");
+	musSeq = snd_play(musLoad);
 	sndinit = 1;
 }
 
 if (sndinit == 1) {
-	trackpos = audio_sound_get_track_position(global.currentsong[1]);
-	sndlength = audio_sound_length(global.currentsong[1]);
+	trackpos = audio_sound_get_track_position(musSeq);
+	sndlength = audio_sound_length(musSeq);
+	var endme = false;
+	safetime++;
+	
+	if (safetime > 150) {
+		if (!audio_is_playing(musSeq)) {
+			debug_message("safety: moving on");
+			endme = true;
+		}
+	}
+	
+	if (safetime > 540) {
+		debug_message("safety quit...");
+		endme = true;
+	}
+	
 	modifier = 0.5333333333333333;
 	
 	if (scr_bullbattle_muspos(1.848)) {
@@ -78,9 +93,10 @@ if (sndinit == 1) {
 		seq++;
 	}
 	
-	if (trackpos >= 16.290000000000003) {
+	if (trackpos >= 16.290000000000003 || endme) {
 		con = 2;
-		snd_stop(global.currentsong[1]);
+		snd_stop(musSeq);
+		snd_free(musLoad);
 		sndinit = 2;
 		active = 0;
 	}

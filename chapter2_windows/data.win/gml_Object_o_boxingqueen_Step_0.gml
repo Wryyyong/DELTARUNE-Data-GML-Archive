@@ -1119,13 +1119,10 @@ if (state == 3) {
 				}
 			}
 			
-			if (arcade) {
-				snd_play(motor_upper_2_bc);
-				snd_pitch(motor_upper_2_bc, 0.9);
-			} else {
-				snd_play(snd_bell_bounce_short);
-				snd_pitch(snd_bell_bounce_short, 1);
-			}
+			if (arcade)
+				snd_pitch(snd_play(motor_upper_2_bc), 0.9);
+			else
+				snd_pitch(snd_play(snd_bell_bounce_short), 1);
 			
 			image_index = 3;
 			
@@ -3293,14 +3290,12 @@ if (state == 3) {
 								if (audio_is_playing(snd_explosion_firework_bc))
 									audio_stop_sound(snd_explosion_firework_bc);
 								
-								snd_play(snd_explosion_firework_bc);
-								snd_pitch(snd_explosion_firework_bc, 0.7 + random(0.6));
+								snd_pitch(snd_play(snd_explosion_firework_bc), 0.7 + random(0.6));
 							} else {
 								if (audio_is_playing(snd_explosion_firework))
 									audio_stop_sound(snd_explosion_firework);
 								
-								snd_play(snd_explosion_firework);
-								snd_pitch(snd_explosion_firework, 0.7 + random(0.6));
+								snd_pitch(snd_play(snd_explosion_firework), 0.7 + random(0.6));
 							}
 						}
 						

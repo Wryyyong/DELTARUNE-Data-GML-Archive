@@ -82,4 +82,6 @@ function scr_gamestart_chapter_override() {
 				scr_litemget(11);
 		}
 	}
+	
+	global.invc = 1;
 }

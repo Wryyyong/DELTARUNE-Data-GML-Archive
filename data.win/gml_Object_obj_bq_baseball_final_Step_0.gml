@@ -97,7 +97,7 @@ if (hit == 1) {
 		with (obj_fx_speedlines)
 			instance_destroy();
 		
-		var speedlines = instance_create(x, o_boxingcontroller.y - 120, obj_fx_speedlines);
+		var speedlines = instance_create(x, o_boxingcontroller.y - 144, obj_fx_speedlines);
 		speedlines.offsety = true;
 		speedlines.flashframe = true;
 		speedlines.depth = o_bq_screen_flash.depth - 1;

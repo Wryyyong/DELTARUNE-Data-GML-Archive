@@ -21,7 +21,7 @@ if (!return_title) {
 		var room_id = room;
 		_border_image = global.darkzone ? border_dw_castletown : border_lw_town;
 		
-		if (room_id == 234 || room_id == 887 || room_id == 244 || room_id == 241)
+		if (room_id == 234 || room_id == 888 || room_id == 244 || room_id == 241)
 			_border_image = border_dw_castletown;
 		
 		if (room_id >= 84 && room_id < 118)
@@ -44,7 +44,7 @@ if (!return_title) {
 		if (room_id == 239)
 			_border_image = border_dw_city;
 		
-		if (room_id == 27 || room_id == 882 || room_id == 244 || room_id == 240 || room_id == 233 || room_id == 12 || room_id == 2) {
+		if (room_id == 27 || room_id == 883 || room_id == 244 || room_id == 240 || room_id == 233 || room_id == 12 || room_id == 2) {
 			border_alpha = 0;
 		} else if (room_id == 63 || room_id == 271) {
 			border_fade_out = border_alpha > 0;
@@ -240,7 +240,7 @@ if (!return_title) {
 			}
 		}
 		
-		if ((room_id == 234 || room_id == 887 || room_id == 244) && global.game_won == 1) {
+		if ((room_id == 234 || room_id == 888 || room_id == 244) && global.game_won == 1) {
 			_border_image = border_dw_castletown;
 			border_alpha = 1;
 		}

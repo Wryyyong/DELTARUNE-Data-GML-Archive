@@ -242,7 +242,7 @@ if (!old_right_click) {
 if (i_ex(selected_object)) {
 	so = selected_object;
 	
-	if (object_get_parent(so.object_index) == 392) {
+	if (object_get_parent(so.object_index) == 393) {
 		if (enable_mouse_wheel) {
 			if (mouse_wheel_up() || mouse_wheel_down()) {
 				with (so) {

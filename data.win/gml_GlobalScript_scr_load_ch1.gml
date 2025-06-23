@@ -330,6 +330,7 @@ function scr_load_ch1() {
 		}
 	}
 	
+	global.invc = 1;
 	__loadedroom = scr_get_room_by_id(global.currentroom);
 	
 	if (scr_dogcheck_ch1())

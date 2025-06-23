@@ -17,7 +17,7 @@ with (other) {
 	instance_destroy();
 }
 
-if (room == 1197)
+if (room == 1198)
 	vspeed *= 0.75;
 
 if (instance_number(obj_saucer) == (targ - 1) && i_ex(obj_controller_dining3)) {

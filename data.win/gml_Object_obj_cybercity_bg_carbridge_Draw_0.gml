@@ -52,3 +52,6 @@ if (dontdraw == 0) {
 	if (type == 1)
 		draw_sprite_ext(sprite_index, 0, x, y, 2, 2, 0, c_white, 1);
 }
+
+if (extflag == "big3Right")
+	draw_sprite_ext(spr_dw_city_big_3_caroverlay_right, 0, x, y - 10, 2, 2, 0, c_white, 1);

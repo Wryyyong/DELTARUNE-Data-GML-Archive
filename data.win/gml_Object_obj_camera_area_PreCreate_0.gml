@@ -1,6 +1,6 @@
 event_inherited();
-collisionObject = 82;
-targetObject = 82;
+collisionObject = 83;
+targetObject = 83;
 hasTargetObject = true;
 overrideDefaultValues = true;
 leaveAreaPixelLeeway = 40;

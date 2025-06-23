@@ -553,7 +553,7 @@ if ((con == 10 && !d_ex()) || scr_cutscene_loaded()) {
 	c_imageindex(15);
 	c_walkdirect(430, 167, 2);
 	c_soundplay(snd_grab);
-	c_instance(460, 177, 367);
+	c_instance(460, 177, 368);
 	c_wait(45);
 	c_imagespeed(0);
 	c_imageindex(15);

@@ -21,7 +21,7 @@ tm = 0;
 animator = -4;
 
 if (instance_exists(obj_tm_whip_animation)) {
-	animator = 456;
+	animator = 457;
 } else {
 	animator = instance_create(x, y, obj_tm_whip_animation);
 	animator.visible = 0;

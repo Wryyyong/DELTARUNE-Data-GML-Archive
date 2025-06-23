@@ -10,7 +10,7 @@ global.savedata_async_load = false;
 global.savedata_error = false;
 global.savedata_debuginfo = "";
 global.savedata_pause = false;
-global.version = "1.14";
+global.version = "1.15";
 
 if (os_type == os_switch)
 	global.version = "1.07";
@@ -37,9 +37,6 @@ if (instance_exists(obj_debugcontroller_ch1)) {
 	with (obj_debugcontroller_ch1)
 		instance_destroy();
 }
-
-if (steam_initialised() && !i_ex(obj_steam_manager))
-	instance_create(0, 0, obj_steam_manager);
 
 if (variable_global_exists("chapter_return")) {
 	global.lang_loaded = "";

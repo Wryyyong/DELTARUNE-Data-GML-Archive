@@ -15,4 +15,5 @@ if (global.flag[247] == 0) {
 	}
 }
 
+global.invc = 1;
 instance_destroy();

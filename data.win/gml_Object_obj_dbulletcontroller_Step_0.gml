@@ -112,7 +112,7 @@ if (type == 1) {
 	if (btimer >= (((difficulty >= 2) ? 40 : 24) * ratio * (1 + difficulty))) {
 		btimer = 0;
 		d = instance_create(x + 28, y + 34, obj_chainbullet);
-		d.childBullet = 452;
+		d.childBullet = 453;
 		snd_play_x(snd_electric_meow, 0.8, random_range(0.8, 1.2));
 		d.element = 6;
 		d.damage = damage;
@@ -196,7 +196,7 @@ if (type == 1) {
 	}
 	
 	if (btimer > (30 * ratio)) {
-		var _sbw = 443;
+		var _sbw = 444;
 		side = _sbw.platter_side;
 		_sbw.platter_side *= -1;
 		btimer = 0;
@@ -583,7 +583,7 @@ if (type == 1) {
 			street.depth += 2;
 			street.init = 2;
 		} else {
-			street = 415;
+			street = 416;
 			
 			if (special != 0)
 				street.hitcheck = special;
@@ -815,10 +815,10 @@ if (type == 1) {
 			instance_create(obj_growtangle.x, obj_growtangle.y, obj_spamton_warped_box);
 		
 		if (type == 23) {
-			d.bullettype = 587;
+			d.bullettype = 588;
 			d.firingspeed = 10;
 		} else if (type == 24) {
-			d.bullettype = 588;
+			d.bullettype = 589;
 			d.firingspeed = 28;
 			btimer = 10;
 		}

@@ -54,7 +54,7 @@ if (state == 2.1) {
 if (state == 2.11) {
 	state = -999;
 	c_pannable(1);
-	c_panobj(82, 1);
+	c_panobj(83, 1);
 	c_wait(1);
 	c_pannable(0);
 	c_var_instance(id, "state", 2.2);

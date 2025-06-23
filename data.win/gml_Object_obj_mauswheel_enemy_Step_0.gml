@@ -341,7 +341,7 @@ if (global.myfight == 3) {
 			
 			global.monstermakey[myself] = y - 15;
 			global.monstermakex[myself] = tasquemarker.x;
-			newtasque = scr_monster_change(myself, 32, 448);
+			newtasque = scr_monster_change(myself, 32, 449);
 			
 			with (tasquemarker)
 				instance_destroy();

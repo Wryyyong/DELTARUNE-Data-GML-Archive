@@ -809,7 +809,7 @@ if (endingcon == 8) {
 	if (endingtimer == 59) {
 		obj_herosusie.x = obj_herosusie.xstart;
 		obj_herosusie.y = obj_herosusie.ystart;
-		scr_battle_sprite_set("susie", 114, 0.5, true);
+		scr_battle_sprite_set("susie", 115, 0.5, true);
 		obj_herosusie.x += 25;
 		
 		with (obj_herosusie)

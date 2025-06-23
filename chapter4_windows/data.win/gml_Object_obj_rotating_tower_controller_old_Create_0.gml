@@ -56,7 +56,7 @@ if (tower_type == 2)
 	_towersprite = 4167;
 
 if (wide_tower == true)
-	_towersprite = 860;
+	_towersprite = 861;
 
 for (i = 0; i < towerpiececount; i++) {
 	tower_piece_sprite[i] = _towersprite;

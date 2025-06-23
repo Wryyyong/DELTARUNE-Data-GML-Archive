@@ -524,7 +524,7 @@ if (global.myfight == 3) {
 			instance_destroy();
 		
 		talktimer = 0;
-		scr_battle_sprite_set("susie", 718, 0, 1);
+		scr_battle_sprite_set("susie", 719, 0, 1);
 		scr_battle_sprite_set("ralsei", 2674, 0, 1);
 		
 		with (obj_herosusie)

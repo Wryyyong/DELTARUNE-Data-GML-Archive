@@ -134,7 +134,7 @@ if (con == 2) {
 	walktime = max(round(abs(supos2[0] - supos3[0]) / walkspeed), 1);
 	c_walkdirect(supos3[0], supos3[1], walktime);
 	c_sel(kr);
-	var pos = findspriteinfo(268, "DEBUG_ASSETS");
+	var pos = findspriteinfo(269, "DEBUG_ASSETS");
 	c_walkdirect(pos.x, pos.y, walktime + 15);
 	c_wait(walktime);
 	c_speaker("susie");

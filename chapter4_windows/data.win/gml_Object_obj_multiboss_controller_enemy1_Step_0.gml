@@ -186,7 +186,7 @@ if (global.myfight == 3) {
 	}
 	
 	if (actingsus == 10 && actconsus == 1 && !i_ex(obj_writer)) {
-		scr_battle_sprite_set("susie", 437, 0.25, 1);
+		scr_battle_sprite_set("susie", 438, 0.25, 1);
 		scr_mercyadd(myself, 35);
 		msgset(0, "* Susie was able to execute arbitrary code alone!/%");
 		scr_battletext_default();

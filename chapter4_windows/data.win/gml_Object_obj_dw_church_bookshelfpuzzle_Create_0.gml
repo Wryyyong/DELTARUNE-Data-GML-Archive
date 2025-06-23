@@ -112,7 +112,7 @@ teletimer = 0;
 
 if (revroom) {
 	for (var i = 0; i < array_length(spritesArray); i++) {
-		if (layer_sprite_get_sprite(spritesArray[i]) == 782) {
+		if (layer_sprite_get_sprite(spritesArray[i]) == 783) {
 			if (layer_sprite_get_blend(spritesArray[i]) == 16056319) {
 				var trpos = scr_assetgetinfo(spritesArray[i]);
 				setxy(trpos[2], trpos[3], treasuremarker);

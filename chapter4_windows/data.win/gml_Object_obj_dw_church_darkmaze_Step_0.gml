@@ -196,8 +196,8 @@ if (con == 2 && !i_ex(cutscene_master)) {
 
 if (con == 3) {
 	safe_delete(clamper);
-	sumark = scr_marker_ext(766, 798, 422, 2, 2, 0, undefined, undefined, undefined, 1);
-	ramark = scr_marker_ext(804, 826, 375, 2, 2, undefined, undefined, undefined, undefined, 1, undefined);
+	sumark = scr_marker_ext(766, 798, 423, 2, 2, 0, undefined, undefined, undefined, 1);
+	ramark = scr_marker_ext(804, 826, 376, 2, 2, undefined, undefined, undefined, undefined, 1, undefined);
 	germark = scr_marker_ext(680, 830, 1955, 2, 2, 0, 0, 16777215, undefined, 1, undefined, undefined);
 	klight.target = kris;
 	slight.target = sumark;
@@ -304,8 +304,8 @@ if (con == 7) {
 		safe_delete(ramark);
 		safe_delete(germark);
 		klight.target = kris;
-		sumark = scr_marker_ext(1302, 386, 435, 2, 2, 0, undefined, undefined, undefined, 1);
-		ramark = scr_marker_ext(1364, 390, 389, 2, 2, undefined, undefined, undefined, undefined, 1, undefined);
+		sumark = scr_marker_ext(1302, 386, 436, 2, 2, 0, undefined, undefined, undefined, 1);
+		ramark = scr_marker_ext(1364, 390, 390, 2, 2, undefined, undefined, undefined, undefined, 1, undefined);
 		germark = scr_marker_ext(1322, 332, 1955, 2, 2, 0, 0, 16777215, undefined, 1, undefined, undefined);
 		slight.target = sumark;
 		rlight.target = ramark;
@@ -387,7 +387,7 @@ if (con == 10 && !i_ex(cutscene_master)) {
 	safe_delete(sumark);
 	safe_delete(ramark);
 	safe_delete(germark);
-	sumark = scr_marker_ext(2044, 350, 427, 2, 2, 0, undefined, undefined, undefined, 1);
+	sumark = scr_marker_ext(2044, 350, 428, 2, 2, 0, undefined, undefined, undefined, 1);
 	ramark = scr_marker_ext(2154, 354, 4206, 2, 2, undefined, undefined, undefined, undefined, 1, undefined);
 	germark = scr_marker_ext(-640, -480, 2273, 2, 2, 0, 0, 16777215, undefined, 1, undefined, undefined);
 	slight.target = sumark;

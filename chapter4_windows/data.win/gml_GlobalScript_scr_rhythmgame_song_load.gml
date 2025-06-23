@@ -297,7 +297,7 @@ function scr_rhythmgame_load_events(arg0) {
 		with (drums) {
 			scr_music_event_add_instance(performer, 16.7 - (meter * 6), "sprite_index", 30, true);
 			scr_music_event_add_instance(other.performer, 16.7 - (meter * 5.75), "sprite_index", 4345, true);
-			scr_music_event_add_instance(other.vocals.performer, 16.7 - (meter * 5.5), "sprite_index", 738, true);
+			scr_music_event_add_instance(other.vocals.performer, 16.7 - (meter * 5.5), "sprite_index", 739, true);
 			scr_music_event_add(16.7 - (meter * 5), "target_brightness", 0.75);
 			scr_music_event_add_instance(other.vocals, 16.7 - (meter * 5), "target_brightness", 0.75);
 			
@@ -339,7 +339,7 @@ function scr_rhythmgame_load_events(arg0) {
 			other.spooked = true;
 			
 			if (global.chapter == 0)
-				scr_music_event_add_instance(performer, trackstart + (meter * 0.5), "sprite_index", 110, true);
+				scr_music_event_add_instance(performer, trackstart + (meter * 0.5), "sprite_index", 111, true);
 			
 			scr_music_event_add_instance(performer, trackstart + (meter * 0.5), "image_index", 1, true);
 			scr_music_event_add_instance(other.performer, trackstart + (meter * 1.5), "sprite_index", 4345, true);
@@ -364,9 +364,9 @@ function scr_rhythmgame_load_events(arg0) {
 			with (vocals.performer) {
 				scr_music_event_add(0, "sprite_index", 1814, true);
 				scr_music_event_add_instance(other.drums.performer, 4.85, "sprite_index", 30, true);
-				scr_music_event_add(17, "sprite_index", 738, true);
+				scr_music_event_add(17, "sprite_index", 739, true);
 				scr_music_event_add(74.6, "sprite_index", 1814, true);
-				scr_music_event_add(86.95, "sprite_index", 738, true);
+				scr_music_event_add(86.95, "sprite_index", 739, true);
 				scr_music_event_add(158.92, "mid", 5310, true);
 				scr_music_event_add(158.92, "idle", 5271, true);
 				scr_music_event_add(158.92, "animspeed", 2, true);
@@ -375,7 +375,7 @@ function scr_rhythmgame_load_events(arg0) {
 				scr_music_event_add(162.16, "shakeamt", 10, true);
 				scr_music_event_add(162.16, "animspeed", 1, true);
 				scr_music_event_add(165.4, "mid", 956, true);
-				scr_music_event_add(165.4, "idle", 738, true);
+				scr_music_event_add(165.4, "idle", 739, true);
 				scr_music_event_add(165.4, "sprite_index", 1814, true);
 			}
 		}

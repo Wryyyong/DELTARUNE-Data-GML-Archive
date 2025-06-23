@@ -251,7 +251,7 @@ if (global.myfight == 3) {
 	if (acting == 3 && actcon == 0) {
 		msgsetloc(0, "* Susie EMBEZZLED an item!/%", "obj_mizzle_enemy_slash_Step_0_gml_272_0");
 		scr_battletext_default();
-		scr_battle_sprite_set("susie", 737, 1, 1);
+		scr_battle_sprite_set("susie", 738, 1, 1);
 		obj_herosusie.vspeed = -40;
 		snd_play(snd_jump);
 		acting = 3.1;
@@ -325,7 +325,7 @@ if (global.myfight == 3) {
 		
 		if (timer == 20) {
 			obj_herosusie.vspeed = -30;
-			scr_battle_sprite_set("susie", 737, 1, 1);
+			scr_battle_sprite_set("susie", 738, 1, 1);
 			snd_stop(snd_jump);
 			snd_play(snd_jump);
 		}

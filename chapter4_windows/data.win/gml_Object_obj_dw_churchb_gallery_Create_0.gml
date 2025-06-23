@@ -64,7 +64,7 @@ for (var i = 0; i < array_length(spritesArray); i++) {
 		gueiadmirer.marker.sprite_index = spr_npc_organik_3;
 	}
 	
-	if (layer_sprite_get_sprite(spritesArray[i]) == 752)
+	if (layer_sprite_get_sprite(spritesArray[i]) == 753)
 		cupadmirer = scr_makenpc_fromasset(spritesArray[i]);
 	
 	if (layer_sprite_get_sprite(spritesArray[i]) == 4324) {
@@ -86,7 +86,7 @@ for (var i = 0; i < array_length(spritesArray); i++) {
 		}
 	}
 	
-	if (layer_sprite_get_sprite(spritesArray[i]) == 426) {
+	if (layer_sprite_get_sprite(spritesArray[i]) == 427) {
 		if (layer_sprite_get_blend(spritesArray[i]) == 255) {
 			wateradmirer = scr_makenpc_fromasset(spritesArray[i]);
 			wateradmirer.marker.image_blend = c_white;

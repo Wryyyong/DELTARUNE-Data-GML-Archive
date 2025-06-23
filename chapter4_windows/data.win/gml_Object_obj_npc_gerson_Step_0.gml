@@ -330,7 +330,7 @@ if (state == 21) {
 	if (!state_init) {
 		state_init = true;
 		writing_loop = false;
-		current_sprite_index = 170;
+		current_sprite_index = 171;
 		anim_speed = 0;
 		anim_index = 0;
 		state_loaded = true;

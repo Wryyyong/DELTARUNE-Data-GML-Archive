@@ -351,7 +351,7 @@ with (chicknpc) {
 	}
 }
 
-if (blockit == true || keyboard_check_pressed(ord("B"))) {
+if (blockit == true) {
 	layer_set_visible("TILES_ENTRANCEBLOCK", false);
 	
 	with (obj_genmarker) {

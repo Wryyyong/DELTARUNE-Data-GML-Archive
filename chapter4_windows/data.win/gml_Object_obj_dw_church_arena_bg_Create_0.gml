@@ -48,7 +48,7 @@ timer = 0;
 cityobj = create_object_to_draw(0, 0, 3078);
 cityobj.image_alpha = 0;
 cityobj.image_blend = c_black;
-hammerobj = create_object_to_draw(100, 10, 529);
+hammerobj = create_object_to_draw(100, 10, 530);
 hammerobj.image_alpha = 0;
 hammerobj.timer = 0;
 

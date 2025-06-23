@@ -35,7 +35,7 @@ init_symbol = function(arg0) {
 			break;
 		
 		case UnknownEnum.Value_3:
-			_symbol_sprite = 664;
+			_symbol_sprite = 665;
 			_symbol_x_offset = 20;
 			_symbol_y_offset = 12;
 			break;
@@ -62,7 +62,7 @@ enter_range = function() {
 			break;
 		
 		case UnknownEnum.Value_3:
-			_symbol_sprite = 664;
+			_symbol_sprite = 665;
 			break;
 	}
 };

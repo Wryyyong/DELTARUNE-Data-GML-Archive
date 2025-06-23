@@ -1,5 +1,5 @@
 if (abs((x + ((sprite_width / 2) * sign(hspeed))) - (obj_growtangle.x + 10)) <= 85) {
-	with (scr_fire_bullet(x + ((sprite_width / 2) * sign(hspeed)), y, 1275, 100 + random(30), 1.25 + random(1.25), 394)) {
+	with (scr_fire_bullet(x + ((sprite_width / 2) * sign(hspeed)), y, 1275, 100 + random(30), 1.25 + random(1.25), 395)) {
 		spinspeed = -vspeed;
 		spin = true;
 		scr_script_delayed(instance_destroy, 45);
@@ -9,7 +9,7 @@ if (abs((x + ((sprite_width / 2) * sign(hspeed))) - (obj_growtangle.x + 10)) <= 
 		scr_script_delayed(scr_lerpvar, 30, "image_yscale", 1, 0, 15);
 	}
 	
-	with (scr_fire_bullet(x + ((sprite_width / 2) * sign(hspeed)), y, 1275, 260 - random(30), 1.25 + random(1.25), 394)) {
+	with (scr_fire_bullet(x + ((sprite_width / 2) * sign(hspeed)), y, 1275, 260 - random(30), 1.25 + random(1.25), 395)) {
 		spinspeed = vspeed;
 		spin = true;
 		scr_script_delayed(instance_destroy, 45);

@@ -151,7 +151,7 @@ if (state == 5) {
 if (state == 6) {
 	if (!state_init) {
 		state_init = true;
-		current_sprite_index = 206;
+		current_sprite_index = 207;
 		anim_speed = 0.4;
 		anim_index = 0;
 		state_loaded = true;
@@ -300,7 +300,7 @@ if (state == 12) {
 		heal_marker.visible = 0;
 		heal_marker.image_alpha = 0;
 		darkened = false;
-		current_sprite_index = 206;
+		current_sprite_index = 207;
 		anim_speed = 0.4;
 		anim_index = 0;
 		depth = 100000;

@@ -1,7 +1,7 @@
 event_inherited();
 grazed = 1;
 grazepoints = 0;
-shrink_sprite = 314;
+shrink_sprite = 315;
 autolight = false;
 destroyonhit = false;
 shakeme = false;

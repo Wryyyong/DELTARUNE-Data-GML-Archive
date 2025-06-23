@@ -265,7 +265,7 @@ if (i_ex(obj_growtangle)) {
 							if (elninabullesprite == 5613)
 								mybullet.sprite_index = bs[5];
 							
-							if (elninabullesprite == 822)
+							if (elninabullesprite == 823)
 								mybullet.sprite_index = bs[1];
 						}
 						

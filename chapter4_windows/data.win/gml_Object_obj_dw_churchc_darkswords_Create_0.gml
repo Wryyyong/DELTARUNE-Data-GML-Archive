@@ -33,7 +33,7 @@ su_hunch = -4;
 kr_outline = -4;
 ra_outline = -4;
 su_outline = -4;
-kr_special = scr_dark_marker_fancy(obj_mainchara.x, obj_mainchara.y, 262);
+kr_special = scr_dark_marker_fancy(obj_mainchara.x, obj_mainchara.y, 263);
 
 with (kr_special) {
 	redalpha = 0;

@@ -39,7 +39,7 @@ if (!drink_finished && !grab_heart) {
 			image_speed = 0;
 			image_index = 0;
 			sprite_index = spr_noellehouse_kitchen_kris_choco_put_down;
-			scr_animate(670, 2, 0.15);
+			scr_animate(671, 2, 0.15);
 		}
 	}
 	

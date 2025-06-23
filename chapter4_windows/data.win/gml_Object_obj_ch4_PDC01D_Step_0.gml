@@ -57,7 +57,7 @@ if (con == 10 && !d_ex()) {
 	c_walkdirect_wait(113, 80, 10);
 	c_halt();
 	c_autowalk(0);
-	var kick_sprite = church_clothes ? 5470 : 478;
+	var kick_sprite = church_clothes ? 5470 : 479;
 	c_sprite(kick_sprite);
 	c_imagespeed(0.3);
 	c_wait(6);

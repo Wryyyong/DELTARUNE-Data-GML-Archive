@@ -42,7 +42,7 @@ check_death = function() {
 		}
 		
 		for (var aa = 0; aa < 5; aa++) {
-			with (scr_fire_bullet(x, y, 1275, (scr_at_player(x, y) - 60) + (30 * aa) + random_range(-5, 5), 1.5 + random(1.5), 520)) {
+			with (scr_fire_bullet(x, y, 1275, (scr_at_player(x, y) - 60) + (30 * aa) + random_range(-5, 5), 1.5 + random(1.5), 521)) {
 				image_speed = 0.5;
 				image_xscale = 0.25;
 				image_yscale = choose(4, -4);

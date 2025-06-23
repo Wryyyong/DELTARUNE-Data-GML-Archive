@@ -930,7 +930,7 @@ if (type == 107) {
 		var section = (140 / sameattack) * sameattacker;
 		var doy = (obj_growtangle.y - 70) + irandom(140 / sameattack) + section;
 		random_set_seed(id + global.time);
-		var saw = scr_fire_bullet(obj_growtangle.x - 135, doy, 1424, 0, -5 - random(2), 653);
+		var saw = scr_fire_bullet(obj_growtangle.x - 135, doy, 1424, 0, -5 - random(2), 654);
 		saw.alarm[0] = 1;
 		saw.delay = ceil(saw.delay * sqrt(ratio));
 		saw.gravity_direction = 0;
@@ -1048,7 +1048,7 @@ if (type == 110) {
 		
 		for (ah = init_eye_amount; ah > 0; ah--) {
 			var yoffset = irandom_range(-10, 10);
-			var bullet = scr_fire_bullet((obj_growtangle.x + 150 + irandom_range(-30, 30)) - (ah * 10), obj_growtangle.y + yoffset + irandom_range(-30, 30) + wobble, 822, 180, 4, 736);
+			var bullet = scr_fire_bullet((obj_growtangle.x + 150 + irandom_range(-30, 30)) - (ah * 10), obj_growtangle.y + yoffset + irandom_range(-30, 30) + wobble, 822, 180, 4, 737);
 			
 			with (bullet)
 				event_user(0);
@@ -1065,7 +1065,7 @@ if (type == 110) {
 			
 			var dist = 10 + irandom(10);
 			var dir = irandom(360);
-			bullet = scr_fire_bullet((obj_growtangle.x + 150 + irandom_range(-30, 30)) - (ah * 10), obj_growtangle.y + yoffset + irandom_range(-30, 10) + wobble + 60, 822, 180, 4, 736);
+			bullet = scr_fire_bullet((obj_growtangle.x + 150 + irandom_range(-30, 30)) - (ah * 10), obj_growtangle.y + yoffset + irandom_range(-30, 10) + wobble + 60, 822, 180, 4, 737);
 			
 			with (bullet)
 				event_user(0);
@@ -1081,7 +1081,7 @@ if (type == 110) {
 			
 			dist = 10 + irandom(10);
 			dir = irandom(360);
-			bullet = scr_fire_bullet((obj_growtangle.x + 150 + irandom_range(-30, 30)) - (ah * 10), (obj_growtangle.y + yoffset + irandom_range(-10, 30) + wobble) - 60, 822, 180, 4, 736);
+			bullet = scr_fire_bullet((obj_growtangle.x + 150 + irandom_range(-30, 30)) - (ah * 10), (obj_growtangle.y + yoffset + irandom_range(-10, 30) + wobble) - 60, 822, 180, 4, 737);
 			
 			with (bullet)
 				event_user(0);
@@ -1115,7 +1115,7 @@ if (type == 110) {
 	if (!alm_activated) {
 		if ((btimer % _almondamount) == 0) {
 			var yoffset = irandom_range(-10, 10);
-			var bullet = scr_fire_bullet(obj_growtangle.x + 150 + irandom_range(-30, 30), obj_growtangle.y + yoffset + irandom_range(-30, 30) + wobble, 822, 180, 4, 736);
+			var bullet = scr_fire_bullet(obj_growtangle.x + 150 + irandom_range(-30, 30), obj_growtangle.y + yoffset + irandom_range(-30, 30) + wobble, 822, 180, 4, 737);
 			
 			with (bullet)
 				event_user(0);
@@ -1131,7 +1131,7 @@ if (type == 110) {
 			
 			var dist = 10 + irandom(10);
 			var dir = irandom(360);
-			bullet = scr_fire_bullet(obj_growtangle.x + 150 + irandom_range(-30, 30), obj_growtangle.y + yoffset + irandom_range(-30, 10) + wobble + 60, 822, 180, 4, 736);
+			bullet = scr_fire_bullet(obj_growtangle.x + 150 + irandom_range(-30, 30), obj_growtangle.y + yoffset + irandom_range(-30, 10) + wobble + 60, 822, 180, 4, 737);
 			
 			with (bullet)
 				event_user(0);
@@ -1147,7 +1147,7 @@ if (type == 110) {
 			
 			dist = 10 + irandom(10);
 			dir = irandom(360);
-			bullet = scr_fire_bullet(obj_growtangle.x + 150 + irandom_range(-30, 30), (obj_growtangle.y + yoffset + irandom_range(-10, 30) + wobble) - 60, 822, 180, 4, 736);
+			bullet = scr_fire_bullet(obj_growtangle.x + 150 + irandom_range(-30, 30), (obj_growtangle.y + yoffset + irandom_range(-10, 30) + wobble) - 60, 822, 180, 4, 737);
 			
 			with (bullet)
 				event_user(0);
@@ -3108,7 +3108,7 @@ if (type == 300) {
 					break;
 			}
 			
-			var _bat = scr_fire_bullet(_xx, _yy, 254, 0, 0, 523);
+			var _bat = scr_fire_bullet(_xx, _yy, 254, 0, 0, 524);
 			
 			switch (_vmirror) {
 				case 1:

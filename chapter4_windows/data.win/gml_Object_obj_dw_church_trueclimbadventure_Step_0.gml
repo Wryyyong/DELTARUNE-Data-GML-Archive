@@ -76,9 +76,6 @@ if (bcon2 == 0) {
 		}
 	}
 	
-	if (keyboard_check_pressed(ord("E")))
-		trig = 1;
-	
 	if (trig) {
 		global.flag[1571] = 1;
 		var pos = scr_heromarker(undefined, "b2blocker");

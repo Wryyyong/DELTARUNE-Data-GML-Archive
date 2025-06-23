@@ -120,7 +120,7 @@ if (con == 1) {
 		}
 	} else {
 		var thisID = floor((x / 80) + (y / 80));
-		var scatter = 790;
+		var scatter = 791;
 		
 		if ((thisID % 2) == 1)
 			scatter = 4200;

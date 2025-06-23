@@ -59,3 +59,8 @@ if (global.plot >= 300) {
 
 with (burger_marker)
 	scr_depth();
+
+susie_marker = scr_marker(-100, -100, spr_susie_walk_down_lw);
+
+with (susie_marker)
+	visible = 0;

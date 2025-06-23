@@ -371,7 +371,7 @@ if (con == 40 && !d_ex() && customcon == 1) {
 	c_msgsetloc(0, "\\E7* ..^1. and now we're here^1! Pretty awesome^1, huh!?/%", "obj_dw_church_waterfalltearoom_slash_Step_0_gml_567_0");
 	c_talk_wait();
 	c_snd_play(88);
-	c_var_instance(gerson_npc, "current_sprite_index", 671);
+	c_var_instance(gerson_npc, "current_sprite_index", 672);
 	c_var_instance(gerson_npc, "anim_index", 0);
 	c_var_instance(gerson_npc, "anim_speed", 0.2);
 	c_wait(60);
@@ -408,7 +408,7 @@ if (con == 40 && !d_ex() && customcon == 1) {
 	c_sprite(spr_tea_party_ralsei_laugh);
 	c_imagespeed(0.2);
 	c_snd_play(88);
-	c_var_instance(gerson_npc, "current_sprite_index", 671);
+	c_var_instance(gerson_npc, "current_sprite_index", 672);
 	c_var_instance(gerson_npc, "anim_index", 0);
 	c_var_instance(gerson_npc, "anim_speed", 0.2);
 	c_wait(60);

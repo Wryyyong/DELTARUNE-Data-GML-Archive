@@ -18,7 +18,7 @@ if (sprite_index == spr_zapper_sharpshoot || sprite_index == spr_zapper_spare_sh
 	draw_sprite_ext(sprite_index, image_index, x + shakex, y + shakey, image_xscale, image_yscale, image_angle, image_blend, _alpha);
 	d3d_set_fog(false, c_black, 0, 0);
 	
-	if ((global.mercymod[parentid.myself] + parentid.sharpshootmercy) < 100 || spare == true) {
+	if ((i_ex(parentid) && (global.mercymod[parentid.myself] + parentid.sharpshootmercy) < 100) || spare == true) {
 		if (sprite_index == spr_zapper_sharpshoot) {
 			changecolortimer += 0.5;
 			buttonblend = merge_color(c_red, c_yellow, 0.5 + (sin(changecolortimer) * 0.5));
@@ -43,7 +43,7 @@ if (sprite_index == spr_pippins_sharpshoot || sprite_index == spr_pippins_sharps
 	draw_sprite_ext(spr_pippins_sharpshoot4, image_index, x + shakex, y + shakey, image_xscale, image_yscale, image_angle, image_blend, _alpha);
 	d3d_set_fog(false, c_black, 0, 0);
 	
-	if ((global.mercymod[parentid.myself] + parentid.sharpshootmercy) < 100 || spare == true)
+	if ((i_ex(parentid) && (global.mercymod[parentid.myself] + parentid.sharpshootmercy) < 100) || spare == true)
 		draw_sprite_ext(sprite_index, image_index, x + shakex, y + shakey, image_xscale, image_yscale, image_angle, image_blend, 1);
 }
 
@@ -60,6 +60,6 @@ if (sprite_index == spr_shutta_sharpshoot || sprite_index == spr_shutta_sharpsho
 	draw_sprite_ext(spr_shutta_sharpshoot, image_index, x + shakex, y + shakey, image_xscale, image_yscale, image_angle, image_blend, _alpha);
 	d3d_set_fog(false, c_black, 0, 0);
 	
-	if ((spare == false && (global.mercymod[parentid.myself] + parentid.sharpshootmercy) < 100) || (spare == true && sparehp > 0))
+	if ((spare == false && i_ex(parentid) && (global.mercymod[parentid.myself] + parentid.sharpshootmercy) < 100) || (spare == true && sparehp > 0))
 		draw_sprite_ext(spr_shutta_sharpshoot2, image_index, x + shakex, y + shakey, image_xscale, image_yscale, image_angle, image_blend, 1);
 }

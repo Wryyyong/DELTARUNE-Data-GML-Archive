@@ -21,10 +21,8 @@ if (kris_move) {
 				can_move = true;
 		}
 		
-		if (can_move) {
+		if (can_move)
 			kris_move_timer++;
-			show_debug_message("test");
-		}
 		
 		if (kris_move_timer >= 5) {
 			global.interact = 1;
@@ -839,7 +837,7 @@ if (con == 50 && !d_ex() && customcon == 1) {
 if (con == 51 && !d_ex() && customcon == 1) {
 	con = 52;
 	anim_player.reset();
-	anim_player.init(kr_actor, 769, heart_in_timestamps);
+	anim_player.init(kr_actor, 770, heart_in_timestamps);
 	anim_player.event_connect("frame_change", heart_burst_event, 6);
 	anim_player.event_connect("anim_end", cutscene_end);
 	anim_player.start();
@@ -892,7 +890,7 @@ if (con == 54 && !i_ex(obj_cutscene_master)) {
 	fall_trigger[2] = instance_create(110, 148, obj_trigger);
 	
 	with (fall_trigger[2]) {
-		image_xscale = 5;
+		image_xscale = 4;
 		image_yscale = 8;
 	}
 	

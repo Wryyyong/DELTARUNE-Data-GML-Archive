@@ -3,7 +3,7 @@ scr_populatechars();
 
 if (!init) {
 	var pos = scr_heromarker("susie", "sustart");
-	susie = scr_marker_ext(pos[0], pos[1], 429, 2, 2, undefined, undefined, undefined, undefined, 1);
+	susie = scr_marker_ext(pos[0], pos[1], 430, 2, 2, undefined, undefined, undefined, undefined, 1);
 	susie.name = "susie";
 	
 	with (roomglow)

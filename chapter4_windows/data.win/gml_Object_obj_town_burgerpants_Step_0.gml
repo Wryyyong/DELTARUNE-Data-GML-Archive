@@ -159,6 +159,7 @@ if (nice_con == 0 && !d_ex()) {
 	nice_con = 1;
 	global.interact = 1;
 	cutscene_master = scr_cutscene_make();
+	scr_maincharacters_actors();
 	nc = actor_count + 1;
 	nc_actor = instance_create(nicecream_npc.x, nicecream_npc.y, obj_actor);
 	scr_actor_setup(nc, nc_actor, "nicecream");
@@ -187,7 +188,16 @@ if (nice_con == 1) {
 	c_sel(nc);
 	c_imageindex(0);
 	c_wait_talk();
+	c_customfunc(function() {
+		susie_marker.x = su_actor.x;
+		susie_marker.y = su_actor.y;
+		susie_marker.image_index = su_actor.image_index;
+		susie_marker.sprite_index = su_actor.sprite_index;
+		susie_marker.depth = su_actor.depth;
+		susie_marker.visible = 1;
+	});
 	c_var_instance(nicecream_npc, "visible", 1);
+	c_actortokris();
 	c_terminatekillactors();
 }
 
@@ -196,6 +206,9 @@ if (nice_con == 2 && !i_ex(obj_cutscene_master)) {
 	
 	with (obj_caterpillarchara)
 		visible = 1;
+	
+	with (susie_marker)
+		instance_destroy();
 	
 	nice_con = 99;
 }

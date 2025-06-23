@@ -1,7 +1,7 @@
 con = -1;
 customcon = 0;
 voice_pitch = -1;
-debris = scr_marker_ext(572, 296, 312, 2, 2, 0, 0, undefined, 97780);
+debris = scr_marker_ext(572, 296, 313, 2, 2, 0, 0, undefined, 97780);
 
 if (global.plot < 240) {
 	con = 25;

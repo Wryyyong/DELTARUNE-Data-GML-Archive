@@ -1326,7 +1326,7 @@ if (blood_drip) {
 	
 	if (drip_marker.visible == 0) {
 		with (drip_marker)
-			setxy(camerax() + 201 + 4, (cameray() + 113) - 10);
+			setxy(camerax() + 146, cameray() + 50);
 		
 		drip_marker.visible = 1;
 	}
@@ -1342,6 +1342,7 @@ if (blood_drip) {
 			drip_marker.image_index = drip_index;
 		} else {
 			blood_drip = false;
+			scr_lerp_var_instance(drip_marker, "image_alpha", 1, 0, 60);
 		}
 	}
 }

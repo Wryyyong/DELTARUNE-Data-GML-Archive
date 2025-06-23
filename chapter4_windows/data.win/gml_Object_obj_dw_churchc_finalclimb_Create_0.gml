@@ -136,7 +136,7 @@ if (global.plot < 245) {
 				case 0:
 				case 6:
 				default:
-					_shatter_sprite = 585;
+					_shatter_sprite = 586;
 					break;
 				
 				case 1:

@@ -1,6 +1,6 @@
 if (sunkus_kb_check_pressed(74)) {
 	with (obj_mainchara)
-		scr_jump_to_point_sprite(x + random_range(-200, 200), y + random_range(-30, 30), 10, 15, 252, 248);
+		scr_jump_to_point_sprite(x + random_range(-200, 200), y + random_range(-30, 30), 10, 15, 253, 249);
 }
 
 if (con == 0 && obj_mainchara.x >= x && global.interact == 0) {

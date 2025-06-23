@@ -113,10 +113,10 @@ if (con == 5.1) {
 		
 		with (susie) {
 			fun = 1;
-			var newsprite = 716;
+			var newsprite = 717;
 			
 			if (x < 1350)
-				newsprite = 718;
+				newsprite = 719;
 			
 			scr_delay_var("sprite_index", newsprite, susiedelay);
 			scr_script_delayed(scr_shakeobj, susiedelay);

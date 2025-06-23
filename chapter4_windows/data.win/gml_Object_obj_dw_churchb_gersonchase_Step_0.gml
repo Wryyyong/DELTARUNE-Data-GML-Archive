@@ -461,7 +461,7 @@ if (qcon == 3.9) {
 	
 	if (timer == 15) {
 		obj_caterpillarchara.visible = false;
-		sumark = scr_marker_ext(obj_caterpillarchara.x, obj_caterpillarchara.y, 427, 2, 2, undefined, 0.125, 0, undefined, 1);
+		sumark = scr_marker_ext(obj_caterpillarchara.x, obj_caterpillarchara.y, 428, 2, 2, undefined, 0.125, 0, undefined, 1);
 		
 		if (correctdir1 == 0) {
 			sumark.sprite_index = spr_susie_walk_left_dw;

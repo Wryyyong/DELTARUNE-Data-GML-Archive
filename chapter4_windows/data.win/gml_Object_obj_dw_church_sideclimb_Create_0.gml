@@ -17,7 +17,7 @@ if (scr_debug()) {
 	}
 	
 	if (keyboard_check(ord("3"))) {
-		var loc = findspriteinfo(242, "DEBUG_ASSETS");
+		var loc = findspriteinfo(243, "DEBUG_ASSETS");
 		setxy(loc.x, loc.y, 1049);
 		
 		with (obj_caterpillarchara)

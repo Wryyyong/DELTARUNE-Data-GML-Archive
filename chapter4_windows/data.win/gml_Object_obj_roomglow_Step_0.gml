@@ -16,7 +16,7 @@ if (init == false) {
 	}
 }
 
-if (keyboard_check_pressed(vk_add)) {
+if (scr_debug() && keyboard_check_pressed(vk_add)) {
 	falling = true;
 	fall_timer = 0;
 }

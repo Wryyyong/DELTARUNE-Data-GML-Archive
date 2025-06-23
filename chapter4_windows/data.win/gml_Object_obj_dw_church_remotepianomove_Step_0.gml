@@ -103,7 +103,7 @@ if (con >= 1 && con < 2) {
 					}
 				} else {
 					var pos2 = [other.x + 4, other.y - 6];
-					var jumpmarker = scr_marker_ext(x, y, 350, 2, 2, 0.25, 0, 16777215, obj_mainchara.depth);
+					var jumpmarker = scr_marker_ext(x, y, 351, 2, 2, 0.25, 0, 16777215, obj_mainchara.depth);
 					
 					with (jumpmarker) {
 						depth = 1000;
@@ -255,17 +255,19 @@ var version = 1;
 if (con == 2 && version == 1) {
 	var dir = -1;
 	
-	if (keyboard_check_pressed(vk_numpad2))
-		dir = 0;
-	
-	if (keyboard_check_pressed(vk_numpad6))
-		dir = 1;
-	
-	if (keyboard_check_pressed(vk_numpad8))
-		dir = 2;
-	
-	if (keyboard_check_pressed(vk_numpad4))
-		dir = 3;
+	if (scr_debug()) {
+		if (keyboard_check_pressed(vk_numpad2))
+			dir = 0;
+		
+		if (keyboard_check_pressed(vk_numpad6))
+			dir = 1;
+		
+		if (keyboard_check_pressed(vk_numpad8))
+			dir = 2;
+		
+		if (keyboard_check_pressed(vk_numpad4))
+			dir = 3;
+	}
 	
 	if (xbuff && !final) {
 		dbuff = 0;
@@ -817,7 +819,7 @@ if (con == 400) {
 				image_alpha = 0;
 				fun = 1;
 				pos = scr_heromarker("ra", "killpiano");
-				var jumpmarker = scr_marker_ext(x, y, 350, 2, 2, 0.25, 0, 16777215, obj_mainchara.depth);
+				var jumpmarker = scr_marker_ext(x, y, 351, 2, 2, 0.25, 0, 16777215, obj_mainchara.depth);
 				
 				with (jumpmarker) {
 					depth = 1000;

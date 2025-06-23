@@ -45,7 +45,7 @@ function scr_rhythmgame_init(arg0, arg1, arg2 = false) {
 		performer.name = "ralsei";
 		performer.animspeed = 0.5;
 		performer.mid = 956;
-		performer.idle = 738;
+		performer.idle = 739;
 	}
 	
 	performer.image_xscale = 2;

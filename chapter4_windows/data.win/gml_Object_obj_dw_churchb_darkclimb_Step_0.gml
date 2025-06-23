@@ -80,7 +80,7 @@ if (scr_debug()) {
 			var pos = scr_heromarker("kris", "top");
 			setxy(pos[0], pos[1], 1049);
 			pos = scr_heromarker("susie", "top");
-			sujumpoff = scr_marker_ext(pos[0], pos[1], 421, 2, 2, undefined, undefined, undefined, undefined, 1);
+			sujumpoff = scr_marker_ext(pos[0], pos[1], 422, 2, 2, undefined, undefined, undefined, undefined, 1);
 			con = 32;
 			suendcon = 1.5;
 			scr_delay_var("suendcon", 2, 4);
@@ -375,7 +375,7 @@ if (cutscene == 5) {
 	cutscene = -1;
 	scr_delay_var("cutscene", 6, jumptime);
 	var supos = scr_heromarker("su", "bot");
-	fakesu = scr_marker_ext(supos[0], supos[1], 429, 2, 2, 0, 0, undefined, undefined, 1);
+	fakesu = scr_marker_ext(supos[0], supos[1], 430, 2, 2, 0, 0, undefined, undefined, 1);
 	
 	with (fakesu) {
 		x -= 2;
@@ -533,7 +533,7 @@ if (suendcon == 1) {
 		snd_play_delay(214, jumptime);
 		var pos = scr_heromarker("susie", "top");
 		scr_jump_to_point(pos[0], pos[1], 12, jumptime, true);
-		scr_delay_var("sprite_index", 421, jumptime + 1);
+		scr_delay_var("sprite_index", 422, jumptime + 1);
 		scr_delay_var("image_index", 0, jumptime + 1);
 		scr_delay_var("image_speed", 0, jumptime + 1);
 	}

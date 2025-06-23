@@ -161,7 +161,7 @@ if (con == 0.5) {
 	c_customfunc(function() {
 		with (obj_actor) {
 			if (name == "susie")
-				other.fakesu = scr_marker_ext(x, y, 427, 2, 2, 0, 0, image_blend, depth);
+				other.fakesu = scr_marker_ext(x, y, 428, 2, 2, 0, 0, image_blend, depth);
 		}
 		
 		with (roomglow)
@@ -184,7 +184,7 @@ if (con == 1) {
 if (con == 2) {
 	con = 3;
 	var pos = scr_heromarker("susie", "top");
-	endsu = scr_marker_ext(pos[0], pos[1], 421, 2, 2, 0, 0, 16777215, undefined, 1);
+	endsu = scr_marker_ext(pos[0], pos[1], 422, 2, 2, 0, 0, 16777215, undefined, 1);
 	
 	with (roomglow)
 		create_highlight(other.endsu);
@@ -199,7 +199,7 @@ if (con == 3) {
 			scr_lerpvar("y", y, pos[1], waittime);
 			sprite_index = spr_susie_run_excited_left;
 			image_speed = 0.25;
-			scr_delay_var("sprite_index", 429, waittime + 1);
+			scr_delay_var("sprite_index", 430, waittime + 1);
 			scr_delay_var("image_speed", 0, waittime + 1);
 			scr_delay_var("image_index", 0, waittime + 1);
 		}

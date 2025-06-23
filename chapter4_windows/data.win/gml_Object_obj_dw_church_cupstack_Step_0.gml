@@ -128,7 +128,7 @@ if (con == 1) {
 		with (susie) {
 			fun = 1;
 			scr_jump_to_point(other.x - 10, height - 84, jumpheight, jumptime, true);
-			scr_delay_var("sprite_index", 430, jumptime);
+			scr_delay_var("sprite_index", 431, jumptime);
 			ignoredepth = true;
 			scr_delay_var("depth", other.depth - 3, jumptime);
 		}
@@ -138,7 +138,7 @@ if (con == 1) {
 		with (kris) {
 			fun = 1;
 			scr_jump_to_point((other.x - 10) + 6, height - 142, jumpheight * 2, jumptime, true);
-			scr_delay_var("sprite_index", 253, jumptime);
+			scr_delay_var("sprite_index", 254, jumptime);
 			ignoredepth = true;
 			scr_delay_var("depth", other.depth - 2, jumptime);
 		}
@@ -148,7 +148,7 @@ if (con == 1) {
 		with (ralsei) {
 			fun = 1;
 			scr_jump_to_point((other.x - 10) + 4, height - 214, jumpheight * 3, jumptime, true);
-			scr_delay_var("sprite_index", 360, jumptime);
+			scr_delay_var("sprite_index", 361, jumptime);
 			scr_delay_var("depth", other.depth - 1, jumptime);
 			ignoredepth = true;
 		}

@@ -1,6 +1,6 @@
 if (instance_number(obj_bullet_almond) < (6 + danger_level)) {
 	var rnd_dir = irandom(360);
-	var bullet = scr_fire_bullet(clamp(obj_growtangle.x + lengthdir_x(200, rnd_dir), obj_growtangle.x - 125, obj_growtangle.x + 125), clamp(obj_growtangle.y + lengthdir_y(200, rnd_dir), obj_growtangle.y - 125, obj_growtangle.y + 125), 822, 180, 3, 736);
+	var bullet = scr_fire_bullet(clamp(obj_growtangle.x + lengthdir_x(200, rnd_dir), obj_growtangle.x - 125, obj_growtangle.x + 125), clamp(obj_growtangle.y + lengthdir_y(200, rnd_dir), obj_growtangle.y - 125, obj_growtangle.y + 125), 822, 180, 3, 737);
 	scr_bullet_inherit(bullet);
 	bullet.active = true;
 	bullet.activated = true;

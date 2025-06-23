@@ -93,7 +93,7 @@ if (global.flag[898] == 0) {
 		econ = 99;
 	}
 } else {
-	var tr = findspriteinfo(782);
+	var tr = findspriteinfo(783);
 	
 	with (instance_create(tr.x, tr.y, obj_treasure_room))
 		scr_size(2, 2);

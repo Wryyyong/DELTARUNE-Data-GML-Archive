@@ -327,7 +327,7 @@ with (obj_climb_obstacle) {
 			draw_sprite_ext(sprite_index, image_index, other.tower_x + other.tile_x[_tilex], y, (other.tile_xscale[_tilex] * 2) / other.tile_width_fine, 2.2, 0, other.tile_color[_tilex], 1);
 			
 			if (drawwater > 0) {
-				var spr = 278;
+				var spr = 279;
 				draw_sprite_ext(spr, sprite_get_number(spr) - (drawwater / 3), other.tower_x + other.tile_x[_tilex], y, (other.tile_xscale[_tilex] * 2) / other.tile_width_fine, 2.2, 0, other.tile_color[_tilex], 1);
 			}
 		}
@@ -343,7 +343,7 @@ with (obj_climb_obstacle) {
 			draw_sprite_ext(spr_climb_waterbucket, image_index, other.tower_x + other.tile_x[_tilex], y, (other.tile_xscale[_tilex] * 2) / other.tile_width_fine, -2, 0, other.tile_color[_tilex], 1);
 			
 			if (drawwater > 0) {
-				var spr = 278;
+				var spr = 279;
 				draw_sprite_ext(spr, sprite_get_number(spr) - (drawwater / 3), other.tower_x + other.tile_x[_tilex], y, (other.tile_xscale[_tilex] * 2) / other.tile_width_fine, 2.2, 0, other.tile_color[_tilex], 1);
 			}
 		}

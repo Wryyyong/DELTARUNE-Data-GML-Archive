@@ -135,10 +135,10 @@ if (facechange <= 0) {
 	}
 	
 	if (global.fc == 4) {
-		var tbody_sprite = 238;
+		var tbody_sprite = 239;
 		
 		if (global.chapter == 4 && global.plot >= 15 && global.plot < 40) {
-			tbody_sprite = 243;
+			tbody_sprite = 244;
 			draw_sprite_ext(tbody_sprite, 0, x - 7 - 1, y + 29, f, f, 0, c_white, 1);
 		} else {
 			draw_sprite_ext(tbody_sprite, 0, x - 7, y + 29, f, f, 0, c_white, 1);

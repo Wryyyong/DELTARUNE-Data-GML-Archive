@@ -8,13 +8,13 @@ if (!init) {
 	}
 	
 	for (var i = 0; i < 4; i++) {
-		var krs = scr_marker_ext(x, y, 253, 2, 2, 0);
+		var krs = scr_marker_ext(x, y, 254, 2, 2, 0);
 		krmark[i] = krs;
-		var sus = scr_marker_ext(x, y, 253, 2, 2, 0);
+		var sus = scr_marker_ext(x, y, 254, 2, 2, 0);
 		sumark[i] = sus;
 		
 		if (makera) {
-			var ral = scr_marker_ext(x, y, 253, 2, 2, 0);
+			var ral = scr_marker_ext(x, y, 254, 2, 2, 0);
 			ramark[i] = ral;
 		}
 	}

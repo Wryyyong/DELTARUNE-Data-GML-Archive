@@ -196,7 +196,7 @@ if (con == 18.2 && customcon == 1 && !i_ex(obj_writer)) {
 	c_var_instance(id, "darkencon", 1);
 	c_wait(20);
 	c_snd_play(242);
-	c_var_instance(jackenstein, "current_eyes_sprite", 823);
+	c_var_instance(jackenstein, "current_eyes_sprite", 824);
 	
 	if (global.tempflag[98] == 0) {
 		c_var_lerp_instance(jackenstein, "eyes_alpha", 0, 1, 30);

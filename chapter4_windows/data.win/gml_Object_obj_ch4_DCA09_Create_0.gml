@@ -15,7 +15,7 @@ for (var i = 0; i < array_length(spritesArray); i++) {
 		door_marker.depth = layer_get_depth("Tiles_new_main") - 10;
 	}
 	
-	if (layer_sprite_get_sprite(spritesArray[i]) == 624) {
+	if (layer_sprite_get_sprite(spritesArray[i]) == 625) {
 		book_marker = scr_marker_fromasset(spritesArray[i]);
 		book_marker.depth = layer_get_depth("Tiles_new_main") - 10;
 	}

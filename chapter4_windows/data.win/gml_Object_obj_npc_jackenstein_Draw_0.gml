@@ -24,7 +24,7 @@ if (darkened) {
 		if (is_laughing)
 			eyes_anim += 0.2;
 		
-		if (current_eyes_sprite == 823)
+		if (current_eyes_sprite == 824)
 			eyes_anim += 0.16666666666666666;
 		
 		draw_sprite_ext(current_eyes_sprite, eyes_anim, x, y, 2, 2, 0, c_white, eyes_alpha);

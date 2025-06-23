@@ -226,10 +226,6 @@ if (onscreen) {
 			space = 36;
 			count = 0;
 			var sol = [];
-			
-			if (keyboard_check_pressed(ord("B")))
-				debug_message(sol);
-			
 			sol = [0, 13, 0, 9, 4, 6, 2, 0, 0, 13, 0, 8, 2];
 			
 			for (var i = 0; i < array_length(sol); i++) {

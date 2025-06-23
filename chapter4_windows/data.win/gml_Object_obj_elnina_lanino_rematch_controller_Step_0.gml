@@ -96,7 +96,7 @@ if (endcon == 2) {
 			talking = false;
 		
 		with (obj_lanino_rematch_enemy)
-			head = 734;
+			head = 735;
 		
 		with (obj_elnina_rematch_enemy)
 			head = 1066;
@@ -746,10 +746,10 @@ if (talked == 0.6) {
 			scr_enemyblcon(elnina.x - 40, global.monstery[elnina.myself] - 10, 10);
 			
 			with (obj_lanino_rematch_enemy)
-				head = 734;
+				head = 735;
 			
 			with (obj_elnina_rematch_enemy)
-				head = 554;
+				head = 555;
 			
 			ballooncon = 3;
 		} else if (ballooncon == 3) {

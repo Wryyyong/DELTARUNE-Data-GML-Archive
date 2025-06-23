@@ -872,7 +872,7 @@ if (global.monster[myself] == 1) {
 				scr_shakeobj();
 			}
 			
-			scr_battle_sprite_set("susie", 718, 0, 1);
+			scr_battle_sprite_set("susie", 719, 0, 1);
 			scr_battle_sprite_set("ralsei", 2674, 0, 1);
 			instance_create(x, y, obj_shake);
 			var _x = camerax() + 500;
@@ -1520,7 +1520,7 @@ if (global.myfight == 3) {
 			with (obj_herosusie)
 				visible = 1;
 			
-			scr_battle_sprite_set("susie", 856, 0, 0);
+			scr_battle_sprite_set("susie", 857, 0, 0);
 			obj_herosusie.x += 14;
 			obj_herosusie.y -= 40;
 			snd_free_all();

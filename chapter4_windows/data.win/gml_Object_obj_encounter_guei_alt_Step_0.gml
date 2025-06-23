@@ -17,7 +17,7 @@ if (active && con < 2) {
 	if (makegueimarker) {
 		var targx = camerax() + 320 + random_range(-180, 180);
 		var targy = cameray() + 60 + random_range(-80, 40);
-		var guei = scr_marker_ext(targx, targy, 195, 2, 2, 0.125, undefined, undefined, 500, undefined, undefined, 0.5);
+		var guei = scr_marker_ext(targx, targy, 196, 2, 2, 0.125, undefined, undefined, 500, undefined, undefined, 0.5);
 		
 		with (guei) {
 			extflag = "guei";

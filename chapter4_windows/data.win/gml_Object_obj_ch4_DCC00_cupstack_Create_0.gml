@@ -64,7 +64,7 @@ for (var i = 0; i < array_length(recruited_list); i++) {
 }
 
 if (array_length(recruited_list) > 0 && scr_flag_get(254) > 0) {
-	var recruit_sprite = 265;
+	var recruit_sprite = 266;
 	recruited_sprites[array_length(recruited_sprites)] = recruit_sprite;
 	var height = (sprite_get_height(recruit_sprite) * 2) - 20;
 	height -= 10;

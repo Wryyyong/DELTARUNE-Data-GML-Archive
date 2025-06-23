@@ -364,7 +364,7 @@ if (phase == 2) {
 				rate = 6;
 			
 			if ((cave_timer % rate) == 0) {
-				with (scr_marker_ext(obj_heart.x + 10, obj_heart.y + 10, 797)) {
+				with (scr_marker_ext(obj_heart.x + 10, obj_heart.y + 10, 798)) {
 					image_speed = 1;
 					depth = obj_heart.depth - 1;
 					vspeed = random_range(-2, 2);

@@ -168,7 +168,7 @@ if (con == 40 && !d_ex() && customcon == 1) {
 		global.tempflag[30] = 1;
 	
 	snd_free_all();
-	gerson_marker = scr_marker_ext(room_width, room_height, 832, 2, 2, undefined, undefined, 0, 5000);
+	gerson_marker = scr_marker_ext(room_width, room_height, 833, 2, 2, undefined, undefined, 0, 5000);
 	global.flag[9] = 2;
 	global.batmusic[0] = snd_init("statue_chord_basic.ogg");
 	encounterflag = 176;
@@ -307,7 +307,7 @@ if (con == 48 && !d_ex() && customcon == 1) {
 			instance_destroy();
 	}
 	
-	gerson_marker = scr_marker_ext(room_width, room_height, 832, 2, 2, undefined, undefined, 0, 5000);
+	gerson_marker = scr_marker_ext(room_width, room_height, 833, 2, 2, undefined, undefined, 0, 5000);
 	encounterflag = 186;
 	global.flag[54] = encounterflag;
 	scr_battle(186, 1, gerson_marker, 0, 0);

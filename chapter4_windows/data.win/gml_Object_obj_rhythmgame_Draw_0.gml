@@ -51,7 +51,7 @@ bg_timer++;
 
 if (palette_active) {
 	palette_pos = scr_movetowards(palette_pos, 1 - bg_con, 0.1);
-	pal_swap_set(210, palette_pos, false);
+	pal_swap_set(211, palette_pos, false);
 	draw_sprite_ext(spr_rhythmgame_bg, 1, x, y + 100, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 	pal_swap_reset();
 	

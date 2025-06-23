@@ -10,7 +10,7 @@ for (var a = 0; a < segment_max; a++) {
 		
 		if (a == (other.segment_max - 1)) {
 			sprite_index = spr_darkshape_directed_tail_animated;
-			shrink_sprite = 266;
+			shrink_sprite = 267;
 		}
 		
 		scalefactor = 0.9 - (0.05 * a);

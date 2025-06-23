@@ -157,7 +157,7 @@ if (gueicheck == true) {
 					
 					if (gotem) {
 						dontdraw = i;
-						chaser = scr_marker_ext(xloc, yloc, 195, 2, 2, 0);
+						chaser = scr_marker_ext(xloc, yloc, 196, 2, 2, 0);
 						chaser.alpha = 1;
 						chaser.image_alpha = 0;
 						snd_play(347, 1, 1.4);

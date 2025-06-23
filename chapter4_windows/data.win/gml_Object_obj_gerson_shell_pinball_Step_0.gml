@@ -113,7 +113,7 @@ if (x > (obj_growtangle.x - 72) && x < (obj_growtangle.x + 72)) {
 		}
 		
 		for (var a = -2; a < 2; a++) {
-			with (scr_fire_bullet(x, y, 1275, 0, 0, 512)) {
+			with (scr_fire_bullet(x, y, 1275, 0, 0, 513)) {
 				active = false;
 				image_blend = c_gray;
 				spinspeed = 15;
@@ -154,7 +154,7 @@ if (x > (obj_growtangle.x - 72) && x < (obj_growtangle.x + 72)) {
 		}
 		
 		for (var a = -5; a < 5; a++) {
-			with (scr_fire_bullet(x + 24, y, 1275, 0, 0, 512)) {
+			with (scr_fire_bullet(x + 24, y, 1275, 0, 0, 513)) {
 				active = false;
 				image_blend = c_gray;
 				spinspeed = 15;
@@ -195,7 +195,7 @@ if (x > (obj_growtangle.x - 72) && x < (obj_growtangle.x + 72)) {
 		}
 		
 		for (var a = -4; a < 4; a++) {
-			with (scr_fire_bullet(x, y, 1275, 0, 0, 512)) {
+			with (scr_fire_bullet(x, y, 1275, 0, 0, 513)) {
 				active = false;
 				image_blend = c_gray;
 				spinspeed = 15;
@@ -236,7 +236,7 @@ if (x > (obj_growtangle.x - 72) && x < (obj_growtangle.x + 72)) {
 		}
 		
 		for (var a = -3; a < 3; a++) {
-			with (scr_fire_bullet(x - 24, y, 1275, 0, 0, 512)) {
+			with (scr_fire_bullet(x - 24, y, 1275, 0, 0, 513)) {
 				active = false;
 				image_blend = c_gray;
 				spinspeed = 15;

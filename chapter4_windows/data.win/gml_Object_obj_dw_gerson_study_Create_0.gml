@@ -279,7 +279,7 @@ if (global.plot >= 242) {
 hammerTreasure = -4;
 
 if (global.flag[1688] == 2) {
-	var chest = findspriteinfo(782, "DEBUG_ASSETS");
+	var chest = findspriteinfo(783, "DEBUG_ASSETS");
 	hammerTreasure = instance_create(chest.x, chest.y, obj_treasure_room);
 	
 	with (hammerTreasure) {

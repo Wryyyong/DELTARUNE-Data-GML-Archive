@@ -56,8 +56,8 @@ if (MENU_NO == 1 || MENU_NO == 4 || MENU_NO == 6 || MENU_NO == 7 || MENU_NO == 1
 					f.image_xscale = 1000;
 					f.image_yscale = 1000;
 					
-					if (ossafe_file_exists("config_" + string(global.filechoice) + ".ini")) {
-						ossafe_ini_open("config_" + string(global.filechoice) + ".ini");
+					if (ossafe_file_exists("keyconfig_" + string(global.filechoice) + ".ini")) {
+						ossafe_ini_open("keyconfig_" + string(global.filechoice) + ".ini");
 						
 						for (i = 0; i < 10; i += 1) {
 							readval = ini_read_real("KEYBOARD_CONTROLS", string(i), -1);
@@ -181,8 +181,8 @@ if (MENU_NO == 1 || MENU_NO == 4 || MENU_NO == 6 || MENU_NO == 7 || MENU_NO == 1
 				ossafe_ini_close();
 				ossafe_savedata_save();
 				
-				if (ossafe_file_exists("config_" + string(MENUCOORD[5]) + ".ini"))
-					ossafe_file_delete("config_" + string(MENUCOORD[5]) + ".ini");
+				if (ossafe_file_exists("keyconfig_" + string(MENUCOORD[5]) + ".ini"))
+					ossafe_file_delete("keyconfig_" + string(MENUCOORD[5]) + ".ini");
 				
 				TEMPCOMMENT = stringsetloc("IT WAS AS IF IT WAS NEVER THERE AT ALL.", "DEVICE_MENU_slash_Step_0_gml_126_0");
 				

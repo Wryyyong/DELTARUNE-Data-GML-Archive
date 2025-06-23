@@ -18,6 +18,9 @@ enum e__VW {
 	SurfaceID
 }
 
+if (blockbuffer > 0)
+	blockbuffer--;
+
 if (global.monster[myself] == 1) {
 	if (scr_isphase("enemytalk") && talked == 0) {
 		scr_randomtarget();
@@ -340,7 +343,9 @@ if (global.myfight == 3) {
 			poppupwait = 1;
 		}
 		
-		if (button3_p()) {
+		if (button3_p() && blockbuffer == 0) {
+			blockbuffer = 2;
+			
 			if (blockTimer == 0) {
 				blockTimer = 1;
 				alarm[4] = 75;

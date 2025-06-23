@@ -671,7 +671,7 @@ if (global.interact == 5) {
 				selectnoise = 1;
 				onebuffer = 2;
 				twobuffer = 2;
-				ossafe_ini_open_ch1("config_" + string(global.filechoice) + ".ini");
+				ossafe_ini_open_ch1("keyconfig_" + string(global.filechoice) + ".ini");
 				
 				for (var i = 0; i < 10; i += 1)
 					ini_write_real("KEYBOARD_CONTROLS", string(i), global.input_k[i]);
@@ -725,7 +725,7 @@ if (global.interact == 5) {
 			if (border_select == 1) {
 				onebuffer = 2;
 				twobuffer = 2;
-				ossafe_ini_open_ch1("config_" + string(global.filechoice) + ".ini");
+				ossafe_ini_open_ch1("keyconfig_" + string(global.filechoice) + ".ini");
 				ini_write_string("BORDER", "TYPE", global.screen_border_id);
 				ossafe_ini_close_ch1();
 				ossafe_savedata_save_ch1();

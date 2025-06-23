@@ -26,8 +26,8 @@ var CH = string(global.chapter);
 if (!global.is_console) {
 	file_copy("filech" + CH + "_" + string(MENUCOORD[2]), "filech" + CH + "_" + string(MENUCOORD[3]));
 	
-	if (file_exists("config_" + string(MENUCOORD[2]) + ".ini"))
-		file_copy("config_" + string(MENUCOORD[2]) + ".ini", "config_" + string(MENUCOORD[3]) + ".ini");
+	if (file_exists("keyconfig_" + string(MENUCOORD[2]) + ".ini"))
+		file_copy("keyconfig_" + string(MENUCOORD[2]) + ".ini", "keyconfig_" + string(MENUCOORD[3]) + ".ini");
 } else {
 	var file_to_copy = ds_map_find_value(global.savedata, "filech" + CH + "_" + string(MENUCOORD[2]));
 	var new_filename = "filech" + CH + "_" + string(MENUCOORD[3]);
@@ -36,8 +36,8 @@ if (!global.is_console) {
 	ossafe_file_text_close(new_file);
 	ossafe_savedata_save();
 	
-	if (ossafe_file_exists("config_" + string(MENUCOORD[2]) + ".ini")) {
-		ossafe_ini_open("config_" + string(MENUCOORD[2]) + ".ini");
+	if (ossafe_file_exists("keyconfig_" + string(MENUCOORD[2]) + ".ini")) {
+		ossafe_ini_open("keyconfig_" + string(MENUCOORD[2]) + ".ini");
 		var copy_border = ini_read_string("BORDER", "TYPE", global.screen_border_id);
 		var copy_controls_list = [];
 		var shoulder_reassign = obj_gamecontroller.gamepad_shoulderlb_reassign;
@@ -47,7 +47,7 @@ if (!global.is_console) {
 		
 		shoulder_reassign = ini_read_real("SHOULDERLB_REASSIGN", "SHOULDERLB_REASSIGN", obj_gamecontroller.gamepad_shoulderlb_reassign);
 		ossafe_ini_close();
-		ossafe_ini_open("config_" + string(MENUCOORD[3]) + ".ini");
+		ossafe_ini_open("keyconfig_" + string(MENUCOORD[3]) + ".ini");
 		ini_write_string("BORDER", "TYPE", copy_border);
 		
 		for (var i = 0; i < 10; i += 1)

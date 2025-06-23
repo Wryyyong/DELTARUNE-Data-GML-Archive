@@ -304,22 +304,21 @@ function scr_load() {
 	ossafe_file_text_close(myfileid);
 	global.lastsavedtime = global.time;
 	global.lastsavedlv = global.lv;
-	var is_valid = scr_tempsave();
+	audio_group_set_gain(1, global.flag[15], 0);
+	audio_set_master_gain(0, global.flag[17]);
 	
-	if (is_valid) {
-		audio_group_set_gain(1, global.flag[15], 0);
-		audio_set_master_gain(0, global.flag[17]);
+	if (global.filechoice != 9)
 		global.currentroom = scr_get_valid_room(global.chapter, global.currentroom);
-		__loadedroom = global.currentroom;
-		
-		if (__loadedroom == 71 && global.plot >= 11)
-			__loadedroom = 72;
-		
-		if (scr_dogcheck())
-			__loadedroom = choose(233, 1);
-		
-		room_goto(__loadedroom);
-	}
 	
+	__loadedroom = global.currentroom;
+	
+	if (__loadedroom == 71 && global.plot >= 11)
+		__loadedroom = 72;
+	
+	if (scr_dogcheck())
+		__loadedroom = choose(233, 1);
+	
+	room_goto(__loadedroom);
+	var is_valid = scr_tempsave();
 	return is_valid;
 }

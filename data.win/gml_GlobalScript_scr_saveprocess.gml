@@ -204,6 +204,10 @@ function scr_saveprocess(arg0) {
 	ossafe_file_text_write_real(myfileid, global.currentroom);
 	ossafe_file_text_writeln(myfileid);
 	ossafe_file_text_write_real(myfileid, global.time);
+	
+	if (scr_debug())
+		scr_add_valid_room(global.chapter, global.currentroom, global.plot);
+	
 	var is_valid = ossafe_file_text_close(myfileid);
 	return is_valid;
 }

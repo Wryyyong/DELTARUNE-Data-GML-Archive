@@ -10,13 +10,13 @@ global.savedata_async_load = false;
 global.savedata_error = false;
 global.savedata_debuginfo = "";
 global.savedata_pause = false;
-global.version = "1.09";
+global.version = "1.10";
 
 if (os_type == os_switch)
-	global.version = "1.05";
+	global.version = "1.06";
 
 if (os_type == os_ps4)
-	global.version = "1.05";
+	global.version = "1.06";
 
 init_loaded = false;
 chapter_is_loading = false;

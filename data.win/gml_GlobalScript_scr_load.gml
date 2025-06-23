@@ -313,7 +313,8 @@ function scr_load() {
 		global.currentroom = room_id;
 		
 		if (global.filechoice != 9) {
-			global.currentroom = scr_get_valid_room(global.chapter, global.currentroom);
+			var valid_room_index = scr_get_valid_room(global.chapter, global.currentroom);
+			global.currentroom = scr_get_id_by_room_index(valid_room_index);
 			
 			if (global.currentroom == scr_get_id_by_room_index(71) && global.plot >= 11)
 				global.currentroom = scr_get_id_by_room_index(72);

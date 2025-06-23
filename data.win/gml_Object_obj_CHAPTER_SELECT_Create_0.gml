@@ -10,7 +10,7 @@ global.savedata_async_load = false;
 global.savedata_error = false;
 global.savedata_debuginfo = "";
 global.savedata_pause = false;
-global.version = "1.12";
+global.version = "1.13";
 
 if (os_type == os_switch)
 	global.version = "1.07";

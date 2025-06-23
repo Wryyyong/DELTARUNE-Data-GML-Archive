@@ -155,7 +155,9 @@ if (victory == 1) {
 	}
 }
 
-if (keyboard_check_pressed(vk_space)) {
-	obj_mainchara.x = 1143;
-	obj_mainchara.y = 360;
+if (scr_debug()) {
+	if (keyboard_check_pressed(vk_space)) {
+		obj_mainchara.x = 1143;
+		obj_mainchara.y = 360;
+	}
 }

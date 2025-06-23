@@ -288,7 +288,7 @@ if (init == 0) {
 	if (type == 3) {
 		if (subtype == 2 || subtype == 1) {
 			if (subtype == 1)
-				scr_recruit_info_all("either");
+				scr_recruit_info_all("total");
 			
 			if (subtype == 2)
 				scr_recruit_info_all("either", 2);

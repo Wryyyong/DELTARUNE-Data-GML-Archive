@@ -1,6 +1,8 @@
-if (keyboard_check_pressed(vk_backspace)) {
-	snd_free_all();
-	room_restart();
+if (scr_debug()) {
+	if (keyboard_check_pressed(vk_backspace)) {
+		snd_free_all();
+		room_restart();
+	}
 }
 
 if (drawpic == 1) {

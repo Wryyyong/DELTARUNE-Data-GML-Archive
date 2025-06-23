@@ -80,7 +80,7 @@ if (con == 1) {
 	c_sel(su);
 	c_walk("d", 5, 60);
 	c_actortokris();
-	c_panobj(81, 15);
+	c_panobj(84, 15);
 	c_wait(15);
 	c_pannable(0);
 }

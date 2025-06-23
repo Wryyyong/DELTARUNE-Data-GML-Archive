@@ -1,3 +1,8 @@
+enum UnknownEnum {
+	Value_0,
+	Value_28 = 28
+}
+
 iniwrite = ossafe_ini_open("dr.ini");
 _NEWNAME = ini_read_string(scr_ini_chapter(global.chapter, MENUCOORD[2]), "Name", "------");
 _NEWTIME = ini_read_real(scr_ini_chapter(global.chapter, MENUCOORD[2]), "Time", 0);
@@ -62,3 +67,6 @@ if (!global.is_console) {
 		ossafe_ini_close();
 	}
 }
+
+with (obj_event_manager)
+	trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_28);

@@ -27,7 +27,7 @@ if (state < 2) {
 		}
 		
 		steptimer -= pi;
-		d = instance_exists(obj_shake) ? 192 : instance_create(0, 0, obj_shake);
+		d = instance_exists(obj_shake) ? 196 : instance_create(0, 0, obj_shake);
 		d.shakex = ceil(2);
 		d.shakey = ceil(2);
 		snd_play(snd_screenshake);
@@ -231,7 +231,7 @@ if (state < 2) {
 	if ((formtimer % 5) == 0 && formtimer >= 30 && formtimer <= 65) {
 		var _hearthurt = snd_play(snd_hurt1);
 		snd_pitch(_hearthurt, random_range(1.4, 2));
-		d = instance_exists(obj_shake) ? 192 : instance_create(0, 0, obj_shake);
+		d = instance_exists(obj_shake) ? 196 : instance_create(0, 0, obj_shake);
 		d.shakex = ceil(1);
 		d.shakey = ceil(1);
 		
@@ -295,7 +295,7 @@ if (state >= 11) {
 	
 	if (steptimer >= pi) {
 		steptimer -= pi;
-		d = instance_exists(obj_shake) ? 192 : instance_create(0, 0, obj_shake);
+		d = instance_exists(obj_shake) ? 196 : instance_create(0, 0, obj_shake);
 		d.shakex = ceil(2);
 		d.shakey = ceil(2);
 		snd_play(snd_screenshake);

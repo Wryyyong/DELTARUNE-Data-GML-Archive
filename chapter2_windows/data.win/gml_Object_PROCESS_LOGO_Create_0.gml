@@ -18,6 +18,9 @@ enum e__VW {
 	SurfaceID
 }
 
+if (scr_is_switch_os())
+	instance_create_depth(0, 0, 0, obj_switchAsyncHelper);
+
 w = sprite_width;
 h = sprite_height;
 chyoffset = 50;

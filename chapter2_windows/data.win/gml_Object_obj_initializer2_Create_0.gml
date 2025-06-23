@@ -1,20 +1,18 @@
-global.is_console = os_type == os_switch || os_type == os_ps4 || os_type == os_ps5;
+global.is_console = scr_is_switch_os() || os_type == os_ps4 || os_type == os_ps5;
 
 if (!global.is_console)
 	window_enable_borderless_fullscreen(true);
 
+global.debug = 0;
 var launch_data = scr_init_launch_parameters();
 global.launcher = launch_data.is_launcher;
 textures_loaded = false;
 
-if (global.is_console) {
+if (global.is_console)
 	texture_set_interpolation(false);
-	var sleep = scr_dark_marker(320 - sprite_get_width(spr_dog_sleep), 240 - (sprite_get_height(spr_dog_sleep) * 2), spr_dog_sleep);
-	sleep.image_speed = 0.15;
-}
 
 if (global.launcher) {
-	if (os_type == os_switch && !variable_global_exists("switchlogin")) {
+	if (scr_is_switch_os() && !variable_global_exists("switchlogin")) {
 		global.switchlogin = launch_data.switch_id;
 		
 		if (global.switchlogin >= 0)
@@ -26,7 +24,7 @@ if (global.launcher) {
 		if (!switch_accounts_is_user_open(global.switchlogin))
 			switch_accounts_open_user(global.switchlogin);
 	}
-} else if (os_type == os_switch && !variable_global_exists("switchlogin")) {
+} else if (scr_is_switch_os() && !variable_global_exists("switchlogin")) {
 	var _id = -1;
 	
 	while (_id < 0)
@@ -34,6 +32,18 @@ if (global.launcher) {
 	
 	global.switchlogin = _id;
 	switch_accounts_open_user(global.switchlogin);
+}
+
+if (!instance_exists(obj_event_manager)) {
+	var event_manager = instance_create(0, 0, obj_event_manager);
+	
+	with (event_manager)
+		init();
+	
+	if (os_type == os_ps4 || os_type == os_ps5) {
+		with (event_manager)
+			enable_trophies();
+	}
 }
 
 global.screen_border_id = "";
@@ -46,20 +56,24 @@ global.savedata_async_id = -1;
 global.savedata_async_load = false;
 global.savedata_error = false;
 global.savedata_debuginfo = "";
-global.version = "1.19";
+global.version = "1.41";
 
-if (os_type == os_switch)
-	global.version = "1.07";
+if (scr_is_switch_os())
+	global.version = "1.29";
 
 if (os_type == os_ps4 || os_type == os_ps5)
-	global.version = "1.07";
+	global.version = "1.29";
 
 global.game_won = false;
 global.chapter = 2;
 old_savedata_check = false;
 
 if (global.is_console) {
+	ossafe_init();
 	ossafe_savedata_load();
+	
+	if (os_type == os_ps4 || os_type == os_ps5)
+		window_set_cursor(cr_none);
 } else {
 	scr_84_init_localization();
 	pal_swap_init_system(1);
@@ -79,3 +93,12 @@ if (global.is_console) {
 	if (!instance_exists(obj_time))
 		instance_create(0, 0, obj_time);
 }
+
+loadtex = -4;
+
+if (global.is_console)
+	loadtex = instance_create(0, 0, obj_prefetchtex);
+else
+	scr_prefetch_textures();
+
+textures_loaded = false;

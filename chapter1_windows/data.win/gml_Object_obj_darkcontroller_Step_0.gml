@@ -18,6 +18,14 @@ enum e__VW {
 	SurfaceID
 }
 
+enum UnknownEnum {
+	Value_0,
+	Value_1,
+	Value_9 = 9,
+	Value_14 = 14,
+	Value_26 = 26
+}
+
 xx = __view_get(e__VW.XView, 0);
 yy = __view_get(e__VW.YView, 0);
 
@@ -54,6 +62,11 @@ if (global.interact == 5) {
 			
 			if (global.submenu == 5) {
 				scr_itemuse(global.item[global.submenucoord[2]]);
+				
+				if (usable == 1) {
+					with (obj_event_manager)
+						trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_9);
+				}
 				
 				if (usable == 1)
 					scr_itemshift(global.submenucoord[2], 0);
@@ -106,6 +119,11 @@ if (global.interact == 5) {
 			global.faceaction[1] = 0;
 			global.faceaction[2] = 0;
 			scr_itemuse(global.item[global.submenucoord[2]]);
+			
+			if (usable == 1) {
+				with (obj_event_manager)
+					trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_9);
+			}
 			
 			if (usable == 1)
 				scr_itemshift(global.submenucoord[2], 0);
@@ -547,6 +565,18 @@ if (global.interact == 5) {
 						}
 					}
 				}
+				
+				if (global.gamepad_type == "DualSense Wireless Controller") {
+					var dir = [32781, 32782, 32784, 32783];
+					
+					for (var i = 0; i < array_length(dir); i++) {
+						if (gamepad_button_check_pressed(obj_gamecontroller.gamepad_id, dir[i])) {
+							new_gamepad_key = -1;
+							control_select_con = 0;
+							break;
+						}
+					}
+				}
 			}
 			
 			if (button1_p() && control_select_con == 0 && onebuffer < 0) {
@@ -978,8 +1008,10 @@ if (global.interact == 5) {
 					global.submenu = 5;
 				}
 				
-				if (itemtarget == 2)
+				if (itemtarget == 2) {
+					selectnoise = 1;
 					global.submenu = 6;
+				}
 			}
 			
 			if (global.item[global.submenucoord[2]] == 0) {
@@ -1185,6 +1217,11 @@ if (global.interact == 5) {
 						scr_weaponinfo_all();
 						twobuffer = 2;
 						global.submenu = 11;
+						
+						if (newequip != 0) {
+							with (obj_event_manager)
+								trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_26);
+						}
 					}
 					
 					if (global.submenu == 13 || global.submenu == 14) {
@@ -1208,6 +1245,11 @@ if (global.interact == 5) {
 						twobuffer = 2;
 						scr_dmenu_armor_selection_match();
 						global.submenu = 11;
+						
+						if (newequip != 0) {
+							with (obj_event_manager)
+								trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_14);
+						}
 					}
 				} else {
 					snd_play(snd_cantselect);

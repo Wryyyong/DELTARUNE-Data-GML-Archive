@@ -28,7 +28,7 @@ function get_chapter_switch_parameters() {
 	var launch_data = new launch_parameters();
 	launch_data.is_launcher = global.launcher;
 	
-	if (os_type == os_switch && variable_global_exists("switchlogin"))
+	if (scr_is_switch_os() && variable_global_exists("switchlogin"))
 		launch_data.switch_id = global.switchlogin;
 	
 	var parameters = [];

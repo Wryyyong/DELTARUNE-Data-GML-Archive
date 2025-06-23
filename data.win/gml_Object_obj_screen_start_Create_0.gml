@@ -9,12 +9,25 @@ _alpha = 0;
 _scale = 1;
 _color = 16777215;
 _font = (global.lang == "en") ? 2 : 1;
+_text_prompt_y_pos = (global.lang == "en") ? 16 : 8;
+_line_height = (global.lang == "en") ? 16 : 18;
 _fade_in = false;
+_timer = 0;
 _version_display = -4;
+_register_display = false;
+_register_text = [];
+_prompt_text = [];
 
 init = function(arg0, arg1, arg2 = [], arg3 = 0) {
 	_parent = arg0;
 	_text = arg1;
+	
+	if (string_pos("~", _text) != 0) {
+		_register_display = true;
+		_prompt_text = string_split(_text, "#");
+		_register_text = string_split(_prompt_text[0], "~");
+	}
+	
 	_y_pos -= 40;
 	
 	for (var i = 0; i < array_length(arg2); i++) {
@@ -29,8 +42,17 @@ init = function(arg0, arg1, arg2 = [], arg3 = 0) {
 	_version_display = instance_create(x, 410, obj_ui_version);
 	_version_display.set_alpha(0);
 	init = true;
-	enable_input();
-	enable_select();
+	
+	for (var i = 0; i < array_length(_choices); i++) {
+		var choice = _choices[i];
+		
+		if (i == _choice_index) {
+			choice.highlight();
+			choice.disable_input();
+		} else {
+			choice.reset();
+		}
+	}
 };
 
 fade_in = function() {

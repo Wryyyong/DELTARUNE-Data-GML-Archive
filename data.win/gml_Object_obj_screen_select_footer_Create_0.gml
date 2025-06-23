@@ -39,7 +39,7 @@ init = function(arg0) {
 	
 	var version_display = instance_create(x, y, obj_ui_version);
 	version_display.set_screen_state(UnknownEnum.Value_4);
-	_grid_display = instance_create(x + 564, y + 26, obj_ui_grid);
+	_grid_display = instance_create(x + 584, y + 26, obj_ui_grid);
 	_init = true;
 };
 

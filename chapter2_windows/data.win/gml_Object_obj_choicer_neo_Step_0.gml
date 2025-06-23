@@ -1,5 +1,21 @@
 global.flag[33] += 1;
 
+if (!variable_instance_exists(id, "textinit")) {
+	if (choicetotal == 1) {
+		if (global.darkzone == 0)
+			yy -= 2;
+		
+		if (global.darkzone == 1) {
+			yy -= 3;
+			
+			if (global.lang == "ja")
+				yy -= 2;
+		}
+	}
+	
+	textinit = 1;
+}
+
 if (canchoose == 1) {
 	if (mychoice >= 0) {
 		if (button1_p())
@@ -10,20 +26,14 @@ if (canchoose == 1) {
 		if (left_h())
 			mychoice = 0;
 		
-		if (choicetotal >= 1) {
-			if (right_h())
-				mychoice = 1;
-		}
+		if (choicetotal >= 1 && right_h())
+			mychoice = 1;
 		
-		if (choicetotal >= 2) {
-			if (up_h())
-				mychoice = 2;
-		}
+		if (choicetotal >= 2 && up_h())
+			mychoice = 2;
 		
-		if (choicetotal >= 3) {
-			if (down_h())
-				mychoice = 3;
-		}
+		if (choicetotal >= 3 && down_h())
+			mychoice = 3;
 	}
 }
 

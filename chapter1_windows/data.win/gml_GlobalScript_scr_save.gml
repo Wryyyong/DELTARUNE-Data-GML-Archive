@@ -22,6 +22,16 @@ function scr_save() {
 	ini_write_real("G" + string(global.filechoice), "UraBoss", uraboss);
 	ini_write_string("G" + string(global.filechoice), "Version", global.version);
 	ossafe_ini_close();
-	ossafe_savedata_save();
 	scr_store_ura_result(global.chapter, global.filechoice, uraboss);
+	ossafe_ini_open("keyconfig_" + string(global.filechoice) + ".ini");
+	
+	for (i = 0; i < 10; i += 1)
+		ini_write_real("KEYBOARD_CONTROLS", string(i), global.input_k[i]);
+	
+	for (i = 0; i < 10; i += 1)
+		ini_write_real("GAMEPAD_CONTROLS", string(i), global.input_g[i]);
+	
+	ini_write_real("SHOULDERLB_REASSIGN", "SHOULDERLB_REASSIGN", obj_gamecontroller.gamepad_shoulderlb_reassign);
+	ossafe_ini_close();
+	ossafe_savedata_save();
 }

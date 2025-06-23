@@ -1,3 +1,8 @@
+enum UnknownEnum {
+	Value_0,
+	Value_25 = 25
+}
+
 global.msc = 0;
 global.typer = 5;
 
@@ -36,6 +41,9 @@ if (room == room_torhouse) {
 		global.typer = 7;
 		global.fc = 4;
 		global.fe = 0;
+	} else {
+		with (obj_event_manager)
+			trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_25);
 	}
 }
 
@@ -1732,6 +1740,9 @@ if (room == room_dw_mansion_east_3f_toilet) {
 		scr_speaker("no_name");
 		msgsetloc(0, "* (No problem here.)/%", "obj_npc_room_slash_Other_10_gml_2184_0");
 	}
+	
+	with (obj_event_manager)
+		trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_25);
 }
 
 if (room == room_dw_mansion_east_3f_projection) {

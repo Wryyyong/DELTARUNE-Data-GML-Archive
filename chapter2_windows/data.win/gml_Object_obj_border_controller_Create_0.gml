@@ -12,7 +12,7 @@ var scale_w = ww / sw;
 var scale_h = wh / sh;
 screenshot = -1;
 
-if (os_type == os_switch && wh == 720)
+if (scr_is_switch_os() && wh == 720)
 	global.window_scale = 4/3;
 else
 	global.window_scale = floor(min(scale_w, scale_h));

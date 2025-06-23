@@ -23,7 +23,7 @@ if (ds_map_find_value(async_load, "id") == global.savedata_async_id) {
 			var json = buffer_read(global.savedata_buffer, buffer_string);
 			global.savedata = json_decode(json);
 			global.savedata_async_load = false;
-		} else if (os_type == os_switch) {
+		} else if (scr_is_switch_os()) {
 			switch_save_data_commit();
 		}
 	}

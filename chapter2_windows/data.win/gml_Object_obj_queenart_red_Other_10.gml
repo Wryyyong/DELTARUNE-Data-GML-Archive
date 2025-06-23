@@ -1,3 +1,9 @@
+enum UnknownEnum {
+	Value_0,
+	Value_23 = 23,
+	Value_939 = 939
+}
+
 if (flippable == true)
 	flip = true;
 
@@ -71,8 +77,12 @@ if (isswitch == true) {
 				msgsetloc(0, "* (You found a ReviveMint!)/", "obj_queenart_red_slash_Other_10_gml_91_0");
 				msgnext(itemget);
 				
-				if (noroom == 0)
+				if (noroom == 0) {
 					global.flag[itemflag] = 1;
+					
+					with (obj_event_manager)
+						trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_23, UnknownEnum.Value_939);
+				}
 				
 				if (shine != -4)
 					instance_destroy(shine);

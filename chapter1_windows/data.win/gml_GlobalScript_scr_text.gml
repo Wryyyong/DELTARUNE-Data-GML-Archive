@@ -1,3 +1,8 @@
+enum UnknownEnum {
+	Value_0,
+	Value_9 = 9
+}
+
 function scr_text(arg0) {
 	switch (arg0) {
 		case 0:
@@ -1596,6 +1601,9 @@ function scr_text(arg0) {
 				global.msg[0] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_1702_0");
 				global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_1703_0");
 				global.flag[106] = 1;
+				
+				with (obj_event_manager)
+					trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_9);
 			}
 			
 			if (global.choice == 1)

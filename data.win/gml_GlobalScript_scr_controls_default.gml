@@ -3,8 +3,25 @@ function scr_controls_default() {
 	global.button1 = gp_face2;
 	global.button2 = gp_face4;
 	
-	if (os_type == os_ps4) {
-		if (global.lang == "ja") {
+	if (os_type == os_ps4 || os_type == os_ps5) {
+		var os_map = os_get_info();
+		var ps4_confirm_button = undefined;
+		
+		if (os_map != -1) {
+			var mapsize = ds_map_size(os_map);
+			var key = ds_map_find_first(os_map);
+			
+			for (var i = 0; i < (mapsize - 1); i++) {
+				if (key == "enter_button_assign")
+					ps4_confirm_button = ds_map_find_value(os_map, key);
+				else
+					key = ds_map_find_next(os_map, key);
+			}
+			
+			ds_map_destroy(os_map);
+		}
+		
+		if (ps4_confirm_button == 0) {
 			global.button0 = gp_face2;
 			global.button1 = gp_face1;
 		} else {
@@ -13,7 +30,7 @@ function scr_controls_default() {
 		}
 		
 		global.button2 = gp_face4;
-	} else if (os_type == os_switch) {
+	} else if (scr_is_switch_os()) {
 		global.button0 = gp_face2;
 		global.button1 = gp_face1;
 		global.button2 = gp_face4;

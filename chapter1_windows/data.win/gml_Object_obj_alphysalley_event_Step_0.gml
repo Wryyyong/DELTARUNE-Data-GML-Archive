@@ -1,7 +1,7 @@
 if (con == 1 && global.interact == 0) {
 	if (obj_mainchara.y <= 160) {
 		global.interact = 1;
-		a = 87;
+		a = 90;
 		
 		with (a) {
 			facing = 0;

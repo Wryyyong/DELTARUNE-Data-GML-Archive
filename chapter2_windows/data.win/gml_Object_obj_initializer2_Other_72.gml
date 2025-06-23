@@ -27,13 +27,7 @@ if (ds_map_find_value(async_load, "id") == global.savedata_async_id) {
 		scr_84_load_ini();
 		scr_gamestart();
 		pal_swap_init_system(1);
-		
-		if (ossafe_file_exists("dr.ini")) {
-			ossafe_ini_open("dr.ini");
-			global.game_won = ini_read_real("STATUS", "STATUS", 0);
-			ossafe_ini_close();
-		}
-		
+		global.game_won = scr_completed_chapter_any_slot(global.chapter);
 		global.damagefont = font_add_sprite_ext(spr_numbersfontbig, "0123456789", 20, 0);
 		global.damagefontgold = font_add_sprite_ext(spr_numbersfontbig_gold, "0123456789+-%", 20, 0);
 		global.hpfont = font_add_sprite_ext(spr_numbersfontsmall, "0123456789-+", 0, 2);

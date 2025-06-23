@@ -1,3 +1,11 @@
+enum UnknownEnum {
+	Value_0,
+	Value_5 = 5,
+	Value_25 = 25,
+	Value_28 = 28,
+	Value_933 = 933
+}
+
 myinteract = 3;
 global.msc = 0;
 global.typer = 5;
@@ -68,6 +76,11 @@ if (room == room_krishallway) {
 	if (x > 120)
 		global.msg[0] = scr_84_get_lang_string("obj_readable_room1_slash_Other_10_gml_83_0");
 	
+	if (x > 120 && x < 160) {
+		with (obj_event_manager)
+			trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_28);
+	}
+	
 	if (x > 160)
 		global.msg[0] = scr_84_get_lang_string("obj_readable_room1_slash_Other_10_gml_87_0");
 	
@@ -129,6 +142,9 @@ if (room == room_torbathroom) {
 	if (x >= 160 && x <= 190) {
 		global.msc = 355;
 		scr_text(global.msc);
+		
+		with (obj_event_manager)
+			trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_25);
 	}
 	
 	if (x >= 190) {
@@ -859,6 +875,11 @@ if (room == room_hospital_room2) {
 		if (x >= 150) {
 			global.msg[0] = scr_84_get_lang_string("obj_readable_room1_slash_Other_10_gml_1046_0");
 			global.msg[1] = scr_84_get_lang_string("obj_readable_room1_slash_Other_10_gml_1047_0");
+			
+			if (x < 200) {
+				with (obj_event_manager)
+					trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_5, UnknownEnum.Value_933);
+			}
 		}
 		
 		if (x >= 200) {

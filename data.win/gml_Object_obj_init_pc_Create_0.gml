@@ -1,5 +1,5 @@
 enum UnknownEnum {
-	Value_2 = 2
+	Value_4 = 4
 }
 
 _parent = -4;
@@ -10,13 +10,13 @@ if (os_type == os_windows)
 
 init = function(arg0, arg1) {
 	_parent = arg0;
-	window_set_caption("DELTARUNE Chapter 1&2");
+	window_set_caption(get_title());
 	var isoriginallauncher = is_original_launcher(arg1);
 	var display_height = display_get_height();
 	var display_width = display_get_width();
 	window_size_multiplier = 1;
 	
-	for (var _ww = 2; _ww < 6; _ww += 1) {
+	for (var _ww = 2; _ww < 12; _ww += 1) {
 		if (display_width > (640 * _ww) && display_height > (480 * _ww))
 			window_size_multiplier = _ww;
 	}
@@ -55,7 +55,7 @@ init = function(arg0, arg1) {
 	}
 	
 	if (!scr_has_ura_data()) {
-		for (var i = 0; i < UnknownEnum.Value_2; i++) {
+		for (var i = 0; i < UnknownEnum.Value_4; i++) {
 			var chapter = i + 1;
 			scr_convert_ura_data(chapter);
 		}
@@ -63,4 +63,6 @@ init = function(arg0, arg1) {
 	
 	_parent.trigger_event("init_complete");
 	isfullscreen = window_get_fullscreen();
+	var _input = instance_create(0, 0, obj_input);
+	_input.init();
 };

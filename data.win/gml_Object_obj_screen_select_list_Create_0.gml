@@ -1,18 +1,18 @@
 enum UnknownEnum {
-	Value_2 = 2,
+	Value_4 = 4,
 	Value_7 = 7
 }
 
 _parent = -4;
 _input_enabled = false;
-_input_buffer = 4;
+_input_buffer = 2;
 _input_time = _input_buffer;
 _slots = [];
 _chapters = [];
 _chapter_index = 0;
 _fade_in = false;
 var max_chapter = UnknownEnum.Value_7;
-var max_available_chapter = UnknownEnum.Value_2;
+var max_available_chapter = UnknownEnum.Value_4;
 
 for (var i = 0; i < max_chapter; i++) {
 	var new_chapter = instance_create(0, -10 + (i * 60), obj_ui_chapter);
@@ -74,7 +74,7 @@ highlight_bottom = function() {
 
 enable_input = function() {
 	_input_enabled = true;
-	_input_time = 6;
+	_input_time = _input_buffer;
 };
 
 disable_input = function() {

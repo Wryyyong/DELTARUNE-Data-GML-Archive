@@ -186,3 +186,5 @@ phoneindex = 0;
 phoneringing = 0;
 ynchoice = 0;
 menumax = 1;
+song_timer = 0;
+song_max_time = 750;

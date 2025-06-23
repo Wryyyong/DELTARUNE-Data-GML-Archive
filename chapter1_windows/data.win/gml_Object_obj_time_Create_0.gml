@@ -43,7 +43,7 @@ if (instance_number(obj_time) > 1) {
 		window_center_toggle = 1;
 	}
 	
-	if (os_type == os_switch) {
+	if (scr_is_switch_os()) {
 		switch_controller_support_set_defaults();
 		switch_controller_support_set_singleplayer_only(true);
 		switch_controller_set_supported_styles(7);

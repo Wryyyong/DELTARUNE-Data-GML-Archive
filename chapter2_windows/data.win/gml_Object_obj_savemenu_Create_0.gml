@@ -42,19 +42,6 @@ if (global.chapter == 2) {
 
 global.currentroom = scr_get_id_by_room_index(room);
 global.interact = 1;
-
-if (ossafe_file_exists("dr.ini")) {
-	ini_ex = 1;
-	iniread = ossafe_ini_open("dr.ini");
-	name = ini_read_string(scr_ini_chapter(global.chapter, global.filechoice), "Name", stringsetloc("Kris", "obj_savemenu_slash_Create_0_gml_8_0"));
-	level = ini_read_real(scr_ini_chapter(global.chapter, global.filechoice), "Level", 1);
-	love = ini_read_real(scr_ini_chapter(global.chapter, global.filechoice), "Love", 1);
-	time = ini_read_real(scr_ini_chapter(global.chapter, global.filechoice), "Time", 0);
-	roome = scr_get_valid_room(global.chapter, roome);
-	ossafe_ini_close();
-	ossafe_savedata_save();
-}
-
 d = global.darkzone + 1;
 minutes = floor(time / 1800);
 seconds = round(((time / 1800) - minutes) * 60);
@@ -84,7 +71,7 @@ time_current = global.time;
 
 for (var i = 0; i < 3; i++) {
 	name_file[i] = "Kris";
-	level_file[i] = 1;
+	level_file[i] = 0;
 	love_file[i] = 1;
 	time_file[i] = 0;
 	roome_file[i] = 0;

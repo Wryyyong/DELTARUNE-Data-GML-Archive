@@ -397,8 +397,8 @@ for (n = 1; n < pos; n += 1) {
 				wx += 8;
 			
 			if (global.lang == "ja") {
-				if (_sprite == button_ps4_dpad_up || _sprite == button_ps4_dpad_down || _sprite == button_ps4_dpad_left || _sprite == button_ps4_dpad_right)
-					wx += 2;
+				if (_sprite == button_ps4_dpad_up || _sprite == button_ps4_dpad_down || _sprite == button_ps4_dpad_left || _sprite == button_ps4_dpad_right || _sprite == button_ps5_dpad_up || _sprite == button_ps5_dpad_down || _sprite == button_ps5_dpad_left || _sprite == button_ps5_dpad_right)
+					wx += 4;
 			}
 		}
 		

@@ -1,3 +1,8 @@
+enum UnknownEnum {
+	Value_0,
+	Value_13 = 13
+}
+
 timer += 1;
 
 if (timer == 1)
@@ -53,8 +58,14 @@ if (timer >= 80 && timer < 150) {
 	if (button1_p())
 		Z_COUNT += 1;
 	
-	if (Z_COUNT >= 4)
+	if (Z_COUNT >= 4) {
+		if (Z_COUNT == 4) {
+			with (obj_event_manager)
+				trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_13);
+		}
+		
 		scr_tempload();
+	}
 }
 
 if (timer == 150)

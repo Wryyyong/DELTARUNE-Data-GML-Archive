@@ -22,7 +22,7 @@ _alpha = 0;
 _scale = 2;
 _color = 8421504;
 _font = (global.lang == "en") ? 2 : 1;
-_icon_index = 0;
+_icon_index = UnknownEnum.Value_0;
 _completed_files = [];
 _fade_in = false;
 
@@ -63,7 +63,7 @@ fade_in = function() {
 
 enable = function() {
 	_enabled = true;
-	_icon_index = _chapter;
+	_icon_index = get_chapter_icon_index(_chapter);
 	_chapter_choice.enable();
 	
 	for (var i = 0; i < 3; i++) {

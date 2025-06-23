@@ -1,3 +1,7 @@
+enum UnknownEnum {
+	Value_0
+}
+
 if (global.chapter == 2) {
 	if (gigaqueencon != 0)
 		exit;
@@ -506,21 +510,25 @@ if (global.myfight == 0) {
 			scr_iteminfo(tempitem[global.bmenucoord[4][global.charturn]][global.charturn]);
 			
 			if (itemtarget == 0 || itemtarget == 2) {
+				var item_use = false;
 				var _tensionhealed = 0;
 				
 				if (tempitem[global.bmenucoord[4][global.charturn]][global.charturn] == 27) {
 					scr_tensionheal(80);
 					_tensionhealed = 1;
+					item_use = true;
 				}
 				
 				if (tempitem[global.bmenucoord[4][global.charturn]][global.charturn] == 28) {
 					scr_tensionheal(ceil(global.maxtension / 2));
 					_tensionhealed = 1;
+					item_use = true;
 				}
 				
 				if (tempitem[global.bmenucoord[4][global.charturn]][global.charturn] == 29) {
 					scr_tensionheal(ceil(global.maxtension));
 					_tensionhealed = 1;
+					item_use = true;
 				}
 				
 				if (_tensionhealed) {
@@ -540,6 +548,11 @@ if (global.myfight == 0) {
 				
 				if (!_tensionhealed)
 					scr_itemconsumeb();
+				
+				if (item_use == true) {
+					with (obj_event_manager)
+						trigger_event(UnknownEnum.Value_0, get_consumer_trophy());
+				}
 			}
 			
 			if (itemtarget == 1)

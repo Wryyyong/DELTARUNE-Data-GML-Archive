@@ -5,16 +5,16 @@ enum UnknownEnum {
 	Value_3,
 	Value_4,
 	Value_5,
-	Value_7 = 7
+	Value_6,
+	Value_7
 }
 
-global.is_console = os_type == os_switch || os_type == os_ps4 || os_type == os_ps5;
+global.debug = 0;
+global.is_console = scr_is_switch_os() || os_type == os_ps4 || os_type == os_ps5;
 
 if (!variable_global_exists("bgm") || !audio_exists(global.bgm))
 	global.bgm = -4;
 
-var _input = instance_create(0, 0, obj_input);
-_input.init();
 scr_init();
 _current_state = UnknownEnum.Value_0;
 _chapter_in_progress = 0;
@@ -22,14 +22,16 @@ _chapter_completed = 0;
 _target_chapter = -1;
 _restart_room = false;
 _launch_data = scr_init_launch_parameters();
+_pending_titles = [];
+_pending_title = -4;
 
 init = function() {
 	var max_chapter = UnknownEnum.Value_7;
-	var max_available_chapter = UnknownEnum.Value_2;
+	var max_available_chapter = UnknownEnum.Value_4;
 	_current_state = UnknownEnum.Value_1;
 	
-	for (var i = 1; i < max_chapter; i++) {
-		var chapter = i;
+	for (var i = 0; i < max_available_chapter; i++) {
+		var chapter = i + 1;
 		
 		if (scr_chapter_save_file_exists(chapter) && !scr_completed_chapter_any_slot(chapter))
 			_chapter_in_progress = chapter;
@@ -38,8 +40,8 @@ init = function() {
 	if (_chapter_in_progress > 0)
 		_current_state = UnknownEnum.Value_2;
 	
-	for (var i = 1; i < max_chapter; i++) {
-		var chapter = i;
+	for (var i = 0; i < max_available_chapter; i++) {
+		var chapter = i + 1;
 		
 		if (scr_completed_chapter_any_slot(chapter))
 			_chapter_completed = chapter;
@@ -58,7 +60,7 @@ init = function() {
 	change_state(_current_state);
 };
 
-change_state = function(arg0) {
+change_state = function(arg0, arg1) {
 	_current_state = arg0;
 	
 	switch (_current_state) {
@@ -83,6 +85,38 @@ change_state = function(arg0) {
 		case UnknownEnum.Value_3:
 			stop_bgm();
 			create_start_next_screen();
+			break;
+		
+		case UnknownEnum.Value_5:
+			with (obj_screen_start)
+				clean_up();
+			
+			_pending_titles = arg1;
+			_pending_title = _pending_titles[0];
+			var adjusted_list = [];
+			
+			for (var i = 0; i < array_length(_pending_titles); i++) {
+				if (_pending_titles[i] == _pending_title)
+					continue;
+				
+				adjusted_list[array_length(adjusted_list)] = _pending_titles[i];
+			}
+			
+			_pending_titles = adjusted_list;
+			create_load_prompt_screen(_pending_title.title);
+			break;
+		
+		case UnknownEnum.Value_6:
+			with (obj_screen_start)
+				clean_up();
+			
+			create_load_deny_confirm_screen();
+			break;
+		
+		case UnknownEnum.Value_0:
+			with (obj_screen_start)
+				clean_up();
+			
 			break;
 	}
 };
@@ -138,6 +172,32 @@ create_select_screen = function() {
 	select_screen.fade_in();
 };
 
+create_load_prompt_screen = function(arg0) {
+	var load_text = scr_get_app_title(arg0) + "Save Data found.\nImport this Save Data?\n(This will only be asked once.)";
+	
+	if (global.lang == "ja")
+		load_text = scr_get_app_title(arg0) + "セーブデータを検出しました。\nこのセーブデータを取り込みますか？\n（この確認は一度しか行いません）";
+	
+	var yes_text = (global.lang == "en") ? "Yes" : "はい";
+	var no_text = (global.lang == "en") ? "No" : "いいえ";
+	var choices = [new create_choice(yes_text, UnknownEnum.Value_0), new create_choice(no_text, UnknownEnum.Value_1)];
+	var choice_offset = (global.lang == "ja") ? -20 : 0;
+	var start_screen = instance_create(0, 0, obj_screen_start);
+	start_screen.init(id, load_text, choices, choice_offset);
+	start_screen.fade_in();
+};
+
+create_load_deny_confirm_screen = function() {
+	var deny_text = (global.lang == "en") ? "Proceed without importing?" : "取り込まずに進めますか？";
+	var yes_text = (global.lang == "en") ? "Yes" : "はい";
+	var no_text = (global.lang == "en") ? "No" : "いいえ";
+	var choices = [new create_choice(yes_text, UnknownEnum.Value_0), new create_choice(no_text, UnknownEnum.Value_1)];
+	var choice_offset = (global.lang == "ja") ? -20 : 0;
+	var start_screen = instance_create(0, 0, obj_screen_start);
+	start_screen.init(id, deny_text, choices, choice_offset);
+	start_screen.fade_in();
+};
+
 trigger_event = function(arg0, arg1) {
 	var event_name = arg0;
 	var event_value = arg1;
@@ -146,6 +206,38 @@ trigger_event = function(arg0, arg1) {
 		case UnknownEnum.Value_0:
 			if (arg0 == "init_complete")
 				init();
+			else if (arg0 == "load_prompt")
+				change_state(UnknownEnum.Value_5, arg1);
+			
+			break;
+		
+		case UnknownEnum.Value_5:
+			if (event_value == UnknownEnum.Value_0) {
+				global.savedata = _pending_title.save_data;
+				_restart_room = true;
+				change_state(UnknownEnum.Value_0);
+				
+				with (obj_init_console)
+					convert_loaded_file();
+			} else if (array_length(_pending_titles) > 0) {
+				change_state(UnknownEnum.Value_0);
+				trigger_event("load_prompt", _pending_titles);
+			} else {
+				change_state(UnknownEnum.Value_6);
+			}
+			
+			break;
+		
+		case UnknownEnum.Value_6:
+			if (event_value == UnknownEnum.Value_0) {
+				_restart_room = true;
+				change_state(UnknownEnum.Value_0);
+				
+				with (obj_init_console)
+					create_new_save_file();
+			} else {
+				room_restart();
+			}
 			
 			break;
 		
@@ -200,38 +292,45 @@ show_transition = function() {
 	if (global.bgm != -4)
 		audio_sound_gain(global.bgm, 0, 500);
 	
-	var sound = get_chapter_confirm_sound(_target_chapter);
-	audio_play_sound(sound, 50, 0);
+	var sound_file = get_chapter_confirm_sound(_target_chapter);
+	var volume = 1;
+	
+	if (_target_chapter == 3)
+		volume = 0.7;
+	
+	audio_play_sound(sound_file, 50, 0, volume);
+	var delay = round(audio_sound_length(sound_file) * room_speed);
 	var transition = instance_create(0, 0, obj_screen_transition);
-	transition.init(id, _target_chapter);
+	transition.init(id, _target_chapter, delay);
 	transition.start(launch_game);
 };
 
 launch_game = function(arg0) {
 	audio_stop_all();
 	var chapstring = string(_target_chapter);
+	show_debug_message("Attempting to launch Chapter " + string(arg0));
 	var parameters = get_chapter_switch_parameters();
 	
-	switch (os_type) {
-		case os_windows:
-			game_change("/chapter" + chapstring + "_windows", "-game data.win" + parameters);
-			break;
-		
-		case os_switch:
-			game_change("rom:/chapter" + chapstring + "_switch/", parameters);
-			break;
-		
-		case os_ps4:
-			game_change("", "-game /app0/games/chapter" + chapstring + "_ps4/game.win" + parameters);
-			break;
-		
-		case os_ps5:
-			game_change("", "-game /app0/games/chapter" + chapstring + "_ps5/game.win" + parameters);
-			break;
-		
-		case os_macosx:
-			game_change("chapter" + chapstring + "_mac", parameters);
-			break;
+	if (scr_is_switch_os()) {
+		game_change("rom:/chapter" + chapstring + "_switch/", parameters);
+	} else {
+		switch (os_type) {
+			case os_windows:
+				game_change("/chapter" + chapstring + "_windows", "-game data.win" + parameters);
+				break;
+			
+			case os_ps4:
+				game_change("", "-game /app0/games/chapter" + chapstring + "_ps4/game.win" + parameters);
+				break;
+			
+			case os_ps5:
+				game_change("", "-game /app0/games/chapter" + chapstring + "_ps5/game.win" + parameters);
+				break;
+			
+			case os_macosx:
+				game_change("chapter" + chapstring + "_mac", parameters);
+				break;
+		}
 	}
 };
 

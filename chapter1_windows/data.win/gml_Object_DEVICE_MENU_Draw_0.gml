@@ -87,7 +87,7 @@ for (i = 0; i < 3; i += 1) {
 	BOX_X1 = 55;
 	BOX_Y1 = 55 + ((YL + YS) * i);
 	BOX_X2 = 55 + XL;
-	BOX_Y2 = 55 + ((YL + YS) * i) + YL;
+	BOX_Y2 = (55 + ((YL + YS) * i) + YL) - 1;
 	draw_set_alpha(0.5);
 	draw_set_color(c_black);
 	draw_rectangle(BOX_X1, BOX_Y1, BOX_X2, BOX_Y2, false);
@@ -105,11 +105,22 @@ for (i = 0; i < 3; i += 1) {
 	if (MENU_NO == 7 && MENUCOORD[5] == i)
 		draw_set_color(c_red);
 	
-	draw_rectangle(BOX_X1, BOX_Y1, BOX_X2, BOX_Y2, true);
+	if (TYPE != 1) {
+		var col = draw_get_color();
+		var alf = draw_get_alpha();
+		draw_sprite_ext(spr_pxwhite, 0, BOX_X1 - 1, BOX_Y1 - 1, XL + 2, 1, 0, col, alf);
+		draw_sprite_ext(spr_pxwhite, 0, BOX_X1 - 1, BOX_Y1 + YL, XL + 2, 1, 0, col, alf);
+		draw_sprite_ext(spr_pxwhite, 0, BOX_X1 - 1, BOX_Y1 - 1, 1, YL + 2, 0, col, alf);
+		draw_sprite_ext(spr_pxwhite, 0, BOX_X1 + XL, BOX_Y1 - 1, 1, YL + 2, 0, col, alf);
+	}
 	
 	if (TYPE == 1) {
-		for (j = 0; j < 4; j += 1)
-			draw_rectangle(BOX_X1 - (0.5 * j), BOX_Y1 - (0.5 * j), BOX_X2 + (0.5 * j), BOX_Y2 + (0.5 * j), true);
+		var col = draw_get_color();
+		var alf = draw_get_alpha();
+		draw_sprite_ext(spr_pxwhite, 0, BOX_X1 - 2, BOX_Y1 - 2, (BOX_X2 - BOX_X1) + 4, 2, 0, col, alf);
+		draw_sprite_ext(spr_pxwhite, 0, BOX_X1 - 2, BOX_Y2, (BOX_X2 - BOX_X1) + 4, 2, 0, col, alf);
+		draw_sprite_ext(spr_pxwhite, 0, BOX_X1 - 2, BOX_Y1 - 2, 2, (BOX_Y2 - BOX_Y1) + 4, 0, col, alf);
+		draw_sprite_ext(spr_pxwhite, 0, BOX_X2, BOX_Y1 - 2, 2, (BOX_Y2 - BOX_Y1) + 4, 0, col, alf);
 	}
 	
 	if (CONT_THIS < 4) {
@@ -341,7 +352,7 @@ if (MENU_NO >= 0) {
 	if (TYPE == 1) {
 		draw_set_alpha(0.4);
 		draw_set_color(c_white);
-		draw_text_transformed(195, 230, "DELTARUNE " + version_text + "(C) Toby Fox 2018-2024 ", 0.5, 0.5, 0);
+		draw_text_transformed(195, 230, "DELTARUNE " + version_text + "(C) Toby Fox 2018-2025 ", 0.5, 0.5, 0);
 	} else {
 		draw_set_color(COL_A);
 		draw_text_transformed(248, 230, version_text, 0.5, 0.5, 0);

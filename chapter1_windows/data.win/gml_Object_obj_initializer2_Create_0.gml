@@ -1,13 +1,14 @@
-global.is_console = os_type == os_switch || os_type == os_ps4;
+global.is_console = scr_is_switch_os() || (os_type == os_ps4 || os_type == os_ps5);
 
 if (!global.is_console)
 	window_enable_borderless_fullscreen(true);
 
+global.debug = 0;
 var launch_data = scr_init_launch_parameters();
 global.launcher = launch_data.is_launcher;
 
 if (global.launcher) {
-	if (os_type == os_switch && !variable_global_exists("switchlogin")) {
+	if (scr_is_switch_os() && !variable_global_exists("switchlogin")) {
 		global.switchlogin = launch_data.switch_id;
 		
 		if (global.switchlogin >= 0)
@@ -19,7 +20,7 @@ if (global.launcher) {
 		if (!switch_accounts_is_user_open(global.switchlogin))
 			switch_accounts_open_user(global.switchlogin);
 	}
-} else if (os_type == os_switch && !variable_global_exists("switchlogin")) {
+} else if (scr_is_switch_os() && !variable_global_exists("switchlogin")) {
 	var _id = -1;
 	
 	while (_id < 0)
@@ -27,6 +28,18 @@ if (global.launcher) {
 	
 	global.switchlogin = _id;
 	switch_accounts_open_user(global.switchlogin);
+}
+
+if (!instance_exists(obj_event_manager)) {
+	var event_manager = instance_create(0, 0, obj_event_manager);
+	
+	with (event_manager)
+		init();
+	
+	if (os_type == os_ps4 || os_type == os_ps5) {
+		with (event_manager)
+			enable_trophies();
+	}
 }
 
 global.chapter = 1;
@@ -40,18 +53,22 @@ global.savedata_async_id = -1;
 global.savedata_async_load = false;
 global.savedata_error = false;
 global.savedata_debuginfo = "";
-global.version = "1.19";
+global.version = "1.36";
 
-if (os_type == os_switch)
-	global.version = "1.07";
+if (scr_is_switch_os())
+	global.version = "1.24";
 
 if (os_type == os_ps4 || os_type == os_ps5)
-	global.version = "1.07";
+	global.version = "1.24";
 
 old_savedata_check = false;
 
 if (global.is_console) {
+	ossafe_init();
 	ossafe_savedata_load();
+	
+	if (os_type == os_ps4 || os_type == os_ps5)
+		window_set_cursor(cr_none);
 } else {
 	scr_84_init_localization();
 	scr_84_load_ini();

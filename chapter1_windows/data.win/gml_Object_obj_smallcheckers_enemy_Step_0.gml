@@ -18,6 +18,11 @@ enum e__VW {
 	SurfaceID
 }
 
+enum UnknownEnum {
+	Value_0,
+	Value_22 = 22
+}
+
 if (instance_exists(obj_basicattack)) {
 	if (obj_basicattack.sprite_index == spr_attack_cut1)
 		global.flag[211] = 3;
@@ -169,6 +174,11 @@ if (global.myfight == 3) {
 			
 			if (global.automiss[0] == 1)
 				points = 0;
+			
+			if (global.automiss[0] == 0) {
+				with (obj_event_manager)
+					trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_22);
+			}
 		}
 		
 		if (global.automiss[0] == 1) {

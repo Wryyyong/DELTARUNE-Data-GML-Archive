@@ -1,3 +1,3 @@
-collisionObject = 81;
+collisionObject = 84;
 targetX = 0;
 useTargetX = true;

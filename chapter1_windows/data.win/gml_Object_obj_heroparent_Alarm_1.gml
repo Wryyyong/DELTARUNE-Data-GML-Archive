@@ -1,3 +1,8 @@
+enum UnknownEnum {
+	Value_0,
+	Value_22 = 22
+}
+
 global.faceaction[myself] = 0;
 scr_retarget(myself);
 
@@ -29,8 +34,11 @@ if (cancelattack == 0) {
 	global.monsterhp[global.chartarget[myself]] -= damage;
 	
 	if (is_auto_susie == 1 && global.monsterhp[global.chartarget[myself]] <= 0) {
-		with (global.chartarget[myself])
+		with (global.monsterinstance[global.chartarget[myself]])
 			global.flag[51 + myself] = 5;
+		
+		with (obj_event_manager)
+			trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_22);
 	}
 	
 	if (damage > 0) {

@@ -1,3 +1,8 @@
+enum UnknownEnum {
+	Value_0,
+	Value_27 = 27
+}
+
 function scr_text(arg0) {
 	switch (arg0) {
 		case 0:
@@ -6054,6 +6059,9 @@ function scr_text(arg0) {
 						scr_speaker("spamton");
 						msgsetloc(0, "* HERE'S YOUR [Ring]^1! CAREFUL^1, IT MIGHT [Sting]&* EAHEAHEAH/", "scr_text_slash_scr_text_gml_6503_0");
 						msgnextloc("\\S1* (You got the ThornRing.)/%", "scr_text_slash_scr_text_gml_6504_0");
+						
+						with (obj_event_manager)
+							trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_27);
 					} else {
 						snd_play(snd_escaped);
 						scr_speaker("spamton");

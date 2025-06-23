@@ -8,7 +8,7 @@ if (drawpic == 1) {
 
 if (con == 3) {
 	pic = spr_introimage2;
-	picb = 314;
+	picb = 316;
 	picyb = -50;
 	con = 3.1;
 	con_alphb = 0;
@@ -92,7 +92,7 @@ if (con == 3.1) {
 		picy = picyb;
 		pic = picb;
 		con_alphb = 0;
-		picb = 315;
+		picb = 317;
 		msgsetloc(0, "The TITANS will take&form from the FOUNTAINS", "obj_legend_neo_slash_Draw_0_gml_80_0");
 		wx = 69;
 		
@@ -112,7 +112,7 @@ if (con == 3.1) {
 		picy = picyb;
 		pic = picb;
 		con_alphb = 0;
-		picb = 316;
+		picb = 318;
 		
 		with (w)
 			instance_destroy();
@@ -172,7 +172,7 @@ if (con == 4) {
 	con = 5;
 	contimer = 0;
 	pic = spr_cutscene_27_4;
-	picb = 320;
+	picb = 322;
 	con_alph = 0;
 	con_alphb = 0;
 	picx = 48;
@@ -220,7 +220,7 @@ if (con == 5) {
 	
 	if (contimer == 420) {
 		pic = picb;
-		picb = 321;
+		picb = 323;
 		con_alphb = 0;
 		
 		with (w)
@@ -242,7 +242,7 @@ if (con == 5) {
 	
 	if (contimer == 600) {
 		pic = picb;
-		picb = 322;
+		picb = 324;
 		con_alphb = 0;
 		
 		with (w)

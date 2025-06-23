@@ -30,7 +30,7 @@ function scr_controls_default() {
 		}
 		
 		global.button2 = gp_face4;
-	} else if (os_type == os_switch) {
+	} else if (scr_is_switch_os()) {
 		global.button0 = gp_face2;
 		global.button1 = gp_face1;
 		global.button2 = gp_face4;

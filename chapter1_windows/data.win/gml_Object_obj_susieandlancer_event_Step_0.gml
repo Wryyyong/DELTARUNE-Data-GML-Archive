@@ -463,8 +463,18 @@ if (con == 35) {
 	with (obj_battlecontroller)
 		victory = victoried;
 	
-	if (victory && s.visible == 0)
+	if (victory && s.visible == 0) {
 		s.visible = 1;
+		
+		if (instance_exists(obj_susieenemy)) {
+			s.sprite_index = obj_susieenemy.thissprite;
+			s.image_index = obj_susieenemy.siner / 6;
+			s.image_speed = 0.16666666666666666;
+			obj_susieenemy.x += room_width;
+		}
+		
+		s.depth = l.depth + 20;
+	}
 	
 	if (!instance_exists(obj_battlecontroller)) {
 		snd_free_all();

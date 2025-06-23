@@ -1,3 +1,9 @@
+enum UnknownEnum {
+	Value_0,
+	Value_23 = 23,
+	Value_939 = 939
+}
+
 if (!opened) {
 	myinteract = 3;
 	global.interact = 1;
@@ -6,6 +12,9 @@ if (!opened) {
 	snd_play(snd_locker);
 	screen = instance_create(980, 100, obj_queenscreen);
 	screen.image_index = 10;
+	
+	with (obj_event_manager)
+		trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_23, UnknownEnum.Value_939);
 } else {
 	with (obj_darkcontroller)
 		charcon = 0;

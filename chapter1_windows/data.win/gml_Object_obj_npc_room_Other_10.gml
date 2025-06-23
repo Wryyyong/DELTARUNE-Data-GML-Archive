@@ -1,3 +1,8 @@
+enum UnknownEnum {
+	Value_0,
+	Value_25 = 25
+}
+
 global.msc = 0;
 global.typer = 5;
 
@@ -28,6 +33,9 @@ if (room == room_torhouse) {
 		global.typer = 7;
 		global.fc = 4;
 		global.fe = 0;
+	} else {
+		with (obj_event_manager)
+			trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_25);
 	}
 }
 

@@ -16,7 +16,7 @@ function scr_become_light() {
 		scr_litemremove(11);
 	}
 	
-	global.lhp = ceil(global.hp[1] / global.maxhp[1]) * global.lmaxhp;
+	global.lhp = ceil((global.hp[1] / global.maxhp[1]) * global.lmaxhp);
 	
 	if (global.lhp < 1)
 		global.lhp = 1;

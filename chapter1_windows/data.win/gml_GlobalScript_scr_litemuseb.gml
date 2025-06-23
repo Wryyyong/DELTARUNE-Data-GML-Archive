@@ -1,3 +1,8 @@
+enum UnknownEnum {
+	Value_0,
+	Value_9 = 9
+}
+
 function scr_litemuseb(arg0, arg1) {
 	switch (arg1) {
 		case 0:
@@ -9,6 +14,10 @@ function scr_litemuseb(arg0, arg1) {
 			snd_play(snd_swallow);
 			scr_writetext(0, "x", 0, 0);
 			script_execute(scr_litemshift, arg0, 0);
+			
+			with (obj_event_manager)
+				trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_9);
+			
 			break;
 		
 		case 2:

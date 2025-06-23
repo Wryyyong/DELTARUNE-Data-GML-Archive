@@ -12,7 +12,7 @@ if (myinteract == 1 && !d_ex()) {
 	con = 1;
 	myinteract = 0;
 	timer = 99;
-	bucket = 73;
+	bucket = 76;
 }
 
 if (con == 1) {

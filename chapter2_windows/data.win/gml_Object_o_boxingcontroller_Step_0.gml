@@ -1,3 +1,8 @@
+enum UnknownEnum {
+	Value_0,
+	Value_13 = 13
+}
+
 with (obj_heroparent) {
 	x = -1000;
 	visible = true;
@@ -77,8 +82,12 @@ if (health_count < 1 && dead == 0.5) {
 	health_count = 0;
 	dead = 1;
 	
-	if (wireframe_boxing == 1)
+	if (wireframe_boxing == 1) {
 		instance_create(x, y - 45, obj_vector_explosion);
+	} else {
+		with (obj_event_manager)
+			trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_13);
+	}
 }
 
 if (wireframe_boxing == 0 && dead == 1) {
@@ -296,7 +305,7 @@ if (cancontrol == 1 && o_boxingqueen.phase_transition == 0 && talking == 0 && ar
 	if (wireframe_boxing == 1)
 		punch_buffer_amount = 5;
 	
-	if (os_type == os_switch) {
+	if (scr_is_switch_os()) {
 		if (button2_p() && canpunch) {
 			buffer_z = punch_buffer_amount;
 			

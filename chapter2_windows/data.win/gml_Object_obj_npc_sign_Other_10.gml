@@ -1,3 +1,8 @@
+enum UnknownEnum {
+	Value_0,
+	Value_25 = 25
+}
+
 global.msc = 0;
 global.typer = 5;
 
@@ -654,6 +659,9 @@ if (room == room_dw_city_mice2) {
 	if (extflag == "toilet") {
 		scr_speaker("no_name");
 		msgsetloc(0, "* (For some strange reason^1, a giant toilet-shaped toilet is blocking the way.)/%", "obj_npc_sign_slash_Other_10_gml_821_0_b");
+		
+		with (obj_event_manager)
+			trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_25);
 	}
 }
 

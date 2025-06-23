@@ -23,17 +23,9 @@ function scr_dbox() {
 	yyy = __view_get(e__VW.YView, 0);
 	
 	if (global.darkzone == 0) {
-		if (side == 0) {
-			draw_set_color(c_white);
-			draw_rectangle(xxx + 16, yyy + 5, xxx + 304, yyy + 80, false);
-			draw_set_color(c_black);
-			draw_rectangle(xxx + 19, yyy + 8, xxx + 301, yyy + 77, false);
-		} else {
-			draw_set_color(c_white);
-			draw_rectangle(xxx + 16, yyy + 160, xxx + 304, yyy + 235, false);
-			draw_set_color(c_black);
-			draw_rectangle(xxx + 19, yyy + 163, xxx + 301, yyy + 232, false);
-		}
+		var off = side * 155;
+		draw_sprite_ext(spr_pxwhite, 0, xxx + 16, yyy + 5 + off, 289, 76, 0, c_white, 1);
+		draw_sprite_ext(spr_pxwhite, 0, xxx + 19, yyy + 8 + off, 283, 70, 0, c_black, 1);
 	}
 	
 	if (global.darkzone == 1) {

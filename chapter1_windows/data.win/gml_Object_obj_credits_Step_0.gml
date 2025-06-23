@@ -96,12 +96,16 @@ if (timer == 573) {
 	line[3] = "Additional Programming";
 	line[4] = "Gregg Tavares (PC)";
 	line[5] = "Sarah O'Donnell (Console)";
+	line[6] = "Fred Wood";
+	line[7] = "Henri Beeres (Enjl)";
 	
 	if (global.lang == "ja") {
 		line[0] = "ローカライズプロデューサー";
 		line[3] = "追加プログラミング";
 		line[4] = "Gregg Tavares (PC版)";
 		line[5] = "Sarah O'Donnell (コンシューマー版)";
+		line[6] = "Fred Wood";
+		line[7] = "Henri Beeres (Enjl)";
 	}
 	
 	lyric = scr_84_get_lang_string("obj_credits_slash_Step_0_gml_108_0");
@@ -119,6 +123,8 @@ if (timer == 668) {
 	line[3] = "Snowdrake & Monster Kid Design";
 	line[4] = "Magnolia Porter";
 	line[5] = "";
+	line[6] = "";
+	line[7] = "";
 	linecolor[0] = c_ltgray;
 	linecolor[1] = c_ltgray;
 	linecolor[2] = c_white;

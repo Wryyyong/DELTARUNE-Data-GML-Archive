@@ -1,1 +1,1 @@
-ossafe_game_end();
+exit;

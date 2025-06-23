@@ -18,6 +18,11 @@ enum e__VW {
 	SurfaceID
 }
 
+enum UnknownEnum {
+	Value_0,
+	Value_19 = 19
+}
+
 if (init == 0) {
 	with (obj_heroparent)
 		visible = false;
@@ -391,6 +396,9 @@ if (global.myfight == 3) {
 		haventusedspell = 0;
 		msgset(0, actpunchtext);
 		scr_battletext_default();
+		
+		with (obj_event_manager)
+			trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_19);
 	}
 	
 	if (acting == 1.5 && !i_ex(obj_writer)) {
@@ -441,6 +449,9 @@ if (global.myfight == 3) {
 		haventusedspell = 0;
 		acting = 0;
 		actcon = 1;
+		
+		with (obj_event_manager)
+			trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_19);
 	}
 	
 	if (acting == 3) {

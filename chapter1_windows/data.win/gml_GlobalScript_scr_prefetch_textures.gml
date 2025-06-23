@@ -2,7 +2,7 @@ function scr_prefetch_textures() {
 	var texture_groups = ["Default", "ConsolePS4"];
 	
 	if (global.is_console) {
-		if (os_type == os_switch)
+		if (scr_is_switch_os())
 			texture_groups = ["Default", "ConsoleSwitch"];
 		
 		texture_groups[array_length(texture_groups)] = "Console";

@@ -15,6 +15,13 @@ if (_fade_in) {
 	
 	if (_alpha >= 1)
 		_fade_in = false;
+	
+	_timer++;
+	
+	if (_timer == 6) {
+		enable_input();
+		enable_select();
+	}
 }
 
 if (!_input_enabled)

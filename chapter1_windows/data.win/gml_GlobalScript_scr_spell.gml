@@ -1,8 +1,13 @@
+enum UnknownEnum {
+	Value_0
+}
+
 function scr_spell(arg0, arg1) {
 	spell = arg0;
 	caster = arg1;
 	star = global.chartarget[arg1];
 	global.spelldelay = 10;
+	var item_use = false;
 	
 	switch (spell) {
 		case 0:
@@ -192,6 +197,7 @@ function scr_spell(arg0, arg1) {
 		
 		case 201:
 			scr_healitemspell(40);
+			item_use = true;
 			break;
 		
 		case 202:
@@ -201,6 +207,7 @@ function scr_spell(arg0, arg1) {
 				reviveamt = ceil(global.maxhp[global.char[star]]) + abs(global.hp[global.char[star]]);
 			
 			scr_healitemspell(reviveamt);
+			item_use = true;
 			break;
 		
 		case 203:
@@ -211,30 +218,37 @@ function scr_spell(arg0, arg1) {
 		
 		case 205:
 			scr_healitemspell(20);
+			item_use = true;
 			break;
 		
 		case 206:
 			scr_healallitemspell(160);
+			item_use = true;
 			break;
 		
 		case 207:
 			scr_healallitemspell(80);
+			item_use = true;
 			break;
 		
 		case 208:
 			scr_healitemspell(70);
+			item_use = true;
 			break;
 		
 		case 209:
 			scr_healitemspell(50);
+			item_use = true;
 			break;
 		
 		case 210:
 			scr_healitemspell(4);
+			item_use = true;
 			break;
 		
 		case 211:
 			scr_healallitemspell(30);
+			item_use = true;
 			break;
 		
 		case 212:
@@ -247,6 +261,7 @@ function scr_spell(arg0, arg1) {
 			if (global.char[star] == 3)
 				scr_healitemspell(60);
 			
+			item_use = true;
 			break;
 		
 		case 213:
@@ -259,14 +274,22 @@ function scr_spell(arg0, arg1) {
 			if (global.char[star] == 3)
 				scr_healitemspell(30);
 			
+			item_use = true;
 			break;
 		
 		case 214:
 			scr_healitemspell(500);
+			item_use = true;
 			break;
 		
 		case 215:
 			scr_healitemspell(60);
+			item_use = true;
 			break;
+	}
+	
+	if (item_use == true) {
+		with (obj_event_manager)
+			trigger_event(UnknownEnum.Value_0, get_consumer_trophy());
 	}
 }

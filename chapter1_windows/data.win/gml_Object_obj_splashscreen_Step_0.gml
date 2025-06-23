@@ -26,7 +26,7 @@ if (loaded) {
 			snd_play(snd_menumove);
 			
 			if (heart_pos_x == heart_pos_x_default) {
-				if (os_type == os_switch) {
+				if (scr_is_switch_os()) {
 					switch_show_store(72199087622348800);
 				} else if (os_type == os_ps4 || os_type == os_ps5) {
 				}

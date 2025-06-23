@@ -1,3 +1,9 @@
+enum UnknownEnum {
+	Value_0,
+	Value_2 = 2,
+	Value_29 = 29
+}
+
 if (!input_enabled)
 	exit;
 
@@ -109,9 +115,19 @@ if (MENU_NO == 1 || MENU_NO == 4 || MENU_NO == 6 || MENU_NO == 7) {
 						ossafe_ini_close();
 						ossafe_savedata_save();
 					}
+					
+					if (os_type == os_ps5) {
+						with (obj_event_manager)
+							trigger_event(UnknownEnum.Value_2, UnknownEnum.Value_0);
+					}
 				}
 				
 				if (FILE[MENUCOORD[0]] == 0) {
+					if (os_type == os_ps5) {
+						with (obj_event_manager)
+							trigger_event(UnknownEnum.Value_2, UnknownEnum.Value_0);
+					}
+					
 					global.filechoice = MENUCOORD[0];
 					snd_free_all();
 					room_goto(PLACE_CONTACT);
@@ -182,6 +198,9 @@ if (MENU_NO == 1 || MENU_NO == 4 || MENU_NO == 6 || MENU_NO == 7) {
 				SELNOISE = 0;
 				DEATHNOISE = 1;
 				MENU_NO = 0;
+				
+				with (obj_event_manager)
+					trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_29);
 			}
 			
 			if (MENU_NO == 6) {

@@ -1,3 +1,9 @@
+enum UnknownEnum {
+	Value_0,
+	Value_1,
+	Value_2
+}
+
 if (con == -1) {
 	con = 1;
 	global.interact = 1;
@@ -553,7 +559,7 @@ if ((con == 10 && !d_ex()) || scr_cutscene_loaded()) {
 	c_imageindex(15);
 	c_walkdirect(430, 167, 2);
 	c_soundplay(snd_grab);
-	c_instance(460, 177, 366);
+	c_instance(460, 177, 370);
 	c_wait(45);
 	c_imagespeed(0);
 	c_imageindex(15);
@@ -774,6 +780,15 @@ if (align_susie) {
 
 if (end_game) {
 	end_game = false;
+	
+	if (global.flag[918] == 0) {
+		with (obj_event_manager)
+			trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_2);
+	}
+	
+	with (obj_event_manager)
+		trigger_event(UnknownEnum.Value_2, UnknownEnum.Value_1);
+	
 	_remfilechoice = global.filechoice;
 	global.filechoice += 3;
 	scr_save();

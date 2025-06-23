@@ -1,6 +1,10 @@
 enum UnknownEnum {
-	Value_1 = 1,
-	Value_2
+	Value_0,
+	Value_1,
+	Value_2,
+	Value_3,
+	Value_4,
+	Value_5
 }
 
 function scr_init() {
@@ -20,6 +24,18 @@ function get_chapter_confirm_sound(arg0) {
 		case UnknownEnum.Value_2:
 			return 0;
 			break;
+		
+		case UnknownEnum.Value_3:
+			return 2;
+			break;
+		
+		case UnknownEnum.Value_4:
+			return 4;
+			break;
+		
+		default:
+			return 3;
+			break;
 	}
 }
 
@@ -33,6 +49,14 @@ function get_chapter_title(arg0) {
 			return (global.lang == "en") ? "A Cyber's World" : "サイバーワールド";
 			break;
 		
+		case UnknownEnum.Value_3:
+			return (global.lang == "en") ? "Late Night" : "レイトナイト";
+			break;
+		
+		case UnknownEnum.Value_4:
+			return (global.lang == "en") ? "Prophecy" : "予言";
+			break;
+		
 		default:
 			return "- -";
 			break;
@@ -40,6 +64,35 @@ function get_chapter_title(arg0) {
 }
 
 function get_version() {
-	var version = "v3";
+	var version = "v14";
 	return version;
+}
+
+function get_chapter_icon_index(arg0) {
+	switch (arg0) {
+		case UnknownEnum.Value_1:
+			return UnknownEnum.Value_1;
+			break;
+		
+		case UnknownEnum.Value_2:
+			return UnknownEnum.Value_2;
+			break;
+		
+		case UnknownEnum.Value_3:
+			return scr_completed_chapter_any_slot(arg0) ? UnknownEnum.Value_4 : UnknownEnum.Value_3;
+			break;
+		
+		case UnknownEnum.Value_4:
+			return UnknownEnum.Value_5;
+			break;
+		
+		default:
+			return UnknownEnum.Value_0;
+			break;
+	}
+}
+
+function get_title() {
+	var title = "DELTARUNE";
+	return title;
 }

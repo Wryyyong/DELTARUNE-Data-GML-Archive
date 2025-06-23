@@ -1,5 +1,6 @@
 function scr_damage_all() {
 	if (global.inv < 0) {
+		scr_damage_cache();
 		remdamage = damage;
 		_temptarget = target;
 		
@@ -14,5 +15,6 @@ function scr_damage_all() {
 		
 		global.inv = global.invc * 40;
 		target = _temptarget;
+		scr_damage_check();
 	}
 }

@@ -33,4 +33,10 @@ function scr_losechar() {
 			}
 		}
 	}
+	
+	global.submenu = 0;
+	global.charselect = -1;
+	
+	for (i = 0; i < 36; i += 1)
+		global.submenucoord[i] = 0;
 }

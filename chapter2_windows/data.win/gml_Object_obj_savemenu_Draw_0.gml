@@ -48,11 +48,11 @@ if (menuno == 0) {
 	
 	draw_set_halign(fa_left);
 	
-	if (!scr_kana_check(name)) {
-		draw_text((60 * d) + xx, (60 * d) + yy, string_hash_to_newline(name));
+	if (!scr_kana_check(name_current)) {
+		draw_text((60 * d) + xx, (60 * d) + yy, string_hash_to_newline(name_current));
 	} else {
 		draw_set_font(fnt_ja_mainbig);
-		draw_text((60 * d) + xx, (60 * d) + yy, string_hash_to_newline(name));
+		draw_text((60 * d) + xx, (60 * d) + yy, string_hash_to_newline(name_current));
 		
 		if (global.lang != "ja")
 			draw_set_font(fnt_mainbig);

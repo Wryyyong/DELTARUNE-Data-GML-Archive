@@ -1,6 +1,10 @@
 global.currentsong[0] = snd_init("legend.ogg");
 snd_pitch(global.currentsong[0], 0.95);
 global.currentsong[1] = mus_play(global.currentsong[0]);
+
+if (scr_is_switch_os())
+	instance_create(0, 0, obj_switchAsyncHelper);
+
 contimer = 0;
 ytimer = 0;
 xtimer = 0;

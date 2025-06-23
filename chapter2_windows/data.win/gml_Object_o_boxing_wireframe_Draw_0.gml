@@ -24,11 +24,11 @@ o_boxingcontroller_janky_y = o_boxingcontroller.y;
 o_boxingcontroller_sprite_index = o_boxingcontroller.sprite_index;
 o_boxingcontroller_image_index = o_boxingcontroller.image_index;
 
-if (o_boxingcontroller.disable_queen_blocking == 0 && o_boxingqueen.health_count < (o_boxingqueen.health_count_max * 0.5) && o_boxingqueen_janky_sprite_index == 2131 && o_boxingqueen_janky_image_index < 2)
-	o_boxingqueen_janky_sprite_index = 2146;
+if (o_boxingcontroller.disable_queen_blocking == 0 && o_boxingqueen.health_count < (o_boxingqueen.health_count_max * 0.5) && o_boxingqueen_janky_sprite_index == 2140 && o_boxingqueen_janky_image_index < 2)
+	o_boxingqueen_janky_sprite_index = 2156;
 
-if (o_boxingcontroller.disable_queen_blocking == 0 && o_boxingqueen.health_count < (o_boxingqueen.health_count_max * 0.5) && o_boxingqueen_janky_sprite_index == 2132)
-	o_boxingqueen_janky_sprite_index = 2146;
+if (o_boxingcontroller.disable_queen_blocking == 0 && o_boxingqueen.health_count < (o_boxingqueen.health_count_max * 0.5) && o_boxingqueen_janky_sprite_index == 2141)
+	o_boxingqueen_janky_sprite_index = 2156;
 
 if (pacifist_state <= 0 && introcon == 1)
 	pacifist_timer++;
@@ -40,7 +40,7 @@ if (surface_exists(surface)) {
 	surface_set_target(surface);
 	
 	if (hidebg == 0)
-		draw_background(2207, 0, 0);
+		draw_background(2217, 0, 0);
 	
 	if (hidebg == 1) {
 		draw_set_color(c_black);
@@ -48,10 +48,10 @@ if (surface_exists(surface)) {
 	}
 	
 	if (o_boxingqueen.sprite_index == spr_bqueen_hurt_effect_wireframe)
-		o_boxingqueen_janky_sprite_index = 2141;
+		o_boxingqueen_janky_sprite_index = 2150;
 	
 	if (o_boxingqueen.sprite_index == spr_bqueen_headless_wireframe)
-		o_boxingqueen_janky_sprite_index = 2147;
+		o_boxingqueen_janky_sprite_index = 2157;
 	
 	if (!instance_exists(obj_vector_explosion_big)) {
 		if (o_boxingqueen.drawflip == 0 && o_boxingcontroller.dead < 2)
@@ -172,7 +172,7 @@ if (surface_exists(surface)) {
 		}
 	}
 	
-	if ((o_boxingqueen_janky_sprite_index == 2146 && o_boxingcontroller.dead == 0 && o_boxingcontroller.arcade_times_blocked > 2) || (o_boxingqueen_janky_sprite_index == 2145 && o_boxingcontroller.dead == 0 && o_boxingcontroller.arcade_times_blocked > 2) || zx_timer > 0) {
+	if ((o_boxingqueen_janky_sprite_index == 2156 && o_boxingcontroller.dead == 0 && o_boxingcontroller.arcade_times_blocked > 2) || (o_boxingqueen_janky_sprite_index == 2155 && o_boxingcontroller.dead == 0 && o_boxingcontroller.arcade_times_blocked > 2) || zx_timer > 0) {
 		if (zx_state == 0) {
 			draw_set_color(c_black);
 			

@@ -664,7 +664,7 @@ if (type == 34) {
 		}
 		
 		chain = instance_create(xx, yy, obj_skychain);
-		scr_bullet_inherit(252);
+		scr_bullet_inherit(255);
 		btimer = 0;
 	}
 }

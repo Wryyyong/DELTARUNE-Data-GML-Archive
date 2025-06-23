@@ -7,7 +7,7 @@ var yy = floor((wh - (sh * global.window_scale)) / 2);
 global.window_xofs = xx;
 global.window_yofs = yy;
 
-if (os_type == os_switch && wh == 720)
+if (scr_is_switch_os() && wh == 720)
 	texture_set_interpolation(true);
 else
 	texture_set_interpolation(false);

@@ -16,6 +16,10 @@ if (timer == 45) {
 
 if (timer == 60) {
 	snd_stop(global.currentsong[1]);
+	
+	if (scr_is_switch_os())
+		instance_create(x, y, obj_switchAsyncHelper);
+	
 	musLoad = snd_init("cyber_battle_prelude.ogg");
 	musSeq = snd_play(musLoad);
 	sndinit = 1;
@@ -97,6 +101,10 @@ if (sndinit == 1) {
 		con = 2;
 		snd_stop(musSeq);
 		snd_free(musLoad);
+		
+		with (obj_switchAsyncHelper)
+			instance_destroy();
+		
 		sndinit = 2;
 		active = 0;
 	}

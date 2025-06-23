@@ -1,3 +1,9 @@
+enum UnknownEnum {
+	Value_0,
+	Value_23 = 23,
+	Value_939 = 939
+}
+
 with (obj_darkcontroller)
 	charcon = 0;
 
@@ -97,6 +103,9 @@ if (global.flag[itemflag] == 1) {
 		}
 		
 		global.flag[itemflag] = 1;
+		
+		with (obj_event_manager)
+			trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_23, UnknownEnum.Value_939);
 	} else {
 		global.msg[1] = scr_84_get_subst_string(scr_84_get_lang_string("obj_treasure_room_slash_Other_10_gml_115_0"), itemtypename);
 		close = 1;

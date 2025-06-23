@@ -1,3 +1,8 @@
+enum UnknownEnum {
+	Value_0,
+	Value_18 = 18
+}
+
 if (global.plot < 150) {
 	if (swanboat.x < 540) {
 		swan_shadow.x = swanboat.x;
@@ -752,6 +757,10 @@ if (global.plot < 150) {
 		if (photocon == 2) {
 			photocon = 10;
 			global.flag[325] = 1;
+			
+			with (obj_event_manager)
+				trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_18);
+			
 			c_sel(kr);
 			c_facing("l");
 			c_walk_wait("l", 3, 10);

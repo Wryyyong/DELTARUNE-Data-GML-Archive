@@ -1,3 +1,8 @@
+enum UnknownEnum {
+	Value_0,
+	Value_27 = 27
+}
+
 if (scr_debug()) {
 }
 
@@ -889,3 +894,9 @@ if (menu < 4 || menu >= 10) {
 
 onebuffer -= 1;
 twobuffer -= 1;
+song_timer++;
+
+if (song_timer == song_max_time) {
+	with (obj_event_manager)
+		trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_27);
+}

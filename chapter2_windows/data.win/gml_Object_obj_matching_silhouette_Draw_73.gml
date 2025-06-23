@@ -3,7 +3,7 @@ if (target_char == noone)
 
 if (init == 0) {
 	if (instance_exists(obj_caterpillarchara)) {
-		second_char = 275;
+		second_char = 279;
 		second_sprite = obj_caterpillarchara.sprite_index;
 	}
 	

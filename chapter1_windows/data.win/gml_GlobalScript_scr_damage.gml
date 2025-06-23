@@ -5,6 +5,8 @@ function scr_damage() {
 		debug_inv = global.chemg_god_mode;
 	
 	if (global.inv < 0 && debug_inv == 0) {
+		scr_damage_cache();
+		
 		if (target < 3) {
 			if (global.hp[global.char[target]] <= 0) {
 				scr_randomtarget();
@@ -89,6 +91,7 @@ function scr_damage() {
 		}
 		
 		global.inv = global.invc * 40;
+		scr_damage_check();
 		gameover = 1;
 		
 		if (global.char[0] != 0 && global.hp[global.char[0]] > 0)

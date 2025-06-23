@@ -125,7 +125,7 @@ if (con == 12 || scr_cutscene_loaded()) {
 	
 	c_imagespeed(0);
 	c_walkdirect(204, 109, 4);
-	c_instance(206, 130, 366);
+	c_instance(206, 130, 370);
 	c_soundplay(snd_break1);
 	c_soundplay(snd_grab);
 	c_imageindex(38);
@@ -428,7 +428,7 @@ if (con == 12 || scr_cutscene_loaded()) {
 	c_walkdirect(192, 109, 2);
 	c_imageindex(13);
 	c_imagespeed(0.5);
-	c_instance(200, 127, 366);
+	c_instance(200, 127, 370);
 	c_soundplay(snd_grab);
 	c_soundplay(snd_hurt1);
 	c_wait(14);

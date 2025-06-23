@@ -1,5 +1,6 @@
 function scr_damage_all_overworld() {
 	if (global.inv < 0) {
+		scr_damage_cache();
 		remdamage = damage;
 		remtarget = target;
 		
@@ -47,6 +48,7 @@ function scr_damage_all_overworld() {
 				global.hp[global.char[target]] = 1;
 		}
 		
+		scr_damage_check();
 		gameover = 1;
 		
 		if (global.char[0] != 0 && global.hp[global.char[0]] > 1)

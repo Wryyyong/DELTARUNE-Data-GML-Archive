@@ -1,3 +1,8 @@
+enum UnknownEnum {
+	Value_0,
+	Value_19 = 19
+}
+
 function scr_levelup() {
 	global.flag[65]++;
 	global.maxhp[1] += 2;
@@ -37,4 +42,7 @@ function scr_levelup() {
 	
 	for (var _i = 1; _i < 5; _i++)
 		global.hp[_i] = min(global.hp[_i], global.maxhp[_i]);
+	
+	with (obj_event_manager)
+		trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_19);
 }

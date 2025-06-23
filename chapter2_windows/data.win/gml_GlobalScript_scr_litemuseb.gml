@@ -1,3 +1,8 @@
+enum UnknownEnum {
+	Value_0,
+	Value_10 = 10
+}
+
 function scr_litemuseb(arg0, arg1) {
 	switch (arg1) {
 		case 0:
@@ -130,8 +135,12 @@ function scr_litemuseb(arg0, arg1) {
 			
 			d_make();
 			
-			if (consume_item)
+			if (consume_item) {
 				script_execute(scr_litemshift, arg0, 0);
+				
+				with (obj_event_manager)
+					trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_10);
+			}
 			
 			break;
 		

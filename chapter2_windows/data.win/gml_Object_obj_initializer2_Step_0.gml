@@ -5,9 +5,12 @@ if (global.is_console) {
 	if (!variable_global_exists("chapter"))
 		exit;
 	
-	if (!textures_loaded) {
-		textures_loaded = true;
-		scr_prefetch_textures();
+	if (!textures_loaded)
+		textures_loaded = loadtex.loaded;
+	
+	if (textures_loaded) {
+	} else {
+		exit;
 	}
 }
 

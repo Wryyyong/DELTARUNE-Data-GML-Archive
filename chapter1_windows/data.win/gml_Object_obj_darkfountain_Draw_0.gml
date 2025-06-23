@@ -4,9 +4,11 @@ hscroll += 1;
 if (hscroll > 240)
 	hscroll -= 240;
 
+var hue = (siner / 4) % 255;
+
 if (adjust == 0) {
-	colcol = make_color_hsv(siner / 4, 160 + (sin(siner / 32) * 60), 255);
-	__background_set_colour(make_color_hsv(siner / 4, 255, (sin(siner / 16) * 40) + 60));
+	colcol = make_color_hsv(hue, 160 + (sin(siner / 32) * 60), 255);
+	__background_set_colour(make_color_hsv(hue, 255, (sin(siner / 16) * 40) + 60));
 }
 
 if (adjust == 1) {

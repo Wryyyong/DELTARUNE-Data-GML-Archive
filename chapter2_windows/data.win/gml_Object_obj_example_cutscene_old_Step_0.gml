@@ -1,6 +1,6 @@
 if (keyboard_check_pressed(ord("J"))) {
 	with (obj_mainchara)
-		scr_jump_to_point_sprite(x + random_range(-200, 200), y + random_range(-30, 30), 10, 15, 649, 648);
+		scr_jump_to_point_sprite(x + random_range(-200, 200), y + random_range(-30, 30), 10, 15, 651, 650);
 }
 
 if (con == 0 && obj_mainchara.x >= x && global.interact == 0) {

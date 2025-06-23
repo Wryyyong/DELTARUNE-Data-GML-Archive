@@ -18,6 +18,11 @@ enum e__VW {
 	SurfaceID
 }
 
+enum UnknownEnum {
+	Value_0,
+	Value_18 = 18
+}
+
 if (ambushed == 0) {
 	scr_ambush();
 	ambushed = 1;
@@ -845,6 +850,9 @@ if (global.myfight == 3) {
 			global.msg[1] = scr_84_get_lang_string("obj_dummyenemy_slash_Step_0_gml_851_0");
 			global.msg[2] = scr_84_get_lang_string("obj_dummyenemy_slash_Step_0_gml_852_0");
 			global.msg[3] = scr_84_get_lang_string("obj_dummyenemy_slash_Step_0_gml_853_0");
+			
+			with (obj_event_manager)
+				trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_18);
 		}
 		
 		if (r_hugtime == 1) {

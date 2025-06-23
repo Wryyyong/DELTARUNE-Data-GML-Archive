@@ -41,7 +41,7 @@ if (state == 0 && y > 310) {
 	vspeed = 0;
 	state = 1;
 	image_index = 1;
-	d = instance_exists(obj_shake) ? 192 : instance_create(0, 0, obj_shake);
+	d = instance_exists(obj_shake) ? 196 : instance_create(0, 0, obj_shake);
 	d.shakex = ceil(2);
 	d.shakey = ceil(2);
 	snd_play(snd_closet_impact);

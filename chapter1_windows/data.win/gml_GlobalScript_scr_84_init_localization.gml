@@ -2,7 +2,7 @@ function scr_84_init_localization() {
 	var _locale = os_get_language();
 	var _lang;
 	
-	if (os_type == os_switch)
+	if (scr_is_switch_os())
 		_lang = substr(switch_language_get_desired_language(), 1, 2);
 	else
 		_lang = (substr(_locale, 1, 2) != "ja") ? "en" : "ja";
@@ -21,7 +21,7 @@ function scr_84_init_localization() {
 	if (!variable_global_exists("lang")) {
 		_locale = os_get_language();
 		
-		if (os_type == os_switch)
+		if (scr_is_switch_os())
 			_lang = substr(switch_language_get_desired_language(), 1, 2);
 		else
 			_lang = (substr(_locale, 1, 2) != "ja") ? "en" : "ja";

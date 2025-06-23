@@ -119,7 +119,7 @@ if (EVENT == 28) {
 	if (!snd_is_playing(global.currentsong[1]))
 		ossafe_game_end();
 	
-	if (os_type == os_ps4 || os_type == os_ps5 || os_type == os_switch) {
+	if (os_type == os_ps4 || os_type == os_ps5 || scr_is_switch_os()) {
 		if (DARK_WAIT >= 90 && !restart) {
 			for (var i = 0; i < array_length_1d(gamepad_controls); i++) {
 				if (gamepad_button_check_pressed(obj_gamecontroller.gamepad_id, gamepad_controls[i])) {

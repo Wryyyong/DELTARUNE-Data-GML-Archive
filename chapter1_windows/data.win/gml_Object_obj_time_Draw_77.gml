@@ -1,4 +1,4 @@
-if (os_type == os_switch || os_type == os_ps4 || os_type == os_ps5) {
+if (scr_is_switch_os() || os_type == os_ps4 || os_type == os_ps5) {
 	var ww = window_get_width();
 	var wh = window_get_height();
 	var sw = surface_get_width(application_surface);
@@ -8,7 +8,7 @@ if (os_type == os_switch || os_type == os_ps4 || os_type == os_ps5) {
 	global.window_xofs = xx;
 	global.window_yofs = yy;
 	
-	if (os_type == os_switch && wh == 720)
+	if (scr_is_switch_os() && wh == 720)
 		texture_set_interpolation(true);
 	else
 		texture_set_interpolation(false);
@@ -29,7 +29,7 @@ if (os_type == os_switch || os_type == os_ps4 || os_type == os_ps5) {
 		if (instance_exists(obj_savepoint))
 			global.disable_border = false;
 		
-		if (room_id == 1 || room_id == 314 || room_id == 139 || room_id == 145 || room_id == 135 || room_id == 131 || room_id == 35 || room_id == 40 || room_id == 0)
+		if (room_id == 1 || room_id == 317 || room_id == 139 || room_id == 145 || room_id == 135 || room_id == 131 || room_id == 35 || room_id == 40 || room_id == 0)
 			global.disable_border = true;
 	}
 	

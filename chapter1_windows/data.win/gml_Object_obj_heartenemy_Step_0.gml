@@ -18,6 +18,11 @@ enum e__VW {
 	SurfaceID
 }
 
+enum UnknownEnum {
+	Value_0,
+	Value_22 = 22
+}
+
 if (global.monster[myself] == 1) {
 	if (global.mnfight == 1 && talked == 0) {
 		scr_randomtarget();
@@ -240,6 +245,11 @@ if (global.myfight == 3) {
 			
 			if (global.automiss[0] == 1)
 				points = 0;
+			
+			if (global.automiss[0] == 0) {
+				with (obj_event_manager)
+					trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_22);
+			}
 		}
 		
 		alarm[4] = 50;

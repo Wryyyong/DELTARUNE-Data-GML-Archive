@@ -88,7 +88,7 @@ if (con == 3 && y > 280) {
 	speed = 0;
 	gravity = 0;
 	y = 300;
-	d = instance_exists(obj_shake) ? 192 : instance_create(0, 0, obj_shake);
+	d = instance_exists(obj_shake) ? 196 : instance_create(0, 0, obj_shake);
 	d.shakex = ceil(2);
 	d.shakey = ceil(2);
 	snd_play(snd_closet_impact);

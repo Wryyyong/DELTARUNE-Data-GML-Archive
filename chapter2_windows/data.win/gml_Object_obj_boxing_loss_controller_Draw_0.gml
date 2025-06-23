@@ -27,11 +27,17 @@ if (state == 2) {
 	image_alpha += 0.01;
 	
 	if (image_alpha > 2.6 && con == 1) {
+		with (obj_event_manager)
+			resolve_trophies();
+		
 		gameend = instance_create(0, 0, DEVICE_FAILURE);
 		gameend.EVENT = 8;
 	}
 	
 	if (image_alpha > 2.6 && con == 0) {
+		with (obj_event_manager)
+			resolve_trophies();
+		
 		for (j = 0; j < 13; j += 1)
 			global.item[j] = obj_gigaqueen_enemy.items[j];
 		

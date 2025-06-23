@@ -1,0 +1,11 @@
+scr_darksize();
+depth = 999990;
+image_speed = 0;
+siner = 0;
+con = 0;
+init = 0;
+grabdaddy = 0;
+grabcount = 0;
+bomb = 0;
+active = true;
+coin = 0;

@@ -1,0 +1,2 @@
+if (shelfinit == 0) {
+}

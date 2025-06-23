@@ -1,3 +1,9 @@
+enum UnknownEnum {
+	Value_0,
+	Value_1,
+	Value_2
+}
+
 if (con > 0 && con < 50) {
 	if (con == 1 && instance_exists(obj_dialoguer) == false) {
 		with (t) {
@@ -174,6 +180,14 @@ if (con >= 50 && con < 100) {
 	global.facing = 1;
 	
 	if (con == 50 && !d_ex()) {
+		if (scr_keyitemcheck(2) == 0) {
+			with (obj_event_manager)
+				trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_1);
+		}
+		
+		with (obj_event_manager)
+			trigger_event(UnknownEnum.Value_2, UnknownEnum.Value_1);
+		
 		_remfilechoice = global.filechoice;
 		global.filechoice += 3;
 		scr_save();

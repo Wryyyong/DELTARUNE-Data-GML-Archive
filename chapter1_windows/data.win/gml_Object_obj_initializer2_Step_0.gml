@@ -1,3 +1,8 @@
+enum UnknownEnum {
+	Value_0,
+	Value_2 = 2
+}
+
 if (global.savedata_async_id >= 0)
 	exit;
 
@@ -37,6 +42,11 @@ if (audio_group_is_loaded(1)) {
 		menu_go = 2;
 	
 	if (menu_go == 0) {
+		if (os_type == os_ps5) {
+			with (obj_event_manager)
+				trigger_event(UnknownEnum.Value_2, UnknownEnum.Value_0);
+		}
+		
 		roomchoice = PLACE_CONTACT;
 	} else if (menu_go == 1) {
 		roomchoice = PLACE_MENU;

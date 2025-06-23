@@ -1,3 +1,8 @@
+enum UnknownEnum {
+	Value_0,
+	Value_27 = 27
+}
+
 if (con == 0) {
 	if (global.flag[915] == 2 && global.flag[916] == 0) {
 		if (global.flag[421] == 1) {
@@ -108,6 +113,9 @@ if (con == 8 && !d_ex()) {
 	global.flag[915] = 3;
 	global.interact = 0;
 	con++;
+	
+	with (obj_event_manager)
+		trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_27);
 }
 
 if (con == 72 && !d_ex()) {

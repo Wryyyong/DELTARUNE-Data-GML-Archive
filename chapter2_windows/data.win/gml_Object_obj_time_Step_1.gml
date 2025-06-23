@@ -26,7 +26,7 @@ if (keyboard_check(vk_escape)) {
 	quit_timer += 1;
 	
 	if (quit_timer >= 30)
-		game_end();
+		ossafe_game_end();
 } else {
 	quit_timer -= 2;
 }

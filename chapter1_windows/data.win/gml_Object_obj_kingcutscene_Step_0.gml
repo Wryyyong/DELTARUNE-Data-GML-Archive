@@ -711,13 +711,13 @@ if (con < 76) {
 		snd_play(snd_laz_c);
 		
 		with (k)
-			scr_anim(454, 0.25);
+			scr_anim(455, 0.25);
 		
 		with (s)
-			scr_anim(480, 0.25);
+			scr_anim(481, 0.25);
 		
 		with (r)
-			scr_anim(495, 0.25);
+			scr_anim(496, 0.25);
 		
 		con = 61;
 		alarm[4] = 30;
@@ -988,7 +988,7 @@ if (con >= 76 && con < 150) {
 		snd_play(snd_heavyswing);
 		
 		with (king)
-			scr_anim(758, 0.1);
+			scr_anim(761, 0.1);
 		
 		con = 82;
 		alarm[4] = 50;
@@ -1194,7 +1194,7 @@ if (con >= 76 && con < 150) {
 	
 	if (con == 110) {
 		with (r) {
-			scr_anim(502, 0.25);
+			scr_anim(503, 0.25);
 			x -= 10;
 			y -= 10;
 		}
@@ -1388,7 +1388,7 @@ if (con >= 76 && con < 150) {
 		k.disto = disto;
 		
 		with (k) {
-			scr_anim(464, 0.5);
+			scr_anim(465, 0.5);
 			move_towards_point(s.x + 60, s.y + 10, disto);
 		}
 		

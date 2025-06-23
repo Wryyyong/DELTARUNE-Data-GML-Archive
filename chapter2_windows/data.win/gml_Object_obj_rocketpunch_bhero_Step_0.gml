@@ -10,7 +10,7 @@ if (y <= (((room_height / 2) + 180) - 620) && con == 0) {
 	remy = y;
 	fade = instance_create(x, y, o_bq_whitefade);
 	fade.dont_fade_out = 1;
-	fade.depth = 794;
+	fade.depth = 800;
 	alarm[0] = 60;
 }
 

@@ -1,0 +1,17 @@
+image_xscale = 2;
+image_yscale = 2;
+idle = 5611;
+low = 4638;
+mid = 1348;
+high = 2111;
+loop = false;
+rhythmer = -4;
+animspeed = 1;
+main_speed = 0;
+silhouette = false;
+shakeamt = 0;
+shakereduct = 2;
+on = 1;
+name = "kris";
+marker = -4;
+pose_cooldown = 0;

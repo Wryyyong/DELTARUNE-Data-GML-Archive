@@ -2,7 +2,7 @@ var border_id = global.screen_border_id;
 var return_title = false;
 
 if (variable_global_exists("chapter_return")) {
-	if (global.chapter_return > 0)
+	if (global.chapter_return > 0 && !global.game_won)
 		return_title = true;
 }
 
@@ -17,7 +17,7 @@ if (!return_title) {
 		var room_id = room;
 		_border_image = global.darkzone ? border_dw_castletown : border_lw_town;
 		
-		if (room_id == 227 || room_id == 885 || room_id == 237 || room_id == 234)
+		if (room_id == 227 || room_id == 891 || room_id == 237 || room_id == 234)
 			_border_image = border_dw_castletown;
 		
 		if (room_id >= 74 && room_id < 108)
@@ -40,7 +40,7 @@ if (!return_title) {
 		if (room_id == 232)
 			_border_image = border_dw_city;
 		
-		if (room_id == 17 || room_id == 880 || room_id == 237 || room_id == 233 || room_id == 226 || room_id == 2 || room_id == 225) {
+		if (room_id == 17 || room_id == 886 || room_id == 237 || room_id == 233 || room_id == 226 || room_id == 2 || room_id == 225) {
 			border_alpha = 0;
 		} else if (room_id == 53 || room_id == 264) {
 			border_fade_out = border_alpha > 0;
@@ -86,9 +86,13 @@ if (!return_title) {
 		
 		if (global.chapter == 2) {
 			if (room_id == 18) {
-				if (i_ex(obj_krisroom)) {
-					if (obj_krisroom.show_border)
-						border_alpha = 1;
+				if (global.plot < 1) {
+					border_alpha = 0;
+					
+					if (i_ex(obj_krisroom)) {
+						if (obj_krisroom.show_border)
+							border_alpha = 1;
+					}
 				}
 			}
 			
@@ -236,7 +240,7 @@ if (!return_title) {
 			}
 		}
 		
-		if ((room_id == 227 || room_id == 885 || room_id == 237) && global.game_won == 1) {
+		if ((room_id == 227 || room_id == 891 || room_id == 237) && global.game_won == 1) {
 			_border_image = border_dw_castletown;
 			border_alpha = 1;
 		}

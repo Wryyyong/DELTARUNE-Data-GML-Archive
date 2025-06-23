@@ -2,6 +2,10 @@ snd_free_all();
 global.currentsong[0] = snd_init("the_dark_truth.ogg");
 snd_pitch(global.currentsong[0], 0.95);
 global.currentsong[1] = mus_loop(global.currentsong[0]);
+
+if (scr_is_switch_os())
+	instance_create(x, y, obj_switchAsyncHelper);
+
 contimer = 0;
 ytimer = 0;
 xtimer = 0;
@@ -14,7 +18,7 @@ chunkfade = 0;
 chunkamt = 1;
 border = 2;
 pic = spr_introimage2;
-picb = 314;
+picb = 316;
 fadespeed = 0.02;
 global.flag[6] = 1;
 textimer = 0;

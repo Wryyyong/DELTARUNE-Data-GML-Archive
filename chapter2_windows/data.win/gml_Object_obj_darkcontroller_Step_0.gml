@@ -18,6 +18,13 @@ enum e__VW {
 	SurfaceID
 }
 
+enum UnknownEnum {
+	Value_0,
+	Value_10 = 10,
+	Value_15 = 15,
+	Value_26 = 26
+}
+
 xx = __view_get(e__VW.XView, 0);
 yy = __view_get(e__VW.YView, 0);
 
@@ -54,6 +61,11 @@ if (global.interact == 5) {
 			
 			if (global.submenu == 5) {
 				scr_itemuse(global.item[global.submenucoord[2]]);
+				
+				if (usable == 1) {
+					with (obj_event_manager)
+						trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_10);
+				}
 				
 				if (usable == 1 && replaceable == 0)
 					scr_itemshift(global.submenucoord[2], 0);
@@ -108,6 +120,11 @@ if (global.interact == 5) {
 			global.faceaction[1] = 0;
 			global.faceaction[2] = 0;
 			scr_itemuse(global.item[global.submenucoord[2]]);
+			
+			if (usable == 1) {
+				with (obj_event_manager)
+					trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_10);
+			}
 			
 			if (usable == 1 && replaceable == 0)
 				scr_itemshift(global.submenucoord[2], 0);
@@ -271,8 +288,10 @@ if (global.interact == 5) {
 					if (global.submenucoord[30] == 5)
 						global.submenu = 34;
 					
-					if (global.submenucoord[30] == 6)
+					if (global.submenucoord[30] == 6) {
 						m_quit = 1;
+						cancelnoise = 1;
+					}
 				} else {
 					if (global.submenucoord[30] == 3) {
 						with (obj_time)
@@ -289,8 +308,10 @@ if (global.interact == 5) {
 					if (global.submenucoord[30] == 5)
 						global.submenu = 34;
 					
-					if (global.submenucoord[30] == 6)
+					if (global.submenucoord[30] == 6) {
 						m_quit = 1;
+						cancelnoise = 1;
+					}
 				}
 			}
 			
@@ -569,8 +590,10 @@ if (global.interact == 5) {
 					control_flash_timer = 10;
 				}
 				
-				if (global.submenucoord[35] == 8)
+				if (global.submenucoord[35] == 8) {
+					cancelnoise = 1;
 					controls_quitmenu = 1;
+				}
 			}
 			
 			if (control_select_con == 0) {
@@ -589,12 +612,8 @@ if (global.interact == 5) {
 				}
 				
 				if (button1_p() && controls_quitmenu == 0 && onebuffer < 2) {
-					cancelnoise = 1;
 					onebuffer = 2;
 					twobuffer = 2;
-					
-					if (global.submenucoord[35] == 8)
-						controls_quitmenu = 1;
 				}
 			}
 			
@@ -803,6 +822,8 @@ if (global.interact == 5) {
 					dograndom = ceil(random(100));
 			}
 			
+			global.charselect = global.submenucoord[20];
+			
 			if (button1_p() && onebuffer < 0) {
 				selectnoise = 1;
 				deschaver = 1;
@@ -940,6 +961,7 @@ if (global.interact == 5) {
 				if (keyitemusable[sm] == 1) {
 					global.charselect = 3;
 					scr_itemuse(global.keyitem[sm] + 300);
+					global.charselect = -1;
 				} else {
 					snd_play(snd_cantselect);
 				}
@@ -988,8 +1010,10 @@ if (global.interact == 5) {
 					global.submenu = 5;
 				}
 				
-				if (itemtarget == 2)
+				if (itemtarget == 2) {
+					selectnoise = 1;
 					global.submenu = 6;
+				}
 			}
 			
 			if (global.item[global.submenucoord[2]] == 0) {
@@ -1059,6 +1083,7 @@ if (global.interact == 5) {
 				twobuffer = 2;
 				global.menuno = 0;
 				global.submenu = 0;
+				global.charselect = -1;
 			}
 		}
 	}
@@ -1216,6 +1241,11 @@ if (global.interact == 5) {
 						scr_weaponinfo_all();
 						twobuffer = 2;
 						global.submenu = 11;
+						
+						if (newequip != 0) {
+							with (obj_event_manager)
+								trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_26);
+						}
 					}
 					
 					if (global.submenu == 13 || global.submenu == 14) {
@@ -1239,6 +1269,11 @@ if (global.interact == 5) {
 						twobuffer = 2;
 						scr_dmenu_armor_selection_match();
 						global.submenu = 11;
+						
+						if (newequip != 0) {
+							with (obj_event_manager)
+								trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_15);
+						}
 					}
 				} else {
 					snd_play(snd_cantselect);

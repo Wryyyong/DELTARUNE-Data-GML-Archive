@@ -35,7 +35,7 @@ if (trailstart > 0 && trailend < 640) {
 
 if (timer >= 40) {
 	if (timer >= 40 && timer < 41) {
-		d = instance_exists(obj_shake) ? 192 : instance_create(0, 0, obj_shake);
+		d = instance_exists(obj_shake) ? 196 : instance_create(0, 0, obj_shake);
 		d.shakex = ceil(2);
 		d.shakey = ceil(2);
 		d.permashake = 1;

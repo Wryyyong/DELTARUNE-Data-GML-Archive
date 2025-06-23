@@ -1,3 +1,6 @@
+if (scr_is_switch_os())
+	instance_create(x, y, obj_switchAsyncHelper);
+
 con = 0;
 timer = 0;
 lyric = stringset(" ");

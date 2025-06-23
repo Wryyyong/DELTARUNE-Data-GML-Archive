@@ -31,8 +31,8 @@ image_xscale = dar;
 image_yscale = dar;
 remfc = global.fc;
 global.fc = 0;
-xx = __view_get(e__VW.XView, view_current);
-yy = __view_get(e__VW.YView, view_current);
+xx = camerax();
+yy = cameray();
 d = -1;
 
 if (instance_exists(obj_dialoguer))

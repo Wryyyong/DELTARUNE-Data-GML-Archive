@@ -1,3 +1,11 @@
+enum UnknownEnum {
+	Value_0,
+	Value_6 = 6,
+	Value_25 = 25,
+	Value_28 = 28,
+	Value_935 = 935
+}
+
 myinteract = 3;
 global.msc = 0;
 global.typer = 5;
@@ -153,6 +161,11 @@ if (room == room_krishallway) {
 		
 		if (global.chapter == 2)
 			msgsetloc(0, "* (It's what they call \"you.\")/%", "obj_readable_room1_slash_Other_10_gml_196_0");
+		
+		if (x < 160) {
+			with (obj_event_manager)
+				trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_28);
+		}
 	}
 	
 	if (x > 160) {
@@ -273,6 +286,9 @@ if (room == room_torbathroom) {
 				global.msc = 355;
 				scr_text(global.msc);
 			}
+			
+			with (obj_event_manager)
+				trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_25);
 		}
 		
 		if (x >= 190) {
@@ -808,6 +824,11 @@ if (room == room_hospital_room2) {
 		if (x >= 150) {
 			global.msg[0] = stringsetloc("* (It's a classic 1-to-10 pain scale^1, using ICE-E as a model.)/", "obj_readable_room1_slash_Other_10_gml_848_0");
 			global.msg[1] = stringsetloc("* (At 0 pain^1, he's happy.^1)&* (At 10 pain^1, he's happy and sweating.)/%", "obj_readable_room1_slash_Other_10_gml_849_0");
+			
+			if (x < 200) {
+				with (obj_event_manager)
+					trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_6, UnknownEnum.Value_935);
+			}
 		}
 		
 		if (x >= 200) {

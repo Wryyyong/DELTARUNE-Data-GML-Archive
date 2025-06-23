@@ -12,10 +12,10 @@ function scr_draw_screen_border(arg0) {
 		var room_id = room;
 		var _border_image = global.darkzone ? border_dark : border_light;
 		
-		if (room_id == 132 || room_id == 318 || room_id == 139 || room_id == 137)
+		if (room_id == 132 || room_id == 321 || room_id == 139 || room_id == 137)
 			_border_image = border_dark;
 		
-		if (room_id == 1 || room_id == 314 || room_id == 139 || room_id == 145 || room_id == 135 || room_id == 131 || room_id == 35 || room_id == 40)
+		if (room_id == 1 || room_id == 317 || room_id == 139 || room_id == 145 || room_id == 135 || room_id == 131 || room_id == 35 || room_id == 40)
 			obj_time.border_alpha = 0;
 		else if (room_id == 32 || room_id == 130)
 			obj_time.border_fade_out = obj_time.border_alpha > 0;
@@ -60,7 +60,7 @@ function scr_draw_screen_border(arg0) {
 		if (ossafe_file_exists("filech1_5"))
 			game_won = true;
 		
-		if ((room_id == 132 || room_id == 318 || room_id == 139) && game_won == true) {
+		if ((room_id == 132 || room_id == 321 || room_id == 139) && game_won == true) {
 			_border_image = border_dark;
 			obj_time.border_alpha = 1;
 		}

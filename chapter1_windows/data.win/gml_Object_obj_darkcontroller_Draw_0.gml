@@ -146,7 +146,7 @@ if (global.menuno == 5) {
 	}
 	
 	if (global.submenu == 35) {
-		var is_dualshock = (obj_gamecontroller.gamepad_active && gamepad_get_description(obj_gamecontroller.gamepad_id) == "Sony DualShock 4") || os_type == os_ps4 || os_type == os_ps5;
+		var is_dualshock = global.gamepad_type == "Sony DualShock 4" || global.gamepad_type == "DualSense Wireless Controller";
 		var _yOffset = (global.lang == "en") ? 0 : -4;
 		var _headerOffset = (is_dualshock && global.lang == "ja") ? -5 : 0;
 		draw_set_color(c_white);
@@ -154,7 +154,7 @@ if (global.menuno == 5) {
 		
 		if (global.is_console) {
 			var gamepad_text = (global.lang == "en") ? "Button" : "ボタン";
-			var buttonXPos = (os_type == os_switch && global.lang == "en") ? (xx + 445) : (xx + 435);
+			var buttonXPos = (scr_is_switch_os() && global.lang == "en") ? (xx + 445) : (xx + 435);
 			var buttonYPos = yy + 100 + _yOffset;
 			draw_text(buttonXPos, buttonYPos, gamepad_text);
 		} else {
@@ -255,6 +255,11 @@ if (global.menuno == 5) {
 }
 
 if (global.menuno == 4) {
+	var memxx = xx;
+	
+	if (global.lang == "ja")
+		xx += -15;
+	
 	draw_set_color(c_black);
 	
 	if (global.lang == "ja") {
@@ -267,7 +272,7 @@ if (global.menuno == 4) {
 	
 	draw_set_color(c_white);
 	draw_rectangle(xx + 60, yy + 216, xx + 60 + 520, yy + 216 + 5, false);
-	draw_rectangle(xx + 294, yy + 220, xx + 294 + 5, yy + 220 + 190, false);
+	draw_rectangle(xx + 294, yy + 220, xx + 294 + 5, (yy + 220 + 190) - 4, false);
 	
 	if (global.lang == "ja")
 		draw_rectangle(xx + 60, yy + 216, xx + 60 + 552, yy + 216 + 5, false);
@@ -275,7 +280,12 @@ if (global.menuno == 4) {
 	draw_sprite_ext(scr_84_get_sprite("spr_dmenu_captions"), 0, xx + 124, yy + 84, 2, 2, 0, c_white, 1);
 	draw_sprite_ext(scr_84_get_sprite("spr_dmenu_captions"), 4, xx + 124, yy + 210, 2, 2, 0, c_white, 1);
 	draw_sprite_ext(scr_84_get_sprite("spr_dmenu_captions"), 5, xx + 380, yy + 210, 2, 2, 0, c_white, 1);
-	draw_sprite_ext(spr_dmenu_captions, 6, xx + 340, yy + 225, 1, 1, 0, c_white, 1);
+	var lang_tp_off = 0;
+	
+	if (global.lang == "ja")
+		lang_tp_off = -30;
+	
+	draw_sprite_ext(spr_dmenu_captions, 6, xx + 340 + lang_tp_off, yy + 225, 1, 1, 0, c_white, 1);
 	coord = global.submenucoord[20];
 	charcoord = global.char[coord];
 	menusiner += 1;
@@ -459,21 +469,42 @@ if (global.menuno == 4) {
 			if (g == 1)
 				draw_set_color(c_gray);
 			
-			draw_text(xx + 340, ch_y[i], string_hash_to_newline(string(round((global.spellcost[charcoord][i] / global.maxtension) * 100)) + "%"));
-			draw_text(xx + 410 + spell_xoff, ch_y[i], string_hash_to_newline(global.spellname[charcoord][i]));
+			var spellcostx = xx + 340;
+			var spellnamex = xx + 410;
+			
+			if (global.lang == "ja") {
+				spellcostx -= 30;
+				spellnamex -= 20;
+			}
+			
+			draw_text(spellcostx, ch_y[i], string_hash_to_newline(string(round((global.spellcost[charcoord][i] / global.maxtension) * 100)) + "%"));
+			draw_text(spellnamex + spell_xoff, ch_y[i], string_hash_to_newline(global.spellname[charcoord][i]));
 		}
 	}
 	
-	if (global.submenu == 21)
-		draw_sprite(spr_heart, 0, xx + 320, yy + 240 + (global.submenucoord[21] * ch_vspace));
+	if (global.submenu == 21) {
+		var spellnameoff = 0;
+		
+		if (global.lang == "ja")
+			spellnameoff = 40;
+		
+		draw_sprite(spr_heart, 0, xx + spellnameoff + 320, yy + 240 + (global.submenucoord[21] * ch_vspace));
+	}
 	
 	if (deschaver == 1) {
 		draw_set_color(c_white);
 		draw_text(xx + 20, yy + 10, string_hash_to_newline(global.spelldesc[charcoord][global.submenucoord[21]]));
 	}
+	
+	xx = memxx;
 }
 
 if (global.menuno == 2) {
+	var memxx = xx;
+	
+	if (global.lang == "ja")
+		xx -= 22;
+	
 	draw_set_color(c_black);
 	var ch_vspace = 27;
 	
@@ -691,23 +722,28 @@ if (global.menuno == 2) {
 	}
 	
 	draw_set_color(c_white);
+	var descoff = (global.lang == "en") ? 0 : 20;
+	var txt = "";
 	
 	if (global.submenu == 11) {
 		if (global.submenucoord[11] == 0)
-			draw_text(xx + 20, yy + 10, string_hash_to_newline(charweapondesc[charcoord]));
+			txt = charweapondesc[charcoord];
 		
 		if (global.submenucoord[11] == 1)
-			draw_text(xx + 20, yy + 10, string_hash_to_newline(chararmor1desc[charcoord]));
+			txt = chararmor1desc[charcoord];
 		
 		if (global.submenucoord[11] == 2)
-			draw_text(xx + 20, yy + 10, string_hash_to_newline(chararmor2desc[charcoord]));
+			txt = chararmor2desc[charcoord];
 	}
 	
 	if (global.submenu == 12)
-		draw_text(xx + 20, yy + 10, string_hash_to_newline(weapondesc[global.submenucoord[12]]));
+		txt = weapondesc[global.submenucoord[12]];
 	
 	if (global.submenu == 13 || global.submenu == 14)
-		draw_text(xx + 20, yy + 10, string_hash_to_newline(armordesc[global.submenucoord[global.submenu]]));
+		txt = armordesc[global.submenucoord[global.submenu]];
+	
+	if (txt != "")
+		draw_text(xx + 20 + descoff, yy + 10, string_hash_to_newline(txt));
 	
 	draw_set_color(c_white);
 	draw_text(xx + 100, yy + 230 + (ch_vspace * 0), string_hash_to_newline(scr_84_get_lang_string("obj_darkcontroller_slash_Draw_0_gml_556_0")));
@@ -910,6 +946,8 @@ if (global.menuno == 2) {
 			}
 		}
 	}
+	
+	xx = memxx;
 }
 
 if (global.menuno == 1) {

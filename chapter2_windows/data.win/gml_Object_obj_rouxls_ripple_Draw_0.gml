@@ -12,4 +12,4 @@ else if (timer > 0.75)
 else
 	alpha = 1;
 
-draw_sprite_ext(sprite_index, image_index, x, 749, scale, scale, 0, c_lime, alpha);
+draw_sprite_ext(sprite_index, image_index, x, 755, scale, scale, 0, c_lime, alpha);

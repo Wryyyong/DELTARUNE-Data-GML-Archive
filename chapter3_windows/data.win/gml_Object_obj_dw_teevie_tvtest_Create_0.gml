@@ -1,0 +1,9 @@
+x = 100;
+y = 100;
+width = 4;
+height = 3;
+timer = 0;
+init = 0;
+tvbasecolor = 8388608;
+tvbasesprite = 4083;
+mode = 0;

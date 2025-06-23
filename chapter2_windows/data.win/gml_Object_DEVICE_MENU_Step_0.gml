@@ -1,3 +1,9 @@
+enum UnknownEnum {
+	Value_0,
+	Value_2 = 2,
+	Value_29 = 29
+}
+
 if (!input_enabled)
 	exit;
 
@@ -93,6 +99,11 @@ if (MENU_NO == 1 || MENU_NO == 4 || MENU_NO == 6 || MENU_NO == 7 || MENU_NO == 1
 					}
 					
 					if (MENU_NO == 1) {
+						if (os_type == os_ps5) {
+							with (obj_event_manager)
+								trigger_event(UnknownEnum.Value_2, UnknownEnum.Value_0);
+						}
+						
 						scr_load();
 						exit;
 					}
@@ -106,6 +117,11 @@ if (MENU_NO == 1 || MENU_NO == 4 || MENU_NO == 6 || MENU_NO == 7 || MENU_NO == 1
 							scr_load_chapter1();
 						}
 						
+						if (os_type == os_ps5) {
+							with (obj_event_manager)
+								trigger_event(UnknownEnum.Value_2, UnknownEnum.Value_0);
+						}
+						
 						if (global.flag[914] == 0)
 							global.flag[914] = global.chapter - 1;
 						
@@ -115,6 +131,11 @@ if (MENU_NO == 1 || MENU_NO == 4 || MENU_NO == 6 || MENU_NO == 7 || MENU_NO == 1
 				}
 				
 				if (FILECHECK == 0) {
+					if (os_type == os_ps5) {
+						with (obj_event_manager)
+							trigger_event(UnknownEnum.Value_2, UnknownEnum.Value_0);
+					}
+					
 					global.filechoice = FILESLOT;
 					var namer = instance_create(0, 0, DEVICE_NAMER);
 					namer.REMMENU = MENU_NO;
@@ -194,6 +215,9 @@ if (MENU_NO == 1 || MENU_NO == 4 || MENU_NO == 6 || MENU_NO == 7 || MENU_NO == 1
 				SELNOISE = 0;
 				DEATHNOISE = 1;
 				MENU_NO = 0;
+				
+				with (obj_event_manager)
+					trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_29);
 			}
 			
 			if (MENU_NO == 6) {

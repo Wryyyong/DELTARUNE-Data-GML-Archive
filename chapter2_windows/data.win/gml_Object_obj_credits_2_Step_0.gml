@@ -209,7 +209,7 @@ if (timer == 1007) {
 if (timer == 1108) {
 	line[0] = stringsetloc("-Platform Programming-", "obj_credits_2_slash_Step_0_gml_231_0");
 	line[1] = stringset("Sarah O'Donnell");
-	line[2] = stringset(" ");
+	line[2] = stringset("Henri Beeres (Enjl)");
 	line[3] = stringsetloc("-Programming Support-", "obj_credits_2_slash_Step_0_gml_234_0");
 	line[4] = stringset("Gregg Tavares");
 	line[5] = stringset(" ");
@@ -309,7 +309,7 @@ if (timer == 1611) {
 	line[1] = stringsetloc(" ", "obj_credits_2_slash_Step_0_gml_340_0");
 	line[2] = stringsetloc(" ", "obj_credits_2_slash_Step_0_gml_341_0");
 	line[3] = stringsetloc("To be continued", "obj_credits_slash_Step_0_gml_191_0");
-	line[4] = stringsetloc("in Chapter 3", "obj_credits_slash_Step_0_gml_192_0");
+	line[4] = " ";
 	line[5] = stringsetloc(" ", "obj_credits_2_slash_Step_0_gml_344_0");
 	line[6] = stringsetloc(" ", "obj_credits_2_slash_Step_0_gml_345_0");
 	line[7] = stringsetloc(" ", "obj_credits_2_slash_Step_0_gml_346_0");
@@ -326,20 +326,12 @@ if (timer > 1641 && timer < 1711) {
 if (timer >= 1801) {
 	creditalpha -= 0.05;
 	
-	if (creditalpha < -0.1) {
-		global.chapter_return = -1;
-		game_restart_true();
-	}
+	if (creditalpha < -0.1)
+		room_goto(room_chapter_continue);
 }
 
 if (timer > 1744 && timer < 1910)
 	creditalpha += 0.02;
 
-if (timer > 1910) {
+if (timer > 1910)
 	creditalpha -= 0.02;
-	
-	if (creditalpha <= -0.5) {
-		global.chapter_return = -1;
-		game_restart_true();
-	}
-}

@@ -1,5 +1,6 @@
 function scr_damage() {
 	if (global.inv < 0) {
+		scr_damage_cache();
 		var __element = 0;
 		
 		if (variable_instance_exists(id, "element")) {
@@ -140,6 +141,7 @@ function scr_damage() {
 		}
 		
 		global.inv = global.invc * 40;
+		scr_damage_check();
 		gameover = 1;
 		
 		if (global.char[0] != 0 && global.hp[global.char[0]] > 0)

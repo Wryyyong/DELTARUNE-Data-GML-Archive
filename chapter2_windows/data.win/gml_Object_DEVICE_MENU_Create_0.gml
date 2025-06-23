@@ -19,14 +19,8 @@ INCOMPLETEFILE_PREV[1] = ossafe_file_exists("filech" + string(global.chapter - 1
 INCOMPLETEFILE_PREV[2] = ossafe_file_exists("filech" + string(global.chapter - 1) + "_2");
 INCOMPLETE_LOAD = 0;
 
-if (global.is_console) {
-	if (global.game_won == 1) {
-		if (COMPLETEFILE_PREV[0] == 0 && COMPLETEFILE_PREV[1] == 0 && COMPLETEFILE_PREV[2] == 0) {
-			if (INCOMPLETEFILE_PREV[0] == 1 || INCOMPLETEFILE_PREV[1] == 1 || INCOMPLETEFILE_PREV[2] == 1)
-				INCOMPLETE_LOAD = 1;
-		}
-	}
-}
+if (global.is_console)
+	global.chapter_return = -1;
 
 if (TYPE == 0) {
 	scr_windowcaption(stringsetloc("CONTACT", "DEVICE_MENU_slash_Create_0_gml_8_0"));

@@ -1,3 +1,9 @@
+enum UnknownEnum {
+	Value_0,
+	Value_23 = 23,
+	Value_939 = 939
+}
+
 with (obj_darkcontroller)
 	charcon = 0;
 
@@ -20,6 +26,11 @@ if (global.flag[itemflag] == 1) {
 	var itemgetstring = scr_itemget_anytype_text(itemidchest, itemtype);
 	msgsetsubloc(0, "* (You opened the treasure chest.^1)&* (Inside was \\cY~1\\cW.)/", itemname, "obj_treasure_room_slash_Other_10_gml_65_0");
 	msgnext(itemgetstring);
+	
+	if (noroom == 0) {
+		with (obj_event_manager)
+			trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_23, UnknownEnum.Value_939);
+	}
 	
 	if (noroom == 0)
 		global.flag[itemflag] = 1;

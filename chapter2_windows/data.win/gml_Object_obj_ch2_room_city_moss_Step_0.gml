@@ -1,3 +1,8 @@
+enum UnknownEnum {
+	Value_0,
+	Value_10 = 10
+}
+
 if (con == 0 && !d_ex()) {
 	con = 7;
 	alarm[0] = 30;
@@ -60,6 +65,9 @@ if (con == 8 && !instance_exists(obj_cutscene_master)) {
 	instance_activate_object(obj_readable_room1);
 	global.interact = 0;
 	global.facing = 0;
+	
+	with (obj_event_manager)
+		trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_10);
 }
 
 if (dumpster_con == 10 && !d_ex()) {

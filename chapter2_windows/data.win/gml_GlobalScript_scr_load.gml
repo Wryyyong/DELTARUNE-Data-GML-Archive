@@ -326,6 +326,9 @@ function scr_load() {
 	
 	__loadedroom = scr_get_room_by_id(global.currentroom);
 	
+	with (obj_gamecontroller)
+		enable_loading();
+	
 	if (scr_dogcheck())
 		__loadedroom = choose(226, 271);
 	

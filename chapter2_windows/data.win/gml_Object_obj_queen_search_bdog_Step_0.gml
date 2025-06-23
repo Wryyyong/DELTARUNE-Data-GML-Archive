@@ -23,7 +23,7 @@ if (timer < 162) {
 } else if (timer >= 162 && impact == 0) {
 	timer = 162;
 	scr_orbitaroundpoint_dx(xstart, ystart, min(timer * 1.9, 340), (timer * 10 * flip) + direction);
-	d = instance_exists(obj_shake) ? 192 : instance_create(0, 0, obj_shake);
+	d = instance_exists(obj_shake) ? 196 : instance_create(0, 0, obj_shake);
 	d.shakex = ceil(2);
 	d.shakey = ceil(2);
 	snd_play(snd_screenshake);

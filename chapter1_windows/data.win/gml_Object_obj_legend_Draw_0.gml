@@ -56,8 +56,12 @@ if (draw_screen) {
 		if (yoff <= -260) {
 			contimer += 1;
 			
-			if (contimer == 40)
+			if (contimer >= 40) {
+				with (obj_switchAsyncHelper)
+					docheck = false;
+				
 				audio_pause_sound(global.currentsong[1]);
+			}
 			
 			if (contimer == 100) {
 				con = 2;
@@ -82,6 +86,10 @@ if (draw_screen) {
 		pic = spr_introimage1;
 		audio_sound_set_track_position(global.currentsong[1], 19.656);
 		audio_resume_sound(global.currentsong[1]);
+		
+		with (obj_switchAsyncHelper)
+			docheck = true;
+		
 		con = 4;
 		contimer = 0;
 		chunkfade = 0;

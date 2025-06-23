@@ -59,3 +59,5 @@ if (d == 1)
 
 if (d == 1)
 	name = scr_84_get_lang_string("obj_savemenu_slash_Create_0_gml_43_0");
+
+time_current = global.time;

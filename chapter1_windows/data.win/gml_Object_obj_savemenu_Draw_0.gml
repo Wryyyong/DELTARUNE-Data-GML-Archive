@@ -20,6 +20,10 @@ enum e__VW {
 
 xx = __view_get(e__VW.XView, 0);
 yy = __view_get(e__VW.YView, 0);
+
+if (saved == 0)
+	time_current = global.time;
+
 scr_84_set_draw_font("main");
 
 if (d == 2)
@@ -52,7 +56,7 @@ if (global.lang == "ja") {
 	if (d == 2)
 		draw_text((78 * d) + xx, (80 * d) + yy, string_hash_to_newline(scr_84_get_lang_string("obj_savemenu_slash_Draw_0_gml_33_0") + string(level)));
 	
-	draw_text((210 * d) + xx, (80 * d) + yy, string_hash_to_newline(string(minutes) + ":" + string(seconds)));
+	draw_text((196 * d) + xx, (80 * d) + yy, scr_timedisp(time_current));
 	draw_set_halign(fa_center);
 	draw_text((160 * d) + xx, (100 * d) + yy, string_hash_to_newline(roomname));
 	draw_set_halign(fa_left);
@@ -109,7 +113,7 @@ if (global.lang == "ja") {
 	if (d == 2)
 		draw_text((175 * d) + xx, (60 * d) + yy, string_hash_to_newline(scr_84_get_lang_string("obj_savemenu_slash_Draw_0_gml_33_0") + string(level)));
 	
-	draw_text((210 * d) + xx, (60 * d) + yy, string_hash_to_newline(string(minutes) + ":" + string(seconds)));
+	draw_text((210 * d) + xx, (60 * d) + yy, scr_timedisp(time_current));
 	draw_text((70 * d) + xx, (80 * d) + yy, string_hash_to_newline(roomname));
 	
 	if (coord == 0)

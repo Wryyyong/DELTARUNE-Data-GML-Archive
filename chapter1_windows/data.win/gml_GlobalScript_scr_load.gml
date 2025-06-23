@@ -337,6 +337,6 @@ function scr_load() {
 		__loadedroom = 131;
 	
 	room_goto(__loadedroom);
-	global.currentroom = __loadedroom;
 	scr_tempsave();
+	global.currentroom = __loadedroom;
 }

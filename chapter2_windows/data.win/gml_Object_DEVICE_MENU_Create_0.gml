@@ -164,7 +164,7 @@ if (ossafe_file_exists("dr.ini")) {
 			if (TIME_SECONDS[i] < 10 && TIME_SECONDS[i] >= 1)
 				TIME_SECONDS_STRING[i] = "0" + string(TIME_SECONDS[i]);
 			
-			TIME_STRING[i] = string(TIME_MINUTES[i]) + ":" + TIME_SECONDS_STRING[i];
+			TIME_STRING[i] = scr_timedisp(TIME[i]);
 		}
 	}
 	
@@ -203,7 +203,7 @@ if (ossafe_file_exists("dr.ini")) {
 			if (COMPLETETIME_SECONDS[i] < 10 && COMPLETETIME_SECONDS[i] >= 1)
 				COMPLETETIME_SECONDS_STRING[i] = "0" + string(COMPLETETIME_SECONDS[i]);
 			
-			COMPLETETIME_STRING[i] = string(COMPLETETIME_MINUTES[i]) + ":" + COMPLETETIME_SECONDS_STRING[i];
+			COMPLETETIME_STRING[i] = scr_timedisp(COMPLETEFILE_PREV_TIME[i]);
 		}
 		
 		if (INCOMPLETEFILE_PREV[i]) {

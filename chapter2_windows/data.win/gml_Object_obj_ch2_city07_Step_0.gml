@@ -341,7 +341,7 @@ if (con == 10) {
 	c_talk_wait();
 	c_sel(gi);
 	c_stickto_stop();
-	c_var_instance(gi_actor, "depth", ra_actor + 100);
+	c_var_instance(gi_actor, "depth", ra_actor.depth + 100);
 	c_var_lerp_instance(gi_actor, "y", 178, 164, 3);
 	c_wait(3);
 	c_var_lerp_instance(gi_actor, "y", 164, 214, 8);
@@ -501,7 +501,7 @@ if (con == 20) {
 	c_wait(30);
 	c_sel(gi);
 	c_stickto_stop();
-	c_var_instance(gi_actor, "depth", su_actor + 100);
+	c_var_instance(gi_actor, "depth", su_actor.depth + 100);
 	c_var_lerp_instance(gi_actor, "y", 188, 176, 3);
 	c_wait(3);
 	c_var_lerp_instance(gi_actor, "y", 176, 236, 8);

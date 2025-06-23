@@ -90,9 +90,10 @@ confirm_choice_index = 0;
 move_noise = false;
 select_noise = false;
 old_savedata_check = false;
-global.versionno = "v1";
+global.versionno = "v2";
 version_text = global.versionno + " ";
 version_text_alpha = 0;
+loop = -4;
 
 for (i = 0; i < 10; i += 1) {
 	global.input_pressed[i] = 0;

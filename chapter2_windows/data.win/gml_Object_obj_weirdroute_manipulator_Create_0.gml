@@ -504,3 +504,5 @@ if (global.flag[916] == 1 && global.flag[915] >= 5 && global.plot >= 72 && room 
 	with (obj_mazecheese)
 		instance_destroy();
 }
+
+image_alpha = 0;

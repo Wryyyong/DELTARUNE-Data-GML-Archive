@@ -61,7 +61,7 @@ function scr_roomname(arg0) {
 	if (arg0 == 196)
 		roomname = stringsetloc("Queen's Mansion - 4F", "scr_roomname_slash_scr_roomname_gml_20_0");
 	
-	if (arg0 == 199)
+	if (arg0 == 199 || arg0 == 200)
 		roomname = stringsetloc("Queen's Mansion - Rooftop", "scr_roomname_slash_scr_roomname_gml_23_0");
 	
 	return roomname;

@@ -391,7 +391,8 @@ if (con >= 1) {
 	
 	if (con == 6 && !d_ex()) {
 		ele_noise = snd_init("elevator.ogg");
-		ele_noise_ind = mus_loop_ext(ele_noise, 0.6, 0.1);
+		ele_noise_ind = snd_loop(ele_noise);
+		snd_volume(ele_noise_ind, 0.6, 0);
 		
 		with (r)
 			sprite_index = spr_ralseiu;
@@ -401,6 +402,7 @@ if (con >= 1) {
 		newcno = 2;
 		con = 7;
 		pitchcount = 0.1;
+		snd_pitch(ele_noise_ind, pitchcount);
 		alarm[4] = 45;
 	}
 	
@@ -839,9 +841,11 @@ if (con >= 1) {
 		con = 101;
 		snd_play(snd_spearappear);
 		ele_noise = snd_init("elevator.ogg");
-		ele_noise_ind = mus_loop_ext(ele_noise, 0.7, 0.5);
+		ele_noise_ind = snd_loop(ele_noise);
 		pitchcount = 0.5;
 		volcount = 0.7;
+		snd_volume(ele_noise_ind, volcount, 0);
+		snd_pitch(ele_noise_ind, pitchcount);
 		pitchtimer = 0;
 		alarm[4] = 40;
 	}

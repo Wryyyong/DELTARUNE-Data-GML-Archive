@@ -26,6 +26,7 @@ merge_amt = 0;
 mergespeed = 0.1;
 mergecon = 0;
 mergetimer = 0;
+pitchcount = 0;
 movecon = 0;
 movetimer = 0;
 rectspacing = 600;

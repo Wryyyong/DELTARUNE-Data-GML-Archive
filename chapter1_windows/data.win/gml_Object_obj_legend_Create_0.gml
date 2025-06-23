@@ -23,3 +23,4 @@ if (global.plot == 20)
 skipped = 0;
 skiptimer = 0;
 draw_screen = true;
+skip_buffer = 10;

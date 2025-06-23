@@ -552,6 +552,13 @@ if (draw_screen) {
 draw_set_alpha(1);
 
 if (ingame == 0) {
+	if (skip_buffer > 0) {
+		if (!button1_p())
+			skip_buffer--;
+		
+		exit;
+	}
+	
 	if (button1_p() && skipped == 0) {
 		skipped = 1;
 		skiptimer = 0;

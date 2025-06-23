@@ -40,7 +40,7 @@ global.savedata_async_id = -1;
 global.savedata_async_load = false;
 global.savedata_error = false;
 global.savedata_debuginfo = "";
-global.version = "1.16";
+global.version = "1.17";
 
 if (os_type == os_switch)
 	global.version = "1.07";

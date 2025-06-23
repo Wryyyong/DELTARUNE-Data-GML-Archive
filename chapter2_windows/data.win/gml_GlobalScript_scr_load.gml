@@ -318,6 +318,9 @@ function scr_load() {
 			
 			if (global.currentroom == scr_get_id_by_room_index(61) && global.plot >= 11)
 				global.currentroom = scr_get_id_by_room_index(62);
+			
+			if (global.currentroom == scr_get_id_by_room_index(200))
+				global.currentroom = scr_get_id_by_room_index(199);
 		}
 	}
 	

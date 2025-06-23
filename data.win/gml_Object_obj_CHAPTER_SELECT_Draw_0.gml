@@ -300,6 +300,8 @@ if (con == "chapterselect") {
 		
 		if (mpos > (latestAvailableChapter - 1))
 			mpos = latestAvailableChapter - 1;
+		
+		loop = audio_play_sound(AUDIO_DRONE, 15, 1);
 	}
 	
 	if (fade != 0)
@@ -535,6 +537,8 @@ if (con == "gameload") {
 	}
 	
 	if (chaptertoload != 0) {
+		audio_sound_gain(loop, 0, 500);
+		
 		switch (chaptertoload) {
 			case 1:
 				audio_play_sound(AUDIO_APPEARANCE, 50, 0);

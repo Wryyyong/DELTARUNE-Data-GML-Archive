@@ -1,3 +1,5 @@
+destroyoffscreen = 0;
+tolerance = 0;
 active = 0;
 image_alpha = 0;
 timer = 0;

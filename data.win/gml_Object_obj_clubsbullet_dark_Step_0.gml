@@ -5,7 +5,7 @@ if (type == 0) {
 		move_towards_point(obj_heart.x + 8, obj_heart.y + 8, 0.1);
 		bul = instance_create(x, y, obj_regularbullet);
 		
-		if (instance_exists(bul)) {
+		if (i_ex(bul)) {
 			bul.sprite_index = spr_clubsball_b;
 			bul.direction = direction;
 			bul.speed = 4;
@@ -18,7 +18,7 @@ if (type == 0) {
 		
 		bul = instance_create(x, y, obj_regularbullet);
 		
-		if (instance_exists(bul)) {
+		if (i_ex(bul)) {
 			bul.sprite_index = spr_clubsball_c;
 			bul.direction = direction - 17;
 			bul.speed = 4;
@@ -31,7 +31,7 @@ if (type == 0) {
 		
 		bul = instance_create(x, y, obj_regularbullet);
 		
-		if (instance_exists(bul)) {
+		if (i_ex(bul)) {
 			bul.sprite_index = spr_clubsball_a;
 			bul.direction = direction + 17;
 			bul.speed = 4;
@@ -56,7 +56,7 @@ if (type == 2) {
 		move_towards_point(obj_heart.x + 8, obj_heart.y + 8, 0.1);
 		bul = instance_create(x, y, obj_regularbullet);
 		
-		if (instance_exists(bul)) {
+		if (i_ex(bul)) {
 			bul.sprite_index = spr_clubsball_b;
 			bul.direction = (direction - 2) + initangle;
 			bul.speed = 2;
@@ -70,7 +70,7 @@ if (type == 2) {
 		
 		bul = instance_create(x, y, obj_regularbullet);
 		
-		if (instance_exists(bul)) {
+		if (i_ex(bul)) {
 			bul.sprite_index = spr_clubsball_c;
 			bul.direction = (direction - 19 - 2) + initangle;
 			bul.speed = 2;
@@ -84,7 +84,7 @@ if (type == 2) {
 		
 		bul = instance_create(x, y, obj_regularbullet);
 		
-		if (instance_exists(bul)) {
+		if (i_ex(bul)) {
 			bul.sprite_index = spr_clubsball_a;
 			bul.direction = ((direction + 19) - 2) + initangle;
 			bul.speed = 2;

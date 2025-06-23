@@ -18,22 +18,7 @@ if (room == room_flowershop_1f) {
 		scr_depth();
 	
 	con = 1;
-	
-	if (global.flag[262] >= 1) {
-		instance_create(x, y + sprite_height, obj_npc_facing);
-		visible = false;
-		
-		if (global.flag[262] == 1)
-			con = 50;
-		
-		if (global.flag[262] >= 2)
-			con = -1;
-	}
-	
-	if (global.flag[262] == 0)
-		global.interact = 1;
-	
-	image_speed = 0;
+	instance_create(x, y + sprite_height, obj_npc_facing);
 }
 
 if (room == room_flowershop_1f) {
@@ -65,4 +50,13 @@ if (room == room_flowershop_2f) {
 		instance_create(x, y + sprite_height, obj_npc_facing);
 		con = -1;
 	}
+}
+
+if (global.chapter == 1) {
+	instance_create(x, y + sprite_height, obj_npc_facing);
+} else if (global.chapter == 2) {
+	if (room == room_flowershop_1f)
+		instance_destroy();
+} else {
+	instance_destroy();
 }

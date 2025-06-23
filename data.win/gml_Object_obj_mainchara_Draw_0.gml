@@ -1,4 +1,25 @@
-draw_self();
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
+if (swordmode == 0)
+	draw_self();
 
 if (button1_p() && scr_debug()) {
 	if (global.darkzone == 0) {
@@ -37,31 +58,33 @@ if (button1_p() && scr_debug()) {
 if (battlemode == 1) {
 	becamebattle = 1;
 	
-	if (battlealpha < 0.8)
+	if (battlealpha < 0.8 && drawbattlemode)
 		battlealpha += 0.04;
 	
-	global.heartx = (x + 12) - __view_get(0, 0);
-	global.hearty = (y + 40) - __view_get(1, 0);
+	global.heartx = (x + 12) - __view_get(e__VW.XView, 0);
+	global.hearty = (y + 40) - __view_get(e__VW.YView, 0);
 } else if (battlealpha > 0) {
 	battlealpha -= 0.08;
 }
 
 battleheart.image_alpha = battlealpha;
 
-if (fun == 0) {
-	if (global.facing == 0)
-		draw_sprite_ext(spr_krisd_heart, image_index, x, y, image_xscale, image_yscale, 0, image_blend, battlealpha);
-	
-	if (global.facing == 1)
-		draw_sprite_ext(spr_krisr_heart, image_index, x, y, image_xscale, image_yscale, 0, image_blend, battlealpha);
-	
-	if (global.facing == 2)
-		draw_sprite_ext(spr_krisu_heart, image_index, x, y, image_xscale, image_yscale, 0, image_blend, battlealpha);
-	
-	if (global.facing == 3)
-		draw_sprite_ext(spr_krisl_heart, image_index, x, y, image_xscale, image_yscale, 0, image_blend, battlealpha);
-} else if (sprite_index == spr_krisd_slide) {
-	draw_sprite_ext(spr_krisd_slide_heart, image_index, x, y, image_xscale, image_yscale, 0, image_blend, battlealpha);
+if (swordmode == 0) {
+	if (fun == 0) {
+		if (global.facing == 0)
+			draw_sprite_ext(spr_krisd_heart, image_index, x, y, image_xscale, image_yscale, 0, image_blend, battlealpha);
+		
+		if (global.facing == 1)
+			draw_sprite_ext(spr_krisr_heart, image_index, x, y, image_xscale, image_yscale, 0, image_blend, battlealpha);
+		
+		if (global.facing == 2)
+			draw_sprite_ext(spr_krisu_heart, image_index, x, y, image_xscale, image_yscale, 0, image_blend, battlealpha);
+		
+		if (global.facing == 3)
+			draw_sprite_ext(spr_krisl_heart, image_index, x, y, image_xscale, image_yscale, 0, image_blend, battlealpha);
+	} else if (sprite_index == spr_krisd_slide) {
+		draw_sprite_ext(spr_krisd_slide_heart, image_index, x, y, image_xscale, image_yscale, 0, image_blend, battlealpha);
+	}
 }
 
 draw_sprite_ext(spr_heart_outline2, 0, x + 12, y + 40, 1, 1, 0, c_white, battlealpha * 2);
@@ -79,3 +102,11 @@ if (battlemode == 4) {
 
 if (scr_debug())
 	draw_set_color(c_red);
+
+if (swordmode == 1) {
+	if (swordfacing == 1)
+		draw_sprite_ext(swordsprite, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+	
+	if (swordfacing == -1)
+		draw_sprite_ext(swordsprite, image_index, x + sprite_width, y, -image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+}

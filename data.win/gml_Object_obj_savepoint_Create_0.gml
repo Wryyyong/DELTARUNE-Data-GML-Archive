@@ -10,7 +10,9 @@ if (global.darkzone == 1) {
 	image_yscale = 2;
 }
 
-if (room == room_cc_throneroom) {
-	if (global.plot >= 240)
-		instance_destroy();
+if (global.chapter == 1) {
+	if (room == room_cc_throneroom) {
+		if (global.plot >= 240)
+			instance_destroy();
+	}
 }

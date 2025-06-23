@@ -1,6 +1,13 @@
-if (instance_exists(target) == 0) {
+debug_message("I was born today");
+debug_message("x:" + string(x));
+debug_message("y:" + string(y));
+debug_message("con:" + string(con));
+
+if (!i_ex(target) && con < 20) {
+	debug_message("target does not exist");
 	con = 99;
 	instance_destroy();
+	exit;
 }
 
 if (con == 1) {
@@ -30,11 +37,6 @@ if (con == 2) {
 	instance_destroy();
 }
 
-if (instance_exists(target) == 0) {
-	con = 99;
-	instance_destroy();
-}
-
 if (con == 5) {
 	con = 6;
 	alarm[4] = 8;
@@ -54,4 +56,26 @@ if (con == 8)
 if (con == 9) {
 	target.image_blend = c_white;
 	instance_destroy();
+}
+
+if (con == 20) {
+	if (timer == 0 && zcounter == 0)
+		snd_play(snd_pacify);
+	
+	timer--;
+	
+	if (timer <= 0) {
+		var zobj = instance_create(x, y, obj_afterimage_grow);
+		zobj.sprite_index = spr_spare_z;
+		zobj.speed = 12;
+		zobj.direction = zcounter * 40;
+		zobj.friction = 1;
+		timer = 2;
+		zcounter++;
+	}
+	
+	if (zcounter >= 9) {
+		con++;
+		instance_destroy();
+	}
 }

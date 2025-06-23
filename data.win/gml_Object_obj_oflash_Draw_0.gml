@@ -1,6 +1,38 @@
-if (instance_exists(target)) {
+if (i_ex(target)) {
 	image_index = target.image_index;
 	sprite_index = target.sprite_index;
+	
+	if (global.chapter == 2 && target.object_index == obj_mauswheel_enemy)
+		sprite_index = target.idlesprite;
+	
+	if (global.chapter == 2 && target.object_index == obj_berdlyb_enemy)
+		sprite_index = target.hurtsprite;
+	
+	if (global.chapter == 2 && target.object_index == obj_spamton_neo_enemy) {
+		siner += flashspeed;
+		
+		if (siner > 4 && sin(siner / 3) < 0) {
+			instance_destroy();
+			obj_spamton_neo_enemy.state = 0;
+			exit;
+		}
+		
+		if (siner == flashspeed) {
+			with (obj_spamton_neo_enemy) {
+				partmode = 40;
+				shockthreshold = 15;
+				shocktimer = 9999;
+				hurttimer2 = 10;
+			}
+		}
+		
+		for (i = 0; i < 8; i += 1) {
+			obj_spamton_neo_enemy.flash = 1;
+			obj_spamton_neo_enemy.fsiner = obj_spamton_neo_enemy.partsiner[i] / 8;
+		}
+		
+		exit;
+	}
 }
 
 siner += flashspeed;

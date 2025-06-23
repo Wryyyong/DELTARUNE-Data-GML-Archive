@@ -1,3 +1,23 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 burst = 0;
 shift = 1;
 image_alpha = 0;
@@ -6,9 +26,12 @@ flytime = 8;
 if (instance_exists(obj_heartmarker)) {
 	distx = obj_heartmarker.x;
 	disty = obj_heartmarker.y;
+} else if (!instance_exists(obj_growtangle)) {
+	distx = __view_get(e__VW.XView, 0) + 310;
+	disty = __view_get(e__VW.YView, 0) + 160;
 } else {
-	distx = __view_get(0, 0) + 310;
-	disty = __view_get(1, 0) + 160;
+	distx = obj_growtangle.x - 10;
+	disty = obj_growtangle.y - 10;
 }
 
 dist = point_distance(x, y, distx, disty);

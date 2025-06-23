@@ -7,7 +7,7 @@ if (t >= 28) {
 	instance_destroy();
 }
 
-if (instance_exists(target)) {
+if (i_ex(target)) {
 	if (t == 10) {
 		snd_play(snd_rudebuster_swing);
 		blast = instance_create(x + 40, y + 30, obj_rudebuster_bolt);

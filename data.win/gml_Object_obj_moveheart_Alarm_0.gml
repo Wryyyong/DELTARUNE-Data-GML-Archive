@@ -1,4 +1,7 @@
 x = distx;
 y = disty;
-instance_create(x, y, obj_heart);
+
+if (!i_ex(obj_heart))
+	instance_create(x, y, obj_heart);
+
 instance_destroy();

@@ -1,3 +1,23 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 if (instance_exists(obj_mainchara)) {
 	if (loc_check == 0) {
 		if (room == room_forest_starwalker) {
@@ -26,7 +46,7 @@ if (instance_exists(obj_mainchara)) {
 	ycheck_average = ((obj_mainchara.y - char_ycheck[1]) + (obj_mainchara.y - char_ycheck[2]) + (obj_mainchara.y - char_ycheck[3])) / 3;
 }
 
-if (keyboard_check_pressed(vk_backspace) && beatcon == 89898 && scr_debug()) {
+if (keyboard_check_pressed(vk_backspace) && beatcon == 89898) {
 	visible = false;
 	beatcon = 1;
 	beattimer = 0;
@@ -188,7 +208,7 @@ if (beatcon == 0) {
 	}
 }
 
-if (instance_exists(shadow)) {
+if (i_ex(shadow)) {
 	if (attackcon == -1)
 		shadow.visible = false;
 	else
@@ -229,7 +249,7 @@ if (beatcon == 1) {
 if (beatcon == 2) {
 	beattimer += 1;
 	
-	if (dead.x >= (__view_get(0, 0) + __view_get(2, 0)) && global.interact != 0) {
+	if (dead.x >= (__view_get(e__VW.XView, 0) + __view_get(e__VW.WView, 0)) && global.interact != 0) {
 		with (dead)
 			instance_destroy();
 		

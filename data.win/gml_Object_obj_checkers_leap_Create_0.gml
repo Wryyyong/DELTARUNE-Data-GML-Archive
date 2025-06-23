@@ -1,3 +1,4 @@
+scr_bullet_init();
 jumpcon = 0;
 jumptimer = 0;
 s_timer = 0;

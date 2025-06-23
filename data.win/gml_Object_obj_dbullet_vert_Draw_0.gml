@@ -1,3 +1,23 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 if (dont == 0) {
 	if (active == 0) {
 		draw_sprite_ext(sprite_index, 0, x, y, 3 - (image_alpha * 2), 3 - (image_alpha * 2), 0, c_white, image_alpha);
@@ -31,10 +51,10 @@ if (dont == 0) {
 			speed = 8;
 	}
 	
-	if (y > (__view_get(1, 0) + 500))
+	if (y > (__view_get(e__VW.YView, 0) + 500))
 		instance_destroy();
 	
-	if (y < (__view_get(1, 0) - 20))
+	if (y < (__view_get(e__VW.YView, 0) - 20))
 		instance_destroy();
 }
 

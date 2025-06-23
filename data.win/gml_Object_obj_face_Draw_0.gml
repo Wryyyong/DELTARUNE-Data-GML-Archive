@@ -5,7 +5,7 @@ if (nowface != global.fc)
 
 if (facechange <= 0) {
 	if (global.fc == 1) {
-		if (global.flag[29] == 0) {
+		if (global.flag[29] == 0 || global.chapter <= 1) {
 			face = spr_face_s0;
 			
 			if (global.fe == 1)
@@ -48,7 +48,9 @@ if (facechange <= 0) {
 				face = spr_face_sD;
 			
 			draw_sprite_ext(face, face_index, x - 5, y, f, f, 0, c_white, 1);
-		} else {
+		}
+		
+		if (global.flag[29] != 0 || global.chapter > 1) {
 			face = spr_face_susie_alt;
 			face_index = global.fe;
 			draw_sprite_ext(face, face_index, x - 5, y, f, f, 0, c_white, 1);
@@ -61,7 +63,7 @@ if (facechange <= 0) {
 		if (global.flag[30] == 1)
 			face = spr_face_r_hood;
 		
-		if (global.flag[30] == 2)
+		if (global.flag[30] == 2 || global.chapter > 1)
 			face = spr_face_r_nohat;
 		
 		face_index = global.fe;
@@ -97,6 +99,11 @@ if (facechange <= 0) {
 		
 		if (global.fe == 9)
 			face = spr_face_n9;
+		
+		if (global.chapter >= 2) {
+			face = spr_face_n_matome;
+			face_index = global.fe;
+		}
 		
 		draw_sprite_ext(face, face_index, x - 12, y - 10, f, f, 0, c_white, 1);
 	}
@@ -189,6 +196,12 @@ if (facechange <= 0) {
 		if (global.fe == 6)
 			face = spr_face_asgore6;
 		
+		if (global.fe == 7)
+			face = spr_face_asgore7;
+		
+		if (global.fe == 8)
+			face = spr_face_asgore8;
+		
 		draw_sprite_ext(face, face_index, x - 10, y, f, f, 0, c_white, 1);
 	}
 	
@@ -227,6 +240,11 @@ if (facechange <= 0) {
 		
 		if (global.fe == 9)
 			face = spr_face_b1;
+		
+		if (global.darkzone == 1) {
+			face = spr_face_berdly_dark;
+			face_index = global.fe;
+		}
 		
 		draw_sprite_ext(face, face_index, x - 10, y, f, f, 0, c_white, 1);
 	}
@@ -298,6 +316,9 @@ if (facechange <= 0) {
 		face = spr_face_rurus;
 		face_index = global.fe;
 		draw_sprite_ext(face, face_index, x - 10, y, f, f, 0, c_white, 1);
+		
+		if (global.flag[326] == 1)
+			draw_sprite_ext(spr_face_rurus_piratehat, face_index, x - 10 - (3 * f), y - (4 * f), f, f, 0, c_white, 1);
 	}
 	
 	if (global.fc == 19) {
@@ -310,6 +331,12 @@ if (facechange <= 0) {
 		face = spr_face_king;
 		face_index = global.fe;
 		draw_sprite_ext(face, face_index, x - 5, y - 5, f, f, 0, c_white, 1);
+	}
+	
+	if (global.fc == 21) {
+		face = scr_84_get_sprite("spr_face_queen");
+		face_index = global.fe;
+		draw_sprite_ext(face, face_index, x, y, f, f, 0, c_white, 1);
 	}
 }
 

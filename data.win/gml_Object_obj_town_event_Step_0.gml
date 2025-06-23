@@ -104,7 +104,7 @@ if (room == room_town_south) {
 	}
 	
 	if (con == 52) {
-		global.msg[0] = scr_84_get_lang_string("obj_town_event_slash_Step_0_gml_120_0");
+		global.msg[0] = stringsetloc("* (They just closed the blinds...)/%", "obj_town_event_slash_Step_0_gml_120_0");
 		instance_create(0, 0, obj_dialoguer);
 		con = 53;
 	}
@@ -131,7 +131,7 @@ if (room == room_torbathroom) {
 		specflush = 0;
 		snd_play(snd_won);
 		flush += 1;
-		global.msg[0] = scr_84_get_lang_string("obj_town_event_slash_Step_0_gml_157_0");
+		global.msg[0] = stringsetloc("* (You flushed the toilet!)/%", "obj_town_event_slash_Step_0_gml_157_0");
 		
 		if (flush == 3)
 			specflush = 1;
@@ -145,7 +145,7 @@ if (room == room_torbathroom) {
 		instance_create(0, 0, obj_dialoguer);
 		con = 63;
 		
-		if (specflush > 0)
+		if (specflush > 0 && global.plot >= 210)
 			con = 67;
 	}
 	
@@ -165,18 +165,18 @@ if (room == room_torbathroom) {
 	if (con == 69) {
 		if (specflush == 1) {
 			scr_torface(0, 1);
-			global.msg[1] = scr_84_get_lang_string("obj_town_event_slash_Step_0_gml_186_0");
+			global.msg[1] = stringsetloc("* Kris...^1?&* Is everything..^1. alright in there?/%", "obj_town_event_slash_Step_0_gml_186_0");
 		}
 		
 		if (specflush == 2) {
 			scr_torface(0, 3);
-			global.msg[1] = scr_84_get_lang_string("obj_town_event_slash_Step_0_gml_191_0");
-			global.msg[2] = scr_84_get_lang_string("obj_town_event_slash_Step_0_gml_192_0");
+			global.msg[1] = stringsetloc("* Kris^1, WHAT are you doing?/", "obj_town_event_slash_Step_0_gml_191_0");
+			global.msg[2] = stringsetloc("* You did not put a bath bomb in the toilet again^1, did you?/%", "obj_town_event_slash_Step_0_gml_192_0");
 		}
 		
 		if (specflush == 3) {
 			scr_torface(0, 5);
-			global.msg[1] = scr_84_get_lang_string("obj_town_event_slash_Step_0_gml_197_0");
+			global.msg[1] = stringsetloc("* Kris^1, if anything bad happens^1, you are paying for the plumbing bill./%", "obj_town_event_slash_Step_0_gml_197_0");
 		}
 		
 		instance_create(0, 0, obj_dialoguer);

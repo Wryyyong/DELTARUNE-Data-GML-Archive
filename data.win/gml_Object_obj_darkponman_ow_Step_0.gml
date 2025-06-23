@@ -49,7 +49,7 @@ if (made == 1) {
 		siner -= 1;
 	
 	for (i = 0; i < bmax; i += 1) {
-		if (instance_exists(fb[i])) {
+		if (i_ex(fb[i])) {
 			xa = lengthdir_x(eyer * (2 + (i * 2)), rot - (sin(siner / 10) * (i * 2))) + offx;
 			ya = lengthdir_y(eyer * (2 + (i * 2)), rot - (sin(siner / 10) * (i * 2))) + offy;
 			fb[i].x = x + xa;

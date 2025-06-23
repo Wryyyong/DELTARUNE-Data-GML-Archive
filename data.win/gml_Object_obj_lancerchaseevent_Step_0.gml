@@ -1,3 +1,23 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 if (con == 1 && obj_mainchara.x >= 1060 && global.interact == 0) {
 	global.flag[7] = 1;
 	
@@ -16,8 +36,8 @@ if (con == 3) {
 	with (susie)
 		sprite_index = spr_susiel_dark;
 	
-	global.msg[0] = scr_84_get_lang_string("obj_lancerchaseevent_slash_Step_0_gml_16_0");
-	global.msg[1] = scr_84_get_lang_string("obj_lancerchaseevent_slash_Step_0_gml_17_0");
+	global.msg[0] = stringsetloc("* Hey^1, Kris^1.&* There's someone up there waving at us./", "obj_lancerchaseevent_slash_Step_0_gml_16_0");
+	global.msg[1] = stringsetloc("* Any idea what they want...?/%", "obj_lancerchaseevent_slash_Step_0_gml_17_0");
 	global.typer = 30;
 	global.fe = 0;
 	global.fc = 1;
@@ -111,8 +131,8 @@ if (aftercon == 1) {
 }
 
 if (con == 11) {
-	if (__view_get(1, 0) >= (room_height - 480))
-		__view_set(1, 0, room_height - 480);
+	if (__view_get(e__VW.YView, 0) >= (room_height - 480))
+		__view_set(e__VW.YView, 0, room_height - 480);
 }
 
 if (con == 12) {
@@ -137,7 +157,7 @@ if (con == 15.1) {
 	with (susie)
 		sprite_index = spr_susiel_dark_unhappy;
 	
-	scr_pan_to_obj(326, 5);
+	scr_pan_to_obj(obj_mainchara, 5);
 	con = 14.2;
 	alarm[4] = 4;
 }
@@ -156,7 +176,7 @@ if (con == 15.2) {
 if (con == 16) {
 	aftercon = 0;
 	global.fe = 9;
-	global.msg[0] = scr_84_get_lang_string("obj_lancerchaseevent_slash_Step_0_gml_137_0");
+	global.msg[0] = stringsetloc("* R-run^1, Kris!/%", "obj_lancerchaseevent_slash_Step_0_gml_137_0");
 	instance_create(0, 0, obj_dialoguer);
 	con = 17;
 }

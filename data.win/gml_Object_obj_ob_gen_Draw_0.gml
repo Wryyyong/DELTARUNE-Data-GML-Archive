@@ -1,3 +1,23 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 if (obj_mainchara.battlemode == 1) {
 	if (battlealpha < 0.8)
 		battlealpha += 0.04;
@@ -7,7 +27,7 @@ if (obj_mainchara.battlemode == 1) {
 
 draw_set_alpha(battlealpha);
 draw_set_color(c_black);
-draw_rectangle(__view_get(0, 0) - 100, __view_get(1, 0) - 100, __view_get(0, 0) + 740, __view_get(1, 0) + 540, false);
+draw_rectangle(__view_get(e__VW.XView, 0) - 100, __view_get(e__VW.YView, 0) - 100, __view_get(e__VW.XView, 0) + 740, __view_get(e__VW.YView, 0) + 540, false);
 draw_set_alpha(1);
 
 if (instance_exists(obj_caterpillarchara)) {
@@ -24,7 +44,7 @@ if (whitecon == 1) {
 	whitetimer += 1;
 	draw_set_alpha(whitetimer / 15);
 	draw_set_color(c_white);
-	draw_rectangle(-100, -100, __view_get(0, 0) + 740, __view_get(1, 0) + 540, false);
+	draw_rectangle(-100, -100, __view_get(e__VW.XView, 0) + 740, __view_get(e__VW.YView, 0) + 540, false);
 	draw_set_alpha(1);
 }
 
@@ -32,7 +52,7 @@ if (whitecon == 2) {
 	whitetimer -= 1;
 	draw_set_alpha(whitetimer / 15);
 	draw_set_color(c_white);
-	draw_rectangle(-100, -100, __view_get(0, 0) + 740, __view_get(1, 0) + 540, false);
+	draw_rectangle(-100, -100, __view_get(e__VW.XView, 0) + 740, __view_get(e__VW.YView, 0) + 540, false);
 	draw_set_alpha(1);
 	
 	if (whitetimer <= 0) {

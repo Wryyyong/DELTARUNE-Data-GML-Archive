@@ -35,7 +35,7 @@ if (con == 7) {
 	if (sndplay == 1)
 		snd_resume(global.currentsong[1]);
 	
-	global.msg[0] = scr_84_get_lang_string("obj_darkphone_event_slash_Step_0_gml_42_0");
+	global.msg[0] = stringsetloc("* It's nothing but garbage noise./%", "obj_darkphone_event_slash_Step_0_gml_42_0");
 	instance_create(0, 0, obj_dialoguer);
 	con = 5;
 	global.interact = 6;

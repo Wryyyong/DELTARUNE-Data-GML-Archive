@@ -70,7 +70,7 @@ if (sndcon == 6) {
 
 scr_depth();
 
-if (instance_exists(bullet)) {
+if (i_ex(bullet)) {
 	bullet.x = x + hspeed;
 	bullet.y = y + vspeed;
 }

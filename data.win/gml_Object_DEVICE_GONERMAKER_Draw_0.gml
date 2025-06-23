@@ -35,32 +35,9 @@ for (j = 0; j < STEP; j += 1) {
 	if (s == j) {
 		for (i = 0; i <= PARTMAX[j]; i += 1) {
 			alpha = 1 - (abs(PARTX[j] + (i * 50)) / 120);
-			draw_sprite_ext(img, i, x + PARTX[j] + (i * 50), y + sy[j], 2, 2, 0, image_blend, alpha * FA);
+			draw_sprite_ext(img, i, x + PARTX[j] + (i * 50), y + sy[j], 2, 2, 0, c_white, alpha * FA);
 		}
 	} else {
-		draw_sprite_ext(img, PART[j], x, y + sy[j], 2, 2, 0, image_blend, 1 * FA);
+		draw_sprite_ext(img, PART[j], x, y + sy[j], 2, 2, 0, c_white, 1 * FA);
 	}
 }
-
-NAMEFADE_COMPLETE = 0;
-
-if (instance_exists(DEVICE_CHOICE)) {
-	if (DEVICE_CHOICE.TYPE == 3) {
-		NAMEFADE_COMPLETE = 1;
-		NAMEFADE += 0.03;
-		NAMEFADE *= 1.25;
-		
-		if (NAMEFADE >= 1)
-			NAMEFADE = 1;
-	}
-}
-
-if (NAMEFADE_COMPLETE == 0) {
-	NAMEFADE -= 0.03;
-	NAMEFADE *= 0.75;
-	
-	if (NAMEFADE <= 0)
-		NAMEFADE = 0;
-}
-
-image_blend = merge_color(c_white, c_black, NAMEFADE);

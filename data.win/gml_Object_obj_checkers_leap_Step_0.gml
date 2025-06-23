@@ -1,3 +1,23 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 if (leapmode == 0) {
 	if (jumpcon == 1) {
 		if (vspeed >= 0) {
@@ -246,7 +266,7 @@ if (leapmode == 2) {
 			magamt += 1;
 		}
 		
-		if (y < (__view_get(1, 0) - 200)) {
+		if (y < (__view_get(e__VW.YView, 0) - 200)) {
 			speed = 0;
 			gravity = 0;
 			y = ystart - 100;

@@ -7,7 +7,7 @@ if (open == 1) {
 	siner += 1;
 	image_index = 1;
 	amt = sin(siner / 16) * 0.1;
-	draw_background_ext(926, 0, 0, 1, 1, 0, c_white, xsin + amt);
+	draw_background_ext(bg_darkdoor_open, 0, 0, 1, 1, 0, c_white, xsin + amt);
 	
 	for (i = 1; i < 6; i += 1)
 		draw_sprite_ext(sprite_index, 2, x, y + sprite_height, 1, (3 / i) + amt, 0, c_white, xsin * (amt + 0.2));

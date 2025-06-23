@@ -1,3 +1,4 @@
+sprite_height_adjusted = 0;
 dtsprite = spr_toriel_dt;
 rtsprite = spr_toriel_rt;
 ltsprite = spr_toriel_lt;
@@ -18,6 +19,9 @@ normalanim = 1;
 remanimspeed = 0;
 depthbonus = 0;
 depthcancel = 0;
+lifetimer = 0;
+fun = 0;
+extflag = 0;
 
 if (room == room_alphysclass) {
 	facing = 2;
@@ -25,10 +29,10 @@ if (room == room_alphysclass) {
 	ourcase = 1;
 	
 	if (y < 172) {
-		dtsprite = spr_noelle_dt;
-		rtsprite = spr_noelle_ut_r;
-		utsprite = spr_noelle_ut;
-		ltsprite = spr_noelle_ut_l;
+		dtsprite = spr_noelle_walk_down_lw;
+		rtsprite = spr_noelle_walk_right_lw;
+		utsprite = spr_noelle_walk_up_lw;
+		ltsprite = spr_noelle_walk_left_lw;
 		
 		if (x > 120) {
 			utsprite = spr_berdly_ut;
@@ -76,170 +80,6 @@ if (room == room_alphysclass) {
 	}
 }
 
-if (room == room_field2) {
-	facing = 0;
-	dfacing = 0;
-	dtsprite = spr_lancer_dt;
-	utsprite = spr_lancer_dt;
-	rtsprite = spr_lancer_rt;
-	ltsprite = spr_lancer_lt;
-	
-	if (room == room_field2) {
-		if (global.plot >= 35)
-			instance_destroy();
-	}
-}
-
-if (room == room_forest_maze_deadend) {
-	facing = 0;
-	dfacing = 0;
-	
-	if (global.plot < 95)
-		global.plot = 95;
-	
-	global.flag[293] += 1;
-	dtsprite = spr_lancer_dt;
-	utsprite = spr_lancer_dt;
-	rtsprite = spr_lancer_rt;
-	ltsprite = spr_lancer_lt;
-	
-	if (global.plot >= 120)
-		instance_destroy();
-}
-
-if (room == room_forest_maze_deadend2) {
-	facing = 2;
-	dfacing = 2;
-	global.flag[294] += 1;
-	dtsprite = spr_susied_dark;
-	utsprite = spr_susieu_dark;
-	rtsprite = spr_susier_dark;
-	ltsprite = spr_susiel_dark;
-	
-	if (global.plot >= 120)
-		instance_destroy();
-}
-
-if (room == room_field_boxpuzzle) {
-	type = 0;
-	
-	if (x < (room_width / 2)) {
-		sprite_index = spr_ralseid;
-		dtsprite = spr_ralseid;
-		utsprite = spr_ralseiu;
-		rtsprite = spr_ralseir;
-		ltsprite = spr_ralseil;
-		y += sprite_height;
-	} else {
-		type = 1;
-		sprite_index = spr_susied;
-		dtsprite = spr_susied_dark;
-		utsprite = spr_susieu_dark;
-		rtsprite = spr_susier_dark;
-		ltsprite = spr_susiel_dark;
-		y += sprite_height;
-	}
-}
-
-if (room == room_cc_kingbattle) {
-	if (global.plot < 240)
-		instance_destroy();
-	
-	sprite_index = spr_ralseid;
-	dtsprite = spr_ralseid;
-	utsprite = spr_ralseiu;
-	rtsprite = spr_ralseir;
-	ltsprite = spr_ralseil;
-	y += sprite_height;
-}
-
-if (room == room_cc_throneroom) {
-	if (global.plot < 240)
-		instance_destroy();
-	
-	sprite_index = spr_lancer_dt;
-	dtsprite = spr_lancer_dt;
-	utsprite = spr_lancer_ut;
-	rtsprite = spr_lancer_rt;
-	ltsprite = spr_lancer_lt;
-	y += sprite_height;
-	depthbonus = -250;
-}
-
-if (room == room_forest_area1) {
-	sprite_index = spr_susier_dark;
-	rtsprite = spr_susier_dark;
-	dtsprite = spr_susied_dark;
-	utsprite = spr_susieu_dark;
-	ltsprite = spr_susiel_dark;
-	facing = 1;
-	dfacing = 1;
-	
-	if (x >= 1160) {
-		facing = 3;
-		dfacing = 3;
-		sprite_index = spr_lancer_lt;
-		dtsprite = spr_lancer_dt;
-		utsprite = spr_lancer_dt;
-		rtsprite = spr_lancer_rt;
-		ltsprite = spr_lancer_lt;
-	}
-	
-	if (global.plot > 70)
-		instance_destroy();
-}
-
-if (room == room_forest_area3) {
-	if (x >= 600) {
-		facing = 2;
-		dfacing = 2;
-		sprite_index = spr_lancer_ut;
-		dtsprite = spr_lancer_dt;
-		utsprite = spr_lancer_ut;
-		rtsprite = spr_lancer_rt;
-		ltsprite = spr_lancer_lt;
-	} else {
-		facing = 2;
-		dfacing = 2;
-		sprite_index = spr_susieut_dark;
-		dtsprite = spr_susiedt_dark;
-		utsprite = spr_susieut_dark;
-		rtsprite = spr_susiert_dark;
-		ltsprite = spr_susielt_dark;
-	}
-}
-
-if (room == room_library) {
-	if (x < 120) {
-		facing = 1;
-		dfacing = 1;
-		dtsprite = spr_berdly_library_r;
-		utsprite = spr_berdly_library_u;
-		rtsprite = spr_berdly_library_r;
-		ltsprite = spr_berdly_library_u;
-		depthcancel = 1;
-		depth = 4000;
-	}
-	
-	if (x > 150) {
-		facing = 1;
-		dfacing = 1;
-		dtsprite = spr_jockington_ut;
-		utsprite = spr_jockington_ut;
-		rtsprite = spr_jockington_rt;
-		ltsprite = spr_jockington_lt;
-	}
-	
-	if (x > 220) {
-		facing = 3;
-		dfacing = 3;
-		dtsprite = spr_tem_sit_l;
-		rtsprite = spr_tem_sit_r;
-		utsprite = spr_tem_sit;
-		ltsprite = spr_tem_sit_l;
-	}
-}
-
 if (room == room_flowershop_1f) {
 	facing = 0;
 	dfacing = 0;
@@ -268,12 +108,14 @@ if (room == room_alphysalley) {
 }
 
 if (room == room_town_south) {
-	facing = 0;
-	dfacing = 0;
-	dtsprite = spr_undyne_dt;
-	utsprite = spr_undyne_ut;
-	rtsprite = spr_undyne_rt;
-	ltsprite = spr_undyne_lt;
+	if (global.chapter == 1) {
+		facing = 0;
+		dfacing = 0;
+		dtsprite = spr_undyne_dt;
+		utsprite = spr_undyne_ut;
+		rtsprite = spr_undyne_rt;
+		ltsprite = spr_undyne_lt;
+	}
 }
 
 if (room == room_town_mid) {
@@ -288,17 +130,98 @@ if (room == room_town_mid) {
 if (room == room_town_north) {
 	facing = 3;
 	dfacing = 3;
-	dtsprite = spr_noelle_dt;
-	ltsprite = spr_noelle_lt;
-	utsprite = spr_noelle_ut;
-	rtsprite = spr_noelle_rt;
+	dtsprite = spr_noelle_walk_down_lw;
+	ltsprite = spr_noelle_walk_left_lw;
+	utsprite = spr_noelle_walk_up_lw;
+	rtsprite = spr_noelle_walk_right_lw;
 	
-	if (global.flag[255] < 1)
+	if (global.flag[255] < 1 || global.chapter == 2)
 		instance_destroy();
 }
 
+if (room == room_dw_castle_area_2) {
+	facing = 0;
+	dfacing = 0;
+	dtsprite = spr_ralsei_down;
+	ltsprite = spr_ralsei_left;
+	utsprite = spr_ralsei_up;
+	rtsprite = spr_ralsei_right;
+	
+	if (room == room_dw_castle_area_2 && global.chapter == 1)
+		instance_destroy();
+}
+
+if (room == room_dw_cyber_queen_boxing) {
+	if (x < 310) {
+		facing = 2;
+		dfacing = 2;
+		dtsprite = spr_ralsei_down;
+		ltsprite = spr_ralsei_left;
+		utsprite = spr_ralsei_up;
+		rtsprite = spr_ralsei_right;
+	}
+	
+	if (x > 310 && x < 438) {
+		facing = 2;
+		dfacing = 2;
+		dtsprite = spr_susie_down_dw;
+		ltsprite = spr_susie_left_dw;
+		utsprite = spr_susie_up_dw;
+		rtsprite = spr_susie_right_dw;
+	}
+	
+	if (x > 438) {
+		facing = 3;
+		dfacing = 3;
+		dtsprite = spr_queen_down;
+		ltsprite = spr_queen_left;
+		utsprite = spr_queen_up;
+		rtsprite = spr_queen_right;
+	}
+}
+
+if (room == room_dw_ralsei_castle_2f) {
+	facing = 2;
+	dfacing = 2;
+	dtsprite = spr_queen_down;
+	ltsprite = spr_queen_left;
+	utsprite = spr_queen_up;
+	rtsprite = spr_queen_right;
+}
+
+if (extflag == "ralsei_dw") {
+	facing = 2;
+	dfacing = 2;
+	dtsprite = spr_ralsei_down;
+	ltsprite = spr_ralsei_left;
+	utsprite = spr_ralsei_up;
+	rtsprite = spr_ralsei_right;
+}
+
+if (extflag == "susie_dw") {
+	facing = 2;
+	dfacing = 2;
+	dtsprite = spr_susie_down_dw;
+	ltsprite = spr_susie_left_dw;
+	utsprite = spr_susie_up_dw;
+	rtsprite = spr_susie_right_dw;
+}
+
 scr_npcdir();
-y -= sprite_height;
+
+if (sprite_height_adjusted == 0) {
+	if (global.chapter == 1) {
+		y -= sprite_height;
+		sprite_height_adjusted = 1;
+	}
+	
+	if (global.chapter == 2 && global.plot <= 12) {
+		y -= sprite_height;
+		sprite_height_adjusted = 1;
+	}
+	
+	sprite_height_adjusted = 1;
+}
 
 if (depthcancel == 0)
 	scr_depth();

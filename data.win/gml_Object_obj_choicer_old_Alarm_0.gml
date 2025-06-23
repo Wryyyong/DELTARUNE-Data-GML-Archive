@@ -1,6 +1,6 @@
 if (instance_exists(obj_dialoguer)) {
 	with (obj_dialoguer) {
-		if (instance_exists(writer)) {
+		if (i_ex(writer)) {
 			wwx = writer.x;
 			wwy = writer.y;
 		}

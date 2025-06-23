@@ -4,8 +4,20 @@ else
 	image_alpha = 1;
 
 if (t == 0) {
-	targetx = global.monsterx[target.myself];
-	targety = global.monstery[target.myself];
+	if (battlemode == 1) {
+		if (instance_exists(obj_queenshield_enemy)) {
+			depth = obj_queenshield_enemy.depth - 1;
+			targetx = obj_queenshield_enemy.x + 24;
+			targety = obj_queenshield_enemy.y + 140;
+		} else {
+			targetx = global.monsterx[target.myself];
+			targety = global.monstery[target.myself];
+		}
+	} else if (i_ex(target)) {
+		targetx = target.x + (target.sprite_width / 2);
+		targety = target.y + (target.sprite_height / 2);
+	}
+	
 	cx = targetx;
 	cy = targety;
 	direction = point_direction(x, y, cx, cy) - 20;
@@ -73,10 +85,31 @@ if (explode == 1) {
 		if (red == 1)
 			damage += 90;
 		
-		global.hittarget[star] = 0;
-		scr_damage_enemy(star, damage);
-		
-		if (global.monstertype[0] != 20) {
+		if (battlemode == 1) {
+			global.hittarget[star] = 0;
+			
+			if (instance_exists(obj_queenshield_enemy)) {
+				obj_queen_enemy.shieldhp -= damage;
+				
+				with (obj_queenshield_enemy)
+					con = 1;
+				
+				with (obj_queenshield_enemy)
+					event_user(0);
+			} else {
+				scr_damage_enemy(star, damage);
+			}
+			
+			if (global.monstertype[0] != 20) {
+				with (target)
+					__of = scr_oflash();
+				
+				if (red == 1) {
+					with (target)
+						__of.flashcolor = c_red;
+				}
+			}
+		} else {
 			with (target)
 				__of = scr_oflash();
 			

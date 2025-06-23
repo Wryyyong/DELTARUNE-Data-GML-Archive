@@ -14,14 +14,18 @@ if (fightcon == 1) {
 	}
 	
 	if (counttimer >= 10) {
-		wp = snd_play(snd_impact);
-		snd_volume(wp, 0.7, 0);
-		wp2 = snd_play(snd_weaponpull_fast);
-		snd_volume(wp2, 0.8, 0);
+		if (global.encounterno != 84) {
+			wp = snd_play(snd_impact);
+			snd_volume(wp, 0.7, 0);
+			wp2 = snd_play(snd_weaponpull_fast);
+			snd_volume(wp2, 0.8, 0);
+		}
 		
 		for (i = 0; i < (count + 1); i += 1) {
 			c[i].speed = 0;
-			c[i].image_index = 0;
+			
+			if (global.char[i] != 4)
+				c[i].image_index = 0;
 			
 			if (global.char[i] == 1)
 				c[i].sprite_index = spr_krisb_attack;
@@ -34,7 +38,7 @@ if (fightcon == 1) {
 			}
 			
 			if (global.char[i] == 3)
-				c[i].sprite_index = spr_ralseib_battleintro;
+				c[i].sprite_index = spr_ralsei_battleintro;
 			
 			c[i].image_speed = 0.5;
 		}

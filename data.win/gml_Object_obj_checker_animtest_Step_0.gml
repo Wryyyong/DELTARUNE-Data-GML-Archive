@@ -1,6 +1,26 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 if (type == 0) {
 	if (con == 1) {
-		x = __view_get(0, 0) + 800;
+		x = __view_get(e__VW.XView, 0) + 800;
 		image_speed = 0.2;
 		sprite_index = spr_smallchecker_front;
 		global.interact = 1;
@@ -38,24 +58,24 @@ if (type == 0) {
 		global.typer = 32;
 		global.fc = 5;
 		global.fe = 0;
-		name = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_42_0");
+		name = "Guys";
 		
 		if (global.flag[214] == 1)
-			name = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_43_0");
+			name = "(name I'm not allowed to say).";
 		
 		if (global.flag[214] == 2)
-			name = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_44_0");
+			name = "Lancer Fan Club.";
 		
 		if (global.flag[214] == 3)
-			name = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_45_0");
+			name = "Friendly Fun Gang.";
 		
-		global.msg[0] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_47_0");
-		global.msg[1] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_48_0") + name + "/";
-		global.msg[2] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_49_0");
+		global.msg[0] = stringsetloc("* Hohoho..^1.&* Well STEP on my BOOTS./", "obj_checker_animtest_slash_Step_0_gml_47_0");
+		global.msg[1] = stringsetsubloc("* If it isn't the ~1/", name, "obj_checker_animtest_slash_Step_0_gml_48_0");
+		global.msg[2] = stringsetloc("* You boys or girls had better turn back while you can./", "obj_checker_animtest_slash_Step_0_gml_49_0");
 		scr_ralface(3, 3);
-		global.msg[4] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_51_0");
+		global.msg[4] = stringsetloc("* Lancer!!!&* What is it this time!?/", "obj_checker_animtest_slash_Step_0_gml_51_0");
 		scr_lanface(5, 1);
-		global.msg[6] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_53_0");
+		global.msg[6] = stringsetloc("* Hohoho..^1.&* I'm simply warning you...!/%", "obj_checker_animtest_slash_Step_0_gml_53_0");
 		instance_create(0, 0, obj_dialoguer);
 		con = -46;
 		warnpitch = 0;
@@ -84,18 +104,18 @@ if (type == 0) {
 	
 	if (con == -42) {
 		global.fe = 2;
-		global.msg[0] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_82_0");
+		global.msg[0] = stringsetloc("* Something EXTREMELY dangerous is lying ahead!/%", "obj_checker_animtest_slash_Step_0_gml_82_0");
 		
 		if (warnpitch == 1) {
 			global.fe = 1;
-			global.msg[0] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_87_0");
+			global.msg[0] = stringsetloc("* Hohoho^1! It's actually really inconvenient!/%", "obj_checker_animtest_slash_Step_0_gml_87_0");
 		}
 		
 		if (warnpitch == 2) {
 			global.fe = 3;
-			global.msg[0] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_92_0");
+			global.msg[0] = stringsetloc("* Ha^1! I can't go home at all because I'm so scared!/", "obj_checker_animtest_slash_Step_0_gml_92_0");
 			scr_susface(1, 9);
-			global.msg[2] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_94_0");
+			global.msg[2] = stringsetloc("* Wh..^1. What is it!?/%", "obj_checker_animtest_slash_Step_0_gml_94_0");
 		}
 		
 		instance_create(0, 0, obj_dialoguer);
@@ -166,15 +186,15 @@ if (type == 0) {
 		global.fc = 2;
 		global.fe = 8;
 		global.typer = 31;
-		global.msg[0] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_178_0");
+		global.msg[0] = stringsetloc("* Oh^1, hey^1, little guy.../", "obj_checker_animtest_slash_Step_0_gml_178_0");
 		scr_susface(1, 6);
-		global.msg[2] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_180_0");
+		global.msg[2] = stringsetloc("* THAT??^1? THAT'S what you're afraid of???/", "obj_checker_animtest_slash_Step_0_gml_180_0");
 		scr_lanface(3, 3);
-		global.msg[4] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_182_0");
+		global.msg[4] = stringsetloc("* W..^1. Wow^1, purple girl^1!&* You aren't scared!?/", "obj_checker_animtest_slash_Step_0_gml_182_0");
 		scr_susface(5, 2);
-		global.msg[6] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_184_0");
+		global.msg[6] = stringsetloc("* Heh^1, why would I be^1? What's it gonna do?/", "obj_checker_animtest_slash_Step_0_gml_184_0");
 		scr_lanface(7, 6);
-		global.msg[8] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_186_0");
+		global.msg[8] = stringsetloc("* Hmm^1, well^1, normally.../%", "obj_checker_animtest_slash_Step_0_gml_186_0");
 		con = -5.2;
 		instance_create(0, 0, obj_dialoguer);
 	}
@@ -189,12 +209,12 @@ if (type == 0) {
 	}
 	
 	if (con == 2) {
-		if (x > (__view_get(0, 0) + 520)) {
+		if (x > (__view_get(e__VW.XView, 0) + 520)) {
 			image_index = 0;
 			image_xscale = 2;
 			sprite_index = spr_smallchecker_front;
 			hspeed = 0;
-			x = __view_get(0, 0) + 480;
+			x = __view_get(e__VW.XView, 0) + 480;
 			con = 1.1;
 			alarm[4] = 30;
 		}
@@ -240,7 +260,7 @@ if (type == 0) {
 		sprite_index = spr_smallchecker_front;
 		image_speed = 0;
 		image_index = 0;
-		crown = instance_create(x + 8, __view_get(1, 0) - 40, obj_marker);
+		crown = instance_create(x + 8, __view_get(e__VW.YView, 0) - 40, obj_marker);
 		crown.image_xscale = 2;
 		crown.image_yscale = 2;
 		crown.sprite_index = spr_smallchecker_crown;
@@ -323,7 +343,7 @@ if (type == 0) {
 			sprite_index = spr_susier_dark;
 		
 		global.fe = 6;
-		global.msg[0] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_356_0");
+		global.msg[0] = stringsetloc("* It crushes people to death^1, I think./%", "obj_checker_animtest_slash_Step_0_gml_356_0");
 		con = 18;
 		instance_create(0, 0, obj_dialoguer);
 	}
@@ -490,7 +510,7 @@ if (type == 1) {
 			image_angle -= 5;
 		}
 		
-		if (x >= (__view_get(0, 0) + 720)) {
+		if (x >= (__view_get(e__VW.XView, 0) + 720)) {
 			con = 8;
 			global.monster[0] = 0;
 			global.monster[1] = 0;
@@ -527,7 +547,7 @@ if (type == 2) {
 			global.typer = 30;
 			global.fe = 6;
 			global.fc = 1;
-			global.msg[0] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_589_0");
+			global.msg[0] = stringsetloc("* We..^1. We did it!?/%", "obj_checker_animtest_slash_Step_0_gml_589_0");
 			instance_create(0, 0, obj_dialoguer);
 			con = 3;
 		}
@@ -555,10 +575,10 @@ if (type == 2) {
 		global.typer = 32;
 		global.fc = 5;
 		global.fe = 3;
-		global.msg[0] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_624_0");
-		global.msg[1] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_625_0");
+		global.msg[0] = stringsetloc("* Wow!^1! You clowns really ARE heroes!!/", "obj_checker_animtest_slash_Step_0_gml_624_0");
+		global.msg[1] = stringsetloc("* You saved the next twenty minutes of my life!!/", "obj_checker_animtest_slash_Step_0_gml_625_0");
 		scr_susface(2, 2);
-		global.msg[3] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_627_0");
+		global.msg[3] = stringsetloc("* Yeah^1, yeah^1, I am pretty great^1, huh...?/%", "obj_checker_animtest_slash_Step_0_gml_627_0");
 		instance_create(0, 0, obj_dialoguer);
 		con = 7.2;
 	}
@@ -589,16 +609,16 @@ if (type == 2) {
 		global.typer = 31;
 		global.fc = 2;
 		global.fe = 1;
-		global.msg[0] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_657_0");
-		global.msg[1] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_658_0");
-		global.msg[2] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_659_0");
-		global.msg[3] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_660_0");
-		global.msg[4] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_661_0");
-		global.msg[5] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_662_0");
+		global.msg[0] = stringsetloc("\\E8* Ummm^1, Susie...?/", "obj_checker_animtest_slash_Step_0_gml_657_0");
+		global.msg[1] = stringsetloc("\\E8* Not to downplay your contributions^1, but.../", "obj_checker_animtest_slash_Step_0_gml_658_0");
+		global.msg[2] = stringsetloc("\\E1* You..^1. didn't actually help at all./", "obj_checker_animtest_slash_Step_0_gml_659_0");
+		global.msg[3] = stringsetloc("\\EB* You only made everything WORSE by attacking it./", "obj_checker_animtest_slash_Step_0_gml_660_0");
+		global.msg[4] = stringsetloc("\\E1* If you had just acted nice to it in the first place.../", "obj_checker_animtest_slash_Step_0_gml_661_0");
+		global.msg[5] = stringsetloc("\\E6* We could have avoided that entire battle./", "obj_checker_animtest_slash_Step_0_gml_662_0");
 		scr_susface(6, 6);
-		global.msg[7] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_664_0");
-		global.msg[8] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_665_0");
-		global.msg[9] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_666_0");
+		global.msg[7] = stringsetloc("* Huh^1?&* Are you FOR REAL?/", "obj_checker_animtest_slash_Step_0_gml_664_0");
+		global.msg[8] = stringsetloc("\\E7* That thing was BLOODTHIRSTY!!!/", "obj_checker_animtest_slash_Step_0_gml_665_0");
+		global.msg[9] = stringsetloc("\\E2* The only thing keeping it at bay was MY AX!/%", "obj_checker_animtest_slash_Step_0_gml_666_0");
 		con = 50;
 		instance_create(0, 0, obj_dialoguer);
 	}
@@ -618,13 +638,13 @@ if (type == 2) {
 		global.fc = 2;
 		global.fe = 6;
 		global.typer = 31;
-		global.msg[0] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_685_0");
+		global.msg[0] = stringsetloc("* And^1, earlier^1, you terrorized those troops.../", "obj_checker_animtest_slash_Step_0_gml_685_0");
 		scr_susface(1, 0);
-		global.msg[2] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_687_0");
+		global.msg[2] = stringsetloc("* Those guys were ENEMIES^1. They're FOR terrorizing./", "obj_checker_animtest_slash_Step_0_gml_687_0");
 		scr_lanface(3, 3);
-		global.msg[4] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_689_0");
+		global.msg[4] = stringsetloc("* Yeah^1! She's right!!/", "obj_checker_animtest_slash_Step_0_gml_689_0");
 		scr_ralface(5, 1);
-		global.msg[6] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_691_0");
+		global.msg[6] = stringsetloc("* And before that^1, you ate an innocent person's cake.../%", "obj_checker_animtest_slash_Step_0_gml_691_0");
 		con = 53;
 		instance_create(0, 0, obj_dialoguer);
 	}
@@ -644,13 +664,13 @@ if (type == 2) {
 		global.fc = 1;
 		global.fe = 2;
 		global.typer = 30;
-		global.msg[0] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_709_0");
+		global.msg[0] = stringsetloc("* Cakes..^1. are also my enemy./", "obj_checker_animtest_slash_Step_0_gml_709_0");
 		scr_ralface(1, "C");
-		global.msg[2] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_711_0");
-		global.msg[3] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_712_0");
-		global.msg[4] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_713_0");
-		global.msg[5] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_714_0");
-		global.msg[6] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_715_0");
+		global.msg[2] = stringsetloc("* .../", "obj_checker_animtest_slash_Step_0_gml_711_0");
+		global.msg[3] = stringsetloc("\\E1* Susie..^1. Whether you like it or not.../", "obj_checker_animtest_slash_Step_0_gml_712_0");
+		global.msg[4] = stringsetloc("\\E6* You're a hero./", "obj_checker_animtest_slash_Step_0_gml_713_0");
+		global.msg[5] = stringsetloc("\\E0* One with the power to bring peace to the future./", "obj_checker_animtest_slash_Step_0_gml_714_0");
+		global.msg[6] = stringsetloc("\\E5* Could you please start..^1. acting like one?/%", "obj_checker_animtest_slash_Step_0_gml_715_0");
 		con = 56;
 		instance_create(0, 0, obj_dialoguer);
 	}
@@ -667,9 +687,9 @@ if (type == 2) {
 		global.fc = 1;
 		global.fe = 0;
 		global.typer = 30;
-		global.msg[0] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_732_0");
-		global.msg[1] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_733_0");
-		global.msg[2] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_734_0");
+		global.msg[0] = stringsetloc("* Yeah^1, when you lay it out like that.../", "obj_checker_animtest_slash_Step_0_gml_732_0");
+		global.msg[1] = stringsetloc("* I've been a pretty bad hero^1, haven't I?/", "obj_checker_animtest_slash_Step_0_gml_733_0");
+		global.msg[2] = stringsetloc("* .../%", "obj_checker_animtest_slash_Step_0_gml_734_0");
 		instance_create(0, 0, obj_dialoguer);
 		con = 59;
 	}
@@ -702,8 +722,8 @@ if (type == 2) {
 	}
 	
 	if (con == 63) {
-		global.msg[0] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_762_0");
-		global.msg[1] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_763_0");
+		global.msg[0] = stringsetloc("* Alright^1, Ralsei^1.&* You got it^1.&* I'll change my ways./", "obj_checker_animtest_slash_Step_0_gml_762_0");
+		global.msg[1] = stringsetloc("* From now on^1, I won't be such a rotten hero anymore./%", "obj_checker_animtest_slash_Step_0_gml_763_0");
 		con = 64;
 		instance_create(0, 0, obj_dialoguer);
 	}
@@ -719,7 +739,7 @@ if (type == 2) {
 	}
 	
 	if (con == 65) {
-		if (s.x >= (__view_get(0, 0) + 460)) {
+		if (s.x >= (__view_get(e__VW.XView, 0) + 460)) {
 			with (s)
 				scr_halt();
 			
@@ -741,7 +761,7 @@ if (type == 2) {
 		global.fc = 1;
 		global.fe = 3;
 		global.typer = 30;
-		global.msg[0] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_799_0");
+		global.msg[0] = stringsetloc("* I'll just be one of the BAD GUYS instead!/%", "obj_checker_animtest_slash_Step_0_gml_799_0");
 		instance_create(0, 0, obj_dialoguer);
 	}
 	
@@ -763,27 +783,27 @@ if (type == 2) {
 		global.fc = 5;
 		global.typer = 32;
 		global.fe = 2;
-		global.msg[0] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_820_0");
-		global.msg[1] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_821_0");
+		global.msg[0] = stringsetloc("* R... Really!?/", "obj_checker_animtest_slash_Step_0_gml_820_0");
+		global.msg[1] = stringsetloc("\\E3* You're going to be on MY team?/", "obj_checker_animtest_slash_Step_0_gml_821_0");
 		scr_susface(2, 2);
-		global.msg[3] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_823_0");
+		global.msg[3] = stringsetloc("* Yeah^1, sounds way easier^1, honestly./", "obj_checker_animtest_slash_Step_0_gml_823_0");
 		scr_ralface(4, 3);
-		global.msg[5] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_825_0");
+		global.msg[5] = stringsetloc("* Susie^1, you can't just -/", "obj_checker_animtest_slash_Step_0_gml_825_0");
 		scr_lanface(6, 1);
-		global.msg[7] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_827_0");
+		global.msg[7] = stringsetloc("* Quiet^1, Toothpaste Boy^1! Susie is MY comrade now!/", "obj_checker_animtest_slash_Step_0_gml_827_0");
 		scr_susface(8, 2);
-		global.msg[9] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_829_0");
+		global.msg[9] = stringsetloc("* Hahaha^1, yeah^1, Toothpaste Boy!/", "obj_checker_animtest_slash_Step_0_gml_829_0");
 		scr_lanface(10, 3);
-		global.msg[11] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_831_0");
+		global.msg[11] = stringsetloc("* We're going to have monogrammed track jackets!/", "obj_checker_animtest_slash_Step_0_gml_831_0");
 		scr_susface(12, 2);
-		global.msg[13] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_833_0");
+		global.msg[13] = stringsetloc("* Yeah!/", "obj_checker_animtest_slash_Step_0_gml_833_0");
 		scr_lanface(14, 1);
-		global.msg[15] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_835_0");
+		global.msg[15] = stringsetloc("* And sleepovers^1! Where we tell each other secrets!/", "obj_checker_animtest_slash_Step_0_gml_835_0");
 		scr_susface(16, 6);
-		global.msg[17] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_837_0");
-		global.msg[18] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_838_0");
+		global.msg[17] = stringsetloc("* Ummm^1, yeah?/", "obj_checker_animtest_slash_Step_0_gml_837_0");
+		global.msg[18] = stringsetloc("\\E2* Anyway^1, uhh^1, see you guys never./", "obj_checker_animtest_slash_Step_0_gml_838_0");
 		scr_lanface(19, 3);
-		global.msg[20] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_840_0");
+		global.msg[20] = stringsetloc("* Haha!^1! If you can even last that long!/%", "obj_checker_animtest_slash_Step_0_gml_840_0");
 		instance_create(0, 0, obj_dialoguer);
 		con = 70;
 	}
@@ -831,13 +851,13 @@ if (type == 2) {
 		global.fc = 2;
 		global.typer = 31;
 		global.fe = 1;
-		global.msg[0] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_893_0");
-		global.msg[1] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_894_0");
-		global.msg[2] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_895_0");
-		global.msg[3] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_896_0");
-		global.msg[4] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_897_0");
-		global.msg[5] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_898_0");
-		global.msg[6] = scr_84_get_lang_string("obj_checker_animtest_slash_Step_0_gml_899_0");
+		global.msg[0] = stringsetloc("* Kris.../", "obj_checker_animtest_slash_Step_0_gml_893_0");
+		global.msg[1] = stringsetloc("\\E6* Perhaps I shouldn't have been so hard on her./", "obj_checker_animtest_slash_Step_0_gml_894_0");
+		global.msg[2] = stringsetloc("\\E1* .../", "obj_checker_animtest_slash_Step_0_gml_895_0");
+		global.msg[3] = stringsetloc("* But^1, I just worry that if Susie is too eager to fight.../", "obj_checker_animtest_slash_Step_0_gml_896_0");
+		global.msg[4] = stringsetloc("\\E4* Then.../", "obj_checker_animtest_slash_Step_0_gml_897_0");
+		global.msg[5] = stringsetloc("\\E6* Well^1, let's just be kind to her^1, OK^1, Kris?/", "obj_checker_animtest_slash_Step_0_gml_898_0");
+		global.msg[6] = stringsetloc("\\E8* I'm sure Susie'll come around soon!/%", "obj_checker_animtest_slash_Step_0_gml_899_0");
 		con = 28;
 		instance_create(0, 0, obj_dialoguer);
 	}

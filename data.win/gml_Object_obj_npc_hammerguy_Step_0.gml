@@ -2,7 +2,7 @@ if (myinteract == 3) {
 }
 
 if (myinteract == 3 && con == 0) {
-	if (instance_exists(mydialoguer) == 0) {
+	if (i_ex(mydialoguer) == 0) {
 		sprite_index = spr_hammerguy;
 		image_speed = 0.1;
 		global.interact = 0;
@@ -36,7 +36,7 @@ if (con >= 5) {
 		}
 	}
 	
-	if (con == 12 || con == 32 || con == 52) {
+	if (con == 12 || con == 32 || con == 52 || con == 72) {
 		hitmode = 1;
 		sprite_index = spr_hammerguy_hit;
 		image_speed = 0.5;
@@ -69,7 +69,9 @@ if (con >= 5) {
 			with (obj_mainchara)
 				visible = false;
 			
-			char = scr_dark_marker(390, 125, spr_krisd_dark);
+			var xpos = (global.chapter == 1) ? 390 : (x + 105);
+			var ypos = (global.chapter == 1) ? 125 : (y + 30);
+			char = scr_dark_marker(xpos, ypos, spr_krisd_dark);
 			
 			with (char)
 				depth = 400000;
@@ -80,14 +82,19 @@ if (con >= 5) {
 				visible = false;
 			
 			if (chartype == 2) {
-				char = scr_dark_marker(380, 110, spr_susie_shock);
+				var xpos = (global.chapter == 1) ? 380 : (x + 85);
+				var ypos = (global.chapter == 1) ? 110 : (y + 15);
+				char = scr_dark_marker(xpos, ypos, spr_susie_shock);
 				
 				with (char)
 					depth = 400000;
 			}
 			
 			if (chartype == 3) {
-				char = scr_dark_marker(390, 140, spr_ralsei_shock_overworld);
+				var xpos = (global.chapter == 1) ? 390 : (x + 90);
+				var ypos = (global.chapter == 1) ? 140 : (y + 35);
+				var ral_sprite = (global.chapter == 1) ? spr_ralsei_shock_overworld : spr_ralsei_hurt;
+				char = scr_dark_marker(xpos, ypos, ral_sprite);
 				
 				with (char)
 					depth = 400000;
@@ -98,7 +105,7 @@ if (con >= 5) {
 		alarm[4] = 36;
 	}
 	
-	if (con == 16 || con == 36 || con == 56) {
+	if (con == 16 || con == 36 || con == 56 || con == 76) {
 		hitmode = 0;
 		sprite_index = spr_hammerguy;
 		image_speed = 0.05;
@@ -114,8 +121,8 @@ if (con >= 5) {
 		global.typer = 6;
 		global.fc = 0;
 		snd_play(snd_power);
-		global.msg[0] = scr_84_get_lang_string("obj_npc_hammerguy_slash_Step_0_gml_108_0");
-		global.msg[1] = scr_84_get_lang_string("obj_npc_hammerguy_slash_Step_0_gml_109_0");
+		global.msg[0] = stringsetloc("* (Somehow^1, everyone's HP was restored.)/", "obj_npc_hammerguy_slash_Step_0_gml_108_0");
+		global.msg[1] = stringsetloc("* Well^1, well^1! Don't you feel better after a nice massage^1? Huh-Hah!!/%", "obj_npc_hammerguy_slash_Step_0_gml_109_0");
 		mydialoguer = instance_create(0, 0, obj_dialoguer);
 		con = 18;
 	}
@@ -162,9 +169,9 @@ if (con >= 5) {
 		global.typer = 6;
 		global.fc = 0;
 		snd_play(snd_item);
-		global.msg[0] = scr_84_get_lang_string("obj_npc_hammerguy_slash_Step_0_gml_153_0");
-		global.msg[1] = scr_84_get_lang_string("obj_npc_hammerguy_slash_Step_0_gml_154_0");
-		global.msg[2] = scr_84_get_lang_string("obj_npc_hammerguy_slash_Step_0_gml_155_0");
+		global.msg[0] = stringsetloc("* (The Broken Cake was fixed beyond recognition.)/", "obj_npc_hammerguy_slash_Step_0_gml_153_0");
+		global.msg[1] = stringsetloc("* (The Broken Cake became the TOPCAKE.)/", "obj_npc_hammerguy_slash_Step_0_gml_154_0");
+		global.msg[2] = stringsetloc("* This is truly a tremendous cake^1.&* Use its power wisely.../%", "obj_npc_hammerguy_slash_Step_0_gml_155_0");
 		mydialoguer = instance_create(0, 0, obj_dialoguer);
 		con = 38;
 	}
@@ -194,12 +201,53 @@ if (con >= 5) {
 		global.typer = 6;
 		global.fc = 0;
 		snd_play(snd_item);
-		global.msg[0] = scr_84_get_lang_string("obj_npc_hammerguy_slash_Step_0_gml_184_0");
-		global.msg[1] = scr_84_get_lang_string("obj_npc_hammerguy_slash_Step_0_gml_185_0");
-		global.msg[2] = scr_84_get_lang_string("obj_npc_hammerguy_slash_Step_0_gml_186_0");
-		global.msg[3] = scr_84_get_lang_string("obj_npc_hammerguy_slash_Step_0_gml_187_0");
-		global.msg[4] = scr_84_get_lang_string("obj_npc_hammerguy_slash_Step_0_gml_188_0");
+		global.msg[0] = stringsetloc("* (The Broken Key parts were fixed beyond recognition.)/", "obj_npc_hammerguy_slash_Step_0_gml_184_0");
+		global.msg[1] = stringsetloc("* (The Broken Key parts became the Prison Key.)/", "obj_npc_hammerguy_slash_Step_0_gml_185_0");
+		global.msg[2] = stringsetloc("* .... Hmm^1,  this KEY has a terrible energy coming from it.../", "obj_npc_hammerguy_slash_Step_0_gml_186_0");
+		global.msg[3] = stringsetloc("* Please understand that I only fixed it.../", "obj_npc_hammerguy_slash_Step_0_gml_187_0");
+		global.msg[4] = stringsetloc("* So that you will never have to use it./%", "obj_npc_hammerguy_slash_Step_0_gml_188_0");
 		mydialoguer = instance_create(0, 0, obj_dialoguer);
 		con = 58;
 	}
+}
+
+if (con == 70 && !instance_exists(obj_fusionmenu)) {
+	global.interact = 1;
+	times_fused++;
+	
+	if (times_fused == 1) {
+		scr_speaker("no_name");
+		msgsetloc(0, "* Huh-hah^1! Let's feel my technique!/%", "obj_npc_hammerguy_slash_Step_0_gml_216_0");
+		d_make();
+	} else if (times_fused >= 2) {
+		scr_speaker("no_name");
+		msgsetloc(0, "* Let's pick up the pace./%", "obj_npc_hammerguy_slash_Step_0_gml_221_0");
+		d_make();
+	}
+	
+	con = 71;
+}
+
+if (con == 71)
+	global.interact = 1;
+
+if (con == 71 && !d_ex())
+	con = 72;
+
+if (con == 73) {
+	con = 75;
+	alarm[4] = (times_fused == 1) ? 50 : 18;
+}
+
+if (con == 77) {
+	con = 78;
+	msgsetsubloc(0, "* (You got ~1!)/%", fusionResultName, "obj_npc_hammerguy_slash_Step_0_gml_251_0");
+	snd_play(snd_item);
+	d_make();
+}
+
+if (con == 78 && !d_ex()) {
+	con = 0;
+	global.interact = 0;
+	myinteract = 0;
 }

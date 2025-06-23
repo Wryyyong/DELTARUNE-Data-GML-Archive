@@ -1,3 +1,23 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 if (global.monstertype[myself] == 21)
 	secondtime = 1;
 
@@ -26,7 +46,7 @@ if (global.monster[myself] == 1) {
 				scr_moveheart();
 			
 			if (!instance_exists(obj_growtangle))
-				instance_create(__view_get(0, 0) + 320, __view_get(1, 0) + 170, obj_growtangle);
+				instance_create(__view_get(e__VW.XView, 0) + 320, __view_get(e__VW.YView, 0) + 170, obj_growtangle);
 		}
 		
 		global.mnfight = 2;
@@ -87,16 +107,16 @@ if (global.monster[myself] == 1) {
 			global.typer = 6;
 			global.fc = 0;
 			rr = choose(0);
-			global.battlemsg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_77_0");
+			global.battlemsg[0] = stringsetloc("* K.Round shuffles furiously.", "obj_checkers_enemy_slash_Step_0_gml_77_0");
 			
 			if (global.monsterstatus[myself] == 1)
-				global.battlemsg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_79_0");
+				global.battlemsg[0] = stringsetloc("* K.Round looks weak.", "obj_checkers_enemy_slash_Step_0_gml_79_0");
 			
 			if (global.monsterhp[myself] <= (global.monstermaxhp[myself] / 3))
-				global.battlemsg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_80_0");
+				global.battlemsg[0] = stringsetloc("* K.Round's shuffle becomes lethargic.", "obj_checkers_enemy_slash_Step_0_gml_80_0");
 			
 			if (crown > 0)
-				global.battlemsg[0] = scr_84_get_subst_string(scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_82_0"), string(crown));
+				global.battlemsg[0] = stringsetsubloc("* The crown is \\cY~1-percent\\cW loose!", string(crown), "obj_checkers_enemy_slash_Step_0_gml_82_0");
 		} else {
 			global.turntimer = 120;
 		}
@@ -125,7 +145,7 @@ if (scon == 1) {
 		with (obj_writer)
 			instance_destroy();
 		
-		global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_119_0");
+		global.msg[0] = stringsetloc("* K. ROUND felt stressed out and attacked!/%", "obj_checkers_enemy_slash_Step_0_gml_119_0");
 		scr_battletext_default();
 		scon = 1.5;
 	}
@@ -137,7 +157,7 @@ if (scon == 1.5 && !instance_exists(obj_writer)) {
 	with (obj_writer)
 		instance_destroy();
 	
-	global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_129_0");
+	global.msg[0] = stringsetloc("* K. ROUND practiced self-care!", "obj_checkers_enemy_slash_Step_0_gml_129_0");
 	global.turntimer = 999;
 	scr_battletext_default();
 	milk = scr_dark_marker(x - 100, y + 60, spr_checkers_milk);
@@ -238,11 +258,11 @@ if (scon == 5) {
 				instance_destroy();
 			
 			scon = 6;
-			global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_226_0");
+			global.msg[0] = stringsetloc("* K. ROUND's HP and ATTACK went up!/", "obj_checkers_enemy_slash_Step_0_gml_226_0");
 			scr_ralface(1, 3);
-			global.msg[2] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_228_0");
+			global.msg[2] = stringsetloc("* Susie^1! Stop attacking it^1! You're making it stronger!/", "obj_checkers_enemy_slash_Step_0_gml_228_0");
 			scr_susface(3, 3);
-			global.msg[4] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_230_0");
+			global.msg[4] = stringsetloc("* Pssh^1, and let it think I'm AFRAID^1? No way!/%", "obj_checkers_enemy_slash_Step_0_gml_230_0");
 			scr_battletext_default();
 		}
 		
@@ -260,28 +280,28 @@ if (scon == 6) {
 }
 
 if (global.myfight == 3) {
-	xx = __view_get(0, 0);
-	yy = __view_get(1, 0);
+	xx = __view_get(e__VW.XView, 0);
+	yy = __view_get(e__VW.YView, 0);
 	
 	if (acting == 1 && actcon == 0) {
 		actcon = 1;
 		
 		if (secondtime == 0) {
-			global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_263_0");
-			global.actname[myself, 0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_264_0");
+			global.msg[0] = stringsetloc("* K.ROUND - AT 9 DF 3&* Check^1?&* That's chess^1, not checkers!/%", "obj_checkers_enemy_slash_Step_0_gml_263_0");
+			global.actname[myself][0] = stringsetloc("Checkers", "obj_checkers_enemy_slash_Step_0_gml_264_0");
 			global.flag[246] = 1;
 			
 			if (checked == 1)
-				global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_268_0");
+				global.msg[0] = stringsetloc("* K.ROUND - AT 9 DF 3&* That's better./%", "obj_checkers_enemy_slash_Step_0_gml_268_0");
 			
 			checked = 1;
 		} else {
 			if (global.flag[246] == 1) {
-				global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_277_0");
-				global.msg[1] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_278_0");
+				global.msg[0] = stringsetloc("* K.ROUND - AT 9 DF 3&* Watch out for its Flying King attack!/", "obj_checkers_enemy_slash_Step_0_gml_277_0");
+				global.msg[1] = stringsetloc("* (Also^1, you need to get the CROWN off of its head.)/%", "obj_checkers_enemy_slash_Step_0_gml_278_0");
 			} else {
-				global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_282_0");
-				global.msg[1] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_283_0");
+				global.msg[0] = stringsetloc("* K.ROUND - AT 9 DF 3&* It's being controlled into attacking...!/", "obj_checkers_enemy_slash_Step_0_gml_282_0");
+				global.msg[1] = stringsetloc("* (Though^1, wouldn't it just attack anyway...?)/%", "obj_checkers_enemy_slash_Step_0_gml_283_0");
 			}
 			
 			checked = 1;
@@ -297,7 +317,7 @@ if (global.myfight == 3) {
 		if (secondtime == 1)
 			crown += 18;
 		
-		global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_296_0");
+		global.msg[0] = stringsetloc("* You bowed to K. ROUND./%", "obj_checkers_enemy_slash_Step_0_gml_296_0");
 		
 		with (obj_herokris)
 			visible = false;
@@ -327,19 +347,19 @@ if (global.myfight == 3) {
 		
 		global.fc = 0;
 		global.typer = 4;
-		global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_327_0");
+		global.msg[0] = stringsetloc("* It bowed back^1.&* Its crown loosened a little./%", "obj_checkers_enemy_slash_Step_0_gml_327_0");
 		
 		if (ralsei_lecture == 0 && secondtime == 0) {
-			global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_330_0");
+			global.msg[0] = stringsetloc("* It bowed back^1.&* Its crown loosened a little./", "obj_checkers_enemy_slash_Step_0_gml_330_0");
 			scr_ralface(1, 0);
-			global.msg[2] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_332_0");
-			global.msg[3] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_333_0");
-			global.msg[4] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_334_0");
+			global.msg[2] = stringsetloc("* That's it^1, Kris^1! If we can get its crown off.../", "obj_checkers_enemy_slash_Step_0_gml_332_0");
+			global.msg[3] = stringsetloc("\\E8* It should turn back into a little guy...!/", "obj_checkers_enemy_slash_Step_0_gml_333_0");
+			global.msg[4] = stringsetloc("\\E0* Susie^1! Help us bow at it!/", "obj_checkers_enemy_slash_Step_0_gml_334_0");
 			scr_susface(5, 0);
-			global.msg[6] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_336_0");
-			global.msg[7] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_337_0");
+			global.msg[6] = stringsetloc("* Nah^1, it's crown'll come off.../", "obj_checkers_enemy_slash_Step_0_gml_336_0");
+			global.msg[7] = stringsetloc("\\E4* When I smash this guy into the GROUND!/", "obj_checkers_enemy_slash_Step_0_gml_337_0");
 			scr_ralface(8, 1);
-			global.msg[9] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_339_0");
+			global.msg[9] = stringsetloc("* .../%", "obj_checkers_enemy_slash_Step_0_gml_339_0");
 			ralsei_lecture = 1;
 		}
 		
@@ -348,30 +368,30 @@ if (global.myfight == 3) {
 				global.fc = 2;
 				global.fe = 3;
 				global.typer = 45;
-				global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_349_0");
-				global.msg[1] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_350_0");
+				global.msg[0] = stringsetloc("* Huh!? That hardly did anything!/", "obj_checkers_enemy_slash_Step_0_gml_349_0");
+				global.msg[1] = stringsetloc("\\E1* How can we push off that CROWN...?/", "obj_checkers_enemy_slash_Step_0_gml_350_0");
 				scr_susface(2, 1);
-				global.msg[3] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_352_0");
+				global.msg[3] = stringsetloc("* ... Hmm./%", "obj_checkers_enemy_slash_Step_0_gml_352_0");
 			}
 			
 			if (bowcounter == 1) {
 				global.fc = 2;
 				global.fe = 3;
 				global.typer = 45;
-				global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_359_0");
-				global.msg[1] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_360_0");
+				global.msg[0] = stringsetloc("* It's still hardly working!/", "obj_checkers_enemy_slash_Step_0_gml_359_0");
+				global.msg[1] = stringsetloc("\\E6* Whatever can we do^1, Kris...?/", "obj_checkers_enemy_slash_Step_0_gml_360_0");
 				scr_susface(2, 2);
-				global.msg[3] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_362_0");
+				global.msg[3] = stringsetloc("* ... Hey./%", "obj_checkers_enemy_slash_Step_0_gml_362_0");
 			}
 			
 			if (bowcounter == 2) {
 				global.fc = 2;
 				global.fe = 8;
 				global.typer = 45;
-				global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_369_0");
-				global.msg[1] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_370_0");
+				global.msg[0] = stringsetloc("* Sometimes persistence is key^1, Kris!!/", "obj_checkers_enemy_slash_Step_0_gml_369_0");
+				global.msg[1] = stringsetloc("\\E6* It'll be hard^1, but we can do it!!/", "obj_checkers_enemy_slash_Step_0_gml_370_0");
 				scr_susface(2, 7);
-				global.msg[3] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_372_0");
+				global.msg[3] = stringsetloc("* HEY YOU GUYS!!!/%", "obj_checkers_enemy_slash_Step_0_gml_372_0");
 			}
 		}
 		
@@ -398,7 +418,7 @@ if (global.myfight == 3) {
 	if (secondtime == 0) {
 		if (acting == 3 && actcon == 0) {
 			crown += 20;
-			global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_398_0");
+			global.msg[0] = stringsetloc("* You and Ralsei bowed./%", "obj_checkers_enemy_slash_Step_0_gml_398_0");
 			
 			with (obj_herokris)
 				visible = false;
@@ -441,19 +461,19 @@ if (global.myfight == 3) {
 		with (bowcheck)
 			image_speed = 0.5;
 		
-		global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_442_0");
+		global.msg[0] = stringsetloc("* K. ROUND bowed back^1.&* Its crown loosened!/%", "obj_checkers_enemy_slash_Step_0_gml_442_0");
 		
 		if (ralsei_lecture == 0 && secondtime == 0) {
-			global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_445_0");
+			global.msg[0] = stringsetloc("* K. ROUND bowed back^1.&* Its crown loosened!/", "obj_checkers_enemy_slash_Step_0_gml_445_0");
 			scr_ralface(1, 0);
-			global.msg[2] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_447_0");
-			global.msg[3] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_448_0");
-			global.msg[4] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_449_0");
+			global.msg[2] = stringsetloc("* That's it^1, Kris^1! If we can get its crown off.../", "obj_checkers_enemy_slash_Step_0_gml_447_0");
+			global.msg[3] = stringsetloc("\\E8* It should turn back into a little guy...!/", "obj_checkers_enemy_slash_Step_0_gml_448_0");
+			global.msg[4] = stringsetloc("\\E0* Susie^1! Help us bow at it!/", "obj_checkers_enemy_slash_Step_0_gml_449_0");
 			scr_susface(5, 0);
-			global.msg[6] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_451_0");
-			global.msg[7] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_452_0");
+			global.msg[6] = stringsetloc("* Nah^1, its crown'll come off.../", "obj_checkers_enemy_slash_Step_0_gml_451_0");
+			global.msg[7] = stringsetloc("\\E4* When I smash this guy to the GROUND!/", "obj_checkers_enemy_slash_Step_0_gml_452_0");
 			scr_ralface(8, 1);
-			global.msg[9] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_454_0");
+			global.msg[9] = stringsetloc("* .../%", "obj_checkers_enemy_slash_Step_0_gml_454_0");
 			ralsei_lecture = 1;
 		}
 		
@@ -492,8 +512,8 @@ if (global.myfight == 3) {
 			}
 			
 			if (thrown > 0) {
-				global.actname[myself, 2] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_487_0");
-				global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_489_0") + scr_get_input_name(6) + scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_489_1");
+				global.actname[myself][2] = stringsetloc("Throw", "obj_checkers_enemy_slash_Step_0_gml_487_0");
+				global.msg[0] = stringsetsubloc("* Press ~1 to determine the ANGLE!", scr_get_input_name(6), "obj_checkers_enemy_slash_Step_0_gml_489_0");
 				flash = 0;
 				becomeflash = 0;
 				scr_battletext_default();
@@ -517,15 +537,15 @@ if (global.myfight == 3) {
 				global.typer = 31;
 				global.fc = 2;
 				global.fe = 6;
-				global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_510_0");
+				global.msg[0] = stringsetloc("* Susie^1? You want to ACT^1? Aww, what's your idea?/", "obj_checkers_enemy_slash_Step_0_gml_510_0");
 				scr_susface(1, 0);
-				global.msg[2] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_512_0");
-				global.msg[3] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_513_0");
+				global.msg[2] = stringsetloc("* Umm..^1. well..^1. how do I say this./", "obj_checkers_enemy_slash_Step_0_gml_512_0");
+				global.msg[3] = stringsetloc("* I kind of..^1.&* Need you for this one./", "obj_checkers_enemy_slash_Step_0_gml_513_0");
 				scr_ralface(4, 8);
-				global.msg[5] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_515_0");
-				global.msg[6] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_516_0");
+				global.msg[5] = stringsetloc("* That's fine^1, Susie^1!&* I'll help!/", "obj_checkers_enemy_slash_Step_0_gml_515_0");
+				global.msg[6] = stringsetloc("\\E0* You want to apologize to it for earlier^1, right?/", "obj_checkers_enemy_slash_Step_0_gml_516_0");
 				scr_susface(7, 2);
-				global.msg[8] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_518_0");
+				global.msg[8] = stringsetloc("* Nah^1, I just need you to stay still./%", "obj_checkers_enemy_slash_Step_0_gml_518_0");
 				actcon = 10;
 				scr_battletext();
 			}
@@ -534,18 +554,18 @@ if (global.myfight == 3) {
 	
 	if (acting == 4 && actcon == 0) {
 		actcon = 1;
-		global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_531_0");
-		global.msg[1] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_532_0");
+		global.msg[0] = stringsetloc("* You explained to K. Round about the importance of dodging Susie's attacks./", "obj_checkers_enemy_slash_Step_0_gml_531_0");
+		global.msg[1] = stringsetloc("* But it didn't seem to understand.../%", "obj_checkers_enemy_slash_Step_0_gml_532_0");
 		
 		if (warned == 1) {
-			global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_535_0");
-			global.msg[1] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_536_0");
+			global.msg[0] = stringsetloc("* You started making siren noises with your mouth and looking at Susie./", "obj_checkers_enemy_slash_Step_0_gml_535_0");
+			global.msg[1] = stringsetloc("* K. Round still didn't understand.../%", "obj_checkers_enemy_slash_Step_0_gml_536_0");
 		}
 		
 		if (warned == 2) {
-			global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_540_0");
-			global.msg[1] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_541_0");
-			global.msg[2] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_542_0");
+			global.msg[0] = stringsetloc("* You started explaining that Susie is really dangerous and strong./", "obj_checkers_enemy_slash_Step_0_gml_540_0");
+			global.msg[1] = stringsetloc("* Susie got a large boost to her morale./", "obj_checkers_enemy_slash_Step_0_gml_541_0");
+			global.msg[2] = stringsetloc("* Susie's ATTACK went up massively...!/%", "obj_checkers_enemy_slash_Step_0_gml_542_0");
 			global.battleat[2] *= 1.5;
 		}
 		
@@ -581,8 +601,8 @@ if (global.myfight == 3) {
 	
 	if (actcon == 12) {
 		global.fe = 7;
-		global.msg[0] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_578_0");
-		global.msg[1] = scr_84_get_lang_string("obj_checkers_enemy_slash_Step_0_gml_579_0");
+		global.msg[0] = stringsetloc("* Kris^1! We gotta get that CROWN off its head!/", "obj_checkers_enemy_slash_Step_0_gml_578_0");
+		global.msg[1] = stringsetloc("* Help me throw Ralsei at it!/%", "obj_checkers_enemy_slash_Step_0_gml_579_0");
 		scr_battletext();
 		actcon = 13;
 	}

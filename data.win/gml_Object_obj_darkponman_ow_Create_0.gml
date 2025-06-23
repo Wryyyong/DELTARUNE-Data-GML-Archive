@@ -48,25 +48,6 @@ if (room == room_forest_area5) {
 	tile_layer_choice = 222222;
 }
 
-if (room == room_cc_2f) {
-	rotspeed = 3;
-	bmax = 8;
-	yrange = 280;
-	
-	if (x >= 800 && y <= 800) {
-		rotspeed = -3;
-		rot = 180;
-	}
-	
-	if (x <= 800 && y >= 800) {
-		rotspeed = -3;
-		rot = 180;
-	}
-	
-	tile_fade = 1;
-	tile_layer_choice = 222222;
-}
-
 if (tile_fade == 1 && boss == 1) {
 	alpha_changed = 0;
 	tile_fade = 1;

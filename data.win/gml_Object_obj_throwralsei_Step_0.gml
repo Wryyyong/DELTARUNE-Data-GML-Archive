@@ -21,7 +21,7 @@ if (throwcon == 1) {
 		with (obj_writer)
 			instance_destroy();
 		
-		global.msg[0] = scr_84_get_lang_string("obj_throwralsei_slash_Step_0_gml_26_0") + scr_get_input_name(6) + scr_84_get_lang_string("obj_throwralsei_slash_Step_0_gml_26_1");
+		global.msg[0] = stringsetsubloc("* Press ~1 to determine the POWER!", scr_get_input_name(6), "obj_throwralsei_slash_Step_0_gml_26_0");
 		scr_battletext_default();
 	}
 	

@@ -1,6 +1,6 @@
 if (instance_exists(obj_dialoguer)) {
 	with (obj_dialoguer) {
-		if (instance_exists(writer)) {
+		if (i_ex(writer)) {
 			wwx = writer.x;
 			wwy = writer.y;
 		}
@@ -18,6 +18,11 @@ if (instance_exists(obj_dialoguer)) {
 		scr_text(global.msc);
 		event_user(0);
 	}
+}
+
+if (fighting == 1) {
+	with (obj_writer)
+		instance_destroy();
 }
 
 with (obj_choicer_neo)

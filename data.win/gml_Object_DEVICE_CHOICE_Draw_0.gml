@@ -17,7 +17,7 @@ if (TYPE <= 2) {
 			if (CURX == i)
 				draw_set_color(c_yellow);
 			
-			draw_text(NAMEX[i, 0], NAMEY[i, 0], string_hash_to_newline(NAME[i, 0]));
+			draw_text(NAMEX[i][0], NAMEY[i][0], string_hash_to_newline(NAME[i][0]));
 		}
 	}
 	
@@ -28,7 +28,7 @@ if (TYPE <= 2) {
 			if (CURY == i)
 				draw_set_color(c_yellow);
 			
-			draw_text(NAMEX[0, i], NAMEY[0, i], string_hash_to_newline(NAME[0, i]));
+			draw_text(NAMEX[0][i], NAMEY[0][i], string_hash_to_newline(NAME[0][i]));
 		}
 	}
 	
@@ -48,13 +48,13 @@ if (TYPE == 3) {
 			if (CURX == i && CURY == j)
 				draw_set_color(c_yellow);
 			
-			var str = string_hash_to_newline(NAME[i, j]);
+			var str = string_hash_to_newline(NAME[i][j]);
 			
 			if (string_char_at(str, 1) == "(" && string_length(str) > 3)
 				str = string_copy(str, 4, string_length(str) - 3);
 			
 			if (str != "<" && str != ">")
-				draw_text(NAMEX[i, j], NAMEY[i, j], str);
+				draw_text(NAMEX[i][j], NAMEY[i][j], str);
 		}
 	}
 	

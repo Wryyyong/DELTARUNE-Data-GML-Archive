@@ -54,18 +54,18 @@ itemtype[3] = "armor";
 itemtype[4] = "item";
 itemtype[5] = "item";
 itemtype[6] = "item";
-shopdesc[0] = scr_84_get_lang_string("obj_shop2_slash_Create_0_gml_73_0");
-shopdesc[1] = scr_84_get_lang_string("obj_shop2_slash_Create_0_gml_74_0");
-shopdesc[2] = scr_84_get_lang_string("obj_shop2_slash_Create_0_gml_75_0");
-shopdesc[3] = scr_84_get_lang_string("obj_shop2_slash_Create_0_gml_76_0");
+shopdesc[0] = stringsetloc("ITEM#Fragrant#sauce#heals 50HP", "obj_shop2_slash_Create_0_gml_73_0");
+shopdesc[1] = stringsetloc("WEAPON#Heroic &#Cool", "obj_shop2_slash_Create_0_gml_74_0");
+shopdesc[2] = stringsetloc("WEAPON#Homemade#Healing up", "obj_shop2_slash_Create_0_gml_75_0");
+shopdesc[3] = stringsetloc("ARMOR#Defensive#charm", "obj_shop2_slash_Create_0_gml_76_0");
 
 for (i = 0; i < itemtotal; i += 1) {
 	itematk[i] = 0;
 	itemdef[i] = 0;
 	itemmagic[i] = 0;
-	canequip[i, 1] = 0;
-	canequip[i, 2] = 0;
-	canequip[i, 3] = 0;
+	canequip[i][1] = 0;
+	canequip[i][2] = 0;
+	canequip[i][3] = 0;
 	
 	if (itemtype[i] == "item") {
 		scr_iteminfo(item[i]);
@@ -78,9 +78,9 @@ for (i = 0; i < itemtotal; i += 1) {
 		shopitemname[i] = armornametemp;
 		buyvalue[i] = value;
 		itemdef[i] = armordftemp;
-		canequip[i, 1] = armorchar1temp;
-		canequip[i, 2] = armorchar2temp;
-		canequip[i, 3] = armorchar3temp;
+		canequip[i][1] = armorchar1temp;
+		canequip[i][2] = armorchar2temp;
+		canequip[i][3] = armorchar3temp;
 	}
 	
 	if (itemtype[i] == "weapon") {
@@ -88,9 +88,9 @@ for (i = 0; i < itemtotal; i += 1) {
 		itematk[i] = weaponattemp;
 		itemmagic[i] = weaponmagtemp;
 		shopitemname[i] = weaponnametemp;
-		canequip[i, 1] = weaponchar1temp;
-		canequip[i, 2] = weaponchar2temp;
-		canequip[i, 3] = weaponchar3temp;
+		canequip[i][1] = weaponchar1temp;
+		canequip[i][2] = weaponchar2temp;
+		canequip[i][3] = weaponchar3temp;
 		buyvalue[i] = value;
 	}
 }

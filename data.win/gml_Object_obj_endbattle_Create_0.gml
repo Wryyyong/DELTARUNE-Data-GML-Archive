@@ -10,12 +10,12 @@ global.tension = 0;
 if (global.specialbattle == 0 || global.specialbattle == 3) {
 	c[0] = scr_dark_marker(global.heromakex[0], global.heromakey[0], spr_krisr_dark);
 	
-	if (instance_exists(global.cinstance[0])) {
+	if (i_ex(global.cinstance[0])) {
 		count += 1;
 		c[1] = scr_dark_marker(global.heromakex[1], global.heromakey[1], global.cinstance[0].rsprite);
 	}
 	
-	if (instance_exists(global.cinstance[1])) {
+	if (i_ex(global.cinstance[1])) {
 		count += 1;
 		c[2] = scr_dark_marker(global.heromakex[2], global.heromakey[2], global.cinstance[1].rsprite);
 	}

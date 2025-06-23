@@ -6,4 +6,4 @@ y = room_height / 2;
 SONG_THAT_EMERGES_FROM_A_SLEEPING_DOG = snd_init("dogcheck.ogg");
 mus_loop_ext(SONG_THAT_EMERGES_FROM_A_SLEEPING_DOG, 1, 0.9 + random(0.1));
 image_speed = 0.05;
-window_set_caption(scr_84_get_lang_string("PROCESS_DOG_slash_Create_0_gml_12_0"));
+window_set_caption("DOGTARUNE");

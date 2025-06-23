@@ -1,3 +1,23 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 if (global.monster[myself] == 1) {
 	if (global.mnfight == 1 && talked == 0) {
 		scr_randomtarget();
@@ -9,18 +29,18 @@ if (global.monster[myself] == 1) {
 		rr = choose(0, 1, 2, 3);
 		
 		if (rr == 0)
-			global.msg[0] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_11_0");
+			global.msg[0] = "";
 		
 		if (rr == 1)
-			global.msg[0] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_12_0");
+			global.msg[0] = "";
 		
 		if (rr == 2)
-			global.msg[0] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_13_0");
+			global.msg[0] = "";
 		
 		if (rr == 3)
-			global.msg[0] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_14_0");
+			global.msg[0] = "";
 		
-		global.msg[0] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_16_0");
+		global.msg[0] = "";
 		scr_enemyblcon(x - 160, y, 3);
 		talked = 1;
 		talktimer = 0;
@@ -35,7 +55,7 @@ if (global.monster[myself] == 1) {
 				scr_moveheart();
 			
 			if (!instance_exists(obj_growtangle))
-				instance_create(__view_get(0, 0) + 320, __view_get(1, 0) + 170, obj_growtangle);
+				instance_create(__view_get(e__VW.XView, 0) + 320, __view_get(e__VW.YView, 0) + 170, obj_growtangle);
 		}
 	}
 	
@@ -65,16 +85,16 @@ if (global.monster[myself] == 1) {
 			rr = choose(0, 1, 2, 3);
 			
 			if (rr == 0)
-				global.battlemsg[0] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_63_0");
+				global.battlemsg[0] = "";
 			
 			if (rr == 1)
-				global.battlemsg[0] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_64_0");
+				global.battlemsg[0] = "";
 			
 			if (rr == 2)
-				global.battlemsg[0] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_65_0");
+				global.battlemsg[0] = "";
 			
 			if (rr == 3)
-				global.battlemsg[0] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_66_0");
+				global.battlemsg[0] = "";
 		} else {
 			global.turntimer = 120;
 		}
@@ -103,7 +123,7 @@ if (con == 1) {
 
 if (con == 3) {
 	global.typer = 50;
-	global.msg[0] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_99_0");
+	global.msg[0] = "";
 	scr_enemyblcon(x - 160, y, 3);
 	con = 4;
 }
@@ -127,12 +147,12 @@ if (con == 6) {
 }
 
 if (global.myfight == 3) {
-	xx = __view_get(0, 0);
-	yy = __view_get(1, 0);
+	xx = __view_get(e__VW.XView, 0);
+	yy = __view_get(e__VW.YView, 0);
 	
 	if (acting == 1 && actcon == 0) {
 		actcon = 1;
-		global.msg[0] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_135_0");
+		global.msg[0] = "";
 		scr_battletext_default();
 	}
 	
@@ -140,8 +160,8 @@ if (global.myfight == 3) {
 		actcon = 1;
 		
 		if (global.automiss[myself] == 0) {
-			global.msg[0] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_146_0");
-			global.monstercomment[myself] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_147_0");
+			global.msg[0] = "";
+			global.monstercomment[myself] = "";
 			global.automiss[myself] = 1;
 		}
 		
@@ -149,29 +169,29 @@ if (global.myfight == 3) {
 	}
 	
 	if (acting == 3 && actcon == 0) {
-		global.msg[0] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_156_0");
+		global.msg[0] = "";
 		global.mercymod[myself] += 200;
 		scr_battletext_default();
 		actcon = 1;
 	}
 	
 	if (acting == 4 && actcon == 0) {
-		global.msg[0] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_164_0");
+		global.msg[0] = "";
 		battlecancel = 1;
 		scr_battletext_default();
 		actcon = 1;
 	}
 	
 	if (acting == 5 && actcon == 0) {
-		global.msg[0] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_172_0");
+		global.msg[0] = "";
 		battlecancel = 2;
 		scr_battletext_default();
 		actcon = 1;
 	}
 	
 	if (acting == 6 && actcon == 0) {
-		global.msg[0] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_180_0");
-		global.monstercomment[myself] = scr_84_get_lang_string("obj_placeholderenemy_slash_Step_0_gml_181_0");
+		global.msg[0] = "";
+		global.monstercomment[myself] = "";
 		global.monsterstatus[myself] = 1;
 		scr_battletext_default();
 		actcon = 1;

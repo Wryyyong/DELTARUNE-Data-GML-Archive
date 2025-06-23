@@ -2,7 +2,7 @@ if (state == 3) {
 	global.monsterstatus[myself] = 1;
 	
 	if (global.monstercomment[myself] == " ")
-		global.monstercomment[myself] = scr_84_get_lang_string("obj_dummyenemy_slash_Draw_0_gml_4_0");
+		global.monstercomment[myself] = "(Tired)";
 	
 	hurttimer -= 1;
 	

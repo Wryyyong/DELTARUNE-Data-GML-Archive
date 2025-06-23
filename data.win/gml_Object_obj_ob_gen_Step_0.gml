@@ -1,4 +1,4 @@
-if (room == room_field_checkers1) {
+if (room == 9999999999) {
 	if (timer >= 900) {
 		instance_create(1202, 240, obj_ob_checkertile);
 		instance_create(1242, 280, obj_ob_checkertile);
@@ -34,14 +34,14 @@ if (whitetimer >= 20 && whitecon == 1) {
 	xdiff = obj_mainchara.x - 340;
 	obj_mainchara.x = 340;
 	
-	if (instance_exists(global.cinstance[0])) {
+	if (i_ex(global.cinstance[0])) {
 		global.cinstance[0].x -= xdiff;
 		
 		for (i = 25; i >= 0; i -= 1)
 			global.cinstance[0].remx[i] -= xdiff;
 	}
 	
-	if (instance_exists(global.cinstance[1])) {
+	if (i_ex(global.cinstance[1])) {
 		global.cinstance[1].x -= xdiff;
 		
 		for (i = 25; i >= 0; i -= 1)
@@ -51,7 +51,7 @@ if (whitetimer >= 20 && whitecon == 1) {
 	whitecon = 2;
 }
 
-if (room == room_field_checkers4 || room == room_field_checkers6) {
+if (room == 9999999999999) {
 	if (obj_mainchara.x >= 4000 && obj_mainchara.x <= 1620)
 		obj_mainchara.battlemode = 1;
 	else

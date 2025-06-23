@@ -1,13 +1,30 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 buffer += 1;
 
 if (global.interact == 5) {
-	xx = __view_get(0, view_current);
-	yy = __view_get(1, view_current) + 10;
+	xx = __view_get(e__VW.XView, view_current);
+	yy = __view_get(e__VW.YView, view_current) + 10;
 	moveyy = yy;
-	var stat_right = 263;
-	
-	if (global.lang == "ja")
-		stat_right = 300;
+	var stat_right = langopt(263, 300);
 	
 	if (obj_mainchara.y > (yy + 120))
 		moveyy += 135;
@@ -47,27 +64,25 @@ if (global.interact == 5) {
 		
 		draw_set_color(c_white);
 		draw_set_font(fnt_small);
-		draw_text(23 + xx, 49 + moveyy, string_hash_to_newline(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_36_0") + string(global.lhp) + "/" + string(global.lmaxhp)));
-		draw_text(23 + xx, 40 + moveyy, string_hash_to_newline(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_37_0") + string(global.llv)));
-		draw_text(23 + xx, 58 + moveyy, string_hash_to_newline(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_39_0") + string(global.lgold)));
+		draw_text(23 + xx, 49 + moveyy, string_hash_to_newline(stringsetsubloc("HP  ~1/~2", string(global.lhp), string(global.lmaxhp), "obj_overworldc_slash_Draw_0_gml_37_0")));
+		draw_text(23 + xx, 40 + moveyy, string_hash_to_newline(stringsetsubloc("LV  ~1", string(global.llv), "obj_overworldc_slash_Draw_0_gml_38_0")));
+		draw_text(23 + xx, 58 + moveyy, string_hash_to_newline(stringsetsubloc("$   ~1", string(global.lgold), "obj_overworldc_slash_Draw_0_gml_40_0")));
 		scr_84_set_draw_font("main");
-		
-		if (global.lang == "ja")
-			draw_text(20 + xx, 20 + moveyy, string_hash_to_newline(global.lcharname));
-		else
-			draw_text(23 + xx, 20 + moveyy, string_hash_to_newline(global.lcharname));
-		
-		draw_text(42 + xx, 84 + yy, string_hash_to_newline(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_42_0")));
-		draw_text(42 + xx, 102 + yy, string_hash_to_newline(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_43_0")));
-		draw_text(42 + xx, 120 + yy, string_hash_to_newline(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_44_0")));
+		draw_text(23 + xx, 20 + moveyy, string_hash_to_newline(global.lcharname));
+		var _itemTextColor = hasitems ? c_white : c_gray;
+		draw_set_color(_itemTextColor);
+		draw_text(42 + xx, 84 + yy, string_hash_to_newline(stringsetloc("ITEM", "obj_overworldc_slash_Draw_0_gml_42_0")));
+		draw_set_color(c_white);
+		draw_text(42 + xx, 102 + yy, string_hash_to_newline(stringsetloc("STAT", "obj_overworldc_slash_Draw_0_gml_43_0")));
+		draw_text(42 + xx, 120 + yy, string_hash_to_newline(stringsetloc("CELL", "obj_overworldc_slash_Draw_0_gml_44_0")));
 		
 		if (global.menuno == 1 || global.menuno == 5) {
 			for (i = 0; i < 8; i += 1)
 				draw_text(116 + xx, 30 + yy + (i * 16), string_hash_to_newline(global.litemname[i]));
 			
-			draw_text(116 + xx, 170 + yy, string_hash_to_newline(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_52_0")));
-			draw_text(116 + xx + 48, 170 + yy, string_hash_to_newline(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_53_0")));
-			draw_text(116 + xx + 105, 170 + yy, string_hash_to_newline(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_54_0")));
+			draw_text(116 + xx, 170 + yy, string_hash_to_newline(stringsetloc("USE", "obj_overworldc_slash_Draw_0_gml_52_0")));
+			draw_text(116 + xx + 48, 170 + yy, string_hash_to_newline(stringsetloc("INFO", "obj_overworldc_slash_Draw_0_gml_53_0")));
+			draw_text(116 + xx + 105, 170 + yy, string_hash_to_newline(stringsetloc("DROP", "obj_overworldc_slash_Draw_0_gml_54_0")));
 		}
 	}
 	
@@ -77,35 +92,48 @@ if (global.interact == 5) {
 	}
 	
 	if (global.menuno == 2) {
-		draw_text(108 + xx, 32 + yy, string_hash_to_newline(scr_84_get_subst_string(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_66_0"), global.lcharname)));
-		draw_text(108 + xx, 62 + yy, string_hash_to_newline(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_67_0") + string(global.llv)));
-		draw_text(108 + xx, 78 + yy, string_hash_to_newline(scr_84_get_subst_string(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_68_0"), string(global.lhp)) + string(global.lmaxhp)));
-		draw_text(108 + xx, 110 + yy, string_hash_to_newline(scr_84_get_subst_string(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_70_0"), string(global.lat)) + string(global.lwstrength) + ")"));
-		draw_text(108 + xx, 126 + yy, string_hash_to_newline(scr_84_get_subst_string(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_71_0"), string(global.ldf)) + string(global.ladef) + ")"));
-		weaponname = scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_72_0");
-		armorname = scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_73_0");
+		draw_text(108 + xx, 32 + yy, string_hash_to_newline(stringsetsubloc("\"~1\"", global.lcharname, "obj_overworldc_slash_Draw_0_gml_66_0")));
+		draw_text(108 + xx, 62 + yy, string_hash_to_newline(stringsetsubloc("LV  ~1", string(global.llv), "obj_overworldc_slash_Draw_0_gml_68_0")));
+		draw_text(108 + xx, 78 + yy, string_hash_to_newline(stringsetsubloc("HP  ~1 / ~2", string(global.lhp), string(global.lmaxhp), "obj_overworldc_slash_Draw_0_gml_69_0")));
+		draw_text(108 + xx, 110 + yy, string_hash_to_newline(stringsetsubloc("AT  ~1 (~2)", string(global.lat), string(global.lwstrength), "obj_overworldc_slash_Draw_0_gml_71_0")));
+		draw_text(108 + xx, 126 + yy, string_hash_to_newline(stringsetsubloc("DF  ~1 (~2)", string(global.ldf), string(global.ladef), "obj_overworldc_slash_Draw_0_gml_72_0")));
+		weaponname = stringsetloc("None", "obj_overworldc_slash_Draw_0_gml_73_0");
+		armorname = stringsetloc("None", "obj_overworldc_slash_Draw_0_gml_74_0");
 		
 		if (global.lweapon == 2)
-			weaponname = scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_74_0");
+			weaponname = stringsetloc("Pencil", "obj_overworldc_slash_Draw_0_gml_75_0");
 		
 		if (global.lweapon == 6)
-			weaponname = scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_75_0");
+			weaponname = stringsetloc("Halloween Pencil", "obj_overworldc_slash_Draw_0_gml_76_0");
 		
 		if (global.lweapon == 7)
-			weaponname = scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_76_0");
+			weaponname = stringsetloc("Lucky Pencil", "obj_overworldc_slash_Draw_0_gml_77_0");
+		
+		if (global.lweapon == 12)
+			weaponname = stringsetloc("Eraser", "obj_overworldc_slash_Draw_0_gml_78_0_b");
+		
+		if (global.lweapon == 13)
+			weaponname = stringsetloc("Mech. Pencil", "obj_overworldc_slash_Draw_0_gml_79_0");
 		
 		if (global.larmor == 3)
-			armorname = scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_77_0");
+			armorname = stringsetloc("Bandage", "obj_overworldc_slash_Draw_0_gml_78_0");
 		
-		draw_text(108 + xx, 156 + yy, string_hash_to_newline(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_80_0") + weaponname));
-		draw_text(108 + xx, 172 + yy, string_hash_to_newline(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_81_0") + armorname));
-		draw_text(108 + xx, 192 + yy, string_hash_to_newline(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_82_0") + string(global.lgold)));
+		if (global.larmor == 14)
+			armorname = stringsetloc("Wristwatch", "obj_overworldc_slash_Draw_0_gml_81_0_b");
 		
-		if (string_length(global.lcharname) >= 7)
-			draw_text(192 + xx, 32 + yy, string_hash_to_newline(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_88_0")));
+		draw_text(108 + xx, 156 + yy, string_hash_to_newline(stringsetsubloc("WEAPON: ~1", weaponname, "obj_overworldc_slash_Draw_0_gml_81_0")));
+		draw_text(108 + xx, 172 + yy, string_hash_to_newline(stringsetsubloc("ARMOR: ~1", armorname, "obj_overworldc_slash_Draw_0_gml_82_0")));
+		draw_text(108 + xx, 192 + yy, string_hash_to_newline(stringsetsubloc("MONEY: ~1", string(global.lgold), "obj_overworldc_slash_Draw_0_gml_83_0")));
+		
+		if (string_length(global.lcharname) >= 7) {
+			draw_text(192 + xx, 32 + yy, string_hash_to_newline(stringsetloc("???", "obj_overworldc_slash_Draw_0_gml_88_0")));
+		} else if (global.flag[914] > 0) {
+			var krispreservationsociety = stringsetsubloc("Since#Chapter ~1", global.flag[914], "obj_overworldc_slash_Draw_0_gml_95_0");
+			draw_text(192 + xx, 32 + yy, string_hash_to_newline(krispreservationsociety));
+		}
 		
 		nextlevel = 0;
-		draw_text(192 + xx, 110 + yy, string_hash_to_newline(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_91_0") + string(global.lxp)));
+		draw_text(192 + xx, 110 + yy, string_hash_to_newline(stringsetsubloc("EXP: ~1", string(global.lxp), "obj_overworldc_slash_Draw_0_gml_92_0")));
 		
 		if (global.llv == 1)
 			nextlevel = 10 - global.lxp;
@@ -167,7 +195,7 @@ if (global.interact == 5) {
 		if (global.llv >= 20)
 			nextlevel = 0;
 		
-		draw_text(192 + xx, 126 + yy, string_hash_to_newline(scr_84_get_lang_string("obj_overworldc_slash_Draw_0_gml_112_0") + string(nextlevel)));
+		draw_text(192 + xx, 126 + yy, string_hash_to_newline(stringsetsubloc("NEXT: ~1", string(nextlevel), "obj_overworldc_slash_Draw_0_gml_113_0")));
 	}
 	
 	if (global.menuno == 444) {

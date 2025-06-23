@@ -140,7 +140,7 @@ attacked[1] = 0;
 attacked[2] = 0;
 bolttotal = charbolt[0] + charbolt[1] + charbolt[2];
 boltxoff = 0;
-method = 1;
+my_method = 1;
 boltnum = 1;
 boltuse[0] = 0;
 boltuse[1] = 0;
@@ -152,7 +152,7 @@ diff = 10;
 if (global.flag[13] == 0)
 	diff += 2;
 
-if (method == 1) {
+if (my_method == 1) {
 	for (i = 0; i < bolttotal; i += 1) {
 		boltalive[i] = 1;
 		c = choose(0, 1, 2);
@@ -189,15 +189,15 @@ if (method == 1) {
 	}
 }
 
-if (method == 2) {
+if (my_method == 2) {
 	for (c = 0; c < 3; c += 1) {
 		if (havechar[c] == 1) {
 			for (i = 0; i < boltnum; i += 1) {
-				boltframe[i, c] = 30 + (boltorder[c] * boltgap) + (i * choose(5, 10, 15));
+				boltframe[i][c] = 30 + (boltorder[c] * boltgap) + (i * choose(5, 10, 15));
 				
 				if (i == 2) {
-					if (boltframe[i, 2] == boltframe[i, 0] && boltframe[i, 2] == boltframe[i, 1])
-						boltframe[i, 2] += 10;
+					if (boltframe[i][2] == boltframe[i][0] && boltframe[i][2] == boltframe[i][1])
+						boltframe[i][2] += 10;
 				}
 			}
 		}

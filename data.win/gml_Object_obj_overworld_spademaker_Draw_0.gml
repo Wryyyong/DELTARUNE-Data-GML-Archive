@@ -1,3 +1,23 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 cur_alpha = darkamt;
 
 if (darkamt < 0.6)
@@ -12,5 +32,5 @@ if (tile_fade == 1) {
 
 draw_set_alpha(darkamt);
 draw_set_color(c_black);
-draw_rectangle(__view_get(0, 0) - 10, __view_get(1, 0) - 10, __view_get(0, 0) + 650, __view_get(1, 0) + 650, false);
+draw_rectangle(__view_get(e__VW.XView, 0) - 10, __view_get(e__VW.YView, 0) - 10, __view_get(e__VW.XView, 0) + 650, __view_get(e__VW.YView, 0) + 650, false);
 draw_set_alpha(1);

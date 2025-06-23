@@ -1,3 +1,23 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 if (homing == 1) {
 	dir = random(360);
 	radius = 200 + random(40);
@@ -16,7 +36,7 @@ if (homing == 0) {
 		radius *= -1;
 	
 	alarm[0] = 5;
-	fallspade = instance_create(obj_mainchara.x + radius, __view_get(1, 0) - 500, obj_overworld_spade);
+	fallspade = instance_create(obj_mainchara.x + radius, __view_get(e__VW.YView, 0) - 500, obj_overworld_spade);
 	
 	with (fallspade) {
 		image_angle = 270;
@@ -43,7 +63,7 @@ if (homing == 2) {
 	else
 		radius = 560;
 	
-	sidespade[side] = instance_create(radius, __view_get(1, 0) + 30 + random(420), obj_overworld_spade);
+	sidespade[side] = instance_create(radius, __view_get(e__VW.YView, 0) + 30 + random(420), obj_overworld_spade);
 	
 	if (side == 0)
 		sidespade[side].direction = 0;
@@ -70,7 +90,7 @@ if (homing == 3) {
 		radius -= 500;
 	
 	alarm[0] = 7;
-	fallspade = instance_create(obj_mainchara.x + radius, choose(__view_get(1, 0) + 550, __view_get(1, 0) - 100), obj_overworld_spade);
+	fallspade = instance_create(obj_mainchara.x + radius, choose(__view_get(e__VW.YView, 0) + 550, __view_get(e__VW.YView, 0) - 100), obj_overworld_spade);
 	
 	with (fallspade) {
 		damage -= 4;
@@ -99,7 +119,7 @@ if (homing == 4) {
 	
 	if (obj_mainchara.y >= 400) {
 		for (i = 0; i < 6; i += 1) {
-			fallspade = instance_create(220 + (20 * i) + (side * 120), __view_get(1, 0) + 500, obj_overworld_spade);
+			fallspade = instance_create(220 + (20 * i) + (side * 120), __view_get(e__VW.YView, 0) + 500, obj_overworld_spade);
 			fallspade.vvalue = -10 + (3 * slow_bonus);
 			fallspade.fvalue = -0.5 + (0.2 * slow_bonus);
 			

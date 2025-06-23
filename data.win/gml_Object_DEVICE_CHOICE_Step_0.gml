@@ -2,20 +2,77 @@ if (fadebuffer > 0)
 	ONEBUFFER = 1;
 
 if (TYPE > 0) {
+	var OSUR = 0;
+	var OSUL = 0;
+	var OSUD = 0;
+	var OSUU = 0;
+	
 	if (fadebuffer < 0 && FINISH == 0) {
 		var dx = 0;
 		var dy = 0;
 		
 		if (right_p())
-			dx = 1;
+			OSUR = 1;
 		
 		if (left_p())
-			dx = -1;
+			OSUL = 1;
 		
 		if (down_p())
-			dy = 1;
+			OSUD = 1;
 		
 		if (up_p())
+			OSUU = 1;
+		
+		if (right_h())
+			PANASHIR++;
+		else
+			PANASHIR = 0;
+		
+		if (left_h())
+			PANASHIL++;
+		else
+			PANASHIL = 0;
+		
+		if (up_h())
+			PANASHIU++;
+		else
+			PANASHIU = 0;
+		
+		if (down_h())
+			PANASHID++;
+		else
+			PANASHID = 0;
+		
+		if (PANASHIR >= 6) {
+			PANASHIR = 3;
+			OSUR = 1;
+		}
+		
+		if (PANASHIL >= 6) {
+			PANASHIL = 3;
+			OSUL = 1;
+		}
+		
+		if (PANASHIU >= 6) {
+			PANASHIU = 3;
+			OSUU = 1;
+		}
+		
+		if (PANASHID >= 6) {
+			PANASHID = 3;
+			OSUD = 1;
+		}
+		
+		if (OSUR)
+			dx = 1;
+		
+		if (OSUL)
+			dx = -1;
+		
+		if (OSUD)
+			dy = 1;
+		
+		if (OSUU)
 			dy = -1;
 		
 		if (dx != 0 && XMAX > 0) {
@@ -23,7 +80,7 @@ if (TYPE > 0) {
 			
 			do {
 				CURX = (CURX + (XMAX + 1) + dx) % (XMAX + 1);
-				var ccc = NAME[CURX, CURY];
+				var ccc = NAME[CURX][CURY];
 				
 				if (ccc != " " && ccc != "　" && ccc != ">" && ccc != "<")
 					found = 1;
@@ -37,7 +94,7 @@ if (TYPE > 0) {
 				var ccc = "";
 				
 				while (move) {
-					ccc = NAME[CURX, CURY];
+					ccc = NAME[CURX][CURY];
 					
 					if (ccc == ">")
 						CURX += 1;
@@ -64,12 +121,12 @@ if (TYPE >= 0 && TYPE <= 2) {
 	DRAWHEART = 1;
 	
 	if (CURX >= 0) {
-		IDEALX = NAMEX[CURX, CURY];
-		IDEALY = NAMEY[CURX, CURY];
+		IDEALX = NAMEX[CURX][CURY];
+		IDEALY = NAMEY[CURX][CURY];
 		
 		if (TYPE == 0) {
 			scr_84_set_draw_font("main");
-			IDEALX += ((string_width(NAME[CURX, CURY]) / 2) - 10);
+			IDEALX += ((string_width(NAME[CURX][CURY]) / 2) - 10);
 		}
 	} else {
 		IDEALX = 150;
@@ -113,7 +170,7 @@ if (TYPE >= 0 && TYPE <= 2) {
 
 if (TYPE == 3) {
 	DRAWHEART = 1;
-	var str = NAME[CURX, CURY];
+	var str = NAME[CURX][CURY];
 	var cmd = "";
 	
 	if (string_length(str) > 1) {
@@ -122,8 +179,8 @@ if (TYPE == 3) {
 	}
 	
 	scr_84_set_draw_font("main");
-	IDEALX = (NAMEX[CURX, CURY] + (string_width(str) / 2)) - 10;
-	IDEALY = NAMEY[CURX, CURY] - 2;
+	IDEALX = (NAMEX[CURX][CURY] + (string_width(str) / 2)) - 10;
+	IDEALY = NAMEY[CURX][CURY] - 2;
 	
 	if (abs(HEARTX - IDEALX) <= 2)
 		HEARTX = IDEALX;
@@ -164,7 +221,7 @@ if (TYPE == 3) {
 		if (button1_p() && ONEBUFFER < 0) {
 			if (cmd == "") {
 				if (string_length(NAMESTRING) < STRINGMAX)
-					NAMESTRING += NAME[CURX, CURY];
+					NAMESTRING += NAME[CURX][CURY];
 			}
 			
 			if (cmd == "B")
@@ -186,6 +243,9 @@ if (TYPE == 3) {
 			}
 		}
 	}
+	
+	if (ERASE == 1 && string_length(NAMESTRING) == 0)
+		backout = 1;
 	
 	if (ERASE == 1 && FINISH == 0) {
 		if (string_length(NAMESTRING) > 0)

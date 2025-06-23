@@ -21,7 +21,8 @@ if (dont == 0) {
 		if (activetimer >= 5 && times < difficulty) {
 			mybul = instance_create(x, y, obj_regularbullet);
 			
-			if (instance_exists(mybul)) {
+			if (i_ex(mybul)) {
+				mybul.grazepoints = grazepoints;
 				mybul.damage = damage;
 				mybul.target = target;
 				mybul.sprite_index = spr_diamondbullet;

@@ -1,3 +1,23 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 if (global.monster[myself] == 1) {
 	if (global.mnfight == 1 && talked == 0) {
 		if (global.mercymod[myself] < 100)
@@ -7,7 +27,7 @@ if (global.monster[myself] == 1) {
 			instance_create(0, 0, obj_darkener);
 		
 		global.typer = 50;
-		global.msg[0] = " ";
+		global.msg[0] = stringsetloc(" ", "obj_ponman_enemy_slash_Step_0_gml_10_0");
 		g = scr_enemyblcon(x - 160, y, 3);
 		
 		with (g.mywriter)
@@ -29,7 +49,7 @@ if (global.monster[myself] == 1) {
 				scr_moveheart();
 			
 			if (!instance_exists(obj_growtangle))
-				instance_create(__view_get(0, 0) + 320, __view_get(1, 0) + 170, obj_growtangle);
+				instance_create(__view_get(e__VW.XView, 0) + 320, __view_get(e__VW.YView, 0) + 170, obj_growtangle);
 		}
 	}
 	
@@ -74,31 +94,31 @@ if (global.monster[myself] == 1) {
 			rr = choose(0, 1, 2, 3, 4);
 			
 			if (rr == 0)
-				global.battlemsg[0] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_64_0");
+				global.battlemsg[0] = stringsetloc("* Ponman advances one step at a time.", "obj_ponman_enemy_slash_Step_0_gml_64_0");
 			
 			if (rr == 1)
-				global.battlemsg[0] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_65_0");
+				global.battlemsg[0] = stringsetloc("* Ponman listens politely^1, despite having no ears.", "obj_ponman_enemy_slash_Step_0_gml_65_0");
 			
 			if (rr == 2)
-				global.battlemsg[0] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_66_0");
+				global.battlemsg[0] = stringsetloc("* Ponman seems hypnotized by your idle animation.", "obj_ponman_enemy_slash_Step_0_gml_66_0");
 			
 			if (rr == 3)
-				global.battlemsg[0] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_67_0");
+				global.battlemsg[0] = stringsetloc("* Ponman gazes enigmatically.", "obj_ponman_enemy_slash_Step_0_gml_67_0");
 			
 			if (rr == 4)
-				global.battlemsg[0] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_68_0");
+				global.battlemsg[0] = stringsetloc("* Smells like a pawn shop.", "obj_ponman_enemy_slash_Step_0_gml_68_0");
 			
 			if (global.monsterstatus[myself] == 1)
-				global.battlemsg[0] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_69_0");
+				global.battlemsg[0] = stringsetloc("* Ponman can't keep its eye open.", "obj_ponman_enemy_slash_Step_0_gml_69_0");
 			
 			if (global.monsterhp[myself] <= (global.monstermaxhp[myself] / 3))
-				global.battlemsg[0] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_70_0");
+				global.battlemsg[0] = stringsetloc("* Ponman looks dilated.", "obj_ponman_enemy_slash_Step_0_gml_70_0");
 			
 			if (global.mercymod[myself] >= global.mercymax[myself])
-				global.msg[0] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_71_0");
+				global.msg[0] = stringsetloc("* Ponman is sleeping soundly.", "obj_ponman_enemy_slash_Step_0_gml_71_0");
 			
-			if (global.monstercomment[myself] == scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_72_0"))
-				global.msg[0] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_72_1");
+			if (global.monstercomment[myself] == "(Sleepy)")
+				global.msg[0] = stringsetloc("* The enemies became SLEEPY from Ralsei's lullaby!", "obj_ponman_enemy_slash_Step_0_gml_72_0");
 		} else {
 			global.turntimer = 120;
 		}
@@ -121,17 +141,17 @@ if (global.monster[myself] == 1) {
 }
 
 if (global.myfight == 3) {
-	xx = __view_get(0, 0);
-	yy = __view_get(1, 0);
+	xx = __view_get(e__VW.XView, 0);
+	yy = __view_get(e__VW.YView, 0);
 	
 	if (acting == 1 && actcon == 0) {
 		actcon = 1;
-		global.msg[0] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_106_0");
+		global.msg[0] = stringsetloc("* PONMAN - AT 8 DF 0&* Its nucleus doubles as an eyespot./%", "obj_ponman_enemy_slash_Step_0_gml_106_0");
 		scr_battletext_default();
 	}
 	
 	if (acting == 2 && actcon == 0) {
-		global.msg[0] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_114_0");
+		global.msg[0] = stringsetloc("* You whispered goodnight to Ponman^1.&* It fell asleep.../%", "obj_ponman_enemy_slash_Step_0_gml_114_0");
 		sleeping = 1;
 		scr_mercyadd(myself, 100);
 		scr_battletext_default();
@@ -153,7 +173,7 @@ if (global.myfight == 3) {
 				lullabied = 0;
 		}
 		
-		global.msg[0] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_134_0");
+		global.msg[0] = stringsetloc("* Ralsei sang a soft and entrancing lullaby!/%", "obj_ponman_enemy_slash_Step_0_gml_134_0");
 		
 		with (obj_heroralsei)
 			visible = false;
@@ -170,13 +190,13 @@ if (global.myfight == 3) {
 	
 	if (acting == 4 && actcon == 0) {
 		actcon = 1;
-		global.msg[0] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_150_0");
+		global.msg[0] = stringsetloc("* You and Ralsei warned Ponman about Susie^1.&* The enemy went on guard.../%", "obj_ponman_enemy_slash_Step_0_gml_150_0");
 		
 		if (scr_monsterpop() > 1)
-			global.msg[0] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_152_0");
+			global.msg[0] = stringsetloc("* You and Ralsei warned the enemies about Susie^1.&* Everyone went on guard./%", "obj_ponman_enemy_slash_Step_0_gml_152_0");
 		
 		for (i = 0; i < 3; i += 1) {
-			global.monstercomment[i] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_155_0");
+			global.monstercomment[i] = "(Warned)";
 			global.automiss[i] = 1;
 		}
 		
@@ -204,7 +224,7 @@ if (global.myfight == 3) {
 		
 		snd_stop(singy);
 		snd_resume(global.batmusic[1]);
-		global.msg[0] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_186_0");
+		global.msg[0] = stringsetloc("* PONMAN fell asleep^1!&* The enemies became TIRED!/%", "obj_ponman_enemy_slash_Step_0_gml_186_0");
 		
 		if (scr_monsterpop() > 1 && scr_havechar(2)) {
 			for (dx = 0; dx < 3; dx += 1) {
@@ -213,7 +233,7 @@ if (global.myfight == 3) {
 						global.charcond[dx] = 5;
 						global.faceaction[dx] = 9;
 						global.charmove[dx] = 0;
-						global.msg[0] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_198_0");
+						global.msg[0] = stringsetloc("* PONMAN fell asleep^1!&* SUSIE fell asleep^1!&* The enemies became TIRED!/%", "obj_ponman_enemy_slash_Step_0_gml_198_0");
 					}
 				}
 			}
@@ -223,7 +243,7 @@ if (global.myfight == 3) {
 		scr_mercyadd(myself, 100);
 		
 		with (obj_monsterparent) {
-			global.monstercomment[myself] = scr_84_get_lang_string("obj_ponman_enemy_slash_Step_0_gml_208_0");
+			global.monstercomment[myself] = "(Sleepy)";
 			global.monsterstatus[myself] = 1;
 		}
 		

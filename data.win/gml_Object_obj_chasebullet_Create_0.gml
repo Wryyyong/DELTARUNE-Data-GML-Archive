@@ -1,10 +1,4 @@
-grazed = 0;
-grazepoints = 5;
-timepoints = 5;
-target = 0;
-dont = 1;
-inv = 120;
-damage = 60;
+scr_bullet_init();
 active = 0;
 image_alpha = 0;
 

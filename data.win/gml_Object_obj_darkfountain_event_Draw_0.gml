@@ -20,7 +20,9 @@ t += 1;
 if (t >= 20) {
 	if (soundcon == 0) {
 		soundcon = 1;
-		audio_play_sound(snd_usefountain, 50, false);
+		
+		if (scr_sideb_get_phase() < 3)
+			snd_play(snd_usefountain);
 	}
 }
 
@@ -69,8 +71,16 @@ if (t >= 520) {
 if (t >= 650) {
 	global.entrance = 0;
 	global.interact = 1;
+	global.fighting = 0;
 	scr_become_light();
 	snd_free_all();
 	instance_create(0, 0, obj_persistentfadein);
-	room_goto(room_school_unusedroom);
+	
+	if (global.chapter == 1)
+		room_goto(room_school_unusedroom);
+	
+	if (global.chapter == 2) {
+		scr_fountain_levelup();
+		room_goto(room_lw_computer_lab);
+	}
 }

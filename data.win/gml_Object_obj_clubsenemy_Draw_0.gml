@@ -1,9 +1,15 @@
+if (notail == 1) {
+	siner += 1;
+	draw_sprite_ext(spr_clubs_tail_attack, 0, x, y, 2, 2, 0, image_blend, 1);
+	exit;
+}
+
 if (state == 3) {
 	if (global.monsterhp[myself] <= (global.monstermaxhp[myself] / 2)) {
 		global.monsterstatus[myself] = 1;
 		
 		if (global.monstercomment[myself] == " ")
-			global.monstercomment[myself] = scr_84_get_lang_string("obj_clubsenemy_slash_Draw_0_gml_6_0");
+			global.monstercomment[myself] = stringsetloc("(Tired)", "obj_clubsenemy_slash_Draw_0_gml_15_0");
 	}
 	
 	hurttimer -= 1;
@@ -54,3 +60,45 @@ if (becomeflash == 0)
 	flash = 0;
 
 becomeflash = 0;
+
+if (actcon == 15) {
+	if (clockalpha <= 1)
+		clockalpha += 0.05;
+} else if (clockalpha >= 0) {
+	clockalpha -= 0.05;
+}
+
+if (room == room_dw_castle_dojo && instance_exists(obj_dojofx)) {
+	draw_set_color(c_red);
+	draw_set_halign(fa_center);
+	scr_84_set_draw_font("mainbig");
+	var timestring = string(round(topic_timer / 30));
+	
+	if (round(topic_timer / 30) < 10)
+		timestring = "0" + timestring;
+	
+	if (topic_con != 0) {
+		var timetextstring = stringsetloc("TIME: ", "obj_clubsenemy_slash_Draw_0_gml_98_0");
+		var totaltimetextstring = timetextstring + timestring;
+		draw_set_color(c_black);
+		draw_rectangle((camerax() + 320) - (string_width(totaltimetextstring) / 2) - 10, (cameray() + 298) - (string_height(totaltimetextstring) / 2), camerax() + 320 + (string_width(totaltimetextstring) / 2) + 10, cameray() + 298 + (string_height(totaltimetextstring) / 2) + 40, false);
+		draw_set_color(c_red);
+		draw_text(camerax() + 320, cameray() + 290, totaltimetextstring);
+		draw_set_halign(fa_left);
+		draw_set_color(c_white);
+	}
+	
+	cx = obj_dojofx.ball.x;
+	cy = obj_dojofx.ball.y + 65;
+	
+	if ((topic_timer / topic_timer_total) < 0.25) {
+		cx = lerp(cx, cx + (sin(topic_timer_total - topic_timer) * 6), 0.125);
+		cy = lerp(cy, cy + (cos(topic_timer_total - topic_timer) * 6), 0.125);
+	}
+	
+	progress = (topic_timer / topic_timer_total) * 360;
+	draw_sprite_ext(spr_clubs_clock_background, 0, cx - 56, cy - 57, 2, 2, 0, c_white, clockalpha);
+	draw_sprite_ext(spr_clubs_clock_background, 1, cx - 56, cy - 57, 2, 2, 0, c_white, (1 - (topic_timer / topic_timer_total)) * clockalpha);
+	draw_sprite_ext(spr_clubs_clock_smallhand, 0, cx, cy, 2, 2, 360 - (progress * 10), c_white, clockalpha);
+	draw_sprite_ext(spr_clubs_clock_bighand, 0, cx, cy, 2, 2, 360 - progress, c_white, clockalpha);
+}

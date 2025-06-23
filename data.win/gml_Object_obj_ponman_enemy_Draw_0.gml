@@ -3,7 +3,7 @@ if (state == 3) {
 		global.monsterstatus[myself] = 1;
 		
 		if (global.monstercomment[myself] == " ")
-			global.monstercomment[myself] = scr_84_get_lang_string("obj_ponman_enemy_slash_Draw_0_gml_6_0");
+			global.monstercomment[myself] = "(Weak)";
 	}
 	
 	hurttimer -= 1;

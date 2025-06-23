@@ -18,6 +18,10 @@ mywidth = 34;
 index = 0;
 specdraw = 0;
 is_auto_susie = 0;
+poisonamount = 0;
+poisontimer = 0;
+_sideb = 0;
+_victoried = 0;
 normalsprite = spr_krisr_dark;
 idlesprite = spr_krisb_idle;
 actreadysprite = spr_krisb_actready;
@@ -112,27 +116,82 @@ if (object_index == obj_herosusie) {
 }
 
 if (object_index == obj_heroralsei) {
-	attackframes = 5;
-	itemframes = 7;
-	defendframes = 6;
-	actframes = 7;
-	actreturnframes = 10;
+	attackframes = 6;
+	itemframes = 6;
+	defendframes = 7;
+	actframes = 8;
+	actreturnframes = 12;
 	attackspeed = 0.5;
-	normalsprite = spr_ralseir;
-	idlesprite = spr_ralseib_idle;
-	defendsprite = spr_ralseib_defend;
-	hurtsprite = spr_ralsei_shock;
-	attackreadysprite = spr_ralseib_attackready;
-	attacksprite = spr_ralseib_attack;
-	itemsprite = spr_ralseib_item;
-	itemreadysprite = spr_ralseib_itemready;
-	spellreadysprite = spr_ralseib_spellready;
-	spellsprite = spr_ralseib_spell;
-	defeatsprite = spr_ralseib_defeat;
-	victorysprite = spr_ralseib_victory;
-	actreadysprite = spr_ralseib_actready;
-	actsprite = spr_ralseib_act;
+	normalsprite = spr_ralsei_walk_right;
+	idlesprite = spr_ralsei_idle;
+	defendsprite = spr_ralsei_defend;
+	hurtsprite = spr_ralsei_hurt_fixed;
+	attackreadysprite = spr_ralsei_attackready;
+	attacksprite = spr_ralsei_attack;
+	itemsprite = spr_ralsei_item;
+	itemreadysprite = spr_ralsei_itemready;
+	spellreadysprite = spr_ralsei_spellready;
+	spellsprite = spr_ralsei_spell;
+	defeatsprite = spr_ralsei_defeat;
+	victorysprite = spr_ralsei_victory;
+	actreadysprite = spr_ralsei_actready;
+	actsprite = spr_ralsei_act;
 	victoryframes = sprite_get_number(victorysprite);
 	mywidth = 52;
 	myheight = 86;
 }
+
+if (object_index == obj_heronoelle) {
+	attackframes = 4;
+	itemframes = 9;
+	defendframes = 0;
+	actframes = 7;
+	actreturnframes = 11;
+	attackspeed = 0.5;
+	spellframes = 6;
+	normalsprite = spr_noelle_walk_right_dw;
+	idlesprite = spr_noelleb_idle;
+	
+	if (global.encounterno == 73)
+		idlesprite = spr_noelle_shocked_dw;
+	
+	defendsprite = spr_noelleb_defend;
+	hurtsprite = spr_noelleb_hurt;
+	attackreadysprite = spr_noelleb_attackready;
+	attacksprite = spr_noelleb_attack;
+	itemsprite = spr_noelleb_item;
+	itemreadysprite = spr_noelleb_itemready;
+	spellreadysprite = spr_noelleb_spellready;
+	
+	if (global.encounterno == 82)
+		spellreadysprite = spr_noelleb_spellready;
+	
+	spellsprite = spr_noelleb_spell;
+	defeatsprite = spr_noelleb_defeat;
+	victorysprite = spr_noelleb_victory;
+	actreadysprite = spr_noelleb_actready;
+	actsprite = spr_noelleb_act;
+	victoryframes = sprite_get_number(victorysprite);
+	_sideb = 0;
+	
+	if (scr_sideb_get_phase() >= 2)
+		_sideb = 1;
+	
+	if (_sideb == 1) {
+		attackreadysprite = spr_noelleb_idle;
+		attacksprite = spr_noelleb_spell;
+		attackframes = 6;
+		victorysprite = spr_noelleb_pray;
+		victoryframes = 10;
+		defendframes = 5;
+		defendsprite = spr_noelleb_defend_sideb;
+		hurtsprite = spr_noelleb_hurt_sideb;
+		idlesprite = spr_noelleb_idle_sideb;
+	}
+	
+	mywidth = 52;
+	myheight = 86;
+}
+
+remspellframes = spellframes;
+remspellsprite = spellsprite;

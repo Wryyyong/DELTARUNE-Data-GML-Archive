@@ -1,3 +1,23 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 if (dont == 0) {
 	if (active == 0) {
 		futuredir = point_direction(x, y, obj_heart.x + 8, obj_heart.y + 8);
@@ -15,16 +35,16 @@ if (dont == 0) {
 	
 	draw_sprite_ext(sprite_index, 0, x, y, 2 - image_alpha, 2 - image_alpha, futuredir, c_white, image_alpha);
 	
-	if (x < (__view_get(0, 0) - 40))
+	if (x < (__view_get(e__VW.XView, 0) - 40))
 		instance_destroy();
 	
-	if (x > (__view_get(0, 0) + 680))
+	if (x > (__view_get(e__VW.XView, 0) + 680))
 		instance_destroy();
 	
-	if (y < (__view_get(1, 0) - 40))
+	if (y < (__view_get(e__VW.YView, 0) - 40))
 		instance_destroy();
 	
-	if (y > (__view_get(1, 0) + 520))
+	if (y > (__view_get(e__VW.YView, 0) + 520))
 		instance_destroy();
 }
 

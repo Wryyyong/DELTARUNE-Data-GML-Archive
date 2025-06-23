@@ -1,8 +1,28 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 if (myinteract == 3) {
 }
 
 if (myinteract == 3 && con == 0) {
-	if (instance_exists(mydialoguer) == 0) {
+	if (i_ex(mydialoguer) == 0) {
 		global.interact = 0;
 		myinteract = 0;
 		
@@ -36,7 +56,7 @@ if (con >= 5) {
 		if (doortimer >= 6) {
 			snd_free_all();
 			snd_play(snd_doorclose);
-			dark_marker = scr_dark_marker(__view_get(0, 0) - 10, __view_get(1, 0) - 10, spr_pixel_white);
+			dark_marker = scr_dark_marker(__view_get(e__VW.XView, 0) - 10, __view_get(e__VW.YView, 0) - 10, spr_pixel_white);
 			
 			with (dark_marker) {
 				image_xscale = 700;

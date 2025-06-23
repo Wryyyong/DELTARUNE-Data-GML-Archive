@@ -6,9 +6,15 @@ image_yscale = 2;
 damage = 1;
 caster = 0;
 star = 0;
-depth = obj_herosusie.depth;
+battlemode = 1;
 
-with (obj_herosusie)
-	visible = false;
+if (instance_exists(obj_herosusie)) {
+	depth = obj_herosusie.depth;
+	
+	with (obj_herosusie)
+		visible = false;
+} else {
+	battlemode = 0;
+}
 
 red = 0;

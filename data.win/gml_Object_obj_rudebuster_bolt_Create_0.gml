@@ -24,3 +24,7 @@ bolt_timer = 0;
 chosen_bolt = 0;
 final_bolt = 0;
 red = 0;
+battlemode = 1;
+
+if (global.fighting == 0)
+	battlemode = 0;

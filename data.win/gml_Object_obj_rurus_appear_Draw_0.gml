@@ -18,14 +18,12 @@ if (timer >= 0) {
 	if (timer <= 15) {
 		if (rect_width <= 50) {
 			rect_width += 2;
-			rect_width *= 1.25;
+			rect_width *= 2.5;
 		}
 	}
 	
 	if (timer >= 15) {
 		if (type == 0) {
-			draw_sprite_ext(sprite_index, r_index, x, (y - 32) + (r_index * 4), image_xscale, image_yscale, 0, c_white, 1);
-			
 			if (r_index < 8)
 				r_index += 0.334;
 			else

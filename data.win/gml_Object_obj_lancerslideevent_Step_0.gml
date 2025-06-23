@@ -1,3 +1,23 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 if (con == 1) {
 	with (obj_mainchara)
 		visible = false;
@@ -26,7 +46,7 @@ if (con == 3) {
 	global.typer = 30;
 	global.fc = 1;
 	global.fe = 9;
-	global.msg[0] = scr_84_get_lang_string("obj_lancerslideevent_slash_Step_0_gml_34_0");
+	global.msg[0] = stringsetloc("* Kris^1, down here!/%", "obj_lancerslideevent_slash_Step_0_gml_34_0");
 	instance_create(0, 0, obj_dialoguer);
 	con = 4;
 }
@@ -86,23 +106,23 @@ if (con == 8) {
 }
 
 if (cameracon == 1) {
-	if (__view_get(1, 0) < 880) {
+	if (__view_get(e__VW.YView, 0) < 880) {
 		if (seiz == 0)
-			__view_set(1, 0, __view_get(1, 0) + 20);
+			__view_set(e__VW.YView, 0, __view_get(e__VW.YView, 0) + 20);
 		else
-			__view_set(1, 0, __view_get(1, 0) + 10);
+			__view_set(e__VW.YView, 0, __view_get(e__VW.YView, 0) + 10);
 	} else {
 		with (obj_mainchara)
 			vspeed = 0;
 		
 		global.interact = 0;
 		instance_create(0, 0, obj_overworld_spademaker);
-		block1 = instance_create(0, __view_get(1, 0) + 40, obj_soliddark);
+		block1 = instance_create(0, __view_get(e__VW.YView, 0) + 40, obj_soliddark);
 		
 		with (block1)
 			image_xscale = 40;
 		
-		block2 = instance_create(0, __view_get(1, 0) + 440, obj_soliddark);
+		block2 = instance_create(0, __view_get(e__VW.YView, 0) + 440, obj_soliddark);
 		
 		with (block2)
 			image_xscale = 40;

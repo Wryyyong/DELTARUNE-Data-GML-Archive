@@ -1,3 +1,23 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 HEAD = 0;
 BODY = 0;
 LEGS = 0;
@@ -35,8 +55,8 @@ siner = 0;
 obacktimer = 0;
 OB_DEPTH = 0;
 flashtimer = 0;
-midscreenx = __view_get(0, 0) + (__view_get(2, 0) / 2);
-midscreeny = __view_get(1, 0) + (__view_get(3, 0) / 2);
+midscreenx = __view_get(e__VW.XView, 0) + (__view_get(e__VW.WView, 0) / 2);
+midscreeny = __view_get(e__VW.YView, 0) + (__view_get(e__VW.HView, 0) / 2);
 STEP = 1;
 FINISH = 0;
 ONEBUFFER = 10;
@@ -44,4 +64,3 @@ FADEBUFFER = 10;
 CANCEL = 0;
 initx = x;
 inity = y;
-NAMEFADE = 0;

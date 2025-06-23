@@ -1,3 +1,23 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 if (global.monster[myself] == 1) {
 	if (global.mnfight == 1 && talked == 0) {
 		abletotarget = 1;
@@ -17,10 +37,10 @@ if (global.monster[myself] == 1) {
 		global.targeted[mytarget] = 1;
 		instance_create(0, 0, obj_darkener);
 		global.typer = 7;
-		global.msg[0] = scr_84_get_lang_string("obj_monster1_slash_Step_0_gml_25_0");
+		global.msg[0] = "";
 		
 		if (global.mercymod[myself] >= global.mercymax[myself])
-			global.msg[0] = scr_84_get_lang_string("obj_monster1_slash_Step_0_gml_26_0");
+			global.msg[0] = "";
 		
 		mywriter = instance_create(x - 60, y - 30, obj_writer);
 		talked = 1;
@@ -46,32 +66,17 @@ if (global.monster[myself] == 1) {
 		simp.damage = global.monsterat[myself] * 5;
 		simp.target = mytarget;
 		attacked = 1;
-		rr = floor(random(5));
-		
-		if (rr == 0)
-			global.battlemsg[0] = scr_84_get_lang_string("obj_monster1_slash_Step_0_gml_53_0");
-		
-		if (rr == 1)
-			global.battlemsg[0] = scr_84_get_lang_string("obj_monster1_slash_Step_0_gml_54_0");
-		
-		if (rr == 2)
-			global.battlemsg[0] = scr_84_get_lang_string("obj_monster1_slash_Step_0_gml_55_0");
-		
-		if (rr == 3)
-			global.battlemsg[0] = scr_84_get_lang_string("obj_monster1_slash_Step_0_gml_56_0");
-		
-		if (rr == 4)
-			global.battlemsg[0] = scr_84_get_lang_string("obj_monster1_slash_Step_0_gml_57_0");
+		rr = floor(random(4));
 	}
 }
 
 if (global.myfight == 3) {
-	xx = __view_get(0, 0);
-	yy = __view_get(1, 0);
+	xx = __view_get(e__VW.XView, 0);
+	yy = __view_get(e__VW.YView, 0);
 	
 	if (acting == 1 && actcon == 0) {
 		actcon = 1;
-		global.msg[0] = scr_84_get_lang_string("obj_monster1_slash_Step_0_gml_75_0");
+		global.msg[0] = "";
 		global.typer = global.battletyper;
 		battlewriter = instance_create(xx + 30, yy + 376, obj_writer);
 		
@@ -82,12 +87,12 @@ if (global.myfight == 3) {
 			global.mercymod[myself] += 120;
 		
 		if (global.mercymod[myself] >= global.mercymax[myself])
-			global.msg[0] = scr_84_get_lang_string("obj_monster1_slash_Step_0_gml_82_0");
+			global.msg[0] = "";
 	}
 	
 	if (acting == 2) {
 		if (acttimer == 0) {
-			global.msg[0] = scr_84_get_lang_string("obj_monster1_slash_Step_0_gml_91_0");
+			global.msg[0] = "";
 			global.typer = global.battletyper;
 			battlewriter = instance_create(xx + 130, yy + 376, obj_writer);
 			
@@ -120,5 +125,5 @@ if (global.myfight == 3) {
 	}
 }
 
-if (x > (__view_get(0, 0) + 800) && global.myfight != 3)
+if (x > (__view_get(e__VW.XView, 0) + 800) && global.myfight != 3)
 	instance_destroy();

@@ -2,7 +2,7 @@ if (active == 0)
 	instance_destroy();
 
 if (active == 2) {
-	if (instance_exists(target)) {
+	if (i_ex(target)) {
 		frame += framespeed;
 		
 		if (frame >= (maxframe - 1)) {
@@ -21,7 +21,7 @@ if (active == 2) {
 }
 
 if (active == 1) {
-	if (instance_exists(target)) {
+	if (i_ex(target)) {
 		target.sprite_index = sprite_index;
 		target.image_speed = 0;
 		target.image_index = 0;

@@ -1,4 +1,4 @@
-if (instance_exists(target)) {
+if (i_ex(target)) {
 	if (moved == 0) {
 		x = target.x;
 		y = target.y;
@@ -12,10 +12,33 @@ if (instance_exists(target)) {
 	
 	target.x += xadd;
 	target.y += yadd;
-	movetimer += 1;
 	
-	if (movetimer >= movemax)
+	if (target.object_index == obj_actor) {
+		target.fake_speed = amt;
+		target.fake_direction = dir;
+	}
+	
+	movetimer += 1;
+	target.x = lerp(x, movex, movetimer / movemax);
+	target.y = lerp(y, movey, movetimer / movemax);
+	
+	if (movetimer >= movemax) {
+		if (target.object_index == obj_actor)
+			target.fake_speed = 0;
+		
+		if (charmarker == 1)
+			target.fun = 0;
+		
+		if (charmarker == 2) {
+			with (target) {
+				follow = 1;
+				fun = 0;
+				scr_caterpillar_interpolate();
+			}
+		}
+		
 		instance_destroy();
+	}
 	
 	if (target == obj_move_to_point)
 		instance_destroy();

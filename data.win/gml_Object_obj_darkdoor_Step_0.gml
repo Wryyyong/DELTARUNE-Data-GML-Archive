@@ -17,8 +17,8 @@ if (con > 0 && con < 40) {
 		global.typer = 10;
 		global.fc = 1;
 		global.fe = 0;
-		global.msg[0] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_21_0");
-		global.msg[1] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_22_0");
+		global.msg[0] = stringsetloc("* Well^1, here's the closet^1.&* Too bad.../", "obj_darkdoor_slash_Step_0_gml_21_0");
+		global.msg[1] = stringsetloc("\\E2* We were just starting to have fun./%", "obj_darkdoor_slash_Step_0_gml_22_0");
 		instance_create(0, 0, obj_dialoguer);
 		con = 4.5;
 	}
@@ -66,9 +66,9 @@ if (con > 0 && con < 40) {
 	
 	if (con == 11) {
 		global.fe = 5;
-		global.msg[0] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_72_0");
-		global.msg[1] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_73_0");
-		global.msg[2] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_74_0");
+		global.msg[0] = stringsetloc("\\E5* .../", "obj_darkdoor_slash_Step_0_gml_72_0");
+		global.msg[1] = stringsetloc("* Hey^1, Kris^1, is it me^1, or.../", "obj_darkdoor_slash_Step_0_gml_73_0");
+		global.msg[2] = stringsetloc("\\E6* Is it REALLY dark in there?/%", "obj_darkdoor_slash_Step_0_gml_74_0");
 		instance_create(0, 0, obj_dialoguer);
 		
 		with (s)
@@ -89,7 +89,7 @@ if (con > 0 && con < 40) {
 		with (s)
 			sprite_index = spr_susiel;
 		
-		global.msg[0] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_90_0");
+		global.msg[0] = stringsetloc("\\E6* What's the holdup^1, Kris^1?&* Are you gonna go in or what?/%", "obj_darkdoor_slash_Step_0_gml_90_0");
 		instance_create(0, 0, obj_dialoguer);
 		con = 15;
 	}
@@ -116,7 +116,7 @@ if (con > 0 && con < 40) {
 		with (s)
 			sprite_index = spr_susiel;
 		
-		global.msg[0] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_117_0");
+		global.msg[0] = stringsetloc("\\E7* Fine^1!&* If you're gonna be a WIMP^1, then I'll.../%", "obj_darkdoor_slash_Step_0_gml_117_0");
 		instance_create(0, 0, obj_dialoguer);
 		con = 18;
 	}
@@ -133,7 +133,7 @@ if (con > 0 && con < 40) {
 		with (s)
 			sprite_index = spr_susiel;
 		
-		global.msg[0] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_132_0");
+		global.msg[0] = stringsetloc("\\E7* We'll both go in at the same time!!/%", "obj_darkdoor_slash_Step_0_gml_132_0");
 		instance_create(0, 0, obj_dialoguer);
 		con = 21;
 	}
@@ -197,8 +197,8 @@ if (con >= 40) {
 		global.fc = 1;
 		global.fe = 0;
 		global.flag[29] = 1;
-		global.msg[0] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_194_0");
-		global.msg[1] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_195_0");
+		global.msg[0] = stringsetloc("* Man^1, the sun's already setting.../", "obj_darkdoor_slash_Step_0_gml_194_0");
+		global.msg[1] = stringsetloc("\\E3* Everyone else must have gone home by now./%", "obj_darkdoor_slash_Step_0_gml_195_0");
 		instance_create(0, 0, obj_dialoguer);
 		con = 43;
 	}
@@ -221,7 +221,7 @@ if (con >= 40) {
 	
 	if (con == 45) {
 		global.fe = 2;
-		global.msg[0] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_215_0");
+		global.msg[0] = stringsetloc("\\E2* Guess Alphys'll know better than to ask US next time^1, huh?/%", "obj_darkdoor_slash_Step_0_gml_215_0");
 		con = 50;
 		instance_create(0, 0, obj_dialoguer);
 	}
@@ -267,7 +267,7 @@ if (con >= 40) {
 	
 	if (con == 52.1) {
 		global.fe = 0;
-		global.msg[0] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_252_0");
+		global.msg[0] = stringsetloc("* .../%", "obj_darkdoor_slash_Step_0_gml_252_0");
 		instance_create(0, 0, obj_dialoguer);
 		con = 52.2;
 	}
@@ -285,9 +285,9 @@ if (con >= 40) {
 			sprite_index = spr_krisl;
 		
 		global.fe = 1;
-		global.msg[0] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_268_0");
-		global.msg[1] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_269_0");
-		global.msg[2] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_270_0");
+		global.msg[0] = stringsetloc("\\E1* Well^1, guess we should go./", "obj_darkdoor_slash_Step_0_gml_268_0");
+		global.msg[1] = stringsetloc("\\E0* .../", "obj_darkdoor_slash_Step_0_gml_269_0");
+		global.msg[2] = stringsetloc("\\E1* See ya later^1, I guess./%", "obj_darkdoor_slash_Step_0_gml_270_0");
 		instance_create(0, 0, obj_dialoguer);
 		con = 55;
 	}
@@ -316,9 +316,9 @@ if (con >= 40) {
 	
 	if (con == 59) {
 		global.fe = 0;
-		global.msg[0] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_298_0");
-		global.msg[1] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_299_0");
-		global.msg[2] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_300_0");
+		global.msg[0] = stringsetloc("\\E0* .../", "obj_darkdoor_slash_Step_0_gml_298_0");
+		global.msg[1] = stringsetloc("\\E1* .../", "obj_darkdoor_slash_Step_0_gml_299_0");
+		global.msg[2] = stringsetloc("\\E0* ... Kris?/%", "obj_darkdoor_slash_Step_0_gml_300_0");
 		con = 60;
 		d = instance_create(0, 0, obj_dialoguer);
 		
@@ -383,7 +383,7 @@ if (con >= 40) {
 	if (con == 70) {
 		global.fe = 8;
 		global.flag[6] = 1;
-		global.msg[0] = scr_84_get_lang_string("obj_darkdoor_slash_Step_0_gml_363_0");
+		global.msg[0] = stringsetloc("\\E8* Let's go back there tomorrow, alright?/%", "obj_darkdoor_slash_Step_0_gml_363_0");
 		d = instance_create(0, 0, obj_dialoguer);
 		
 		with (obj_writer)

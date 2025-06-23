@@ -14,27 +14,29 @@ beanie[0] = 0;
 beanie[1] = 0;
 beanie[2] = 0;
 
-if (x < 350) {
+if (global.chapter == 1) {
+	if (x < 350) {
+		beanie[1] = 0;
+		beanie[0] = 1;
+		type = 1;
+	}
+	
+	if (x < 250) {
+		beanie[0] = 1;
+		beanie[2] = 1;
+		type = 2;
+	}
+	
+	if (x < 150) {
+		beanie[0] = 1;
+		beanie[1] = 1;
+		beanie[2] = 1;
+		type = 3;
+	}
+}
+
+if (global.chapter == 2 && room == room_dw_castle_dojo) {
 	beanie[1] = 0;
 	beanie[0] = 1;
-	type = 1;
-}
-
-if (x < 250) {
-	beanie[0] = 1;
-	beanie[2] = 1;
-	type = 2;
-}
-
-if (x < 150) {
-	beanie[0] = 1;
-	beanie[1] = 1;
-	beanie[2] = 1;
-	type = 3;
-	
-	if (room == room_field_puzzletutorial) {
-		hole = scr_dark_marker(270, 126, spr_donation_hole_and_tree);
-		hole.image_index = 1;
-		hole.depth = 900000;
-	}
+	type = 0;
 }

@@ -1,33 +1,5 @@
 oo = 0;
 
-if (spec == 1) {
-	if (instance_exists(obj_darkponman_ow)) {
-		oo = -0.8 + (obj_darkponman_ow.battlealpha * obj_darkponman_ow.max_battlealpha * 1.5);
-		
-		if (oo < 0)
-			oo = 0;
-		
-		if (oo > 1)
-			oo = 1;
-		
-		image_blend = merge_color(c_white, c_black, oo);
-	}
-}
-
-if (spec == 2) {
-	if (instance_exists(obj_darkponman_ow)) {
-		oo = 4 - (obj_darkponman_ow.battlealpha * obj_darkponman_ow.max_battlealpha * 4);
-		
-		if (oo > 1)
-			oo = 1;
-		
-		if (oo < 0)
-			oo = 0;
-		
-		image_blend = merge_color(c_white, c_black, oo);
-	}
-}
-
 if (spec < 2)
 	blocktimer += 1;
 

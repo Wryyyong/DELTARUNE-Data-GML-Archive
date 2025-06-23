@@ -30,6 +30,12 @@ if (delaytimer >= delay) {
 	if (type == 4)
 		draw_set_color(c_red);
 	
+	if (type == 5 && damage < 0)
+		draw_set_color(c_ltgray);
+	
+	if (type == 6)
+		draw_set_color(lighty);
+	
 	message = specialmessage;
 	
 	if (damage == 0)
@@ -38,7 +44,14 @@ if (delaytimer >= delay) {
 	if (type == 4)
 		message = 2;
 	
-	draw_set_font(global.damagefont);
+	if (type == 5 && damage == 100)
+		message = 5;
+	
+	if (type != 5)
+		draw_set_font(global.damagefont);
+	
+	if (type == 5)
+		draw_set_font(global.damagefontgold);
 	
 	if (hspeed > 0)
 		hspeed -= 1;
@@ -49,30 +62,57 @@ if (delaytimer >= delay) {
 	if (abs(hspeed) < 1)
 		hspeed = 0;
 	
+	if (init == 0) {
+		damagemessage = string(damage);
+		
+		if (type == 5)
+			damagemessage = "+" + string(damage) + "%";
+		
+		if (type == 5 && damage < 0)
+			damagemessage = string(damage) + "%";
+		
+		init = 1;
+	}
+	
 	if (message == 0) {
 		draw_set_alpha(1 - kill);
 		draw_set_halign(fa_right);
 		
 		if (spec == 0)
-			draw_text_transformed(x + 30, y, string_hash_to_newline(string(damage)), 2 - stretch, stretch + kill, 0);
+			draw_text_transformed(x + 30, y, damagemessage, 2 - stretch, stretch + kill, 0);
 		
 		if (spec == 1)
-			draw_text_transformed(x + 30, y, string_hash_to_newline(string(damage)), 2 - stretch, stretch + kill, 90);
+			draw_text_transformed(x + 30, y, damagemessage, 2 - stretch, stretch + kill, 90);
 		
 		draw_set_halign(fa_left);
 		draw_set_alpha(1);
 	} else {
 		if (message == 1)
-			draw_sprite_ext(spr_battlemsg, 0, x + 30, y, 2 - stretch, stretch + kill, 0, draw_get_color(), 1 - kill);
+			draw_sprite_ext(message_sprite, 0, x + 30, y, 2 - stretch, stretch + kill, 0, draw_get_color(), 1 - kill);
 		
 		if (message == 2)
-			draw_sprite_ext(spr_battlemsg, 1, x + 30, y, 2 - stretch, stretch + kill, 0, c_red, 1 - kill);
+			draw_sprite_ext(message_sprite, 1, x + 30, y, 2 - stretch, stretch + kill, 0, c_red, 1 - kill);
 		
 		if (message == 3)
-			draw_sprite_ext(spr_battlemsg, 2, x + 30, y, 2 - stretch, stretch + kill, 0, c_lime, 1 - kill);
+			draw_sprite_ext(message_sprite, 2, x + 30, y, 2 - stretch, stretch + kill, 0, c_lime, 1 - kill);
 		
 		if (message == 4)
-			draw_sprite_ext(spr_battlemsg, 3, x + 30, y, 2 - stretch, stretch + kill, 0, c_lime, 1 - kill);
+			draw_sprite_ext(message_sprite, 3, x + 30, y, 2 - stretch, stretch + kill, 0, c_lime, 1 - kill);
+		
+		if (message == 5)
+			draw_sprite_ext(message_sprite, 5, x + 30, y, 2 - stretch, stretch + kill, 0, c_lime, 1 - kill);
+		
+		if (message == 6)
+			draw_sprite_ext(message_sprite, 8, x + 30, y, 2 - stretch, stretch + kill, 0, c_white, 1 - kill);
+		
+		if (message == 7)
+			draw_sprite_ext(message_sprite, 9, x + 30, y, 2 - stretch, stretch + kill, 0, c_white, 1 - kill);
+		
+		if (message == 8)
+			draw_sprite_ext(message_sprite, 10, x + 30, y, 2 - stretch, stretch + kill, 0, c_white, 1 - kill);
+		
+		if (message == 9)
+			draw_sprite_ext(message_sprite, 11, x + 30, y, 2 - stretch, stretch + kill, 0, c_white, 1 - kill);
 	}
 	
 	if (bounces < 2)
@@ -109,4 +149,11 @@ if (delaytimer >= delay) {
 	
 	if (kill > 1)
 		instance_destroy();
+}
+
+if (global.fighting == 1) {
+	if (stayincamera == 1) {
+		if (x >= (xx + 600))
+			x = xx + 600;
+	}
 }

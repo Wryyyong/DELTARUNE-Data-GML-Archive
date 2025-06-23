@@ -1,7 +1,10 @@
+if (global.encounterno == 92)
+	funny = 1;
+
 if (active == 1) {
 	spelltimer += 1;
 	
-	if (spelltimer >= global.spelldelay && instance_exists(spellwriter) == 0) {
+	if (spelltimer >= global.spelldelay && i_ex(spellwriter) == 0) {
 		if (char >= 3 || spelltotal == 1) {
 			scr_attackphase();
 			

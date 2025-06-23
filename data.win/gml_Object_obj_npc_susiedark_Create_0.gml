@@ -11,7 +11,7 @@ image_xscale = 2;
 image_yscale = 2;
 scr_depth();
 
-if (global.plot >= 30) {
+if (global.plot >= 30 || global.chapter != 1) {
 	instance_destroy();
 } else {
 	s = instance_create(450, 950, obj_soliddark);

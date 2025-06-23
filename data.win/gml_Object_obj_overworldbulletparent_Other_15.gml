@@ -15,4 +15,6 @@ if (active == 1) {
 	
 	with (obj_mainchara)
 		alarm[1] = 7;
+	
+	hit = 1;
 }

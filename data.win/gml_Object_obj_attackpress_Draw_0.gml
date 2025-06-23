@@ -23,12 +23,15 @@ if (maxdelaytimer >= maxdelay)
 
 if (active == 1) {
 	for (i = 0; i < 3; i += 1) {
-		draw_set_color(bcolor);
-		
-		if (i == 1 || i == 2)
-			draw_rectangle(x, y + (38 * i), x + 300, y + (38 * i) + 2, false);
+		if (havechar[0] == 1 || havechar[1] == 1 || havechar[2] == 1) {
+			draw_set_color(bcolor);
+			
+			if (i == 1 || i == 2)
+				draw_rectangle(x + 77, y + (38 * i), x + 300, y + (38 * i) + 1, false);
+		}
 		
 		if (global.char[i] != 0 && global.charauto[global.char[i]] == 0 && havechar[i] == 1) {
+			draw_set_color(bcolor);
 			j = global.char[i];
 			fullbox = 0;
 			
@@ -53,8 +56,15 @@ if (active == 1) {
 					draw_set_color(merge_color(c_green, c_white, pressbuffer[3] / 5));
 			}
 			
-			draw_rectangle(x + 78, y + (38 * i), x + 80 + (15 * boltspeed), y + (38 * i) + 36, true);
-			draw_rectangle(x + 79, y + (38 * i) + 1, (x + 80 + (15 * boltspeed)) - 1, y + (38 * i) + 35, true);
+			if (j == 4) {
+				draw_set_color(c_yellow);
+				
+				if (pressbuffer[2] > 0)
+					draw_set_color(merge_color(c_yellow, c_white, pressbuffer[2] / 5));
+			}
+			
+			draw_rectangle(x + 78, y + (38 * i) + 1, x + 80 + (15 * boltspeed), y + (38 * i) + 36, true);
+			draw_rectangle(x + 79, y + (38 * i) + 2, (x + 80 + (15 * boltspeed)) - 1, y + (38 * i) + 35, true);
 			draw_sprite(spr_pressfront, j - 1, x, y + (38 * i));
 			
 			if (global.flag[13] == 0)
@@ -71,7 +81,7 @@ if (active == 1) {
 	boltcount[1] = 0;
 	boltcount[2] = 0;
 	
-	if (method == 1) {
+	if (my_method == 1) {
 		for (i = 0; i < bolttotal; i += 1) {
 			offset = boltchar[i];
 			
@@ -117,7 +127,7 @@ if (active == 1) {
 			if (button3_p() && havechar[2] == 1)
 				scr_boltcheck(2);
 		} else if (button1_p()) {
-			scr_boltcheck_onebutton(0);
+			scr_boltcheck_onebutton();
 		}
 	} else {
 		fakefade = 1;
@@ -182,11 +192,12 @@ if (active == 1) {
 			if (scr_monsterpop() == 0)
 				techwon = 1;
 			
+			if (techwon == 1)
+				scr_wincombat();
+			
 			if (techwon == 0) {
 				global.mnfight = 1;
 				global.myfight = -1;
-			} else {
-				scr_wincombat();
 			}
 		}
 	}
@@ -195,7 +206,7 @@ if (active == 1) {
 		fadeamt += 0.08;
 		draw_set_color(c_black);
 		draw_set_alpha(fadeamt);
-		draw_rectangle(x - 1, y - 1, x + 640, y + 300, false);
+		draw_rectangle(x - 1, y, x + 640, y + 300, false);
 		draw_set_alpha(1);
 		
 		if (fade == 1) {

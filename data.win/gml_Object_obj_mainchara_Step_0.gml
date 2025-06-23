@@ -15,17 +15,55 @@ bky = 0;
 bkxy = 0;
 jelly = 2;
 
+if (!roomenterfreezeend) {
+	if (global.interact == 3) {
+		if (global.flag[21] > 0) {
+			global.flag[21]--;
+		} else {
+			roomenterfreezeend = 1;
+			global.interact = 0;
+			global.flag[21] = -10;
+		}
+	}
+}
+
 if (global.interact == 0) {
 	if (button3_p() && threebuffer < 0) {
-		if (global.flag[7] == 0 && battlemode == 0) {
-			with (obj_overworldc)
+		if (global.flag[7] == 0 && battlemode == 0 && swordmode == 0) {
+			with (obj_darkcontroller)
+				threebuffer = 2;
+			
+			with (obj_overworldc) {
 				movenoise = 1;
+				threebuffer = 2;
+			}
 			
 			global.menuno = 0;
 			global.interact = 5;
 			threebuffer = 2;
 			twobuffer = 2;
 		}
+	}
+}
+
+if (swordcon == 1) {
+	swordtimer++;
+	
+	if (swordtimer >= 15) {
+		with (slashmarker)
+			instance_destroy();
+		
+		swordcon = 0;
+		swordsprite = rsprite;
+		fun = 0;
+		
+		if (global.interact == 4)
+			global.interact = 0;
+		
+		swordtimer = 0;
+		image_speed = 0;
+		image_index = 0;
+		image_alpha = 1;
 	}
 }
 
@@ -147,6 +185,42 @@ if (global.interact == 0) {
 		
 		if (press_r == 0 && pressdir != -1)
 			global.facing = pressdir;
+	}
+	
+	if (press_r == 1)
+		swordfacing = 1;
+	
+	if (press_l == 1)
+		swordfacing = -1;
+	
+	if (swordmode == 1) {
+		if (button1_p() && swordcon == 0 && global.interact == 0) {
+			global.interact = 4;
+			swordsprite = rsprite;
+			slashmarker = scr_dark_marker(x, y, rsprite);
+			slashmarker.depth = depth;
+			slashmarker.image_speed = 1;
+			
+			if (swordfacing == -1) {
+				slashmarker.x += sprite_width;
+				slashmarker.image_xscale = -image_xscale;
+			}
+			
+			image_alpha = 0;
+			fun = 1;
+			snd_play(snd_laz_c);
+			image_index = 0;
+			image_speed = 0.5;
+			swordtimer = 0;
+			swordcon = 1;
+			press_l = 0;
+			press_r = 0;
+			press_u = 0;
+			press_d = 0;
+			swordhitbox = instance_create(slashmarker.x, slashmarker.y, obj_swordhitbox);
+			swordhitbox.image_xscale = slashmarker.image_xscale;
+			swordhitbox.image_yscale = image_yscale;
+		}
 	}
 	
 	nopress = 0;
@@ -298,6 +372,7 @@ if (global.interact == 0) {
 		if (abs(px) > 0 || abs(py) > 0) {
 			runmove = 1;
 			runtimer += 1;
+			runcounter += 1;
 		} else {
 			runtimer = 0;
 		}
@@ -309,56 +384,58 @@ if (global.interact == 0) {
 	y += py;
 }
 
-walk = 0;
-
-if (x != nowx && nopress == 0)
-	walk = 1;
-
-if (y != nowy && nopress == 0)
-	walk = 1;
-
-if (walk == 1)
-	walkbuffer = 6;
-
-if (walkbuffer > 3 && fun == 0) {
-	walktimer += 1.5;
+if (fun == 0) {
+	walk = 0;
 	
-	if (runmove == 1)
+	if (x != nowx && nopress == 0)
+		walk = 1;
+	
+	if (y != nowy && nopress == 0)
+		walk = 1;
+	
+	if (walk == 1)
+		walkbuffer = 6;
+	
+	if (walkbuffer > 3 && fun == 0) {
 		walktimer += 1.5;
+		
+		if (runmove == 1)
+			walktimer += 1.5;
+		
+		if (walktimer >= 40)
+			walktimer -= 40;
+		
+		if (walktimer < 10)
+			image_index = 0;
+		
+		if (walktimer >= 10)
+			image_index = 1;
+		
+		if (walktimer >= 20)
+			image_index = 2;
+		
+		if (walktimer >= 30)
+			image_index = 3;
+	}
 	
-	if (walktimer >= 40)
-		walktimer -= 40;
-	
-	if (walktimer < 10)
+	if (walkbuffer <= 0 && fun == 0) {
+		if (walktimer < 10)
+			walktimer = 9.5;
+		
+		if (walktimer >= 10 && walktimer < 20)
+			walktimer = 19.5;
+		
+		if (walktimer >= 20 && walktimer < 30)
+			walktimer = 29.5;
+		
+		if (walktimer >= 30)
+			walktimer = 39.5;
+		
 		image_index = 0;
+	}
 	
-	if (walktimer >= 10)
-		image_index = 1;
-	
-	if (walktimer >= 20)
-		image_index = 2;
-	
-	if (walktimer >= 30)
-		image_index = 3;
+	walkbuffer -= 0.75;
 }
-
-if (walkbuffer <= 0 && fun == 0) {
-	if (walktimer < 10)
-		walktimer = 9.5;
-	
-	if (walktimer >= 10 && walktimer < 20)
-		walktimer = 19.5;
-	
-	if (walktimer >= 20 && walktimer < 30)
-		walktimer = 29.5;
-	
-	if (walktimer >= 30)
-		walktimer = 39.5;
-	
-	image_index = 0;
-}
-
-walkbuffer -= 0.75;
 
 if (fun == 0) {
 	if (global.facing == 0)
@@ -374,7 +451,7 @@ if (fun == 0) {
 		sprite_index = lsprite;
 }
 
-if (stepping == 1) {
+if (stepping == 1 && fun == 0) {
 	if (image_index == 1 && stepped == 0) {
 		if (global.flag[31] == 0)
 			snd_play(snd_step1);
@@ -527,159 +604,41 @@ if (battlemode == 1) {
 }
 
 if (scr_debug()) {
-	if (keyboard_check_pressed(ord("P")))
-		room_speed = 60;
-	
-	if (keyboard_check_pressed(ord("O")))
-		room_speed = 3;
-	
-	if (keyboard_check(ord("3")) && keyboard_check(ord("D"))) {
-		global.char[0] = 1;
-		global.char[1] = 0;
-		global.char[2] = 0;
-		global.interact = 0;
-		global.darkzone = 1;
-		room_goto(room_dark1);
-	}
-	
-	if (keyboard_check(ord("4")) && keyboard_check(ord("D"))) {
-		global.char[0] = 1;
-		global.char[1] = 3;
-		global.char[2] = 2;
-		global.interact = 0;
-		global.darkzone = 1;
-		room_goto(room_field_checkers5);
-	}
-	
-	if (keyboard_check(ord("5")) && keyboard_check(ord("D"))) {
-		global.char[0] = 1;
-		global.char[1] = 0;
-		global.char[2] = 0;
-		global.interact = 0;
-		global.darkzone = 1;
-		room_goto(room_castle_tutorial);
-	}
-	
-	if (keyboard_check(ord("6")) && keyboard_check(ord("D"))) {
-		global.char[0] = 1;
-		global.char[1] = 3;
-		global.char[2] = 0;
-		global.interact = 0;
-		global.darkzone = 1;
-		room_goto(room_field1);
-	}
-	
-	if (keyboard_check(ord("7")) && keyboard_check(ord("D"))) {
-		global.char[0] = 1;
-		global.char[1] = 3;
-		global.char[2] = 0;
-		global.interact = 0;
-		global.darkzone = 1;
-		room_goto(room_forest_area3);
-	}
-	
-	if (keyboard_check(ord("8")) && keyboard_check(ord("D"))) {
-		global.char[0] = 1;
-		global.char[1] = 3;
-		global.char[2] = 0;
-		global.interact = 0;
-		global.darkzone = 1;
-		room_goto(room_forest_fightsusie);
-	}
-	
-	if (keyboard_check(ord("9")) && keyboard_check(ord("D"))) {
-		global.char[0] = 2;
-		global.char[1] = 0;
-		global.char[2] = 0;
-		global.interact = 0;
-		global.darkzone = 1;
-		global.plot = 154;
-		room_goto(room_cc_prison_cells);
-	}
-	
-	if (keyboard_check(ord("6")) && keyboard_check(ord("J"))) {
-		global.char[0] = 1;
-		global.char[1] = 3;
-		global.char[2] = 0;
-		global.interact = 0;
-		global.darkzone = 1;
-		global.charauto[2] = 0;
-		room_goto(room_battletest);
-	}
-	
-	if (keyboard_check(ord("7")) && keyboard_check(ord("J"))) {
-		global.char[0] = 1;
-		global.char[1] = 2;
-		global.char[2] = 3;
-		global.interact = 0;
-		global.darkzone = 1;
-		global.charauto[2] = 0;
-		room_goto(room_battletest);
-	}
-	
-	if (keyboard_check(ord("8")) && keyboard_check(ord("J"))) {
-		global.char[0] = 1;
-		global.char[1] = 2;
-		global.char[2] = 3;
-		global.interact = 0;
-		global.darkzone = 1;
-		global.charauto[2] = 0;
-		global.plot = 165;
-		scr_keyitemget(5);
-		global.tempflag[4] = 1;
-		
-		repeat (13)
-			scr_weaponget(5);
-		
-		room_goto(room_cc_prison_prejoker);
-	}
-	
-	if (keyboard_check(ord("9")) && keyboard_check(ord("J"))) {
-		global.char[0] = 1;
-		global.char[1] = 2;
-		global.char[2] = 3;
-		global.interact = 0;
-		global.darkzone = 1;
-		global.charauto[2] = 0;
-		global.flag[248] = 0;
-		room_goto(room_cc_kingbattle);
-	}
-	
-	if (keyboard_check(ord("2")) && keyboard_check(ord("W"))) {
-		global.interact = 0;
-		global.darkzone = 0;
-		room_goto(room_town_krisyard);
-	}
-	
-	if (keyboard_check(ord("3")) && keyboard_check(ord("W"))) {
-		global.interact = 0;
-		global.darkzone = 0;
-		room_goto(room_schooldoor);
-	}
-	
-	if (keyboard_check(ord("4")) && keyboard_check(ord("W"))) {
-		global.interact = 0;
-		global.darkzone = 0;
-		room_goto(room_school_unusedroom);
-	}
-	
-	if (keyboard_check(ord("5")) && keyboard_check(ord("W"))) {
-		global.interact = 0;
-		global.darkzone = 0;
-		global.plot = 251;
-		room_goto(room_town_school);
-	}
-	
-	if (keyboard_check(ord("6")) && keyboard_check(ord("W"))) {
-		global.interact = 0;
-		global.darkzone = 0;
-		global.plot = 251;
-		room_goto(room_town_north);
-	}
-	
 	if (keyboard_check_pressed(vk_insert))
 		room_goto_next();
 	
 	if (keyboard_check_pressed(vk_delete))
 		room_goto_previous();
+	
+	if (keyboard_check_pressed(vk_home)) {
+		if (keyboard_check(ord("1"))) {
+			room_goto(room_dw_cyber_intro_1);
+			global.darkzone = 1;
+		}
+		
+		if (keyboard_check(ord("2"))) {
+			room_goto(room_krisroom);
+			global.plot = 0;
+			global.darkzone = 0;
+		}
+		
+		if (keyboard_check(ord("3"))) {
+			room_goto(room_dw_castle_area_1);
+			global.plot = 7;
+			global.darkzone = 1;
+		}
+		
+		if (keyboard_check(ord("7")))
+			room_goto(room_legend_neo);
+		
+		if (keyboard_check(ord("8"))) {
+			room_goto(room_battletest);
+			global.darkzone = 1;
+		}
+		
+		if (keyboard_check(ord("9"))) {
+			room_goto(room_bullettest);
+			global.darkzone = 1;
+		}
+	}
 }

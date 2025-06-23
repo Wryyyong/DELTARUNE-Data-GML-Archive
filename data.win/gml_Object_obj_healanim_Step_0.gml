@@ -1,6 +1,6 @@
 t += 1;
 
-if (instance_exists(target)) {
+if (i_ex(target)) {
 	if (t == 1) {
 		x = target.x;
 		y = target.y;
@@ -27,11 +27,32 @@ if (instance_exists(target)) {
 		
 		with (target)
 			scr_oflash();
+		
+		if (global.chapter == 2 && target.object_index == obj_kk_enemy) {
+			with (obj_oflash) {
+				x += 18;
+				y += 18;
+			}
+		}
+		
+		if (global.chapter == 2 && target.object_index == o_boxingcontroller) {
+			obj_oflash.image_xscale = -2;
+			_oflash = instance_create(x, y, obj_oflash);
+			_oflash.image_speed = 0;
+			_oflash.image_index = o_boxingcontroller.image_index;
+			_oflash.image_xscale = -2;
+			_oflash.image_yscale = 2;
+			_oflash.sprite_index = o_boxingcontroller.headsprite;
+			_oflash.depth = depth - 1;
+		}
 	}
 	
 	if (t >= 1 && t <= 5) {
 		for (i = 0; i < 2; i += 1) {
-			star[starcount] = instance_create(x + random(sw), y + random(sh), obj_marker);
+			if (global.chapter == 2 && target.object_index == o_boxingcontroller)
+				star[starcount] = instance_create((x - (sw / 2)) + random(sw), y - random(sh), obj_marker);
+			else
+				star[starcount] = instance_create(x + random(sw), y + random(sh), obj_marker);
 			
 			with (star[starcount]) {
 				image_angle = random(360);

@@ -1,6 +1,6 @@
 scr_depth();
-alarm[2] = 2;
 global.currentroom = room;
+scr_initialize_charnames();
 autorun = 0;
 bg = 0;
 
@@ -9,12 +9,20 @@ if (instance_exists(obj_backgrounderparent))
 
 stepping = 0;
 stepped = 0;
+drawbattlemode = 1;
 battlemode = 0;
 battleheart = instance_create(x, y, obj_overworldheart);
 battleheart.image_alpha = 0;
 battleheart.image_speed = 0;
 battlealpha = 0;
 becamebattle = 0;
+sliding = 0;
+becamesword = 0;
+swordmode = 0;
+swordcon = 0;
+swordtimer = 0;
+stop_movement = 0;
+roomenterfreezeend = 0;
 darkmode = global.darkzone;
 
 if (darkmode == 1) {
@@ -41,6 +49,7 @@ if (darkmode == 1) {
 
 run = 0;
 runtimer = 0;
+runcounter = 0;
 subxspeed = 0;
 subyspeed = 0;
 subx = 0;
@@ -61,6 +70,8 @@ if (global.darkzone == 1) {
 	usprite = spr_krisu_dark;
 }
 
+swordfacing = 1;
+swordsprite = rsprite;
 fun = 0;
 
 if (global.facing == 0)
@@ -83,73 +94,140 @@ global.menuno = 0;
 for (i = 0; i < 10; i += 1)
 	global.menucoord[i] = 0;
 
+cameFromEntrance = global.entrance;
+
 if (global.interact == 3) {
+	noentrancefound = 0;
+	
 	if (global.entrance > 0) {
-		global.interact = 0;
-		
-		if (global.entrance == 1) {
-			x = obj_markerA.x;
-			y = obj_markerA.y;
+		if (global.flag[21] <= 0) {
+			global.interact = 0;
+			global.flag[21] = -10;
+			roomenterfreezeend = 1;
 		}
 		
-		if (global.entrance == 2) {
-			x = obj_markerB.x;
-			y = obj_markerB.y;
+		switch (global.entrance) {
+			case 1:
+				if (i_ex(obj_markerA))
+					setxy(obj_markerA.x, obj_markerA.y);
+				else
+					noentrancefound = 1;
+				
+				break;
+			
+			case 2:
+				if (i_ex(obj_markerB))
+					setxy(obj_markerB.x, obj_markerB.y);
+				else
+					noentrancefound = 1;
+				
+				break;
+			
+			case 3:
+				if (i_ex(obj_markerC))
+					setxy(obj_markerC.x, obj_markerC.y);
+				else
+					noentrancefound = 1;
+				
+				break;
+			
+			case 4:
+				if (i_ex(obj_markerD))
+					setxy(obj_markerD.x, obj_markerD.y);
+				else
+					noentrancefound = 1;
+				
+				break;
+			
+			case 5:
+				if (i_ex(obj_markerE))
+					setxy(obj_markerE.x, obj_markerE.y);
+				else
+					noentrancefound = 1;
+				
+				break;
+			
+			case 6:
+				if (i_ex(obj_markerF))
+					setxy(obj_markerF.x, obj_markerF.y);
+				else
+					noentrancefound = 1;
+				
+				break;
+			
+			case 18:
+				if (i_ex(obj_markerr))
+					setxy(obj_markerr.x, obj_markerr.y);
+				else
+					noentrancefound = 1;
+				
+				break;
+			
+			case 19:
+				if (i_ex(obj_markers))
+					setxy(obj_markers.x, obj_markers.y);
+				else
+					noentrancefound = 1;
+				
+				break;
+			
+			case 20:
+				if (i_ex(obj_markert))
+					setxy(obj_markert.x, obj_markert.y);
+				else
+					noentrancefound = 1;
+				
+				break;
+			
+			case 21:
+				if (i_ex(obj_markeru))
+					setxy(obj_markeru.x, obj_markeru.y);
+				else
+					noentrancefound = 1;
+				
+				break;
+			
+			case 22:
+				if (i_ex(obj_markerv))
+					setxy(obj_markerv.x, obj_markerv.y);
+				else
+					noentrancefound = 1;
+				
+				break;
+			
+			case 23:
+				if (i_ex(obj_markerw))
+					setxy(obj_markerw.x, obj_markerw.y);
+				else
+					noentrancefound = 1;
+				
+				break;
+			
+			case 24:
+				if (i_ex(obj_markerX))
+					setxy(obj_markerX.x, obj_markerX.y);
+				else
+					noentrancefound = 1;
+				
+				break;
+			
+			default:
+				noentrancefound = 1;
 		}
 		
-		if (global.entrance == 4) {
-			x = obj_markerC.x;
-			y = obj_markerC.y;
-		}
-		
-		if (global.entrance == 5) {
-			x = obj_markerD.x;
-			y = obj_markerD.y;
-		}
-		
-		if (global.entrance == 6) {
-			x = obj_markerE.x;
-			y = obj_markerE.y;
-		}
-		
-		if (global.entrance == 7) {
-			x = obj_markerF.x;
-			y = obj_markerF.y;
-		}
-		
-		if (global.entrance == 18) {
-			x = obj_markerr.x;
-			y = obj_markerr.y;
-		}
-		
-		if (global.entrance == 19) {
-			x = obj_markers.x;
-			y = obj_markers.y;
-		}
-		
-		if (global.entrance == 20) {
-			x = obj_markert.x;
-			y = obj_markert.y;
-		}
-		
-		if (global.entrance == 21) {
-			x = obj_markeru.x;
-			y = obj_markeru.y;
-		}
-		
-		if (global.entrance == 22) {
-			x = obj_markerv.x;
-			y = obj_markerv.y;
-		}
-		
-		if (global.entrance == 23) {
-			x = obj_markerw.x;
-			y = obj_markerw.y;
-		}
-		
-		if (global.entrance == 24) {
-			x = obj_markerX.x;
-			y = obj_markerX.y;
+		if (noentrancefound == 1) {
+			if (i_ex(obj_markerAny)) {
+				with (obj_markerAny) {
+					if (image_index == global.entrance) {
+						other.x = x;
+						other.y = y;
+					}
+				}
+			} else {
+				setxy(room_width / 2, room_height / 2);
+				debug_message("entrance not found, setting to center of room");
+				debug_message("entrance requested was global.entrance=" + string(global.entrance));
+			}
 		}
 	}
 }
@@ -160,4 +238,9 @@ mywidth = sprite_width;
 myheight = sprite_height;
 
 for (i = 0; i < 3; i += 1)
-	global.battledf[i] = global.df[global.char[i]] + global.itemdf[global.char[i], 0] + global.itemdf[global.char[i], 1] + global.itemdf[global.char[i], 2];
+	global.battledf[i] = global.df[global.char[i]] + global.itemdf[global.char[i]][0] + global.itemdf[global.char[i]][1] + global.itemdf[global.char[i]][2];
+
+if (global.chapter == 2) {
+	if (global.flag[302] == 1)
+		instance_create(x, y, obj_kris_headobj);
+}

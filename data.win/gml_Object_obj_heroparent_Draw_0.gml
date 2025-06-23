@@ -56,6 +56,11 @@ if (global.hp[global.char[myself]] > 0) {
 				snd_pitch(ls, 0.9);
 			}
 			
+			if (object_index == obj_heronoelle) {
+				ls = snd_play(snd_laz_c);
+				snd_pitch(ls, 1.5);
+			}
+			
 			if (points == 150) {
 				snd_stop(snd_criticalswing);
 				snd_play(snd_criticalswing);
@@ -94,7 +99,7 @@ if (global.hp[global.char[myself]] > 0) {
 			alarm[4] = 15;
 		}
 		
-		if (attacktimer < spellframes)
+		if (attacktimer < spellframes && spellframes != 0)
 			image_index = attacktimer;
 		else
 			image_index = spellframes;
@@ -149,6 +154,13 @@ if (global.hp[global.char[myself]] > 0) {
 	if (state == 7) {
 		hurt = 0;
 		hurttimer = 0;
+		
+		if (_sideb == 1 && _victoried == 0) {
+			_victorysequence = instance_create(x, y, obj_noellevictory_example);
+			_victorysequence.depth = depth - 1;
+			_victoried = 1;
+			image_alpha = 0;
+		}
 		
 		if (victoryanim < victoryframes) {
 			thissprite = victorysprite;
@@ -223,7 +235,7 @@ if (becomeflash == 0)
 	flash = 0;
 
 if (global.targeted[myself] == 1) {
-	if (global.mnfight == 1)
+	if (global.mnfight == 1 && global.chapter == 1)
 		draw_sprite_ext(spr_chartarget, siner / 10, x, y, 2, 2, 0, c_white, 1);
 } else if (combatdarken == 1 && instance_exists(obj_darkener)) {
 	if (darkify == 1) {
@@ -242,3 +254,18 @@ if (darkify == 0) {
 }
 
 becomeflash = 0;
+
+if (poisonamount > 0) {
+	poisontimer++;
+	
+	if (poisontimer >= 10) {
+		if (global.hp[global.char[myself]] > 1) {
+			global.hp[global.char[myself]]--;
+			poisonamount--;
+		} else {
+			poisonamount = 0;
+		}
+		
+		poisontimer = 0;
+	}
+}

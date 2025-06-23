@@ -1,10 +1,16 @@
-if (rate > 2)
+if (rate > 2) {
 	alarm[1] = 1;
-else if (first_alarm == 1 && pos >= 2)
-	scr_textsound();
+} else {
+	sound_timer--;
+	
+	if (first_alarm == 1 && pos >= 2 && sound_timer <= 0)
+		scr_textsound();
+}
 
 if (pos <= length)
 	alarm[0] = rate;
+else
+	reachedend = 1;
 
 if (first_alarm == 0) {
 	getchar = string_char_at(mystring, 1);
@@ -19,7 +25,12 @@ if (first_alarm == 0) {
 	getchar = string_char_at(mystring, pos);
 	nextchar = string_char_at(mystring, pos + 1);
 	
-	if (getchar == "&")
+	if (getchar == "`") {
+		pos += 2;
+		exit;
+	}
+	
+	if (getchar == "&" || getchar == "\n")
 		pos += 1;
 	
 	if (getchar == "\\")

@@ -1,3 +1,23 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 if (lcon == 1) {
 	orx = x;
 	ory = y;
@@ -78,7 +98,7 @@ if (lcon == 5) {
 	
 	image_angle = -ang;
 	
-	if (x < (__view_get(0, 0) + 80))
+	if (x < (__view_get(e__VW.XView, 0) + 80))
 		lcon = 6;
 }
 
@@ -88,18 +108,18 @@ if (lcon == 6) {
 	
 	image_angle = -ang;
 	
-	if (x <= (__view_get(0, 0) + 5)) {
+	if (x <= (__view_get(e__VW.XView, 0) + 5)) {
 		lcon = 7;
 		direction = 90;
 	}
 }
 
 if (lcon == 7) {
-	if (y < (__view_get(1, 0) + 80)) {
+	if (y < (__view_get(e__VW.YView, 0) + 80)) {
 		if (ang < 225)
 			ang += 10;
 		
-		if (y <= (__view_get(1, 0) + 5)) {
+		if (y <= (__view_get(e__VW.YView, 0) + 5)) {
 			direction = 0;
 			lcon = 8;
 		}
@@ -111,11 +131,11 @@ if (lcon == 7) {
 }
 
 if (lcon == 8) {
-	if (x >= (__view_get(0, 0) + 540)) {
+	if (x >= (__view_get(e__VW.XView, 0) + 540)) {
 		if (ang < 315)
 			ang += 10;
 		
-		if (x >= (__view_get(0, 0) + 630)) {
+		if (x >= (__view_get(e__VW.XView, 0) + 630)) {
 			direction = 270;
 			lcon = 9;
 		}
@@ -183,7 +203,7 @@ if (racecon == 1) {
 		sy = s.y;
 		s_moveup = 1;
 	} else if (instance_exists(obj_susieenemy)) {
-		s = 281;
+		s = obj_susieenemy;
 		sy = s.y;
 		s_moveup = 1;
 	}
@@ -256,10 +276,10 @@ if (racecon == 4) {
 	
 	image_angle = -ang;
 	
-	if (x <= (__view_get(0, 0) - 40)) {
+	if (x <= (__view_get(e__VW.XView, 0) - 40)) {
 		ang = 0;
 		image_angle = 0;
-		x = __view_get(0, 0) + 740;
+		x = __view_get(e__VW.XView, 0) + 740;
 		y = ory;
 		hspeed = -12;
 		racecon = 5;

@@ -19,5 +19,10 @@ with (obj_mainchara)
 
 fin = instance_create(0, 0, obj_fadein);
 
-with (fin)
-	fadespeed = -0.01;
+if (global.chapter == 1) {
+	with (fin)
+		fadespeed = -0.01;
+} else {
+	with (fin)
+		fadespeed = -0.005;
+}

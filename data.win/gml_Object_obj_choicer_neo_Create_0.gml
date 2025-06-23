@@ -1,29 +1,57 @@
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
 alarm[1] = 3;
 canchoose = 0;
 dar = global.darkzone + 1;
 global.flag[33] = 0;
+fighting = 0;
+
+if (global.fighting == 1 && instance_exists(obj_battlecontroller))
+	fighting = 1;
+
 image_xscale = dar;
 image_yscale = dar;
 remfc = global.fc;
 global.fc = 0;
-xx = __view_get(0, view_current);
-yy = __view_get(1, view_current);
+xx = __view_get(e__VW.XView, view_current);
+yy = __view_get(e__VW.YView, view_current);
 d = -1;
 
 if (instance_exists(obj_dialoguer))
 	d = obj_dialoguer.side;
 
+if (fighting == 1)
+	d = 1;
+
 d_add = 0;
 
 if (d == -1) {
-	if (obj_mainchara.y <= (__view_get(1, view_current) + (130 * dar)))
+	if (obj_mainchara.y <= (__view_get(e__VW.YView, view_current) + (130 * dar)))
 		d_add = 155;
 } else if (d != 0) {
 	d_add = 155;
 }
 
 chx = (140 * dar) + xx;
-chy = ((36 + d_add) * dar) + yy;
+chy = ((36 + d_add) * dar) + yy + (fighting * 30);
 hx = chx;
 hy = chy;
 mychoice = -1;
@@ -38,4 +66,3 @@ textposx[2] = 0;
 textposy[2] = 0;
 textposx[3] = 0;
 textposy[3] = 0;
-candraw = 0;

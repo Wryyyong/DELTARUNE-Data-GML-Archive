@@ -19,7 +19,7 @@ if (con == 10) {
 	
 	if (x >= (obj_heroralsei.x - 10)) {
 		if (collided == 0) {
-			global.msg[0] = scr_84_get_lang_string("obj_ralseithrown_slash_Step_0_gml_23_0");
+			global.msg[0] = stringsetloc("* Missed!/%", "obj_ralseithrown_slash_Step_0_gml_23_0");
 			scr_battletext_default();
 		}
 		

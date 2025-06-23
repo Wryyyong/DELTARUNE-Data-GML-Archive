@@ -1,5 +1,25 @@
-xx = __view_get(0, 0);
-yy = __view_get(1, 0);
+enum e__VW {
+	XView,
+	YView,
+	WView,
+	HView,
+	Angle,
+	HBorder,
+	VBorder,
+	HSpeed,
+	VSpeed,
+	Object,
+	Visible,
+	XPort,
+	YPort,
+	WPort,
+	HPort,
+	Camera,
+	SurfaceID
+}
+
+xx = __view_get(e__VW.XView, 0);
+yy = __view_get(e__VW.YView, 0);
 
 if (global.interact == 5) {
 	charcon = 1;
@@ -12,6 +32,8 @@ if (global.interact == 5) {
 		global.faceaction[global.charselect] = 7;
 		
 		if (left_p()) {
+			movenoise = 1;
+			
 			if (global.submenucoord[global.submenu] > 0)
 				global.submenucoord[global.submenu] -= 1;
 			else
@@ -19,20 +41,24 @@ if (global.interact == 5) {
 		}
 		
 		if (right_p()) {
+			movenoise = 1;
+			
 			if (global.submenucoord[global.submenu] < (chartotal - 1))
 				global.submenucoord[global.submenu] += 1;
 			else
 				global.submenucoord[global.submenu] = 0;
 		}
 		
-		if (button1_p() && onebuffer < 0) {
+		if (button1_p() && onebuffer < 0 && twobuffer < 0) {
 			onebuffer = 2;
 			
 			if (global.submenu == 5) {
 				scr_itemuse(global.item[global.submenucoord[2]]);
 				
-				if (usable == 1)
+				if (usable == 1 && replaceable == 0)
 					scr_itemshift(global.submenucoord[2], 0);
+				else if (replaceable > 0)
+					global.item[global.submenucoord[2]] = replaceable;
 				
 				scr_itemdesc();
 				global.submenu = 2;
@@ -41,22 +67,23 @@ if (global.interact == 5) {
 			}
 			
 			if (global.submenu == 22) {
-				scr_spell_overworld(global.spell[global.char[global.submenucoord[20]], global.submenucoord[21]]);
-				global.tension -= global.spellcost[global.char[global.submenucoord[20]], global.submenucoord[21]];
+				scr_spell_overworld(global.spell[global.char[global.submenucoord[20]]][global.submenucoord[21]]);
+				global.tension -= global.spellcost[global.char[global.submenucoord[20]]][global.submenucoord[21]];
 			}
 		}
 		
 		close = 0;
 		
-		if (button2_p() && twobuffer < 0)
+		if (button2_p() && twobuffer < 0 && onebuffer < 0)
 			close = 1;
 		
 		if (global.submenu == 22) {
-			if (global.spellcost[global.char[global.submenucoord[20]], global.submenucoord[21]] > global.tension)
+			if (global.spellcost[global.char[global.submenucoord[20]]][global.submenucoord[21]] > global.tension)
 				close = 1;
 		}
 		
 		if (close == 1) {
+			cancelnoise = 1;
 			global.faceaction[global.charselect] = 0;
 			global.charselect = -1;
 			twobuffer = 2;
@@ -82,8 +109,10 @@ if (global.interact == 5) {
 			global.faceaction[2] = 0;
 			scr_itemuse(global.item[global.submenucoord[2]]);
 			
-			if (usable == 1)
+			if (usable == 1 && replaceable == 0)
 				scr_itemshift(global.submenucoord[2], 0);
+			else if (replaceable > 0)
+				global.item[global.submenucoord[2]] = replaceable;
 			
 			scr_itemdesc();
 			global.charselect = -1;
@@ -100,6 +129,7 @@ if (global.interact == 5) {
 			scr_itemdesc();
 			global.charselect = -1;
 			global.submenu = 3;
+			snd_play(snd_heavyswing);
 			
 			if (throwitem == 4) {
 				if (global.char[2] == 3 || global.char[1] == 3) {
@@ -108,30 +138,30 @@ if (global.interact == 5) {
 					global.fc = 2;
 					global.typer = 31;
 					global.fe = 9;
-					global.msg[0] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_129_0");
+					global.msg[0] = stringsetloc("* .../%", "obj_darkcontroller_slash_Step_0_gml_135_0");
 					
 					if (global.flag[207] == 1) {
 						global.fc = 0;
 						global.typer = 6;
-						global.msg[0] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_135_0");
+						global.msg[0] = stringsetloc("* (You tossed the Manual hard.^1)&* (Its pages scatter in the wind.)/", "obj_darkcontroller_slash_Step_0_gml_141_0");
 						scr_ralface(1, 9);
-						global.msg[2] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_137_0");
-						global.msg[3] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_138_0");
-						global.msg[4] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_139_0");
+						global.msg[2] = stringsetloc("* ............../", "obj_darkcontroller_slash_Step_0_gml_143_0");
+						global.msg[3] = stringsetloc("\\E5* Umm..^1.&* Th-that's OK^1, Kris^1!&* I can always.../", "obj_darkcontroller_slash_Step_0_gml_144_0");
+						global.msg[4] = stringsetloc("\\E6* I'll just make a better one next time!/%", "obj_darkcontroller_slash_Step_0_gml_145_0");
 						global.flag[207] = 2;
 					}
 					
 					if (global.flag[207] == 0) {
 						global.fc = 0;
 						global.typer = 6;
-						global.msg[0] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_147_0");
+						global.msg[0] = stringsetloc("* (You drop the manual on the floor with a resounding thud.)/", "obj_darkcontroller_slash_Step_0_gml_153_0");
 						scr_ralface(1, 0);
-						global.msg[2] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_149_0");
-						global.msg[3] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_150_0");
-						global.msg[4] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_151_0");
-						global.msg[5] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_152_0");
+						global.msg[2] = stringsetloc("* Hey^1, Kris^1.&* What are you doing...?/", "obj_darkcontroller_slash_Step_0_gml_155_0");
+						global.msg[3] = stringsetloc("\\E3* Oh no^1!&* Is that the manual?/", "obj_darkcontroller_slash_Step_0_gml_156_0");
+						global.msg[4] = stringsetloc("\\E1* Looks like you accidentallly dropped it.../", "obj_darkcontroller_slash_Step_0_gml_157_0");
+						global.msg[5] = stringsetloc("\\E8* Here you go^1, Kris^1!&* You don't wanna lose that!/", "obj_darkcontroller_slash_Step_0_gml_158_0");
 						scr_noface(6);
-						global.msg[7] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_154_0");
+						global.msg[7] = stringsetloc("* (You got the Manual.^1)&* (Again.)/%", "obj_darkcontroller_slash_Step_0_gml_160_0");
 						scr_itemget(4);
 						global.flag[207] = 1;
 					}
@@ -156,6 +186,7 @@ if (global.interact == 5) {
 		}
 		
 		if (button2_p() && twobuffer < 0) {
+			cancelnoise = 1;
 			twobuffer = 2;
 			global.faceaction[0] = 0;
 			global.faceaction[1] = 0;
@@ -180,6 +211,7 @@ if (global.interact == 5) {
 			m_quit = 0;
 			
 			if (up_p()) {
+				movenoise = 1;
 				global.submenucoord[30] -= 1;
 				
 				if (global.submenucoord[30] < 0)
@@ -187,6 +219,7 @@ if (global.interact == 5) {
 			}
 			
 			if (down_p()) {
+				movenoise = 1;
 				global.submenucoord[30] += 1;
 				
 				if (global.submenucoord[30] > 6)
@@ -217,27 +250,54 @@ if (global.interact == 5) {
 						global.flag[8] = 0;
 				}
 				
-				if (global.submenucoord[30] == 3) {
-					with (obj_time)
-						fullscreen_toggle = 1;
+				if (global.is_console) {
+					if (global.submenucoord[30] == 3) {
+						if (global.flag[11] == 0)
+							global.flag[11] = 1;
+						else
+							global.flag[11] = 0;
+					}
+					
+					if (global.submenucoord[30] == 4) {
+						if (global.disable_border) {
+							selectnoise = 0;
+						} else {
+							global.submenu = 36;
+							check_border = 1;
+							border_select = 0;
+						}
+					}
+					
+					if (global.submenucoord[30] == 5)
+						global.submenu = 34;
+					
+					if (global.submenucoord[30] == 6)
+						m_quit = 1;
+				} else {
+					if (global.submenucoord[30] == 3) {
+						with (obj_time)
+							fullscreen_toggle = 1;
+					}
+					
+					if (global.submenucoord[30] == 4) {
+						if (global.flag[11] == 0)
+							global.flag[11] = 1;
+						else
+							global.flag[11] = 0;
+					}
+					
+					if (global.submenucoord[30] == 5)
+						global.submenu = 34;
+					
+					if (global.submenucoord[30] == 6)
+						m_quit = 1;
 				}
-				
-				if (global.submenucoord[30] == 4) {
-					if (global.flag[11] == 0)
-						global.flag[11] = 1;
-					else
-						global.flag[11] = 0;
-				}
-				
-				if (global.submenucoord[30] == 5)
-					global.submenu = 34;
-				
-				if (global.submenucoord[30] == 6)
-					m_quit = 1;
 			}
 			
-			if (button2_p() && twobuffer < 0)
+			if (button2_p() && twobuffer < 0) {
 				m_quit = 1;
+				cancelnoise = 1;
+			}
 			
 			if (m_quit == 1) {
 				onebuffer = 2;
@@ -332,22 +392,33 @@ if (global.interact == 5) {
 		}
 		
 		if (global.submenu == 34) {
-			if (keyboard_check_pressed(vk_escape))
-				game_end();
+			global.submenucoord[34]++;
 			
-			if (button2_p() && twobuffer < 0) {
-				onebuffer = 2;
-				twobuffer = 2;
-				global.submenu = 30;
+			if (global.submenucoord[34] == 1) {
+				global.chapter_return = 2;
+				snd_free_all();
+				var lastfade = instance_create(camerax(), cameray(), obj_fadeout);
+				lastfade.fadespeed = 0.05;
+				lastfade.x = camerax() - 20;
+				lastfade.y = cameray() - 20;
+				lastfade.image_xscale *= 3;
+				lastfade.image_yscale *= 2;
+				lastfade.depth = -900000;
 			}
+			
+			if (global.submenucoord[34] >= 50)
+				game_restart_true();
 		}
 		
 		if (global.submenu == 35) {
 			control_select_timer = 0;
 			control_flash_timer -= 1;
 			controls_quitmenu = 0;
-			gamepad_exists = obj_time.gamepad_active;
-			gamepad_id = 0;
+			
+			if (!global.is_console) {
+				gamepad_exists = obj_gamecontroller.gamepad_active;
+				gamepad_id = 0;
+			}
 			
 			if (control_select_con == 1) {
 				gamepad_accept = -1;
@@ -355,124 +426,128 @@ if (global.interact == 5) {
 				key_accept = -1;
 				new_key = -1;
 				
-				if (keyboard_check_pressed(vk_anykey)) {
-					for (i = 48; i <= 90; i += 1) {
-						if (keyboard_check_pressed(i)) {
-							new_key = i;
+				if (!global.is_console) {
+					if (keyboard_check_pressed(vk_anykey)) {
+						for (var i = 48; i <= 90; i += 1) {
+							if (keyboard_check_pressed(i)) {
+								new_key = i;
+								control_select_con = 2;
+							}
+						}
+						
+						if (keyboard_check_pressed(59)) {
+							new_key = 59;
 							control_select_con = 2;
 						}
-					}
-					
-					if (keyboard_check_pressed(59)) {
-						new_key = 59;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(vk_printscreen)) {
-						new_key = 44;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(vk_delete)) {
-						new_key = 46;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(47)) {
-						new_key = 47;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(92)) {
-						new_key = 92;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(93)) {
-						new_key = 93;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(91)) {
-						new_key = 91;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(vk_numpad0)) {
-						new_key = 96;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(vk_insert)) {
-						new_key = 45;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(61)) {
-						new_key = 61;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(vk_left)) {
-						new_key = 37;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(vk_right)) {
-						new_key = 39;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(vk_up)) {
-						new_key = 38;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(vk_down)) {
-						new_key = 40;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(vk_enter)) {
-						new_key = 13;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(vk_shift)) {
-						new_key = 16;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(vk_control)) {
-						new_key = 17;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(vk_backspace)) {
-						new_key = 8;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(vk_alt)) {
-						new_key = 18;
-						control_select_con = 2;
-					}
-					
-					if (keyboard_check_pressed(vk_escape)) {
-						new_key = -1;
-						control_select_con = 0;
+						
+						if (keyboard_check_pressed(vk_printscreen)) {
+							new_key = 44;
+							control_select_con = 2;
+						}
+						
+						if (keyboard_check_pressed(vk_delete)) {
+							new_key = 46;
+							control_select_con = 2;
+						}
+						
+						if (keyboard_check_pressed(47)) {
+							new_key = 47;
+							control_select_con = 2;
+						}
+						
+						if (keyboard_check_pressed(92)) {
+							new_key = 92;
+							control_select_con = 2;
+						}
+						
+						if (keyboard_check_pressed(93)) {
+							new_key = 93;
+							control_select_con = 2;
+						}
+						
+						if (keyboard_check_pressed(91)) {
+							new_key = 91;
+							control_select_con = 2;
+						}
+						
+						if (keyboard_check_pressed(vk_numpad0)) {
+							new_key = 96;
+							control_select_con = 2;
+						}
+						
+						if (keyboard_check_pressed(vk_insert)) {
+							new_key = 45;
+							control_select_con = 2;
+						}
+						
+						if (keyboard_check_pressed(61)) {
+							new_key = 61;
+							control_select_con = 2;
+						}
+						
+						if (keyboard_check_pressed(vk_left)) {
+							new_key = 37;
+							control_select_con = 2;
+						}
+						
+						if (keyboard_check_pressed(vk_right)) {
+							new_key = 39;
+							control_select_con = 2;
+						}
+						
+						if (keyboard_check_pressed(vk_up)) {
+							new_key = 38;
+							control_select_con = 2;
+						}
+						
+						if (keyboard_check_pressed(vk_down)) {
+							new_key = 40;
+							control_select_con = 2;
+						}
+						
+						if (keyboard_check_pressed(vk_backspace)) {
+							new_key = 8;
+							control_select_con = 2;
+						}
+						
+						if (keyboard_check_pressed(vk_alt)) {
+							new_key = 18;
+							control_select_con = 2;
+						}
+						
+						if (os_type == os_windows) {
+							if (string(keyboard_key) == "91" || string(keyboard_key) == "92") {
+								new_key = -1;
+								control_select_con = 0;
+							}
+						}
+						
+						if (keyboard_check_pressed(vk_enter)) {
+							new_key = -1;
+							control_select_con = 0;
+						}
+						
+						if (keyboard_check_pressed(vk_shift)) {
+							new_key = -1;
+							control_select_con = 0;
+						}
+						
+						if (keyboard_check_pressed(vk_control)) {
+							new_key = -1;
+							control_select_con = 0;
+						}
+						
+						if (keyboard_check_pressed(vk_escape)) {
+							new_key = -1;
+							control_select_con = 0;
+						}
 					}
 				}
 				
-				if (gamepad_exists == 1 && control_select_con == 1) {
-					gpc = gamepad_button_count(gamepad_id);
-					
-					if (gpc >= 40)
-						gpc = 40;
-					
-					for (i = 0; i <= gpc; i += 1) {
-						if (gamepad_button_check_pressed(gamepad_id, i)) {
-							new_gamepad_key = i;
+				if (obj_gamecontroller.gamepad_active && control_select_con == 1) {
+					for (var i = 0; i < array_length_1d(gamepad_controls); i++) {
+						if (gamepad_button_check_pressed(obj_gamecontroller.gamepad_id, gamepad_controls[i])) {
+							new_gamepad_key = gamepad_controls[i];
 							control_select_con = 2;
 						}
 					}
@@ -514,6 +589,7 @@ if (global.interact == 5) {
 				}
 				
 				if (button1_p() && controls_quitmenu == 0 && onebuffer < 2) {
+					cancelnoise = 1;
 					onebuffer = 2;
 					twobuffer = 2;
 					
@@ -526,7 +602,7 @@ if (global.interact == 5) {
 				if (new_key != -1) {
 					dupe = -1;
 					
-					for (i = 0; i < 7; i += 1) {
+					for (var i = 0; i < 7; i += 1) {
 						if (global.input_k[i] == new_key)
 							dupe = i;
 					}
@@ -539,7 +615,7 @@ if (global.interact == 5) {
 					shiftcancel = -1;
 					ctrlcancel = -1;
 					
-					for (i = 0; i < 7; i += 1) {
+					for (var i = 0; i < 7; i += 1) {
 						if (global.input_k[i] == vk_enter) {
 							global.input_k[7] = -1;
 							entercancel = 1;
@@ -567,7 +643,10 @@ if (global.interact == 5) {
 				} else {
 					dupe = -1;
 					
-					for (i = 0; i < 7; i += 1) {
+					if (new_gamepad_key == gp_shoulderlb)
+						obj_gamecontroller.gamepad_shoulderlb_reassign = 1;
+					
+					for (var i = 0; i < 7; i += 1) {
 						if (global.input_g[i] == new_gamepad_key)
 							dupe = i;
 					}
@@ -576,6 +655,12 @@ if (global.interact == 5) {
 						global.input_g[dupe] = global.input_g[global.submenucoord[35]];
 					
 					global.input_g[global.submenucoord[35]] = new_gamepad_key;
+					
+					if (global.is_console) {
+						global.button0 = global.input_g[4];
+						global.button1 = global.input_g[5];
+						global.button2 = global.input_g[6];
+					}
 				}
 				
 				upbuffer = 2;
@@ -587,20 +672,68 @@ if (global.interact == 5) {
 			}
 			
 			if (controls_quitmenu == 1) {
+				selectnoise = 1;
 				onebuffer = 2;
 				twobuffer = 2;
-				ini_open("config_" + string(global.filechoice) + ".ini");
+				ossafe_ini_open("config_" + string(global.filechoice) + ".ini");
 				
-				for (i = 0; i < 10; i += 1)
+				for (var i = 0; i < 10; i += 1)
 					ini_write_real("KEYBOARD_CONTROLS", string(i), global.input_k[i]);
 				
-				for (i = 0; i < 10; i += 1)
+				for (var i = 0; i < 10; i += 1)
 					ini_write_real("GAMEPAD_CONTROLS", string(i), global.input_g[i]);
 				
-				ini_close();
+				ini_write_real("SHOULDERLB_REASSIGN", "SHOULDERLB_REASSIGN", obj_gamecontroller.gamepad_shoulderlb_reassign);
+				ossafe_ini_close();
+				ossafe_savedata_save();
 				controls_quitmenu = 0;
 				control_select_con = 0;
 				global.submenucoord[35] = 0;
+				global.submenu = 30;
+			}
+		}
+		
+		if (global.is_console && global.submenu == 36) {
+			if (right_p()) {
+				if (selected_border < (array_length_1d(border_options) - 1)) {
+					selected_border++;
+					check_border = 1;
+				}
+			}
+			
+			if (left_p()) {
+				if (selected_border > 0) {
+					selected_border--;
+					check_border = 1;
+				}
+			}
+			
+			if (check_border == 1) {
+				var _border = border_options[selected_border];
+				
+				if (_border == border_options[2])
+					scr_enable_screen_border(0);
+				else
+					scr_enable_screen_border(1);
+				
+				global.screen_border_id = border_options[selected_border];
+				check_border = 0;
+			}
+			
+			if (button1_p() && onebuffer < 0)
+				border_select = 1;
+			
+			if (button2_p() && twobuffer < 0)
+				border_select = 1;
+			
+			if (border_select == 1) {
+				onebuffer = 2;
+				twobuffer = 2;
+				ossafe_ini_open("config_" + string(global.filechoice) + ".ini");
+				ini_write_string("BORDER", "TYPE", global.screen_border_id);
+				ossafe_ini_close();
+				ossafe_savedata_save();
+				control_select_con = 0;
 				global.submenu = 30;
 			}
 		}
@@ -611,20 +744,24 @@ if (global.interact == 5) {
 			charcoord = global.char[global.submenucoord[20]];
 			
 			if (up_p()) {
-				if (global.submenucoord[21] > 0)
+				if (global.submenucoord[21] > 0) {
 					global.submenucoord[21] -= 1;
+					movenoise = 1;
+				}
 			}
 			
 			if (down_p()) {
 				if (global.submenucoord[21] < 5) {
-					if (global.spell[charcoord, global.submenucoord[21] + 1] != 0)
+					if (global.spell[charcoord][global.submenucoord[21] + 1] != 0) {
 						global.submenucoord[21] += 1;
+						movenoise = 1;
+					}
 				}
 			}
 			
 			if (button1_p() && onebuffer < 0) {
-				if (global.spellusable[charcoord, global.submenucoord[21]] == 1 && global.tension >= global.spellcost[charcoord, global.submenucoord[21]]) {
-					if (global.spelltarget[charcoord, global.submenucoord[21]] == 1) {
+				if (global.spellusable[charcoord][global.submenucoord[21]] == 1 && global.tension >= global.spellcost[charcoord][global.submenucoord[21]]) {
+					if (global.spelltarget[charcoord][global.submenucoord[21]] == 1) {
 						global.submenu = 22;
 						onebuffer = 2;
 						twobuffer = 2;
@@ -634,6 +771,7 @@ if (global.interact == 5) {
 			}
 			
 			if (button2_p() && twobuffer < 0) {
+				cancelnoise = 1;
 				deschaver = 0;
 				onebuffer = 2;
 				twobuffer = 2;
@@ -644,6 +782,7 @@ if (global.interact == 5) {
 		
 		if (global.submenu == 20) {
 			if (left_p()) {
+				movenoise = 1;
 				global.submenucoord[20] -= 1;
 				
 				if (global.submenucoord[20] < 0)
@@ -654,6 +793,7 @@ if (global.interact == 5) {
 			}
 			
 			if (right_p()) {
+				movenoise = 1;
 				global.submenucoord[20] += 1;
 				
 				if (global.submenucoord[20] > (chartotal - 1))
@@ -664,12 +804,14 @@ if (global.interact == 5) {
 			}
 			
 			if (button1_p() && onebuffer < 0) {
+				selectnoise = 1;
 				deschaver = 1;
 				global.submenu = 21;
 				onebuffer = 2;
 			}
 			
 			if (button2_p() && twobuffer < 0) {
+				cancelnoise = 1;
 				twobuffer = 2;
 				global.menuno = 0;
 				global.submenu = 0;
@@ -684,41 +826,55 @@ if (global.interact == 5) {
 				sm = global.submenucoord[2];
 				
 				if (sm == 0 || sm == 2 || sm == 4 || sm == 6 || sm == 8 || sm == 10) {
-					if (global.item[global.submenucoord[2] + 1] != 0)
+					if (global.item[global.submenucoord[2] + 1] != 0) {
 						global.submenucoord[2] += 1;
+						movenoise = 1;
+					}
 				}
 				
-				if (sm == 1 || sm == 3 || sm == 5 || sm == 7 || sm == 9 || sm == 11)
+				if (sm == 1 || sm == 3 || sm == 5 || sm == 7 || sm == 9 || sm == 11) {
 					global.submenucoord[2] -= 1;
+					movenoise = 1;
+				}
 			}
 			
 			if (down_p()) {
 				sm = global.submenucoord[2];
 				
 				if (sm == 0 || sm == 2 || sm == 4 || sm == 6 || sm == 8) {
-					if (global.item[global.submenucoord[2] + 2] != 0)
+					if (global.item[global.submenucoord[2] + 2] != 0) {
 						global.submenucoord[2] += 2;
+						movenoise = 1;
+					}
 				}
 				
 				if (sm == 1 || sm == 3 || sm == 5 || sm == 7 || sm == 9) {
-					if (global.item[global.submenucoord[2] + 2] != 0)
+					if (global.item[global.submenucoord[2] + 2] != 0) {
 						global.submenucoord[2] += 2;
-					else if (global.item[global.submenucoord[2] + 1] != 0)
+						movenoise = 1;
+					} else if (global.item[global.submenucoord[2] + 1] != 0) {
 						global.submenucoord[2] += 1;
+						movenoise = 1;
+					}
 				}
 			}
 			
 			if (up_p()) {
 				sm = global.submenucoord[2];
 				
-				if (sm == 2 || sm == 4 || sm == 6 || sm == 8 || sm == 10)
+				if (sm == 2 || sm == 4 || sm == 6 || sm == 8 || sm == 10) {
 					global.submenucoord[2] -= 2;
+					movenoise = 1;
+				}
 				
-				if (sm == 3 || sm == 5 || sm == 7 || sm == 9 || sm == 11)
+				if (sm == 3 || sm == 5 || sm == 7 || sm == 9 || sm == 11) {
 					global.submenucoord[2] -= 2;
+					movenoise = 1;
+				}
 			}
 			
 			if (button2_p() && twobuffer < 0) {
+				cancelnoise = 1;
 				twobuffer = 2;
 				deschaver = 0;
 				global.submenu = 1;
@@ -730,38 +886,51 @@ if (global.interact == 5) {
 				sm = global.submenucoord[4];
 				
 				if (sm == 0 || sm == 2 || sm == 4 || sm == 6 || sm == 8 || sm == 10) {
-					if (global.keyitem[global.submenucoord[4] + 1] != 0)
+					if (global.keyitem[global.submenucoord[4] + 1] != 0) {
 						global.submenucoord[4] += 1;
+						movenoise = 1;
+					}
 				}
 				
-				if (sm == 1 || sm == 3 || sm == 5 || sm == 7 || sm == 9 || sm == 11)
+				if (sm == 1 || sm == 3 || sm == 5 || sm == 7 || sm == 9 || sm == 11) {
+					movenoise = 1;
 					global.submenucoord[4] -= 1;
+				}
 			}
 			
 			if (down_p()) {
 				sm = global.submenucoord[4];
 				
 				if (sm == 0 || sm == 2 || sm == 4 || sm == 6 || sm == 8) {
-					if (global.keyitem[global.submenucoord[4] + 2] != 0)
+					if (global.keyitem[global.submenucoord[4] + 2] != 0) {
+						movenoise = 1;
 						global.submenucoord[4] += 2;
+					}
 				}
 				
 				if (sm == 1 || sm == 3 || sm == 5 || sm == 7 || sm == 9) {
-					if (global.keyitem[global.submenucoord[4] + 2] != 0)
+					if (global.keyitem[global.submenucoord[4] + 2] != 0) {
 						global.submenucoord[4] += 2;
-					else if (global.keyitem[global.submenucoord[4] + 1] != 0)
+						movenoise = 1;
+					} else if (global.keyitem[global.submenucoord[4] + 1] != 0) {
+						movenoise = 1;
 						global.submenucoord[4] += 1;
+					}
 				}
 			}
 			
 			if (up_p()) {
 				sm = global.submenucoord[4];
 				
-				if (sm == 2 || sm == 4 || sm == 6 || sm == 8 || sm == 10)
+				if (sm == 2 || sm == 4 || sm == 6 || sm == 8 || sm == 10) {
 					global.submenucoord[4] -= 2;
+					movenoise = 1;
+				}
 				
-				if (sm == 3 || sm == 5 || sm == 7 || sm == 9 || sm == 11)
+				if (sm == 3 || sm == 5 || sm == 7 || sm == 9 || sm == 11) {
 					global.submenucoord[4] -= 2;
+					movenoise = 1;
+				}
 			}
 			
 			if (button1_p() && onebuffer < 0) {
@@ -777,6 +946,12 @@ if (global.interact == 5) {
 			}
 			
 			if (button2_p() && twobuffer < 0) {
+				if (global.chapter == 2) {
+					with (obj_lancergotchi)
+						instance_destroy();
+				}
+				
+				cancelnoise = 1;
 				twobuffer = 2;
 				deschaver = 0;
 				global.submenu = 1;
@@ -785,6 +960,7 @@ if (global.interact == 5) {
 		
 		if (global.submenu == 3) {
 			if (button1_p() && onebuffer < 0) {
+				selectnoise = 1;
 				onebuffer = 3;
 				global.submenu = 7;
 			}
@@ -803,12 +979,14 @@ if (global.interact == 5) {
 		}
 		
 		if (global.submenu == 2) {
-			if (button1_p() && onebuffer < 0) {
+			if (button1_p() && onebuffer < 0 && twobuffer < 0) {
 				onebuffer = 3;
 				scr_iteminfo(global.item[global.submenucoord[2]]);
 				
-				if (itemtarget == 1)
+				if (itemtarget == 1) {
+					selectnoise = 1;
 					global.submenu = 5;
+				}
 				
 				if (itemtarget == 2)
 					global.submenu = 6;
@@ -851,8 +1029,17 @@ if (global.interact == 5) {
 			if (button1_p()) {
 				global.submenu = global.submenucoord[1] + 2;
 				
-				if (global.submenu == 4)
+				if (global.submenu == 4) {
+					selectnoise = 1;
 					deschaver = 1;
+					
+					if (global.chapter == 2) {
+						if (scr_keyitemcheck(8)) {
+							if (!instance_exists(obj_lancergotchi))
+								instance_create(x, y, obj_lancergotchi);
+						}
+					}
+				}
 				
 				if (global.submenu == 2 || global.submenu == 3) {
 					deschaver = 1;
@@ -861,11 +1048,14 @@ if (global.interact == 5) {
 					if (global.item[0] == 0) {
 						global.submenu = 1;
 						deschaver = 0;
+					} else {
+						selectnoise = 1;
 					}
 				}
 			}
 			
-			if (button2_p() && twobuffer < 0) {
+			if (button2_p() && onebuffer < 0 && twobuffer < 0) {
+				cancelnoise = 1;
 				twobuffer = 2;
 				global.menuno = 0;
 				global.submenu = 0;
@@ -889,17 +1079,23 @@ if (global.interact == 5) {
 				}
 				
 				if (_up_pressed == 1) {
-					if (global.submenucoord[global.submenu] > 0)
+					if (global.submenucoord[global.submenu] > 0) {
 						global.submenucoord[global.submenu] -= 1;
+						movenoise = 1;
+					}
 					
 					if (global.submenu == 12) {
-						if (global.submenucoord[global.submenu] < pagemax[0])
+						if (global.submenucoord[global.submenu] < pagemax[0]) {
 							pagemax[0] -= 1;
+							movenoise = 1;
+						}
 					}
 					
 					if (global.submenu == 13 || global.submenu == 14) {
-						if (global.submenucoord[global.submenu] < pagemax[1])
+						if (global.submenucoord[global.submenu] < pagemax[1]) {
+							movenoise = 1;
 							pagemax[1] -= 1;
+						}
 					}
 				}
 			} else {
@@ -919,7 +1115,11 @@ if (global.interact == 5) {
 					hold_down = 6;
 				}
 				
-				if (global.submenucoord[global.submenu] < 11 && _down_pressed == 1) {
+				var __equipmenumax = 47;
+				
+				if (global.submenucoord[global.submenu] < __equipmenumax && _down_pressed == 1) {
+					movenoise = 1;
+					
 					if (global.submenu == 12)
 						nextone = global.weapon[global.submenucoord[global.submenu + 1]];
 					
@@ -929,13 +1129,17 @@ if (global.interact == 5) {
 					global.submenucoord[global.submenu] += 1;
 					
 					if (global.submenu == 12) {
-						if (global.submenucoord[global.submenu] > (pagemax[0] + 5) && pagemax[0] < 6)
+						if (global.submenucoord[global.submenu] > (pagemax[0] + 5) && pagemax[0] < __equipmenumax) {
 							pagemax[0] += 1;
+							movenoise = 1;
+						}
 					}
 					
 					if (global.submenu == 13 || global.submenu == 14) {
-						if (global.submenucoord[global.submenu] > (pagemax[1] + 5) && pagemax[1] < 6)
+						if (global.submenucoord[global.submenu] > (pagemax[1] + 5) && pagemax[1] < __equipmenumax) {
 							pagemax[1] += 1;
+							movenoise = 1;
+						}
 					}
 				}
 			} else {
@@ -957,6 +1161,9 @@ if (global.interact == 5) {
 					if (wwho == 3)
 						wmsg = wmessage3temp;
 					
+					if (wwho == 4)
+						wmsg = wmessage4temp;
+					
 					if (wwho == 1 && weaponchar1temp == 1)
 						canequip = 1;
 					
@@ -964,6 +1171,9 @@ if (global.interact == 5) {
 						canequip = 1;
 					
 					if (wwho == 3 && weaponchar3temp == 1)
+						canequip = 1;
+					
+					if (wwho == 4 && weaponchar4temp == 1)
 						canequip = 1;
 				}
 				
@@ -976,6 +1186,9 @@ if (global.interact == 5) {
 					if (wwho == 3)
 						wmsg = amessage3temp;
 					
+					if (wwho == 4)
+						wmsg = amessage4temp;
+					
 					if (wwho == 1 && armorchar1temp == 1)
 						canequip = 1;
 					
@@ -983,6 +1196,9 @@ if (global.interact == 5) {
 						canequip = 1;
 					
 					if (wwho == 3 && armorchar3temp == 1)
+						canequip = 1;
+					
+					if (wwho == 4 && armorchar4temp == 1)
 						canequip = 1;
 				}
 				
@@ -1032,6 +1248,7 @@ if (global.interact == 5) {
 			}
 			
 			if (button2_p() && twobuffer < 0) {
+				cancelnoise = 1;
 				hold_up = 0;
 				hold_down = 0;
 				twobuffer = 2;
@@ -1042,6 +1259,7 @@ if (global.interact == 5) {
 		
 		if (global.submenu == 11) {
 			if (up_p()) {
+				movenoise = 1;
 				global.submenucoord[11] -= 1;
 				
 				if (global.submenucoord[11] == -1)
@@ -1049,6 +1267,7 @@ if (global.interact == 5) {
 			}
 			
 			if (down_p()) {
+				movenoise = 1;
 				global.submenucoord[11] += 1;
 				
 				if (global.submenucoord[11] == 3)
@@ -1056,12 +1275,14 @@ if (global.interact == 5) {
 			}
 			
 			if (button1_p() && onebuffer < 0) {
+				selectnoise = 1;
 				onebuffer = 2;
 				global.submenu = 12 + global.submenucoord[11];
 				scr_dmenu_armor_selection_match();
 			}
 			
 			if (button2_p() && twobuffer < 0) {
+				cancelnoise = 1;
 				deschaver = 0;
 				twobuffer = 2;
 				global.submenu = 10;
@@ -1070,6 +1291,7 @@ if (global.interact == 5) {
 		
 		if (global.submenu == 10) {
 			if (left_p()) {
+				movenoise = 1;
 				global.submenucoord[10] -= 1;
 				
 				if (global.submenucoord[10] < 0)
@@ -1077,6 +1299,7 @@ if (global.interact == 5) {
 			}
 			
 			if (right_p()) {
+				movenoise = 1;
 				global.submenucoord[10] += 1;
 				
 				if (global.submenucoord[10] > (chartotal - 1))
@@ -1086,6 +1309,7 @@ if (global.interact == 5) {
 			global.charselect = global.submenucoord[10];
 			
 			if (button1_p() && onebuffer < 0) {
+				selectnoise = 1;
 				deschaver = 1;
 				global.submenucoord[11] = 0;
 				global.submenu = 11;
@@ -1093,6 +1317,7 @@ if (global.interact == 5) {
 			}
 			
 			if (button2_p() && twobuffer < 0) {
+				cancelnoise = 1;
 				twobuffer = 2;
 				global.menuno = 0;
 				global.submenu = 0;
@@ -1132,7 +1357,8 @@ if (global.interact == 5) {
 			}
 		}
 		
-		if (button1_p() && onebuffer < 0) {
+		if (button1_p() && onebuffer < 0 && twobuffer < 0) {
+			selectnoise = 1;
 			onebuffer = 2;
 			global.menuno = global.menucoord[0] + 1;
 			
@@ -1261,6 +1487,11 @@ if (selectnoise == 1) {
 	selectnoise = 0;
 }
 
+if (cancelnoise == 1) {
+	snd_play(snd_smallswing);
+	cancelnoise = 0;
+}
+
 onebuffer -= 1;
 twobuffer -= 1;
 threebuffer -= 1;
@@ -1274,6 +1505,12 @@ if (scr_debug()) {
 	if (keyboard_check_pressed(ord("L")))
 		scr_load();
 	
-	if (keyboard_check_pressed(ord("R")))
+	if (keyboard_check_pressed(ord("R")) && keyboard_check(vk_backspace))
 		game_restart_true();
+	
+	if (keyboard_check_pressed(ord("R")) && !keyboard_check(vk_backspace)) {
+		snd_free_all();
+		room_restart();
+		global.interact = 0;
+	}
 }

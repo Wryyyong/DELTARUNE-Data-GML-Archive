@@ -4,13 +4,8 @@ if (init == 0) {
 		
 		for (var j = 0; j < height; j++) {
 			var tile_y = j;
-			var is_animated = !(tile_x == 3 && tile_y == 2);
 			var new_screen = new scr_teevie_screen(new Vector2(tile_x, tile_y));
 			new_screen.init();
-			
-			if (!is_animated)
-				new_screen.disable_animation();
-			
 			_screen_list[array_length(_screen_list)] = new_screen;
 		}
 	}
@@ -166,22 +161,5 @@ for (var i = 0; i < array_length(_screen_list); i++) {
 			if (abs(screen.get_screen_timer()) >= 120)
 				screen.set_static();
 		}
-	}
-}
-
-if (treasure_sequence) {
-	treasure_timer++;
-	
-	if (global.interact == 0) {
-		global.interact = 1;
-		scr_shakescreen();
-		snd_play(snd_closet_impact);
-		show_treasure();
-	}
-	
-	if (treasure_timer >= 20) {
-		global.interact = 0;
-		treasure_sequence = false;
-		treasure_timer = 0;
 	}
 }

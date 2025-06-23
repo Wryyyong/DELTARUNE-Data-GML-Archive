@@ -72,7 +72,9 @@ if (active) {
 	
 	if (con == 2) {
 		con = -1;
-		grabdaddy.image_index = 1;
+		
+		with (grabdaddy)
+			image_index = 1;
 		
 		if (!infinite)
 			image_alpha = 0;
@@ -80,7 +82,15 @@ if (active) {
 		if (type == "coin") {
 			var movetime = 4;
 			var waittime = 6;
-			coin = instance_create(grabdaddy.x, grabdaddy.y, obj_board_marker);
+			var targx = x;
+			var targy = y;
+			
+			with (grabdaddy) {
+				targx = x;
+				targy = y;
+			}
+			
+			coin = instance_create(targx, targy, obj_board_marker);
 			
 			with (coin) {
 				scr_darksize();

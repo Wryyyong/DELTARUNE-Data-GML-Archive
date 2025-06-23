@@ -54,18 +54,30 @@ if (active == 1) {
 	}
 	
 	if (con == 2) {
-		if (i_ex(b)) {
-			if (i_ex(b.writer)) {
-				if (b.writer.reachedend == true) {
-					with (obj_actor_tenna)
-						bounce = 1;
-					
-					var tetalk = stringsetloc("What the ---", "obj_b2pippinsisland_slash_Step_0_gml_56_0");
-					scr_couchtalk(tetalk, "tenna", 2, 9999);
-					con = 3;
-					buff = 3;
-				}
+		var _trig = 0;
+		
+		with (obj_board_writer) {
+			with (writer) {
+				if (reachedend)
+					_trig = 1;
 			}
+		}
+		
+		if (!instance_exists(obj_writer)) {
+			failsafe++;
+			
+			if (failsafe >= 15)
+				_trig = 1;
+		}
+		
+		if (_trig) {
+			with (obj_actor_tenna)
+				bounce = 1;
+			
+			var tetalk = stringsetloc("What the ---", "obj_b2pippinsisland_slash_Step_0_gml_56_0");
+			scr_couchtalk(tetalk, "tenna", 2, 9999);
+			con = 3;
+			buff = 3;
 		}
 	}
 	

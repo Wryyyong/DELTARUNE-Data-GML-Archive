@@ -1,10 +1,14 @@
 if (con < 0)
 	exit;
 
-if (con == 1 && obj_mainchara.x < 16) {
+if (con == 1 && obj_mainchara.x < 18) {
 	con = 2;
 	global.interact = 1;
-	obj_mainchara.x += 8;
+	obj_mainchara.x = 18;
+	
+	with (obj_caterpillarchara)
+		scr_caterpillar_interpolate();
+	
 	scr_speaker("susie");
 	msgsetloc(0, "\\E0* (Tenna looks busy...)/%", "obj_room_interstitial_slash_Step_0_gml_15_0");
 	var d = d_make();

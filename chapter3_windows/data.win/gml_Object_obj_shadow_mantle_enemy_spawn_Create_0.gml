@@ -1,3 +1,6 @@
+if (!i_ex(obj_shadow_mantle_enemy))
+	exit;
+
 timer = 0;
 con = 0;
 move_type = 0;

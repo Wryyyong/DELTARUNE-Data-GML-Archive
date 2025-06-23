@@ -46,6 +46,8 @@ miss = 0;
 hurt_counter = 0;
 safety_timer = 0;
 safety_mode = false;
+muted = false;
+muted_time = 0;
 averagetimeunit = 0;
 safety_pos = 0;
 smooth_timer = 0;
@@ -293,6 +295,9 @@ miss_sound[1] = 222;
 
 emergency_reload = function() {
 	if (!i_ex(track1)) {
+		if (trackpos <= 0)
+			trackpos = 0.1;
+		
 		debug_print("Emergency reload called. Resuming from " + string(trackpos));
 		remtrackpos[0] = trackpos;
 		track1 = snd_init(track1_id);

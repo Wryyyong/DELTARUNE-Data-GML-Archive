@@ -1316,7 +1316,7 @@ if (blood_drip) {
 	
 	if (drip_marker.visible == 0) {
 		with (drip_marker)
-			setxy(camerax() + 201, cameray() + 113);
+			setxy(camerax() + 201 + 4, (cameray() + 113) - 10);
 		
 		drip_marker.visible = 1;
 	}

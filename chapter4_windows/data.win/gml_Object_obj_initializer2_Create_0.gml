@@ -57,13 +57,13 @@ global.savedata_async_id = -1;
 global.savedata_async_load = false;
 global.savedata_error = false;
 global.savedata_debuginfo = "";
-global.versionno = "v0.0.085";
+global.versionno = "v0.0.086";
 
 if (scr_is_switch_os())
 	global.versionno = "v0.0.086";
 
 if (os_type == os_ps4 || os_type == os_ps5)
-	global.versionno = "v0.0.085";
+	global.versionno = "v0.0.086";
 
 global.game_won = false;
 scr_input_manager_init();

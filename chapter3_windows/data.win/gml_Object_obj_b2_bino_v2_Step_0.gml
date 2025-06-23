@@ -55,8 +55,15 @@ if (active) {
 	if (con == 2.1) {
 		wondertalk = 1;
 		
-		if (i_ex(obj_writer)) {
+		if (instance_exists(obj_writer)) {
 			if (scr_msgno_end(0)) {
+				con = 2.2;
+				timer = 0;
+			}
+		} else {
+			wondertalkfailsafe++;
+			
+			if (wondertalkfailsafe >= 15) {
 				con = 2.2;
 				timer = 0;
 			}
@@ -101,7 +108,7 @@ if (active) {
 			
 			var endcon = 0;
 			
-			if (timer > 5 && (button3_h() || button1_p()))
+			if (timer > 5 && (button3_h() || button1_p() || !instance_exists(obj_couchwriter)))
 				endcon = 1;
 			
 			if (timer >= 92 || endcon == 1) {

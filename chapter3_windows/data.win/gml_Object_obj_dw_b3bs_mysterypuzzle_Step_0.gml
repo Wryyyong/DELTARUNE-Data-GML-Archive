@@ -102,24 +102,29 @@ if (con == 1) {
 		yend = yloc;
 		block = instance_create(xloc, 32, obj_pushableblock_board);
 		snd_play(snd_fall);
-		block.gravity = 0.5;
+		
+		with (block)
+			gravity = 0.5;
+		
 		timer = 0;
 		con++;
 	}
 }
 
 if (con == 2) {
-	if (block.y >= (yend - 8)) {
-		block.y = yend;
-		global.flag[1111] = 1;
-		global.flag[1109] = block.x;
-		global.flag[1110] = block.y;
-		snd_play_x(snd_noise, 0.5, 0.8);
-		block.vspeed = 0;
-		block.gravity = 0;
-		global.interact = 0;
-		con = 3;
-		update = false;
+	if (instance_exists(block)) {
+		if (block.y >= (yend - 8)) {
+			block.y = yend;
+			global.flag[1111] = 1;
+			global.flag[1109] = block.x;
+			global.flag[1110] = block.y;
+			snd_play_x(snd_noise, 0.5, 0.8);
+			block.vspeed = 0;
+			block.gravity = 0;
+			global.interact = 0;
+			con = 3;
+			update = false;
+		}
 	}
 }
 
@@ -171,65 +176,73 @@ if (con == 3) {
 		if (i_ex(obj_board_grabobject))
 			sucleanup = true;
 		
-		if ((block.x != 256 || block.y != 192) && block.x != 999999) {
-			if (sucleanup) {
-				with (obj_board_grabobject) {
-					if (i_ex(marker)) {
-						var markx = marker.x;
-						var marky = marker.y;
+		if (instance_exists(block)) {
+			if ((block.x != 256 || block.y != 192) && block.x != 999999) {
+				if (sucleanup) {
+					with (obj_board_grabobject) {
+						if (i_ex(marker)) {
+							var markx = marker.x;
+							var marky = marker.y;
+							
+							with (grabbedid)
+								setxy(markx, marky);
+						} else {
+							with (grabbedid)
+								setxy(other.x, other.y);
+						}
 						
-						with (grabbedid)
-							setxy(markx, marky);
-					} else {
-						with (grabbedid)
-							setxy(other.x, other.y);
-					}
-					
-					grabbedid.visible = true;
-					
-					with (marker)
+						grabbedid.visible = true;
+						
+						with (marker)
+							instance_destroy();
+						
+						if (i_ex(grabdaddy)) {
+							grabdaddy.grabbed = 0;
+							grabdaddy.grab = 0;
+							grabdaddy.canfreemove = 1;
+						}
+						
 						instance_destroy();
-					
-					if (i_ex(grabdaddy)) {
-						grabdaddy.grabbed = 0;
-						grabdaddy.grab = 0;
-						grabdaddy.canfreemove = 1;
 					}
-					
-					instance_destroy();
 				}
-			}
-			
-			var delaytime = round(point_distance(256, 192, block.x, block.y) / 8) + 1;
-			debug_print("delaytime=" + string(delaytime));
-			con = 3.1;
-			scr_delay_var("con", 3.2, delaytime);
-			global.interact = 1;
-			
-			with (block) {
-				scr_lerpvar("x", x, 256, delaytime, -1, "out");
-				scr_lerpvar("y", y, 192, delaytime, -1, "out");
-				con = 999;
-				scr_delay_var("con", 0, delaytime + 1);
+				
+				var delaytime = round(point_distance(256, 192, block.x, block.y) / 8) + 1;
+				debug_print("delaytime=" + string(delaytime));
+				con = 3.1;
+				scr_delay_var("con", 3.2, delaytime);
+				global.interact = 1;
+				
+				with (block) {
+					scr_lerpvar("x", x, 256, delaytime, -1, "out");
+					scr_lerpvar("y", y, 192, delaytime, -1, "out");
+					con = 999;
+					scr_delay_var("con", 0, delaytime + 1);
+				}
 			}
 		}
 	}
 	
 	if (update == false) {
-		if (i_ex(obj_board_grabobject))
+		if (instance_exists(obj_board_grabobject))
 			update = true;
 	}
 	
 	var doupdate = true;
 	
-	if (obj_pushableblock_board.con != 0)
-		doupdate = false;
+	with (obj_pushableblock_board) {
+		if (con != 0)
+			doupdate = false;
+	}
 	
 	if (update == true && global.interact == 0 && doupdate == true) {
-		if (!i_ex(obj_board_grabobject)) {
+		if (!instance_exists(obj_board_grabobject)) {
 			update = false;
-			global.flag[1109] = block.x;
-			global.flag[1110] = block.y;
+			
+			if (instance_exists(block)) {
+				global.flag[1109] = block.x;
+				global.flag[1110] = block.y;
+			}
+			
 			debug_message("block x/y=" + string(global.flag[1109]) + "|" + string(global.flag[1110]));
 		}
 	}
@@ -247,11 +260,24 @@ if (endcon == 1) {
 
 if (endcon == 2 && !d_ex()) {
 	endcon = 1;
-	obj_b3bs_console.swordinteract = 0;
+	
+	with (obj_b3bs_console)
+		swordinteract = 0;
+	
 	global.interact = 0;
 }
 
 if (global.flag[1111] == 2) {
 	for (var i = 0; i < 4; i++)
 		spike[i].image_index = 1;
+}
+
+if (global.flag[1055] >= 6) {
+	with (obj_pushableblock_board)
+		visible = false;
+	
+	with (obj_solidblocksized) {
+		if (x == 120 && y == 320)
+			x = room_width * 40;
+	}
 }

@@ -400,6 +400,12 @@ if (song_initialized == 1 || (trackpos < 0 && playtimer == 3)) {
 		}
 		
 		_truetrackpos = audio_sound_get_track_position(track1_main);
+		
+		if (muted && muted_time != _truetrackpos) {
+			muted = false;
+			debug_print("huh???");
+		}
+		
 		var _posdiff = _truetrackpos - trackpos;
 		
 		if (lose_con == 0 && !paused && _posdiff == 0 && trackpos < (track_length - 0.5)) {
@@ -408,10 +414,12 @@ if (song_initialized == 1 || (trackpos < 0 && playtimer == 3)) {
 			if (safety_timer >= 20) {
 				if (!safety_mode) {
 					safety_mode = 1;
+					muted = true;
+					muted_time = _truetrackpos;
 					debug_print("safety mode engaged");
 				}
 			}
-		} else if (!paused && abs(_posdiff) > 0.05 && abs(_posdiff) < 0.5 && lose_con == 0 && song_id != 4) {
+		} else if (!paused && abs(_posdiff) > 0.05 && abs(_posdiff) < 0.5 && lose_con == 0 && song_id != 4 && !muted) {
 			if (smooth_timer == 0) {
 				smooth_timer = 6;
 				safety_mode = true;
@@ -436,11 +444,11 @@ if (song_initialized == 1 || (trackpos < 0 && playtimer == 3)) {
 		}
 		
 		if (safety_mode && lose_con == 0) {
-			if (smooth_timer > 0) {
+			if (smooth_timer > 0 && !muted) {
 				safety_pos += (delta_time / 1000000);
 				trackpos = remap(6, 0, safety_pos, _truetrackpos, smooth_timer);
 			} else {
-				trackpos += (delta_time / 1000000);
+				trackpos += ((delta_time / 1000000) * pitch);
 			}
 			
 			if (loop && trackpos >= track_length)

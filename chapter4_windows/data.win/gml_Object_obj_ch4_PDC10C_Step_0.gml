@@ -148,7 +148,7 @@ if (con == 3 && !i_ex(obj_cutscene_master)) {
 
 if (heart_control) {
 	if (show_heart) {
-		var pressed_up = sunkus_kb_check_pressed(38) || (i_ex(obj_gamecontroller) && (gamepad_button_check_released(obj_gamecontroller.gamepad_id, gp_padu) || scr_gamepad_axis_check(obj_gamecontroller.gamepad_id, 2)));
+		var pressed_up = up_p();
 		
 		if (!pressed_up) {
 			heart_timer++;

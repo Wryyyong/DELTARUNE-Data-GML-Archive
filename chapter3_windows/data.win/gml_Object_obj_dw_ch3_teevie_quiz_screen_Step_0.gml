@@ -1,3 +1,5 @@
+event_inherited();
+
 if (shoot_sequence) {
 	shoot_sequence_timer++;
 	

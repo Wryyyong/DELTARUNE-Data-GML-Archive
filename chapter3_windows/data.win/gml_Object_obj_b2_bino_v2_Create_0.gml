@@ -5,6 +5,7 @@ sparkleanimindex = 0;
 myhealth = 3;
 hitbuff = 0;
 active = 0;
+wondertalkfailsafe = 0;
 mysolid = instance_create(x, y, obj_board_boatsolid);
 mysolid.sprite_index = sprite_index;
 myinteract = 0;

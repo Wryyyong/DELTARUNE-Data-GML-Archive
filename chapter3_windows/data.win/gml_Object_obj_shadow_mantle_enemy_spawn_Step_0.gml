@@ -1,3 +1,6 @@
+if (!i_ex(obj_shadow_mantle_enemy))
+	exit;
+
 if (global.shadow_mantle_losses == 0 && obj_shadow_mantle_enemy.speedrun >= 0 && obj_shadow_mantle_enemy.speedrun < 5) {
 	if (obj_shadow_mantle_enemy.speedrun == 0)
 		enemy = instance_create(256, 128, obj___);

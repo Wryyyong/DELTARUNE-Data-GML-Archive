@@ -8,7 +8,7 @@ block = 0;
 bxoff = -128;
 byoff = 32;
 
-if (global.flag[1111] > 0) {
+if (global.flag[1111] > 0 && global.flag[1055] < 6) {
 	block = instance_create(round((global.flag[1109] + bxoff) / 32) * 32, round((global.flag[1110] + byoff) / 32) * 32, obj_pushableblock_board);
 	
 	if (global.flag[1109] < 352)

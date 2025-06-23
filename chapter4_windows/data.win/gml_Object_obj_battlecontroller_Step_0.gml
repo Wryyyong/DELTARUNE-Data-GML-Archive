@@ -354,9 +354,6 @@ if (global.myfight == 0) {
 		
 		if (button1_p() && global.spell[thischar][global.bmenucoord[2][global.charturn]] != 0 && onebuffer < 0) {
 			if (global.spellcost[thischar][global.bmenucoord[2][global.charturn]] <= global.tension) {
-				show_message("here 1");
-				show_message(floor(floor((global.spellcost[thischar][global.bmenucoord[2][global.charturn]] / global.maxtension) * 100) * 2.5));
-				show_message(floor(floor((global.tension / global.maxtension) * 100) * 2.5));
 				onebuffer = 2;
 				global.bmenuno = 0;
 				selnoise = 1;

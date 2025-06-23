@@ -19,3 +19,4 @@ buff = 0;
 read = 0;
 boated = false;
 boattalk = 0;
+failsafe = 0;

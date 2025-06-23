@@ -7,7 +7,7 @@ finalY = 0;
 remFinalX = 0;
 remFinalY = 0;
 remCurrentView = 0;
-remTargetObject = 80;
+remTargetObject = 82;
 lerpProgress = 0;
 startLerpX = 0;
 startLerpY = 0;
@@ -34,10 +34,10 @@ for (i = 0; i < maxViews; i++) {
 	targetYRelative[i] = 0;
 	specialCamera[i] = 0;
 	specialCameraBorderMax[i] = 60 * (global.darkzone + 1);
-	ignoreTargetObjectX[i] = 0;
-	ignoreTargetObjectY[i] = 0;
-	ignoreX[i] = 0;
-	ignoreY[i] = 0;
+	ignoreTargetObjectX[i] = false;
+	ignoreTargetObjectY[i] = false;
+	ignoreX[i] = false;
+	ignoreY[i] = false;
 	panSpeedInit[i] = 16;
 	lerpTime[i] = 30;
 	lerpSmooth[i] = 1;
@@ -53,7 +53,7 @@ for (i = 0; i < maxViews; i++) {
 	ignoreFreezeArea[i] = -2;
 }
 
-targetObject[0] = 80;
+targetObject[0] = 82;
 
 if (global.darkzone == 0) {
 	targetObjectCenter[0] = 0;

@@ -10,5 +10,5 @@ animSpeed = 1;
 difficulty = 0;
 zaptime = 10;
 animator = instance_create(x, y, obj_tm_whip_animation);
-quizmode = 0;
+quizmode = false;
 init = 0;

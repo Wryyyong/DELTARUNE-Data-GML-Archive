@@ -25,7 +25,7 @@ if (launch) {
 	}
 }
 
-var _flash = 0;
+var _flash = false;
 var _do_flash = rim_flash > 0 || body_flash > 0;
 var _rim_color = merge_color(c_black, c_white, rim_flash);
 var _flash_color = merge_color(c_black, c_white, body_flash);
@@ -119,7 +119,7 @@ if (part[0] >= 0) {
 		
 		if (_flash) {
 			var _af = scr_custom_afterimage_ext(obj_power_up_afterimage, spr_thrashbody, 0, xx, yy + _pieceVector.y, 3, 3);
-			_af.use_pivot = 1;
+			_af.use_pivot = true;
 			_af.pivotx = (_pieceVector.x / 3) + 3;
 			_af.pivoty = (_pieceVector.y / 3) - 12;
 			draw_set_blend_mode(bm_add);
@@ -202,7 +202,7 @@ for (loop = 0; loop < 2; loop += 1) {
 			
 			if (_flash) {
 				var _af = scr_custom_afterimage_ext(obj_power_up_afterimage, _headsprite, 0, headx, heady, 3, 3);
-				_af.use_pivot = 1;
+				_af.use_pivot = true;
 				_af.pivotx = (_pieceVector.x / 3) + 3;
 				_af.pivoty = (_pieceVector.y / 3) - 12;
 			}

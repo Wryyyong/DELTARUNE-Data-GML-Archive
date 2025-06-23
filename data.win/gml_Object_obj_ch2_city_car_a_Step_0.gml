@@ -21,7 +21,7 @@ if (obj_mainchara.x > x && con == -1) {
 }
 
 if (realign) {
-	realign = 0;
+	realign = false;
 	var xpos = queencar.x + 82;
 	var ypos = queencar.y;
 	
@@ -83,7 +83,7 @@ if (con == 1) {
 	c_imageindex(1);
 	c_wait(8);
 	c_imageindex(2);
-	c_var_instance(id, "break_pie", 1);
+	c_var_instance(id, "break_pie", true);
 	c_shake();
 	c_wait(4);
 	c_imageindex(3);
@@ -247,28 +247,28 @@ if (con == 3 && customcon == 1) {
 	global.currentsong[1] = mus_loop(global.currentsong[0]);
 	
 	with (queencar)
-		active = 1;
+		active = true;
 }
 
 if (con == 4) {
 	release_timer++;
 	
 	if (release_timer == 90) {
-		queencar.pause_x_move = 1;
-		loop_road = 1;
-		shift_road = 1;
+		queencar.pause_x_move = true;
+		loop_road = true;
+		shift_road = true;
 	}
 }
 
 if (con == 4 && queencar.finish_convo && !d_ex()) {
 	con = 6;
-	shift_road = 0;
-	queencar.pause_x_move = 0;
+	shift_road = false;
+	queencar.pause_x_move = false;
 }
 
 if (con == 6 && queencar.x >= 1740) {
-	queencar.pause_x_move = 1;
-	queencar.active = 0;
+	queencar.pause_x_move = true;
+	queencar.active = false;
 	
 	if (queencar.y > 208)
 		queencar.y -= 6;
@@ -283,8 +283,8 @@ if (con == 6 && queencar.x >= 1740) {
 	
 	if (queencar.x >= 2075) {
 		con = 30;
-		queencar.active = 0;
-		loop_road = 0;
+		queencar.active = false;
+		loop_road = false;
 	}
 }
 
@@ -326,7 +326,7 @@ if (con == 30) {
 	c_wait(15);
 	c_visible(1);
 	c_wait(20);
-	c_var_instance(id, "leftside_traffic", 1);
+	c_var_instance(id, "leftside_traffic", true);
 	c_panobj(kr_actor, 15);
 	c_wait(16);
 	c_pannable(0);
@@ -373,7 +373,7 @@ if (break_pie) {
 		if (i_ex(piebreak))
 			instance_destroy(piebreak);
 		
-		break_pie = 0;
+		break_pie = false;
 	}
 }
 
@@ -381,7 +381,7 @@ if (release_car) {
 	queencar.x -= 5;
 	
 	if (queencar.x <= 400)
-		release_car = 0;
+		release_car = false;
 }
 
 if (loop_road) {
@@ -434,6 +434,6 @@ if (leftside_traffic) {
 		readable_cars.image_yscale = 20;
 		var readable_cars_2 = instance_create(2300, 140, obj_readable_room1);
 		readable_cars_2.image_yscale = 10;
-		leftside_traffic = 0;
+		leftside_traffic = false;
 	}
 }

@@ -24,8 +24,8 @@ if (solve != 2) {
 draw_set_color(c_white);
 draw_set_halign(fa_left);
 
-if (weird == 1) {
-	if (drawshine == 1) {
+if (weird == true) {
+	if (drawshine == true) {
 		draw_sprite_ext(spr_mouseHole, 0, 200, 240, 2, 2, 0, c_white, 1);
 		shineindex += 0.25;
 		draw_sprite_ext(spr_shine, shineindex, 215, 270, 2, 2, 0, c_white, 1);

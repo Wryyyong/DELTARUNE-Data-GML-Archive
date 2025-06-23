@@ -5,7 +5,7 @@ else
 
 if (o_coaster_controller.actcon == 1 && o_coaster_controller.timer < o_coaster_controller.timermax) {
 	if ((button1_p() && HeroID == 0 && gooffscreen == 0) || (button2_p() && HeroID == 1 && gooffscreen == 0) || (button3_p() && HeroID == 2 && gooffscreen == 0)) {
-		if (visible == true) {
+		if (visible == 1) {
 			if (button1_p() && HeroID == 0)
 				draw_button_press = 0;
 			

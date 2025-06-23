@@ -30,7 +30,7 @@ if (init == 0) {
 		timer = -270;
 		
 		with (obj_heronoelle)
-			visible = false;
+			visible = 0;
 		
 		fn = scr_dark_marker(obj_heronoelle.x, obj_heronoelle.y, spr_noelleb_spell);
 		fn.depth = obj_heronoelle.depth;
@@ -66,7 +66,7 @@ if (altpath == 1) {
 			amplitude = 0;
 			
 			with (obj_berdlyb2_enemy)
-				visible = false;
+				visible = 0;
 			
 			fb = scr_dark_marker(obj_berdlyb2_enemy.x, obj_berdlyb2_enemy.y, spr_berdlyb_idle_shocked);
 			fb.depth = obj_berdlyb2_enemy.depth;
@@ -136,7 +136,7 @@ if (altpath == 1) {
 
 if (timer > 0) {
 	draw_set_alpha(bgalpha);
-	draw_rectangle_colour(xx - 10, yy - 10, xx + 700, yy + 500, c_white, c_white, c_blue, c_blue, 0);
+	draw_rectangle_colour(xx - 10, yy - 10, xx + 700, yy + 500, c_white, c_white, c_blue, c_blue, false);
 }
 
 draw_background_tiled_ext(bg_snowfall, snowspeed / 1.5, timer * 6, 2, 2, c_white, bgalpha);
@@ -151,7 +151,7 @@ if (timer >= 0)
 	snowspeed += (20 + (timer / 5));
 
 if (timer == 1)
-	audio_play_sound(snd_snowgrave, 50, false);
+	audio_play_sound(snd_snowgrave, 50, 0);
 
 if (timer >= 20 && timer <= (75 + (altpath * 30))) {
 	stimer++;

@@ -1,17 +1,17 @@
 if (x <= (camerax() - 200))
-	cleanup = 1;
+	cleanup = true;
 
 if (crash) {
 	cleanup_timer--;
 	
 	if (cleanup_timer <= 0) {
-		crash = 0;
-		cleanup = 1;
+		crash = false;
+		cleanup = true;
 	}
 }
 
 if (cleanup) {
-	cleanup = 0;
+	cleanup = false;
 	
 	if (explosion != -1)
 		instance_destroy(explosion);

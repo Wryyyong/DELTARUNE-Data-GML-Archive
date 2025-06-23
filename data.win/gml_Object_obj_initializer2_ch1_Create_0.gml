@@ -1,14 +1,15 @@
 global.is_console = os_type == os_switch || os_type == os_ps4;
 global.screen_border_id = "Dynamic";
-global.screen_border_active = 1;
+global.screen_border_active = true;
 global.screen_border_alpha = 1;
 global.screen_border_state = 0;
 global.screen_border_dynamic_fade_id = 0;
 global.screen_border_dynamic_fade_level = 0;
 global.savedata_async_id = -1;
-global.savedata_async_load = 0;
-global.savedata_error = 0;
+global.savedata_async_load = false;
+global.savedata_error = false;
 global.savedata_debuginfo = "";
+old_savedata_check = false;
 
 if (global.is_console) {
 	ossafe_savedata_load_ch1();

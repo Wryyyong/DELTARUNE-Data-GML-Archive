@@ -11,7 +11,7 @@ function __background_get_element(arg0) {
 	var __layerlist = layer_get_all();
 	var __layerlistlength = array_length_1d(__layerlist);
 	var __layerid = -1;
-	var __isforeground = 0;
+	var __isforeground = false;
 	
 	for (var __i = 0; __i < __layerlistlength; __i++) {
 		var __layername = layer_get_name(__layerlist[__i]);
@@ -26,7 +26,7 @@ function __background_get_element(arg0) {
 			
 			if (__slot == __bind) {
 				__layerid = __layerlist[__i];
-				__isforeground = 1;
+				__isforeground = true;
 				break;
 			}
 		} else if (string_pos(__bgstring, __layername) > 0) {
@@ -38,7 +38,7 @@ function __background_get_element(arg0) {
 				
 				if (__slot == __bind) {
 					__layerid = __layerlist[__i];
-					__isforeground = 0;
+					__isforeground = false;
 					break;
 				}
 			}
@@ -57,10 +57,10 @@ function __background_get_element(arg0) {
 			}
 		}
 	} else {
-		var __newback = __background_set_element(__bind, 0, 0, -1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 16777215, 1);
+		var __newback = __background_set_element(__bind, false, false, -1, 0, 0, true, true, 1, 1, false, 0, 0, 16777215, 1);
 		__result[0] = __newback[0];
 		__result[1] = __newback[1];
-		__result[2] = 0;
+		__result[2] = false;
 	}
 	
 	return __result;

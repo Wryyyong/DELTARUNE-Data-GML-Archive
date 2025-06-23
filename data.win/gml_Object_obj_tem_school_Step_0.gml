@@ -1,5 +1,5 @@
 if (myinteract == 3) {
-	if (i_ex(mydialoguer) == 0) {
+	if (i_ex(mydialoguer) == false) {
 		if (egcon == 1)
 			egcon = 2;
 		

@@ -3,7 +3,7 @@ stonelancer = -1;
 fan_a = -1;
 fan_b = -1;
 gavepresent = global.flag[307] == 1 || global.flag[307] == 2;
-lancer_stone = 0;
+lancer_stone = false;
 
 if (global.chapter != 2) {
 	instance_destroy();
@@ -19,5 +19,5 @@ if (global.chapter != 2) {
 	
 	susienpc = scr_dark_marker(1184, 231, spr_cutscene_18_susie_lancer_carry_walk_right);
 	susienpc.image_speed = 0;
-	lancer_stone = 0;
+	lancer_stone = false;
 }

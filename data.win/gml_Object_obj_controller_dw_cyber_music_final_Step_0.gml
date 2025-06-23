@@ -54,7 +54,7 @@ if (state == 2.1) {
 if (state == 2.11) {
 	state = -999;
 	c_pannable(1);
-	c_panobj(80, 1);
+	c_panobj(82, 1);
 	c_wait(1);
 	c_pannable(0);
 	c_var_instance(id, "state", 2.2);
@@ -76,7 +76,7 @@ if (state == 3) {
 	with (obj_parallaxer_layer)
 		auto -= 1;
 	
-	obj_cyber_music_battleBullets.active = 1;
+	obj_cyber_music_battleBullets.active = true;
 	obj_mainchara.cutscene = 1;
 	global.interact = 0;
 	
@@ -129,10 +129,10 @@ if (state == 6) {
 	state = -999;
 	c_panobj(kr_actor, 8);
 	c_sel(su);
-	c_visible(0);
+	c_visible(false);
 	c_setxy(1710, 174);
 	c_sel(ra);
-	c_visible(0);
+	c_visible(false);
 	c_setxy(1812, 174);
 	c_var_instance(id, "state", 7);
 	c_wait(8);

@@ -59,7 +59,7 @@ if (global.interact == 0 && obj_mainchara_ch1.x <= 70) {
 	instance_create_ch1(0, 0, obj_dialoguer_ch1);
 }
 
-if (dex == 1 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (dex == 1 && instance_exists(obj_dialoguer_ch1) == false) {
 	global.facing = 1;
 	global.interact = 0;
 	dex = 0;
@@ -77,7 +77,7 @@ if (con == 1.5) {
 	instance_create_ch1(0, 0, obj_dialoguer_ch1);
 }
 
-if (con == 2 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 2 && instance_exists(obj_dialoguer_ch1) == false) {
 	image_speed = 0.2;
 	global.interact = 0;
 	hspeed = 3;
@@ -109,7 +109,7 @@ if (con == 4 && obj_mainchara_ch1.x >= 270 && global.interact == 0) {
 	instance_create_ch1(0, 0, obj_dialoguer_ch1);
 }
 
-if (con == 5 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 5 && instance_exists(obj_dialoguer_ch1) == false) {
 	sprite_index = spr_susier_ch1;
 	image_speed = 0.2;
 	global.interact = 0;
@@ -143,7 +143,7 @@ if (con == 7 && obj_mainchara_ch1.x >= 450 && global.interact == 0) {
 	instance_create_ch1(0, 0, obj_dialoguer_ch1);
 }
 
-if (con == 8 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 8 && instance_exists(obj_dialoguer_ch1) == false) {
 	sprite_index = spr_susier_ch1;
 	image_speed = 0.2;
 	global.interact = 0;
@@ -182,7 +182,7 @@ if (con == 10 && obj_mainchara_ch1.x >= 630 && global.interact == 0) {
 	instance_create_ch1(0, 0, obj_dialoguer_ch1);
 }
 
-if (con == 15 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 15 && instance_exists(obj_dialoguer_ch1) == false) {
 	with (obj_mainchara_ch1) {
 		x -= 140;
 		fun = 1;
@@ -225,7 +225,7 @@ if (con == 19) {
 	con = 51;
 }
 
-if (con == 51 && d_ex_ch1() == 0) {
+if (con == 51 && d_ex_ch1() == false) {
 	remxx = x;
 	hspeed = -5;
 	image_speed = 0.5;
@@ -250,7 +250,7 @@ if (con == 53) {
 	con = 54;
 }
 
-if (con == 54 && d_ex_ch1() == 0) {
+if (con == 54 && d_ex_ch1() == false) {
 	pape_sfx = snd_loop_ch1(snd_paper_rumble_ch1);
 	papeshake = 1;
 	con = 55;
@@ -264,7 +264,7 @@ if (con == 56) {
 	con = 57;
 }
 
-if (con == 57 && d_ex_ch1() == 0) {
+if (con == 57 && d_ex_ch1() == false) {
 	image_speed = 0.2;
 	alarm[4] = 30;
 	con = 58;
@@ -302,12 +302,12 @@ if (con == 62 && d_ex_ch1() == 0) {
 	alarm[4] = 80;
 }
 
-if (instance_exists(obj_dialoguer_ch1) == 0 && con == 70) {
+if (instance_exists(obj_dialoguer_ch1) == false && con == 70) {
 	hspeed = 0;
 	__view_set(e__VW.Object, 0, -4);
 	
 	with (obj_mainchara_ch1)
-		visible = false;
+		visible = 0;
 	
 	k = scr_marker_ch1(obj_mainchara_ch1.x, obj_mainchara_ch1.y, spr_kris_fall_ch1);
 	

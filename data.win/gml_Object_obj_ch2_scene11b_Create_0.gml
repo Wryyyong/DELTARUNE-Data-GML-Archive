@@ -28,7 +28,7 @@ if (global.chapter != 2 || global.plot >= 65.5) {
 	instance_destroy();
 } else if (global.plot == 65) {
 	con = 5;
-	heal = 0;
+	heal = false;
 } else {
 	scr_losechar();
 	
@@ -44,5 +44,5 @@ if (global.chapter != 2 || global.plot >= 65.5) {
 	blackall.image_yscale = 999;
 	blackall.depth = 100;
 	blackall.image_blend = c_black;
-	heal = 0;
+	heal = false;
 }

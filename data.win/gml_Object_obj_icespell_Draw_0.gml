@@ -62,9 +62,9 @@ if (timer == 15) {
 if (timer >= 10 && timer <= 30) {
 	draw_set_alpha(2.2 - (timer / 10));
 	draw_set_color(c_white);
-	draw_circle(x, y, 60 - (timer * 6), 1);
-	draw_circle(x, y, 61 - (timer * 6), 1);
-	draw_circle(x, y, 62 - (timer * 6), 1);
+	draw_circle(x, y, 60 - (timer * 6), true);
+	draw_circle(x, y, 61 - (timer * 6), true);
+	draw_circle(x, y, 62 - (timer * 6), true);
 	draw_set_alpha(1);
 }
 

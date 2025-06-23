@@ -80,20 +80,20 @@ if (global.monster[myself] == 1) {
 			dialogText = (timesCharged > 1) ? stringsetloc("Kitties!!", "obj_tasque_manager_enemy_slash_Step_0_gml_53_0") : stringsetloc("Aren't my kitties just&so well behaved? Watch!", "obj_tasque_manager_enemy_slash_Step_0_gml_53_1");
 		}
 		
-		var hasTail = 0;
+		var hasTail = false;
 		
 		for (var i = 0; i < 4; i++) {
 			if (global.chararmor1[i] == 7 || global.chararmor2[i] == 7)
-				hasTail = 1;
+				hasTail = true;
 		}
 		
-		if (hasTail == 1 && !tailcheck) {
-			tailcheck = 1;
+		if (hasTail == true && !tailcheck) {
+			tailcheck = true;
 			dialogText = stringsetloc("Chaos, chaos!?&No, no! Order, order!&Now get rid of that&silly tail!", "obj_tasque_manager_enemy_slash_Step_0_gml_68_0");
 		}
 		
 		if (global.charweapon[2] == 7 && !knifecheck) {
-			knifecheck = 1;
+			knifecheck = true;
 			dialogText = stringsetloc("Chaos, chaos!?&No, no! Order, order!&Now get rid of that&silly Devilsknife!", "obj_tasque_manager_enemy_slash_Step_0_gml_74_0");
 		}
 		
@@ -333,13 +333,10 @@ if (global.myfight == 3) {
 
 if (scr_debug()) {
 	if (keyboard_check_pressed(ord("B"))) {
-		if (overrideAttack == 0) {
+		if (overrideAttack == 0)
 			overrideAttack = 1;
-			scr_debug_print("You've selected QUIZZLER");
-		} else {
+		else
 			overrideAttack = 0;
-			scr_debug_print("Next attack will be random");
-		}
 	}
 	
 	if (keyboard_check_pressed(ord("Q")) && quizDifficulty > 0) {

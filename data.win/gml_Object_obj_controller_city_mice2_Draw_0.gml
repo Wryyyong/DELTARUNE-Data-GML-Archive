@@ -4,14 +4,14 @@ if (instance_exists(obj_controller_city_mice2))
 inusecount = 0;
 
 with (obj_rotationController_track) {
-	if (rotate == 1)
+	if (rotate == true)
 		other.inusecount++;
 }
 
 if (inusecount != 0)
-	inUse = 1;
+	inUse = true;
 else
-	inUse = 0;
+	inUse = false;
 
 if (instructionLerp > 0 || inUse) {
 	if (instructionLerp < 1 && inUse)

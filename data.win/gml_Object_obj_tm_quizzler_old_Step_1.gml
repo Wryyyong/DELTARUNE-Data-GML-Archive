@@ -16,7 +16,7 @@ if (init == 0 || restart) {
 	}
 	
 	init = 1;
-	restart = 0;
+	restart = false;
 	
 	for (i = 0; i < turns; i++) {
 		if (i > 0 && !canrepeat) {
@@ -47,7 +47,7 @@ if (state == 0) {
 		animator.targetx = obj_growtangle.x + 100;
 		animator.targety = obj_growtangle.y;
 		state = 1;
-		animator.quizloop = 1;
+		animator.quizloop = true;
 		currentturn = 0;
 		timer = turnspeed + 10;
 	} else if (timer <= 0) {

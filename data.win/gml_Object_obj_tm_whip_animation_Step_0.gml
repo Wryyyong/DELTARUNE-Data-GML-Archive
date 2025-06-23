@@ -2,7 +2,7 @@ if (init == 0) {
 	whipball.quizmode = quizmode;
 	
 	if (quizmode)
-		whipball.active = 0;
+		whipball.active = false;
 	
 	whipball.damage = damage;
 	whipball.target = target;
@@ -15,7 +15,7 @@ if (init == 0) {
 }
 
 if (quizloop && state == -1) {
-	quizloop = 0;
+	quizloop = false;
 	state = 0;
 }
 
@@ -23,8 +23,8 @@ if (state == -1) {
 	if (lastState != -1) {
 		timer = 0;
 		attacktimer = 0;
-		visible = false;
-		global.monsterinstance[creator].visible = true;
+		visible = 0;
+		global.monsterinstance[creator].visible = 1;
 		lastState = -1;
 	}
 	
@@ -32,8 +32,8 @@ if (state == -1) {
 }
 
 if (lastState == -1 && state != -1) {
-	visible = true;
-	global.monsterinstance[creator].visible = false;
+	visible = 1;
+	global.monsterinstance[creator].visible = 0;
 	lastState = state;
 }
 
@@ -90,7 +90,7 @@ if (zapping && (zaptimer % 5) < 1 && (quizmode || zaptimer < 15)) {
 	}
 	
 	if (!quizmode && zaptimer >= 15)
-		zapping = 0;
+		zapping = false;
 }
 
 if (zapping != whipball.active && !quizmode)
@@ -105,7 +105,7 @@ if (state == 2) {
 
 if (state != lastState) {
 	if (state == 3) {
-		zapping = 0;
+		zapping = false;
 		zaptimer = 0;
 		attacktimer = 56;
 	}
@@ -134,7 +134,7 @@ if (state == 4 && attacktimer >= 65) {
 		state = -1;
 	} else {
 		if (quizloop)
-			quizloop = 0;
+			quizloop = false;
 		
 		state = 0;
 		lastState = 0;

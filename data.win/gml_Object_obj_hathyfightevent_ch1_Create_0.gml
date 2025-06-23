@@ -2,7 +2,7 @@ con = 1;
 
 if (global.plot >= 36) {
 	con = -1;
-	visible = false;
+	visible = 0;
 }
 
 equipcon = 0;

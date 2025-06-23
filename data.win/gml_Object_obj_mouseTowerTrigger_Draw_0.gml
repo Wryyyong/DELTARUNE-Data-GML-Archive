@@ -1,24 +1,24 @@
 draw_self();
 
-if (rotate == 1) {
+if (rotate == true) {
 	image_index = 0;
 	
-	if (left == 1)
+	if (left == true)
 		draw_sprite_ext(spr_rotationController_directions, 0, x + 6, y + 20, 2, 2, 0, c_white, 1);
 	
-	if (right == 1)
+	if (right == true)
 		draw_sprite_ext(spr_rotationController_directions, 2, x + 6, y + 20, 2, 2, 0, c_white, 1);
 	
-	if (down == 1)
+	if (down == true)
 		draw_sprite_ext(spr_rotationController_directions, 1, x + 6, y + 20, 2, 2, 0, c_white, 1);
 } else {
 	image_index = 1;
 }
 
-if (rotate == 1 && blocked == 0)
-	inUse = 1;
+if (rotate == true && blocked == 0)
+	inUse = true;
 else
-	inUse = 0;
+	inUse = false;
 
 if (i_ex(obj_controller_city_mice3)) {
 	if (obj_controller_city_mice3.micescore > 2)

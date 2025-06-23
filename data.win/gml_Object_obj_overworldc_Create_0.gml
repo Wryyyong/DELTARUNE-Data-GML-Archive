@@ -4,7 +4,7 @@ selnoise = 0;
 movenoise = 0;
 depth = 10;
 threebuffer = 0;
-hasitems = 0;
+hasitems = false;
 
 if (global.chapter == 2) {
 	if (scr_havechar(2))

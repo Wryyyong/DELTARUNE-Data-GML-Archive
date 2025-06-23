@@ -1,5 +1,5 @@
 if (!init) {
-	init = 1;
+	init = true;
 	path_set_kind(mypath, 1);
 	path_set_precision(mypath, 4);
 	path_set_closed(mypath, 0);

@@ -1,13 +1,13 @@
-if (flip == 0)
+if (flip == false)
 	draw_self();
 
-if (flip == 1) {
+if (flip == true) {
 	con = 0;
 	global.interact = 1;
 	
 	if (flipcon == 0) {
 		draw_set_alpha(0.2);
-		draw_rectangle(x - 38, y + 2, x + 38, (y + 120) - 2, false);
+		draw_rectangle(x - 38, y + 2, x + 38, (y + 120) - 2, 0);
 		draw_set_alpha(1);
 		
 		if (flipped == 0) {
@@ -40,11 +40,11 @@ if (flip == 1) {
 		if (fliptimer == 2) {
 			if (flipped == 0) {
 				sprite_index = spriteindex2;
-				flipped = 1;
+				flipped = true;
 				flipcon = 2;
 			} else {
 				sprite_index = spriteindex1;
-				flipped = 0;
+				flipped = false;
 				flipcon = 2;
 			}
 		}
@@ -52,7 +52,7 @@ if (flip == 1) {
 	
 	if (flipcon == 2) {
 		draw_set_alpha(0.2);
-		draw_rectangle(x - 38, y + 2, x + 38, (y + 120) - 2, false);
+		draw_rectangle(x - 38, y + 2, x + 38, (y + 120) - 2, 0);
 		draw_set_alpha(1);
 		draw_self();
 		
@@ -61,14 +61,14 @@ if (flip == 1) {
 			image_xscale = clamp(image_xscale, 0, 2);
 		} else {
 			image_xscale = 2;
-			flip = 0;
+			flip = false;
 			global.interact = 0;
 			flipcon = 0;
 		}
 	}
 }
 
-if (decorative == 1 && flip == 0) {
+if (decorative == true && flip == false) {
 	shadow = instance_create(x, y, obj_marker);
 	shadow.image_xscale = 2;
 	shadow.image_yscale = 2;
@@ -81,7 +81,7 @@ if (decorative == 1 && flip == 0) {
 
 if (isswitch && dontshine == 0) {
 	if (!shine_init) {
-		shine_init = 1;
+		shine_init = true;
 		shine = scr_dark_marker(x - 8, y + 84, spr_shine_white);
 		shine.depth = depth - 10;
 		shine.image_speed = 0.1;

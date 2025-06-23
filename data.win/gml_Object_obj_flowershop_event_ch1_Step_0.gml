@@ -17,14 +17,14 @@ if (con > 0 && con < 50) {
 			image_speed = 0.1;
 		}
 		
-		obj_mainchara_ch1.visible = false;
+		obj_mainchara_ch1.visible = 0;
 		con = 1.2;
 		alarm[4] = 70;
 	}
 	
 	if (con == 2.2) {
 		obj_mainchara_ch1.y = k.y;
-		obj_mainchara_ch1.visible = true;
+		obj_mainchara_ch1.visible = 1;
 		
 		with (k)
 			instance_destroy();
@@ -115,7 +115,7 @@ if (con > 0 && con < 50) {
 		if (y >= (obj_mainchara_ch1.y - 26)) {
 			vspeed = 0;
 			y = obj_mainchara_ch1.y - 26;
-			obj_mainchara_ch1.visible = false;
+			obj_mainchara_ch1.visible = 0;
 			image_index = 0;
 			image_speed = 0.25;
 			sprite_index = spr_asgore_hug_ch1;
@@ -125,7 +125,7 @@ if (con > 0 && con < 50) {
 	}
 	
 	if (con == 21) {
-		obj_mainchara_ch1.visible = true;
+		obj_mainchara_ch1.visible = 1;
 		sprite_index = spr_asgored_ch1;
 		vspeed = -2;
 		image_speed = 0.2;
@@ -194,7 +194,7 @@ if (con > 0 && con < 50) {
 	
 	if (con == 32 && !d_ex_ch1()) {
 		global.interact = 0;
-		visible = false;
+		visible = 0;
 		asg = instance_create_ch1(x, y + sprite_height, obj_npc_facing_ch1);
 		con = 50;
 		global.flag[262] = 1;
@@ -208,7 +208,7 @@ if (con >= 50) {
 				instance_destroy();
 			
 			sprite_index = spr_asgored_ch1;
-			visible = true;
+			visible = 1;
 			global.interact = 1;
 			obj_mainchara_ch1.y = 180;
 			con = 50.1;
@@ -288,7 +288,7 @@ if (con >= 50) {
 	if (con == 63 && !d_ex_ch1()) {
 		asg = instance_create_ch1(x, y + sprite_height, obj_npc_facing_ch1);
 		global.interact = 0;
-		visible = false;
+		visible = 0;
 		con = 70;
 	}
 }

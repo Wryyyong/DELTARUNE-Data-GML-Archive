@@ -451,10 +451,10 @@ if (global.myfight == 3) {
 		}
 		
 		with (obj_herokris)
-			visible = false;
+			visible = 0;
 		
 		with (obj_herosusie)
-			visible = false;
+			visible = 0;
 		
 		throwsus = instance_create(obj_herosusie.x, obj_herosusie.y, obj_werewire_throwkris);
 		scr_battletext_default();

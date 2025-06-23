@@ -133,4 +133,4 @@ for (i = 0; i < selltotal; i++) {
 	itemsellname[i] = "";
 }
 
-took_crystal = 0;
+took_crystal = false;

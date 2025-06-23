@@ -58,16 +58,16 @@ for (var i = 0; i < array_length_1d(layersprites); i++) {
 		bglayer.ssy = 1;
 	
 	if (makecoaster == 0 && i == 2)
-		bglayer.visible = false;
+		bglayer.visible = 0;
 	
 	if (makecity == 0 && i == 1)
-		bglayer.visible = false;
+		bglayer.visible = 0;
 	
 	if (makeclouds == 0 && i == 0)
-		bglayer.visible = false;
+		bglayer.visible = 0;
 	
 	if (makeground == 0 && i == 3)
-		bglayer.visible = false;
+		bglayer.visible = 0;
 	
 	bglayer.shadoweffect = 1;
 	

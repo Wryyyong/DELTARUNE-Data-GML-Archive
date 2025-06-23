@@ -147,7 +147,7 @@ if (room == room_cc_throneroom_ch1) {
 			chairsolid.sprite_index = sprite_index;
 			chairsolid.image_xscale = 2;
 			chairsolid.image_yscale = 2;
-			visible = true;
+			visible = 1;
 			
 			with (chairsolid)
 				scr_depth_ch1();
@@ -285,7 +285,7 @@ if (room == room_forest_maze_susie_ch1) {
 		instance_destroy();
 	} else {
 		image_speed = 0;
-		visible = true;
+		visible = 1;
 		scr_depth_ch1();
 		con = 1;
 		sprite_index = spr_susied_dark_unhappy_ch1;

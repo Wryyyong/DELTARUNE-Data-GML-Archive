@@ -9,7 +9,7 @@ function __background_get_colour_element() {
 	var __layerlist = layer_get_all();
 	var __layerlistlength = array_length_1d(__layerlist);
 	var __layerid = -1;
-	var __isforeground = 0;
+	var __isforeground = false;
 	
 	for (var __i = 0; __i < __layerlistlength; __i++) {
 		var __layername = layer_get_name(__layerlist[__i]);
@@ -31,7 +31,7 @@ function __background_get_colour_element() {
 			}
 		}
 	} else {
-		var __newback = __background_set_element(-1, 0, 0, -1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1);
+		var __newback = __background_set_element(-1, false, false, -1, 0, 0, true, true, 1, 1, true, 0, 0, 0, 1);
 		__result[0] = __newback[0];
 		__result[1] = __newback[1];
 	}

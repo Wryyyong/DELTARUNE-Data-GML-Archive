@@ -1,6 +1,8 @@
 function ossafe_file_text_close_ch1(arg0) {
+	var is_valid = true;
+	
 	if (!global.is_console) {
-		return file_text_close(arg0);
+		file_text_close(arg0);
 	} else {
 		var handle = arg0;
 		
@@ -9,4 +11,6 @@ function ossafe_file_text_close_ch1(arg0) {
 		
 		ds_map_destroy(handle);
 	}
+	
+	return is_valid;
 }

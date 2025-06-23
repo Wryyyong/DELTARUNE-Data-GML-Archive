@@ -1,4 +1,4 @@
-if (active == 1) {
+if (active == true) {
 	if (global.interact == 0) {
 		t = (t + increment) % 360;
 		shift = amplitude * dsin(t);
@@ -57,14 +57,14 @@ if (active == 1) {
 						obj_controller_dw_mansion_potBalance.triggered = 1;
 				}
 				
-				active = 0;
+				active = false;
 			}
 		}
 		
 		if (type == 1) {
 			if (con == 0) {
 				if (place_meeting(x, y, obj_caterpillarchara) || place_meeting(x, y, obj_mainchara) || place_meeting(x, y, obj_actor)) {
-					active = 0;
+					active = false;
 					global.interact = 1;
 					con = 1;
 				}
@@ -116,3 +116,63 @@ if (con == 2) {
 
 if (con == 3)
 	instance_destroy();
+
+if (con == 999) {
+	snd_play(choose(snd_break1, snd_break2));
+	active = false;
+	brokenpot = scr_dark_marker(x, y, sprite_index);
+	brokenpot.image_index = 1;
+	
+	with (brokenpot)
+		scr_depth_alt();
+	
+	visible = false;
+	
+	if (i_ex(mySwatch)) {
+		with (mySwatch) {
+			fader = instance_create(x, y, obj_marker);
+			fader.sprite_index = sprite_index;
+			fader.image_index = image_index;
+			fader.image_xscale = image_xscale;
+			fader.image_yscale = image_yscale;
+			fader.image_speed = 0;
+			fader.gravity = random_range(-1.2, -1.5);
+			scr_doom(fader, 90);
+			snd_play_x(snd_weirdeffect, 0.35, 1.8);
+			instance_destroy();
+		}
+	}
+	
+	wheel1 = scr_marker(x - 8, (y - 8) + (active * 8), spr_thrash_wheel);
+	wheel2 = scr_marker(x + 8, (y - 8) + (active * 8), spr_thrash_wheel);
+	wheel1.gravity = -1.2;
+	wheel2.gravity = -1.1;
+	wheel1.depth = depth + 10;
+	wheel2.depth = depth - 10;
+	scr_doom(wheel1, 90);
+	scr_doom(wheel2, 90);
+	var speedrunners = "satiated";
+	con = -999;
+	instance_destroy();
+}
+
+if (con == 9999) {
+	pipismarker = scr_dark_marker(x, y - (sprite_height / 2), spr_pipis_egg);
+	pipismarker.gravity = -1.2;
+	pipismarker.depth = depth;
+	scr_darksize(pipismarker);
+	scr_doom(pipismarker, 90);
+	wheel1 = scr_marker(x - 8, (y - 8) + (active * 8), spr_thrash_wheel);
+	wheel2 = scr_marker(x + 8, (y - 8) + (active * 8), spr_thrash_wheel);
+	wheel1.hspeed = 16;
+	wheel2.hspeed = -16;
+	wheel1.friction = -0.1;
+	wheel2.friction = -0.1;
+	wheel1.depth = depth + 10;
+	wheel2.depth = depth - 10;
+	scr_doom(wheel1, 90);
+	scr_doom(wheel2, 90);
+	visible = false;
+	snd_play_pitch(snd_spamton_laugh, 1.4);
+	instance_destroy();
+}

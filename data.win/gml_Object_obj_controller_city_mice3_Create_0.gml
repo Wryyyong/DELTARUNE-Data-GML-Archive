@@ -5,23 +5,23 @@ if (global.flag[379] == 0 || global.plot < 78) {
 	shineindex = 0;
 	
 	if (scr_sideb_get_phase() == 2)
-		weird = 1;
+		weird = true;
 	else
-		weird = 0;
+		weird = false;
 	
-	if (weird == 1) {
+	if (weird == true) {
 		depth = 600000;
 		drawshine = 1;
-		noface = 0;
+		noface = false;
 		solve = 0;
 	}
 	
 	with (obj_rotationtile_tower)
-		freeze = 1;
+		freeze = true;
 	
 	init = 0;
-	layer_set_visible(layer_get_id("BG_Tiles_HiddenPath"), 0);
-	layer_set_visible(layer_get_id("BG_Tiles_HiddenPath_Sidewalk"), 0);
+	layer_set_visible(layer_get_id("BG_Tiles_HiddenPath"), false);
+	layer_set_visible(layer_get_id("BG_Tiles_HiddenPath_Sidewalk"), false);
 	fakeWall = instance_create(240, 80, obj_solidblocksized);
 	fakeWall.image_yscale = 2;
 	con = 0;
@@ -37,8 +37,8 @@ if (global.flag[379] == 0 || global.plot < 78) {
 	micetarget = 10;
 	leaveCon = 0;
 	leaveBlock = 0;
-	solve = 0;
-	towerinit = 0;
+	solve = false;
+	towerinit = false;
 }
 
 if (global.flag[379] == 1) {

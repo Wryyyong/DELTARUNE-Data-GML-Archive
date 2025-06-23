@@ -2,7 +2,7 @@ maker = 0;
 depth = -10;
 biggestwidth = 1;
 biggestheight = 1;
-trappingX = 0;
+trappingX = false;
 
 for (i = 0; i < 3; i++) {
 	cancatch[i] = 0;
@@ -11,7 +11,7 @@ for (i = 0; i < 3; i++) {
 }
 
 init = 0;
-visible = false;
+visible = 0;
 
 if (instance_exists(obj_mauswheel_enemy)) {
 	instance_create(obj_mauswheel_enemy.x, obj_mauswheel_enemy.y, obj_maus_trapping_fake_idle);

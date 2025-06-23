@@ -10,7 +10,7 @@ if (myinteract == 3) {
 			with (obj_mainchara)
 				onebuffer = 5;
 		}
-	} else if (i_ex(mydialoguer) == 0) {
+	} else if (i_ex(mydialoguer) == false) {
 		global.interact = 0;
 		myinteract = 0;
 		

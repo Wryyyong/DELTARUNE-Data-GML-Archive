@@ -24,7 +24,7 @@ if (checkPress) {
 		alarm[0] = 30;
 		controller.finalString += myString;
 		controller.buttonx = x;
-		down = 1;
+		down = true;
 	}
 } else if (pressable && global.interact == 0) {
 	if (pressedBuffer <= 0)

@@ -2,7 +2,7 @@ key = 0;
 basex = 0;
 basey = 0;
 moveloc = 0;
-weird = 0;
+weird = false;
 layer_set_visible("TILES_Doorway", 0);
 layer_set_visible("TILES_BlockedEntrance", 0);
 queen_monitor_frame = scr_dark_marker(146, 40, spr_dw_mansion_monitor_frame);

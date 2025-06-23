@@ -55,7 +55,7 @@ if (first_time) {
 		intro_timer--;
 		
 		if (intro_timer == 0) {
-			first_time = 0;
+			first_time = false;
 			x = xstart;
 			
 			if (type == 0) {
@@ -229,17 +229,17 @@ if (type == 3 && broken == 0) {
 if (scr_debug()) {
 	if (keyboard_check_pressed(ord("U"))) {
 		if (type == 1)
-			broken = 1;
+			broken = true;
 	}
 	
 	if (keyboard_check_pressed(ord("I"))) {
 		if (type == 2)
-			broken = 1;
+			broken = true;
 	}
 	
 	if (keyboard_check_pressed(ord("O"))) {
 		if (type == 3)
-			broken = 1;
+			broken = true;
 	}
 }
 

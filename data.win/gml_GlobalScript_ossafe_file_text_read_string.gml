@@ -12,7 +12,7 @@ function ossafe_file_text_read_string(arg0) {
 		if (line >= ds_map_find_value(handle, "num_lines"))
 			return "";
 		
-		ds_map_set(handle, "line_read", 1);
+		ds_map_set(handle, "line_read", true);
 		text = ds_map_find_value(handle, "text");
 		return text[line];
 	}

@@ -24,7 +24,7 @@ for (i = 1; i < 3; i++) {
 	hitbox[i].destroyonhit = 0;
 	hitbox[i].sprite_index = spr_thrash_laser_hitbox;
 	hitbox[i].image_yscale = 0.25;
-	hitbox[i].visible = false;
+	hitbox[i].visible = 0;
 }
 
 bouncecount = 0;

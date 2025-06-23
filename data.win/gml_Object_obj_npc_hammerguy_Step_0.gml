@@ -2,7 +2,7 @@ if (myinteract == 3) {
 }
 
 if (myinteract == 3 && con == 0) {
-	if (i_ex(mydialoguer) == 0) {
+	if (i_ex(mydialoguer) == false) {
 		sprite_index = spr_hammerguy;
 		image_speed = 0.1;
 		global.interact = 0;
@@ -49,12 +49,12 @@ if (con >= 5) {
 			instance_destroy();
 		
 		with (global.cinstance[0])
-			visible = true;
+			visible = 1;
 		
 		with (global.cinstance[1])
-			visible = true;
+			visible = 1;
 		
-		obj_mainchara.visible = true;
+		obj_mainchara.visible = 1;
 		con = 13;
 		charcycle -= 1;
 		
@@ -67,7 +67,7 @@ if (con >= 5) {
 		
 		if (charcycle == 0) {
 			with (obj_mainchara)
-				visible = false;
+				visible = 0;
 			
 			var xpos = (global.chapter == 1) ? 390 : (x + 105);
 			var ypos = (global.chapter == 1) ? 125 : (y + 30);
@@ -79,7 +79,7 @@ if (con >= 5) {
 		
 		if (charcycle == 1 || charcycle == 2) {
 			with (global.cinstance[charcycle - 1])
-				visible = false;
+				visible = 0;
 			
 			if (chartype == 2) {
 				var xpos = (global.chapter == 1) ? 380 : (x + 85);

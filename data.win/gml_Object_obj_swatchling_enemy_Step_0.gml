@@ -26,7 +26,7 @@ if (global.monster[myself] == 1) {
 		
 		with (obj_swatchling_enemy) {
 			if (!color_init) {
-				color_init = 1;
+				color_init = true;
 				new_color = color_index;
 				currentcolor = base_colors[new_color];
 				previouscolor = base_colors[new_color];
@@ -39,7 +39,7 @@ if (global.monster[myself] == 1) {
 		if (currentcolor != current_pal)
 			current_pal = (current_pal > currentcolor) ? clamp(current_pal - 0.1, currentcolor, 255) : clamp(current_pal + 0.1, 0, currentcolor);
 		else
-			loaded_color = 1;
+			loaded_color = true;
 	}
 	
 	if (scr_monsterpop() == 1 && global.monsterstatus[myself] == 0)
@@ -51,94 +51,87 @@ if (global.monster[myself] == 1) {
 		if (!instance_exists(obj_darkener))
 			instance_create(0, 0, obj_darkener);
 		
-		global.typer = 50;
+		var changedcolor = currentcolor != previouscolor;
+		var justchanged = false;
+		var allprimary = true;
+		var mismatch_check = 0;
 		
-		if (scr_monsterpop() == 1 && !becameAlone) {
-			becameAlone = 1;
-			msgsetloc(0, "My outfit is coordinated now.&With myself.", "obj_swatchling_enemy_slash_Step_0_gml_46_0");
+		with (obj_swatchling_enemy) {
+			if (currentcolor != other.currentcolor)
+				mismatch_check++;
+			
+			if (currentcolor != previouscolor)
+				justchanged = true;
+			
+			if (currentcolor != blue && currentcolor != red && currentcolor != yellow)
+				allprimary = false;
 		}
 		
-		var changedcolor = currentcolor != previouscolor;
+		coordinated = mismatch_check == 0;
+		var justcoordinated = coordinated && justchanged;
+		msgsetloc(0, "Welcome,&young masters.", "obj_swatchling_enemy_slash_Step_0_gml_54_0");
 		
-		if (turns == 0) {
-			if (talkOrder == 0)
-				msgsetloc(0, "Welcome,&young masters.", "obj_swatchling_enemy_slash_Step_0_gml_54_0");
-			else if (talkOrder == 1)
-				msgsetloc(0, "We have prepared several&attack patterns for&your enjoyment.", "obj_swatchling_enemy_slash_Step_0_gml_57_0");
-			else if (talkOrder == 2)
-				msgsetloc(0, "Please enjoy them&at your convenience.", "obj_swatchling_enemy_slash_Step_0_gml_60_0");
-		} else {
-			var justchanged = 0;
-			var allprimary = 1;
-			var mismatch_check = 0;
+		if (talkOrder == 1)
+			msgsetloc(0, "We have prepared several&attack patterns for&your enjoyment.", "obj_swatchling_enemy_slash_Step_0_gml_57_0");
+		else if (talkOrder == 2)
+			msgsetloc(0, "Please enjoy them&at your convenience.", "obj_swatchling_enemy_slash_Step_0_gml_60_0");
+		
+		if (turns >= 1) {
+			msgsetloc(0, "Tut, tut.&It looks like pain.", "obj_swatchling_enemy_slash_Step_0_gml_157_0");
 			
-			with (obj_swatchling_enemy) {
-				if (currentcolor != other.currentcolor)
-					mismatch_check++;
+			if (!setmessage) {
+				var myRandom = choose(0, 1, 2);
 				
-				if (currentcolor != previouscolor)
-					justchanged = 1;
-				
-				if (currentcolor != blue && currentcolor != red && currentcolor != yellow)
-					allprimary = 0;
+				with (obj_swatchling_enemy) {
+					randomMessage = myRandom;
+					setmessage = true;
+				}
 			}
 			
-			coordinated = mismatch_check == 0;
-			var justcoordinated = coordinated && justchanged;
+			if (randomMessage < 2) {
+				if (currentcolor == blue)
+					msgsetloc(0, "We'll shine your shoes&'til they're black and blue.", "obj_swatchling_enemy_slash_Step_0_gml_162_0");
+				else if (currentcolor == red)
+					msgsetloc(0, "We'll make your bed&with sheets blood red.", "obj_swatchling_enemy_slash_Step_0_gml_165_0");
+				else if (currentcolor == yellow)
+					msgsetloc(0, "We'll make yellow sweets&for you, just try&not to hurt your tooth.", "obj_swatchling_enemy_slash_Step_0_gml_168_0");
+				else if (currentcolor == orange)
+					msgsetloc(0, "Please enjoy these&complimentary birds.", "obj_swatchling_enemy_slash_Step_0_gml_178_0");
+				else if (currentcolor == green)
+					msgsetloc(0, "Would you like&some horse'dovours?", "obj_swatchling_enemy_slash_Step_0_gml_181_0");
+			} else if (randomMessage == 2) {
+				if (currentcolor == blue) {
+					var blueText = (random(100) >= 95) ? stringsetloc("What? The lasagna&has some kind of&explosive in it?", "obj_swatchling_enemy_slash_Step_0_gml_174_0") : stringsetloc("Please enjoy this&complimentary body slam.", "obj_swatchling_enemy_slash_Step_0_gml_174_1");
+					msgset(0, blueText);
+				}
+			}
 			
-			if (justcoordinated) {
-				if (talkOrder == 0)
-					msgsetloc(0, "We feel so&coordinated.", "obj_swatchling_enemy_slash_Step_0_gml_106_0");
-				else if (talkOrder == 1)
-					msgsetloc(0, "Thank you,&young masters.", "obj_swatchling_enemy_slash_Step_0_gml_109_0");
-				else if (talkOrder == 2)
-					msgsetloc(0, "Thank you.", "obj_swatchling_enemy_slash_Step_0_gml_112_0");
-			} else if (changedcolor && (currentcolor == blue || currentcolor == red || currentcolor == yellow)) {
+			if (changedcolor) {
 				if (currentcolor == blue)
 					msgsetloc(0, "I'm feeling&blue.", "obj_swatchling_enemy_slash_Step_0_gml_119_0");
 				else if (currentcolor == red)
 					msgsetloc(0, "I'm seeing&red.", "obj_swatchling_enemy_slash_Step_0_gml_122_0");
 				else if (currentcolor == yellow)
 					msgsetloc(0, "I'm a yellow&fellow.", "obj_swatchling_enemy_slash_Step_0_gml_125_0");
-			} else {
-				if (!setmessage) {
-					var myRandom = !allprimary ? choose(0, 1) : choose(0, 1, 2, 3);
-					
-					if (allprimary) {
-						with (obj_swatchling_enemy) {
-							randomMessage = myRandom;
-							setmessage = 1;
-						}
-					}
-				}
-				
-				if (randomMessage == 0) {
-					if (talkOrder == 0)
-						msgsetloc(0, "Welcome,&young masters.", "obj_swatchling_enemy_slash_Step_0_gml_147_0");
-					else if (talkOrder == 1)
-						msgsetloc(0, "We have prepared several&attack patterns for&your enjoyment.", "obj_swatchling_enemy_slash_Step_0_gml_150_0");
-					else if (talkOrder == 2)
-						msgsetloc(0, "Please enjoy them&at your convenience.", "obj_swatchling_enemy_slash_Step_0_gml_153_0");
-				} else if (randomMessage == 1) {
-					msgsetloc(0, "Tut, tut.&It looks like pain.", "obj_swatchling_enemy_slash_Step_0_gml_157_0");
-				} else if (randomMessage == 2) {
-					if (currentcolor == blue)
-						msgsetloc(0, "We'll shine your shoes&'til they're black and blue.", "obj_swatchling_enemy_slash_Step_0_gml_162_0");
-					else if (currentcolor == red)
-						msgsetloc(0, "We'll make your bed&with sheets blood red.", "obj_swatchling_enemy_slash_Step_0_gml_165_0");
-					else if (currentcolor == yellow)
-						msgsetloc(0, "We'll make yellow sweets&for you, just try&not to hurt your tooth.", "obj_swatchling_enemy_slash_Step_0_gml_168_0");
-				} else if (randomMessage == 3) {
-					if (currentcolor == blue) {
-						var blueText = (random(100) >= 99) ? stringsetloc("What? The lasagna&has some kind of&explosive in it?", "obj_swatchling_enemy_slash_Step_0_gml_174_0") : stringsetloc("Please enjoy this&complimentary body slam.", "obj_swatchling_enemy_slash_Step_0_gml_174_1");
-						msgset(0, blueText);
-					} else if (currentcolor == red) {
-						msgsetloc(0, "Please enjoy this&complimentary shockwave.", "obj_swatchling_enemy_slash_Step_0_gml_178_0");
-					} else if (currentcolor == yellow) {
-						msgsetloc(0, "Would you like&some horse'dovours?", "obj_swatchling_enemy_slash_Step_0_gml_181_0");
-					}
-				}
+				else if (currentcolor == orange)
+					msgsetloc(0, "How about some&orange peel.", "obj_swatchling_enemy_slash_Step_0_gml_160_0");
+				else if (currentcolor == green)
+					msgsetloc(0, "A green lime&for your drink?", "obj_swatchling_enemy_slash_Step_0_gml_164_0");
 			}
+		}
+		
+		if (justcoordinated) {
+			if (talkOrder == 0)
+				msgsetloc(0, "We feel so&coordinated.", "obj_swatchling_enemy_slash_Step_0_gml_106_0");
+			else if (talkOrder == 1)
+				msgsetloc(0, "Thank you,&young masters.", "obj_swatchling_enemy_slash_Step_0_gml_109_0");
+			else if (talkOrder == 2)
+				msgsetloc(0, "Thank you.", "obj_swatchling_enemy_slash_Step_0_gml_112_0");
+		}
+		
+		if (scr_monsterpop() == 1 && !becameAlone) {
+			becameAlone = true;
+			msgsetloc(0, "My outfit is coordinated now.&With myself.", "obj_swatchling_enemy_slash_Step_0_gml_46_0");
 		}
 		
 		if (myself == (scr_monsterpop() - 1)) {
@@ -146,6 +139,7 @@ if (global.monster[myself] == 1) {
 				previouscolor = currentcolor;
 		}
 		
+		global.typer = 50;
 		scr_enemyblcon(x - 10, global.monstery[myself], 10);
 		talked = 1;
 		talktimer = 0;
@@ -213,7 +207,7 @@ if (global.monster[myself] == 1) {
 			}
 			
 			scr_turntimer(180);
-			setmessage = 0;
+			setmessage = false;
 			turns += 1;
 			global.typer = 6;
 			global.fc = 0;
@@ -350,7 +344,7 @@ if (global.myfight == 3) {
 	if (actcon == 20 && !instance_exists(obj_writer)) {
 		var changedcolor = currentcolor != previouscolor;
 		
-		if (changedcolor == 0) {
+		if (changedcolor == false) {
 			var temp = (currentcolor == blue) ? stringsetloc("cold", "obj_swatchling_enemy_slash_Step_0_gml_383_0") : stringsetloc("warm", "obj_swatchling_enemy_slash_Step_0_gml_383_1");
 			msgsetsubloc(0, "* But Swatchling is already as ~1 as can be!/%", temp, "obj_swatchling_enemy_slash_Step_0_gml_395_0");
 		} else {

@@ -8,11 +8,11 @@ function scr_texttype_ch1() {
 	if (global.chemg_typer != global.typer)
 		global.chemg_typer = global.typer;
 	
-	var font_set = 1;
+	var font_set = true;
 	
 	switch (global.typer) {
 		case 0:
-			font_set = 0;
+			font_set = false;
 			break;
 		
 		case 1:
@@ -73,7 +73,7 @@ function scr_texttype_ch1() {
 			break;
 		
 		case 16:
-			font_set = 0;
+			font_set = false;
 			break;
 		
 		case 17:
@@ -213,7 +213,7 @@ function scr_texttype_ch1() {
 			break;
 		
 		default:
-			font_set = 0;
+			font_set = false;
 			break;
 	}
 	

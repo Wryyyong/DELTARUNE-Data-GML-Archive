@@ -5,4 +5,4 @@ originy = obj_growtangle.y - 140;
 difficulty = 0;
 init = 0;
 target = -1;
-first_set = 1;
+first_set = true;

@@ -31,7 +31,7 @@ if (scr_onscreen(id) && scr_onscreen(other) && active == 1 && other.aligned == 1
 	}
 	
 	with (other) {
-		dance_active = 0;
+		dance_active = false;
 		sprite_index = spr_queenscreen_red;
 		image_speed = 0;
 		image_index = redscreen;

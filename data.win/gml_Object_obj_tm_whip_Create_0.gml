@@ -7,5 +7,5 @@ originx = x;
 originy = y;
 dodraw = 0;
 warning = 0;
-quizmode = 0;
-active = 0;
+quizmode = false;
+active = false;

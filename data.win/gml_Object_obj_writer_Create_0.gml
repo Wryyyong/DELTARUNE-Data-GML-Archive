@@ -22,7 +22,7 @@ if (global.darkzone == 1)
 	f = 2;
 
 prevent_mash_buffer = 0;
-formattext = 1;
+formattext = true;
 scr_texttype();
 autoaster = 1;
 drawaster = 1;

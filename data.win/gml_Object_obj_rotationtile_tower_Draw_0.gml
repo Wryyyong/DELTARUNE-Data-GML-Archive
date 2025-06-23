@@ -2,7 +2,7 @@ draw_self();
 
 if (init == 1) {
 	if (i_ex(obj_mouseTowerTrigger)) {
-		if (obj_mouseTowerTrigger.controlled == id && obj_mouseTowerTrigger.rotate == 1)
+		if (obj_mouseTowerTrigger.controlled == id && obj_mouseTowerTrigger.rotate == true)
 			mymoving = 1;
 		else
 			mymoving = 0;

@@ -1,6 +1,6 @@
 draw_set_alpha(0.8);
 draw_set_color(c_black);
-draw_rectangle(0, 0, 640, 480, false);
+draw_rectangle(0, 0, 640, 480, 0);
 draw_set_alpha(1);
 draw_set_font(fnt_main);
 draw_set_color(c_teal);
@@ -52,7 +52,7 @@ if (keyboard_check_pressed(ord("2"))) {
 if (keyboard_check_pressed(ord("C"))) {
 	draw_set_alpha(0.9);
 	draw_set_color(c_black);
-	draw_rectangle(0, 0, 640, 480, false);
+	draw_rectangle(0, 0, 640, 480, 0);
 	draw_set_alpha(1);
 	draw_set_color(c_white);
 	draw_set_halign(fa_center);

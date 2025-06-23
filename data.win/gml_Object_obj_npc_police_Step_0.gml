@@ -34,7 +34,7 @@ if (con == 1 && !d_ex()) {
 	con = 2;
 	undynedesk.sprite_index = spr_undyne_police_table_laugh;
 	undynedesk.image_speed = 0.1;
-	undyne_slam = 1;
+	undyne_slam = true;
 	scr_speaker("undyne");
 	msgsetloc(0, "\\E0* Haha..^1. DARK WORLD??/", "obj_npc_police_slash_Step_0_gml_60_0");
 	msgnextloc("\\E7* Hahahaha..^1. seriously!? Hahahaha!!/", "obj_npc_police_slash_Step_0_gml_61_0");
@@ -58,7 +58,7 @@ if (con == 2) {
 
 if (con == 4 && !d_ex()) {
 	con = 5;
-	undyne_slam = 0;
+	undyne_slam = false;
 	undyne_slam_timer = 0;
 	undynedesk.sprite_index = spr_undyne_police_table_break;
 	undynedesk.image_speed = 0;
@@ -133,11 +133,11 @@ if (keycon == 3) {
 if (global.flag[317] == 0 && con == 9 && keycon == 3) {
 	con = 10;
 	alarm[0] = 90;
-	repeatalarm = 1;
+	repeatalarm = true;
 }
 
 if (global.flag[317] == 0 && kriscon == 1) {
-	var stopcon = 0;
+	var stopcon = false;
 	
 	with (obj_mainchara) {
 		var runspeed = 8;
@@ -149,7 +149,7 @@ if (global.flag[317] == 0 && kriscon == 1) {
 		
 		if (x <= 130) {
 			global.facing = 0;
-			stopcon = 1;
+			stopcon = true;
 		}
 	}
 	
@@ -288,12 +288,12 @@ if (con >= 16 && i_ex(doga)) {
 
 if (con == 17) {
 	con = 18;
-	repeatalarm = 0;
+	repeatalarm = false;
 }
 
 if (con == 19) {
 	if (undyne == -1) {
-		deskchairless.visible = true;
+		deskchairless.visible = 1;
 		deskchairless.depth = obj_mainchara.depth + 10;
 		undyne = scr_marker(147, 91, spr_undyne_walk_down);
 		undyne.image_speed = 0;
@@ -321,8 +321,8 @@ if (con == 21) {
 	} else if (undyne.y < 125) {
 		undyne.depth = 0;
 		
-		if (deskchairless.visible == true)
-			deskchairless.visible = false;
+		if (deskchairless.visible == 1)
+			deskchairless.visible = 0;
 		
 		undyne.sprite_index = spr_undyne_walk_down;
 		undyne.y += 7;
@@ -341,7 +341,7 @@ if (con == 21) {
 
 if (con == 22 && !d_ex()) {
 	con = 50;
-	undyne.visible = false;
+	undyne.visible = 0;
 	scr_litemget(10);
 	cutscene_master = scr_cutscene_make();
 	scr_maincharacters_actors();

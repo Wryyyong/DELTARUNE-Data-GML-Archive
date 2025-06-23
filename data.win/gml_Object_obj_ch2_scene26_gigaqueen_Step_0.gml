@@ -1,6 +1,6 @@
 if (release) {
 	if (!head_init)
-		head_init = 1;
+		head_init = true;
 	
 	if (head_x_pos < 0)
 		head_x_pos = (camerax() + (view_wport[0] / 2)) - sprite_get_width(spr_cutscene_26_queen_giga_head);
@@ -11,28 +11,28 @@ if (release) {
 	head_y_pos = clamp(head_y_pos - 10, cameray() - 15, cameray() + view_hport[0] + 100);
 	
 	if (head_y_pos <= (cameray() - 15))
-		release = 0;
+		release = false;
 }
 
 if (release_fast) {
 	head_y_pos = clamp(head_y_pos - 35, cameray() - 15, cameray() + view_hport[0] + 100);
 	
 	if (head_y_pos <= (cameray() - 15))
-		release_fast = 0;
+		release_fast = false;
 }
 
 if (leave) {
 	head_y_pos = clamp(head_y_pos + 10, cameray() - 15, cameray() + view_hport[0] + 100);
 	
 	if (head_y_pos >= (cameray() + view_hport[0] + 100))
-		leave = 0;
+		leave = false;
 }
 
 if (leave_fast) {
 	head_y_pos = clamp(head_y_pos + 30, cameray() - 15, cameray() + view_hport[0] + 100);
 	
 	if (head_y_pos >= (cameray() + view_hport[0] + 100))
-		leave = 0;
+		leave = false;
 }
 
 if (laugh) {
@@ -49,7 +49,7 @@ if (laugh) {
 }
 
 if (surprised) {
-	surprised = 0;
+	surprised = false;
 	head_sprite = spr_cutscene_27_queen_shock_damaged;
 	pilot_alpha = 0;
 	
@@ -58,17 +58,17 @@ if (surprised) {
 }
 
 if (unhappy) {
-	unhappy = 0;
+	unhappy = false;
 	head_sprite = spr_cutscene_26_queen_giga_head_unhappy;
 	pilot_sprite = spr_cutscene_26_queen_pilot;
 	pilot_alpha = 1;
 }
 
 if (static_start) {
-	static_start = 0;
+	static_start = false;
 	head_sprite = spr_cutscene_27_queen_look_down_damaged;
 	pilot_alpha = 0;
-	static_happened = 1;
+	static_happened = true;
 	my_static = instance_create(252, 123, obj_ch2_queen_static);
 	
 	with (my_static)
@@ -79,9 +79,9 @@ if (static_start) {
 }
 
 if (static_stop) {
-	static_stop = 0;
-	static_start = 0;
-	static_happened = 0;
+	static_stop = false;
+	static_start = false;
+	static_happened = false;
 	pilot_alpha = 1;
 	
 	if (i_ex(obj_ch2_queen_static)) {
@@ -102,7 +102,7 @@ if (damagedfx) {
 		smoke.hspeed = random(2);
 		smoke.image_xscale = 2;
 		smoke.image_yscale = 2;
-		smoke.visible = true;
+		smoke.visible = 1;
 		smoke = instance_create(head_x_pos + 330, head_y_pos + 180, obj_afterimage_grow);
 		smoke.depth = depth + 200;
 		smoke.sprite_index = spr_cakesmoke;
@@ -111,7 +111,7 @@ if (damagedfx) {
 		smoke.hspeed = random(2) + 2;
 		smoke.image_xscale = 0;
 		smoke.image_yscale = 0;
-		smoke.visible = true;
+		smoke.visible = 1;
 		smoketimer = 0;
 	}
 	
@@ -130,7 +130,7 @@ if (damagedfx) {
 		smoke.hspeed = 0;
 		smoke.image_xscale = 0;
 		smoke.image_yscale = 0;
-		smoke.visible = true;
+		smoke.visible = 1;
 	}
 	
 	if (shaketimer >= 55 && shaketimer <= 60) {
@@ -144,7 +144,7 @@ if (damagedfx) {
 
 if (climb == 1) {
 	if (!head_init)
-		head_init = 1;
+		head_init = true;
 	
 	climbtimer++;
 	

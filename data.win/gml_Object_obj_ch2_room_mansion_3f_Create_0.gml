@@ -10,9 +10,9 @@ if (scr_sideb_get_phase() != 3) {
 		with (berdly_marker)
 			scr_depth();
 		
-		berdly_exit = 0;
+		berdly_exit = false;
 		berdly_shadow = 0;
-		susie_exit = 0;
+		susie_exit = false;
 		susie_shadow = 0;
 	}
 	
@@ -57,7 +57,7 @@ if (scr_sideb_get_phase() != 3) {
 			scr_depth();
 	}
 	
-	hide_entrance = 0;
+	hide_entrance = false;
 	
 	if (!scr_havechar(2)) {
 		layer_set_visible("Tiles_ExitBlock", 1);

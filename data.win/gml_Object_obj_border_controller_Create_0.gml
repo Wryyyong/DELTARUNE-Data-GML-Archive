@@ -1,6 +1,6 @@
-loaded = 0;
-border_fade_out = 0;
-border_fade_in = 0;
+loaded = false;
+border_fade_out = false;
+border_fade_in = false;
 border_alpha = 0;
 border_fade_value = 0.025;
 _border_image = border_lw_town;

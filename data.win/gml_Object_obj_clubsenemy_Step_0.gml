@@ -202,7 +202,7 @@ if (global.myfight == 3) {
 			
 			if (topic_timer <= 0) {
 				topic_con = 4;
-				topic_timeup = 1;
+				topic_timeup = true;
 				
 				if (i_ex(obj_writer))
 					instance_destroy(obj_writer);
@@ -214,11 +214,11 @@ if (global.myfight == 3) {
 	}
 	
 	if (topic_con == 4 && !i_ex(obj_writer) && !i_ex(obj_choicer_neo)) {
-		topic_start = 0;
+		topic_start = false;
 		topic_con = 0;
 		
 		if (topic_timeup) {
-			topic_timeup = 0;
+			topic_timeup = false;
 			snd_play(snd_error);
 			scr_miniface_init_clover();
 			msgsetloc(0, "\\m1*\t\tTime's up!&\\m2\tTOO SLOW!&\\m3\t(Sorry...)/%", "obj_clubsenemy_slash_Step_0_gml_286_0");

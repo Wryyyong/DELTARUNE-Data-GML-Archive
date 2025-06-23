@@ -1,10 +1,10 @@
 if (hit_timer > 0 && hit_timer < 2)
-	d3d_set_fog(true, c_white, 0, 0);
+	d3d_set_fog(1, c_white, 0, 0);
 
 draw_self();
 
 if (hit_timer > 0 && hit_timer < 2)
-	d3d_set_fog(false, c_white, 0, 0);
+	d3d_set_fog(0, c_white, 0, 0);
 
 energy_aura_timer++;
 

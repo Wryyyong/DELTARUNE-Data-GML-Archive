@@ -1,4 +1,4 @@
-destroyoffscreen = 0;
+destroyoffscreen = false;
 tolerance = 0;
 fadeInSpeed = 8;
 image_xscale = 2;
@@ -14,7 +14,7 @@ targetX = 0;
 framesAway = 30;
 frames = 0;
 endY = 400;
-horizontal = 0;
+horizontal = false;
 traveltime = 40;
 con = 0;
 image_alpha = 0.01;

@@ -280,11 +280,11 @@ if (timer == 1410) {
 	linecolor[5] = c_white;
 	linecolor[6] = c_white;
 	linecolor[7] = c_white;
-	drawtesters = 1;
+	drawtesters = true;
 }
 
 if (timer == 1511) {
-	drawtesters = 0;
+	drawtesters = false;
 	line[0] = stringsetloc("-Special Thanks-", "obj_credits_2_slash_Step_0_gml_314_0");
 	line[1] = stringset("Hiroko Minamoto");
 	line[2] = stringset("Fontworks Inc.");
@@ -326,8 +326,10 @@ if (timer > 1641 && timer < 1711) {
 if (timer >= 1801) {
 	creditalpha -= 0.05;
 	
-	if (creditalpha < -0.1)
-		game_restart();
+	if (creditalpha < -0.1) {
+		global.chapter_return = -1;
+		game_restart_true();
+	}
 }
 
 if (timer > 1744 && timer < 1910)
@@ -336,6 +338,8 @@ if (timer > 1744 && timer < 1910)
 if (timer > 1910) {
 	creditalpha -= 0.02;
 	
-	if (creditalpha <= -0.5)
-		game_restart();
+	if (creditalpha <= -0.5) {
+		global.chapter_return = -1;
+		game_restart_true();
+	}
 }

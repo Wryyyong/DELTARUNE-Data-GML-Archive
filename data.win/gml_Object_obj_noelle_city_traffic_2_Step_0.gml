@@ -14,19 +14,19 @@ if (idealPositionProgress < 1) {
 
 with (obj_mainchara) {
 	if (place_meeting(x, y, obj_traffic_road_trigger)) {
-		if (other.stickToKris == 0)
+		if (other.stickToKris == false)
 			other.idealPositionProgress = 0;
 		
-		other.stickToKris = 1;
+		other.stickToKris = true;
 	} else {
-		if (other.stickToKris == 1)
+		if (other.stickToKris == true)
 			other.idealPositionProgress = 0;
 		
-		other.stickToKris = 0;
+		other.stickToKris = false;
 	}
 }
 
-if (stickToKris == 1) {
+if (stickToKris == true) {
 	if (room != room_dw_city_traffic_3) {
 		idealX = obj_mainchara.x - 4;
 		idealY = obj_mainchara.y + 30;
@@ -75,7 +75,7 @@ if (stickToKris == 1) {
 		sprite_index = spr_noelle_cower_right;
 }
 
-if (stickToKris == 0) {
+if (stickToKris == false) {
 	if (place_meeting(x, y, obj_triggervolume)) {
 		debug_message("ahhhh");
 		y -= 8;

@@ -1,6 +1,6 @@
 con = -1;
 customcon = 0;
-noellegame = 1;
+noellegame = true;
 gamecon = 0;
 doormoved = 0;
 

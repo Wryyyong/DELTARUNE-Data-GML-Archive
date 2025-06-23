@@ -1,5 +1,5 @@
 camTargetHeight = reverse ? camTargetHeightReverse : camTargetHeightNormal;
-var _tempLock = 0;
+var _tempLock = false;
 riseSpeedBoost = min(riseSpeedBoost, riseSpeedBoostMax);
 var _generalSpeed = riseSpeed;
 
@@ -96,7 +96,7 @@ if (state == 4) {
 	}
 	
 	if (--waitingAround <= 0) {
-		heldThisRide = 0;
+		heldThisRide = false;
 		state = 5;
 		looptrack = snd_loop(snd_chain_extend);
 		snd_pitch(looptrack, 0.3 + (_riseSpeedFinal * 0.09));
@@ -126,8 +126,8 @@ if (state == 5) {
 			
 			if (_holdCondition) {
 				y = holdHeight;
-				held = 1;
-				heldThisRide = 1;
+				held = true;
+				heldThisRide = true;
 				heldAmount = 0;
 			}
 		}
@@ -138,7 +138,7 @@ if (state == 5) {
 		heldAmount += _riseSpeedFinal;
 		
 		if (heldAmount >= holdDistance)
-			held = 0;
+			held = false;
 		
 		with (obj_teacup_bullet) {
 			if (master == other.id)
@@ -151,7 +151,7 @@ if (state == 5) {
 					scr_tb_make_split(800, spin, 0, 3, 5);
 			}
 			
-			if (collision_rectangle(bbox_left, bbox_top - 10, bbox_right, bbox_bottom, obj_teacup_bullet, 0, 1) != -4) {
+			if (collision_rectangle(bbox_left, bbox_top - 10, bbox_right, bbox_bottom, obj_teacup_bullet, false, true) != -4) {
 				if (cup_char[1].sprite_index == spr_teacup_susie)
 					cup_char[1].sprite_index = spr_teacup_susie_tea;
 				
@@ -173,7 +173,7 @@ if (state == 5) {
 					obj_teacupParallaxer.auto = 1;
 			}
 			
-			_tempLock = 1;
+			_tempLock = true;
 		}
 	}
 	
@@ -302,7 +302,7 @@ if (state == 6.1) {
 	
 	if (--waitingAround <= 0) {
 		scoreboard.scoreCol = 14483711;
-		reverse = 1;
+		reverse = true;
 		state = 5;
 	}
 }
@@ -314,7 +314,7 @@ with (crusher) {
 		y = other.y;
 		
 		if (!other.crushed) {
-			other.crushed = 1;
+			other.crushed = true;
 			instance_create(0, 0, obj_shake);
 			snd_play(snd_locker);
 		}
@@ -343,7 +343,7 @@ if (state == 7) {
 		}
 		
 		with (jumpToRide) {
-			rideToRide = 1;
+			rideToRide = true;
 			event_perform(ev_other, ev_user0);
 		}
 		
@@ -405,7 +405,7 @@ if (state == 8) {
 		cameramarker = scr_dark_marker(jumpMarker[0].jumper.endx, jumpMarker[0].jumper.endy, spr_krisd_dark);
 		cameramarker.depth = -100;
 		cameramarker.image_blend = c_blue;
-		cameramarker.visible = false;
+		cameramarker.visible = 0;
 		
 		if (uniqueRideExperience != 1)
 			scr_pan_to_obj(cameramarker, 12);
@@ -617,9 +617,9 @@ if (scoreboardExists) {
 
 if (room == room_dw_cyber_battle_maze_1) {
 	if (state == 5 && idletimer > 30 && global.flag[442] == 0)
-		drawtutorialarrows = 1;
+		drawtutorialarrows = true;
 	else
-		drawtutorialarrows = 0;
+		drawtutorialarrows = false;
 }
 
 if (wooshnoise == 1) {

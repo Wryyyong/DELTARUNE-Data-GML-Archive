@@ -7,7 +7,7 @@ normalanim = 1;
 remanimspeed = 0;
 flag = 0;
 extflag = 0;
-alwaysanimate = 0;
+alwaysanimate = false;
 jpspecial = 0;
 
 if (global.darkzone == 0) {
@@ -310,12 +310,12 @@ if (global.darkzone == 1) {
 		}
 		
 		if (global.flag[636] == 1) {
-			var swatchling_sweep = 0;
+			var swatchling_sweep = false;
 			
 			if (i_ex(obj_npc_room_animated)) {
 				with (obj_npc_room_animated) {
 					if (sprite_index == spr_npc_swatchling_sweep)
-						swatchling_sweep = 1;
+						swatchling_sweep = true;
 				}
 			}
 			
@@ -350,12 +350,12 @@ if (global.darkzone == 1) {
 		
 		if (x > 320 && x < 350 && y > 910 && y < 930) {
 			if (global.flag[635] == 1) {
-				var viro_exists = 0;
+				var viro_exists = false;
 				
 				if (i_ex(obj_npc_room_animated)) {
 					with (obj_npc_room_animated) {
 						if (sprite_index == spr_virovirokun_idle)
-							viro_exists = 1;
+							viro_exists = true;
 					}
 				}
 				

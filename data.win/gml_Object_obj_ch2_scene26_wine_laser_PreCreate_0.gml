@@ -1,2 +1,2 @@
 event_inherited();
-test_mode = 0;
+test_mode = false;

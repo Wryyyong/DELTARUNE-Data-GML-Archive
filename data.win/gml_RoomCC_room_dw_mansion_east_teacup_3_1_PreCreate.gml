@@ -1,1 +1,1 @@
-rideEnd = 0;
+rideEnd = false;

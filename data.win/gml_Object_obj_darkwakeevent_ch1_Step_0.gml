@@ -59,7 +59,7 @@ if (con == 1) {
 			instance_destroy();
 		
 		with (obj_mainchara_ch1)
-			visible = true;
+			visible = 1;
 		
 		global.interact = 0;
 		con = 2;

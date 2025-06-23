@@ -18,7 +18,7 @@ if (con == 0 && obj_mainchara.x > 140 && global.interact == 0 && !d_ex()) {
 	sa_actor.sprite_index = spr_sans_d;
 	sa_actor.auto_depth = 0;
 	sa_actor.depth = counter.depth + 10;
-	sans.visible = false;
+	sans.visible = 0;
 	con = 1;
 }
 
@@ -159,13 +159,13 @@ if (con == 1) {
 
 if (con == 2 && !instance_exists(obj_cutscene_master)) {
 	con = 3;
-	sans.visible = true;
+	sans.visible = 1;
 	global.interact = 0;
 	global.facing = 0;
 	global.flag[308] = 1;
 }
 
 if (interacting && !d_ex()) {
-	interacting = 0;
+	interacting = false;
 	global.interact = 0;
 }

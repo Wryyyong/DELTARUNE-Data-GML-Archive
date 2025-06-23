@@ -15,7 +15,7 @@ if (global.chapter == 2) {
 			if (global.flag[632] == 1) {
 				var tasque = instance_create(280, 370, obj_readable_room1);
 				tasque.sprite_index = spr_tasque_idle_overworld;
-				tasque.visible = true;
+				tasque.visible = 1;
 				tasque.image_xscale = 2;
 				tasque.image_yscale = 2;
 				
@@ -28,7 +28,7 @@ if (global.chapter == 2) {
 			if (global.flag[634] == 1) {
 				var maus = instance_create(290, 320, obj_readable_room1);
 				maus.sprite_index = spr_maus_idle;
-				maus.visible = true;
+				maus.visible = 1;
 				maus.image_xscale = 2;
 				maus.image_yscale = 2;
 				
@@ -43,7 +43,7 @@ if (global.chapter == 2) {
 			if (global.flag[631] == 1) {
 				var poppup = instance_create(300, 260, obj_readable_room1);
 				poppup.sprite_index = spr_npc_poppup;
-				poppup.visible = true;
+				poppup.visible = 1;
 				poppup.image_xscale = 2;
 				poppup.image_yscale = 2;
 				
@@ -59,7 +59,7 @@ if (global.chapter == 2) {
 		if (lost_animals == 0 && global.flag[462] < 3 && global.flag[465] == 1) {
 			var car = instance_create(280, 330, obj_readable_room1);
 			car.sprite_index = spr_traffic_car_side_legs_small_left;
-			car.visible = true;
+			car.visible = 1;
 			car.image_xscale = 2;
 			car.image_yscale = 2;
 			

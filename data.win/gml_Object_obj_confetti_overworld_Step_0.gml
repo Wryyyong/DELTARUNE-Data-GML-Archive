@@ -6,7 +6,7 @@ if ((y - height) > (cameray() + 500) || x < (camerax() - 100) || x > (camerax() 
 }
 
 if (!init) {
-	init = 1;
+	init = true;
 	
 	if (i_ex(shadow))
 		shadow.depth = maxDepth;
@@ -49,7 +49,7 @@ if (airborne && height <= 0 && y < maxy) {
 	instance_destroy(shadow);
 	fallspeed = 0;
 	height = 0;
-	airborne = 0;
+	airborne = false;
 	image_index = (image_index < 4) ? 3 : 7;
 	speed = 0;
 	image_speed = 0;

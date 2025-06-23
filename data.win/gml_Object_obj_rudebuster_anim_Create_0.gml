@@ -12,7 +12,7 @@ if (instance_exists(obj_herosusie)) {
 	depth = obj_herosusie.depth;
 	
 	with (obj_herosusie)
-		visible = false;
+		visible = 0;
 } else {
 	battlemode = 0;
 }

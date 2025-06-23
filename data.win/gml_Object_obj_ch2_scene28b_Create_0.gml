@@ -9,7 +9,7 @@ if (scr_sideb_get_phase() >= 2) {
 con = -1;
 customcon = 0;
 su_actor = -1;
-show_border = 0;
+show_border = false;
 
 if (global.chapter != 2 || global.plot > 200) {
 	instance_destroy();
@@ -21,7 +21,7 @@ if (global.chapter != 2 || global.plot > 200) {
 			instance_destroy();
 	}
 	
-	layer_set_visible("GIVE_DEPTH", 0);
+	layer_set_visible("GIVE_DEPTH", false);
 	whiteall = scr_marker(-10, -10, spr_pixel_white);
 	whiteall.image_xscale = 999;
 	whiteall.image_yscale = 999;
@@ -36,7 +36,7 @@ if (global.chapter != 2 || global.plot > 200) {
 	desk_marker.depthcancel = 1;
 	desk_marker.depth = whiteall.depth + 100;
 	standing = 0;
-	kris_leave = 0;
-	susie_mad = 0;
+	kris_leave = false;
+	susie_mad = false;
 	susie_mad_timer = 0;
 }

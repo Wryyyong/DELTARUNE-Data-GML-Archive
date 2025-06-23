@@ -5,7 +5,7 @@ if (i_ex(actor)) {
 			_inst.sprite_index = sprite_index;
 			_inst.image_index = image_index;
 			
-			if (visible == false)
+			if (visible == 0)
 				_inst.sprite_index = Nothing;
 			
 			if (o_boxingqueen.drawflip == 0)

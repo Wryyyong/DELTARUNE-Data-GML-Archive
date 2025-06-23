@@ -42,7 +42,7 @@ siner = 0;
 type = 1;
 reminteract = global.interact;
 menuSprite = spr_heart;
-display_buttons = 0;
+display_buttons = false;
 
 for (i = 0; i < menuMax; i++) {
 	menuCoord[i] = 0;

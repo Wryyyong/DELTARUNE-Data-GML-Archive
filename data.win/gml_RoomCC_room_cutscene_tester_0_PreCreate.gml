@@ -1,1 +1,1 @@
-canttalk = 1;
+canttalk = true;

@@ -185,7 +185,7 @@ if (global.myfight == 3) {
 			actcon = 4;
 			alarm[4] = 10;
 		} else {
-			dancing = 1;
+			dancing = true;
 			
 			if (groove == 0) {
 				if (global.lang == "ja") {
@@ -231,12 +231,12 @@ if (global.myfight == 3) {
 	}
 	
 	if (actcon == 5) {
-		dancing = 1;
+		dancing = true;
 		actcon = 1;
 	}
 	
 	if (actingsus == 1 && actconsus == 1) {
-		dancing = 1;
+		dancing = true;
 		danceCounter = 1;
 		dancedwithsusie = 1;
 		scr_act_charsprite("susie", spr_susie_dance, 0.16, 1);
@@ -268,7 +268,7 @@ if (global.myfight == 3) {
 	}
 	
 	if (actingral == 1 && actconral == 1) {
-		dancing = 1;
+		dancing = true;
 		danceCounter = 1;
 		scr_act_charsprite("ralsei", spr_ralsei_dance, 0.16, 1);
 		
@@ -299,7 +299,7 @@ if (global.myfight == 3) {
 	}
 	
 	if (actcon == 1 && !instance_exists(obj_writer)) {
-		if (obj_sweet_enemy.dancing == 1 && obj_kk_enemy.dancing == 1 && obj_hatguy_enemy.dancing == 1 && obj_sweet_enemy.endcon == 0) {
+		if (obj_sweet_enemy.dancing == true && obj_kk_enemy.dancing == true && obj_hatguy_enemy.dancing == true && obj_sweet_enemy.endcon == 0) {
 			obj_sweet_enemy.endcon = 1;
 		} else if (obj_sweet_enemy.endcon == 0) {
 			with (obj_marker) {
@@ -323,7 +323,7 @@ if (global.myfight == 3) {
 	
 	if (actcon == 20 || actconsus == 20 || actconral == 20) {
 		if (scr_terminate_writer()) {
-			if (obj_sweet_enemy.dancing == 1 && obj_kk_enemy.dancing == 1 && obj_hatguy_enemy.dancing == 1 && obj_sweet_enemy.endcon == 0) {
+			if (obj_sweet_enemy.dancing == true && obj_kk_enemy.dancing == true && obj_hatguy_enemy.dancing == true && obj_sweet_enemy.endcon == 0) {
 				obj_sweet_enemy.endcon = 1;
 			} else if (obj_sweet_enemy.endcon == 0) {
 				with (obj_marker) {

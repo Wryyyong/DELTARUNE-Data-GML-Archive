@@ -1,6 +1,6 @@
 function scr_jevil_check() {
-	var item_knife = 0;
-	var item_tail = 0;
+	var item_knife = false;
+	var item_tail = false;
 	jevil_status[0] = 0;
 	jevil_status[1] = 0;
 	jevil_status[2] = 0;
@@ -198,10 +198,8 @@ function scr_jevil_check() {
 					var flag_list = scr_ds_list_read(myfileid);
 					
 					for (var i = 0; i < 242; i += 1) {
-						if (i == 241) {
+						if (i == 241)
 							jevil_status[k] = ds_list_find_value(flag_list, i);
-							show_debug_message(string(k) + " file jevil status : " + string(jevil_status[k]));
-						}
 					}
 					
 					ds_list_destroy(flag_list);
@@ -218,7 +216,6 @@ function scr_jevil_check() {
 						if (i == 241) {
 							jevil_status[k] = file_text_read_real(myfileid);
 							file_text_readln(myfileid);
-							show_debug_message(string(k) + " file jevil status : " + string(jevil_status[k]));
 						} else {
 							file_text_read_real(myfileid);
 							file_text_readln(myfileid);

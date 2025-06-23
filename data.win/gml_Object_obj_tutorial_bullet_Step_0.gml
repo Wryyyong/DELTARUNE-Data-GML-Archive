@@ -1,9 +1,9 @@
 image_angle = direction;
 
 if (y > (cameray() + 220) || x < ((camerax() + 320) - 120) || x > (camerax() + 320 + 120))
-	fade = 1;
+	fade = true;
 
-if (fade == 1) {
+if (fade == true) {
 	image_alpha *= 0.6;
 	
 	if (image_alpha < 0.01)

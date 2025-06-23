@@ -1,1 +1,1 @@
-text_fade = 1;
+text_fade = true;

@@ -40,10 +40,10 @@ if (init == 1) {
 	draw_set_color(c_lime);
 	
 	for (i = 0; i < 8; i++) {
-		draw_path(patha[i], xx + 320, yy + 320, 0);
-		draw_path(patha[i], xx + 319, yy + 320, 0);
-		draw_path(pathb[i], xx + 320, yy + 320, 0);
-		draw_path(pathb[i], xx + 321, yy + 320, 0);
+		draw_path(patha[i], xx + 320, yy + 320, false);
+		draw_path(patha[i], xx + 319, yy + 320, false);
+		draw_path(pathb[i], xx + 320, yy + 320, false);
+		draw_path(pathb[i], xx + 321, yy + 320, false);
 	}
 	
 	for (i = 0; i < 19; i++) {
@@ -52,7 +52,7 @@ if (init == 1) {
 		if (liney[i] <= -100)
 			liney[i] += liney[19];
 		
-		draw_ellipse((xx - 100) + (liney[i] / 2), yy + liney[i], (xx + 640 + 100) - (liney[i] / 2), yy + 600, 1);
+		draw_ellipse((xx - 100) + (liney[i] / 2), yy + liney[i], (xx + 640 + 100) - (liney[i] / 2), yy + 600, true);
 	}
 	
 	draw_set_alpha(1);

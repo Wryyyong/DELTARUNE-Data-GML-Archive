@@ -13,7 +13,7 @@ if (room == room_town_mid) {
 		banim.depth = bnpc.depth;
 		
 		with (bnpc)
-			visible = false;
+			visible = 0;
 		
 		with (banim)
 			image_speed = 0.334;

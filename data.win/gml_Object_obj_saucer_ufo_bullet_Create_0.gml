@@ -1,4 +1,4 @@
-destroyoffscreen = 1;
+destroyoffscreen = true;
 tolerance = 64;
 teller = 0;
 

@@ -12,7 +12,7 @@ function scr_blconskip(arg0) {
 			global.mnfight = 2;
 		}
 	} else if (arg0 == -1) {
-		if (instance_exists(obj_writer) == 0)
+		if (instance_exists(obj_writer) == false)
 			global.mnfight = 2;
 	} else if (arg0 == -2) {
 		talktimer += 1;

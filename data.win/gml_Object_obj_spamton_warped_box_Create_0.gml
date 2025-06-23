@@ -11,6 +11,6 @@ suckpower = 0;
 timer = 0;
 snapback = 0;
 target = 0;
-wait = 0;
+wait = false;
 obj_battlesolid.image_xscale = 3;
 obj_battlesolid.image_yscale = 3;

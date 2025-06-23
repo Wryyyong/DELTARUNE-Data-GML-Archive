@@ -1,8 +1,8 @@
-if (skip == 1 || isswitch == 1)
-	flippable = 0;
+if (skip == true || isswitch == true)
+	flippable = false;
 
 if (myinteract == 3) {
-	if (flip == 0 && !d_ex()) {
+	if (flip == false && !d_ex()) {
 		global.interact = 0;
 		myinteract = 0;
 		
@@ -40,5 +40,5 @@ if (room == room_dw_mansion_fire_paintings) {
 		image_index = global.flag[138] == 1;
 }
 
-if (decorative == 1)
-	flip = 0;
+if (decorative == true)
+	flip = false;

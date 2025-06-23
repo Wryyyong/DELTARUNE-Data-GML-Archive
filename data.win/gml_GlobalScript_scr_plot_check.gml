@@ -3,12 +3,12 @@ function scr_plot_check(arg0) {
 	
 	if (__plot > 0) {
 		if (global.plot >= __plot)
-			return 1;
+			return true;
 		else
-			return 0;
+			return false;
 	} else if (global.plot < __plot) {
-		return 1;
+		return true;
 	} else {
-		return 0;
+		return false;
 	}
 }

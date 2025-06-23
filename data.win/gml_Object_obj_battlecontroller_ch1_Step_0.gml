@@ -72,7 +72,7 @@ if (victory == 1 && victoried == 0) {
 if (victoried == 1) {
 	victortimer += 1;
 	
-	if (instance_exists(lastbattlewriter) == 0 && victortimer >= 10) {
+	if (instance_exists(lastbattlewriter) == false && victortimer >= 10) {
 		intro = 2;
 		
 		if (bp <= 0)

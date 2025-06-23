@@ -1,2 +1,2 @@
-rideEnd = 0;
+rideEnd = false;
 partyMember = 1;

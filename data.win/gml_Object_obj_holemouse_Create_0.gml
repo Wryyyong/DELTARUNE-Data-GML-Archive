@@ -5,7 +5,7 @@ image_yscale = 2;
 invulnerable = 0;
 fall = 0;
 gulped = 0;
-nointeract = 0;
+nointeract = false;
 snd_play(snd_mouse);
 timer = 0;
 emergetimer = 0;
@@ -27,9 +27,9 @@ if (instance_exists(obj_masterPlatformController)) {
 }
 
 if (place_meeting(x, y + 40, obj_holemouse_block_counterclockwise) || place_meeting(x, y + 40, obj_holemouse_invis_counterclockwise) || place_meeting(x, y + 40, obj_holemouse_invis_clockwise) || place_meeting(x, y + 40, obj_holemouse_block_clockwise))
-	blockedstart = 1;
+	blockedstart = true;
 else
-	blockedstart = 0;
+	blockedstart = false;
 
 currentdir = direction;
 initas = 0;

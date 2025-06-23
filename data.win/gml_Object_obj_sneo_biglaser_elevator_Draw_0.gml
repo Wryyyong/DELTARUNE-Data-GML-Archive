@@ -34,7 +34,7 @@ if (firecon == 0) {
 	effecttimer++;
 	siner++;
 } else if (firecon == 1) {
-	active = 1;
+	active = true;
 	draw_set_color(c_white);
 	draw_circle(x, y, image_yscale * 100, 0);
 	effecttimer++;

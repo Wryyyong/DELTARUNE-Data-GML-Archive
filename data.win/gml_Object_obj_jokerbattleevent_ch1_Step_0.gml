@@ -24,10 +24,10 @@ if (con == 1) {
 	y = global.monstermakey[0] + 100;
 	
 	with (obj_mainchara_ch1)
-		visible = false;
+		visible = 0;
 	
 	with (obj_caterpillarchara_ch1)
-		visible = false;
+		visible = 0;
 	
 	for (i = 0; i < 3; i += 1) {
 		c[i] = scr_dark_marker_ch1(global.heromakex[i] - 100, global.heromakey[i], spr_krisr_dark_ch1);
@@ -270,22 +270,22 @@ if (con == 23) {
 	scr_caterpillar_facing_ch1(1);
 	
 	with (obj_mainchara_ch1)
-		visible = true;
+		visible = 1;
 	
 	with (global.cinstance[0])
-		visible = true;
+		visible = 1;
 	
 	with (global.cinstance[1])
-		visible = true;
+		visible = 1;
 	
 	with (k)
-		visible = false;
+		visible = 0;
 	
 	with (r)
-		visible = false;
+		visible = 0;
 	
 	with (s)
-		visible = false;
+		visible = 0;
 	
 	global.flag[9] = 1;
 	global.batmusic[0] = snd_init_ch1("joker.ogg");
@@ -315,7 +315,7 @@ if (bulcon == 10) {
 
 if (con == 25) {
 	if (instance_exists(obj_battlecontroller_ch1)) {
-		visible = false;
+		visible = 0;
 		
 		with (obj_jokerbg_triangle_real_ch1)
 			on = 1;

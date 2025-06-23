@@ -4,9 +4,9 @@ _xx = x + 95;
 _yy = y + 25;
 
 if (myString == "?")
-	won = 0;
+	won = false;
 else
-	won = 1;
+	won = true;
 
 draw_set_font(fnt_mainbig);
 draw_set_color(unsolved);

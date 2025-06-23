@@ -568,7 +568,7 @@ if (type == 27) {
 		block = instance_create_ch1(100, 100, obj_blockbullet_fall_ch1);
 		block.xpos = made;
 		scr_bullet_inherit_ch1(block);
-		testblock = collision_point(lx + (made * block.sprite_width) + 8, ly - (block.sprite_height * 3) - 10, obj_blockbullet_fall_ch1, 0, 1);
+		testblock = collision_point(lx + (made * block.sprite_width) + 8, ly - (block.sprite_height * 3) - 10, obj_blockbullet_fall_ch1, false, true);
 		
 		if (testblock > 1) {
 			if (testblock.halt == 1) {
@@ -578,10 +578,10 @@ if (type == 27) {
 		}
 	}
 	
-	legoa = collision_point(lx + 15, ly, obj_blockbullet_fall_ch1, 0, 1);
-	legob = collision_point(lx + 15 + 34, ly, obj_blockbullet_fall_ch1, 0, 1);
-	legoc = collision_point(lx + 15 + 68, ly, obj_blockbullet_fall_ch1, 0, 1);
-	legod = collision_point(lx + 15 + 102, ly, obj_blockbullet_fall_ch1, 0, 1);
+	legoa = collision_point(lx + 15, ly, obj_blockbullet_fall_ch1, false, true);
+	legob = collision_point(lx + 15 + 34, ly, obj_blockbullet_fall_ch1, false, true);
+	legoc = collision_point(lx + 15 + 68, ly, obj_blockbullet_fall_ch1, false, true);
+	legod = collision_point(lx + 15 + 102, ly, obj_blockbullet_fall_ch1, false, true);
 	
 	if (legoa > 1 && legob > 1 && legoc > 1 && legod > 1) {
 		with (legoa)
@@ -664,7 +664,7 @@ if (type == 34) {
 		}
 		
 		chain = instance_create_ch1(xx, yy, obj_skychain_ch1);
-		scr_bullet_inherit_ch1(1572);
+		scr_bullet_inherit_ch1(1576);
 		btimer = 0;
 	}
 }
@@ -812,10 +812,10 @@ if (type == 85) {
 		remhp[1] = global.hp[global.char[1]];
 		
 		with (obj_susieenemy_ch1)
-			visible = false;
+			visible = 0;
 		
 		with (obj_lancerboss3_ch1)
-			visible = false;
+			visible = 0;
 		
 		fakelan = instance_create_ch1(__view_get(e__VW.XView, 0) + 580, obj_battlesolid_ch1.y + 160, obj_bulletparent_ch1);
 		
@@ -823,7 +823,7 @@ if (type == 85) {
 			depth += 1;
 			image_xscale = 2;
 			image_yscale = 2;
-			visible = true;
+			visible = 1;
 			sprite_index = spr_lancerbike_ch1;
 			active = 0;
 			image_speed = 0.2;
@@ -834,7 +834,7 @@ if (type == 85) {
 		with (fakesus) {
 			image_xscale = 2;
 			image_yscale = 2;
-			visible = true;
+			visible = 1;
 			sprite_index = spr_susie_enemy_attack_ch1;
 			active = 0;
 			image_speed = 0;
@@ -879,16 +879,16 @@ if (type == 85) {
 	
 	if (made == 1 && global.turntimer <= 10) {
 		with (fakesus)
-			visible = false;
+			visible = 0;
 		
 		with (fakelan)
-			visible = false;
+			visible = 0;
 		
 		with (obj_susieenemy_ch1)
-			visible = true;
+			visible = 1;
 		
 		with (obj_lancerboss3_ch1)
-			visible = true;
+			visible = 1;
 	}
 	
 	if (btimer >= 27 && instance_exists(obj_battlesolid_ch1) && global.turntimer > 10) {
@@ -1440,7 +1440,7 @@ if (joker == 1) {
 				p = 0;
 				vol = 0;
 				vol2 = 1;
-				rumnoise = audio_play_sound(snd_rumble_ch1, 50, true);
+				rumnoise = audio_play_sound(snd_rumble_ch1, 50, 1);
 				
 				with (lastscythe) {
 					vspeed = 1;

@@ -1,4 +1,4 @@
-if (weird == 1) {
+if (weird == true) {
 	layer_set_visible("TILES_Doorway", 1);
 	
 	with (blocker)
@@ -284,7 +284,7 @@ if (dogcon == 2) {
 	}
 	
 	c_wait(12);
-	c_instance(basex + 4, (basey - 120) + 16, 271);
+	c_instance(basex + 4, (basey - 120) + 16, 273);
 	c_soundplay(snd_b);
 	c_wait(30);
 	c_var_instance(table, "x", basex - 50);
@@ -457,8 +457,8 @@ if (dogcon == 4.1) {
 	c_var_instance(id, "dogcon", 69);
 	c_pannable(0);
 	c_actortokris();
-	c_var_instance(80, "x", ((basex - 35) + 50) - 52);
-	c_var_instance(80, "y", basey - 44);
+	c_var_instance(82, "x", ((basex - 35) + 50) - 52);
+	c_var_instance(82, "y", basey - 44);
 	c_actortocaterpillar();
 	c_terminatekillactors();
 }

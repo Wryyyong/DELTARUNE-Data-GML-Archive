@@ -36,7 +36,7 @@ if (firecon == 0) {
 	effecttimer++;
 	siner++;
 } else if (firecon == 1) {
-	active = 1;
+	active = true;
 	mask_index = spr_sneo_laser;
 	
 	if (image_yscale < 0.5)

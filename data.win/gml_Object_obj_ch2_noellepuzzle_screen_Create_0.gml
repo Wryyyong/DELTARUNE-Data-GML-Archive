@@ -1,4 +1,4 @@
-won = 0;
+won = false;
 myString = "?";
 image_timer = 0;
 speaker_index = 0;

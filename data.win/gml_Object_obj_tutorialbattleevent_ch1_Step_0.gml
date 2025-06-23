@@ -44,7 +44,7 @@ if (con < 400) {
 	if (con == 22) {
 		if (instance_exists(obj_battlecontroller_ch1)) {
 			with (dummy)
-				visible = false;
+				visible = 0;
 			
 			con = 23;
 		}

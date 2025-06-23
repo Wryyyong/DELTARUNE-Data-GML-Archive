@@ -48,16 +48,16 @@ if (obj_mainchara.x > 1120 && con == -1) {
 	queenwinehand = scr_dark_marker(1600, cameray() + view_hport[0] + 100, spr_cutscene_26_queen_giga_hand_glass);
 	queenwinehand.depth = 1000100;
 	queenwinehand.image_speed = 0;
-	queenwinehand.visible = false;
+	queenwinehand.visible = 0;
 	queenfistleft = scr_dark_marker(1770, cameray() + view_hport[0] + 100, spr_cutscene_26_queen_giga_fist_left);
 	queenfistleft.depth = 1000240;
-	queenfistleft.visible = false;
+	queenfistleft.visible = 0;
 	damage1 = scr_dark_marker(1680, 266, spr_cutscene_26_slam_damage);
 	damage1.depth = 950000;
-	damage1.visible = false;
+	damage1.visible = 0;
 	damage2 = scr_dark_marker(2100, 266, spr_cutscene_26_slam_damage);
 	damage2.depth = 950000;
-	damage2.visible = false;
+	damage2.visible = 0;
 }
 
 if (con == 1) {
@@ -69,7 +69,7 @@ if (con == 1) {
 	c_panspeed_wait(5, 0, 120);
 	c_mus("free_all");
 	c_msgside("bottom");
-	c_var_instance(id, "set_queen_voice", 1);
+	c_var_instance(id, "set_queen_voice", true);
 	c_speaker("no_name");
 	c_msgsetloc(0, "* The Knight/", "obj_ch2_scene26_slash_Step_0_gml_98_0");
 	c_msgnextloc("* The Roaring Knight.../%", "obj_ch2_scene26_slash_Step_0_gml_99_0");
@@ -164,15 +164,15 @@ if (con == 7 && obj_ch2_scene26_cityscape.knife_hover && customcon == 1) {
 		c_msgsetloc(0, "\\EB* Noelle Honey Darling Sweetie Gravy/", "obj_ch2_scene26_slash_Step_0_gml_207_0");
 		c_msgnextloc("\\E1* How Do You Find The Giant Hand?/%", "obj_ch2_scene26_slash_Step_0_gml_208_0");
 		c_talk_wait();
-		c_var_instance(id, "disable_face", 1);
+		c_var_instance(id, "disable_face", true);
 		c_speaker("noelle");
 		c_msgsetloc(0, "* .../%", "obj_ch2_scene26_slash_Step_0_gml_210_0");
 		c_talk_wait();
-		c_var_instance(id, "enable_face", 0);
+		c_var_instance(id, "enable_face", false);
 		c_speaker("queen");
 		c_msgsetloc(0, "\\E1* Great And How Do You Feel About Worlddomination?/%", "obj_ch2_scene26_slash_Step_0_gml_212_0");
 		c_talk_wait();
-		c_var_instance(id, "rudebuster", 1);
+		c_var_instance(id, "rudebuster", true);
 		c_wait(10);
 		c_sel(qu_flame);
 		c_visible(0);
@@ -252,7 +252,7 @@ if (con == 7 && obj_ch2_scene26_cityscape.knife_hover && customcon == 1) {
 		c_mus("free_all");
 		c_soundplay(snd_queen_laugh_bitcrush_deep);
 		c_wait(60);
-		c_var_instance(id, "shakeloop", 1);
+		c_var_instance(id, "shakeloop", true);
 		c_var_lerp_instance(bg_cover, "image_alpha", 0, 1, 60);
 		c_sel(ra);
 		c_sprite(spr_ralsei_hurt_overworld);
@@ -268,10 +268,10 @@ if (con == 7 && obj_ch2_scene26_cityscape.knife_hover && customcon == 1) {
 		c_sel(no);
 		c_facing("l");
 		c_wait(10);
-		c_var_instance(id, "release_queen", 1);
+		c_var_instance(id, "release_queen", true);
 		c_wait(30);
-		c_var_instance(id, "rockanim", 1);
-		c_var_instance(id, "rockdog", 1);
+		c_var_instance(id, "rockanim", true);
+		c_var_instance(id, "rockdog", true);
 		c_sel(kr);
 		c_facing("u");
 		c_sel(ra);
@@ -281,13 +281,13 @@ if (con == 7 && obj_ch2_scene26_cityscape.knife_hover && customcon == 1) {
 		c_sel(no);
 		c_sprite(spr_noelle_shocked_behind_dw);
 		c_wait(30);
-		c_var_instance(id, "shakeloop", 0);
+		c_var_instance(id, "shakeloop", false);
 		c_wait(30);
 		c_soundplay(snd_queen_laugh_bitcrush_deep);
-		c_var_instance(id, "queen_laugh_start", 1);
+		c_var_instance(id, "queen_laugh_start", true);
 		c_shake();
 		c_wait(62);
-		c_var_instance(id, "queen_laugh_stop", 1);
+		c_var_instance(id, "queen_laugh_stop", true);
 		c_wait(10);
 		c_speaker("ralsei");
 		c_msgsetloc(0, "\\EC* Q..^1. Queen!?/", "obj_ch2_scene26_slash_Step_0_gml_436_0");
@@ -338,7 +338,7 @@ if (con == 7 && obj_ch2_scene26_cityscape.knife_hover && customcon == 1) {
 		c_facing("u");
 		c_sel(kr);
 		c_facing("l");
-		c_var_instance(id, "winelaser", 1);
+		c_var_instance(id, "winelaser", true);
 		c_var_instance(queenwinehand, "image_index", 1);
 		c_wait(4);
 		c_sel(no);
@@ -468,7 +468,7 @@ if (con == 7 && obj_ch2_scene26_cityscape.knife_hover && customcon == 1) {
 		c_var_instance(queenfistleft, "depth", 900000);
 		c_var_lerp_instance(queenfistleft, "y", 25, 15, 5);
 		c_wait(5);
-		c_var_instance(id, "fist_explode", 1);
+		c_var_instance(id, "fist_explode", true);
 		c_var_lerp_instance(queenfistleft, "y", 15, 187, 3);
 		c_wait(3);
 		c_soundplay(snd_impact);
@@ -498,9 +498,9 @@ if (con == 7 && obj_ch2_scene26_cityscape.knife_hover && customcon == 1) {
 		c_delaycmd(5, "sprite", spr_susie_sheeh_flip);
 		c_imagespeed(0.25);
 		c_var_instance(su_actor, "siner_add0", 0.5);
-		c_var_instance(id, "wallanimstart", 1);
-		c_var_instance(id, "rockanimstop", 1);
-		c_var_instance(id, "rockdogstop", 1);
+		c_var_instance(id, "wallanimstart", true);
+		c_var_instance(id, "rockanimstop", true);
+		c_var_instance(id, "rockdogstop", true);
 		c_panspeed(0, 25, 25);
 		c_mus2("volume", 0, 30);
 		c_wait(25);
@@ -515,16 +515,16 @@ if (con == 7 && obj_ch2_scene26_cityscape.knife_hover && customcon == 1) {
 		c_talk_wait();
 		c_mus("free_all");
 		c_msgside("top");
-		c_var_instance(id, "disable_face", 1);
+		c_var_instance(id, "disable_face", true);
 		c_speaker("berdly");
 		c_msgsetloc(0, "* Fear not!!/", "obj_ch2_scene26_slash_Step_0_gml_820_0");
 		c_msgnextloc("* Your knight in glow in the dark armor is here!!/%", "obj_ch2_scene26_slash_Step_0_gml_821_0");
 		c_talk_wait();
-		c_var_instance(id, "enable_face", 1);
+		c_var_instance(id, "enable_face", true);
 		c_speaker("susie");
 		c_msgsetloc(0, "\\E6* Berdly!?/%", "obj_ch2_scene26_slash_Step_0_gml_823_0");
 		c_talk_wait();
-		c_var_instance(id, "berdly_coaster_start", 1);
+		c_var_instance(id, "berdly_coaster_start", true);
 		c_wait(1);
 		c_sel(kr);
 		c_visible(0);
@@ -556,7 +556,7 @@ if (con == 7 && obj_ch2_scene26_cityscape.knife_hover && customcon == 1) {
 		c_msgnextloc("\\m3\t\t*We modified everyone.../", "obj_ch2_scene26_slash_Step_0_gml_858_0");
 		c_msgnextloc("\\m2\t\t*To work together!\\f0/%", "obj_ch2_scene26_slash_Step_0_gml_859_0");
 		c_talk_wait();
-		c_var_instance(id, "berdly_coaster_leave", 1);
+		c_var_instance(id, "berdly_coaster_leave", true);
 		c_wait(60);
 		c_var_lerp_instance(whiteall, "image_alpha", 0, 1, 30);
 		c_wait(30);
@@ -641,9 +641,9 @@ if (con == 7 && obj_ch2_scene26_cityscape.knife_hover && customcon == 1) {
 		c_imagespeed(0.25);
 		c_walkdirect(2300, 100, 15);
 		c_var_lerp_instance(queenhand, "y", queenhand.y, cameray() + view_hport[0] + 200, 15);
-		c_var_instance(id, "queen_afterimage", 1);
+		c_var_instance(id, "queen_afterimage", true);
 		c_wait(15);
-		c_var_instance(id, "queen_afterimage", 0);
+		c_var_instance(id, "queen_afterimage", false);
 		c_wait(60);
 		c_sel(kr);
 		c_facing("u");
@@ -662,14 +662,14 @@ if (con == 7 && obj_ch2_scene26_cityscape.knife_hover && customcon == 1) {
 		c_wait(41);
 		c_wait(30);
 		c_soundplay(snd_queen_laugh_bitcrush_deep);
-		c_var_instance(id, "queen_laugh_start", 1);
+		c_var_instance(id, "queen_laugh_start", true);
 		c_shake();
 		c_sel(ra);
 		c_sprite(spr_ralsei_shocked_behind);
 		c_sel(su);
 		c_sprite(spr_susie_shocked_behind);
 		c_wait(62);
-		c_var_instance(id, "queen_laugh_stop", 1);
+		c_var_instance(id, "queen_laugh_stop", true);
 		c_speaker("queen");
 		c_msgsetloc(0, "\\E1* Now^1, Which One Of You/", "obj_ch2_scene26_slash_Step_0_gml_995_0");
 		c_msgnextloc("\\E6* Wants To Help Me Cover This World In Darkness!?/%", "obj_ch2_scene26_slash_Step_0_gml_996_0");
@@ -699,7 +699,7 @@ if (con == 7 && obj_ch2_scene26_cityscape.knife_hover && customcon == 1) {
 		c_talk_wait();
 		c_wait(30);
 		c_soundplay(snd_queen_bitcrushed_hoot);
-		c_var_instance(bigqueen, "surprised", 1);
+		c_var_instance(bigqueen, "surprised", true);
 		c_wait(30);
 		c_speaker("queen");
 		c_msgsetloc(0, "\\E8* Holy Circuits Are You Serious/", "obj_ch2_scene26_slash_Step_0_gml_1039_0");
@@ -710,7 +710,7 @@ if (con == 7 && obj_ch2_scene26_cityscape.knife_hover && customcon == 1) {
 		c_speaker("queen");
 		c_msgsetloc(0, "\\EF* No/%", "obj_ch2_scene26_slash_Step_0_gml_1047_0");
 		c_talk_wait();
-		c_var_instance(bigqueen, "leave", 1);
+		c_var_instance(bigqueen, "leave", true);
 		c_wait(60);
 		c_sel(qu_flame);
 		c_stickto_stop();
@@ -741,7 +741,7 @@ if (con == 7 && obj_ch2_scene26_cityscape.knife_hover && customcon == 1) {
 		c_facing("u");
 		c_panobj(kr_actor, 30);
 		c_wait(35);
-		c_var_instance(id, "make_npc_a", 1);
+		c_var_instance(id, "make_npc_a", true);
 		c_pannable(0);
 		c_actortokris();
 		c_actortocaterpillar();
@@ -872,7 +872,7 @@ if (con == 11) {
 				
 				if (i_ex(obj_ch2_scene26_cityscape)) {
 					with (obj_ch2_scene26_cityscape)
-						auto_scroll = 0;
+						auto_scroll = false;
 				}
 			}
 		}
@@ -880,12 +880,12 @@ if (con == 11) {
 		global.interact = 0;
 		global.facing = 0;
 		con = 30;
-		kris_active = 1;
+		kris_active = true;
 	}
 }
 
 if (make_npc_a) {
-	make_npc_a = 0;
+	make_npc_a = false;
 	queen_npc = instance_create(qu_actor.x, qu_actor.y, obj_npc_sign);
 	queen_npc.sprite_index = qu_actor.sprite_index;
 	queen_npc.image_index = qu_actor.image_index;
@@ -916,10 +916,10 @@ if (con == 30 && !d_ex() && scr_sideb_get_phase() >= 2) {
 		}
 		
 		if (obj_mainchara.x > 2300) {
-			kris_active = 0;
+			kris_active = false;
 			con = 31;
 			global.interact = 1;
-			queen_npc.visible = false;
+			queen_npc.visible = 0;
 		}
 	}
 }
@@ -1066,7 +1066,7 @@ if (con == 31 && scr_sideb_get_phase() >= 2) {
 	c_panobj(kr_actor, 30);
 	c_sel(qu);
 	c_visible(0);
-	c_var_instance(id, "make_npc_b", 1);
+	c_var_instance(id, "make_npc_b", true);
 	c_wait(30);
 	c_pannable(0);
 	c_actortokris();
@@ -1074,13 +1074,13 @@ if (con == 31 && scr_sideb_get_phase() >= 2) {
 }
 
 if (make_npc_b) {
-	make_npc_b = 0;
+	make_npc_b = false;
 	scr_losechar();
 	queen_npc.x = qu_actor.x;
 	queen_npc.y = qu_actor.y;
 	queen_npc.sprite_index = qu_actor.sprite_index;
 	queen_npc.image_index = qu_actor.image_index;
-	queen_npc.visible = true;
+	queen_npc.visible = 1;
 	ralsei_npc = instance_create(ra_actor.x, ra_actor.y, obj_npc_sign);
 	ralsei_npc.sprite_index = ra_actor.sprite_index;
 	ralsei_npc.image_index = ra_actor.image_index;
@@ -1097,21 +1097,21 @@ if (con == 32 && !i_ex(obj_cutscene_master)) {
 }
 
 if (rudebuster) {
-	rudebuster = 0;
+	rudebuster = false;
 	rudebusteranim = instance_create(camerax() - 60, room_height / 2, obj_rudebuster_bolt);
 	rudebusteranim.target = qu_actor;
 }
 
 if (winelaser) {
 	_winelaser = instance_create(queenwinehand.x, queenwinehand.y, obj_ch2_scene26_wine_laser);
-	winelaser = 0;
+	winelaser = false;
 	_winelaser.timer = -10;
 	_winelaser.noelle_x = no_actor.x + (no_actor.sprite_width / 2);
 }
 
 if (shakeloop) {
 	if (shakecon) {
-		shakecon = 0;
+		shakecon = false;
 		alarm[1] = 30;
 		snd_play(snd_closet_impact);
 		instance_create(0, 0, obj_shake);
@@ -1119,7 +1119,7 @@ if (shakeloop) {
 }
 
 if (fist_explode) {
-	fist_explode = 0;
+	fist_explode = false;
 	alarm[2] = 3;
 }
 
@@ -1127,7 +1127,7 @@ if (platform_fall) {
 	platform_timer++;
 	
 	if (platform_timer > 15) {
-		platform_fall = 0;
+		platform_fall = false;
 	} else {
 		platform_y += 30;
 		layer_y("TILES", platform_y);
@@ -1142,7 +1142,7 @@ if (platform_fall) {
 }
 
 if (hand_shake) {
-	hand_shake = 0;
+	hand_shake = false;
 	
 	for (var i = 0; i < 3; i++) {
 		with (hand_platform[i])
@@ -1158,32 +1158,32 @@ if (hand_catch) {
 			y = lerp(y, 70 + (_i * 100), 0.125);
 			
 			if (_i == 2 && y >= 270)
-				hand_catch = 0;
+				hand_catch = false;
 		}
 	}
 }
 
 if (cityscape_fall) {
-	cityscape_fall = 0;
+	cityscape_fall = false;
 	
 	if (i_ex(obj_ch2_scene26_cityscape)) {
 		with (obj_ch2_scene26_cityscape)
-			auto_scroll_y = 1;
+			auto_scroll_y = true;
 	}
 }
 
 if (disable_face) {
-	disable_face = 0;
+	disable_face = false;
 	global.fc = 0;
 }
 
 if (enable_face) {
-	enable_face = 0;
+	enable_face = false;
 	global.fc = 1;
 }
 
 if (set_queen_voice) {
-	set_queen_voice = 0;
+	set_queen_voice = false;
 	global.typer = 62;
 }
 
@@ -1193,23 +1193,23 @@ if (rockanim) {
 	layer_vspeed("BG_rocks", -5);
 	layer_x("BG_Rocks_Small", camerax());
 	var rockstart = instance_create(camerax(), cameray() + 420, obj_ch2_scene26_rockstarter);
-	rockstart.smallrocks = 1;
+	rockstart.smallrocks = true;
 	layer_vspeed("BG_Rocks_Small", -2);
-	rockanim = 0;
+	rockanim = false;
 }
 
 if (rockdog) {
-	rockdog = 0;
+	rockdog = false;
 	rockdogobj = instance_create(__view_get(e__VW.XView, 0) + 545 + 12, cameray() + 6 + view_hport[0] + 100, obj_ch2_scene26_rock_dog);
 }
 
 if (rockdogstop) {
-	rockdogstop = 0;
+	rockdogstop = false;
 	instance_destroy(rockdogobj);
 }
 
 if (rockanimstop) {
-	rockanimstop = 0;
+	rockanimstop = false;
 	layer_vspeed("BG_rocks", 0);
 	layer_set_visible("BG_rocks", 0);
 	layer_vspeed("BG_Rocks_Small", 0);
@@ -1235,7 +1235,7 @@ if (wallanimstart) {
 	
 	if (wallcon == 2) {
 		wallcon = 99;
-		wallanimstart = 0;
+		wallanimstart = false;
 		
 		if (i_ex(obj_ch2_scene26_wall)) {
 			with (obj_ch2_scene26_wall)
@@ -1244,18 +1244,18 @@ if (wallanimstart) {
 		
 		if (i_ex(obj_ch2_scene26_cityscape)) {
 			with (obj_ch2_scene26_cityscape)
-				auto_scroll = 1;
+				auto_scroll = true;
 		}
 	}
 }
 
 if (berdly_coaster_start) {
-	berdly_coaster_start = 0;
+	berdly_coaster_start = false;
 	berdly_coaster = instance_create(camerax(), cameray(), obj_berdlycoaster_event);
 }
 
 if (berdly_coaster_leave) {
-	berdly_coaster_leave = 0;
+	berdly_coaster_leave = false;
 	
 	with (berdly_coaster)
 		con = 4;
@@ -1266,15 +1266,15 @@ if (laser_con >= 0) {
 		laser_con = 99;
 		
 		with (obj_ch2_scene26_cityscape)
-			show_laser_outline = 1;
+			show_laser_outline = true;
 	}
 	
 	if (laser_con == 1) {
 		laser_con = 99;
 		
 		with (obj_ch2_scene26_cityscape) {
-			show_hands = 1;
-			hand_both_reveal = 1;
+			show_hands = true;
+			hand_both_reveal = true;
 		}
 	}
 	
@@ -1282,249 +1282,249 @@ if (laser_con >= 0) {
 		laser_con = 99;
 		
 		with (obj_ch2_scene26_cityscape)
-			knife_reveal = 1;
+			knife_reveal = true;
 	}
 	
 	if (laser_con == 3) {
 		laser_con = 99;
 		
 		with (obj_ch2_scene26_cityscape)
-			knife_stab = 1;
+			knife_stab = true;
 	}
 	
 	if (laser_con == 5) {
 		laser_con = 99;
 		
 		with (obj_ch2_scene26_cityscape)
-			fade_away = 1;
+			fade_away = true;
 	}
 	
 	if (laser_con == 6) {
 		laser_con = 99;
 		
 		with (obj_ch2_scene26_cityscape)
-			show_lightners = 1;
+			show_lightners = true;
 	}
 	
 	if (laser_con == 7) {
 		laser_con = 99;
 		
 		with (obj_ch2_scene26_cityscape)
-			show_mini_fountains = 1;
+			show_mini_fountains = true;
 	}
 	
 	if (laser_con == 8) {
 		laser_con = 99;
 		
 		with (obj_ch2_scene26_cityscape)
-			merge_lightners = 1;
+			merge_lightners = true;
 	}
 }
 
 if (release_queen) {
-	release_queen = 0;
+	release_queen = false;
 	
 	if (i_ex(obj_ch2_scene26_gigaqueen)) {
 		with (obj_ch2_scene26_gigaqueen)
-			release = 1;
+			release = true;
 	}
 }
 
 if (queen_laugh_start) {
-	queen_laugh_start = 0;
+	queen_laugh_start = false;
 	
 	if (i_ex(obj_ch2_scene26_gigaqueen)) {
 		with (obj_ch2_scene26_gigaqueen)
-			laugh = 1;
+			laugh = true;
 	}
 }
 
 if (queen_laugh_stop) {
-	queen_laugh_stop = 0;
+	queen_laugh_stop = false;
 	
 	if (i_ex(obj_ch2_scene26_gigaqueen)) {
 		with (obj_ch2_scene26_gigaqueen)
-			laugh = 0;
+			laugh = false;
 	}
 }
 
 if (hand_release) {
-	hand_release = 0;
+	hand_release = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand) {
 			if (scr_sideb_get_phase() < 2)
-				release = 1;
+				release = true;
 			else
-				release_normal = 1;
+				release_normal = true;
 		}
 	}
 }
 
 if (hand_leave) {
-	hand_leave = 0;
+	hand_leave = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			leave = 1;
+			leave = true;
 	}
 }
 
 if (su_struggle) {
-	su_struggle = 0;
+	su_struggle = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_struggle = 1;
+			su_struggle = true;
 	}
 }
 
 if (su_shocked) {
-	su_shocked = 0;
+	su_shocked = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_shocked = 1;
+			su_shocked = true;
 	}
 }
 
 if (su_look_left) {
-	su_look_left = 0;
+	su_look_left = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_look_left = 1;
+			su_look_left = true;
 	}
 }
 
 if (su_look_right) {
-	su_look_right = 0;
+	su_look_right = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_look_right = 1;
+			su_look_right = true;
 	}
 }
 
 if (su_grin_1) {
-	su_grin_1 = 0;
+	su_grin_1 = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_grin_1 = 1;
+			su_grin_1 = true;
 	}
 }
 
 if (su_grin_2) {
-	su_grin_2 = 0;
+	su_grin_2 = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_grin_2 = 1;
+			su_grin_2 = true;
 	}
 }
 
 if (su_squint_1) {
-	su_squint_1 = 0;
+	su_squint_1 = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_squint_1 = 1;
+			su_squint_1 = true;
 	}
 }
 
 if (su_squint_2) {
-	su_squint_2 = 0;
+	su_squint_2 = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_squint_2 = 1;
+			su_squint_2 = true;
 	}
 }
 
 if (su_concerned) {
-	su_concerned = 0;
+	su_concerned = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_concerned = 1;
+			su_concerned = true;
 	}
 }
 
 if (ra_struggle) {
-	ra_struggle = 0;
+	ra_struggle = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			ra_struggle = 1;
+			ra_struggle = true;
 	}
 }
 
 if (ra_huh) {
-	ra_huh = 0;
+	ra_huh = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			ra_huh = 1;
+			ra_huh = true;
 	}
 }
 
 if (ra_look) {
-	ra_look = 0;
+	ra_look = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			ra_look = 1;
+			ra_look = true;
 	}
 }
 
 if (ra_smile) {
-	ra_smile = 0;
+	ra_smile = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			ra_smile = 1;
+			ra_smile = true;
 	}
 }
 
 if (ra_scared) {
-	ra_scared = 0;
+	ra_scared = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			ra_scared = 1;
+			ra_scared = true;
 	}
 }
 
 if (ra_stern) {
-	ra_stern = 0;
+	ra_stern = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			ra_stern = 1;
+			ra_stern = true;
 	}
 }
 
 if (ra_mu) {
-	ra_mu = 0;
+	ra_mu = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			ra_mu = 1;
+			ra_mu = true;
 	}
 }
 
 if (ra_shake) {
-	ra_shake = 0;
+	ra_shake = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			ra_shake = 1;
+			ra_shake = true;
 	}
 }
 
 if (shake_hand) {
-	shake_hand = 0;
+	shake_hand = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
@@ -1533,55 +1533,55 @@ if (shake_hand) {
 }
 
 if (queen_laugh_start) {
-	queen_laugh_start = 0;
+	queen_laugh_start = false;
 	
 	if (i_ex(obj_ch2_scene26_gigaqueen)) {
 		with (obj_ch2_scene26_gigaqueen)
-			laugh = 1;
+			laugh = true;
 	}
 }
 
 if (queen_laugh_stop) {
-	queen_laugh_stop = 0;
+	queen_laugh_stop = false;
 	
 	if (i_ex(obj_ch2_scene26_gigaqueen)) {
 		with (obj_ch2_scene26_gigaqueen)
-			laugh = 0;
+			laugh = false;
 	}
 }
 
 if (queen_surprised) {
-	queen_surprised = 0;
+	queen_surprised = false;
 	
 	if (i_ex(obj_ch2_scene26_gigaqueen)) {
 		with (obj_ch2_scene26_gigaqueen)
-			surprised = 1;
+			surprised = true;
 	}
 }
 
 if (queen_leave) {
-	queen_leave = 0;
+	queen_leave = false;
 	
 	if (i_ex(obj_ch2_scene26_gigaqueen)) {
 		with (obj_ch2_scene26_gigaqueen)
-			leave = 1;
+			leave = true;
 	}
 }
 
 if (queen_leave_fast) {
-	queen_leave_fast = 0;
+	queen_leave_fast = false;
 	
 	if (i_ex(obj_ch2_scene26_gigaqueen)) {
 		with (obj_ch2_scene26_gigaqueen)
-			leave_fast = 1;
+			leave_fast = true;
 	}
 }
 
 if (queen_release_fast) {
-	queen_release_fast = 0;
+	queen_release_fast = false;
 	
 	if (i_ex(obj_ch2_scene26_gigaqueen)) {
 		with (obj_ch2_scene26_gigaqueen)
-			release_fast = 1;
+			release_fast = true;
 	}
 }

@@ -10,7 +10,7 @@ xflip = 1;
 if (flipTimer < 0)
 	xflip = -1;
 
-flipTimer += scr_remapvalue(0, 4, speed, 1, 2);
+flipTimer += 1;
 
 if (flipTimer >= flipSpeed)
 	flipTimer -= (flipSpeed * 2);

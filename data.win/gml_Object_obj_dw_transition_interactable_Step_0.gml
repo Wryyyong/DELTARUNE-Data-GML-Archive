@@ -38,7 +38,7 @@ if (con == 1) {
 
 if (con == 3) {
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	instance_create(x, y, obj_dw_transition);
 	

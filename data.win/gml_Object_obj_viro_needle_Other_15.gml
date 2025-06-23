@@ -1,5 +1,5 @@
 if (active == 1) {
-	spawning = 0;
+	spawning = false;
 	
 	if (target != 3)
 		scr_damage();

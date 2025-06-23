@@ -1,9 +1,9 @@
 endY = 300;
-camFollow = 1;
+camFollow = true;
 mode = 1;
 camFollowAfter = 0;
-centerX = 1;
-returnOnFinish = 1;
+centerX = true;
+returnOnFinish = true;
 uniqueBulletPattern = 1;
 riseSpeed = 1;
 riseSpeedInitial = 6;

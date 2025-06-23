@@ -1,10 +1,10 @@
 endY = 1080;
 riseSpeedReverse = 15;
 riseSpeed = 8;
-centerY = 1;
-fadeOutOthers = 1;
-regenerateBullets = 0;
+centerY = true;
+fadeOutOthers = true;
+regenerateBullets = false;
 holdHeight = 1700;
 holdDistance = 1500;
 uniqueRideExperience = 4;
-returnOnFinish = 1;
+returnOnFinish = true;

@@ -1,6 +1,6 @@
 if (obj_mainchara.x > 140 && obj_mainchara.x < 200 && obj_mainchara.y < y && con == -1 && cantrigger) {
 	con = 1;
-	cantrigger = 0;
+	cantrigger = false;
 	global.interact = 1;
 	global.facing = 0;
 	obj_mainchara.y = y + 1;
@@ -128,7 +128,7 @@ if (con == 2 && !i_ex(obj_cutscene_master)) {
 	con = 0;
 	
 	with (obj_mainchara)
-		visible = true;
+		visible = 1;
 	
 	room_goto(room_torhouse);
 	instance_destroy();
@@ -138,5 +138,5 @@ if (con == 6 && !d_ex()) {
 	con = -1;
 	global.interact = 0;
 	global.facing = 0;
-	cantrigger = 1;
+	cantrigger = true;
 }

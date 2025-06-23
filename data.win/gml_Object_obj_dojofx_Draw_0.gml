@@ -23,10 +23,10 @@ draw_set_alpha(0.5);
 
 for (i = 0; i < 16; i++) {
 	sino = sin((i / 2) + (siner / 48));
-	draw_circle(ball.x + (sino * 200), ball.y + 60 + (sin(i / 4) * 20), 16 + (abs(sino) * 12), 0);
+	draw_circle(ball.x + (sino * 200), ball.y + 60 + (sin(i / 4) * 20), 16 + (abs(sino) * 12), false);
 }
 
-draw_triangle_color(x, y + 80, x - 80, y + 200, x + 80, y + 200, 16777215, 0, 0, 0);
+draw_triangle_color(x, y + 80, x - 80, y + 200, x + 80, y + 200, 16777215, 0, 0, false);
 draw_set_alpha(1);
 bsiner++;
 

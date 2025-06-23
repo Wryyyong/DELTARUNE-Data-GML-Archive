@@ -1,4 +1,4 @@
-if (saved == 1) {
+if (saved == true) {
 	with (swatchfriend) {
 		scr_depth();
 		

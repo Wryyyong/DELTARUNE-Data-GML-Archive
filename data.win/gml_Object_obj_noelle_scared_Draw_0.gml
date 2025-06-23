@@ -19,7 +19,7 @@ if (jumping == 1) {
 	} else {
 		draw_set_alpha((-jumpy / 50) + 0.5);
 		draw_set_color(c_black);
-		draw_ellipse(bbox_left, bbox_top, bbox_right, bbox_bottom, 0);
+		draw_ellipse(bbox_left, bbox_top, bbox_right, bbox_bottom, false);
 		draw_set_alpha(1);
 	}
 }

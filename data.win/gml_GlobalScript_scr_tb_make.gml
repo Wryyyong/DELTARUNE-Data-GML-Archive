@@ -39,7 +39,7 @@ function scr_tb_make(arg0, arg1, arg2, arg3, arg4) {
 		lineToCenter = arg4;
 		
 		if (hitType == 3 || hitType == 5)
-			lineToCenter = 0;
+			lineToCenter = false;
 		
 		if (hitType == 1 || hitType == 2) {
 			sprite_index = spr_teacup_bullet_good;

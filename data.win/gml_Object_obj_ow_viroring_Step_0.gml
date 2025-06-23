@@ -1,14 +1,14 @@
 with (obj_ow_viroringTrig) {
 	if (trigNum == other.trigNum) {
 		if (place_meeting(x, y, obj_mainchara))
-			other.active = 1;
+			other.active = true;
 		else
-			other.active = 0;
+			other.active = false;
 	}
 }
 
 if (con == 0) {
-	if (active == 1) {
+	if (active == true) {
 		timer = 0;
 		con = 1;
 	}
@@ -23,10 +23,10 @@ if (con == 1) {
 		x = startingX;
 	}
 	
-	if (active == 1)
+	if (active == true)
 		cooldown = cooldownAmount;
 	
-	if (active == 0)
+	if (active == false)
 		cooldown -= 1;
 	
 	if (cooldown == 0)

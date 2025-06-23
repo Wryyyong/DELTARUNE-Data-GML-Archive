@@ -34,7 +34,7 @@ if (global.chapter == 1) {
 		con = 3;
 	}
 	
-	if (con == 3 && instance_exists(obj_dialoguer) == 0) {
+	if (con == 3 && instance_exists(obj_dialoguer) == false) {
 		snd_play(snd_dooropen);
 		
 		with (door)
@@ -83,7 +83,7 @@ if (global.chapter == 1) {
 		instance_create(0, 0, obj_dialoguer);
 	}
 	
-	if (con == 10 && instance_exists(obj_dialoguer) == 0) {
+	if (con == 10 && instance_exists(obj_dialoguer) == false) {
 		mus_loop(global.currentsong[0]);
 		__view_set(e__VW.Object, 0, -4);
 		door_readable = instance_create(244, 51, obj_readable_room1);
@@ -109,7 +109,7 @@ if (global.chapter == 1) {
 		con = 11;
 	}
 	
-	if (con == 20 && instance_exists(obj_dialoguer) == 0) {
+	if (con == 20 && instance_exists(obj_dialoguer) == false) {
 		global.interact = 1;
 		con = 21;
 		alarm[4] = 2;
@@ -133,7 +133,7 @@ if (global.chapter == 1) {
 		instance_create(0, 0, obj_dialoguer);
 	}
 	
-	if (con == 23 && instance_exists(obj_dialoguer) == 0) {
+	if (con == 23 && instance_exists(obj_dialoguer) == false) {
 		instance_create(0, 0, obj_shake);
 		snd_stop_all();
 		snd_free(global.currentsong[0]);
@@ -182,7 +182,7 @@ if (global.chapter == 1) {
 		alarm[4] = 50;
 	}
 	
-	if (con == 29 && instance_exists(obj_dialoguer) == 0) {
+	if (con == 29 && instance_exists(obj_dialoguer) == false) {
 		with (sus) {
 			image_speed = 0.1;
 			vspeed = 0.5;
@@ -229,7 +229,7 @@ if (global.chapter == 1) {
 		instance_create(0, 0, obj_dialoguer);
 	}
 	
-	if (con == 36 && instance_exists(obj_dialoguer) == 0) {
+	if (con == 36 && instance_exists(obj_dialoguer) == false) {
 		con = 37;
 		alarm[4] = 40;
 		
@@ -247,7 +247,7 @@ if (global.chapter == 1) {
 		con = 39;
 	}
 	
-	if (con == 39 && instance_exists(obj_dialoguer) == 0) {
+	if (con == 39 && instance_exists(obj_dialoguer) == false) {
 		with (alphys) {
 			sprite_index = spr_alphysr;
 			hspeed = 3;
@@ -276,7 +276,7 @@ if (global.chapter == 1) {
 		instance_create(0, 0, obj_dialoguer);
 	}
 	
-	if (con == 44 && instance_exists(obj_dialoguer) == 0) {
+	if (con == 44 && instance_exists(obj_dialoguer) == false) {
 		con = 45;
 		
 		with (alphys)
@@ -369,7 +369,7 @@ if (global.chapter == 1) {
 		}
 	}
 	
-	if (con == 52 && instance_exists(obj_dialoguer) == 0) {
+	if (con == 52 && instance_exists(obj_dialoguer) == false) {
 		with (sus) {
 			vspeed = -1;
 			sprite_index = spr_susieu;
@@ -411,7 +411,7 @@ if (global.chapter == 1) {
 		con = 57;
 	}
 	
-	if (con == 57 && instance_exists(obj_dialoguer) == 0) {
+	if (con == 57 && instance_exists(obj_dialoguer) == false) {
 		with (door_readable)
 			instance_destroy();
 		
@@ -454,7 +454,7 @@ if (global.chapter == 2) {
 		con = 3;
 	}
 	
-	if (con == 3 && instance_exists(obj_dialoguer) == 0) {
+	if (con == 3 && instance_exists(obj_dialoguer) == false) {
 		snd_play(snd_dooropen);
 		
 		with (door)
@@ -512,7 +512,7 @@ if (global.chapter == 2) {
 		instance_create(0, 0, obj_dialoguer);
 	}
 	
-	if (con == 10 && instance_exists(obj_dialoguer) == 0) {
+	if (con == 10 && instance_exists(obj_dialoguer) == false) {
 		global.currentsong[1] = mus_loop(global.currentsong[0]);
 		scr_cutscene_make();
 		scr_maincharacters_actors();
@@ -522,7 +522,7 @@ if (global.chapter == 2) {
 		su_actor.sprite_index = spr_susieu;
 		
 		with (susie_fake)
-			visible = false;
+			visible = 0;
 		
 		al = 2;
 		al_actor = instance_create(alphys.x, alphys.y, obj_actor);
@@ -530,7 +530,7 @@ if (global.chapter == 2) {
 		al_actor.sprite_index = spr_alphysd;
 		
 		with (alphys)
-			visible = false;
+			visible = 0;
 		
 		no = 3;
 		no_actor = instance_create(noelle_npc.x, noelle_npc.y, obj_actor);
@@ -539,7 +539,7 @@ if (global.chapter == 2) {
 		no_actor.specialsprite[0] = spr_cutscene_02b_noelle_raise_hand;
 		
 		with (noelle_npc)
-			visible = false;
+			visible = 0;
 		
 		be = 4;
 		be_actor = instance_create(berdly_npc.x, berdly_npc.y, obj_actor);
@@ -548,7 +548,7 @@ if (global.chapter == 2) {
 		be_actor.specialsprite[0] = spr_cutscene_02b_berdly_book_point;
 		
 		with (berdly_npc)
-			visible = false;
+			visible = 0;
 		
 		con = 11;
 		c_sel(0);
@@ -680,7 +680,7 @@ if (global.chapter == 2) {
 	
 	if (con == 11 && !instance_exists(obj_cutscene_master)) {
 		with (obj_actor)
-			visible = false;
+			visible = 0;
 		
 		with (obj_npc_facing)
 			instance_destroy();
@@ -690,7 +690,7 @@ if (global.chapter == 2) {
 		
 		with (obj_actor) {
 			if (name == "alphys") {
-				visible = true;
+				visible = 1;
 				sprite_index = rsprite;
 			}
 		}

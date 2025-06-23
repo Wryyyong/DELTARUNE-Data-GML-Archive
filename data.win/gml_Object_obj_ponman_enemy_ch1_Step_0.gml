@@ -176,7 +176,7 @@ if (global.myfight == 3) {
 		global.msg[0] = scr_84_get_lang_string_ch1("obj_ponman_enemy_slash_Step_0_gml_134_0");
 		
 		with (obj_heroralsei_ch1)
-			visible = false;
+			visible = 0;
 		
 		ralsing = scr_dark_marker_ch1(obj_heroralsei_ch1.x, obj_heroralsei_ch1.y, spr_ralseib_sing_ch1);
 		
@@ -215,12 +215,12 @@ if (global.myfight == 3) {
 			actcon = 11;
 	}
 	
-	if (actcon == 11 && instance_exists(obj_writer_ch1) == 0) {
+	if (actcon == 11 && instance_exists(obj_writer_ch1) == false) {
 		with (ralsing)
 			instance_destroy();
 		
 		with (obj_heroralsei_ch1)
-			visible = true;
+			visible = 1;
 		
 		snd_stop_ch1(singy);
 		snd_resume_ch1(global.batmusic[1]);

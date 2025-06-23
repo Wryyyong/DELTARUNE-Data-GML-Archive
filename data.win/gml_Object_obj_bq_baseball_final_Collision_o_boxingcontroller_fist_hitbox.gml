@@ -28,7 +28,7 @@ if (hit != 1) {
 		alarm[0] = 5;
 	
 	var speedlines = instance_create(x, o_boxingcontroller.y - 120, obj_fx_speedlines);
-	speedlines.offsety = 1;
+	speedlines.offsety = true;
 	speedlines.depth = 4;
 	
 	with (o_boxingcontroller) {

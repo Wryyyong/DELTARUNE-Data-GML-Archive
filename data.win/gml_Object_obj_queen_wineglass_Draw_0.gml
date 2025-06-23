@@ -84,7 +84,7 @@ if (state == 1) {
 	
 	if (fill >= 36) {
 		if (image_angle >= -2 && image_angle <= 2)
-			draw_rectangle(xtangle - (topfill * 2), starty - 35, xtangle + (topfill * 2), starty - fill, false);
+			draw_rectangle(xtangle - (topfill * 2), starty - 35, xtangle + (topfill * 2), starty - fill, 0);
 		
 		if (image_angle <= -2) {
 			var fill_a = lerp(36, fill, (image_angle * -1) / 33);

@@ -1,4 +1,4 @@
 targetY = 20;
-useTargetY = 1;
-useTargetX = 1;
+useTargetY = true;
+useTargetX = true;
 targetX = 560;

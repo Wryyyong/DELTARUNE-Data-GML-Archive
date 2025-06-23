@@ -54,6 +54,10 @@ if (state == 2) {
 			playerhasntdodged = 0;
 			playerhasntdodgedorder = 0;
 			init = 0;
+			didntcounterthisturn = 0;
+			didntpunchthisturn = 0;
+			didntdodgethisturn = 0;
+			recentphasetransition = 0;
 		}
 		
 		with (o_boxingcontroller) {

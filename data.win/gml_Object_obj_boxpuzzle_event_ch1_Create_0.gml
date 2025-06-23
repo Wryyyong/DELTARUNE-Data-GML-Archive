@@ -19,6 +19,7 @@ if (global.plot >= 50) {
 	leavecon = 0;
 	boxcon = 0;
 	boxon = 0;
+	instance_deactivate_object(obj_doorB_ch1);
 }
 
 image_speed = 0;

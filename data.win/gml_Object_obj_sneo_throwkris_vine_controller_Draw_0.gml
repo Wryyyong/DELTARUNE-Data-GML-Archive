@@ -25,10 +25,10 @@ if (con == 0) {
 				with (target) {
 					path = path_add();
 					path_set_kind(path, 0);
-					path_set_closed(path, 0);
+					path_set_closed(path, false);
 					path_add_point(path, x1, y1, 100);
 					path_add_point(path, x2 - 3, y2, 100);
-					path_start(path, 4, path_action_stop, 1);
+					path_start(path, 4, path_action_stop, true);
 				}
 				
 				target.image_angle = point_direction(x1[i], y1[i], x2[i], y2[i]) + 282;

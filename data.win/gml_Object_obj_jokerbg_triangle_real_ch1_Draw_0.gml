@@ -72,7 +72,7 @@ for (i = 16; i > 0; i -= 1) {
 
 for (i = 0; i < trimax; i += 1) {
 	event_user(0);
-	draw_triangle(xcen, ycen, xcen + newx1, ycen + newy1, xcen + newx2, ycen + newy2, 0);
+	draw_triangle(xcen, ycen, xcen + newx1, ycen + newy1, xcen + newx2, ycen + newy2, false);
 }
 
 for (i = 0; i < 8; i += 1) {
@@ -81,7 +81,7 @@ for (i = 0; i < 8; i += 1) {
 	
 	if (newy1 > 0 || newy2 > 0) {
 		if (newx2 > (newx1 - 48))
-			draw_triangle(xcen, ycen - 80, xcen + (newx1 / 6), ycen + (newy1 / 6), xcen + (newx2 / 6), ycen + (newy2 / 6), 0);
+			draw_triangle(xcen, ycen - 80, xcen + (newx1 / 6), ycen + (newy1 / 6), xcen + (newx2 / 6), ycen + (newy2 / 6), false);
 	}
 }
 
@@ -89,12 +89,12 @@ for (i = 8; i >= 0; i -= 1) {
 	event_user(0);
 	
 	if (newy1 > 0 || newy2 > 0)
-		draw_triangle(xcen, ycen - 80, xcen + (newx1 / 4), (ycen + newy1) - 380, xcen + (newx2 / 4), (ycen + newy2) - 380, 0);
+		draw_triangle(xcen, ycen - 80, xcen + (newx1 / 4), (ycen + newy1) - 380, xcen + (newx2 / 4), (ycen + newy2) - 380, false);
 }
 
 for (i = 0; i < trimax; i += 1) {
 	event_user(0);
-	draw_triangle(xcen, ycen - 320, xcen + newx1, (ycen + newy1) - 320, xcen + newx2, (ycen + newy2) - 320, 0);
+	draw_triangle(xcen, ycen - 320, xcen + newx1, (ycen + newy1) - 320, xcen + newx2, (ycen + newy2) - 320, false);
 }
 
 siner += 2;

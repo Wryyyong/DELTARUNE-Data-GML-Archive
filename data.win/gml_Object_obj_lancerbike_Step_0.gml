@@ -299,7 +299,7 @@ if (endcon == 1) {
 	global.turntimer = 2;
 	
 	with (obj_lancerboss) {
-		visible = true;
+		visible = 1;
 		
 		if (turns >= 4) {
 			con = 1;
@@ -310,7 +310,7 @@ if (endcon == 1) {
 	}
 	
 	with (obj_lancerboss3)
-		visible = true;
+		visible = 1;
 	
 	instance_destroy();
 }

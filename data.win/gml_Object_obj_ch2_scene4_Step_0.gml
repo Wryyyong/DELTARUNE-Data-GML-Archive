@@ -12,7 +12,7 @@ if (con == 1) {
 	cutscene_master = scr_cutscene_make();
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	with (obj_mainchara)
 		y = 780;
@@ -212,10 +212,10 @@ if (con == 52) {
 	global.facing = 2;
 	
 	with (susie)
-		visible = false;
+		visible = 0;
 	
 	with (ralsei)
-		visible = false;
+		visible = 0;
 	
 	cutscene_master = scr_cutscene_make();
 	su = 0;

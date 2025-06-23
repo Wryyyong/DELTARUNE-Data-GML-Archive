@@ -23,7 +23,7 @@ if (global.turntimer > 1 && swatchbc.red_count > swatchbc.blue_count && (x - xst
 	}
 	
 	if (yy < y && !lidOff) {
-		lidOff = 1;
+		lidOff = true;
 		lidSpeed = -12;
 		platterLid.y = ystart + lidSpeed;
 		timer = 0;

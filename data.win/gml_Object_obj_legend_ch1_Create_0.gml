@@ -22,4 +22,4 @@ if (global.plot == 20)
 
 skipped = 0;
 skiptimer = 0;
-draw_screen = 1;
+draw_screen = true;

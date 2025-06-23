@@ -6,7 +6,7 @@ if (myinteract == 3) {
 		with (obj_mainchara)
 			onebuffer = 3;
 		
-		if (selfdestruct == 1)
+		if (selfdestruct == true)
 			alarm[0] = 2;
 	}
 }

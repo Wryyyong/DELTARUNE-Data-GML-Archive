@@ -23,7 +23,7 @@ if (movecourse == 1) {
 }
 
 if (myinteract == 3) {
-	if (i_ex(mydialoguer) == 0) {
+	if (i_ex(mydialoguer) == false) {
 		global.interact = 0;
 		myinteract = 0;
 		
@@ -32,7 +32,7 @@ if (myinteract == 3) {
 	}
 }
 
-if (reset == 1) {
+if (reset == true) {
 	if (con == 0) {
 		image_alpha *= 0.6;
 		

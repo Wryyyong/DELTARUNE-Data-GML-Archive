@@ -4,8 +4,8 @@ _NEWTIME = ini_read_real("G" + string(MENUCOORD[2]), "Time", 0);
 var room_index = ini_read_real("G" + string(MENUCOORD[2]), "Room", 0);
 var room_offset = room_index;
 
-if (room_index < 280)
-	room_offset = 280 + room_index;
+if (room_index < 281)
+	room_offset = 281 + room_index;
 
 _NEWROOM = room_offset;
 _NEWLEVEL = ini_read_real("G" + string(MENUCOORD[2]), "Level", 0);

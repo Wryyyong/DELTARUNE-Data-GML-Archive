@@ -8,7 +8,7 @@ if (con == 1) {
 		instance_destroy();
 	
 	with (obj_mainchara_ch1)
-		visible = false;
+		visible = 0;
 	
 	with (obj_marker_ch1) {
 		hspeed = 4;
@@ -29,7 +29,7 @@ if (con == 3) {
 		scr_halt_ch1();
 	
 	obj_mainchara_ch1.x = k.x;
-	obj_mainchara_ch1.visible = true;
+	obj_mainchara_ch1.visible = 1;
 	
 	with (k)
 		instance_destroy();
@@ -163,6 +163,7 @@ if (con == 15 && d_ex_ch1() == 0) {
 	con = 20;
 	boxcon = 1;
 	leavecon = 1;
+	instance_activate_object(obj_doorB_ch1);
 }
 
 if (leavecon == 1 && global.interact == 0) {

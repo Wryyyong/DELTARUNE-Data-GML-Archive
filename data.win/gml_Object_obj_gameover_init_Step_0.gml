@@ -7,7 +7,7 @@ if (timer == 30) {
 	with (bg)
 		instance_destroy();
 	
-	visible = true;
+	visible = 1;
 	x = global.heartx;
 	y = global.hearty;
 }
@@ -23,7 +23,7 @@ if (timer == 50) {
 
 if (timer == 90) {
 	snd_play(snd_break2);
-	visible = false;
+	visible = 0;
 	sh[0] = instance_create(x - 2, y, obj_marker);
 	sh[1] = instance_create(x, y + 3, obj_marker);
 	sh[2] = instance_create(x + 2, y + 6, obj_marker);

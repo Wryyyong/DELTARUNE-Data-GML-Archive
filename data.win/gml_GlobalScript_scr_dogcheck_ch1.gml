@@ -1,5 +1,5 @@
 function scr_dogcheck_ch1() {
-	if (global.currentroom >= 411 || global.currentroom <= 280) {
+	if (global.currentroom >= 412 || global.currentroom <= 281) {
 		if (scr_debug_ch1() == 0)
 			return 1;
 		else

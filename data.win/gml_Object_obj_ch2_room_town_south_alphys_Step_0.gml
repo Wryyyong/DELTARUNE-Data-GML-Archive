@@ -38,7 +38,7 @@ if (obj_mainchara.x > x && global.flag[336] == 1 && !scr_havechar(2)) {
 	scr_makecaterpillar(obj_mainchara.x - 40, obj_mainchara.y - 7, 2, 0);
 	
 	with (obj_caterpillarchara)
-		visible = false;
+		visible = 0;
 }
 
 if (obj_mainchara.x < x && global.flag[336] == 1 && scr_havechar(2)) {
@@ -65,7 +65,7 @@ if (con == 4) {
 		nisesusie.sprite_index = obj_caterpillarchara.sprite_index;
 		
 		with (obj_caterpillarchara)
-			visible = true;
+			visible = 1;
 		
 		with (nisesusie)
 			instance_destroy();

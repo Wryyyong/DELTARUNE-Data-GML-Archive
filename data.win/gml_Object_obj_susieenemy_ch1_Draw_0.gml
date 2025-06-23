@@ -14,13 +14,13 @@ if (state == 3) {
 			
 			with (obj_susieandlancer_event_ch1) {
 				with (s) {
-					visible = true;
+					visible = 1;
 					sprite_index = spr_susie_enemy_defeat_ch1;
 					depth = 100;
 				}
 			}
 			
-			visible = false;
+			visible = 0;
 			instance_destroy();
 		}
 		
@@ -52,9 +52,9 @@ if (state == 0) {
 	
 	if (flash == 1) {
 		fsiner += 1;
-		d3d_set_fog_ch1(1, 16777215, 0, 1);
+		d3d_set_fog_ch1(true, 16777215, 0, 1);
 		draw_sprite_ext(thissprite, siner / 6, x, y, 2, 2, 0, image_blend, (-cos(fsiner / 5) * 0.4) + 0.6);
-		d3d_set_fog_ch1(0, 0, 0, 0);
+		d3d_set_fog_ch1(false, 0, 0, 0);
 	}
 }
 

@@ -70,13 +70,13 @@ if (con == 6 && !instance_exists(obj_writer_ch1)) {
 	snd_play_ch1(snd_rurus_appear_ch1);
 	con = 14;
 	rurus = scr_dark_marker_ch1(appear.x, appear.y, spr_rurus_idle_ch1);
-	rurus.visible = false;
+	rurus.visible = 0;
 	alarm[4] = 60;
 }
 
 if (con == 15) {
 	with (rurus)
-		visible = true;
+		visible = 1;
 	
 	with (appear)
 		instance_destroy();
@@ -129,7 +129,7 @@ if (con == 20) {
 	checker = scr_dark_marker_ch1(checkerappear.x, checkerappear.y, spr_checkers_idle_ch1);
 	
 	with (checker)
-		visible = false;
+		visible = 0;
 	
 	con = 21;
 	alarm[4] = 60;
@@ -137,7 +137,7 @@ if (con == 20) {
 
 if (con == 22) {
 	with (checker)
-		visible = true;
+		visible = 1;
 	
 	with (checkerappear)
 		instance_destroy();

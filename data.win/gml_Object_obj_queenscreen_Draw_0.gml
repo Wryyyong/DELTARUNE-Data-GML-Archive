@@ -1,4 +1,4 @@
-if (brokenscreen == 0) {
+if (brokenscreen == false) {
 	draw_set_color(c_white);
 	draw_self();
 	siner++;
@@ -11,7 +11,7 @@ if (brokenscreen == 0) {
 	}
 }
 
-if (brokenscreen == 1) {
+if (brokenscreen == true) {
 	if (room == room_dw_mansion_entrance) {
 		drawindex = 43;
 		linecolor = make_color_rgb(223, 255, 171);

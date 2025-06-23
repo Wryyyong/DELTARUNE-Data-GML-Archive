@@ -1,6 +1,6 @@
 if (!init) {
 	if (visible && (maxxscale != 2 || maxyscale != 2) && sprite_index == spr_battlebg_0) {
-		customBox = 1;
+		customBox = true;
 		
 		if ((maxxscale % 1) != 0)
 			maxxscale = round(maxxscale * 37.5) / 37.5;

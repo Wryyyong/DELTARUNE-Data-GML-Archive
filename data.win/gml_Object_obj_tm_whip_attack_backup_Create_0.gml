@@ -21,5 +21,5 @@ targety = obj_heart.y;
 rotateCracker = 0;
 attackoffset = 0;
 whipball = instance_create(x, y, obj_tm_whip);
-quizmode = 0;
+quizmode = false;
 init = 0;

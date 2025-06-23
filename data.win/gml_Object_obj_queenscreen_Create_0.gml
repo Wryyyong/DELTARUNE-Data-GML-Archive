@@ -1,5 +1,5 @@
 sprite_index = scr_84_get_sprite("spr_queenscreen");
-extflag = 0;
+extflag = false;
 image_speed = 0;
 siner = 0;
 con = 0;
@@ -18,14 +18,14 @@ tasquey = 0;
 tasquedir = 0;
 extspawnflag = 0;
 count = 0;
-brokenscreen = 0;
+brokenscreen = false;
 bluecheckcon = 0;
 bluechecktimer = 0;
 init = 0;
 
 if (image_index == 30) {
 	brokeAlpha = 0;
-	brokenscreen = 1;
+	brokenscreen = true;
 	timer2 = 0;
 	r = 30;
 	xx = x;

@@ -10,7 +10,7 @@ if (init == 0) {
 }
 
 if (quizloop && state == -1) {
-	quizloop = 0;
+	quizloop = false;
 	state = 0;
 }
 
@@ -18,8 +18,8 @@ if (state == -1) {
 	if (lastState != -1) {
 		timer = 0;
 		attacktimer = 0;
-		visible = false;
-		global.monsterinstance[creator].visible = true;
+		visible = 0;
+		global.monsterinstance[creator].visible = 1;
 		lastState = -1;
 	}
 	
@@ -27,8 +27,8 @@ if (state == -1) {
 }
 
 if (lastState == -1 && state != -1) {
-	visible = true;
-	global.monsterinstance[creator].visible = false;
+	visible = 1;
+	global.monsterinstance[creator].visible = 0;
 	lastState = state;
 }
 
@@ -116,7 +116,7 @@ if (state == 4 && attacktimer >= 65) {
 		state = -1;
 	} else {
 		if (quizloop)
-			quizloop = 0;
+			quizloop = false;
 		
 		state = 0;
 		lastState = 0;

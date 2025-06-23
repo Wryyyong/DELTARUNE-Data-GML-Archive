@@ -16,6 +16,6 @@ if (con == 5 || con == 10) {
 
 if (con == 20) {
 	draw_set_color(c_white);
-	draw_circle(x, y, circlesize, 0);
+	draw_circle(x, y, circlesize, false);
 	circlesize += 10;
 }

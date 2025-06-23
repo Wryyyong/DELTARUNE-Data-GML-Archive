@@ -7,8 +7,8 @@ if (obj_mainchara.x >= x && con == -1) {
 	con = 1;
 	global.interact = 1;
 	cutscene_master = scr_cutscene_make();
-	nisesusie.visible = false;
-	berdlynpc.visible = false;
+	nisesusie.visible = 0;
+	berdlynpc.visible = 0;
 	su = 1;
 	su_actor = instance_create(nisesusie.x, nisesusie.y, obj_actor);
 	scr_actor_setup(su, su_actor, "susie");
@@ -85,8 +85,8 @@ if (con == 2 && !d_ex()) {
 }
 
 if (con == 3 && !i_ex(obj_cutscene_master)) {
-	nisesusie.visible = true;
-	berdlynpc.visible = true;
+	nisesusie.visible = 1;
+	berdlynpc.visible = 1;
 	global.interact = 0;
 	con = 0;
 }

@@ -1,4 +1,4 @@
-destroyoffscreen = 1;
+destroyoffscreen = true;
 tolerance = 32;
 growamt = 0;
 fadespeed = 0;

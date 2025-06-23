@@ -1,9 +1,9 @@
 timer = 0;
 seen = 0;
-writeline = 0;
+writeline = false;
 state = 0;
 talktimer = -15;
-talking = 0;
+talking = false;
 talkmax = 45;
 songtime = 0;
 secondtime = 0;

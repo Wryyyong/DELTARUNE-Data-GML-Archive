@@ -1,4 +1,4 @@
 event_inherited();
-rideEnd = 1;
+rideEnd = true;
 partyMember = 0;
 teacupTarget = -1;

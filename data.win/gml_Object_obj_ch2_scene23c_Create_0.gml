@@ -10,7 +10,7 @@ if (global.chapter != 2 || global.flag[319] > 1) {
 		instance_destroy(obj_caterpillarchara);
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	blackall = scr_marker(-10, -10, spr_pixel_white);
 	blackall.image_xscale = 999;

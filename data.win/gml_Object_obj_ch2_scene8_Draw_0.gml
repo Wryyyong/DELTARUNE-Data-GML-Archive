@@ -1,5 +1,5 @@
 if (drawdoor == 1) {
-	visible = true;
+	visible = 1;
 	sprite_index = spr_darkdoor;
 	x = 138;
 	y = 48;

@@ -7,8 +7,8 @@ buffer = 0;
 spawnbuffer = 0;
 ultimate = 0;
 image_speed = 0;
-buffering = 0;
-laughpause = 0;
+buffering = false;
+laughpause = false;
 laughsound = 0;
 
 if (irandom(500) == 1)

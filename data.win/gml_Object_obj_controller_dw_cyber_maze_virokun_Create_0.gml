@@ -1,4 +1,4 @@
 if (global.flag[391] == 0)
-	viro = 1;
+	viro = true;
 else
 	instance_destroy();

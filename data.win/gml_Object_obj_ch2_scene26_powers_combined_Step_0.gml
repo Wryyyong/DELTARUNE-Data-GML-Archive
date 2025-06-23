@@ -77,7 +77,7 @@ if (con == 2) {
 				current_sprite.image_alpha = 1;
 				start_color = c_black;
 				end_color = c_white;
-				fade_in_out = 1;
+				fade_in_out = true;
 			}
 		}
 		
@@ -107,7 +107,7 @@ if (con == 2) {
 			color_lerp = round(lerp(color_lerp, 1, 0.35) * 100) / 100;
 			
 			if (color_lerp >= 0.95) {
-				fade_in_out = 0;
+				fade_in_out = false;
 				recruit_con = 5;
 				color_lerp = 0;
 				image_blend = c_black;
@@ -162,7 +162,7 @@ if (con == 3) {
 			orb_con = 1;
 			thrash_con = 2;
 			color_lerp = 0;
-			fade_in_out = 1;
+			fade_in_out = true;
 			start_color = c_black;
 			end_color = c_white;
 		}
@@ -205,7 +205,7 @@ if (con == 5) {
 		snd_play(snd_closet_impact);
 		thrash_con = 5;
 		thrash.max_index = 3;
-		thrash.image_play = 1;
+		thrash.image_play = true;
 		thrash.image_index++;
 		alarm[0] = 30;
 	}
@@ -216,7 +216,7 @@ if (con == 6) {
 		snd_play(snd_weaponpull);
 		snd_play(snd_closet_impact);
 		thrash.max_index = 6;
-		thrash.image_play = 1;
+		thrash.image_play = true;
 		thrash.image_index++;
 		thrash_con = 6;
 		alarm[0] = 30;
@@ -227,7 +227,7 @@ if (con == 7) {
 	if (thrash_con == 6) {
 		snd_play(snd_weaponpull);
 		snd_play(snd_closet_impact);
-		thrash.image_play = 1;
+		thrash.image_play = true;
 		thrash.image_index++;
 		thrash.max_index = 9;
 		thrash_con = 7;

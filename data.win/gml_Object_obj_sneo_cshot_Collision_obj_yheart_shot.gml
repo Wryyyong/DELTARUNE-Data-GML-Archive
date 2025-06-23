@@ -21,6 +21,6 @@ if (destroyable == 1) {
 	with (other)
 		event_user(0);
 	
-	hit = 1;
+	hit = true;
 	image_blend = c_red;
 }

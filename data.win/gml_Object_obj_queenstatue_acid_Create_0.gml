@@ -1,7 +1,7 @@
 scr_depth();
 xx = x;
 timer = 0;
-sink = 0;
+sink = false;
 progress = global.flag[429];
 
 if (progress >= 64)

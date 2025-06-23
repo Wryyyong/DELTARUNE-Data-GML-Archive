@@ -1,6 +1,6 @@
 con = -1;
 fade_timer = 0;
-sold_out = 0;
+sold_out = false;
 plugboynpc = instance_create(142, 304, obj_npc_room);
 plugboynpc.sprite_index = spr_npc_plugboy_static;
 

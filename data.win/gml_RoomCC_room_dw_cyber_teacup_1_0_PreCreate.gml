@@ -1,4 +1,4 @@
 endY = 180;
-camFollow = 1;
+camFollow = true;
 mode = 1;
 camFollowAfter = 0;

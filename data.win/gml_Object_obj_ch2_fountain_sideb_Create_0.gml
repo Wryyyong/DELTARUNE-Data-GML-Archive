@@ -1,3 +1,3 @@
 sneo = noone;
-shortened = 0;
+shortened = false;
 con = 0;

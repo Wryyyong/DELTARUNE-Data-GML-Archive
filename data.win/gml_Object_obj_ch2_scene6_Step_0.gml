@@ -20,7 +20,7 @@ if (con == 1) {
 	cutscene_master = scr_cutscene_make();
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	la = 3;
 	la_actor = instance_create(obj_mainchara.x - 16, 900, obj_actor);
@@ -269,7 +269,7 @@ if (customcon == 1 && con == 2) {
 }
 
 if (customcon == 1 && con == 3) {
-	if (la_actor.visible == false) {
+	if (la_actor.visible == 0) {
 		con = 4;
 		lancerGlow = 3;
 		customcon = 0;
@@ -320,10 +320,10 @@ if (customcon == 1 && con == 3) {
 		addAmount = 0;
 		
 		with (la_card)
-			visible = false;
+			visible = 0;
 		
 		with (la_actor)
-			visible = false;
+			visible = 0;
 	}
 	
 	if (totalSpins > 3 && lancerGlow == 0) {
@@ -347,7 +347,7 @@ if (customcon == 1 && con == 3) {
 if (customcon == 1 && con == 4) {
 	conTimer++;
 	
-	if (ro_actor.visible == false) {
+	if (ro_actor.visible == 0) {
 		con = 5;
 		customcon = 0;
 		lancerGlow = 6;
@@ -374,10 +374,10 @@ if (customcon == 1 && con == 4) {
 		addAmount = 0;
 		
 		with (ro_card)
-			visible = false;
+			visible = 0;
 		
 		with (ro_actor)
-			visible = false;
+			visible = 0;
 	}
 	
 	if (conTimer >= 5 && lancerGlow == 3) {

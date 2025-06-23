@@ -27,10 +27,10 @@ if (con == 0 && global.interact == 0) {
 		global.facing = 1;
 		
 		with (obj_caterpillarchara_ch1)
-			visible = false;
+			visible = 0;
 		
 		with (obj_mainchara_ch1)
-			visible = false;
+			visible = 0;
 		
 		r = scr_dark_marker_ch1(obj_caterpillarchara_ch1.x, obj_caterpillarchara_ch1.y, spr_ralseir_ch1);
 		k = scr_dark_marker_ch1(obj_mainchara_ch1.x, obj_mainchara_ch1.y, spr_krisr_dark_ch1);
@@ -430,18 +430,18 @@ if (con == 31 && !d_ex_ch1() && lcon == 3) {
 	scr_caterpillar_facing_ch1(global.facing);
 	
 	with (s)
-		visible = false;
+		visible = 0;
 	
 	s.depth = 100;
 	
 	with (l)
-		visible = false;
+		visible = 0;
 	
 	with (k)
-		visible = false;
+		visible = 0;
 	
 	with (r)
-		visible = false;
+		visible = 0;
 	
 	global.specialbattle = 0;
 	global.flag[9] = 1;
@@ -462,10 +462,10 @@ if (con == 35) {
 		snd_free_all_ch1();
 		
 		with (s)
-			visible = true;
+			visible = 1;
 		
 		with (l)
-			visible = true;
+			visible = 1;
 		
 		con = 45;
 		global.interact = 1;
@@ -736,10 +736,10 @@ if (con == 70 && !d_ex_ch1()) {
 	lcon = 20;
 	
 	with (obj_mainchara_ch1)
-		visible = true;
+		visible = 1;
 	
 	with (k)
-		visible = false;
+		visible = 0;
 	
 	if (global.plot < 130)
 		global.plot = 130;
@@ -760,7 +760,7 @@ if (scon == 1) {
 		scr_losechar_ch1();
 		scr_getchar_ch1(3);
 		scr_getchar_ch1(2);
-		s.visible = false;
+		s.visible = 0;
 		global.cinstance[1] = instance_create_ch1(s.x, s.y, obj_caterpillarchara_ch1);
 		global.cinstance[1].target = 24;
 		scon = 2;
@@ -783,25 +783,25 @@ if (lcon == 21) {
 	global.flag[229] = 1;
 	
 	with (l)
-		visible = false;
+		visible = 0;
 }
 
 if (con == 72) {
 	savepoint = instance_create_ch1(640, 80, obj_savepoint_ch1);
 	
 	with (r)
-		visible = false;
+		visible = 0;
 	
 	global.cinstance[0].x = r.x;
 	global.cinstance[0].y = r.y;
 	
 	with (global.cinstance[0]) {
-		visible = true;
+		visible = 1;
 		scr_caterpillar_interpolate_ch1();
 	}
 	
 	with (global.cinstance[1]) {
-		visible = true;
+		visible = 1;
 		scr_caterpillar_interpolate_ch1();
 	}
 	

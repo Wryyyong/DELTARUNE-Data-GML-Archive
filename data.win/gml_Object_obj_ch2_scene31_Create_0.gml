@@ -1,6 +1,6 @@
 con = -1;
 customcon = 0;
-anykey = 0;
+anykey = false;
 keytimer = 0;
 shakebuffer = 0;
 maxshaketime = 120;

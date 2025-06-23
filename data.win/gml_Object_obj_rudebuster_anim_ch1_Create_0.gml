@@ -9,6 +9,6 @@ star = 0;
 depth = obj_herosusie_ch1.depth;
 
 with (obj_herosusie_ch1)
-	visible = false;
+	visible = 0;
 
 red = 0;

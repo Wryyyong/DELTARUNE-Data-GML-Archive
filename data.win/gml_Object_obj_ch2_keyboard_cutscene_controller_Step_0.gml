@@ -36,7 +36,7 @@ if (con == 11) {
 			scr_jump_to_point(ballX, ballY, 30, 20);
 		
 		with (obj_mainchara)
-			visible = false;
+			visible = 0;
 		
 		letterCount = 0;
 		addString = "";
@@ -53,7 +53,7 @@ if (con == 11) {
 			instance_destroy();
 		
 		with (obj_mainchara)
-			visible = true;
+			visible = 1;
 		
 		global.interact = 0;
 	}

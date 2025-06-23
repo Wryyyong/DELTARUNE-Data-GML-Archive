@@ -21,7 +21,7 @@ function pal_swap_set(arg0, arg1, arg2) {
 			shader_set(global.Pal_Shader);
 		}
 		
-		global.Pal_Shader_Is_Set = 1;
+		global.Pal_Shader_Is_Set = true;
 		var tex = sprite_get_texture(_pal_sprite, 0);
 		var UVs = sprite_get_uvs(_pal_sprite, 0);
 		texture_set_stage(global.Pal_Texture[mode], tex);
@@ -40,7 +40,7 @@ function pal_swap_set(arg0, arg1, arg2) {
 			shader_set(global.Pal_Shader);
 		}
 		
-		global.Pal_Shader_Is_Set = 1;
+		global.Pal_Shader_Is_Set = true;
 		var tex = surface_get_texture(_pal_sprite);
 		texture_set_stage(global.Pal_Texture[mode], tex);
 		var texel_x = texture_get_texel_width(tex);

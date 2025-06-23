@@ -1,7 +1,7 @@
 if (lastphase != global.flag[915])
-	phasechange = 1;
+	phasechange = true;
 else
-	phasechange = 0;
+	phasechange = false;
 
 if (global.flag[915] == 0 && global.flag[531] == 6) {
 	snd_play(snd_ominous);
@@ -81,14 +81,14 @@ if (init == 0) {
 	init = 1;
 }
 
-if (phasechange == 1) {
+if (phasechange == true) {
 	if (global.flag[915] == 4) {
 		if (instance_exists(obj_musicer_city)) {
-			obj_musicer_city.update = 1;
-			phasechange = 0;
+			obj_musicer_city.update = true;
+			phasechange = false;
 		} else {
 			instance_create(0, 0, obj_musicer_city);
-			phasechange = 0;
+			phasechange = false;
 		}
 	}
 }

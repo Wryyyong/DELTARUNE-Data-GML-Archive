@@ -2,12 +2,12 @@ if (instance_exists(obj_caterpillarchara) && obj_caterpillarchara.name == "noell
 	if (global.interact == 0) {
 		with (obj_mainchara) {
 			if (place_meeting(x, y, obj_traffic_road_trigger))
-				other.fakeNoelleActive = 1;
+				other.fakeNoelleActive = true;
 		}
 	}
 }
 
-if (fakeNoelleActive == 1) {
+if (fakeNoelleActive == true) {
 	if (instance_exists(obj_caterpillarchara) && obj_caterpillarchara.name == "noelle") {
 		with (obj_caterpillarchara)
 			visible = false;
@@ -27,7 +27,7 @@ if (fakeNoelleActive == 1) {
 	}
 }
 
-if (fakeNoelleActive == 0) {
+if (fakeNoelleActive == false) {
 	if (instance_exists(obj_caterpillarchara) && obj_caterpillarchara.name == "noelle")
 		obj_caterpillarchara.visible = true;
 }

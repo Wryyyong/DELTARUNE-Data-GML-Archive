@@ -79,7 +79,7 @@ if (con == 5) {
 	scr_makecaterpillar(obj_mainchara.x + 100, cameray() - 300, 3, 1);
 	
 	with (obj_caterpillarchara)
-		visible = false;
+		visible = 0;
 	
 	coaster_empty1 = scr_dark_marker(-100, -100, spr_sneo_car_empty);
 	
@@ -296,10 +296,10 @@ if (con == 5.1 || scr_cutscene_loaded()) {
 		c_mus("free");
 		c_soundplay_x(snd_rudebuster_swing, 0.8, 0.9);
 		c_var_instance(sneo, "headforceframe", 2);
-		c_var_instance(id, "rudebuster", 1);
+		c_var_instance(id, "rudebuster", true);
 		c_wait(15);
 		c_var_instance(sneo, "partmode", 20);
-		c_var_instance(id, "sneo_fly", 1);
+		c_var_instance(id, "sneo_fly", true);
 		c_wait(45);
 		c_sel(su);
 		c_facing("susieunhappy");
@@ -504,17 +504,17 @@ if ((con == 7 && customcon == 1) && special_scene == 0) {
 		global.tempflag[32] = 1;
 	
 	with (obj_coaster)
-		visible = false;
+		visible = 0;
 	
 	instance_create(x, y, o_coaster_controller_sneo);
-	cityscape_active = 1;
+	cityscape_active = true;
 	global.flag[9] = 2;
 	global.batmusic[0] = snd_init("spamton_neo_mix_ex_wip.ogg");
 	global.flag[54] = 571;
 	scr_battle(61, 1, sneo, 0, 0);
 	
 	if (shortened) {
-		sneo.visible = false;
+		sneo.visible = 0;
 		
 		with (obj_encounterbasic) {
 			counttimer = 14;
@@ -551,11 +551,11 @@ if (customcon == 1 && special_scene > 0) {
 }
 
 if (con == 9 && i_ex(obj_battlecontroller)) {
-	var battle_end = 0;
+	var battle_end = false;
 	
 	with (obj_battlecontroller) {
 		if (intro == 2)
-			battle_end = 1;
+			battle_end = true;
 	}
 	
 	if (battle_end) {
@@ -596,9 +596,9 @@ if ((con == 13 && !i_ex(obj_battlecontroller)) || (con == 13 && forcend == 1)) {
 	coaster_kris.character_sprite = spr_krisr_dark;
 	coaster_susie.character_sprite = spr_susie_walk_right_dw_unhappy;
 	coaster_ralsei.character_sprite = spr_ralsei_walk_right_unhappy;
-	coaster_kris.visible = true;
-	coaster_susie.visible = true;
-	coaster_ralsei.visible = true;
+	coaster_kris.visible = 1;
+	coaster_susie.visible = 1;
+	coaster_ralsei.visible = 1;
 	
 	with (obj_heroparent)
 		instance_destroy();
@@ -629,7 +629,7 @@ if (con == 60 && !i_ex(obj_cutscene_master)) {
 }
 
 if (rudebuster) {
-	rudebuster = 0;
+	rudebuster = false;
 	rudebusteranim = instance_create(camerax() - 60, 275, obj_rudebuster_bolt);
 	rudebusteranim.target = sneo;
 }
@@ -639,7 +639,7 @@ if (sneo_fly) {
 		gravity = -2;
 	
 	if (sneo.y <= (cameray() - 200)) {
-		sneo_fly = 0;
+		sneo_fly = false;
 		sneo.gravity = 0;
 		sneo.x = 840;
 		sneo.y = cameray() - 200;
@@ -654,7 +654,7 @@ if (sneo_release) {
 	}
 	
 	if (sneo.y >= 80) {
-		sneo_release = 0;
+		sneo_release = false;
 		
 		with (sneo) {
 			gravity = 0;

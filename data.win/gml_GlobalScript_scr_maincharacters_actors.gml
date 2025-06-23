@@ -7,7 +7,7 @@ function scr_maincharacters_actors() {
 	kr_actor.depth = obj_mainchara.depth;
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	for (__jj = 0; __jj < array_length_1d(global.cinstance); __jj++) {
 		if (i_ex(global.cinstance[__jj])) {
@@ -20,7 +20,7 @@ function scr_maincharacters_actors() {
 				su_actor.depth = global.cinstance[__jj].depth;
 				
 				with (global.cinstance[__jj])
-					visible = false;
+					visible = 0;
 			}
 			
 			if (global.cinstance[__jj].name == "ralsei") {
@@ -32,7 +32,7 @@ function scr_maincharacters_actors() {
 				ra_actor.depth = global.cinstance[__jj].depth;
 				
 				with (global.cinstance[__jj])
-					visible = false;
+					visible = 0;
 			}
 			
 			if (global.cinstance[__jj].name == "noelle") {
@@ -44,7 +44,7 @@ function scr_maincharacters_actors() {
 				no_actor.depth = global.cinstance[__jj].depth;
 				
 				with (global.cinstance[__jj])
-					visible = false;
+					visible = 0;
 			}
 		}
 	}

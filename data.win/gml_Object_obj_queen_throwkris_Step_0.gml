@@ -65,10 +65,10 @@ if (throwcon == 2) {
 
 if (throwXcon == 3 && !instance_exists(obj_queen_throwtarget)) {
 	with (obj_herokris)
-		visible = true;
+		visible = 1;
 	
 	with (obj_herosusie)
-		visible = true;
+		visible = 1;
 	
 	with (obj_queen_throwkris)
 		instance_destroy();

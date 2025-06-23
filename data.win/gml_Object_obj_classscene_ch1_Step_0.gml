@@ -33,7 +33,7 @@ if (con == 2.5) {
 	con = 3;
 }
 
-if (con == 3 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 3 && instance_exists(obj_dialoguer_ch1) == false) {
 	snd_play_ch1(snd_dooropen_ch1);
 	
 	with (door)
@@ -82,7 +82,7 @@ if (con == 9) {
 	instance_create_ch1(0, 0, obj_dialoguer_ch1);
 }
 
-if (con == 10 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 10 && instance_exists(obj_dialoguer_ch1) == false) {
 	mus_loop_ch1(global.currentsong[0]);
 	__view_set(e__VW.Object, 0, -4);
 	door_readable = instance_create_ch1(244, 51, obj_readable_room1_ch1);
@@ -108,7 +108,7 @@ if (con == 10 && instance_exists(obj_dialoguer_ch1) == 0) {
 	con = 11;
 }
 
-if (con == 20 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 20 && instance_exists(obj_dialoguer_ch1) == false) {
 	global.interact = 1;
 	con = 21;
 	alarm[4] = 2;
@@ -132,7 +132,7 @@ if (con == 22) {
 	instance_create_ch1(0, 0, obj_dialoguer_ch1);
 }
 
-if (con == 23 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 23 && instance_exists(obj_dialoguer_ch1) == false) {
 	instance_create_ch1(0, 0, obj_shake_ch1);
 	snd_stop_all_ch1();
 	snd_free_ch1(global.currentsong[0]);
@@ -181,7 +181,7 @@ if (con == 27) {
 	alarm[4] = 50;
 }
 
-if (con == 29 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 29 && instance_exists(obj_dialoguer_ch1) == false) {
 	with (sus) {
 		image_speed = 0.1;
 		vspeed = 0.5;
@@ -228,7 +228,7 @@ if (con == 35) {
 	instance_create_ch1(0, 0, obj_dialoguer_ch1);
 }
 
-if (con == 36 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 36 && instance_exists(obj_dialoguer_ch1) == false) {
 	con = 37;
 	alarm[4] = 40;
 	
@@ -246,7 +246,7 @@ if (con == 38) {
 	con = 39;
 }
 
-if (con == 39 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 39 && instance_exists(obj_dialoguer_ch1) == false) {
 	with (alphys) {
 		sprite_index = spr_alphysr_ch1;
 		hspeed = 3;
@@ -275,7 +275,7 @@ if (con == 43) {
 	instance_create_ch1(0, 0, obj_dialoguer_ch1);
 }
 
-if (con == 44 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 44 && instance_exists(obj_dialoguer_ch1) == false) {
 	con = 45;
 	
 	with (alphys)
@@ -368,7 +368,7 @@ if (con == 52) {
 	}
 }
 
-if (con == 52 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 52 && instance_exists(obj_dialoguer_ch1) == false) {
 	with (sus) {
 		vspeed = -1;
 		sprite_index = spr_susieu_ch1;
@@ -410,7 +410,7 @@ if (con == 56) {
 	con = 57;
 }
 
-if (con == 57 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 57 && instance_exists(obj_dialoguer_ch1) == false) {
 	with (door_readable)
 		instance_destroy();
 	

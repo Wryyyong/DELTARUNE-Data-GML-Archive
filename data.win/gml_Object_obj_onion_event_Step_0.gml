@@ -1,7 +1,7 @@
 if (global.chapter == 2 && global.flag[424] > 0) {
 	if (instance_exists(obj_ch2_room_beach)) {
 		with (obj_ch2_room_beach)
-			canrest = 1;
+			canrest = true;
 		
 		instance_destroy();
 	}
@@ -25,7 +25,7 @@ if (global.flag[258] == 0) {
 	if (global.chapter == 2) {
 		if (instance_exists(obj_ch2_room_beach)) {
 			with (obj_ch2_room_beach)
-				canrest = 1;
+				canrest = true;
 			
 			instance_destroy();
 		}
@@ -56,7 +56,7 @@ if (global.flag[258] == 0) {
 			
 			if (global.chapter == 2 && scr_havechar(2)) {
 				with (obj_caterpillarchara)
-					visible = false;
+					visible = 0;
 				
 				cutscene_master = scr_cutscene_make();
 				scr_maincharacters_actors();
@@ -97,7 +97,7 @@ if (global.flag[258] == 0) {
 			
 			if (instance_exists(obj_ch2_room_beach)) {
 				with (obj_ch2_room_beach)
-					canrest = 1;
+					canrest = true;
 			}
 			
 			instance_destroy();
@@ -147,7 +147,7 @@ if (global.flag[258] == 0) {
 } else if (global.flag[258] == 3) {
 	if (instance_exists(obj_ch2_room_beach)) {
 		with (obj_ch2_room_beach)
-			canrest = 1;
+			canrest = true;
 		
 		instance_destroy();
 	}

@@ -5,4 +5,4 @@ house_sprite.image_speed = 0;
 with (house_sprite)
 	scr_depth();
 
-bumped = 0;
+bumped = false;

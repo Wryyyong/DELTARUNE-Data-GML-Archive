@@ -2,7 +2,7 @@ if (!opened) {
 	myinteract = 3;
 	global.interact = 1;
 	image_index = 1;
-	opened = 1;
+	opened = true;
 	snd_play(snd_locker);
 	screen = instance_create(980, 100, obj_queenscreen);
 	screen.image_index = 10;

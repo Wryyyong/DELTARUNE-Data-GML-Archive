@@ -1,4 +1,4 @@
-destroyoffscreen = 0;
+destroyoffscreen = false;
 tolerance = 0;
 fadeInSpeed = 15;
 image_xscale = 2;

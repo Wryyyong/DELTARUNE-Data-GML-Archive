@@ -1,4 +1,4 @@
-extflag = 0;
+extflag = false;
 image_speed = 0;
 siner = 0;
 con = 0;

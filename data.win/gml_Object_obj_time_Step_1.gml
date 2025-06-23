@@ -2,12 +2,12 @@ if (!paused) {
 	global.time += 1;
 	
 	if (global.is_console && os_is_paused()) {
-		paused = 1;
+		paused = true;
 		
 		if (!sprite_exists(screenshot)) {
 			var sw = surface_get_width(application_surface);
 			var sh = surface_get_height(application_surface);
-			screenshot = sprite_create_from_surface(application_surface, 0, 0, sw, sh, false, false, 0, 0);
+			screenshot = sprite_create_from_surface(application_surface, 0, 0, sw, sh, 0, 0, 0, 0);
 		}
 		
 		exit;
@@ -18,7 +18,7 @@ if (!paused) {
 
 if (scr_debug()) {
 	if (quicksaved != 2) {
-		if (scr_84_debug(1))
+		if (scr_84_debug(true))
 			exit;
 	}
 	
@@ -154,18 +154,18 @@ gamepad_check_timer += 1;
 if (gamepad_check_timer >= 90) {
 	if (!gamepad_is_connected(obj_gamecontroller.gamepad_id)) {
 		var gp_num = gamepad_get_device_count();
-		var any_connected = 0;
+		var any_connected = false;
 		
 		for (var i = 0; i < gp_num; i++) {
 			if (gamepad_is_connected(i)) {
 				obj_gamecontroller.gamepad_active = 1;
 				obj_gamecontroller.gamepad_id = i;
-				any_connected = 1;
+				any_connected = true;
 				break;
 			}
 		}
 		
-		if (any_connected == 0)
+		if (any_connected == false)
 			obj_gamecontroller.gamepad_active = 0;
 	}
 	

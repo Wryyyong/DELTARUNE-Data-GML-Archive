@@ -63,7 +63,7 @@ if (con == 2 && !i_ex(obj_cutscene_master)) {
 	global.currentsong[1] = mus_loop(global.currentsong[0]);
 	
 	with (obj_mainchara)
-		visible = true;
+		visible = 1;
 	
 	global.facing = 0;
 	global.plot = 205;

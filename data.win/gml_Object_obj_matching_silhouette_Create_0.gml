@@ -1,5 +1,5 @@
 target_char = obj_mainchara;
-copy_sprite = 0;
+copy_sprite = false;
 lsprite = spr_krisl;
 rsprite = spr_krisr;
 dsprite = spr_krisd;
@@ -9,4 +9,4 @@ color = #00A2E8;
 image_speed = 0;
 second_char = -4;
 second_sprite = -4;
-outline = 0;
+outline = false;

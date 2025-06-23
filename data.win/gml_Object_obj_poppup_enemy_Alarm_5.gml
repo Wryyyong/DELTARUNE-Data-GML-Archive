@@ -1,1 +1,1 @@
-cloning = 0;
+cloning = false;

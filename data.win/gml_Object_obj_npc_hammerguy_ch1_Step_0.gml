@@ -2,7 +2,7 @@ if (myinteract == 3) {
 }
 
 if (myinteract == 3 && con == 0) {
-	if (instance_exists(mydialoguer) == 0) {
+	if (instance_exists(mydialoguer) == false) {
 		sprite_index = spr_hammerguy_ch1;
 		image_speed = 0.1;
 		global.interact = 0;
@@ -49,12 +49,12 @@ if (con >= 5) {
 			instance_destroy();
 		
 		with (global.cinstance[0])
-			visible = true;
+			visible = 1;
 		
 		with (global.cinstance[1])
-			visible = true;
+			visible = 1;
 		
-		obj_mainchara_ch1.visible = true;
+		obj_mainchara_ch1.visible = 1;
 		con = 13;
 		charcycle -= 1;
 		
@@ -67,7 +67,7 @@ if (con >= 5) {
 		
 		if (charcycle == 0) {
 			with (obj_mainchara_ch1)
-				visible = false;
+				visible = 0;
 			
 			char = scr_dark_marker_ch1(390, 125, spr_krisd_dark_ch1);
 			
@@ -77,7 +77,7 @@ if (con >= 5) {
 		
 		if (charcycle == 1 || charcycle == 2) {
 			with (global.cinstance[charcycle - 1])
-				visible = false;
+				visible = 0;
 			
 			if (chartype == 2) {
 				char = scr_dark_marker_ch1(380, 110, spr_susie_shock_ch1);

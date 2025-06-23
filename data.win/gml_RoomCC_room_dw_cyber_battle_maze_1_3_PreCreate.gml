@@ -1,10 +1,10 @@
 endY = 240;
-camFollow = 1;
+camFollow = true;
 mode = 1;
 camFollowAfter = 0;
 riseSpeed = 1;
-tutorialRide = 1;
+tutorialRide = true;
 riseSpeedBoost = 0;
 riseSpeedReverse = 6;
-fadeOutOthers = 1;
-centerY = 1;
+fadeOutOthers = true;
+centerY = true;

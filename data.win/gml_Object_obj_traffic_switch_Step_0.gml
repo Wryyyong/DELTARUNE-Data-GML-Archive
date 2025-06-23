@@ -80,7 +80,7 @@ if (clear_traffic) {
 				instance_destroy();
 		}
 	} else {
-		clear_traffic = 0;
+		clear_traffic = false;
 	}
 }
 

@@ -5,17 +5,17 @@ floorshadOpacity = 0;
 frontshadOpacity = 0;
 floorShadowColor = c_black;
 frontShadowColor = c_black;
-fade_in = 0;
-fade_out = 0;
+fade_in = false;
+fade_out = false;
 fade_timer = 0;
-fade_cleanup = 0;
-fade_reset = 0;
-is_active = 0;
+fade_cleanup = false;
+fade_reset = false;
+is_active = false;
 
 if (room == room_dw_cyber_maze_fireworks)
 	is_active = global.flag[357] == 1;
 
-inactive_cleanup = 0;
+inactive_cleanup = false;
 cleanup_timer = 0;
 depth = (room == room_dw_cyber_post_music_boss_slide) ? 80000 : 900000;
 var shadow_amount = 1;

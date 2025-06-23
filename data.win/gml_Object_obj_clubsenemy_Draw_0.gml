@@ -81,7 +81,7 @@ if (room == room_dw_castle_dojo && instance_exists(obj_dojofx)) {
 		var timetextstring = stringsetloc("TIME: ", "obj_clubsenemy_slash_Draw_0_gml_98_0");
 		var totaltimetextstring = timetextstring + timestring;
 		draw_set_color(c_black);
-		draw_rectangle((camerax() + 320) - (string_width(totaltimetextstring) / 2) - 10, (cameray() + 298) - (string_height(totaltimetextstring) / 2), camerax() + 320 + (string_width(totaltimetextstring) / 2) + 10, cameray() + 298 + (string_height(totaltimetextstring) / 2) + 40, false);
+		draw_rectangle((camerax() + 320) - (string_width(totaltimetextstring) / 2) - 10, (cameray() + 298) - (string_height(totaltimetextstring) / 2), camerax() + 320 + (string_width(totaltimetextstring) / 2) + 10, cameray() + 298 + (string_height(totaltimetextstring) / 2) + 40, 0);
 		draw_set_color(c_red);
 		draw_text(camerax() + 320, cameray() + 290, totaltimetextstring);
 		draw_set_halign(fa_left);

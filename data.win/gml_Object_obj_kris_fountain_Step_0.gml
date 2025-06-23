@@ -84,7 +84,7 @@ if (active == 1) {
 	}
 	
 	if (con == 67) {
-		ballcheck = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_fountainball, 0, 1);
+		ballcheck = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_fountainball, false, true);
 		
 		if (ballcheck != -4) {
 			with (ballcheck) {

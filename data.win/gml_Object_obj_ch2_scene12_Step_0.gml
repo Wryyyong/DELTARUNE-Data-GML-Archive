@@ -8,10 +8,10 @@ if (con == 1) {
 	con = 2;
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	with (obj_caterpillarchara)
-		visible = false;
+		visible = 0;
 	
 	scr_losechar();
 	cutscene_master = scr_cutscene_make();

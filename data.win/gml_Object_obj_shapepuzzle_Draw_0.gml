@@ -9,7 +9,7 @@ if (!setupComplete) {
 	buffer_delete(_buffer);
 	draw_clear_alpha(c_black, 0);
 	surface_reset_target();
-	setupComplete = 1;
+	setupComplete = true;
 }
 
 if (insideOnly && setupComplete && goalCheck && room == room_dw_mansion_darkbulb_3) {
@@ -32,9 +32,9 @@ if (insideOnly && setupComplete && goalCheck && room == room_dw_mansion_darkbulb
 			}
 			
 			if (min(__xx, __x) < other.x || max(__xx, __x) > (other.x + other.puzzleSize) || min(__yy, __y) < other.y || max(__yy, __y) > (other.y + other.puzzleSize))
-				other.goalCheck = 0;
+				other.goalCheck = false;
 		} else if (x < other.x || x > (other.x + other.puzzleSize) || y < other.y || y > (other.y + other.puzzleSize)) {
-			other.goalCheck = 0;
+			other.goalCheck = false;
 		}
 	}
 }
@@ -47,17 +47,17 @@ if (setupComplete && goalCheck) {
 	var _yy = y;
 	surface_set_target(puzzleSurfState);
 	draw_clear_alpha(c_black, 0);
-	gpu_set_colorwriteenable(0, 0, 0, 1);
+	gpu_set_colorwriteenable(false, false, false, true);
 	draw_sprite_ext(sprite_index, 1, 0, 0, image_xscale, image_yscale, image_angle, c_white, 1);
-	gpu_set_colorwriteenable(1, 1, 1, 1);
+	gpu_set_colorwriteenable(true, true, true, true);
 	gpu_set_blendmode_ext(7, bm_inv_dest_alpha);
-	gpu_set_alphatestenable(1);
+	gpu_set_alphatestenable(true);
 	
 	with (obj_shapepuzzlepiece)
 		draw_sprite_ext(sprite_index, image_index, x - _xx, y - _yy, image_xscale, image_yscale, image_angle, c_white, 1);
 	
 	surface_reset_target();
-	gpu_set_alphatestenable(0);
+	gpu_set_alphatestenable(false);
 	gpu_set_blendmode(bm_normal);
 	var _buffer = buffer_create(puzzleSize * puzzleSize * 4, buffer_fixed, 1);
 	buffer_get_surface(_buffer, puzzleSurfState, 0);
@@ -65,11 +65,11 @@ if (setupComplete && goalCheck) {
 	
 	if (_currentState == bufferGoal) {
 		snd_play(snd_shadowpendant);
-		goalHit = 1;
-		goalCheck = 0;
+		goalHit = true;
+		goalCheck = false;
 		
 		with (obj_shapepuzzlepiece)
-			slowOff = 1;
+			slowOff = true;
 		
 		if (room == room_dw_mansion_darkbulb_1) {
 			with (obj_ch2_scene19a)
@@ -123,16 +123,16 @@ if (instructionLerp > 0 || inUse) {
 	
 	if (global.is_console || obj_gamecontroller.gamepad_active) {
 		var sprite_pos_left = (camerax() - 80) + (_easedLerp * 100);
-		draw_sprite_ext(scr_getbuttonsprite(global.input_g[3], 0), 0, sprite_pos_left, cameray() + 400 + 2, 2, 2, 0, c_white, 1);
-		draw_sprite_ext(scr_getbuttonsprite(global.input_g[0], 0), 0, sprite_pos_left + 26, cameray() + 400 + 2, 2, 2, 0, c_white, 1);
-		draw_sprite_ext(scr_getbuttonsprite(global.input_g[2], 0), 0, sprite_pos_left + 52, cameray() + 400 + 2, 2, 2, 0, c_white, 1);
-		draw_sprite_ext(scr_getbuttonsprite(global.input_g[1], 0), 0, sprite_pos_left + 78, cameray() + 400 + 2, 2, 2, 0, c_white, 1);
+		draw_sprite_ext(scr_getbuttonsprite(global.input_g[3], false), 0, sprite_pos_left, cameray() + 400 + 2, 2, 2, 0, c_white, 1);
+		draw_sprite_ext(scr_getbuttonsprite(global.input_g[0], false), 0, sprite_pos_left + 26, cameray() + 400 + 2, 2, 2, 0, c_white, 1);
+		draw_sprite_ext(scr_getbuttonsprite(global.input_g[2], false), 0, sprite_pos_left + 52, cameray() + 400 + 2, 2, 2, 0, c_white, 1);
+		draw_sprite_ext(scr_getbuttonsprite(global.input_g[1], false), 0, sprite_pos_left + 78, cameray() + 400 + 2, 2, 2, 0, c_white, 1);
 		var move_text = stringsetloc("#Move", "obj_shapepuzzle_slash_Draw_0_gml_181_0");
 		scr_84_draw_text_outline((camerax() - 80) + (_easedLerp * 100), cameray() + 400, string_hash_to_newline(move_text));
 		var sprite_pos = (camerax() + 720) - (_easedLerp * 100) - 125;
-		var _sprite = scr_getbuttonsprite(global.input_g[4], 0);
+		var _sprite = scr_getbuttonsprite(global.input_g[4], false);
 		draw_sprite_ext(_sprite, 0, sprite_pos, cameray() + 400 + 2, 2, 2, 0, c_white, 1);
-		_sprite = scr_getbuttonsprite(global.input_g[5], 0);
+		_sprite = scr_getbuttonsprite(global.input_g[5], false);
 		draw_sprite_ext(_sprite, 0, sprite_pos, cameray() + 400 + 32, 2, 2, 0, c_white, 1);
 		draw_set_halign(fa_left);
 		var rotate_text = stringsetloc("Rotate#Quit", "obj_shapepuzzle_slash_Draw_0_gml_192_0");

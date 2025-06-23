@@ -704,7 +704,7 @@ if (type == 9) {
 		init = 2;
 		special = 1;
 		btimer = 0;
-		obj_sneo_hitdetector.active = 0;
+		obj_sneo_hitdetector.active = false;
 	}
 	
 	if (special == 1 && btimer == 45) {
@@ -846,7 +846,7 @@ if (type == 12) {
 		face.special = hellmode;
 		
 		if (obj_spamton_neo_enemy.faceattackcount == 1)
-			face.first_time = 1;
+			face.first_time = true;
 		
 		with (face)
 			event_user(0);

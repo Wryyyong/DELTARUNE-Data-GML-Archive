@@ -1,4 +1,4 @@
-road_is_right = 0;
+road_is_right = false;
 group = 1;
 swapgroup = 1;
 count = 1;

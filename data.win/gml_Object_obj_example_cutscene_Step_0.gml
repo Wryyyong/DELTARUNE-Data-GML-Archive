@@ -15,7 +15,7 @@ if (con == 1) {
 	kr_actor.sprite_index = spr_krisr_dark;
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	su = 1;
 	su_actor = instance_create(obj_mainchara.x + 300, obj_mainchara.y, obj_actor);

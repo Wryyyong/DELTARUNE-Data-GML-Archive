@@ -18,10 +18,10 @@ if (con == 1) {
 	s = sus;
 	
 	with (obj_caterpillarchara_ch1)
-		visible = false;
+		visible = 0;
 	
 	with (obj_mainchara_ch1)
-		visible = false;
+		visible = 0;
 	
 	with (obj_marker_ch1) {
 		hspeed = 6;
@@ -44,7 +44,7 @@ if (con == 3) {
 		scr_halt_ch1();
 	
 	obj_mainchara_ch1.x = k.x;
-	obj_mainchara_ch1.visible = true;
+	obj_mainchara_ch1.visible = 1;
 	
 	with (k)
 		instance_destroy();
@@ -342,7 +342,7 @@ if (con == 35) {
 
 if (con == 37 && !d_ex_ch1()) {
 	with (obj_savepoint_ch1)
-		visible = true;
+		visible = 1;
 	
 	s = sus;
 	r = ral;

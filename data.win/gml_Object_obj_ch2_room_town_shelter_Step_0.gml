@@ -13,8 +13,8 @@ if (con > -1) {
 if (obj_mainchara.y >= 1130 && (obj_mainchara.x > 80 && obj_mainchara.x < 230) && con == -1) {
 	con = 1;
 	global.interact = 1;
-	snowy.visible = false;
-	monsterkid.visible = false;
+	snowy.visible = 0;
+	monsterkid.visible = 0;
 	cutscene_master = scr_cutscene_make();
 	scr_maincharacters_actors();
 	susiegox = (obj_mainchara.x > (room_width / 2)) ? (obj_mainchara.x - 30) : (obj_mainchara.x + 30);

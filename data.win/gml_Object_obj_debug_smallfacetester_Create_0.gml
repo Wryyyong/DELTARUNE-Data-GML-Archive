@@ -1,5 +1,5 @@
 depth = 5000;
-fileExists = 0;
+fileExists = false;
 smallname = "susie";
 emotion = 2;
 position = "name";

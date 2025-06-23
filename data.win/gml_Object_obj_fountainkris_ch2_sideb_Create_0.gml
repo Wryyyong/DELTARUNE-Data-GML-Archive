@@ -13,17 +13,17 @@ y += 260;
 instance_deactivate_object(obj_darkcontroller);
 
 with (obj_mainchara)
-	visible = false;
+	visible = 0;
 
-draw_kris = 1;
+draw_kris = true;
 sneo = noone;
 shortened = global.tempflag[34] == 1;
-sneo_fall_sfx = 0;
+sneo_fall_sfx = false;
 sneo_fall_timer = 0;
 fin = instance_create(0, 0, obj_fadein);
 fin.fadespeed = shortened ? -0.5 : -0.005;
-debug_skip_battle = 0;
+debug_skip_battle = false;
 depth = 10;
-draw_fountain = 1;
+draw_fountain = true;
 forcend = 0;
 savekrisx = 0;

@@ -2,7 +2,7 @@ if (con == 10) {
 	mus_volume(global.currentsong[1], 0, 30);
 	
 	if (instance_exists(obj_mainchara)) {
-		obj_mainchara.visible = false;
+		obj_mainchara.visible = 0;
 		kr_actor = instance_create_depth(obj_mainchara.x, obj_mainchara.y, obj_mainchara.depth, obj_actor);
 		kr_actor.sprite_index = obj_mainchara.sprite_index;
 		kr_actor.__x = kris_x + 6;
@@ -28,13 +28,13 @@ if (con == 10) {
 		}
 		
 		with (global.cinstance[0])
-			visible = false;
+			visible = 0;
 	}
 	
 	with (obj_caterpillarchara) {
-		if (visible == true) {
+		if (visible == 1) {
 			me = scr_dark_marker_depth(x, y, 510000, sprite_index);
-			visible = false;
+			visible = 0;
 			
 			if (name == "ralsei") {
 				me.sprite_index = spr_ralsei_wave_start;
@@ -57,7 +57,7 @@ if (con == 11) {
 		con = 1;
 		
 		with (obj_actor)
-			visible = false;
+			visible = 0;
 		
 		with (obj_dw_leave) {
 			if (bottom == 1)

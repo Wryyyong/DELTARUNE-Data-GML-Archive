@@ -294,7 +294,7 @@ if (con >= 1) {
 			instance_destroy();
 		
 		with (obj_mainchara_ch1)
-			visible = false;
+			visible = 0;
 		
 		global.interact = 1;
 		k = scr_dark_marker_ch1(300, 420, spr_krisu_dark_ch1);
@@ -650,7 +650,7 @@ if (con >= 1) {
 		global.facing = 0;
 		
 		with (obj_mainchara_ch1)
-			visible = true;
+			visible = 1;
 		
 		movecounter = 0;
 	}

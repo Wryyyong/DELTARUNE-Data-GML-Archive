@@ -14,7 +14,7 @@ if (obj_mainchara.x > x && con == -1) {
 	scr_makecaterpillar(1750, 240, 3, 1);
 	
 	with (obj_caterpillarchara)
-		visible = false;
+		visible = 0;
 	
 	cutscene_master = scr_cutscene_make();
 	scr_maincharacters_actors();

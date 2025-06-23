@@ -4,7 +4,7 @@ if (con == 0 && myinteract == 1) {
 	global.interact = 1;
 	myinteract = 0;
 	con = 1;
-	visible = false;
+	visible = 0;
 	
 	if (i_ex(collider))
 		instance_destroy(collider);
@@ -12,14 +12,14 @@ if (con == 0 && myinteract == 1) {
 	if (room == room_dw_mansion_east_2f_a) {
 		with (obj_ch2_room_mansion_east_2f_a) {
 			if (forcefield == -4)
-				make_forcefield = 1;
+				make_forcefield = true;
 		}
 	}
 	
 	if (room == room_dw_mansion_east_2f_shortcut) {
 		with (obj_ch2_room_mansion_2f_shortcut) {
 			if (forcefield == -4)
-				make_forcefield = 1;
+				make_forcefield = true;
 		}
 	}
 }
@@ -149,7 +149,7 @@ if (con == 6) {
 			obj_mainchara.battlemode = 0;
 		
 		if (timer >= 150) {
-			krischeck = collision_rectangle(bbox_left - 6, bbox_top - 6, bbox_right + 6, bbox_bottom + 6, obj_mainchara, 1, 0);
+			krischeck = collision_rectangle(bbox_left - 6, bbox_top - 6, bbox_right + 6, bbox_bottom + 6, obj_mainchara, true, false);
 			
 			if (!place_meeting(x, y, obj_mainchara)) {
 				shadow = instance_create(x, y, obj_marker);
@@ -192,7 +192,7 @@ if (con == 7) {
 		with (fakeblock)
 			instance_destroy();
 		
-		visible = true;
+		visible = 1;
 		con = 0;
 		timer = 0;
 		myinteract = 0;

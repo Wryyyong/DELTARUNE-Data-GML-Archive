@@ -87,9 +87,9 @@ for (m = 0; m < menuMax; m++) {
 				draw_set_color(c_white);
 				
 				if (display_buttons) {
-					draw_sprite_ext(scr_getbuttonsprite(global.input_g[4], 0), 0, xx + 20, yy + 22, 2, 2, 0, c_white, 1);
+					draw_sprite_ext(scr_getbuttonsprite(global.input_g[4], false), 0, xx + 20, yy + 22, 2, 2, 0, c_white, 1);
 					var button_x_offset = (global.lang == "en") ? 0 : -40;
-					draw_sprite_ext(scr_getbuttonsprite(global.input_g[5], 0), 0, xx + 190 + button_x_offset, yy + 22, 2, 2, 0, c_white, 1);
+					draw_sprite_ext(scr_getbuttonsprite(global.input_g[5], false), 0, xx + 190 + button_x_offset, yy + 22, 2, 2, 0, c_white, 1);
 					var x_offset = (global.lang == "en") ? 0 : -36;
 					draw_text(xx + 18 + x_offset, yy + 20, string_hash_to_newline(optionTopComment[m][menuCoord[m]]));
 				} else {

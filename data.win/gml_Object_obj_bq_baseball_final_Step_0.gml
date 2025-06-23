@@ -98,8 +98,8 @@ if (hit == 1) {
 			instance_destroy();
 		
 		var speedlines = instance_create(x, o_boxingcontroller.y - 120, obj_fx_speedlines);
-		speedlines.offsety = 1;
-		speedlines.flashframe = 1;
+		speedlines.offsety = true;
+		speedlines.flashframe = true;
 		speedlines.depth = o_bq_screen_flash.depth - 1;
 		snd_play(snd_whip_throw_only);
 	}

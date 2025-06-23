@@ -14,7 +14,7 @@ function scr_blconskip_ch1(arg0) {
 	}
 	
 	if (arg0 == -1) {
-		if (instance_exists(obj_writer_ch1) == 0)
+		if (instance_exists(obj_writer_ch1) == false)
 			global.mnfight = 2;
 	}
 }

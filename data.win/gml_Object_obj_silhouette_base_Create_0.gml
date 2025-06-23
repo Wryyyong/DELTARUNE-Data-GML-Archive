@@ -1,4 +1,4 @@
-outline = 1;
+outline = true;
 var d = instance_create(x, cameray() - 100, obj_following_silhouette);
 d.target_char = obj_mainchara;
 

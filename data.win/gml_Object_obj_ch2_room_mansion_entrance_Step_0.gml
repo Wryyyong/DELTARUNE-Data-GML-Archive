@@ -1,12 +1,12 @@
 if (southcon == 1) {
 	southcon = -1;
-	layer_set_visible("TILES_Secret", 0);
+	layer_set_visible("TILES_Secret", false);
 	
 	if (i_ex(southcollider))
 		instance_destroy(southcollider);
 }
 
-if (con == 0 && weird == 1) {
+if (con == 0 && weird == true) {
 	if (instance_exists(obj_fadein)) {
 		global.interact = 0;
 		con++;

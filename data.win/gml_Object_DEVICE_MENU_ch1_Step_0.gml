@@ -27,7 +27,7 @@ if (MENU_NO == 1 || MENU_NO == 4 || MENU_NO == 6 || MENU_NO == 7) {
 					global.filechoice = MENUCOORD[0];
 					scr_windowcaption_ch1(scr_84_get_lang_string_ch1("DEVICE_MENU_slash_Step_0_gml_35_0"));
 					snd_free_all_ch1();
-					obj_loadscreen_ch1.loaded = 1;
+					obj_loadscreen_ch1.loaded = true;
 					
 					if (ossafe_file_exists_ch1("keyconfig_" + string(global.filechoice) + ".ini")) {
 						ossafe_ini_open_ch1("keyconfig_" + string(global.filechoice) + ".ini");
@@ -376,7 +376,7 @@ if (MENU_NO == 0) {
 		}
 		
 		if (MENUCOORD[0] == 5) {
-			input_enabled = 0;
+			input_enabled = false;
 			SELNOISE = 1;
 			snd_free_all_ch1();
 			alarm[0] = 30;

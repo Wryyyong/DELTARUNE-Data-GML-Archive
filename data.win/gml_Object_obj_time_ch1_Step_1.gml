@@ -4,7 +4,7 @@ else
 	exit;
 
 if (scr_debug_ch1()) {
-	if (scr_84_debug_ch1(1))
+	if (scr_84_debug_ch1(true))
 		exit;
 	
 	if (keyboard_check_pressed(vk_f10)) {

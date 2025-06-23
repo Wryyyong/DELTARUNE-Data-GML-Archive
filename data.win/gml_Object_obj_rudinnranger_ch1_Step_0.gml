@@ -85,7 +85,7 @@ if (global.monster[myself] == 1) {
 				dc.damage = global.monsterat[myself] * 5;
 				dc.ratio = 1;
 			} else {
-				visible = false;
+				visible = 0;
 				dc = instance_create_ch1(x, y, obj_dknight_slasher_ch1);
 				dc.inv = 60;
 				dc.target = mytarget;
@@ -248,14 +248,14 @@ if (global.myfight == 3) {
 		scr_attackphase_ch1();
 	}
 	
-	if (actcon == 10 && instance_exists(obj_writer_ch1) == 0) {
+	if (actcon == 10 && instance_exists(obj_writer_ch1) == false) {
 		global.typer = 50;
 		global.msg[0] = scr_84_get_lang_string_ch1("obj_rudinnranger_slash_Step_0_gml_235_0");
 		scr_enemyblcon_ch1(x - 160, y, 3);
 		actcon = 11;
 	}
 	
-	if (actcon == 11 && instance_exists(obj_writer_ch1) == 0) {
+	if (actcon == 11 && instance_exists(obj_writer_ch1) == false) {
 		global.typer = 45;
 		global.fc = 2;
 		global.fe = 8;
@@ -264,7 +264,7 @@ if (global.myfight == 3) {
 		actcon = 12;
 	}
 	
-	if (actcon == 12 && instance_exists(obj_writer_ch1) == 0) {
+	if (actcon == 12 && instance_exists(obj_writer_ch1) == false) {
 		global.typer = 50;
 		global.msg[0] = scr_84_get_lang_string_ch1("obj_rudinnranger_slash_Step_0_gml_253_0");
 		global.msg[1] = scr_84_get_lang_string_ch1("obj_rudinnranger_slash_Step_0_gml_254_0");
@@ -272,7 +272,7 @@ if (global.myfight == 3) {
 		actcon = 14;
 	}
 	
-	if (actcon == 14 && instance_exists(obj_writer_ch1) == 0) {
+	if (actcon == 14 && instance_exists(obj_writer_ch1) == false) {
 		global.typer = 45;
 		global.fc = 2;
 		global.fe = 3;

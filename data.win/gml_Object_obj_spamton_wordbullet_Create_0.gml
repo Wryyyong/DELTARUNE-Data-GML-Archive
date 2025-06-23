@@ -13,4 +13,4 @@ targety = obj_heart.y + 8;
 timer = 0;
 truey = y;
 fauxdirection = 180;
-tracked = 0;
+tracked = false;

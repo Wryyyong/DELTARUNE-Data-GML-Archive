@@ -68,6 +68,11 @@ function scr_monsterdefeat() {
 			if (_violenced > 0)
 				global.flag[50] = 1;
 			
+			if (_frozened > 0) {
+				if (_pacified > 0 || _violenced > 0 || _spared > 0)
+					global.flag[50] = 1;
+			}
+			
 			if (global.flag[50] == 6)
 				global.flag[926]++;
 			

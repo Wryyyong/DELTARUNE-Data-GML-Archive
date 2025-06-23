@@ -131,7 +131,7 @@ if (global.monster[myself] == 1) {
 		}
 	}
 	
-	if ((keyboard_check_pressed(vk_f1) || gamepad_button_check_pressed(0, gp_stickr) || gamepad_button_check_pressed(1, gp_stickr) || gamepad_button_check_pressed(2, gp_stickr)) && party_heal == 0 && (scr_isphase("menu") || scr_isphase("enemytalk"))) {
+	if ((keyboard_check_pressed(vk_f1) || gamepad_button_check_pressed(0, gp_stickr) || gamepad_button_check_pressed(1, gp_stickr) || gamepad_button_check_pressed(2, gp_stickr)) && party_heal == false && (scr_isphase("menu") || scr_isphase("enemytalk"))) {
 		if (scr_isphase("enemytalk") && talktimer > 15) {
 			talktimer = talkmax;
 			
@@ -145,10 +145,10 @@ if (global.monster[myself] == 1) {
 			
 			var _hltarget = global.charinstance[i];
 			var _cherub = instance_create(_hltarget.x + 16, _hltarget.y - 38, obj_spamton_cherub);
-			_cherub.healer = 1;
+			_cherub.healer = true;
 		}
 		
-		party_heal = 1;
+		party_heal = true;
 	}
 }
 

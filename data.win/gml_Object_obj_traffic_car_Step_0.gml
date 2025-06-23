@@ -190,7 +190,7 @@ if (place_meeting(x, y, obj_carTurner)) {
 
 if (endme == 1) {
 	active = 0;
-	visible = false;
+	visible = 0;
 	
 	if (touchcon == 0) {
 		if (madeblock) {

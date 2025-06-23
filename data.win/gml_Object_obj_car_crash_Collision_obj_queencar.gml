@@ -5,9 +5,9 @@ if (!crash) {
 	}
 	
 	hspeed = 0;
-	crash = 1;
+	crash = true;
 	snd_play(snd_badexplosion);
-	visible = false;
+	visible = 0;
 	explosion = instance_create(x + 40, y, obj_animation);
 	explosion.sprite_index = spr_realisticexplosion;
 	explosion.image_xscale = 2;

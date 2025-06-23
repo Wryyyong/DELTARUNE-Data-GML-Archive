@@ -25,9 +25,9 @@ if (!lidOff) {
 	if (timer >= 0) {
 		if (!opened) {
 			if (firstOpen)
-				firstOpen = 0;
+				firstOpen = false;
 			
-			opened = 1;
+			opened = true;
 			birdfork = birds > 1;
 			var offbird = 1;
 			
@@ -57,14 +57,14 @@ if (!lidOff) {
 				if (side == 1)
 					d.image_xscale *= -1;
 				
-				d.platter_spawn = 1;
+				d.platter_spawn = true;
 				d.image_blend = swatchbc.bird_color[i];
 				d.damage = swatchbc.red_damage[i];
 				d.target = swatchbc.red_target[i];
 				d.grazepoints = 4;
 				
 				if (i == offbird)
-					d.fixed_angle = 1;
+					d.fixed_angle = true;
 			}
 			
 			birds = 0;

@@ -75,24 +75,24 @@ if (global.chapter != 2 || global.plot >= 80) {
 	with (queencar)
 		scr_depth();
 	
-	break_pie = 0;
+	break_pie = false;
 	break_pie_timer = 0;
 	piebreak = -1;
-	release_car = 0;
-	release_banana = 0;
-	release_banana_b = 0;
+	release_car = false;
+	release_banana = false;
+	release_banana_b = false;
 	banana = -1;
 	banana_b = -1;
 	banana_timer = 0;
-	loop_road = 1;
-	shift_road = 0;
-	car_crash_active = 0;
+	loop_road = true;
+	shift_road = false;
+	car_crash_active = false;
 	car_crash_timer = 0;
 	car_crash_controller = -1;
 	car_crash_count = 0;
 	car_convo = 0;
 	talk_timer = 0;
-	realign = 0;
+	realign = false;
 	traffic_collider_left = instance_create(2020, 120, obj_solidblock);
 	traffic_collider_left.image_yscale = 20;
 	tile_1_lay_id = layer_get_id("TILES_City_Road_Loop_1");
@@ -107,6 +107,6 @@ if (global.chapter != 2 || global.plot >= 80) {
 	with (carnpc)
 		scr_depth();
 	
-	leftside_traffic = 0;
+	leftside_traffic = false;
 	leftside_traffic_timer = 0;
 }

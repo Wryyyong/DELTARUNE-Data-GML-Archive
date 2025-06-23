@@ -1,6 +1,6 @@
 con = -1;
 customcon = 0;
-krisexplore = 0;
+krisexplore = false;
 punchcon = 0;
 punchtimer = 0;
 
@@ -15,8 +15,8 @@ if (global.chapter != 2 || global.plot < 205 || global.plot >= 210) {
 	blackall.image_blend = c_black;
 	susienpc = instance_create(289, 95, obj_npc_sign);
 	susienpc.sprite_index = spr_susie_walk_up_lw;
-	susienpc.visible = false;
+	susienpc.visible = 0;
 	torielnpc = instance_create(263, 88, obj_npc_sign);
 	torielnpc.sprite_index = spr_toriel_ut;
-	torielnpc.visible = false;
+	torielnpc.visible = 0;
 }

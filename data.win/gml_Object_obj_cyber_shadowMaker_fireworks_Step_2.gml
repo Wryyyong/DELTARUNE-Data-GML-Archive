@@ -3,7 +3,7 @@ if (is_active || inactive_cleanup) {
 		cleanup_timer++;
 		
 		if (cleanup_timer >= 60 && frontshadOpacity <= 0)
-			inactive_cleanup = 0;
+			inactive_cleanup = false;
 	}
 	
 	if (fade_in && !fade_cleanup) {
@@ -13,7 +13,7 @@ if (is_active || inactive_cleanup) {
 			scr_lerpvar_instance(id, "frontshadOpacity", 0, 0.6, 5);
 		
 		if (fade_timer == 25) {
-			fade_in = 0;
+			fade_in = false;
 			fade_timer = 0;
 			scr_lerpvar_instance(id, "frontshadOpacity", 0.6, 0, 15);
 		}

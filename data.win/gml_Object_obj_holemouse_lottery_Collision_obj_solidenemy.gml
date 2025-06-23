@@ -1,2 +1,2 @@
-win = 1;
+win = true;
 con = 2;

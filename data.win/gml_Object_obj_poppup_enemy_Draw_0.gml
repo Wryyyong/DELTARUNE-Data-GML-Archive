@@ -21,7 +21,7 @@ if (becomeflash == 0)
 
 becomeflash = 0;
 
-if (actcon == 20.5 && blockTimer == 1) {
+if (actcon == 20.5 && blockTimer == true) {
 	b = alarm[4] * 3.56;
 	draw_rectangle_color(camerax() + 200, cameray() + 290, camerax() + 200 + b, cameray() + 300, c_aqua, c_aqua, c_aqua, c_aqua, 0);
 	draw_sprite_ext(spr_poppup_hourglass, 1, camerax() + 200, cameray() + 295, 2, 2, 0, c_white, image_alpha);

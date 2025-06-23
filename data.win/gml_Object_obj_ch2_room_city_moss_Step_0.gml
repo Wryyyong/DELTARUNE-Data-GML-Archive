@@ -10,17 +10,17 @@ if (con == 0 && !d_ex()) {
 	c_msgnextloc("\\E1* ..^1. wait a sec./", "obj_ch2_room_city_moss_slash_Step_0_gml_11_0");
 	c_msgnextloc("\\E0* ..^1. Kris.../%", "obj_ch2_room_city_moss_slash_Step_0_gml_12_0");
 	c_talk_wait();
-	c_var_instance(id, "play_song", 1);
+	c_var_instance(id, "play_song", true);
 	c_speaker("susie");
 	c_msgsetloc(0, "\\EK* Were you..^1. saving this for me?/", "obj_ch2_room_city_moss_slash_Step_0_gml_28_0");
 	c_msgnextloc("\\EQ* ..^1. Heh./", "obj_ch2_room_city_moss_slash_Step_0_gml_29_0");
 	c_msgnextloc("\\E2* Guess even you've got your good moments.../%", "obj_ch2_room_city_moss_slash_Step_0_gml_30_0");
 	c_talk_wait();
-	c_var_instance(id, "play_power", 1);
+	c_var_instance(id, "play_power", true);
 	c_speaker("no_name");
 	c_msgsetloc(0, "* (You ate the moss..^1. together.)/%", "obj_ch2_room_city_moss_slash_Step_0_gml_43_0");
 	c_talk_wait();
-	c_var_instance(id, "play_stop", 1);
+	c_var_instance(id, "play_stop", true);
 	c_speaker("ralsei");
 	c_msgsetloc(0, "\\EX* (..^1. uh?)/%", "obj_ch2_room_city_moss_slash_Step_0_gml_56_0");
 	c_talk_wait();
@@ -30,7 +30,7 @@ if (con == 0 && !d_ex()) {
 }
 
 if (play_song) {
-	play_song = 0;
+	play_song = false;
 	snd_pause(global.currentsong[1]);
 	
 	if (global.is_console)
@@ -41,12 +41,12 @@ if (play_song) {
 }
 
 if (play_power) {
-	play_power = 0;
+	play_power = false;
 	snd_play(snd_power);
 }
 
 if (play_stop) {
-	play_power = 0;
+	play_power = false;
 	snd_free(coolsong[0]);
 }
 

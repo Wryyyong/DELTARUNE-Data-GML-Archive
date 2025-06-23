@@ -10,7 +10,7 @@ if (global.flag[344] == 0) {
 		con = 2;
 		global.interact = 1;
 		key = scr_dark_marker(keyXPos, keyYPos, spr_ch2_gimmick_saucer_key);
-		fadeplatters = 1;
+		fadeplatters = true;
 	}
 	
 	if (fadeplatters) {
@@ -23,7 +23,7 @@ if (global.flag[344] == 0) {
 	}
 	
 	if (con == 2 && !keyfloat) {
-		keysparkle = 1;
+		keysparkle = true;
 		
 		if (key.y != (keyYPos - 20)) {
 			key.y = lerp(key.y, keyYPos - 20, 0.1);
@@ -35,7 +35,7 @@ if (global.flag[344] == 0) {
 			
 			if (floattimer == 30) {
 				floattimer = 0;
-				keyfloat = 1;
+				keyfloat = true;
 			}
 		}
 	}
@@ -63,7 +63,7 @@ if (global.flag[344] == 0) {
 		
 		if (key.x <= (doorlocked.x + 1) && key.y <= (doorlocked.y + 51)) {
 			con = 3;
-			keysparkle = 0;
+			keysparkle = false;
 		}
 	}
 	
@@ -77,7 +77,7 @@ if (global.flag[344] == 0) {
 		explosion.image_yscale = 2;
 		dooropen = scr_dark_marker(180, 40, spr_dw_mansion_door_open);
 		dooropen.depth = 899999;
-		fadeplatters = 0;
+		fadeplatters = false;
 		snd_play(snd_badexplosion);
 		instance_destroy(key);
 		instance_destroy(exitcollider);
@@ -107,6 +107,6 @@ if (global.flag[344] == 0) {
 	if (make_forcefield) {
 		forcefield = scr_forcefield(410, 235, 2, 8, 1, 0);
 		forcefield.depth = 80000;
-		make_forcefield = 0;
+		make_forcefield = false;
 	}
 }

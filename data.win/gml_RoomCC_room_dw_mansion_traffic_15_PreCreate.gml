@@ -1,4 +1,4 @@
 default_time = 1;
 timefactor = 32;
-fade = 0;
-road_is_right = 0;
+fade = false;
+road_is_right = false;

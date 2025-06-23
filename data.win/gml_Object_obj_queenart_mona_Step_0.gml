@@ -1,4 +1,4 @@
-if (decorative == 1)
+if (decorative == true)
 	active = 0;
 
 if (con == 0) {

@@ -1,5 +1,5 @@
 y = endY + startOffset;
-reverse = 1;
+reverse = true;
 
 with (obj_teacup_bullet)
 	instance_destroy();

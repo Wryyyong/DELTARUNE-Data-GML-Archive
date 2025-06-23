@@ -22,7 +22,7 @@ if (con == 1.2) {
 	c_autodepth(0);
 	c_depth(6000);
 	c_visible(1);
-	dumpster.visible = false;
+	dumpster.visible = 0;
 	cutscene_master.save_object[0] = id;
 	c_sel(sp);
 	c_autowalk(0);
@@ -37,7 +37,7 @@ if (con == 1 || scr_cutscene_loaded()) {
 	c_autodepth(0);
 	c_depth(sp_actor.depth + 100);
 	c_shakeobj();
-	c_var_instance(id, "open_dumpster", 1);
+	c_var_instance(id, "open_dumpster", true);
 	c_sel(sp);
 	c_setxy(615, 165);
 	c_flip("x");
@@ -46,7 +46,7 @@ if (con == 1 || scr_cutscene_loaded()) {
 	
 	if (!shortened) {
 		c_wait(20);
-		c_var_instance(id, "play_intro", 1);
+		c_var_instance(id, "play_intro", true);
 		c_msgside("bottom");
 		c_speaker("spamton");
 		c_msgsetloc(0, "* HEY      EVERY     !^1! IT'S ME!!!/%", "obj_ch2_city05_slash_Step_0_gml_64_0");
@@ -88,7 +88,7 @@ if (con == 1 || scr_cutscene_loaded()) {
 		c_pannable(1);
 		c_waitcustom();
 	} else {
-		c_var_instance(id, "stop_intro", 1);
+		c_var_instance(id, "stop_intro", true);
 		c_sprite(spr_cutscene_14_spamton);
 		c_wait(30);
 		c_flip("x");
@@ -326,15 +326,15 @@ if (con == 2 && customcon == 1) {
 	global.flag[9] = 1;
 	
 	with (obj_actor)
-		visible = false;
+		visible = 0;
 }
 
 if (con == 4 && i_ex(obj_battlecontroller)) {
-	var battle_end = 0;
+	var battle_end = false;
 	
 	with (obj_battlecontroller) {
 		if (intro == 2)
-			battle_end = 1;
+			battle_end = true;
 	}
 	
 	if (battle_end) {
@@ -360,7 +360,7 @@ if (con == 7) {
 	sp_actor.image_speed = 0;
 	
 	with (obj_actor)
-		visible = true;
+		visible = 1;
 	
 	snd_free(global.batmusic[0]);
 	snd_volume(global.currentsong[1], 0, 0);
@@ -522,7 +522,7 @@ if (con == 50 && !i_ex(obj_cutscene_master)) {
 }
 
 if (play_intro) {
-	play_intro = 0;
+	play_intro = false;
 	intro[0] = snd_init("spamton_meeting_intro.ogg");
 	intro[1] = mus_loop(intro[0]);
 }
@@ -534,14 +534,14 @@ if (stop_intro) {
 		audio_sound_gain(intro[1], 0, 1000);
 	
 	if (stop_timer >= 31) {
-		stop_intro = 0;
+		stop_intro = false;
 		snd_free(intro[0]);
 	}
 }
 
 if (open_dumpster) {
-	open_dumpster = 0;
-	dumpster_nakami.visible = true;
+	open_dumpster = false;
+	dumpster_nakami.visible = 1;
 	dumpster_nakami.depth = 95000;
 	
 	with (dumpster_nakami)

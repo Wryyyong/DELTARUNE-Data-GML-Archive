@@ -41,7 +41,7 @@ if (global.monster[myself] == 1) {
 			msgsetloc(0, "meowowow&meowowow", "obj_tasque_enemy_slash_Step_0_gml_19_0");
 		
 		if (petted) {
-			petted = 0;
+			petted = false;
 			msgsetloc(0, "owowowmememeowme&owmemeowowmemeow&owmeowmemeowmeow", "obj_tasque_enemy_slash_Step_0_gml_24_0");
 		}
 		
@@ -133,7 +133,7 @@ if (global.myfight == 3) {
 	}
 	
 	if (acting == 2 && actcon == 0) {
-		petted = 1;
+		petted = true;
 		var simultext = (simultotal == 1) ? stringsetloc("* You pet Tasque. It liked that./%", "obj_tasque_enemy_slash_Step_0_gml_133_0") : stringsetloc("* You pet Tasque!/%", "obj_tasque_enemy_slash_Step_0_gml_133_1");
 		msgset(0, simultext);
 		

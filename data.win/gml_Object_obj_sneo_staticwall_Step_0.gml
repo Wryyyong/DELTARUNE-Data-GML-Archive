@@ -29,7 +29,7 @@ image_blend = merge_color(c_gray, c_white, _depthblend);
 depth = obj_growtangle.depth - (_falsedepth * startdepth) - 3;
 
 if (bighitbox == 1) {
-	hitshot = collision_rectangle(x, y, x + sprite_width, y + sprite_height, obj_yheart_shot, 1, 0);
+	hitshot = collision_rectangle(x, y, x + sprite_width, y + sprite_height, obj_yheart_shot, true, false);
 	
 	if (hitshot != -4)
 		event_user(0);

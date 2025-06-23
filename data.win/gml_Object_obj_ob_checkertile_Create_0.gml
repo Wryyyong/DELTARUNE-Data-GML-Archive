@@ -1,4 +1,4 @@
-destroyoffscreen = 0;
+destroyoffscreen = false;
 tolerance = 0;
 active = 0;
 image_alpha = 0;

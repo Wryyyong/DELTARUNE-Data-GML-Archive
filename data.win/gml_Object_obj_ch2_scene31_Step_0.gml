@@ -3,7 +3,7 @@ if (con == 10 && !d_ex()) {
 	instance_deactivate_object(obj_readable_room1);
 	global.interact = 1;
 	global.facing = 2;
-	anykey = 1;
+	anykey = true;
 	audio_sound_gain(global.currentsong[1], 0, 1000);
 	var foreground = scr_marker(0, 0, spr_cutscene_31_foreground);
 	
@@ -12,21 +12,21 @@ if (con == 10 && !d_ex()) {
 	
 	faucet = scr_marker(194, 106, spr_cutscene_31_faucet_running);
 	faucet.image_speed = 0.25;
-	faucet.visible = false;
+	faucet.visible = 0;
 	
 	with (faucet)
 		scr_depth();
 	
 	cabinet_heartless = scr_marker(faucet.x, faucet.y, spr_cutscene_31_cabinet_heartless);
 	cabinet_heartless.image_speed = 0;
-	cabinet_heartless.visible = false;
+	cabinet_heartless.visible = 0;
 	
 	with (cabinet_heartless)
 		scr_depth();
 	
 	cabinet_heart = scr_marker(faucet.x, faucet.y, spr_cutscene_31_cabinet_heart);
 	cabinet_heart.image_speed = 0;
-	cabinet_heart.visible = false;
+	cabinet_heart.visible = 0;
 	
 	with (cabinet_heart)
 		scr_depth();
@@ -60,7 +60,7 @@ if (con == 10 && !d_ex()) {
 	c_waitcustom();
 }
 
-if (con == 11 && anykey == 1 && customcon == 1) {
+if (con == 11 && anykey == true && customcon == 1) {
 	keytimer++;
 	
 	if (keytimer >= 60 && keytimer < maxshaketime) {
@@ -74,7 +74,7 @@ if (con == 11 && anykey == 1 && customcon == 1) {
 	
 	if (keytimer >= maxshaketime) {
 		con = 12;
-		anykey = 0;
+		anykey = false;
 	}
 }
 
@@ -125,7 +125,7 @@ if (con == 12 || scr_cutscene_loaded()) {
 	
 	c_imagespeed(0);
 	c_walkdirect(204, 109, 4);
-	c_instance(206, 130, 365);
+	c_instance(206, 130, 367);
 	c_soundplay(snd_break1);
 	c_soundplay(snd_grab);
 	c_imageindex(38);
@@ -285,11 +285,11 @@ if (con == 12 || scr_cutscene_loaded()) {
 	torielstring = stringsetloc("Toriel???", "obj_ch2_scene31_slash_Step_0_gml_431_0");
 	
 	if (global.lang == "ja") {
-		if (global.is_console == 1)
+		if (global.is_console == true)
 			scr_smallface(0, "susie", 7, 372, 219, torielstring);
 		else
 			scr_smallface(0, "susie", 7, 372, 244, torielstring);
-	} else if (global.is_console == 1) {
+	} else if (global.is_console == true) {
 		scr_smallface(0, "susie", 7, 442, 208, torielstring);
 	} else {
 		scr_smallface(0, "susie", 7, 442, 230, torielstring);
@@ -428,7 +428,7 @@ if (con == 12 || scr_cutscene_loaded()) {
 	c_walkdirect(192, 109, 2);
 	c_imageindex(13);
 	c_imagespeed(0.5);
-	c_instance(200, 127, 365);
+	c_instance(200, 127, 367);
 	c_soundplay(snd_grab);
 	c_soundplay(snd_hurt1);
 	c_wait(14);

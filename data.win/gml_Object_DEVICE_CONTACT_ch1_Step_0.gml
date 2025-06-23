@@ -592,7 +592,7 @@ if (EVENT == 65.5) {
 	}
 }
 
-if (EVENT == 66.5 && instance_exists(obj_writer_ch1) == 0) {
+if (EVENT == 66.5 && instance_exists(obj_writer_ch1) == false) {
 	JA_XOFF = 0;
 	
 	if (global.lang == "ja")
@@ -625,7 +625,7 @@ if (EVENT == 67) {
 		
 		if (FN_2 == "GASTER" || FN_2 == "がすたー" || FN_2 == "ガスター") {
 			snd_free_all_ch1();
-			game_restart();
+			game_restart_true_ch1();
 		}
 	} else {
 		EVENT = 68;
@@ -653,7 +653,7 @@ if (EVENT == 69) {
 	EVENT = 70;
 }
 
-if (EVENT == 70 && instance_exists(obj_writer_ch1) == 0) {
+if (EVENT == 70 && instance_exists(obj_writer_ch1) == false) {
 	JA_XOFF = 0;
 	
 	if (global.lang == "ja")
@@ -684,7 +684,7 @@ if (EVENT == 71) {
 		
 		if (FN_3 == "GASTER" || FN_3 == "がすたー" || FN_3 == "ガスター") {
 			snd_free_all_ch1();
-			game_restart();
+			game_restart_true_ch1();
 		}
 	} else {
 		EVENT = 72;

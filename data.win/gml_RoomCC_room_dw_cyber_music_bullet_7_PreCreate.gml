@@ -1,1 +1,1 @@
-autoStart = 1;
+autoStart = true;

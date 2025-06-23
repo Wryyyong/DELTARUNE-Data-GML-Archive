@@ -69,7 +69,7 @@ if (global.flag[254] == 1) {
 	recruit[recruit_index] = 900;
 }
 
-fade_in_out = 0;
+fade_in_out = false;
 start_color = c_black;
 end_color = c_white;
 orb_count = 0;

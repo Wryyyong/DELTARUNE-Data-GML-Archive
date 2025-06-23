@@ -7,7 +7,7 @@ if (obj_mainchara.x > x && con == -1) {
 	scr_makecaterpillar(0, -100, 4, 0);
 	
 	with (obj_caterpillarchara)
-		visible = false;
+		visible = 0;
 	
 	cutscene_master = scr_cutscene_make();
 	scr_maincharacters_actors();
@@ -235,7 +235,7 @@ if (con == 50 && !i_ex(obj_cutscene_master)) {
 	var savepoint = instance_create(360, 185, obj_savepoint);
 	savepoint.depth = alleyoverlay.depth - 100;
 	scr_tempsave();
-	noellejoin = 1;
+	noellejoin = true;
 }
 
 if (noellejoin) {

@@ -21,7 +21,7 @@ if (scr_debug()) {
 		} else {
 			gif_save(gif_image, "game_" + gif_date + ".gif");
 			gif_timer = 0;
-			gif_recording = 0;
+			gif_recording = false;
 		}
 		
 		gif_timer++;

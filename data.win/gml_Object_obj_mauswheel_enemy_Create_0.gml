@@ -5,12 +5,12 @@ idlesprite = spr_mauswheel_idle;
 hurtsprite = spr_mauswheel_idle;
 sparedsprite = spr_mauswheel_idle;
 firstturn = 1;
-trappingX = 0;
-remove = 0;
-trappedText = 0;
+trappingX = false;
+remove = false;
+trappedText = false;
 basket = -4;
-trapped = 0;
-tasque_joined = 0;
+trapped = false;
+tasque_joined = false;
 nact_count = 0;
 total_cursors = 3;
 

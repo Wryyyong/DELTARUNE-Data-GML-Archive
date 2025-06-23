@@ -227,7 +227,7 @@ if (global.myfight == 3) {
 		scr_attackphase_ch1();
 	}
 	
-	if (actcon == 5 && instance_exists(obj_writer_ch1) == 0) {
+	if (actcon == 5 && instance_exists(obj_writer_ch1) == false) {
 		global.battleat[1] = 90;
 		global.battleat[2] = 90;
 		actcon = 6;

@@ -30,10 +30,10 @@ if (con == 0) {
 				with (target) {
 					path = path_add();
 					path_set_kind(path, 0);
-					path_set_closed(path, 0);
+					path_set_closed(path, false);
 					path_add_point(path, x1, y1, 100);
 					path_add_point(path, x2, y2, 100);
-					path_start(path, 4, path_action_stop, 1);
+					path_start(path, 4, path_action_stop, true);
 				}
 				
 				if (difficulty == 1) {

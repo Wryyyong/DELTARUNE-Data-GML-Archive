@@ -25,7 +25,7 @@ function scr_unmarkify_caterpillar() {
 					if (global.facing == 3)
 						sprite_index = lsprite;
 					
-					visible = true;
+					visible = 1;
 				}
 				
 				with (s)
@@ -56,7 +56,7 @@ function scr_unmarkify_caterpillar() {
 					if (global.facing == 3)
 						sprite_index = lsprite;
 					
-					visible = true;
+					visible = 1;
 				}
 				
 				with (r)

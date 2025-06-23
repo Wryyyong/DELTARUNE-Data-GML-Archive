@@ -217,7 +217,7 @@ if (con > 0 && type == 2) {
 		instance_create_ch1(0, 0, obj_dialoguer_ch1);
 	}
 	
-	if (con == 3 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 3 && instance_exists(obj_dialoguer_ch1) == false) {
 		con = 4;
 		alarm[4] = 90;
 	}
@@ -232,7 +232,7 @@ if (con > 0 && type == 2) {
 		instance_create_ch1(0, 0, obj_dialoguer_ch1);
 	}
 	
-	if (con == 6 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 6 && instance_exists(obj_dialoguer_ch1) == false) {
 		con = 7;
 		alarm[4] = 60;
 	}
@@ -260,7 +260,7 @@ if (con > 0 && type == 2) {
 		instance_create_ch1(0, 0, obj_dialoguer_ch1);
 	}
 	
-	if (con == 13 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 13 && instance_exists(obj_dialoguer_ch1) == false) {
 		with (s) {
 			hspeed = -1;
 			image_speed = 0.1;
@@ -303,11 +303,11 @@ if (con > 0 && type == 2) {
 		con = 20;
 	}
 	
-	if (con == 20 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 20 && instance_exists(obj_dialoguer_ch1) == false) {
 		con = 21;
 		
 		with (k)
-			visible = false;
+			visible = 0;
 		
 		with (s) {
 			sprite_index = spr_susie_krisshoulder_ch1;
@@ -332,7 +332,7 @@ if (con > 0 && type == 2) {
 		con = 25;
 	}
 	
-	if (con == 25 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 25 && instance_exists(obj_dialoguer_ch1) == false) {
 		con = 27;
 		alarm[4] = 50;
 	}
@@ -369,7 +369,7 @@ if (con > 0 && type == 2) {
 		con = 35;
 	}
 	
-	if (con == 35 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 35 && instance_exists(obj_dialoguer_ch1) == false) {
 		global.currentsong[0] = snd_init_ch1("s_neo.ogg");
 		global.currentsong[1] = mus_loop_ch1(global.currentsong[0]);
 		con = 36;
@@ -395,7 +395,7 @@ if (con > 0 && type == 2) {
 		con = 38;
 	}
 	
-	if (instance_exists(obj_dialoguer_ch1) == 0 && con == 38) {
+	if (instance_exists(obj_dialoguer_ch1) == false && con == 38) {
 		snd_free_ch1(global.currentsong[0]);
 		
 		with (s) {
@@ -428,7 +428,7 @@ if (con > 0 && type == 2) {
 		con = 43;
 	}
 	
-	if (con == 43 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 43 && instance_exists(obj_dialoguer_ch1) == false) {
 		global.currentsong[0] = snd_init_ch1("s_neo_clip.ogg");
 		audio_sound_pitch(global.currentsong[0], 0.667);
 		global.currentsong[1] = mus_play_ch1(global.currentsong[0]);
@@ -478,7 +478,7 @@ if (con > 0 && type == 2) {
 		global.fe = 0;
 		
 		with (k) {
-			visible = true;
+			visible = 1;
 			sprite_index = spr_krisr_sit_ch1;
 		}
 		
@@ -494,7 +494,7 @@ if (con > 0 && type == 2) {
 		instance_create_ch1(0, 0, obj_dialoguer_ch1);
 	}
 	
-	if (con == 50 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 50 && instance_exists(obj_dialoguer_ch1) == false) {
 		with (s) {
 			hspeed = 2;
 			image_speed = 0.2;
@@ -525,7 +525,7 @@ if (con > 0 && type == 2) {
 		con = 55;
 	}
 	
-	if (con == 55 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 55 && instance_exists(obj_dialoguer_ch1) == false) {
 		with (s)
 			sprite_index = spr_susiel_ch1;
 		
@@ -562,7 +562,7 @@ if (con > 0 && type == 2) {
 			con = 58;
 	}
 	
-	if (con == 58 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 58 && instance_exists(obj_dialoguer_ch1) == false) {
 		with (s)
 			sprite_index = spr_susier_ch1;
 		
@@ -573,7 +573,7 @@ if (con > 0 && type == 2) {
 		con = 59;
 	}
 	
-	if (con == 59 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 59 && instance_exists(obj_dialoguer_ch1) == false) {
 		with (s) {
 			image_speed = 0.2;
 			hspeed = 2;
@@ -600,7 +600,7 @@ if (con > 0 && type == 2) {
 		con = 64;
 	}
 	
-	if (con == 64 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 64 && instance_exists(obj_dialoguer_ch1) == false) {
 		interact = instance_create_ch1(110, 200, obj_readable_room1_ch1);
 		obj_mainchara_ch1.x = k.x + 6;
 		obj_mainchara_ch1.y = k.y + 2;
@@ -612,7 +612,7 @@ if (con > 0 && type == 2) {
 		global.interact = 0;
 		
 		with (obj_mainchara_ch1)
-			visible = true;
+			visible = 1;
 		
 		con = 1;
 		type = 3;
@@ -706,7 +706,7 @@ if (type == 3) {
 		}
 	}
 	
-	if (scon == 5 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (scon == 5 && instance_exists(obj_dialoguer_ch1) == false) {
 		with (obj_doorC_ch1)
 			instance_destroy();
 		
@@ -780,7 +780,7 @@ if (type == 3) {
 		instance_create_ch1(0, 0, obj_dialoguer_ch1);
 	}
 	
-	if (dex == 1 && instance_exists(obj_dialoguer_ch1) == 0 && global.interact == 1) {
+	if (dex == 1 && instance_exists(obj_dialoguer_ch1) == false && global.interact == 1) {
 		dex = 0;
 		global.interact = 0;
 	}

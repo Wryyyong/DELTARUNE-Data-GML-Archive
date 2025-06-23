@@ -27,10 +27,10 @@ function scr_beatbullet() {
 			beats = soundTimeStep / spb;
 			beatsPrev = beats;
 			targetBeat = floor(beats + _targetBeat);
-			inSync = 1;
+			inSync = true;
 		} else {
 			targetBeat = _targetBeat;
-			inSync = 0;
+			inSync = false;
 		}
 	}
 }

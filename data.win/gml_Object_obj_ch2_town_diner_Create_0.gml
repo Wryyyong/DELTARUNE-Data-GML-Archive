@@ -1,7 +1,7 @@
 if (global.chapter == 2) {
 	with (obj_caterpillarchara) {
 		follow = 0;
-		visible = false;
+		visible = 0;
 	}
 	
 	var tallhat = instance_create(185, 95, obj_npc_room);

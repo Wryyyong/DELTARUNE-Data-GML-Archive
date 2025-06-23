@@ -1,5 +1,5 @@
 if (init == 0) {
-	visible = true;
+	visible = 1;
 	
 	for (i = 0; i < 3; i++) {
 		mymonster[i] = 0;

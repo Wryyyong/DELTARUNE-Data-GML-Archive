@@ -776,7 +776,7 @@ if (global.fighting == 1) {
 			}
 		}
 		
-		if ((keyboard_check_pressed(vk_f1) || gamepad_button_check_pressed(0, gp_stickr) || gamepad_button_check_pressed(1, gp_stickr) || gamepad_button_check_pressed(2, gp_stickr)) && party_heal == 0 && (scr_isphase("menu") || scr_isphase("enemytalk"))) {
+		if ((keyboard_check_pressed(vk_f1) || gamepad_button_check_pressed(0, gp_stickr) || gamepad_button_check_pressed(1, gp_stickr) || gamepad_button_check_pressed(2, gp_stickr)) && party_heal == false && (scr_isphase("menu") || scr_isphase("enemytalk"))) {
 			if (scr_isphase("enemytalk") && talktimer > 15) {
 				talktimer = talkmax;
 				
@@ -805,18 +805,18 @@ if (global.fighting == 1) {
 				var _cherub = instance_create(_hltarget.x + _xx, _hltarget.y + _yy, obj_spamton_cherub);
 				
 				if (i == 0 && global.char[1] == 0) {
-					_cherub.healer = 1;
+					_cherub.healer = true;
 				} else {
 					_cherub.heal_state = party_heal;
 					_cherub.timer = -5 * i;
 					_cherub.target = i;
 					
 					if (i == 2 || global.char[i + 1] == 0)
-						_cherub.healer = 1;
+						_cherub.healer = true;
 				}
 			}
 			
-			party_heal = 1;
+			party_heal = true;
 		}
 	}
 	
@@ -1208,10 +1208,10 @@ if (global.fighting == 1) {
 			msgsetsubloc(0, "* Press ~1 to throw, aim for the weakpoint!", scr_get_input_name(6), "obj_spamton_neo_enemy_slash_Step_0_gml_534_0");
 			
 			with (obj_herokris)
-				visible = false;
+				visible = 0;
 			
 			with (obj_herosusie)
-				visible = false;
+				visible = 0;
 			
 			throwsus = instance_create(obj_herosusie.x, obj_herosusie.y, obj_sneo_throwkris);
 			scr_battletext_default();
@@ -1335,7 +1335,7 @@ if (global.fighting == 1) {
 			
 			var multicut = 1;
 			
-			if (global.hp[1] <= 0 && global.hp[3] <= 0) {
+			if (global.hp[1] <= 0 && global.hp[2] <= 0) {
 				multicut = 2;
 				var mercyset = 4;
 				
@@ -1427,7 +1427,7 @@ if (global.fighting == 1) {
 					}
 				}
 			} else {
-				msgsetloc(0, "* You have too many tiny Ralsei!/%", "obj_spamton_neo_enemy_slash_Step_0_gml_679_0");
+				msgsetloc(0, "* Too many fluff balls!&* Can't make any more!/%", "obj_spamton_neo_enemy_slash_Step_0_gml_679_0");
 				scr_battletext_default();
 				var a = 2;
 				
@@ -1559,7 +1559,7 @@ if (global.fighting == 1) {
 					
 					repeat (6) {
 						var smokey = instance_create(x + 50, y + 80, obj_afterimage_grow);
-						smokey.visible = false;
+						smokey.visible = 0;
 						
 						with (smokey)
 							scr_script_delayed(scr_var, 1, "visible", 1);
@@ -1702,6 +1702,15 @@ if (global.fighting == 1) {
 				
 				if (endtimer == 331) {
 					with (whiteall) {
+						if (global.hp[1] < 1)
+							global.hp[1] = 1;
+						
+						if (global.hp[2] < 1)
+							global.hp[2] = 1;
+						
+						if (global.hp[3] < 1)
+							global.hp[3] = 1;
+						
 						if (i_ex(obj_ch2_sceneex2))
 							obj_ch2_sceneex2.forcend = 1;
 						
@@ -1894,6 +1903,15 @@ if (global.fighting == 1) {
 				
 				if (endtimer == 450) {
 					with (blackall2) {
+						if (global.hp[1] < 1)
+							global.hp[1] = 1;
+						
+						if (global.hp[2] < 1)
+							global.hp[2] = 1;
+						
+						if (global.hp[3] < 1)
+							global.hp[3] = 1;
+						
 						if (i_ex(obj_ch2_sceneex2))
 							obj_ch2_sceneex2.forcend = 1;
 						

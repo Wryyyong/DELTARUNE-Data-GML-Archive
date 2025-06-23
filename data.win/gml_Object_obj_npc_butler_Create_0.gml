@@ -34,7 +34,7 @@ if (swatch_color != "") {
 }
 
 sprite_palette = spr_swatchling_palette;
-color_init = 0;
+color_init = false;
 new_color = 0;
 base_colors[0] = blue;
 base_colors[1] = red;

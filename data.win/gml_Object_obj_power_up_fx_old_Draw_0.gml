@@ -58,7 +58,7 @@ if (effecttimer >= effectPause) {
 			d.image_blend = image_blend;
 			
 			if (i == _thinindex)
-				d.thin = 1;
+				d.thin = true;
 		}
 	}
 	

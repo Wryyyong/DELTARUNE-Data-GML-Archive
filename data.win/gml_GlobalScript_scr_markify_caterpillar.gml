@@ -8,14 +8,14 @@ function scr_markify_caterpillar() {
 				s = scr_dark_marker(global.cinstance[i].x, global.cinstance[i].y, global.cinstance[i].sprite_index);
 				
 				with (global.cinstance[i])
-					visible = false;
+					visible = 0;
 			}
 			
 			if (global.char[i + 1] == 3) {
 				r = scr_dark_marker(global.cinstance[i].x, global.cinstance[i].y, global.cinstance[i].sprite_index);
 				
 				with (global.cinstance[i])
-					visible = false;
+					visible = 0;
 			}
 		}
 	}

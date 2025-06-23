@@ -12,6 +12,6 @@ for (i = 0; i < 8; i += 1) {
 trackpos = 0;
 modifier = 0;
 song1 = 0;
-drawtesters = 0;
+drawtesters = false;
 menugray = hexcolor(#949494);
-drawfred = 0;
+drawfred = false;

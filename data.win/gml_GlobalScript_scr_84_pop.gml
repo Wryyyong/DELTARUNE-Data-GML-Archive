@@ -7,7 +7,7 @@ function scr_84_pop() {
 	var top_ndx = global.chemg_stack[0];
 	
 	if (top_ndx <= 0)
-		show_error("stack empty", 1);
+		show_error("stack empty", true);
 	
 	global.chemg_stack[0] = top_ndx - 1;
 	return global.chemg_stack[top_ndx];

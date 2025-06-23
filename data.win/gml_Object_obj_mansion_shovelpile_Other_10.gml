@@ -1,6 +1,6 @@
 if (global.flag[335] == 0) {
 	global.interact = 1;
-	shovel_start = 1;
+	shovel_start = true;
 	var pile = scr_dark_marker(x - 10, y + 85, spr_dw_mansion_room_kris_shovels);
 	pile.depth = depth - 10;
 	var pile_dark = scr_dark_marker(x, y, spr_dw_mansion_door_open_shovel);

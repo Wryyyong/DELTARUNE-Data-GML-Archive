@@ -5,8 +5,8 @@ if (global.lang == "ja")
 
 con = -1;
 customcon = 0;
-berdlygift = 0;
-explore = 0;
+berdlygift = false;
+explore = false;
 wrongexit = 0;
 havewalker = global.flag[254] == 1;
 tentback = scr_dark_marker(1312, -161, spr_carnival_tent_1);
@@ -15,16 +15,16 @@ tent = scr_dark_marker(1312, 32, spr_cutscene_15_tent_foreground);
 tent.depth = 97800;
 var buy_sign = instance_create(1390, 50, obj_cybercity_bg_screen);
 buy_sign.depth = 200;
-hit_bottles = 0;
+hit_bottles = false;
 hit_timer = 0;
-susie_heal = 0;
+susie_heal = false;
 heal_timer = 0;
 heal_beam = -1;
-heal_effect = 0;
-box_remove_effect = 0;
+heal_effect = false;
+box_remove_effect = false;
 box_remove_timer = 0;
-susie_right = 0;
-present_transform = 0;
+susie_right = false;
+present_transform = false;
 present_timer = 0;
 
 if (global.chapter != 2) {
@@ -43,7 +43,7 @@ if (global.chapter != 2) {
 		scr_makecaterpillar(obj_mainchara.x + 100, obj_mainchara.y, 4, 1);
 		scr_makecaterpillar(obj_mainchara.x + 140, obj_mainchara.y, 3, 2);
 		con = 99;
-		explore = 1;
+		explore = true;
 	}
 } else {
 	for (var i = 0; i < 5; i++) {

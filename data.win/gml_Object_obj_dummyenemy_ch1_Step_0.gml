@@ -666,7 +666,7 @@ if (global.myfight == 3) {
 	
 	if (actcon == 10) {
 		with (global.charinstance[0])
-			visible = false;
+			visible = 0;
 		
 		k = scr_dark_marker_ch1(global.charinstance[0].x, global.charinstance[0].y, spr_kris_hug_ch1);
 		
@@ -772,7 +772,7 @@ if (global.myfight == 3) {
 		
 		global.mercymod[0] = 100;
 		global.mercymod[1] = 100;
-		global.charinstance[0].visible = true;
+		global.charinstance[0].visible = 1;
 		actcon = 1;
 	}
 	
@@ -801,7 +801,7 @@ if (global.myfight == 3) {
 		maker = 0;
 		
 		with (global.charinstance[0])
-			visible = false;
+			visible = 0;
 		
 		k = scr_dark_marker_ch1(global.charinstance[0].x, global.charinstance[0].y, spr_kris_hug_ch1);
 		
@@ -816,7 +816,7 @@ if (global.myfight == 3) {
 		maker = 1;
 		
 		with (obj_heroralsei_ch1)
-			visible = false;
+			visible = 0;
 		
 		rb = scr_dark_marker_ch1(obj_heroralsei_ch1.x, obj_heroralsei_ch1.y, spr_ralseil_blush_ch1);
 		
@@ -898,12 +898,12 @@ if (global.myfight == 3) {
 			instance_destroy();
 		
 		with (obj_heroralsei_ch1)
-			visible = true;
+			visible = 1;
 		
 		with (k)
 			instance_destroy();
 		
-		global.charinstance[0].visible = true;
+		global.charinstance[0].visible = 1;
 		actcon = 1;
 	}
 	
@@ -926,5 +926,5 @@ if (global.myfight == 3) {
 	}
 }
 
-if (instance_exists(obj_battlecontroller_ch1) == 0)
+if (instance_exists(obj_battlecontroller_ch1) == false)
 	instance_destroy();

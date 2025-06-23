@@ -24,7 +24,7 @@ for (var i = 0; i < 4; i++) {
 if (global.chapter != 2 || global.plot >= 150) {
 	instance_destroy();
 } else {
-	release_swan = 0;
+	release_swan = false;
 	swanboat_init_y = 0;
 	swanboat = instance_create(320, cameray() + view_hport[0] + 300, obj_queencar);
 	
@@ -34,12 +34,12 @@ if (global.chapter != 2 || global.plot >= 150) {
 	ralsei_convo = 0;
 	ralsei_talk_timer = 0;
 	choice_text_timer = 0;
-	swanboat_talk = 1;
-	queen_heckle = 0;
+	swanboat_talk = true;
+	queen_heckle = false;
 	queen_heckle_con = 0;
 	queen_heckle_index = 0;
 	queen_heckle_timer = 0;
-	queen_heckle_start = 0;
+	queen_heckle_start = false;
 	banana = instance_create(2580, 250, obj_queencar_pickup);
 	banana.image_xscale = 2;
 	banana.image_yscale = 2;
@@ -48,8 +48,8 @@ if (global.chapter != 2 || global.plot >= 150) {
 	with (banana)
 		scr_depth();
 	
-	got_banana = 0;
-	remove_collider = 0;
+	got_banana = false;
+	remove_collider = false;
 	blackall = scr_marker(-10, -10, spr_pixel_white);
 	blackall.image_xscale = 999;
 	blackall.image_yscale = 999;

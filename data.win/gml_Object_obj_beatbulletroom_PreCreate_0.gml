@@ -1,2 +1,2 @@
 event_inherited();
-autoStart = 0;
+autoStart = false;

@@ -5,7 +5,7 @@ wallwindow = scr_marker(140, 40, spr_housewindow);
 with (wallwindow)
 	scr_depth();
 
-show_border = 0;
+show_border = false;
 
 if (global.plot > 0) {
 	scr_depth();

@@ -67,7 +67,7 @@ switch (phase) {
 		if (timer >= (4 + (fireoffset / 2))) {
 			direction = targetAngle;
 			image_angle = targetAngle;
-			active = 1;
+			active = true;
 			phase++;
 			gravity = random_range(0.5, 0.7);
 			gravity_direction = targetAngle;

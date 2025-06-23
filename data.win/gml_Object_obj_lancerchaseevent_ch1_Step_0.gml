@@ -48,7 +48,7 @@ if (con == 3) {
 		side = 0;
 }
 
-if (con == 4 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 4 && instance_exists(obj_dialoguer_ch1) == false) {
 	lancer = scr_dark_marker_ch1(1150, 370, spr_darklancer_ch1);
 	global.facing = 2;
 	
@@ -181,7 +181,7 @@ if (con == 16) {
 	con = 17;
 }
 
-if (con == 17 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 17 && instance_exists(obj_dialoguer_ch1) == false) {
 	with (susie) {
 		sprite_index = spr_susier_dark_unhappy_ch1;
 		image_speed = 0.334;

@@ -4,11 +4,11 @@ image_speed = 0.16666666666666666;
 idlesprite = spr_poppup_idle;
 hurtsprite = spr_poppup_hurt;
 sparedsprite = spr_poppup_spared;
-becameTired = 0;
-becameSpareable = 0;
-cloning = 0;
+becameTired = false;
+becameSpareable = false;
+cloning = false;
 cloneTimer = 0;
-staticOwner = 0;
+staticOwner = false;
 staticPoppup = 0;
 animspeed = 0.16666666666666666;
 clonedirection = 210;
@@ -21,11 +21,11 @@ for (var i = 0; i < 3; i++) {
 	}
 }
 
-blockTimer = 0;
+blockTimer = false;
 blockAds = 0;
 blocked = 0;
 mercytotal = 0;
 popupscreated = 0;
 poppupwait = 0;
 allblocked = 0;
-avoiding = 0;
+avoiding = false;

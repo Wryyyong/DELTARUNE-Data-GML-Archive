@@ -2,15 +2,15 @@ if (fade_away) {
 	if (main_alpha > 0) {
 		main_alpha -= 0.1;
 	} else {
-		fade_away = 0;
+		fade_away = false;
 		beam_offset = 0;
-		show_laser_outline = 0;
-		show_laser_beam = 0;
+		show_laser_outline = false;
+		show_laser_beam = false;
 	}
 }
 
 if (show_lightners) {
-	show_lightners = 0;
+	show_lightners = false;
 	kris_screen = instance_create(camerax() + screen_offset, cameray() + 80, obj_queenscreen);
 	kris_screen.image_index = 38;
 	kris_screen.aligned = 1;
@@ -23,8 +23,8 @@ if (show_lightners) {
 }
 
 if (merge_lightners) {
-	make_new = 1;
-	merge_lightners = 0;
+	make_new = true;
+	merge_lightners = false;
 	beam_offset = 0;
 	
 	with (kris_screen)
@@ -38,13 +38,13 @@ if (make_new) {
 	merge_timer--;
 	
 	if (merge_timer <= 0) {
-		make_new = 0;
-		fade_screens = 1;
-		show_mini_fountains = 0;
+		make_new = false;
+		fade_screens = true;
+		show_mini_fountains = false;
 		main_alpha = 1;
 		beam_offset = 0;
-		show_laser_beam = 1;
-		show_laser_outline = 1;
+		show_laser_beam = true;
+		show_laser_outline = true;
 	}
 }
 
@@ -55,7 +55,7 @@ if (fade_screens) {
 		image_alpha = other.screen_alpha;
 	
 	if (screen_alpha <= 0) {
-		fade_screens = 0;
+		fade_screens = false;
 		
 		with (obj_queenscreen)
 			instance_destroy();
@@ -64,7 +64,7 @@ if (fade_screens) {
 
 if (show_hands) {
 	if (!hand_init) {
-		hand_init = 1;
+		hand_init = true;
 		hand_right_xpos = camerax() + view_wport[0];
 	}
 	
@@ -72,8 +72,8 @@ if (show_hands) {
 		hand_right_xpos = lerp(hand_right_xpos, camerax() + (view_wport[0] / 2) + 60, 0.2);
 		
 		if (hand_right_xpos <= (camerax() + (view_wport[0] / 2) + 60)) {
-			hand_both_reveal = 0;
-			hand_both_reveal_finish = 1;
+			hand_both_reveal = false;
+			hand_both_reveal_finish = true;
 		}
 	}
 	
@@ -82,8 +82,8 @@ if (show_hands) {
 		knife_ypos = lerp(knife_ypos, 10, 0.2);
 		
 		if (knife_ypos >= 9) {
-			knife_reveal = 0;
-			knife_hover = 1;
+			knife_reveal = false;
+			knife_hover = true;
 		}
 	}
 	
@@ -93,28 +93,28 @@ if (show_hands) {
 	}
 	
 	if (knife_stab) {
-		knife_hover = 0;
+		knife_hover = false;
 		stab_timer += 0.05;
-		knife_ypos = lerp_ease_ext(knife_ypos, 200, 1, 0, stab_timer, -1);
+		knife_ypos = lerp_ease_ext(knife_ypos, 200, true, false, stab_timer, -1);
 		
 		if (stab_timer >= 0.5 && !hand_retreat)
-			hand_retreat = 1;
+			hand_retreat = true;
 		
 		if (stab_timer >= 1) {
 			stab_timer = 0;
-			knife_stab = 0;
-			show_laser_beam = 1;
+			knife_stab = false;
+			show_laser_beam = true;
 		}
 	}
 	
 	if (hand_retreat) {
 		retreat_timer += 0.05;
-		hand_right_xpos = lerp_ease_ext(hand_right_xpos, camerax() + view_wport[0], 1, 0, retreat_timer, 4);
+		hand_right_xpos = lerp_ease_ext(hand_right_xpos, camerax() + view_wport[0], true, false, retreat_timer, 4);
 		
 		if (retreat_timer >= 1) {
 			retreat_timer = 0;
-			hand_retreat = 0;
-			show_hands = 0;
+			hand_retreat = false;
+			show_hands = false;
 		}
 	}
 }

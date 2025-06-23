@@ -24,7 +24,7 @@ for (i = 0; i < 16; i += 1) {
 		TileRouxlsCanBuild[i][j] = 0;
 		tileHouseY[i][j] = 0;
 		
-		if (collision_point(base_xpos + (i * 40) + 20, cameray() + (j * 40) + 100, obj_simtown_landmaker, 0, 1))
+		if (collision_point(base_xpos + (i * 40) + 20, cameray() + (j * 40) + 100, obj_simtown_landmaker, false, true))
 			TileLand[i][j] = 1;
 	}
 }

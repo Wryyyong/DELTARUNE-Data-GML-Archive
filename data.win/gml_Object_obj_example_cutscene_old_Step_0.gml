@@ -1,6 +1,6 @@
 if (keyboard_check_pressed(ord("J"))) {
 	with (obj_mainchara)
-		scr_jump_to_point_sprite(x + random_range(-200, 200), y + random_range(-30, 30), 10, 15, 649, 648);
+		scr_jump_to_point_sprite(x + random_range(-200, 200), y + random_range(-30, 30), 10, 15, 650, 649);
 }
 
 if (con == 0 && obj_mainchara.x >= x && global.interact == 0) {
@@ -17,7 +17,7 @@ if (con == 1) {
 	kr_actor.sprite_index = spr_krisr_dark;
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	su = 1;
 	su_actor = instance_create(obj_mainchara.x + 300, obj_mainchara.y, obj_actor);

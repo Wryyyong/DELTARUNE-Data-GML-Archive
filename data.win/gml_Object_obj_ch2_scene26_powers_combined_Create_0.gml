@@ -91,7 +91,7 @@ if (global.flag[254] == 1) {
 	recruit_color[_color_index] = recruit_color[9];
 }
 
-fade_in_out = 0;
+fade_in_out = false;
 start_color = c_black;
 end_color = c_white;
 flicker_timer = 0;

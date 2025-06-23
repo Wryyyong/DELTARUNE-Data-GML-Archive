@@ -39,7 +39,7 @@ for (var i = 0; i < max_cars; i++) {
 		
 		var xpos = car_pos[i][j] + drawx + car_timer[i][j];
 		
-		if (nocars == 0)
+		if (nocars == false)
 			draw_sprite_ext(spr_traffic_car_side_wheels_small, animsiner / 6, xpos, ypos, 2, 2, 0, c_dark, 1);
 	}
 }

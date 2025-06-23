@@ -70,7 +70,7 @@ if (con == 2) {
 		blackall.depth = 100000;
 		
 		with (obj_marker)
-			visible = false;
+			visible = 0;
 		
 		with (obj_actor)
 			image_alpha = 0.5;

@@ -6,7 +6,7 @@ if (con == -1) {
 	global.interact = 1;
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	obj_mainchara.x = 28;
 	obj_mainchara.y = 195;
@@ -93,8 +93,8 @@ if (con == 2 && !d_ex()) {
 }
 
 if (con == 3 && !i_ex(obj_cutscene_master)) {
-	nisesusie.visible = true;
-	niseberdly.visible = true;
+	nisesusie.visible = 1;
+	niseberdly.visible = 1;
 	global.interact = 0;
 	con = 0;
 }
@@ -224,7 +224,7 @@ if ((con == 20 && !d_ex()) || scr_cutscene_loaded()) {
 	c_msgsetloc(0, "\\E8* Then..^1. one day^1, came the spelling bee Noelle and I studied for./", "obj_ch2_scene19c_slash_Step_0_gml_288_0");
 	c_msgnextloc("* When it came down to the two of us.../%", "obj_ch2_scene19c_slash_Step_0_gml_289_0");
 	c_talk_wait();
-	c_var_instance(sb_controller, "noelle_lose", 1);
+	c_var_instance(sb_controller, "noelle_lose", true);
 	c_speaker("berdly");
 	c_msgsetloc(0, "\\E9* She got nervous and couldn't speak./%", "obj_ch2_scene19c_slash_Step_0_gml_295_0");
 	c_talk_wait();
@@ -232,7 +232,7 @@ if ((con == 20 && !d_ex()) || scr_cutscene_loaded()) {
 }
 
 if (noelle_lose) {
-	noelle_lose = 0;
+	noelle_lose = false;
 	
 	with (noelleoutline) {
 		image_index = 1;
@@ -243,7 +243,7 @@ if (noelle_lose) {
 if (con == 25 && customcon == 1) {
 	con = 30;
 	c_waitcustom_end();
-	c_var_instance(id, "noelle_lose", 1);
+	c_var_instance(id, "noelle_lose", true);
 	c_soundplay(snd_hurt1);
 	c_wait(30);
 	c_var_lerp_instance(noelleoutline, "image_alpha", 1, 0, 30);
@@ -255,15 +255,15 @@ if (con == 25 && customcon == 1) {
 	c_var_lerp_instance(berdly_crown, "image_alpha", 0, 1, 15);
 	c_var_lerp_instance(berdly_crown, "y", -20, berdlyoutline.y - 5, 15);
 	c_wait(20);
-	c_var_instance(id, "berdly_applause_start", 1);
-	c_var_instance(id, "sb_crowd_show", 1);
+	c_var_instance(id, "berdly_applause_start", true);
+	c_var_instance(id, "sb_crowd_show", true);
 	c_wait(30);
 	c_speaker("berdly");
 	c_msgsetloc(0, "\\E4* And I won./", "obj_ch2_scene19c_slash_Step_0_gml_344_0");
 	c_msgnextloc("\\E7* That was when I tasted it./", "obj_ch2_scene19c_slash_Step_0_gml_345_0");
 	c_msgnextloc("\\E7* The praise. The glory^1! The..^1. SUPERIORITY!!/%", "obj_ch2_scene19c_slash_Step_0_gml_346_0");
 	c_talk_wait();
-	c_var_instance(sb_controller, "berdly_smart", 1);
+	c_var_instance(sb_controller, "berdly_smart", true);
 	c_speaker("berdly");
 	c_msgsetloc(0, "\\E6* The addictive POWER of being..^1. SMART!!/%", "obj_ch2_scene19c_slash_Step_0_gml_352_0");
 	c_talk_wait();
@@ -281,9 +281,9 @@ if (con == 25 && customcon == 1) {
 	c_talk_wait();
 	c_var_lerp_instance(noelleoutline, "image_alpha", 0.5, 0, 15);
 	c_wait(15);
-	c_var_instance(id, "berdly_applause_stop", 1);
-	c_var_instance(sb_controller, "berdly_smart", 0);
-	c_var_instance(id, "sb_crowd_hide", 1);
+	c_var_instance(id, "berdly_applause_stop", true);
+	c_var_instance(sb_controller, "berdly_smart", false);
+	c_var_instance(id, "sb_crowd_hide", true);
 	c_var_lerp_instance(berdly_crown, "image_alpha", 1, 0, 15);
 	c_wait(80);
 	c_speaker("berdly");
@@ -294,21 +294,21 @@ if (con == 25 && customcon == 1) {
 	c_var_lerp_instance(berdlyoutline, "x", 295, 325, 15);
 	c_var_lerp_instance(berdly_crown, "image_alpha", 0, 1, 15);
 	c_var_lerp_instance(berdly_crown, "x", 302, 332, 15);
-	c_var_instance(sb_controller, "berdly_smart", 1);
-	c_var_instance(sb_controller, "berdly_show_word", 1);
-	c_var_instance(id, "sb_crowd_show", 1);
-	c_var_instance(id, "berdly_applause_start", 1);
+	c_var_instance(sb_controller, "berdly_smart", true);
+	c_var_instance(sb_controller, "berdly_show_word", true);
+	c_var_instance(id, "sb_crowd_show", true);
+	c_var_instance(id, "berdly_applause_start", true);
 	c_speaker("berdly");
 	c_msgsetloc(0, "\\E6* A world where we'll ALWAYS be number 1 and number 2!!!/%", "obj_ch2_scene19c_slash_Step_0_gml_399_0");
 	c_talk_wait();
-	c_var_instance(sb_controller, "berdly_smart", 0);
-	c_var_instance(sb_controller, "berdly_show_word", 0);
-	c_var_instance(id, "sb_crowd_hide", 1);
+	c_var_instance(sb_controller, "berdly_smart", false);
+	c_var_instance(sb_controller, "berdly_show_word", false);
+	c_var_instance(id, "sb_crowd_hide", true);
 	c_var_lerp_instance(noelleoutline, "image_alpha", 1, 0, 30);
 	c_var_lerp_instance(berdlyoutline, "image_alpha", 1, 0, 30);
 	c_var_lerp_instance(berdly_crown, "image_alpha", 1, 0, 30);
 	c_wait(15);
-	c_var_instance(id, "berdly_applause_stop", 1);
+	c_var_instance(id, "berdly_applause_stop", true);
 	c_wait(15);
 	c_var_lerp_instance(blackall, "image_alpha", 1, 0, 30);
 	c_wait(60);
@@ -444,7 +444,7 @@ if (sb_crowd_show) {
 }
 
 if (sb_crowd_hide) {
-	sb_crowd_show = 0;
+	sb_crowd_show = false;
 	sb_crowd_siner++;
 	sb_crowd.x += sin(sb_crowd_siner / 4) * 4;
 	sb_crowd.y += cos(sb_crowd_siner / 1.5) * 4;
@@ -452,17 +452,17 @@ if (sb_crowd_hide) {
 	if (sb_crowd.image_alpha > 0)
 		sb_crowd.image_alpha -= 0.05;
 	else
-		sb_crowd_hide = 0;
+		sb_crowd_hide = false;
 }
 
 if (berdly_applause_start) {
-	berdly_applause_start = 0;
+	berdly_applause_start = false;
 	coolsong[0] = snd_init("berdly_audience.ogg");
 	coolsong[1] = mus_loop(coolsong[0]);
 	mus_volume(coolsong[1], 0.45, 0);
 }
 
 if (berdly_applause_stop) {
-	berdly_applause_stop = 0;
+	berdly_applause_stop = false;
 	mus_volume(coolsong[1], 0, 15);
 }

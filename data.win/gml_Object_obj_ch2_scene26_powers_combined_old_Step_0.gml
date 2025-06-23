@@ -76,7 +76,7 @@ if (con == 2) {
 				current_sprite.image_alpha = 1;
 				start_color = c_black;
 				end_color = c_white;
-				fade_in_out = 1;
+				fade_in_out = true;
 			}
 		}
 		
@@ -105,7 +105,7 @@ if (con == 2) {
 			color_lerp = round(lerp(color_lerp, 1, 0.35) * 100) / 100;
 			
 			if (color_lerp >= 0.95) {
-				fade_in_out = 0;
+				fade_in_out = false;
 				recruit_con = 5;
 				color_lerp = 0;
 				image_blend = c_black;
@@ -157,7 +157,7 @@ if (con == 3 && !d_ex()) {
 			orb_con = 1;
 			thrash_con = 2;
 			color_lerp = 0;
-			fade_in_out = 1;
+			fade_in_out = true;
 			start_color = c_black;
 			end_color = c_white;
 		}

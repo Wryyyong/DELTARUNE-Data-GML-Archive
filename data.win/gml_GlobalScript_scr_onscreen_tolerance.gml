@@ -3,7 +3,7 @@ function scr_onscreen_tolerance(arg0, arg1) {
 	spacer = arg1;
 	
 	if ((obj.x + obj.sprite_width + spacer) < camerax() || (obj.x - spacer) > (camerax() + 640) || (obj.y + obj.sprite_height + spacer) < cameray() || (obj.y - spacer) > (cameray() + 480))
-		return 0;
+		return false;
 	else
-		return 1;
+		return true;
 }

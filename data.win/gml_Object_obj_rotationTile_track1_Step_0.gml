@@ -57,9 +57,9 @@ if (init == 0) {
 	ishole[tilemax] = 1;
 	
 	with (obj_marker)
-		visible = false;
+		visible = 0;
 	
-	visible = true;
+	visible = 1;
 	init = 1;
 }
 
@@ -87,7 +87,7 @@ if (phase == 2) {
 
 if (phase == 3) {
 	if (instance_exists(obj_noelle_scared)) {
-		if (obj_noelle_scared.waiting == 1)
+		if (obj_noelle_scared.waiting == true)
 			falltimer++;
 	}
 }
@@ -109,7 +109,7 @@ for (i = 0; i <= tilemax; i++) {
 
 if (i_ex(tile[0])) {
 	if (tile[0].__con == 0)
-		moving = 0;
+		moving = false;
 	else
-		moving = 1;
+		moving = true;
 }

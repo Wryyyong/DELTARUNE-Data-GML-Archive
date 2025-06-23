@@ -23,7 +23,7 @@ if (con > 0 && con < 40) {
 		con = 4.5;
 	}
 	
-	if (con == 4.5 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 4.5 && instance_exists(obj_dialoguer_ch1) == false) {
 		snd_play_ch1(snd_locker_ch1);
 		image_index = 1;
 		con = 5.5;
@@ -77,7 +77,7 @@ if (con > 0 && con < 40) {
 		con = 12;
 	}
 	
-	if (con == 12 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 12 && instance_exists(obj_dialoguer_ch1) == false) {
 		with (s)
 			sprite_index = spr_susieu_ch1;
 		
@@ -94,7 +94,7 @@ if (con > 0 && con < 40) {
 		con = 15;
 	}
 	
-	if (con == 15 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 15 && instance_exists(obj_dialoguer_ch1) == false) {
 		with (k) {
 			vspeed = 0.5;
 			image_speed = 0.1;
@@ -121,7 +121,7 @@ if (con > 0 && con < 40) {
 		con = 18;
 	}
 	
-	if (con == 18 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 18 && instance_exists(obj_dialoguer_ch1) == false) {
 		with (s)
 			sprite_index = spr_susieu_ch1;
 		
@@ -138,7 +138,7 @@ if (con > 0 && con < 40) {
 		con = 21;
 	}
 	
-	if (con == 21 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 21 && instance_exists(obj_dialoguer_ch1) == false) {
 		with (s) {
 			sprite_index = spr_susieu_ch1;
 			vspeed = -0.5;
@@ -210,7 +210,7 @@ if (con >= 40) {
 			scr_depth_ch1();
 		
 		with (obj_mainchara_ch1)
-			visible = false;
+			visible = 0;
 		
 		with (s)
 			sprite_index = spr_susier_ch1;
@@ -361,7 +361,7 @@ if (con >= 40) {
 	
 	if (con == 66) {
 		with (k)
-			visible = false;
+			visible = 0;
 		
 		with (s) {
 			sprite_index = spr_susie_krisshoulder_r_ch1;
@@ -421,7 +421,7 @@ if (con >= 40) {
 	
 	if (con == 73 && !d_ex_ch1()) {
 		with (k) {
-			visible = true;
+			visible = 1;
 			sprite_index = spr_krisd_ch1;
 		}
 		
@@ -445,7 +445,7 @@ if (con >= 40) {
 		global.interact = 0;
 		
 		with (obj_mainchara_ch1)
-			visible = true;
+			visible = 1;
 		
 		with (k)
 			instance_destroy();

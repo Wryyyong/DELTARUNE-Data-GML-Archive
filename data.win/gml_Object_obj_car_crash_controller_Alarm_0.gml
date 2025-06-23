@@ -1,1 +1,1 @@
-release_car = 1;
+release_car = true;

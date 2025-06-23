@@ -1,13 +1,13 @@
-nointeract = 1;
+nointeract = true;
 
 if (con != 5 || bouncethisframe) {
-	if (gulped == 0) {
+	if (gulped == false) {
 		snd_play(snd_swallow);
-		gulped = 1;
+		gulped = true;
 	}
 	
-	other.win = 1;
-	win = 1;
+	other.win = true;
+	win = true;
 	con = 2;
 	
 	if (room == room_dw_city_mice) {

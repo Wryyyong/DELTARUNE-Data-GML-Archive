@@ -33,6 +33,6 @@ if (con == 1) {
 }
 
 draw_set_halign(fa_left);
-draw_rectangle(obj_growtangle.x - 80, obj_growtangle.y - 110, obj_growtangle.x + 80, obj_growtangle.y - 90, true);
-draw_rectangle(obj_growtangle.x - 80, obj_growtangle.y - 110, (obj_growtangle.x - 80) + barprogress, obj_growtangle.y - 90, false);
+draw_rectangle(obj_growtangle.x - 80, obj_growtangle.y - 110, obj_growtangle.x + 80, obj_growtangle.y - 90, 1);
+draw_rectangle(obj_growtangle.x - 80, obj_growtangle.y - 110, (obj_growtangle.x - 80) + barprogress, obj_growtangle.y - 90, 0);
 draw_set_alpha(1);

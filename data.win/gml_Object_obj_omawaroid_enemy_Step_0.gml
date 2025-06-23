@@ -26,7 +26,7 @@ if (global.monster[myself] == 1) {
 			instance_create(0, 0, obj_darkener);
 		
 		if (!virokun_battle_init) {
-			virokun_battle_init = 1;
+			virokun_battle_init = true;
 			virokun_battle = i_ex(obj_virovirokun_enemy);
 		}
 		
@@ -64,7 +64,7 @@ if (global.monster[myself] == 1) {
 			msgsetloc(0, "All in a day's&work, wee-woo.", "obj_omawaroid_enemy_slash_Step_0_gml_45_0");
 		
 		if (nact_count == 1 && !nact_balloon) {
-			nact_balloon = 1;
+			nact_balloon = true;
 			msgsetloc(0, "This girl is so sweet...&Let's give her free bullets!", "obj_omawaroid_enemy_slash_Step_0_gml_51_0");
 		}
 		

@@ -1,7 +1,7 @@
 function scr_getbuttonsprite_ch1(arg0, arg1) {
 	var control = arg0;
 	var isString = arg1;
-	var button = noone;
+	var button = button_questionmark;
 	var is_dualshock = os_type == os_ps4 || obj_gamecontroller.gamepad_type == 1;
 	var button_sprite = button_questionmark;
 	

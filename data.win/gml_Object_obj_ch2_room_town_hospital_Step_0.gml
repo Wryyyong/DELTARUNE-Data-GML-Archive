@@ -5,10 +5,10 @@ if (con == -1) {
 	scr_makecaterpillar(obj_mainchara.x + 60, obj_mainchara.y - 14, 2, 0);
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	with (obj_caterpillarchara)
-		visible = false;
+		visible = 0;
 	
 	kr = 0;
 	kr_actor = instance_create(150, 200, obj_actor);
@@ -166,7 +166,7 @@ if (con == 1) {
 		c_talk_wait();
 	}
 	
-	c_var_instance(id, "noellegame", 0);
+	c_var_instance(id, "noellegame", false);
 	c_var_instance(id, "gamecon", 0);
 	c_sel(no);
 	c_sprite(spr_noelle_game_done);
@@ -210,7 +210,7 @@ if (con == 3) {
 	susstring = stringsetloc("Hell if I know???", "obj_ch2_room_town_hospital_slash_Step_0_gml_154_0");
 	
 	if (global.lang == "ja") {
-		if (global.is_console == 1)
+		if (global.is_console == true)
 			scr_smallface(1, "susie", 20, 426, 180, susstring);
 		else
 			scr_smallface(1, "susie", 20, 440, 170, susstring);

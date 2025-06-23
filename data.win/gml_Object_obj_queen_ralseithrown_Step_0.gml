@@ -24,15 +24,15 @@ if (con == 10) {
 		}
 		
 		with (obj_herokris)
-			visible = true;
+			visible = 1;
 		
 		with (obj_herosusie)
-			visible = true;
+			visible = 1;
 		
 		with (obj_heroralsei)
-			visible = true;
+			visible = 1;
 		
-		visible = false;
+		visible = 0;
 		
 		with (obj_queen_throwtarget)
 			instance_destroy();

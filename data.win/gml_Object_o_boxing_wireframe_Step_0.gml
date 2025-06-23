@@ -10,7 +10,7 @@ if (talking) {
 		with (obj_writer)
 			instance_destroy();
 		
-		talking = 0;
+		talking = false;
 		talktimer = -10;
 		o_boxingcontroller.talking = 0;
 		
@@ -27,7 +27,7 @@ if (talking) {
 				global.typer = 50;
 				suballoon3 = scr_enemyblcon(obj_ch2_scene10.su_actor.x + 0, obj_ch2_scene10.su_actor.y + 20, 10);
 				talktimer = 0;
-				talking = 1;
+				talking = true;
 				
 				with (suballoon3) {
 					depth = obj_ch2_scene10.su_actor.depth - 1;

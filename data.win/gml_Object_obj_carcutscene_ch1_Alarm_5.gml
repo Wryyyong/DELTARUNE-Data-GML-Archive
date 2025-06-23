@@ -29,6 +29,6 @@ with (myd)
 	skippable = 0;
 
 with (myd)
-	persistent = true;
+	persistent = 1;
 
 dhaver = 1;

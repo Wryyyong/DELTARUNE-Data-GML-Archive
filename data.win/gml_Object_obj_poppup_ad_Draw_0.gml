@@ -2,19 +2,19 @@ if (slow) {
 	if (sprite_index == spr_poppup_ad_poppup)
 		sprite_index = spr_poppup_ad_poppup_shriveled;
 	
-	slow = 0;
+	slow = false;
 }
 
 if (blockstate == 1) {
 	timer++;
 	
 	if (timer < 3)
-		gpu_set_fog(true, c_white, 0, 0);
+		gpu_set_fog(1, c_white, 0, 0);
 	
 	draw_self();
 	
 	if (timer < 3)
-		gpu_set_fog(false, c_white, 0, 0);
+		gpu_set_fog(0, c_white, 0, 0);
 	
 	if (timer == 1)
 		snd_play(snd_heavyswing);

@@ -1,2 +1,2 @@
 with (creator)
-	visible = true;
+	visible = 1;

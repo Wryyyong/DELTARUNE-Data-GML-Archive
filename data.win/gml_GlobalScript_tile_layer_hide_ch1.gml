@@ -14,7 +14,7 @@ function tile_layer_hide_ch1(arg0) {
 			var __eltype = layer_get_element_type(__els[__j]);
 			
 			if (__eltype == 7)
-				layer_tile_visible(__els[__j], 0);
+				layer_tile_visible(__els[__j], false);
 		}
 	}
 }

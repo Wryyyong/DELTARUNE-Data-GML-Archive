@@ -1,5 +1,5 @@
 con = -1;
-shortened = 0;
+shortened = false;
 tempcon = -1;
 visible = true;
 customcon = 0;
@@ -13,7 +13,7 @@ if (global.chapter != 2 || global.plot >= 60) {
 	instance_destroy();
 } else {
 	if (global.tempflag[27] == 1)
-		shortened = 1;
+		shortened = true;
 	
 	nisesweet = scr_dark_marker(camerax() + 700, (room_height / 2) - 80, spr_sweet_idle);
 	nisesweet.image_speed = 0.25;

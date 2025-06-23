@@ -61,7 +61,7 @@ if (tIntroCon == 1) {
 	scr_maincharacters_actors();
 	tIntroCon = 2;
 	fakemouse = scr_dark_marker(220, 180, spr_holemouse_emerge);
-	fakemouse.visible = false;
+	fakemouse.visible = 0;
 	fakedoor = scr_dark_marker(obj_holemouse_generator.x, obj_holemouse_generator.y, spr_mouseHole);
 	fakedoor.image_index = 5;
 	realdoor = instance_find(obj_holemouse_generator, 0);
@@ -103,12 +103,12 @@ if (tIntroCon == 2) {
 
 if (tIntroCon == 5) {
 	if (instance_exists(obj_caterpillarchara) && !instance_exists(obj_noelle_scared)) {
-		no_actor.visible = false;
+		no_actor.visible = 0;
 		obj_caterpillarchara.x = no_actor.x;
 		obj_caterpillarchara.y = no_actor.y;
 		
 		with (obj_caterpillarchara) {
-			visible = true;
+			visible = 1;
 			fun = 1;
 			sprite_index = spr_noelle_shocked_dw;
 		}
@@ -233,8 +233,8 @@ if (introCon == 4 && !d_ex() && !instance_exists(obj_cutscene_master)) {
 	
 	if (i_ex(obj_cybercity_mousesign)) {
 		with (obj_cybercity_mousesign) {
-			start = 1;
-			fade_in = 1;
+			start = true;
+			fade_in = true;
 		}
 	}
 	

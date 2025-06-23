@@ -24,14 +24,14 @@ if (con == 10) {
 		}
 		
 		with (obj_heroralsei)
-			visible = true;
+			visible = 1;
 		
 		with (obj_herosusie)
-			visible = true;
+			visible = 1;
 		
 		with (obj_checkers_enemy) {
 			actcon = 1;
-			visible = true;
+			visible = 1;
 		}
 		
 		with (obj_throwtarget)

@@ -5,7 +5,7 @@ if (global.plot < 140) {
 	if (con == -1 && swanboat.x >= 136) {
 		con = 1;
 		global.interact = 1;
-		swanboat.pause_x_move = 1;
+		swanboat.pause_x_move = true;
 		swanboat.sprite_index = spr_swanboat_squish;
 		snd_play(snd_squeaky);
 		swanboat.con = 99;
@@ -54,16 +54,16 @@ if (global.plot < 140) {
 		global.interact = 0;
 		global.facing = 0;
 		bottom_collider = instance_create(200, 320, obj_soliddark);
-		bottom_collider.visible = false;
+		bottom_collider.visible = 0;
 		bottom_collider.image_xscale = 6;
 		var swan_interact = instance_create(swanboat.x + 50, swanboat.y + 80, obj_npc_sign);
-		swan_interact.visible = false;
+		swan_interact.visible = 0;
 		swan_interact.image_xscale = 4;
 		global.plot = 140;
 	}
 } else if (remove_collider) {
 	global.facing = 1;
-	remove_collider = 0;
+	remove_collider = false;
 	
 	with (left_collider)
 		instance_destroy();

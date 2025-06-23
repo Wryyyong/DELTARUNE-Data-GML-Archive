@@ -13,7 +13,7 @@ if (instance_exists(obj_mainchara) && ignorebuffer < 0) {
 						ignorebuffer = 2;
 				}
 				
-				swordobj = collision_rectangle(x, y, x + sprite_width, y + sprite_height, obj_swordobjparent, 0, 1);
+				swordobj = collision_rectangle(x, y, x + sprite_width, y + sprite_height, obj_swordobjparent, false, true);
 				
 				if (swordobj != -4) {
 					if (swordobj.active == 1)

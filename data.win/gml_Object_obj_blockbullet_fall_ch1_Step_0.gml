@@ -1,6 +1,6 @@
 if (con == 1) {
 	active = 1;
-	visible = true;
+	visible = 1;
 	image_alpha += 0.15;
 	
 	if (image_alpha >= 1)

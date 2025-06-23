@@ -16,8 +16,8 @@ lastsearch = 0;
 difficulty = 0;
 difficultydebug = 0;
 attackdebug = -1;
-bufferattack = 0;
-whiteAcid = 1;
+bufferattack = false;
+whiteAcid = true;
 shieldjustbroke = 0;
 jp = 0;
 

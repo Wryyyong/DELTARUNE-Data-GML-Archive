@@ -1,4 +1,4 @@
-if (global.flag[438] == 0 && other.havenoelle == 1) {
+if (global.flag[438] == 0 && other.havenoelle == true) {
 	if (instance_exists(obj_battleback)) {
 		if (room == room_dw_city_big_1)
 			global.flag[438] = 1;

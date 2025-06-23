@@ -1,4 +1,4 @@
-if (obj_mainchara.x > x && !i_ex(carGen) && victory == 0) {
+if (obj_mainchara.x > x && !i_ex(carGen) && victory == false) {
 	carGen = instance_create(1120, 262, obj_traffic_car_generator);
 	
 	with (carGen) {
@@ -25,7 +25,7 @@ if (obj_mainchara.x < x) {
 	}
 }
 
-if (victory == 1) {
+if (victory == true) {
 	if (con == 0) {
 		global.flag[370] = 1;
 		global.interact = 1;

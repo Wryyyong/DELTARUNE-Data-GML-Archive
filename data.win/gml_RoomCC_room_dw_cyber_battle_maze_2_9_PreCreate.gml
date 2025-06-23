@@ -1,5 +1,5 @@
 endY = 400;
-scoreboardExists = 1;
+scoreboardExists = true;
 scoreboardGoal = 10;
 uniqueBulletPattern = 6;
 riseSpeedReverse = 25;

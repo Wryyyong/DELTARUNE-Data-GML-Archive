@@ -1,4 +1,4 @@
-destroyoffscreen = 0;
+destroyoffscreen = false;
 tolerance = 0;
 depth = 5000;
 image_speed = 0;

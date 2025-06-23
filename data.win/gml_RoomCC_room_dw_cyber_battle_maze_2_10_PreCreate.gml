@@ -1,3 +1,3 @@
-rideEnd = 0;
+rideEnd = false;
 partyMember = 2;
-teacupTarget = 102167;
+teacupTarget = 102168;

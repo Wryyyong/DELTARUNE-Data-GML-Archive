@@ -36,4 +36,4 @@ hangsiner = 0;
 sprite_index = spr_cutscene_25_berdly_plug;
 image_xscale = 2;
 image_yscale = 2;
-active = 0;
+active = false;

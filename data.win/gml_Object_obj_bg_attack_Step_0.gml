@@ -38,11 +38,11 @@ if (con == 0) {
 				piece[i].gravity = 0.16;
 			
 			if (invis == i)
-				piece[i].visible = false;
+				piece[i].visible = 0;
 		}
 		
 		if (invis == 2) {
-			piece[2].visible = true;
+			piece[2].visible = 1;
 			piece[2].sprite_index = spr_bqueen_leggy_tall;
 		}
 		

@@ -1,7 +1,7 @@
 carGen = 0;
 depth = 5102;
 visible = true;
-victory = 0;
+victory = false;
 con = 0;
 timer = 0;
 hitcount = 0;

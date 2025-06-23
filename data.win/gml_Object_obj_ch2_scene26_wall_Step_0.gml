@@ -9,7 +9,7 @@ if (wall_con == 1) {
 		wall_con = 2;
 		
 		with (looping_coaster) {
-			loop_vertical = 1;
+			loop_vertical = true;
 			y_speed = -20;
 		}
 	}

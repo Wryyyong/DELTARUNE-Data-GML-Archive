@@ -137,5 +137,5 @@ if (global.plot >= 200 || global.chapter > 2)
 	canUseJukebox = 1;
 
 previous_song = "cyber_shop.ogg";
-is_playing = 1;
+is_playing = true;
 audio_timer = 0;

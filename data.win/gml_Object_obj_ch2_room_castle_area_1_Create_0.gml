@@ -16,8 +16,8 @@ if (global.plot >= 200 && global.flag[387] == 0) {
 	if (!scr_keyitemcheck(9))
 		scr_keyitemget(9);
 	
-	trashy_release = 0;
-	trashy_leave = 0;
+	trashy_release = false;
+	trashy_leave = false;
 }
 
 if (global.plot <= 7)

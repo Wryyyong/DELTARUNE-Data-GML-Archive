@@ -103,7 +103,7 @@ if (type == 1) {
 		special.image_speed = 0;
 		special.creator = creator;
 		special.depth = global.monsterinstance[creator].depth;
-		global.monsterinstance[creator].visible = false;
+		global.monsterinstance[creator].visible = 0;
 		
 		if (sameattacker >= 1)
 			btimer = random_range(6, 18) * ratio * (1 + difficulty);
@@ -112,7 +112,7 @@ if (type == 1) {
 	if (btimer >= (((difficulty >= 2) ? 40 : 24) * ratio * (1 + difficulty))) {
 		btimer = 0;
 		d = instance_create(x + 28, y + 34, obj_chainbullet);
-		d.childBullet = 450;
+		d.childBullet = 452;
 		snd_play_x(snd_electric_meow, 0.8, random_range(0.8, 1.2));
 		d.element = 6;
 		d.damage = damage;
@@ -196,7 +196,7 @@ if (type == 1) {
 	}
 	
 	if (btimer > (30 * ratio)) {
-		var _sbw = 441;
+		var _sbw = 443;
 		side = _sbw.platter_side;
 		_sbw.platter_side *= -1;
 		btimer = 0;
@@ -234,7 +234,7 @@ if (type == 1) {
 		d.target = target;
 		d.grazepoints = 4;
 		d.childgraze = 4;
-		global.monsterinstance[creator].visible = false;
+		global.monsterinstance[creator].visible = 0;
 		
 		if (sameattack > 1)
 			d.trackplayer = -1;
@@ -321,7 +321,7 @@ if (type == 1) {
 				}
 				
 				if (special == 1)
-					d.firstwave = 1;
+					d.firstwave = true;
 				else if (special == 2)
 					startDelay += 12.831853071795862;
 				
@@ -346,7 +346,7 @@ if (type == 1) {
 } else if (type == 9) {
 	if (init == 1) {
 		berdly = instance_create(x - 18, y - 114, obj_berdlyb_spearblaster);
-		global.monsterinstance[creator].visible = false;
+		global.monsterinstance[creator].visible = 0;
 		berdly.creator = creator;
 		init = 2;
 		special = choose(0, 1);
@@ -363,7 +363,7 @@ if (type == 1) {
 		d.pathLifetime = 2;
 		
 		if (difficulty == 2 || (made % 2) == special)
-			d.aim_at_player = 1;
+			d.aim_at_player = true;
 		
 		d.special = difficulty;
 		made++;
@@ -385,7 +385,7 @@ if (type == 1) {
 		d.grazepoints = 4;
 		
 		if (made > 0 && scr_monsterpop() == 1)
-			d.first_set = 0;
+			d.first_set = false;
 		
 		made++;
 		btimer = 0;
@@ -461,7 +461,7 @@ if (type == 1) {
 		d.depth -= 15;
 		
 		if (special) {
-			d.slow = 1;
+			d.slow = true;
 			d.scalespeed = 0.75;
 		}
 		
@@ -509,7 +509,7 @@ if (type == 1) {
 				d.shottimer = (sameattack == monstercount) ? 15 : 5;
 			
 			if (sameattack == monstercount) {
-				d.bigshot = 1;
+				d.bigshot = true;
 				d.grazepoints = 4;
 			}
 		}
@@ -583,7 +583,7 @@ if (type == 1) {
 			street.depth += 2;
 			street.init = 2;
 		} else {
-			street = 413;
+			street = 415;
 			
 			if (special != 0)
 				street.hitcheck = special;
@@ -748,7 +748,7 @@ if (type == 1) {
 	if (init == 1) {
 		d = instance_create(x - 22, y - 6, obj_tm_whip_attack);
 		d.depth = global.monsterinstance[creator].depth;
-		global.monsterinstance[creator].visible = false;
+		global.monsterinstance[creator].visible = 0;
 		d.creator = creator;
 		d.damage = damage;
 		d.target = target;
@@ -759,10 +759,8 @@ if (type == 1) {
 		init = 2;
 	}
 } else if (type == 21) {
-	if (init == 1) {
+	if (init == 1)
 		init = 2;
-		scr_debug_print("Transmitting VERY EVIL computer virus to dataminer's house and room...");
-	}
 } else if (type == 22) {
 	if (init == 1) {
 		btimer = 115;
@@ -805,7 +803,7 @@ if (type == 1) {
 	}
 } else if (type >= 23 && type <= 25) {
 	if (init == 1) {
-		global.monsterinstance[creator].visible = false;
+		global.monsterinstance[creator].visible = 0;
 		d = instance_create(x, y, obj_spamton_attack_mode);
 		d.creator = creator;
 		d.attack = type - 23;
@@ -817,10 +815,10 @@ if (type == 1) {
 			instance_create(obj_growtangle.x, obj_growtangle.y, obj_spamton_warped_box);
 		
 		if (type == 23) {
-			d.bullettype = 583;
+			d.bullettype = 586;
 			d.firingspeed = 10;
 		} else if (type == 24) {
-			d.bullettype = 584;
+			d.bullettype = 587;
 			d.firingspeed = 28;
 			btimer = 10;
 		}
@@ -1163,7 +1161,7 @@ if (type == 1) {
 			dd.depth = dd2.depth - 1;
 			
 			with (obj_tasque_manager_enemy)
-				visible = false;
+				visible = 0;
 			
 			snd_play(snd_coin);
 			btimer = -45;
@@ -1178,7 +1176,7 @@ if (type == 1) {
 			made = 0;
 			
 			with (obj_tasque_manager_enemy)
-				visible = true;
+				visible = 1;
 			
 			if (strikes == 3) {
 				global.flag[36] = 1;
@@ -1208,7 +1206,7 @@ if (type == 1) {
 			dd2 = scr_dark_marker(x, y, spr_tm_hurt);
 			
 			with (obj_tasque_manager_enemy)
-				visible = false;
+				visible = 0;
 			
 			snd_play(snd_error);
 			
@@ -1241,7 +1239,7 @@ if (type == 1) {
 		btimer = 0;
 		
 		if (special == 1)
-			d.dojo = 1;
+			d.dojo = true;
 	}
 } else if (type == 33) {
 	if (made == 0) {
@@ -1302,7 +1300,7 @@ if (type == 1) {
 		d.depth = global.monsterinstance[creator].depth;
 		d.creator = creator;
 		d.difficulty = difficulty;
-		d.dojo = 1;
+		d.dojo = true;
 		init = 2;
 		global.turntimer += 120;
 		btimer = 0;
@@ -1419,7 +1417,7 @@ if (type == 1) {
 		
 		with (creatorid) {
 			global.monster[myself] = 0;
-			visible = false;
+			visible = 0;
 		}
 	}
 } else if (type == 51) {

@@ -40,11 +40,11 @@ function ossafe_file_text_open_read(arg0) {
 		}
 		
 		handle = ds_map_create();
-		ds_map_set(handle, "is_write", 0);
+		ds_map_set(handle, "is_write", false);
 		ds_map_set(handle, "text", lines);
 		ds_map_set(handle, "num_lines", num_lines);
 		ds_map_set(handle, "line", 0);
-		ds_map_set(handle, "line_read", 0);
+		ds_map_set(handle, "line_read", false);
 		return handle;
 	}
 }

@@ -27,7 +27,7 @@ failcount = 0;
 monitorx = 0;
 monitory = 0;
 victoryextra = 0;
-hacked = 0;
+hacked = false;
 
 if (room == room_dw_cyber_keyboard_puzzle_2) {
 	krisStartX = 134;
@@ -55,12 +55,12 @@ if (autoGenerate == 1) {
 		autoX = x - 40;
 		autoY = y;
 		idealString = stringsetloc("SUFUGIOROTENIPEKENAMO", "obj_ch2_keyboardpuzzle_controller_slash_Create_0_gml_59_0");
-		layer_set_visible("JA_TILES", 1);
+		layer_set_visible("JA_TILES", true);
 		
 		with (obj_solidblocksized_alt)
 			instance_destroy();
 	} else {
-		layer_set_visible("JA_TILES", 0);
+		layer_set_visible("JA_TILES", false);
 	}
 	
 	var len = string_length(autoString);
@@ -108,14 +108,14 @@ if (puzzle_id == 2) {
 monitory += 70;
 
 if (room == room_dw_cyber_keyboard_puzzle_1 && global.flag[390] == 1)
-	won = 1;
+	won = true;
 
 if (room == room_dw_cyber_keyboard_puzzle_2 && global.flag[333] == 1)
-	won = 1;
+	won = true;
 
 if (room == room_dw_cyber_keyboard_puzzle_3 && global.flag[420] == 1) {
 	victorySprite = spr_keyboard_puzzle_bluecheck;
-	won = 1;
+	won = true;
 }
 
 if (won) {

@@ -382,7 +382,7 @@ for (n = 1; n < pos; n += 1) {
 		
 		if (nextchar == "*") {
 			wx = round(wx);
-			var _sprite = scr_getbuttonsprite(nextchar2, 1);
+			var _sprite = scr_getbuttonsprite(nextchar2, true);
 			var y_offset = 0;
 			var x_offset = 0;
 			
@@ -606,14 +606,14 @@ for (n = 1; n < pos; n += 1) {
 		
 		if (nextchar == "C") {
 			if (nextchar2 == "1") {
-				if (instance_exists(obj_choicer_old) == 0)
+				if (instance_exists(obj_choicer_old) == false)
 					choicer = instance_create(0, 0, obj_choicer_old);
 				
 				halt = 5;
 			}
 			
 			if (nextchar2 == "2" || nextchar2 == "3" || nextchar2 == "4") {
-				if (instance_exists(obj_choicer_neo) == 0) {
+				if (instance_exists(obj_choicer_neo) == false) {
 					choicer = instance_create(0, 0, obj_choicer_neo);
 					choicer.choicetotal = real(nextchar2) - 1;
 				}

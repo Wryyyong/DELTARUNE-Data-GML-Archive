@@ -7,7 +7,7 @@ function scr_gamestart_chapter_override() {
 	
 	if (!ch1_egg_check) {
 		if (global.flag[263] == 2) {
-			ch1_egg_check = 1;
+			ch1_egg_check = true;
 		} else {
 			scr_litemcheck(8);
 			ch1_egg_check = haveit;
@@ -30,6 +30,7 @@ function scr_gamestart_chapter_override() {
 	scr_itemremove(4);
 	
 	if (global.chapter == 2) {
+		global.darkzone = 0;
 		global.flag[7] = 0;
 		global.flag[9] = 1;
 		global.flag[10] = 1;

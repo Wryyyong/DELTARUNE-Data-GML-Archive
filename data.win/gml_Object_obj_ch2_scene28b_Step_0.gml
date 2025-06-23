@@ -1,4 +1,4 @@
-if (i_ex(desk_marker) && desk_marker.visible == true) {
+if (i_ex(desk_marker) && desk_marker.visible == 1) {
 	if (standing == 0) {
 		if (instance_exists(obj_actor)) {
 			with (obj_actor)
@@ -36,7 +36,7 @@ if (con == 1) {
 	with (obj_mainchara) {
 		x = 187;
 		y = 121;
-		visible = false;
+		visible = 0;
 	}
 	
 	cutscene_master = scr_cutscene_make();
@@ -88,7 +88,7 @@ if (con == 2) {
 	con = 3;
 	c_var_lerp_instance(whiteall, "image_alpha", 1, 0, 30);
 	c_wait(60);
-	c_var_instance(id, "show_border", 1);
+	c_var_instance(id, "show_border", true);
 	
 	if (scr_sideb_get_phase() >= 2) {
 		c_wait(60);
@@ -493,7 +493,7 @@ if (con == 2) {
 		c_soundplay(snd_sussurprise);
 		c_autowalk(0);
 		c_walkdirect_wait(142, 139, 3);
-		c_var_instance(id, "susie_mad", 1);
+		c_var_instance(id, "susie_mad", true);
 		c_speaker("susie");
 		c_msgsetloc(0, "\\EH* WHAT!? WHAT!? Are you looking for something!?/%", "obj_ch2_scene28b_slash_Step_0_gml_402_0");
 		c_talk_wait();
@@ -503,7 +503,7 @@ if (con == 2) {
 		c_imagespeed(0.25);
 		c_walk("d", 5, 20);
 		c_delaycmd(20, "soundplay", snd_doorclose);
-		c_var_instance(id, "susie_mad", 0);
+		c_var_instance(id, "susie_mad", false);
 		c_sel(su);
 		c_setxy(142, 139);
 		c_speaker("noelle");
@@ -596,14 +596,14 @@ if (con == 50 && !i_ex(obj_cutscene_master)) {
 	global.facing = 0;
 	con = 51;
 	global.plot = 200;
-	layer_set_visible("GIVE_DEPTH", 1);
+	layer_set_visible("GIVE_DEPTH", true);
 	instance_create(0, 0, obj_bg_givedepth);
 	instance_destroy(desk_marker);
 }
 
 if (con == 51 && obj_mainchara.y >= 186) {
 	global.interact = 1;
-	kris_leave = 1;
+	kris_leave = true;
 	con = 52;
 }
 

@@ -398,7 +398,7 @@ if (con == 32) {
 			image_xscale = 999;
 			image_yscale = 999;
 			image_blend = c_black;
-			persistent = true;
+			persistent = 1;
 		}
 	}
 	
@@ -528,12 +528,12 @@ if (con == 34) {
 		with (obj_mainchara) {
 			x = -999;
 			cutscene = 1;
-			visible = false;
+			visible = 0;
 		}
 		
 		with (obj_caterpillarchara) {
 			x = -999;
-			visible = false;
+			visible = 0;
 		}
 		
 		if (global.chapter == 2) {
@@ -565,14 +565,14 @@ if (con == 34) {
 		with (megablack)
 			instance_destroy();
 		
-		persistent = false;
+		persistent = 0;
 		global.interact = 0;
 		global.facing = 0;
 		obj_mainchara.x = (kris_x * 2) + 8;
 		obj_mainchara.y = (kris_y * 2) + 4;
 		
 		with (obj_mainchara)
-			visible = true;
+			visible = 1;
 		
 		if (i_ex(global.cinstance[1])) {
 			with (global.cinstance[1])
@@ -584,7 +584,7 @@ if (con == 34) {
 			global.cinstance[0].y = sus_y * 2;
 			
 			with (obj_caterpillarchara) {
-				visible = true;
+				visible = 1;
 				scr_caterpillar_interpolate();
 				facing[target] = 0;
 				sprite_index = dsprite;

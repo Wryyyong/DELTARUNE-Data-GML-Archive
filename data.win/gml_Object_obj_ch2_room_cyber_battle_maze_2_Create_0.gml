@@ -5,7 +5,7 @@ if (global.chapter != 2) {
 	instance_destroy();
 } else {
 	hacker = instance_create(740, 100, obj_readable_room1);
-	hacker.visible = true;
+	hacker.visible = 1;
 	hacker.sprite_index = spr_npc_cursor_walk_right;
 	hacker.image_xscale = 2;
 	hacker.image_yscale = 2;

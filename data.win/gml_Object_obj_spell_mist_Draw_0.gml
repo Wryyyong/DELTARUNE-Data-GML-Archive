@@ -8,10 +8,10 @@ if (init == 0) {
 }
 
 if (initdelay == 0) {
-	audio_play_sound(snd_ghostappear, 50, false);
+	audio_play_sound(snd_ghostappear, 50, 0);
 	
 	if (success == 1)
-		audio_play_sound(snd_spell_pacify, 50, false);
+		audio_play_sound(snd_spell_pacify, 50, 0);
 }
 
 initdelay--;

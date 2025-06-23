@@ -1,10 +1,10 @@
 con = -1;
 customcon = 0;
-pillow = 0;
-fadebg = 0;
-removefg = 0;
-debug_skip = 0;
-hide_border = 0;
+pillow = false;
+fadebg = false;
+removefg = false;
+debug_skip = false;
+hide_border = false;
 
 if (global.chapter != 2 || global.plot < 211) {
 	instance_destroy();
@@ -32,16 +32,16 @@ if (global.chapter != 2 || global.plot < 211) {
 	bgdark = scr_marker(0, 0, spr_cutscene_32_bg_room_dark);
 	bgdark.depth = 5000000;
 	bgdark.image_alpha = 0;
-	disable_face = 0;
-	enable_face = 0;
-	footsteps = 0;
+	disable_face = false;
+	enable_face = false;
+	footsteps = false;
 	footsteps_volume = 1;
 	susie_snore = 0;
-	end_game = 0;
-	return_title = 0;
-	show_door_open = 0;
+	end_game = false;
+	return_title = false;
+	show_door_open = false;
 	credits_timer = 0;
-	fade_out_deep = 0;
+	fade_out_deep = false;
 	
 	with (obj_npc_room)
 		instance_destroy();

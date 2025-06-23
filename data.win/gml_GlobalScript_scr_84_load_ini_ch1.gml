@@ -35,8 +35,8 @@ function scr_84_load_ini_ch1() {
 				var room_index = ini_read_real("G" + string(i), "Room", 0);
 				var room_offset = room_index;
 				
-				if (room_index < 280)
-					room_offset = 280 + room_index;
+				if (room_index < 281)
+					room_offset = 281 + room_index;
 				
 				PLACE[i] = scr_roomname_ch1(room_offset);
 				TIME[i] = ini_read_real("G" + string(i), "Time", 0);

@@ -38,7 +38,7 @@ if (global.monster[myself] == 1) {
 		
 		if (!hurt_noelle) {
 			if (global.hp[4] < noelle_hp_start)
-				hurt_noelle = 1;
+				hurt_noelle = true;
 			else if (global.hp[4] > noelle_hp_start)
 				noelle_hp_start = global.hp[4];
 		}
@@ -107,8 +107,8 @@ if (global.monster[myself] == 1) {
 						balloon_con = 0;
 						global.typer = berdlytalk;
 						msgsetloc(0, "Behold!!!&Comrades!!!/%", "obj_berdlyb2_enemy_slash_Step_0_gml_128_0");
-						summoning = 1;
-						wirewait = 1;
+						summoning = true;
+						wirewait = true;
 						scr_enemyblcon(x - 10, global.monstery[myself], 10);
 						talked = 1;
 						talktimer = 0;
@@ -223,7 +223,7 @@ if (global.monster[myself] == 1) {
 				}
 			} else {
 				if (hurt_noelle && !hurt_noelle_talk) {
-					hurt_noelle_talk = 1;
+					hurt_noelle_talk = true;
 					global.typer = berdlytalk;
 					msgsetloc(0, "Don't worry,&it's part&of my&calculations!", "obj_berdlyb2_enemy_slash_Step_0_gml_54_0");
 					scr_enemyblcon(x - 10, global.monstery[myself], 10);
@@ -242,7 +242,7 @@ if (global.monster[myself] == 1) {
 			}
 		} else {
 			if (global.hp[1] <= 0 && kris_defeat_con < 99) {
-				kris_defeat_talk = 1;
+				kris_defeat_talk = true;
 			} else {
 				talked = 1;
 				talktimer = 0;
@@ -301,7 +301,7 @@ if (global.monster[myself] == 1) {
 				var _newwerewire = scr_monster_add(33, obj_werewire_enemy);
 				
 				with (global.monsterinstance[_newwerewire]) {
-					skiptext = 1;
+					skiptext = true;
 					x = camerax() + 740;
 					y = global.monstermakey[myself];
 					rtimer = 0;
@@ -315,7 +315,7 @@ if (global.monster[myself] == 1) {
 		
 		if (summontimer >= 20) {
 			talkcon = 1;
-			summoning = 0;
+			summoning = false;
 		}
 	}
 	
@@ -327,7 +327,7 @@ if (global.monster[myself] == 1) {
 			with (obj_werewire_enemy)
 				talkwait = 2;
 			
-			wirewait = 0;
+			wirewait = false;
 		} else if (summontimer != 0) {
 			if (i_ex(obj_werewire_zzt_balloon))
 				summontimer = -1;
@@ -472,7 +472,7 @@ if (global.myfight == 3) {
 				}
 				
 				if (rand == 3) {
-					spill = 1;
+					spill = true;
 					scr_speaker("no_name");
 					msgsetloc(0, "* You pretended to spill your IQ points on the floor!/", "obj_berdlyb2_enemy_slash_Step_0_gml_194_0");
 					msgnextloc("* You got Noelle to pretend to pick them up!/", "obj_berdlyb2_enemy_slash_Step_0_gml_195_0");
@@ -601,14 +601,8 @@ if (global.myfight == 3) {
 }
 
 if (scr_debug()) {
-	if (keyboard_check_pressed(ord("B"))) {
+	if (keyboard_check_pressed(ord("B")))
 		difficulty = 1 - difficulty;
-		
-		if (difficulty == 1)
-			scr_debug_print("berdly is PISS");
-		else
-			scr_debug_print("berdly is not piss");
-	}
 }
 
 if (global.bmenuno == 99) {

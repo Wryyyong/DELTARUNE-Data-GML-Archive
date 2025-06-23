@@ -12,7 +12,7 @@ if (global.chapter != 2 || global.plot >= 64) {
 	if (i_ex(obj_cyber_wall_lights)) {
 		with (obj_cyber_wall_lights) {
 			if (x == 2840)
-				visible = false;
+				visible = 0;
 		}
 	}
 } else {
@@ -26,7 +26,7 @@ if (global.chapter != 2 || global.plot >= 64) {
 	if (i_ex(obj_cyber_wall_lights)) {
 		with (obj_cyber_wall_lights) {
 			if (x == 2840)
-				visible = true;
+				visible = 1;
 		}
 	}
 }

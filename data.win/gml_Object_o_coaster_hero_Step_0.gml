@@ -5,7 +5,7 @@ else
 
 if (o_coaster_controller.actcon == 1 && o_coaster_controller.timer < o_coaster_controller.timermax && bump == 1) {
 	if ((HeroID == 0 && gooffscreen == 0) || (HeroID == 1 && gooffscreen == 0) || (HeroID == 2 && gooffscreen == 0)) {
-		if (visible == true) {
+		if (visible == 1) {
 			bump = 0;
 			mykeybuffer = 3;
 			o_coaster_controller.playerinput = 1;

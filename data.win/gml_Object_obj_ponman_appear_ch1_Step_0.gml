@@ -73,7 +73,7 @@ if (con == 7) {
 		if (speed < maxspeed)
 			speed += 2;
 		
-		if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_mainchara_ch1, 0, 1)) {
+		if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_mainchara_ch1, false, true)) {
 			myencounter = 13;
 			
 			if (global.flag[502] == 1)

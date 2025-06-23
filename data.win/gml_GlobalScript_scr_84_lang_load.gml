@@ -32,7 +32,7 @@ function scr_84_lang_load() {
 		global.lang_map = orig_map;
 		
 		if (!is_english()) {
-			global.jp_data_loaded = 1;
+			global.jp_data_loaded = true;
 			show_debug_message("loaded: " + filename + ", entries: " + string(ds_map_size(global.lang_map)));
 		}
 	}

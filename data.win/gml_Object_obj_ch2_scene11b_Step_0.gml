@@ -222,7 +222,7 @@ if (con == 2 || scr_cutscene_loaded()) {
 	c_msgside("top");
 	c_msgsetloc(0, "\\EH* WOAH HEY WHAT THE HECK ARE YOU--/%", "obj_ch2_scene11b_slash_Step_0_gml_316_0");
 	c_talk_wait();
-	c_var_instance(id, "heal", 1);
+	c_var_instance(id, "heal", true);
 	c_wait(45);
 	c_imagespeed(0);
 	c_wait(30);
@@ -313,8 +313,8 @@ if (con == 2 || scr_cutscene_loaded()) {
 	c_terminatekillactors();
 }
 
-if (heal == 1) {
-	heal = 0;
+if (heal == true) {
+	heal = false;
 	healanim = instance_create(su_actor.x, su_actor.y, obj_healanim);
 	healanim.target = su_actor.id;
 	snd_play(snd_power);

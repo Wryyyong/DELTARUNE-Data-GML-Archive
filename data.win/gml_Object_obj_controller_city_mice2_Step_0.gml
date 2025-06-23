@@ -65,8 +65,8 @@ if (victory == 0) {
 				
 				if (i_ex(obj_cybercity_mousesign)) {
 					with (obj_cybercity_mousesign) {
-						start = 1;
-						fade_in = 1;
+						start = true;
+						fade_in = true;
 					}
 				}
 			}
@@ -427,15 +427,22 @@ if (victory == 0) {
 			if (icon == 999) {
 				snd_free_all();
 				musicer = instance_create(x, y, obj_musicer_city);
-				global.interact = 0;
-				icon = 3;
-				weird = 0;
+				icon = 1000;
 				
 				if (i_ex(obj_cybercity_mousesign)) {
 					with (obj_cybercity_mousesign) {
-						start = 1;
-						fade_in = 1;
+						start = true;
+						fade_in = true;
 					}
+				}
+			}
+			
+			if (icon == 1000) {
+				if (!d_ex()) {
+					weird = false;
+					global.interact = 0;
+					icon = 3;
+					global.facing = 0;
 				}
 			}
 		}
@@ -469,7 +476,7 @@ if (victory == 1) {
 		
 		if (timer > 20) {
 			with (obj_rotationController_track) {
-				rotate = 0;
+				rotate = false;
 				
 				with (controlled)
 					move = 0;
@@ -578,7 +585,7 @@ if (victory == 1) {
 		with (obj_mice2Switch) {
 			if (toggle == 1) {
 				with (obj_rotationController_track) {
-					rotate = 0;
+					rotate = false;
 					
 					with (controlled)
 						move = 0;

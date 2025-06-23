@@ -9,7 +9,7 @@ if (myinteract == 3) {
 	
 	if (timer >= 6) {
 		snd_play(snd_coin);
-		headobj.visible = true;
+		headobj.visible = 1;
 		global.interact = 0;
 		myinteract = 0;
 		instance_destroy();

@@ -708,9 +708,9 @@ if (global.interact == 5) {
 				var _border = border_options[selected_border];
 				
 				if (_border == "None" || _border == "なし")
-					scr_enable_screen_border_ch1(0);
+					scr_enable_screen_border_ch1(false);
 				else
-					scr_enable_screen_border_ch1(1);
+					scr_enable_screen_border_ch1(true);
 				
 				global.screen_border_id = border_options[selected_border];
 				check_border = 0;

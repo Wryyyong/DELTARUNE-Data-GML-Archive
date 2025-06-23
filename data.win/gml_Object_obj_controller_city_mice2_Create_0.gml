@@ -16,8 +16,8 @@ walkDist = 0;
 icon = 0;
 fadeout = 0;
 walkpoint = 0;
-moveforward = 0;
-inUse = 0;
+moveforward = false;
+inUse = false;
 instructionLerp = 0;
 
 if (global.flag[368] == 1 || global.plot >= 77) {

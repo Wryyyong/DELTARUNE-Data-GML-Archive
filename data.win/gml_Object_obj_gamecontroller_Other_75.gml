@@ -1,5 +1,3 @@
-show_debug_message("***** Event = " + ds_map_find_value(async_load, "event_type"));
-
 switch (ds_map_find_value(async_load, "event_type")) {
 	case "gamepad discovered":
 		var pad = ds_map_find_value(async_load, "pad_index");
@@ -8,7 +6,6 @@ switch (ds_map_find_value(async_load, "event_type")) {
 			gamepad_active = 1;
 			gamepad_id = pad;
 			gamepad_type = (gamepad_get_description(gamepad_id) == "Sony DualShock 4") ? 1 : 0;
-			show_debug_message("***** GAMEPAD DESCRIPTION: = " + gamepad_get_description(gamepad_id));
 		}
 		
 		break;

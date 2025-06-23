@@ -36,15 +36,15 @@ if (hasToggled == 1 && con == 0) {
 	
 	if (toggle == 0 && timer >= 30 && toggledtimer < 90 && obj_mainchara.x >= 386 && obj_mainchara.y > 1024) {
 		if (global.flag[915] == 3 && global.flag[916] == 0)
-			weirdRoute = 1;
+			weirdRoute = true;
 		else
-			weirdRoute = 0;
+			weirdRoute = false;
 		
 		con++;
 	}
 }
 
-if (weirdRoute == 0) {
+if (weirdRoute == false) {
 	if (con == 1 && global.interact == 0) {
 		global.flag[7] = 1;
 		global.interact = 1;
@@ -524,7 +524,7 @@ if (weirdRoute == 0) {
 	}
 }
 
-if (weirdRoute == 1) {
+if (weirdRoute == true) {
 	if (con == 1 && global.interact == 0) {
 		global.flag[7] = 1;
 		global.interact = 1;
@@ -750,7 +750,7 @@ if (weirdRoute == 1) {
 }
 
 if (weird_prompt && !d_ex()) {
-	weird_prompt = 0;
+	weird_prompt = false;
 	myinteract = 3;
 	global.interact = 1;
 	global.msc = 1193;

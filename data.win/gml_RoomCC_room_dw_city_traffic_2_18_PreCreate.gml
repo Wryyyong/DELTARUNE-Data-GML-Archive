@@ -1,4 +1,4 @@
-road_is_right = 1;
+road_is_right = true;
 group = 2;
 default_time = 8;
 type = 0;

@@ -1,1 +1,1 @@
-maintain_shape = 0;
+maintain_shape = false;

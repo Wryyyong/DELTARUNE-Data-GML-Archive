@@ -9,6 +9,7 @@ love = 1;
 time = 0;
 roome = 0;
 endme = 0;
+save_data_error = false;
 global.interact = 1;
 
 if (ossafe_file_exists_ch1("dr.ini")) {
@@ -21,8 +22,8 @@ if (ossafe_file_exists_ch1("dr.ini")) {
 	var room_index = ini_read_real("G" + string(global.filechoice), "Room", 0);
 	var room_offset = room_index;
 	
-	if (room_index < 280)
-		room_offset = 280 + room_index;
+	if (room_index < 281)
+		room_offset = 281 + room_index;
 	
 	roome = room_offset;
 	ossafe_ini_close_ch1();

@@ -15,7 +15,7 @@ susindex = 0;
 songplay = 0;
 
 with (obj_mainchara)
-	visible = false;
+	visible = 0;
 
 fin = instance_create(0, 0, obj_fadein);
 

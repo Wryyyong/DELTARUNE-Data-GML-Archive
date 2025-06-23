@@ -15,7 +15,7 @@ susindex = 0;
 songplay = 0;
 
 with (obj_mainchara_ch1)
-	visible = false;
+	visible = 0;
 
 fin = instance_create_ch1(0, 0, obj_fadein_ch1);
 

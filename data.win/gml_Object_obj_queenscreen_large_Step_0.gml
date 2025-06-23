@@ -6,41 +6,41 @@ if (activecon == 0) {
 		aligned = 0;
 		
 		if (extflag == 999) {
-			if (align_x == 1 && x >= camerax() && x <= (camerax() + camerawidth())) {
+			if (align_x == true && x >= camerax() && x <= (camerax() + camerawidth())) {
 				if (abs((obj_mainchara.x + 20) - x) <= align_amount)
 					aligned = 1;
 			}
 			
-			if (align_y == 1 && y >= cameray() && y <= (cameray() + cameraheight())) {
+			if (align_y == true && y >= cameray() && y <= (cameray() + cameraheight())) {
 				if (abs((obj_mainchara.y + 20) - y) <= align_amount)
 					aligned = 1;
 			}
 			
-			if (align_distance == 1) {
+			if (align_distance == true) {
 				if (distance_to_object(obj_mainchara) < align_amount)
 					aligned = 1;
 			}
 		}
 		
-		if (image_index != 14 && image_index != 13 && extflag == 0) {
-			if (align_x == 1 && x >= camerax() && x <= (camerax() + camerawidth())) {
+		if (image_index != 14 && image_index != 13 && extflag == false) {
+			if (align_x == true && x >= camerax() && x <= (camerax() + camerawidth())) {
 				if (abs((obj_mainchara.x + 20) - x) <= align_amount)
 					aligned = 1;
 			}
 			
-			if (align_y == 1 && y >= cameray() && y <= (cameray() + cameraheight())) {
+			if (align_y == true && y >= cameray() && y <= (cameray() + cameraheight())) {
 				if (abs((obj_mainchara.y + 20) - y) <= align_amount)
 					aligned = 1;
 			}
 			
-			if (align_distance == 1) {
+			if (align_distance == true) {
 				if (distance_to_object(obj_mainchara) < align_amount)
 					aligned = 1;
 			}
 		}
 		
 		if (aligned == 1) {
-			visible = true;
+			visible = 1;
 			con = 0;
 			activecon = 1;
 		}

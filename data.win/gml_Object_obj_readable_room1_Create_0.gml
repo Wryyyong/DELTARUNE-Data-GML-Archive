@@ -5,7 +5,7 @@ tempvar = 0;
 extflag = 0;
 mydialoguer = -1;
 skip = 0;
-selfdestruct = 0;
+selfdestruct = false;
 
 if (global.chapter == 2) {
 	if (room == room_schooldoor && x >= 270 && x <= 470) {

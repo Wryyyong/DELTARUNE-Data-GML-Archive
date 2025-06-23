@@ -15,13 +15,13 @@ if (instance_exists(obj_caterpillarchara)) {
 if (instance_exists(obj_traffic_road_trigger)) {
 	with (obj_mainchara) {
 		if (place_meeting(x, y, obj_traffic_road_trigger))
-			other.onroad = 1;
+			other.onroad = true;
 		else
-			other.onroad = 0;
+			other.onroad = false;
 	}
 }
 
-if (onroad == 1) {
+if (onroad == true) {
 	if (i_ex(ralsei)) {
 		if (ralsei.image_alpha > 0)
 			ralsei.image_alpha -= 0.1;
@@ -33,7 +33,7 @@ if (onroad == 1) {
 	}
 }
 
-if (onroad == 0) {
+if (onroad == false) {
 	if (i_ex(ralsei)) {
 		if (ralsei.image_alpha < 1)
 			ralsei.image_alpha += 0.1;

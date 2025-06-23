@@ -8,7 +8,9 @@ global.fc = 0;
 global.fe = 0;
 global.interact = 1;
 global.msg[0] = stringsetloc("* You can't read these symbols...&* Or maybe it's the handwriting./%", "obj_npc_sign_slash_Other_10_gml_10_0");
-global.msg[0] = stringset("* [NO TEXT] (obj_npc_sign)/%");
+
+if (scr_debug())
+	global.msg[0] = stringset("* [NO TEXT] (obj_npc_sign)/%");
 
 if (room == room_cutscene_tester) {
 	scr_smallface(0, "susie", 6, "left", "bottom", stringsetloc("BottomLeft", "obj_npc_sign_slash_Other_10_gml_15_0"));
@@ -314,7 +316,7 @@ if (room == room_dw_city_traffic_4) {
 		
 		if (i_ex(obj_ch2_room_city_traffic_jam)) {
 			with (obj_ch2_room_city_traffic_jam)
-				dismiss = 1;
+				dismiss = true;
 			
 			exit;
 		}
@@ -344,12 +346,12 @@ if (room == room_dw_castle_area_2_transformed) {
 
 if (room == room_dw_mansion_acid_tunnel) {
 	if (global.plot < 150) {
-		if (visible == false && global.plot < 150) {
+		if (visible == 0 && global.plot < 150) {
 			with (obj_queencar)
 				con = 1;
 			
 			with (obj_ch2_scene21)
-				remove_collider = 1;
+				remove_collider = true;
 			
 			instance_destroy();
 			exit;
@@ -359,7 +361,7 @@ if (room == room_dw_mansion_acid_tunnel) {
 			snd_play(snd_noise);
 			
 			with (obj_ch2_scene21)
-				release_swan = 1;
+				release_swan = true;
 			
 			read++;
 			exit;
@@ -386,7 +388,7 @@ if (room == room_dw_mansion_acid_tunnel_puzzle_entrance) {
 			con = 1;
 		
 		with (obj_ch2_scene21_puzzle_entrance)
-			remove_collider = 1;
+			remove_collider = true;
 		
 		global.facing = 1;
 		instance_destroy();
@@ -473,11 +475,11 @@ if (room == room_torhouse) {
 
 if (room == room_dw_mansion_east_4f_d) {
 	if (sprite_index == spr_berdly_hurt_kneel_burnt || sprite_index == spr_berdly_hurt_kneel) {
-		var have_susie = 0;
+		var have_susie = false;
 		
 		with (obj_caterpillarchara) {
 			if (name == "susie" && follow == 1)
-				have_susie = 1;
+				have_susie = true;
 		}
 		
 		if (!have_susie) {
@@ -845,7 +847,7 @@ if (room == room_dw_mansion_noelle_room) {
 		
 		if (i_ex(obj_ch2_scene23b)) {
 			with (obj_ch2_scene23b)
-				steal_susie = 1;
+				steal_susie = true;
 		}
 	}
 	
@@ -863,7 +865,7 @@ if (room == room_dw_mansion_noelle_room) {
 		
 		if (i_ex(obj_ch2_scene23b)) {
 			with (obj_ch2_scene23b)
-				steal_icee = 1;
+				steal_icee = true;
 		}
 	}
 }
@@ -1065,11 +1067,11 @@ if (room == room_dw_city_poppup) {
 
 if (room == room_dw_mansion_east_2f_shortcut) {
 	if (sprite_index == spr_dw_mansion_bookcase)
-		skip = 1;
+		skip = true;
 }
 
 if (room == room_dw_city_postbaseball_3)
-	skip = 1;
+	skip = true;
 
 if (room == room_dw_mansion_top) {
 	if (sprite_index == spr_queen_walk_up) {

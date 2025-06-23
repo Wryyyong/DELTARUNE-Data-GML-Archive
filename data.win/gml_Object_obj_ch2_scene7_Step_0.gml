@@ -8,7 +8,7 @@ if (con == 1) {
 	cutscene_master = scr_cutscene_make();
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	c_pannable(1);
 	kr = 0;
@@ -80,7 +80,7 @@ if (con == 1) {
 	c_sel(su);
 	c_walk("d", 5, 60);
 	c_actortokris();
-	c_panobj(80, 15);
+	c_panobj(82, 15);
 	c_wait(15);
 	c_pannable(0);
 }

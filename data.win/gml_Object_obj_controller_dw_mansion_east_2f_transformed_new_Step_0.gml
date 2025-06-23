@@ -6,7 +6,7 @@ if (sidea == 0 && global.flag[395] == 1) {
 			instance_destroy();
 	}
 	
-	sidea = 1;
+	sidea = true;
 }
 
 if (sideb == 0 && global.flag[396] == 1) {
@@ -17,5 +17,5 @@ if (sideb == 0 && global.flag[396] == 1) {
 			instance_destroy();
 	}
 	
-	sideb = 1;
+	sideb = true;
 }

@@ -259,7 +259,7 @@ if (state == 3) {
 	bigFlash *= 0.95;
 	
 	if (beats >= 32)
-		fadingOut = 1;
+		fadingOut = true;
 }
 
 if (fadingOut) {

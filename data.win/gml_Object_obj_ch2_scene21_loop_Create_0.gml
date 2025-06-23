@@ -4,8 +4,8 @@ customcon = 0;
 if (global.chapter != 2) {
 	instance_destroy();
 } else if (global.plot < 150) {
-	layer_set_visible("TILES_Mansion_Hide_1", 0);
-	layer_set_visible("TILES_Mansion_Hide_2", 0);
+	layer_set_visible("TILES_Mansion_Hide_1", false);
+	layer_set_visible("TILES_Mansion_Hide_2", false);
 	
 	if (!snd_is_playing(global.currentsong[1])) {
 		global.currentsong[0] = snd_init("acid_tunnel.ogg");
@@ -28,15 +28,15 @@ if (global.chapter != 2) {
 		scr_depth();
 	
 	swanboat.con = 1;
-	swanboat.pause_y_move = 1;
-	swanboat.pause_auto_talk = 1;
+	swanboat.pause_y_move = true;
+	swanboat.pause_auto_talk = true;
 	actor_shadow = 0;
-	inside_tunnel = 1;
+	inside_tunnel = true;
 	swan_shadow = scr_dark_marker(-200, swanboat.y, spr_swanboat_shadow);
 	swan_shadow.image_speed = swanboat.image_speed;
 	swan_shadow.image_alpha = 0.5;
-	adjust_actors = 1;
-	remove_shadow = 0;
+	adjust_actors = true;
+	remove_shadow = false;
 	camera = scr_dark_marker(1794, 60, spr_dw_mansion_camera);
 	
 	with (camera)
@@ -45,19 +45,19 @@ if (global.chapter != 2) {
 	ralsei_convo = 0;
 	ralsei_talk_timer = 0;
 	choice_text_timer = 0;
-	loopacid = 0;
-	shiftacid = 0;
-	shift_islands = 0;
+	loopacid = false;
+	shiftacid = false;
+	shift_islands = false;
 	shift_islands_timer = 0;
 	arrive_timer = 0;
-	remove_island_obj = 0;
-	set_flags_complete = 0;
-	rouxls_island = 0;
-	release_rouxls = 0;
+	remove_island_obj = false;
+	set_flags_complete = false;
+	rouxls_island = false;
+	release_rouxls = false;
 	rouxls_appear = -1;
 	rouxls_appear_timer = 0;
-	rouxls_power_up = 0;
-	rouxls_power_up_cancel = 0;
+	rouxls_power_up = false;
+	rouxls_power_up_cancel = false;
 	rouxls_talk_timer = 0;
 	blackall = scr_marker(-10, -10, spr_pixel_white);
 	blackall.image_xscale = 999;
@@ -71,13 +71,13 @@ if (global.chapter != 2) {
 	whiteall.depth = 0;
 	whiteall.image_alpha = 0;
 	duckmode = global.flag[220] == 3 && global.flag[221] == 3 && global.flag[222] == 3;
-	take_photo = 0;
+	take_photo = false;
 	photocon = 0;
 	leave_timer = 0;
-	remove_collider = 0;
-	explosion = 0;
+	remove_collider = false;
+	explosion = false;
 	explodetimer = 0;
-	finish_thrash = 0;
+	finish_thrash = false;
 	simtown_xpos = 760;
 	swan_swap = 0;
 	swan_depth = 0;
@@ -95,7 +95,7 @@ if (global.chapter != 2) {
 	tile6.image_xscale = 8;
 	
 	with (obj_simtown_landmaker)
-		visible = false;
+		visible = 0;
 	
 	simcity = instance_create(simtown_xpos, 0, obj_rouxls_simtown);
 } else {

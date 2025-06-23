@@ -60,7 +60,7 @@ if (global.monster[myself] == 1) {
 		}
 		
 		if (tasque_joined) {
-			tasque_joined = 0;
+			tasque_joined = false;
 			msgsetloc(0, "(I'll work with&who I have to.)", "obj_maus_enemy_slash_Step_0_gml_51_0");
 		}
 		
@@ -212,20 +212,22 @@ if (global.myfight == 3) {
 		}
 	}
 	
-	if (actcon == 30 && !instance_exists(obj_writer)) {
-		tasquemarker = scr_dark_marker(camerax() + 800, y, spr_tasque_idle);
-		tasquemarker.image_speed = 0.16666666666666666;
-		tasquemarker.depth = depth;
-		var currentX = x - 80;
-		var currentY = y - 15;
-		image_xscale = -2;
-		scr_move_to_point_over_time(camerax() + 800, global.monstermakey[myself], 30);
-		
-		with (tasquemarker)
-			scr_move_to_point_over_time(currentX, currentY, 30);
-		
-		actcon = 31;
-		alarm[4] = 30;
+	if (actcon == 30) {
+		if (!i_ex(battlewriter)) {
+			tasquemarker = scr_dark_marker(camerax() + 800, y, spr_tasque_idle);
+			tasquemarker.image_speed = 0.16666666666666666;
+			tasquemarker.depth = depth;
+			var currentX = x - 80;
+			var currentY = y - 15;
+			image_xscale = -2;
+			scr_move_to_point_over_time(camerax() + 800, global.monstermakey[myself], 30);
+			
+			with (tasquemarker)
+				scr_move_to_point_over_time(currentX, currentY, 30);
+			
+			actcon = 31;
+			alarm[4] = 30;
+		}
 	}
 	
 	if (actcon == 32) {
@@ -234,7 +236,7 @@ if (global.myfight == 3) {
 		scr_anyface_next("susie", "K");
 		msgnextloc("\\EK* Huh?/%", "obj_maus_enemy_slash_Step_0_gml_253_0");
 		scr_battletext();
-		remove = 1;
+		remove = true;
 		actcon = 33;
 		alarm[4] = 30;
 	}
@@ -243,7 +245,7 @@ if (global.myfight == 3) {
 		actcon = 1;
 	
 	if (acting == 4 && actcon == 0) {
-		trappingX = 1;
+		trappingX = true;
 		msgsetsubloc(0, "* Press ~1 to trap all the enemies!", scr_get_input_name(6), "obj_maus_enemy_slash_Step_0_gml_269_0");
 		scr_battletext_default();
 		actcon = 9;
@@ -270,7 +272,7 @@ if (global.myfight == 3) {
 	}
 	
 	if (actcon == 12) {
-		trappingX = 0;
+		trappingX = false;
 		
 		with (obj_writer)
 			instance_destroy();
@@ -304,7 +306,7 @@ if (global.myfight == 3) {
 	if (actingral == 1 && actconral == 1) {
 		if (!trappedText) {
 			with (obj_maus_enemy) {
-				trappedText = 1;
+				trappedText = true;
 				global.actsimulral[myself][0] = 1;
 			}
 			
@@ -326,7 +328,7 @@ if (global.myfight == 3) {
 		basket = instance_create(obj_herosusie.x - 5, cameray() - 100, obj_maus_basket_susie);
 		
 		with (obj_herosusie)
-			visible = false;
+			visible = 0;
 		
 		nise_susie = scr_dark_marker(obj_herosusie.x + 16, obj_herosusie.y - 1, spr_susie_shock_r);
 		nise_susie.depth = obj_herosusie.depth;
@@ -378,20 +380,32 @@ if (global.myfight == 3) {
 		if (remove) {
 			if (i_ex(obj_maus_enemy)) {
 				with (obj_maus_enemy)
-					tasque_joined = 1;
+					tasque_joined = true;
 			}
 			
 			global.monstermakey[myself] = y - 15;
 			global.monstermakex[myself] = tasquemarker.x;
-			newtasque = scr_monster_change(myself, 32, 446);
+			newtasque = scr_monster_change(myself, 32, 448);
 			
 			with (tasquemarker)
 				instance_destroy();
 			
-			if (global.char[2] == 3) {
-				if (global.actingtarget[2] == myself && global.actingsingle[2] == 1)
-					scr_nextact();
+			var acttriggered = 0;
+			
+			for (var __i = 1; __i < 3; __i++) {
+				if (global.actingtarget[__i] == myself && global.char[__i] > 0) {
+					if (global.char[__i] == 3)
+						acttriggered = 1;
+					
+					global.acting[__i] = 0;
+					global.actingsimul[__i] = 0;
+					global.actingsingle[__i] = 0;
+					global.faceaction[__i] = 0;
+				}
 			}
+			
+			if (acttriggered)
+				scr_nextact();
 			
 			instance_destroy();
 		}
@@ -404,7 +418,7 @@ if (global.myfight == 3) {
 				instance_destroy();
 			
 			with (obj_herosusie)
-				visible = true;
+				visible = 1;
 		}
 	}
 	

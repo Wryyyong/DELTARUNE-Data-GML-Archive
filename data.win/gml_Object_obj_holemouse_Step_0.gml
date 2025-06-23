@@ -10,7 +10,7 @@ if (initas == 0) {
 	moved = 0;
 }
 
-if (blockedstart == 0) {
+if (blockedstart == false) {
 	if (con == 0) {
 		image_alpha += 0.25;
 		y += 4;
@@ -118,7 +118,7 @@ if (blockedstart == 0) {
 		instance_destroy();
 }
 
-if (blockedstart == 1) {
+if (blockedstart == true) {
 	timer++;
 	
 	if (timer == 10)
@@ -215,6 +215,10 @@ if (con == 5) {
 			y = bounceTargetY;
 			x = bounceTargetX;
 			con = 1;
+			
+			if (room == room_dw_city_mice)
+				nointeract = false;
+			
 			direction = bounceTargetDir;
 		}
 	}

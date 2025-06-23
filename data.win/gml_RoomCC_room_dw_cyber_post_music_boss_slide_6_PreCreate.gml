@@ -1,6 +1,6 @@
 myView = 2;
 targetX = room_width - 640;
-useTargetY = 0;
+useTargetY = false;
 ignoreFreezeArea = 1;
-useTargetX = 1;
+useTargetX = true;
 camID = 1;

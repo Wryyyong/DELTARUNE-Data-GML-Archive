@@ -11,4 +11,4 @@ siner_amplitude1 = 5;
 siner_direction1 = 90;
 image_speed = 0.25;
 shakecon = 0;
-shake_loop = 0;
+shake_loop = false;

@@ -1,2 +1,2 @@
 extflag = "ferris";
-weird_prompt = 0;
+weird_prompt = false;

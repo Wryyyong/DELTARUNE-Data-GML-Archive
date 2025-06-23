@@ -2,7 +2,7 @@ timer--;
 xx = obj_growtangle.x + 80;
 
 if (state == 0) {
-	scrollPrep = 1;
+	scrollPrep = true;
 	timer = 0;
 	image_blend = c_gray;
 }
@@ -61,11 +61,11 @@ if (timer <= 0) {
 			timer = 1000;
 			
 			if (bigscrollcount == 0) {
-				scrollPrep = 1;
+				scrollPrep = true;
 				bigscrollcount = irandom(1) + 1;
 			} else {
 				bigscrollcount--;
-				scrollPrep = 0;
+				scrollPrep = false;
 			}
 			
 			image_blend = c_white;
@@ -94,7 +94,7 @@ if (timer <= 0) {
 			break;
 		
 		case 7:
-			scrollPrep = 0;
+			scrollPrep = false;
 			timer = 1000;
 			break;
 	}

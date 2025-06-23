@@ -5,4 +5,4 @@ image_speed = 0;
 timer = 0;
 
 if (file_exists("game.gif"))
-	mygif = sprite_add("game.gif", 0, false, false, 0, 0);
+	mygif = sprite_add("game.gif", 0, 0, 0, 0, 0);

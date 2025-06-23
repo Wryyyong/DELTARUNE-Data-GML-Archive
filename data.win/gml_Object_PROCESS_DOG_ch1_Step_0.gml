@@ -9,7 +9,7 @@ if (button1_p_ch1() && !start_timer) {
 	with (fadeout)
 		fadespeed = 0.02;
 	
-	start_timer = 1;
+	start_timer = true;
 }
 
 if (start_timer) {
@@ -18,4 +18,4 @@ if (start_timer) {
 }
 
 if (restart_timer == 200)
-	game_restart();
+	game_restart_true_ch1();

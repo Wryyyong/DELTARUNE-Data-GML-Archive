@@ -17,10 +17,10 @@ if (con == 1) {
 	con = 2;
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	with (obj_caterpillarchara)
-		visible = false;
+		visible = 0;
 	
 	cutscene_master = scr_cutscene_make();
 	scr_maincharacters_actors();
@@ -91,18 +91,18 @@ if (con == 10) {
 	scr_makecaterpillar(obj_mainchara.x - 120, obj_mainchara.y, 3, 1);
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	with (obj_caterpillarchara)
-		visible = false;
+		visible = 0;
 	
 	cutscene_master = scr_cutscene_make();
 	
 	with (nise_susie)
-		visible = false;
+		visible = 0;
 	
 	with (nise_ralsei)
-		visible = false;
+		visible = 0;
 	
 	kr = 0;
 	kr_actor = instance_create(obj_mainchara.x, obj_mainchara.y, obj_actor);
@@ -138,7 +138,7 @@ if (con == 11) {
 	c_pannable(1);
 	c_panspeed_wait(-6, 0, 35);
 	c_msgside("top");
-	c_var_instance(id, "disable_face", 1);
+	c_var_instance(id, "disable_face", true);
 	c_speaker("ralsei");
 	c_msgsetloc(0, "* C'mon^1, Susie!^1! Give me my glasses back!!/", "obj_ch2_sceneex1_slash_Step_0_gml_165_0");
 	c_facenext("susie", "a");
@@ -205,6 +205,6 @@ if (con == 50 && !i_ex(obj_cutscene_master)) {
 }
 
 if (disable_face) {
-	disable_face = 0;
+	disable_face = false;
 	global.fc = 0;
 }

@@ -4,7 +4,7 @@ image_xscale = 2;
 image_yscale = 2;
 sprite_index = spr_caradventure_car_foe;
 image_index = 1;
-audio_play_sound(snd_bigcar_yelp, 0, false);
+audio_play_sound(snd_bigcar_yelp, 0, 0);
 dir = 0;
 image_angle += 90;
 image_speed = 0;

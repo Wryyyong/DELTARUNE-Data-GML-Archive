@@ -17,7 +17,7 @@ if (global.chapter != 2)
 	instance_destroy();
 
 if (global.chapter == 2) {
-	pause_music = 0;
+	pause_music = false;
 	
 	if (global.plot >= 55) {
 		con = -1;

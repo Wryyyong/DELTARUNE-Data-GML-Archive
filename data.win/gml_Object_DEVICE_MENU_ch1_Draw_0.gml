@@ -323,7 +323,7 @@ if (MENU_NO >= 0) {
 	if (TYPE == 1) {
 		draw_set_alpha(0.4);
 		draw_set_color(c_white);
-		draw_text_transformed(195, 230, "DELTARUNE " + version_text + "(C) Toby Fox 2018-2021 ", 0.5, 0.5, 0);
+		draw_text_transformed(195, 230, "DELTARUNE " + version_text + "(C) Toby Fox 2018-2022 ", 0.5, 0.5, 0);
 	} else {
 		draw_set_color(COL_A);
 		draw_text_transformed(248, 230, version_text, 0.5, 0.5, 0);

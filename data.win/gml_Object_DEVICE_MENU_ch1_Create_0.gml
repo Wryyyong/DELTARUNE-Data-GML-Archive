@@ -33,7 +33,7 @@ OBM = 0.5;
 COL_A = c_green;
 COL_B = c_lime;
 COL_PLUS = merge_color(c_lime, c_white, 0.5);
-input_enabled = 1;
+input_enabled = true;
 
 if (TYPE == 1) {
 	BGSINER = 0;
@@ -74,12 +74,12 @@ TWOBUFFER = 0;
 THREAT = 0;
 TEMPMESSAGE = " ";
 MESSAGETIMER = 0;
-version_text = "1.07 ";
+version_text = "1.08 ";
 
 if (os_type == os_switch)
-	version_text = "1.03b ";
+	version_text = "1.04 ";
 
 if (os_type == os_ps4)
-	version_text = "1.03 ";
+	version_text = "1.04 ";
 
 scr_84_load_ini_ch1();

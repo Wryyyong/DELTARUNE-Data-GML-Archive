@@ -6,7 +6,7 @@ if (init == 1) {
 	
 	if (i_ex(target)) {
 		with (target)
-			visible = true;
+			visible = 1;
 		
 		target.x = endx;
 		target.y = endy;

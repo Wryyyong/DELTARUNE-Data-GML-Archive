@@ -1,2 +1,2 @@
-if (instance_exists(mywriter) == 0)
+if (instance_exists(mywriter) == false)
 	instance_destroy();

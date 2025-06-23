@@ -82,13 +82,13 @@ if (room == room_cc_rurus1_ch1) {
 	if (con == 8 && !instance_exists(obj_writer_ch1)) {
 		snd_play_ch1(snd_rurus_appear_ch1);
 		appear = instance_create_ch1(x, y, obj_rurus_appear_ch1);
-		visible = false;
+		visible = 0;
 		con = 14;
 		alarm[4] = 60;
 	}
 	
 	if (con == 15) {
-		visible = true;
+		visible = 1;
 		
 		with (appear)
 			instance_destroy();
@@ -258,13 +258,13 @@ if (room == room_cc_rurus2_ch1) {
 	if (con == 8 && !instance_exists(obj_writer_ch1)) {
 		snd_play_ch1(snd_rurus_appear_ch1);
 		appear = instance_create_ch1(x, y, obj_rurus_appear_ch1);
-		visible = false;
+		visible = 0;
 		con = 14;
 		alarm[4] = 60;
 	}
 	
 	if (con == 15) {
-		visible = true;
+		visible = 1;
 		
 		with (appear)
 			instance_destroy();

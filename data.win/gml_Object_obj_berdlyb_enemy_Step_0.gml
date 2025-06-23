@@ -476,12 +476,6 @@ if (endcon == 1) {
 }
 
 if (scr_debug()) {
-	if (keyboard_check_pressed(ord("B"))) {
+	if (keyboard_check_pressed(ord("B")))
 		difficulty = 1 - difficulty;
-		
-		if (difficulty == 1)
-			scr_debug_print("berdly is PISS");
-		else
-			scr_debug_print("berdly is not piss");
-	}
 }

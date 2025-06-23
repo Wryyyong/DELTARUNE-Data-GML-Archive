@@ -21,7 +21,7 @@ if (room == room_flowershop_1f_ch1) {
 	
 	if (global.flag[262] >= 1) {
 		instance_create_ch1(x, y + sprite_height, obj_npc_facing_ch1);
-		visible = false;
+		visible = 0;
 		
 		if (global.flag[262] == 1)
 			con = 50;
@@ -47,7 +47,7 @@ if (room == room_flowershop_1f_ch1) {
 }
 
 if (room == room_flowershop_2f_ch1) {
-	visible = false;
+	visible = 0;
 	
 	if (global.entrance == 1) {
 		global.entrance = 0;

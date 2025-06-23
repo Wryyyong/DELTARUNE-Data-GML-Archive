@@ -218,7 +218,7 @@ if (con == 21) {
 
 if (drawground) {
 	draw_set_color(merge_color(c_navy, c_ltgray, 0.5));
-	draw_ellipse(cx - 200, cy + 100, cx + 200, cy + 40, 0);
+	draw_ellipse(cx - 200, cy + 100, cx + 200, cy + 40, false);
 }
 
 if (auto == 1) {

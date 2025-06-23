@@ -10,7 +10,7 @@ if (global.flag[346] == 0) {
 		con = 2;
 		global.interact = 1;
 		key = scr_dark_marker(keyXPos, keyYPos, spr_ch2_gimmick_saucer_key);
-		fadeplatters = 1;
+		fadeplatters = true;
 	}
 	
 	if (fadeplatters) {
@@ -23,7 +23,7 @@ if (global.flag[346] == 0) {
 	}
 	
 	if (con == 2 && !keyfloat) {
-		keysparkle = 1;
+		keysparkle = true;
 		
 		if (key.y != (keyYPos - 20)) {
 			key.y = lerp(key.y, keyYPos - 20, 0.1);
@@ -35,7 +35,7 @@ if (global.flag[346] == 0) {
 			
 			if (floattimer == 30) {
 				floattimer = 0;
-				keyfloat = 1;
+				keyfloat = true;
 			}
 		}
 	}
@@ -60,7 +60,7 @@ if (global.flag[346] == 0) {
 		
 		if (key.x <= (bookcase.x + 1) && key.y <= (bookcase.y + 51)) {
 			con = 3;
-			keysparkle = 0;
+			keysparkle = false;
 		}
 	}
 	
@@ -72,7 +72,7 @@ if (global.flag[346] == 0) {
 		explosion.sprite_index = spr_realisticexplosion;
 		explosion.image_xscale = 2;
 		explosion.image_yscale = 2;
-		fadeplatters = 0;
+		fadeplatters = false;
 		snd_play(snd_badexplosion);
 		safe_delete(key);
 		safe_delete(bookcase);
@@ -97,8 +97,11 @@ if (global.flag[346] == 0) {
 	}
 	
 	if (make_forcefield) {
-		forcefield_right = scr_forcefield(520, 240, 2, 8, 1, 0);
-		forcefield_right.depth = 80000;
-		make_forcefield = 0;
+		if (!i_ex(obj_forcefield)) {
+			forcefield_right = scr_forcefield(520, 240, 2, 8, 1, 0);
+			forcefield_right.depth = 80000;
+		}
+		
+		make_forcefield = false;
 	}
 }

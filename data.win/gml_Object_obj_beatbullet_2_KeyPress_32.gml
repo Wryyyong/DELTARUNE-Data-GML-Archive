@@ -1,2 +1,2 @@
 if (scr_debug())
-	inSync = 0;
+	inSync = false;

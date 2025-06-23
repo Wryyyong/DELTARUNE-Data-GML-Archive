@@ -66,13 +66,13 @@ if (con == 1) {
 	c_wait(41);
 	c_msgsetloc(0, "\\E1* Gravy/%", "obj_ch2_scene27_slash_Step_0_gml_74_0");
 	c_talk_wait();
-	c_var_instance(id, "hand_release", 1);
+	c_var_instance(id, "hand_release", true);
 	c_wait(90);
 	c_mus2("initloop", "wind_highplace.ogg", 0);
 	c_wait(90);
 	c_speaker("queen_2");
 	c_fefc(0, 0);
-	c_var_instance(id, "set_queen_voice", 1);
+	c_var_instance(id, "set_queen_voice", true);
 	c_msgsetloc(0, "\\E6* Take..^1. The Pin..^1. I Gave You/", "obj_ch2_scene27_slash_Step_0_gml_82_0");
 	c_msgnextloc("\\E6* And..^1. Stab The Earth/", "obj_ch2_scene27_slash_Step_0_gml_83_0");
 	c_msgnextloc("\\E7* Creating..^1. Our New..^1. Supreme Empire/", "obj_ch2_scene27_slash_Step_0_gml_84_0");
@@ -88,11 +88,11 @@ if (con == 1) {
 	c_sprite(spr_cutscene_23b_noelle_kneel_forward);
 	c_imageindex(0);
 	c_imagespeed(0);
-	c_var_instance(id, "shake_hand", 1);
+	c_var_instance(id, "shake_hand", true);
 	c_wait(15);
-	c_var_instance(id, "shake_hand", 1);
+	c_var_instance(id, "shake_hand", true);
 	c_wait(15);
-	c_var_instance(id, "shake_hand", 1);
+	c_var_instance(id, "shake_hand", true);
 	c_wait(50);
 	c_speaker("queen_2");
 	c_fefc(0, 0);
@@ -142,11 +142,11 @@ if (con == 1) {
 	c_mus("free_all");
 	c_soundplay_x(snd_closet_impact, 1, 0.5);
 	c_var_instance(bigqueen, "damagedfx", 0);
-	c_var_instance(id, "static_queen", 1);
-	c_var_instance(id, "su_shocked", 1);
-	c_var_instance(id, "ra_look", 1);
+	c_var_instance(id, "static_queen", true);
+	c_var_instance(id, "su_shocked", true);
+	c_var_instance(id, "ra_look", true);
 	c_wait(90);
-	c_var_instance(id, "su_look_right", 1);
+	c_var_instance(id, "su_look_right", true);
 	c_sel(no);
 	c_facing("u");
 	c_speaker("noelle");
@@ -162,10 +162,10 @@ if (con == 1) {
 	c_wait_box(2);
 	c_facing("u");
 	c_wait_box(3);
-	c_var_instance(id, "ra_smile", 1);
+	c_var_instance(id, "ra_smile", true);
 	c_waittalk();
 	c_wait(90);
-	c_var_instance(id, "ra_look", 1);
+	c_var_instance(id, "ra_look", true);
 	c_speaker("ralsei");
 	c_msgsetloc(0, "\\EK* Everybody?/%", "obj_ch2_scene27_slash_Step_0_gml_173_0");
 	c_talk_wait();
@@ -210,34 +210,34 @@ if (con == 1) {
 	c_wait_box(4);
 	c_sprite(spr_noelle_head_lowered_left_dw);
 	c_wait_box(6);
-	c_var_instance(id, "ra_huh", 1);
+	c_var_instance(id, "ra_huh", true);
 	c_wait_box(8);
 	c_sprite(spr_noelle_head_lowered_dw);
 	c_wait_box(10);
-	c_var_instance(id, "su_look_left", 1);
+	c_var_instance(id, "su_look_left", true);
 	c_wait_box(12);
-	c_var_instance(id, "su_grin_1", 1);
+	c_var_instance(id, "su_grin_1", true);
 	c_wait_box(15);
 	c_sprite(spr_noelle_head_lowered_left_dw);
 	c_halt();
 	c_wait_box(19);
 	c_sprite(spr_noelle_head_lowered_dw);
 	c_wait_box(21);
-	c_var_instance(id, "su_grin_2", 1);
+	c_var_instance(id, "su_grin_2", true);
 	c_wait_box(22);
-	c_var_instance(id, "su_grin_1", 1);
+	c_var_instance(id, "su_grin_1", true);
 	c_wait_box(24);
 	c_sprite(spr_noelle_head_lowered_left_dw);
 	c_halt();
 	c_wait_box(25);
-	c_var_instance(id, "su_look_right", 1);
+	c_var_instance(id, "su_look_right", true);
 	c_sprite(spr_noelle_walk_up_dw);
 	c_halt();
 	c_wait_box(26);
 	c_sprite(spr_noelle_head_lowered_dw);
 	c_waittalk();
 	c_wait(30);
-	c_var_instance(id, "su_squint_2", 1);
+	c_var_instance(id, "su_squint_2", true);
 	c_sel(be);
 	c_autowalk(0);
 	
@@ -273,13 +273,13 @@ if (con == 1) {
 	c_sel(no);
 	c_sprite(spr_noelle_smile_forward_dw);
 	c_wait_box(4);
-	c_var_instance(id, "su_squint_1", 1);
+	c_var_instance(id, "su_squint_1", true);
 	c_waittalk();
 	c_sprite(spr_noelle_smile_left_dw);
 	c_autowalk(0);
 	c_imagespeed(0);
 	c_imageindex(1);
-	c_var_instance(id, "su_squint_2", 1);
+	c_var_instance(id, "su_squint_2", true);
 	c_sel(be);
 	c_autowalk(0);
 	
@@ -292,9 +292,9 @@ if (con == 1) {
 	c_setxy(x, y);
 	c_imageindex(0);
 	c_soundplay(snd_weaponpull);
-	c_var_instance(id, "berdly_power_up_start", 1);
+	c_var_instance(id, "berdly_power_up_start", true);
 	c_wait(60);
-	c_var_instance(id, "berdly_power_up", 1);
+	c_var_instance(id, "berdly_power_up", true);
 	c_mus2("initloop", "gigaqueen_pre.ogg", 0);
 	c_wait(60);
 	c_speaker("berdly");
@@ -304,7 +304,7 @@ if (con == 1) {
 	c_msgnextloc("* A future that shines for US!/", "obj_ch2_scene27_slash_Step_0_gml_378_0");
 	c_msgnextloc("* A future whose brightness... is born from DARKNESS!/%", "obj_ch2_scene27_slash_Step_0_gml_247_0");
 	c_talk_wait();
-	c_var_instance(id, "berdly_power_up_cancel", 1);
+	c_var_instance(id, "berdly_power_up_cancel", true);
 	c_mus("pause");
 	c_sel(be);
 	
@@ -315,14 +315,14 @@ if (con == 1) {
 	
 	c_sel(no);
 	c_sprite(spr_noelle_surprise_left_dw);
-	c_var_instance(id, "su_concerned", 1);
+	c_var_instance(id, "su_concerned", true);
 	c_sel(be);
 	c_emote("!", 30);
 	c_sel(no);
 	c_emote("!", 30);
 	c_mus("pause");
 	c_soundplay(snd_whip_crack_only);
-	c_var_instance(id, "ra_scared", 1);
+	c_var_instance(id, "ra_scared", true);
 	c_speaker("ralsei");
 	c_msgsetloc(0, "\\EY* STOP!/%", "obj_ch2_scene27_slash_Step_0_gml_403_0");
 	c_talk_wait();
@@ -343,7 +343,7 @@ if (con == 1) {
 	c_speaker("berdly");
 	c_msgsetloc(0, "\\EI* Well^1, we thought we would just%%", "obj_ch2_scene27_slash_Step_0_gml_268_0");
 	c_talk_wait();
-	c_var_instance(id, "su_look_right", 1);
+	c_var_instance(id, "su_look_right", true);
 	c_sel(be);
 	
 	if (global.flag[457] == 1)
@@ -375,7 +375,7 @@ if (con == 1) {
 	
 	c_mus("free");
 	c_soundplay(snd_whip_crack_only);
-	c_var_instance(id, "ra_shake", 1);
+	c_var_instance(id, "ra_shake", true);
 	c_speaker("ralsei");
 	c_msgsetloc(0, "\\EY* Stop!/", "obj_ch2_scene27_slash_Step_0_gml_283_0");
 	c_msgnextloc("\\EZ* Do you realize what will happen if you do that?/", "obj_ch2_scene27_slash_Step_0_gml_284_0");
@@ -393,7 +393,7 @@ if (con == 1) {
 		c_sprite(spr_cutscene_27_berdly_halt_look_forward);
 	
 	c_wait_box(5);
-	c_var_instance(id, "ra_stern", 1);
+	c_var_instance(id, "ra_stern", true);
 	c_sel(be);
 	
 	if (global.flag[457] == 1)
@@ -404,7 +404,7 @@ if (con == 1) {
 	c_waittalk();
 	c_var_instance(blackall, "image_blend", 0);
 	c_var_lerp_instance(blackall, "image_alpha", 0, 1, 60);
-	c_var_instance(id, "hide_border", 1);
+	c_var_instance(id, "hide_border", true);
 	c_wait(60);
 	c_waitcustom();
 }
@@ -418,22 +418,22 @@ if (con == 11 && customcon == 1) {
 
 if (con == 13 || scr_cutscene_loaded()) {
 	room_persistent = false;
-	static_queen_stop = 1;
+	static_queen_stop = true;
 	con = 49;
 	alarm[0] = 30;
 	c_waitcustom_end();
-	c_var_instance(id, "hide_border", 0);
-	c_var_instance(id, "show_border", 1);
+	c_var_instance(id, "hide_border", false);
+	c_var_instance(id, "show_border", true);
 	c_sel(be);
 	c_autowalk(1);
 	c_setxy(220, 222);
 	c_sprite(spr_cutscene_27_berdly_shocked);
-	c_var_instance(id, "queen_surprised", 1);
-	c_var_instance(id, "su_shocked", 1);
+	c_var_instance(id, "queen_surprised", true);
+	c_var_instance(id, "su_shocked", true);
 	c_var_instance(blackall, "image_blend", 0);
 	c_var_lerp_instance(blackall, "image_alpha", 1, 0, 60);
 	c_wait(165);
-	c_var_instance(id, "ra_look", 1);
+	c_var_instance(id, "ra_look", true);
 	c_speaker("queen");
 	c_msgsetloc(0, "\\E8* Oh Damn I Did Not Know That/", "obj_ch2_scene27_slash_Step_0_gml_343_0");
 	c_facenext("ralsei", "L");
@@ -441,13 +441,13 @@ if (con == 13 || scr_cutscene_loaded()) {
 	c_msgnextloc("\\EC* But your whole plan was to --/%", "obj_ch2_scene27_slash_Step_0_gml_346_0");
 	c_talk();
 	c_wait_box(2);
-	c_var_instance(id, "ra_huh", 1);
+	c_var_instance(id, "ra_huh", true);
 	c_wait_box(3);
-	c_var_instance(id, "ra_scared", 1);
+	c_var_instance(id, "ra_scared", true);
 	c_waittalk();
-	c_var_instance(id, "su_squint_1", 1);
-	c_var_instance(id, "ra_mu", 1);
-	c_var_instance(id, "queen_laugh_start", 1);
+	c_var_instance(id, "su_squint_1", true);
+	c_var_instance(id, "ra_mu", true);
+	c_var_instance(id, "queen_laugh_start", true);
 	c_soundplay(snd_queen_laugh_0);
 	c_sel(be);
 	
@@ -463,7 +463,7 @@ if (con == 13 || scr_cutscene_loaded()) {
 	c_msgnextloc("\\ED* I Was Just Guessing Based Off The Knight's Actions/", "obj_ch2_scene27_slash_Step_0_gml_362_0");
 	c_msgnextloc("\\EB* Why The Heck (Hell) Would I Want To End The World/%", "obj_ch2_scene27_slash_Step_0_gml_363_0");
 	c_talk_wait();
-	c_var_instance(id, "queen_laugh_stop", 1);
+	c_var_instance(id, "queen_laugh_stop", true);
 	c_sel(be);
 	
 	if (global.flag[457] == 1)
@@ -520,7 +520,7 @@ if (con == 13 || scr_cutscene_loaded()) {
 	c_speaker("berdly");
 	c_msgsetloc(0, "\\E3* You..^1. you understand how I feel?/%", "obj_ch2_scene27_slash_Step_0_gml_402_0");
 	c_talk_wait();
-	c_var_instance(id, "queen_laugh_start", 1);
+	c_var_instance(id, "queen_laugh_start", true);
 	c_soundplay(snd_queen_laugh_0);
 	c_sel(no);
 	c_facing("u");
@@ -528,7 +528,7 @@ if (con == 13 || scr_cutscene_loaded()) {
 	c_speaker("queen");
 	c_msgsetloc(0, "\\EN* Not Really LMAO I Just Don't Want Noelle To Be Sad/%", "obj_ch2_scene27_slash_Step_0_gml_417_0");
 	c_talk_wait();
-	c_var_instance(id, "queen_laugh_stop", 1);
+	c_var_instance(id, "queen_laugh_stop", true);
 	c_sel(no);
 	c_sprite(spr_cutscene_23b_noelle_walk_happy_up_left);
 	c_halt();
@@ -568,9 +568,9 @@ if (con == 13 || scr_cutscene_loaded()) {
 		c_sprite(spr_cutscene_27_berdly_laugh);
 	
 	c_imagespeed(0.25);
-	c_var_instance(id, "queen_laugh_start", 1);
+	c_var_instance(id, "queen_laugh_start", true);
 	c_wait(99);
-	c_var_instance(id, "queen_laugh_stop", 1);
+	c_var_instance(id, "queen_laugh_stop", true);
 	c_sel(be);
 	c_halt();
 	c_sel(no);
@@ -578,7 +578,7 @@ if (con == 13 || scr_cutscene_loaded()) {
 	c_speaker("queen");
 	c_msgsetloc(0, "\\EI* No We Freaking Didn't?/%", "obj_ch2_scene27_slash_Step_0_gml_486_0");
 	c_talk_wait();
-	c_var_instance(id, "su_look_right", 1);
+	c_var_instance(id, "su_look_right", true);
 	c_speaker("susie");
 	c_msgsetloc(0, "\\EH* CAN YOU LET GO OF US NOW!?/%", "obj_ch2_scene27_slash_Step_0_gml_494_0");
 	c_talk_wait();
@@ -596,7 +596,7 @@ if (con == 13 || scr_cutscene_loaded()) {
 		c_sprite(spr_cutscene_27_berdly_walk_right);
 	
 	c_halt();
-	c_var_instance(id, "hand_leave", 1);
+	c_var_instance(id, "hand_leave", true);
 	c_soundplay(snd_jump);
 	c_soundplay(snd_queen_pirouette);
 	c_sel(kr);
@@ -620,7 +620,7 @@ if (con == 13 || scr_cutscene_loaded()) {
 	c_sel(su);
 	c_autowalk(0);
 	c_walkdirect(54, 211, 10);
-	c_var_instance(id, "queen_leave", 1);
+	c_var_instance(id, "queen_leave", true);
 	c_wait(10);
 	c_sel(kr);
 	c_autowalk(1);
@@ -764,7 +764,7 @@ if (con == 13 || scr_cutscene_loaded()) {
 	c_imagespeed(0.4);
 	c_delaycmd(15, "imagespeed", 0);
 	c_delayfacing(20, "l");
-	c_var_instance(id, "tender_goodbye", 1);
+	c_var_instance(id, "tender_goodbye", true);
 	c_sel(kr);
 	c_facing("u");
 	c_sel(no);
@@ -786,17 +786,17 @@ if (con == 13 || scr_cutscene_loaded()) {
 	c_sel(qu);
 	c_facing("l");
 	c_wait_box(3);
-	c_var_instance(id, "noelle_qs", 1);
+	c_var_instance(id, "noelle_qs", true);
 	c_wait_box(4);
-	c_var_instance(id, "susie_qs", 1);
+	c_var_instance(id, "susie_qs", true);
 	c_wait_box(5);
-	c_var_instance(id, "kris_qs", 1);
+	c_var_instance(id, "kris_qs", true);
 	c_wait_box(6);
 	c_sel(qu);
 	c_facing("d");
 	c_wait_box(7);
 	c_facing("l");
-	c_var_instance(id, "berdly_qs", 1);
+	c_var_instance(id, "berdly_qs", true);
 	c_waittalk();
 	c_wait(5);
 	c_sel(kr);
@@ -831,8 +831,8 @@ if (con == 13 || scr_cutscene_loaded()) {
 	c_sel(qu);
 	c_autowalk(1);
 	c_walk("r", 10, 60);
-	c_var_instance(id, "tender_cancel", 1);
-	c_var_instance(id, "tender_finish", 1);
+	c_var_instance(id, "tender_cancel", true);
+	c_var_instance(id, "tender_finish", true);
 	c_wait(30);
 	c_speaker("queen");
 	c_msgsetloc(0, "\\E1* Deleting Tender Goodbye.EXE/%", "obj_ch2_scene27_slash_Step_0_gml_728_0");
@@ -937,8 +937,8 @@ if (con == 13 || scr_cutscene_loaded()) {
 	c_walk_wait("r", 8, 80);
 	c_mus2("volume", 0, 60);
 	c_var_lerp_instance(blackall, "image_alpha", 0, 1, 60);
-	c_var_instance(id, "show_border", 0);
-	c_var_instance(id, "hide_border", 1);
+	c_var_instance(id, "show_border", false);
+	c_var_instance(id, "hide_border", true);
 	c_wait(180);
 	c_actortokris();
 	c_actortocaterpillar();
@@ -957,26 +957,26 @@ if (con == 50 && !i_ex(obj_cutscene_master)) {
 }
 
 if (berdly_power_up_start) {
-	berdly_power_up_start = 0;
+	berdly_power_up_start = false;
 	berdly_halberd = instance_create(camerax() + 320, cameray() + 180, obj_ch2_scene27_halberd);
 }
 
 if (berdly_power_up) {
-	berdly_power_up = 0;
+	berdly_power_up = false;
 	
 	with (berdly_halberd)
 		con = 4;
 }
 
 if (berdly_power_up_cancel) {
-	berdly_power_up_cancel = 0;
+	berdly_power_up_cancel = false;
 	
 	with (berdly_halberd)
 		con = 5;
 }
 
 if (shake_hand) {
-	shake_hand = 0;
+	shake_hand = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand) {
@@ -990,53 +990,53 @@ if (shake_hand) {
 }
 
 if (tender_goodbye) {
-	tender_goodbye = 0;
+	tender_goodbye = false;
 	
 	if (i_ex(obj_ch2_scene26_cityscape)) {
 		with (obj_ch2_scene26_cityscape)
-			tender_goodbye = 1;
+			tender_goodbye = true;
 	}
 }
 
 if (tender_cancel) {
-	tender_cancel = 0;
+	tender_cancel = false;
 	
 	if (i_ex(obj_ch2_scene26_cityscape)) {
 		with (obj_ch2_scene26_cityscape)
-			tender_cancel = 1;
+			tender_cancel = true;
 	}
 }
 
 if (noelle_qs) {
-	noelle_qs = 0;
+	noelle_qs = false;
 	var screen = instance_create(no_actor.x + 25, cameray() + 160, obj_queenscreen);
 	screen.image_index = 7;
 	screen.aligned = 1;
 }
 
 if (susie_qs) {
-	susie_qs = 0;
+	susie_qs = false;
 	var screen = instance_create(su_actor.x + 26, cameray() + 160, obj_queenscreen);
 	screen.image_index = 39;
 	screen.aligned = 1;
 }
 
 if (kris_qs) {
-	kris_qs = 0;
+	kris_qs = false;
 	var screen = instance_create(kr_actor.x + 20, cameray() + 160, obj_queenscreen);
 	screen.image_index = 38;
 	screen.aligned = 1;
 }
 
 if (berdly_qs) {
-	berdly_qs = 0;
+	berdly_qs = false;
 	var screen = instance_create(be_actor.x + 24, cameray() + 160, obj_queenscreen);
 	screen.image_index = 20;
 	screen.aligned = 1;
 }
 
 if (tender_finish) {
-	tender_finish = 0;
+	tender_finish = false;
 	
 	if (i_ex(obj_queenscreen)) {
 		with (obj_queenscreen)
@@ -1045,238 +1045,238 @@ if (tender_finish) {
 }
 
 if (hand_release) {
-	hand_release = 0;
+	hand_release = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			release = 1;
+			release = true;
 	}
 }
 
 if (hand_leave) {
-	hand_leave = 0;
+	hand_leave = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			leave = 1;
+			leave = true;
 	}
 }
 
 if (su_struggle) {
-	su_struggle = 0;
+	su_struggle = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_struggle = 1;
+			su_struggle = true;
 	}
 }
 
 if (su_shocked) {
-	su_shocked = 0;
+	su_shocked = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_shocked = 1;
+			su_shocked = true;
 	}
 }
 
 if (su_look_left) {
-	su_look_left = 0;
+	su_look_left = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_look_left = 1;
+			su_look_left = true;
 	}
 }
 
 if (su_look_right) {
-	su_look_right = 0;
+	su_look_right = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_look_right = 1;
+			su_look_right = true;
 	}
 }
 
 if (su_grin_1) {
-	su_grin_1 = 0;
+	su_grin_1 = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_grin_1 = 1;
+			su_grin_1 = true;
 	}
 }
 
 if (su_grin_2) {
-	su_grin_2 = 0;
+	su_grin_2 = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_grin_2 = 1;
+			su_grin_2 = true;
 	}
 }
 
 if (su_squint_1) {
-	su_squint_1 = 0;
+	su_squint_1 = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_squint_1 = 1;
+			su_squint_1 = true;
 	}
 }
 
 if (su_squint_2) {
-	su_squint_2 = 0;
+	su_squint_2 = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_squint_2 = 1;
+			su_squint_2 = true;
 	}
 }
 
 if (su_concerned) {
-	su_concerned = 0;
+	su_concerned = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			su_concerned = 1;
+			su_concerned = true;
 	}
 }
 
 if (ra_struggle) {
-	ra_struggle = 0;
+	ra_struggle = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			ra_struggle = 1;
+			ra_struggle = true;
 	}
 }
 
 if (ra_huh) {
-	ra_huh = 0;
+	ra_huh = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			ra_huh = 1;
+			ra_huh = true;
 	}
 }
 
 if (ra_look) {
-	ra_look = 0;
+	ra_look = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			ra_look = 1;
+			ra_look = true;
 	}
 }
 
 if (ra_smile) {
-	ra_smile = 0;
+	ra_smile = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			ra_smile = 1;
+			ra_smile = true;
 	}
 }
 
 if (ra_scared) {
-	ra_scared = 0;
+	ra_scared = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			ra_scared = 1;
+			ra_scared = true;
 	}
 }
 
 if (ra_stern) {
-	ra_stern = 0;
+	ra_stern = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			ra_stern = 1;
+			ra_stern = true;
 	}
 }
 
 if (ra_mu) {
-	ra_mu = 0;
+	ra_mu = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			ra_mu = 1;
+			ra_mu = true;
 	}
 }
 
 if (ra_shake) {
-	ra_shake = 0;
+	ra_shake = false;
 	
 	if (i_ex(obj_ch2_scene27_queenhand)) {
 		with (obj_ch2_scene27_queenhand)
-			ra_shake = 1;
+			ra_shake = true;
 	}
 }
 
 if (set_queen_voice) {
-	set_queen_voice = 0;
+	set_queen_voice = false;
 	global.typer = 62;
 }
 
 if (queen_laugh_start) {
-	queen_laugh_start = 0;
-	queen_laugh_start = 0;
+	queen_laugh_start = false;
+	queen_laugh_start = false;
 	
 	if (i_ex(obj_ch2_scene26_gigaqueen)) {
 		with (obj_ch2_scene26_gigaqueen)
-			laugh = 1;
+			laugh = true;
 	}
 }
 
 if (queen_laugh_stop) {
-	queen_laugh_stop = 0;
+	queen_laugh_stop = false;
 	
 	if (i_ex(obj_ch2_scene26_gigaqueen)) {
 		with (obj_ch2_scene26_gigaqueen)
-			laugh = 0;
+			laugh = false;
 	}
 }
 
 if (queen_surprised) {
-	queen_surprised = 0;
+	queen_surprised = false;
 	
 	if (i_ex(obj_ch2_scene26_gigaqueen)) {
 		with (obj_ch2_scene26_gigaqueen)
-			surprised = 1;
+			surprised = true;
 	}
 }
 
 if (static_queen) {
-	static_queen = 0;
+	static_queen = false;
 	
 	if (i_ex(obj_ch2_scene26_gigaqueen)) {
 		with (obj_ch2_scene26_gigaqueen)
-			static_start = 1;
+			static_start = true;
 	}
 }
 
 if (static_queen_stop) {
-	static_queen_stop = 0;
+	static_queen_stop = false;
 	
 	if (i_ex(obj_ch2_scene26_gigaqueen)) {
 		with (obj_ch2_scene26_gigaqueen)
-			static_stop = 1;
+			static_stop = true;
 	}
 }
 
 if (queen_leave) {
-	queen_leave = 0;
+	queen_leave = false;
 	
 	if (i_ex(obj_ch2_scene26_gigaqueen)) {
 		with (obj_ch2_scene26_gigaqueen)
-			leave = 1;
+			leave = true;
 	}
 }
 
 if (queen_sad) {
-	queen_sad = 0;
+	queen_sad = false;
 	
 	if (i_ex(obj_ch2_scene26_gigaqueen)) {
 		with (obj_ch2_scene26_gigaqueen) {
@@ -1287,7 +1287,7 @@ if (queen_sad) {
 }
 
 if (queen_happy) {
-	queen_happy = 0;
+	queen_happy = false;
 	
 	if (i_ex(obj_ch2_scene26_gigaqueen)) {
 		with (obj_ch2_scene26_gigaqueen) {

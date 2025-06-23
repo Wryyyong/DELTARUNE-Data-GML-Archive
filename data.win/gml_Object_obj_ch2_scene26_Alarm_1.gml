@@ -1,1 +1,1 @@
-shakecon = 1;
+shakecon = true;

@@ -801,7 +801,7 @@ if (con >= 20 && con < 80) {
 			instance_destroy();
 		
 		with (obj_caterpillarchara_ch1)
-			visible = true;
+			visible = 1;
 		
 		global.interact = 0;
 		followcon = 1;

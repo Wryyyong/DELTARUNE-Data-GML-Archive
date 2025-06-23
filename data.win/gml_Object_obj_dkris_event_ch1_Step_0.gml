@@ -284,7 +284,7 @@ if (con == 41) {
 
 if (con == 53) {
 	with (wagon)
-		visible = false;
+		visible = 0;
 	
 	sprite_index = spr_dkris_heartthrow_ch1;
 	image_index = 0;

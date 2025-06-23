@@ -44,14 +44,8 @@ if (global.darkzone == 0) {
 	}
 	
 	if (i_ex(writergod)) {
-		if (finished == 1 && getrid == 0) {
-			with (writergod) {
-				if (halt == 0)
-					halt = 1;
-			}
-			
+		if (finished == 1 && getrid == 0)
 			finished = 2;
-		}
 	} else {
 		instance_destroy();
 	}

@@ -8,7 +8,7 @@ if (global.plot >= 20) {
 	con = 1;
 	
 	with (obj_mainchara_ch1)
-		visible = false;
+		visible = 0;
 	
 	k = scr_dark_marker_ch1(460, obj_mainchara_ch1.y + 60, spr_krisu_dark_ch1);
 	s = scr_dark_marker_ch1(520, obj_mainchara_ch1.y + 100, spr_susieu_dark_ch1);

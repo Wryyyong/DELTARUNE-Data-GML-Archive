@@ -13,7 +13,9 @@ with (obj_darkcontroller)
 	charcon = 0;
 
 global.msg[0] = stringsetloc("* Suddenly^1, your body seizes up^1.&* What are you looking at?/%", "obj_readable_room1_slash_Other_10_gml_13_0");
-global.msg[0] = stringset("* [NO TEXT] (obj_readable_room1)/%");
+
+if (scr_debug())
+	global.msg[0] = stringset("* [NO TEXT] (obj_readable_room1)/%");
 
 if (room == room_krisroom) {
 	if (y < 150) {
@@ -1596,7 +1598,7 @@ if (room == room_dw_ralsei_castle_2f) {
 }
 
 if (room == room_dw_mansion_east_1f_e) {
-	if (y < 170 && visible == false) {
+	if (y < 170 && visible == 0) {
 		with (obj_ch2_room_mansion_east_1f_e)
 			con = 1;
 		
@@ -1605,7 +1607,7 @@ if (room == room_dw_mansion_east_1f_e) {
 		scr_speaker("no_name");
 		msgsetloc(0, "* (A secret switch...!)/", "obj_readable_room1_slash_Other_10_gml_2031_0");
 		msgnextloc("* (You heard something opening.)/%", "obj_readable_room1_slash_Other_10_gml_2032_0");
-		selfdestruct = 1;
+		selfdestruct = true;
 	} else {
 		scr_speaker("no_name");
 		msgsetloc(0, "* I'm the hacker. I got the feeling there's a secret backdoor in this room..^1. but.../", "obj_readable_room1_slash_Other_10_gml_1989_0");
@@ -1624,14 +1626,14 @@ if (room == room_dw_mansion_east_1f_secret) {
 		instance_create(0, 0, obj_shake);
 		snd_play(snd_impact);
 		snd_play(snd_bwaap);
-		skip = 1;
+		skip = true;
 	} else {
 		if (read < 20)
 			snd_play_pitch(snd_bwaap, 1 + (read / 10));
 		else
 			snd_play_pitch(snd_bwaap, 3);
 		
-		skip = 1;
+		skip = true;
 	}
 }
 
@@ -2307,7 +2309,7 @@ if (room == room_dw_city_mansion_front) {
 
 if (room == room_dw_city_postbaseball_1) {
 	if (global.flag[450] == 0) {
-		var have_noelle = 1;
+		var have_noelle = true;
 		
 		if (i_ex(obj_caterpillarchara)) {
 			with (obj_caterpillarchara) {

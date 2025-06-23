@@ -27,15 +27,15 @@ if (global.plot < 100) {
 if (global.chapter != 2 || global.plot >= 75) {
 	instance_destroy();
 } else {
-	statuenpc.visible = false;
+	statuenpc.visible = 0;
 	boxhead = scr_dark_marker(0, 0, spr_cutscene_13_noelle_box);
-	boxhead.visible = false;
+	boxhead.visible = 0;
 	glassexplosion = instance_create(0, 0, obj_marker);
 	glassexplosion.sprite_index = spr_realisticexplosion;
-	glassexplosion.visible = false;
+	glassexplosion.visible = 0;
 	noellebox = instance_create(970, 216, obj_marker);
 	noellebox.sprite_index = spr_cutscene_13_noelle_box_walk_right;
-	noellebox.visible = false;
+	noellebox.visible = 0;
 	noellebox.image_speed = 0;
 	noellebox.image_xscale = 2;
 	noellebox.image_yscale = 2;
@@ -43,5 +43,5 @@ if (global.chapter != 2 || global.plot >= 75) {
 	with (noellebox)
 		scr_depth();
 	
-	noellelost = 0;
+	noellelost = false;
 }

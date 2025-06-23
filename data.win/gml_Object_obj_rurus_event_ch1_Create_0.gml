@@ -51,5 +51,5 @@ if (room == room_cc_rurus1_ch1 || room == room_cc_rurus2_ch1) {
 		}
 	}
 	
-	visible = false;
+	visible = 0;
 }

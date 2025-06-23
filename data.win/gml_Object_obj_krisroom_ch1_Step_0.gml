@@ -1,5 +1,5 @@
 if (con > 0 && con < 50) {
-	if (con == 1 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 1 && instance_exists(obj_dialoguer_ch1) == false) {
 		with (t) {
 			image_index = 0;
 			image_speed = 0.25;
@@ -87,7 +87,7 @@ if (con > 0 && con < 50) {
 		con = 20;
 	}
 	
-	if (con == 20 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 20 && instance_exists(obj_dialoguer_ch1) == false) {
 		with (t) {
 			image_index = 0;
 			sprite_index = spr_toriel_d_ch1;
@@ -174,10 +174,20 @@ if (con >= 50 && con < 100) {
 	global.facing = 1;
 	
 	if (con == 50 && !d_ex_ch1()) {
-		_remfilechoice = global.filechoice;
-		global.filechoice += 3;
-		scr_save_ch1();
-		global.filechoice = _remfilechoice;
+		if (os_type != os_ps4) {
+			_remfilechoice = global.filechoice;
+			global.filechoice += 3;
+			var is_valid = scr_save_ch1();
+			
+			if (!is_valid) {
+				var error_message = instance_create(0, 0, obj_savedata_error);
+				error_message.type = "auto";
+				error_message.error_type = "save_failed";
+			}
+			
+			global.filechoice = _remfilechoice;
+		}
+		
 		mus_volume_ch1(global.currentsong[1], 0, 100);
 		fade = instance_create_ch1(0, 0, obj_fadeout_ch1);
 		
@@ -189,6 +199,20 @@ if (con >= 50 && con < 100) {
 	}
 	
 	if (con == 52) {
+		if (os_type == os_ps4) {
+			_remfilechoice = global.filechoice;
+			global.filechoice += 3;
+			var is_valid = scr_save_ch1();
+			
+			if (!is_valid) {
+				var error_message = instance_create(0, 0, obj_savedata_error);
+				error_message.type = "auto";
+				error_message.error_type = "save_failed";
+			}
+			
+			global.filechoice = _remfilechoice;
+		}
+		
 		snd_free_all_ch1();
 		con = 53;
 		alarm[4] = 150;

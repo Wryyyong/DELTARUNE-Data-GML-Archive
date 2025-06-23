@@ -3,7 +3,7 @@ triggered = 0;
 monsterCount = 0;
 con = 0;
 timer = 0;
-init_butler = 0;
+init_butler = false;
 readtrigger = 0;
 readcount = 0;
 

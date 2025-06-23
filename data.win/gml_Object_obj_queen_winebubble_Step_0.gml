@@ -7,5 +7,5 @@ if (scale < 1) {
 	image_yscale = scale;
 }
 
-if (y < 819 && depth != 0)
+if (y < 822 && depth != 0)
 	depth = 0;

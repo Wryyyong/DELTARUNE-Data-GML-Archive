@@ -534,7 +534,7 @@ function scr_cutscene_commands() {
 	
 	if (_c == "actortoobject") {
 		instance_create(command_actor[i].x, command_actor[i].y, command_arg1[i]);
-		command_actor[i].visible = false;
+		command_actor[i].visible = 0;
 	}
 	
 	if (_c == "actortokris") {
@@ -542,8 +542,8 @@ function scr_cutscene_commands() {
 			if (actor_name[jjj] == "kris" && i_ex(actor_id[jjj])) {
 				obj_mainchara.x = actor_id[jjj].x;
 				obj_mainchara.y = actor_id[jjj].y;
-				obj_mainchara.visible = true;
-				actor_id[jjj].visible = false;
+				obj_mainchara.visible = 1;
+				actor_id[jjj].visible = 0;
 				
 				if (actor_id[jjj].facing == "d")
 					global.facing = 0;
@@ -578,8 +578,8 @@ function scr_cutscene_commands() {
 						}
 						
 						scr_caterpillar_facing_single(actor_name[jjj], actor_id[jjj].facing);
-						global.cinstance[lll].visible = true;
-						actor_id[jjj].visible = false;
+						global.cinstance[lll].visible = 1;
+						actor_id[jjj].visible = 0;
 					}
 				}
 			}

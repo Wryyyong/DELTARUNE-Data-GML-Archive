@@ -4,7 +4,7 @@ if (init == 0) {
 	snd_play(snd_rocket);
 	init = 1;
 	timer = 2;
-	path_start(bulletPath, 21, path_action_stop, 0);
+	path_start(bulletPath, 21, path_action_stop, false);
 }
 
 if (spawnrate >= 0) {

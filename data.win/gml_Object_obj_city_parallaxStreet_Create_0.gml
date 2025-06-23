@@ -8,7 +8,7 @@ car_start_pos = x;
 drawx = 0;
 animsiner = 0;
 drawx_prev = 0;
-nocars = 0;
+nocars = false;
 max_cars = floor((room_width * 2) / 160) + 1;
 
 for (var i = 0; i < max_cars; i++) {

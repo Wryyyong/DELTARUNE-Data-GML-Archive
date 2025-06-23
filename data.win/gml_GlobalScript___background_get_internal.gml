@@ -21,7 +21,7 @@ function __background_get_internal(arg0, arg1, arg2) {
 	var __bind = arg1;
 	var __backinfo = arg2;
 	
-	if (__backinfo[0] == -1 || layer_background_exists(__backinfo[1], __backinfo[0]) == 0) {
+	if (__backinfo[0] == -1 || layer_background_exists(__backinfo[1], __backinfo[0]) == false) {
 		__backinfo = __background_get_element(__bind);
 		
 		if (__backinfo[0] == -1)

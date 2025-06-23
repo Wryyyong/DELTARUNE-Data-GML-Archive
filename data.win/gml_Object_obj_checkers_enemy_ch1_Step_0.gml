@@ -98,7 +98,7 @@ if (global.monster[myself] == 1) {
 				}
 				
 				siner = 0;
-				visible = false;
+				visible = 0;
 				turns += 1;
 			}
 			
@@ -322,7 +322,7 @@ if (global.myfight == 3) {
 		global.msg[0] = scr_84_get_lang_string_ch1("obj_checkers_enemy_slash_Step_0_gml_296_0");
 		
 		with (obj_herokris_ch1)
-			visible = false;
+			visible = 0;
 		
 		global.faceaction[0] = 0;
 		global.charaction[0] = 0;
@@ -341,7 +341,7 @@ if (global.myfight == 3) {
 	}
 	
 	if (actcon == 20 && !instance_exists(obj_writer_ch1)) {
-		visible = false;
+		visible = 0;
 		bowcheck = scr_dark_marker_ch1(x, y, spr_checkers_bow_ch1);
 		
 		with (bowcheck)
@@ -409,10 +409,10 @@ if (global.myfight == 3) {
 		with (bowcheck)
 			instance_destroy();
 		
-		visible = true;
+		visible = 1;
 		
 		with (obj_herokris_ch1)
-			visible = true;
+			visible = 1;
 		
 		actcon = 1;
 	}
@@ -423,10 +423,10 @@ if (global.myfight == 3) {
 			global.msg[0] = scr_84_get_lang_string_ch1("obj_checkers_enemy_slash_Step_0_gml_398_0");
 			
 			with (obj_herokris_ch1)
-				visible = false;
+				visible = 0;
 			
 			with (obj_heroralsei_ch1)
-				visible = false;
+				visible = 0;
 			
 			global.faceaction[0] = 0;
 			global.charaction[0] = 0;
@@ -457,7 +457,7 @@ if (global.myfight == 3) {
 	}
 	
 	if (actcon == 30 && !instance_exists(obj_writer_ch1)) {
-		visible = false;
+		visible = 0;
 		bowcheck = scr_dark_marker_ch1(x, y, spr_checkers_bow_ch1);
 		
 		with (bowcheck)
@@ -493,13 +493,13 @@ if (global.myfight == 3) {
 		with (bowcheck)
 			instance_destroy();
 		
-		visible = true;
+		visible = 1;
 		
 		with (obj_heroralsei_ch1)
-			visible = true;
+			visible = 1;
 		
 		with (obj_herokris_ch1)
-			visible = true;
+			visible = 1;
 		
 		actcon = 1;
 	}
@@ -522,17 +522,17 @@ if (global.myfight == 3) {
 				actcon = 90;
 				instance_create_ch1(x, y, obj_throwtarget_ch1);
 				throwsus = instance_create_ch1(obj_herosusie_ch1.x, obj_herosusie_ch1.y, obj_throwralsei_ch1);
-				visible = false;
+				visible = 0;
 				global.faceaction[1] = 0;
 				global.charaction[1] = 0;
 				global.faceaction[2] = 0;
 				global.charaction[2] = 0;
 				
 				with (obj_herosusie_ch1)
-					visible = false;
+					visible = 0;
 				
 				with (obj_heroralsei_ch1)
-					visible = false;
+					visible = 0;
 				
 				snd_play_ch1(snd_grab_ch1);
 			} else {
@@ -591,10 +591,10 @@ if (global.myfight == 3) {
 		alarm[4] = 30;
 		
 		with (obj_herosusie_ch1)
-			visible = false;
+			visible = 0;
 		
 		with (obj_heroralsei_ch1)
-			visible = false;
+			visible = 0;
 		
 		thrown = 1;
 		trsus = scr_dark_marker_ch1(obj_herosusie_ch1.x, obj_herosusie_ch1.y, spr_susieb_throwralseiready_ch1);
@@ -613,7 +613,7 @@ if (global.myfight == 3) {
 		actcon = 0;
 	
 	if (actcon == 50) {
-		visible = false;
+		visible = 0;
 		snd_free_all_ch1();
 		animtest = instance_create_ch1(x, y, obj_checker_animtest_ch1);
 		animtest.sprite_index = spr_smallchecker_transform3_ch1;

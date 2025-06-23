@@ -205,7 +205,7 @@ if (global.menuno == 5) {
 			
 			if (i < 7) {
 				if (is_dualshock) {
-					var _sprite = scr_getbuttonsprite(global.input_g[i], 0);
+					var _sprite = scr_getbuttonsprite(global.input_g[i], false);
 					var _sprite_height = 29;
 					var _xPos = xx + 465;
 					var _yPos = yy + 139;
@@ -226,7 +226,7 @@ if (global.menuno == 5) {
 						draw_text(xx + 325, yy + voff + 140 + (i * vspacing), string_hash_to_newline(global.asc_def[global.input_k[i]]));
 				} else if (global.is_console) {
 					if (obj_gamecontroller.gamepad_active) {
-						var _sprite = (scr_getbuttonsprite(global.input_g[i], 0) != noone) ? scr_getbuttonsprite(global.input_g[i], 0) : button_switch_left_0;
+						var _sprite = (scr_getbuttonsprite(global.input_g[i], false) != noone) ? scr_getbuttonsprite(global.input_g[i], false) : button_switch_left_0;
 						var _xPos = (global.lang == "en") ? (xx + 475) : (xx + 465);
 						
 						if (_sprite == button_switch_lStickClick_0 || _sprite == button_switch_rStickClick_0)
@@ -238,7 +238,7 @@ if (global.menuno == 5) {
 					draw_text(xx + 325, yy + voff + 140 + (i * vspacing), string_hash_to_newline(global.asc_def[global.input_k[i]]));
 					
 					if (obj_gamecontroller.gamepad_active) {
-						var _sprite = scr_getbuttonsprite(global.input_g[i], 0);
+						var _sprite = scr_getbuttonsprite(global.input_g[i], false);
 						var _xPos = (global.lang == "en") ? (xx + 475) : (xx + 465);
 						
 						if (sprite_get_width(_sprite) < 12)

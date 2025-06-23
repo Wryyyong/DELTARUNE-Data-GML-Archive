@@ -97,7 +97,7 @@ if (room == room_dw_city_postbaseball_1) {
 			}
 			
 			with (obj_mainchara)
-				visible = true;
+				visible = 1;
 			
 			con = 3;
 			global.interact = 0;
@@ -180,7 +180,7 @@ if (room == room_dw_city_postbaseball_1) {
 				if (scr_debug())
 					snd_play(snd_won);
 			} else {
-				caterpillarnoe.visible = true;
+				caterpillarnoe.visible = 1;
 				caterpillarnoe.target = 24;
 				caterpillarnoe.image_alpha = 1;
 			}
@@ -197,10 +197,10 @@ if (room == room_dw_city_postbaseball_1) {
 				instance_destroy();
 			
 			with (obj_mainchara)
-				visible = true;
+				visible = 1;
 			
 			with (obj_caterpillarchara)
-				visible = true;
+				visible = 1;
 			
 			with (obj_chaseenemy)
 				instance_destroy();
@@ -287,7 +287,7 @@ if (room == room_dw_city_postbaseball_2) {
 		
 		if (timer >= 55) {
 			con = 2;
-			caterpillarnoe.visible = false;
+			caterpillarnoe.visible = 0;
 			caterpillarnoe.image_alpha = 0;
 			caterpillarnoe.target = 36;
 			caterpillarral.target = 24;
@@ -407,7 +407,7 @@ if (room == room_dw_city_postbaseball_2) {
 				if (scr_debug())
 					snd_play(snd_won);
 			} else {
-				caterpillarnoe.visible = true;
+				caterpillarnoe.visible = 1;
 				caterpillarnoe.target = 24;
 				caterpillarnoe.image_alpha = 1;
 			}
@@ -424,10 +424,10 @@ if (room == room_dw_city_postbaseball_2) {
 				instance_destroy();
 			
 			with (obj_mainchara)
-				visible = true;
+				visible = 1;
 			
 			with (obj_caterpillarchara)
-				visible = true;
+				visible = 1;
 			
 			with (obj_chaseenemy)
 				instance_destroy();
@@ -942,7 +942,7 @@ if (room == room_dw_city_postbaseball_3) {
 		caterpillarnoe = scr_makecaterpillar(obj_mainchara.x - 4 - 120, (obj_mainchara.y - 20) + 2, 4, 2);
 		
 		with (obj_interactablesolid) {
-			if (visible == false)
+			if (visible == 0)
 				instance_destroy();
 		}
 		

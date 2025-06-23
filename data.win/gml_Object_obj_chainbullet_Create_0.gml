@@ -11,5 +11,5 @@ timer = firingSpeed;
 totalBullets = 8;
 bulletsSpawned = 0;
 shotRotation = 0;
-childBullet = 367;
-visible = false;
+childBullet = 369;
+visible = 0;

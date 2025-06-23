@@ -23,7 +23,7 @@ if (state == 0 && attacktimer >= 20) {
 if (state == 1 && attacktimer >= 35) {
 	state = 2;
 	animator.state = 2;
-	animator.zapping = 1;
+	animator.zapping = true;
 }
 
 if (state == 2 && attacktimer > 55) {

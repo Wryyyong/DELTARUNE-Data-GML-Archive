@@ -82,9 +82,9 @@ if (keyboard_check_pressed(ord("T"))) {
 
 draw_set_color(c_white);
 draw_set_font(fnt_main);
-draw_rectangle(0, 292, 640, 300, false);
+draw_rectangle(0, 292, 640, 300, 0);
 draw_set_color(c_black);
-draw_rectangle(0, 296, 640, 480, false);
+draw_rectangle(0, 296, 640, 480, 0);
 draw_set_color(c_white);
 draw_text(10, 300, "[1] kris balloon");
 draw_text(10, 320, "[2] ralsei balloon");
@@ -136,7 +136,7 @@ if ((timer % 2) == 0) {
 if (keyboard_check_pressed(ord("C"))) {
 	draw_set_alpha(0.9);
 	draw_set_color(c_black);
-	draw_rectangle(0, 0, 640, 480, false);
+	draw_rectangle(0, 0, 640, 480, 0);
 	draw_set_alpha(1);
 	draw_set_color(c_white);
 	draw_set_halign(fa_center);

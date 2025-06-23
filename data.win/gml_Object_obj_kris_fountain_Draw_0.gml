@@ -9,7 +9,7 @@ if (active == 1) {
 		cenx = x + 18;
 		ceny = y + 57;
 		draw_set_color(c_white);
-		draw_ellipse(cenx - xballtimer, ceny - 1, cenx + xballtimer, ceny + 1, 0);
+		draw_ellipse(cenx - xballtimer, ceny - 1, cenx + xballtimer, ceny + 1, false);
 		
 		if (xballtimer >= 80) {
 			balltimer = 0;
@@ -53,14 +53,14 @@ if (active == 1) {
 			
 			if (releasetimer >= 10) {
 				ballcon = 3;
-				fountain_sound = audio_play_sound(snd_deep_noise, 50, true);
+				fountain_sound = audio_play_sound(snd_deep_noise, 50, 1);
 			}
 		}
 		
 		draw_set_color(c_white);
-		draw_ellipse(cenx - xballtimer - 2, ceny - yballtimer, cenx + xballtimer + 2, ceny + 1, 0);
+		draw_ellipse(cenx - xballtimer - 2, ceny - yballtimer, cenx + xballtimer + 2, ceny + 1, false);
 		draw_set_color(whitecolor);
-		draw_ellipse(cenx - xballtimer, ceny - yballtimer, cenx + xballtimer, ceny + 1, 0);
+		draw_ellipse(cenx - xballtimer, ceny - yballtimer, cenx + xballtimer, ceny + 1, false);
 		
 		if (releasetimer <= 0) {
 			if (balltimer >= 6)

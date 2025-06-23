@@ -1,5 +1,5 @@
 carGen = 0;
-victory = 0;
+victory = false;
 con = 0;
 timer = 0;
 

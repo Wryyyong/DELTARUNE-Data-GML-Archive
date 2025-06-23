@@ -1,7 +1,7 @@
 con = -1;
 customcon = 0;
 timer = 0;
-canrest = 0;
+canrest = false;
 oceansong[0] = -1;
 oceansong[1] = -1;
 

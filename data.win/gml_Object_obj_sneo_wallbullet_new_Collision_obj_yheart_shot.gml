@@ -17,7 +17,7 @@ if (destroyable == 1 && active == 1) {
 	snd_volume(snd_bomb, 0.7, 0);
 	snd_play_x(snd_bomb, 0.7, 1.1 + random(0.2));
 	var _cut = scr_afterimage_cut();
-	_cut.flash = 1;
+	_cut.flash = true;
 	anim = instance_create(x, y, obj_yshot_anim);
 	anim.image_xscale = image_xscale;
 	anim.image_yscale = image_yscale;

@@ -1,8 +1,8 @@
 con = -1;
 customcon = 0;
-auto_text = 0;
+auto_text = false;
 auto_con = -1;
-shortened = 0;
+shortened = false;
 tempcon = -1;
 smoketimer = 0;
 smokecon = 0;
@@ -26,27 +26,27 @@ coaster_entry_hood = scr_dark_marker(-39, -5, bg_dw_city_coaster_entry_hood);
 coaster_entry_hood.depth = coaster_entry.depth - 100;
 coaster_ramp = scr_dark_marker(1800, 28, bg_dw_city_coaster_ramp);
 coaster_ramp.depth = 90000;
-coaster_ramp.visible = true;
+coaster_ramp.visible = 1;
 coaster_kris = instance_create(800, 72, obj_coaster);
 
 with (coaster_kris)
 	scr_depth();
 
-coaster_kris.visible = false;
+coaster_kris.visible = 0;
 coaster_susie = instance_create(800, 118, obj_coaster);
 coaster_susie.type = 1;
 
 with (coaster_susie)
 	scr_depth();
 
-coaster_susie.visible = false;
+coaster_susie.visible = 0;
 coaster_ralsei = instance_create(800, 181, obj_coaster);
 coaster_ralsei.type = 2;
 
 with (coaster_ralsei)
 	scr_depth();
 
-coaster_ralsei.visible = false;
+coaster_ralsei.visible = 0;
 coaster_berdly = instance_create(1890, 126, obj_coaster);
 coaster_berdly.type = 3;
 
@@ -61,18 +61,18 @@ nise_berdly = scr_dark_marker(-100, 0, spr_cutscene_17_berdly_shocked);
 with (nise_berdly)
 	scr_depth();
 
-parallax = 1;
-loopcity = 0;
-looptrack = 0;
-tiletrack = 0;
-stoplooptrack = 0;
-hide_border = 0;
+parallax = true;
+loopcity = false;
+looptrack = false;
+tiletrack = false;
+stoplooptrack = false;
+hide_border = false;
 
 if (global.chapter != 2 || global.plot >= 64) {
 	instance_destroy();
 } else {
 	if (global.tempflag[28] == 1)
-		shortened = 1;
+		shortened = true;
 	
 	doorway = scr_dark_marker(458, 205, spr_pixel_white);
 	doorway.image_xscale = 22;
@@ -91,7 +91,7 @@ if (global.chapter != 2 || global.plot >= 64) {
 	blackall.depth = 50;
 	blackall.image_blend = c_black;
 	blackall.image_alpha = 0;
-	explode = 0;
+	explode = false;
 	explosion = -1;
 	explodetimer = -1;
 	explosion_marker = -1;

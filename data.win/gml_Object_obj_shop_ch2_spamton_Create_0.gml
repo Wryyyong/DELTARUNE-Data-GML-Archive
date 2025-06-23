@@ -155,7 +155,7 @@ keygen = 0;
 talked_deal = 0;
 talked_knight = 0;
 talked_fear = 0;
-pause_music = 0;
+pause_music = false;
 static_music = -1;
 
 if (global.flag[386] == 0)

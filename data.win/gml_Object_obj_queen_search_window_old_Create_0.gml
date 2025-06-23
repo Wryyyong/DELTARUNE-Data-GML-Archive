@@ -10,4 +10,4 @@ timer = 0;
 typetimer = 0;
 childdireciton = 180;
 spawndelay = 0;
-firsttime = 0;
+firsttime = false;

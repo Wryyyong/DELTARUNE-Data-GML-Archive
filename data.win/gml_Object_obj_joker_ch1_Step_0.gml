@@ -356,7 +356,7 @@ if (global.myfight == 3) {
 		snd_play_ch1(snd_pirouette_ch1);
 		
 		with (obj_herokris_ch1)
-			visible = false;
+			visible = 0;
 		
 		dancekris = scr_dark_marker_ch1(obj_herokris_ch1.x, obj_herokris_ch1.y, spr_krisb_pirouette_ch1);
 		
@@ -377,7 +377,7 @@ if (global.myfight == 3) {
 			instance_destroy();
 		
 		with (obj_herokris_ch1)
-			visible = true;
+			visible = 1;
 		
 		global.msg[0] = scr_84_get_lang_string_ch1("obj_joker_slash_Step_0_gml_272_0");
 		

@@ -14,5 +14,5 @@ if (myinteract == 3 && skip == 0) {
 if (docon == 1 && !d_ex()) {
 }
 
-if (129 && global.plot >= 75 && sprite_index == spr_alley_boxes)
+if (130 && global.plot >= 75 && sprite_index == spr_alley_boxes)
 	sprite_index = spr_alley_boxes_fewer;

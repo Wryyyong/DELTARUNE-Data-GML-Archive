@@ -5,9 +5,9 @@ if (!snd_is_playing(global.currentsong[1])) {
 
 image_index = 1;
 image_speed = 0;
-visible = true;
+visible = 1;
 
 if (room != room_field_start) {
-	visible = false;
+	visible = 0;
 	instance_destroy();
 }

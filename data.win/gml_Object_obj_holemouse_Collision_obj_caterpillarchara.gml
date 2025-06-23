@@ -1,4 +1,4 @@
-if (nointeract == 0 && con == 1 && other.name == "noelle" && other.visible == true) {
+if (nointeract == false && con == 1 && other.name == "noelle" && other.visible == true) {
 	other.visible = false;
 	scaredNoelle = instance_create(other.x, other.y, obj_noelle_scared);
 	

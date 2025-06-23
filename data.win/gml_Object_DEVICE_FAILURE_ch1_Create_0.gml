@@ -11,6 +11,6 @@ FADEFACTOR = 0;
 WHITEFADE = 0;
 FADEUP = 0;
 DARK_WAIT = 0;
-restart = 0;
+restart = false;
 restart_timer = 0;
 gamepad_controls = [gp_face1, gp_face2, gp_face3, gp_face4, gp_shoulderl, gp_shoulderlb, gp_shoulderr, gp_shoulderrb, gp_select, gp_start, gp_stickl, gp_stickr, gp_padu, gp_padd, gp_padl, gp_padr];

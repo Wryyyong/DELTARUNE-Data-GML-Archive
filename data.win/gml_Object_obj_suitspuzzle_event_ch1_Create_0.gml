@@ -32,9 +32,9 @@ if (global.plot == 71) {
 	con = 15;
 	
 	with (s)
-		visible = false;
+		visible = 0;
 	
-	visible = false;
+	visible = 0;
 	lnpc = instance_create_ch1(x, y, obj_npc_facing_ch1);
 	
 	with (lnpc) {

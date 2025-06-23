@@ -151,7 +151,7 @@ if (con == 35) {
 		snd_play_ch1(snd_doorclose_ch1);
 		
 		with (s)
-			visible = false;
+			visible = 0;
 		
 		con = 37;
 	}

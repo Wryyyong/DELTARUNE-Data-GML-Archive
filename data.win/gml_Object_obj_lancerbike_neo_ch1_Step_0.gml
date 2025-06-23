@@ -27,7 +27,7 @@ if (racecon == 0) {
 	rtimer = 0;
 	
 	with (obj_susieenemy_ch1)
-		visible = false;
+		visible = 0;
 	
 	s = instance_create_ch1(susiex, susiey, obj_regularbullet_permanent_ch1);
 	scr_bullet_inherit_ch1(s);
@@ -198,10 +198,10 @@ if (racecon == 4) {
 		global.turntimer = 5;
 		
 		with (obj_susieenemy_ch1)
-			visible = true;
+			visible = 1;
 		
 		with (obj_lancerboss3_ch1)
-			visible = true;
+			visible = 1;
 		
 		racecon = -1;
 	}

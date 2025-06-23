@@ -10,7 +10,7 @@ if (global.chapter != 2 || global.flag[319] > 2) {
 		instance_destroy(obj_caterpillarchara);
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	blackall = scr_marker(-10, -10, spr_pixel_white);
 	blackall.image_xscale = 999;
@@ -19,6 +19,6 @@ if (global.chapter != 2 || global.flag[319] > 2) {
 	blackall.image_blend = c_black;
 	blackall.image_alpha = 1;
 	berdly_glide = -4;
-	release_berdly = 0;
-	hide_berdly = 0;
+	release_berdly = false;
+	hide_berdly = false;
 }

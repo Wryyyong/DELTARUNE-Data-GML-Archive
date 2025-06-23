@@ -1,5 +1,5 @@
 active = 0;
-visible = false;
+visible = 0;
 image_alpha = 0;
 con = 0;
 xpos = choose(0, 1, 2, 3);

@@ -1,4 +1,4 @@
-animator.zapping = 0;
+animator.zapping = false;
 
 if (hit) {
 	animator.state = 3;

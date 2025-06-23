@@ -80,7 +80,7 @@ if (con == 13) {
 	con = 14;
 }
 
-if (con == 14 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 14 && instance_exists(obj_dialoguer_ch1) == false) {
 	con = 15;
 	alarm[4] = 30;
 }
@@ -102,7 +102,7 @@ if (con == 16) {
 	con = 17;
 }
 
-if (con == 17 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 17 && instance_exists(obj_dialoguer_ch1) == false) {
 	with (s)
 		sprite_index = spr_susier_dark_ch1;
 	
@@ -125,7 +125,7 @@ if (con == 21) {
 	con = 22;
 }
 
-if (con == 22 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 22 && instance_exists(obj_dialoguer_ch1) == false) {
 	con = 23;
 	alarm[4] = 30;
 }
@@ -140,7 +140,7 @@ if (con == 24) {
 	con = 25;
 }
 
-if (con == 25 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 25 && instance_exists(obj_dialoguer_ch1) == false) {
 	with (s) {
 		hspeed = -4;
 		image_speed = 0.2;
@@ -164,7 +164,7 @@ if (con == 29) {
 		instance_destroy();
 	
 	with (partysus)
-		visible = true;
+		visible = 1;
 	
 	con = 30;
 	alarm[4] = 30;
@@ -178,7 +178,7 @@ if (con == 31) {
 	instance_create_ch1(0, 0, obj_dialoguer_ch1);
 }
 
-if (con == 32 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 32 && instance_exists(obj_dialoguer_ch1) == false) {
 	y -= 200;
 	con = 33;
 	global.interact = 0;
@@ -217,9 +217,9 @@ if (con == 33 && global.interact == 0) {
 	}
 }
 
-if (con == 34 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 34 && instance_exists(obj_dialoguer_ch1) == false) {
 	with (partysus)
-		visible = false;
+		visible = 0;
 	
 	news = scr_dark_marker_ch1(partysus.x, partysus.y, spr_susier_dark_ch1);
 	
@@ -232,9 +232,9 @@ if (con == 34 && instance_exists(obj_dialoguer_ch1) == 0) {
 	alarm[4] = 40;
 }
 
-if (con == 35 && instance_exists(obj_dialoguer_ch1) == 0) {
+if (con == 35 && instance_exists(obj_dialoguer_ch1) == false) {
 	with (partysus)
-		visible = false;
+		visible = 0;
 	
 	news = scr_dark_marker_ch1(partysus.x, partysus.y, spr_susier_dark_ch1);
 	

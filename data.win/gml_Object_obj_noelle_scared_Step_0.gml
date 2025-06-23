@@ -220,7 +220,7 @@ if (fallen == 2) {
 	timer++;
 	
 	if (timer == 60) {
-		alarm[0] = 1;
+		alarm[0] = true;
 		tower.con++;
 		fallen = 3;
 	}

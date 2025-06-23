@@ -12,6 +12,6 @@ keep = 0;
 megakeep = 0;
 maxxscale = 2;
 maxyscale = 2;
-customBox = 0;
+customBox = false;
 init = 0;
 spr_custom_box = sprite_index;

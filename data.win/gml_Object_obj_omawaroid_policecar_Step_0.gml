@@ -34,7 +34,7 @@ if (wall_destroy == 1) {
 
 if (!init) {
 	var laneOffset = (x > obj_growtangle.x) ? 0 : (gt_maxx() - obj_growtangle.x);
-	inst = collision_rectangle(obj_growtangle.x - laneOffset, gt_miny(), gt_maxx() - laneOffset, gt_maxy(), obj_omawaroid_policecar, 0, 1);
+	inst = collision_rectangle(obj_growtangle.x - laneOffset, gt_miny(), gt_maxx() - laneOffset, gt_maxy(), obj_omawaroid_policecar, false, true);
 	
 	if (inst != -4) {
 		var finishtime = (inst.y - (gt_miny() - 20)) / inst.speed;
@@ -44,14 +44,14 @@ if (!init) {
 			catchuptime = (ystart - (inst.y + 40)) / (speed - inst.speed);
 			
 			if (catchuptime < finishtime)
-				turnSignal = 1;
+				turnSignal = true;
 		}
 	}
 	
 	if (turnSignal)
 		sprite_index = (x > obj_growtangle.x) ? leftTurnSprite : rightTurnSprite;
 	
-	init = 1;
+	init = true;
 }
 
 if (initialSpeed == 0)
@@ -76,7 +76,7 @@ if (state == 2) {
 	}
 	
 	if (turnSignal && laneTimer >= 1) {
-		turnSignal = 0;
+		turnSignal = false;
 		sprite_index = forwardSprite;
 		image_index %= 4;
 	}
@@ -87,7 +87,7 @@ if (state == 2) {
 } else if (turnSignal) {
 	bottomScan = y - 20;
 	var laneCheck = sign(x - obj_growtangle.x);
-	inst = collision_rectangle(obj_growtangle.x + (laneCheck * 3), y - 15 - (speed * 7), obj_growtangle.x + (laneCheck * 30), bottomScan, obj_omawaroid_policecar, 0, 1);
+	inst = collision_rectangle(obj_growtangle.x + (laneCheck * 3), y - 15 - (speed * 7), obj_growtangle.x + (laneCheck * 30), bottomScan, obj_omawaroid_policecar, false, true);
 	
 	if (inst != -4) {
 		previousLane = x;

@@ -1,3 +1,3 @@
 event_inherited();
-destroyonhit = 0;
+destroyonhit = false;
 parent = obj_sneo_final_forme;

@@ -10,7 +10,7 @@ if (!leave) {
 		ral_x = nowx + (shakeamt * on);
 		
 		if (shakeamt <= 0) {
-			ra_shake = 0;
+			ra_shake = false;
 			ral_x = x;
 		}
 	} else {

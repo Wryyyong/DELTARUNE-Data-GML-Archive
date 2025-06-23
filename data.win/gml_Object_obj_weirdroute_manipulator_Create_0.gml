@@ -3,7 +3,7 @@ havenoelle = 0;
 if (instance_exists(obj_caterpillarchara)) {
 	with (obj_caterpillarchara) {
 		if (name == "noelle")
-			other.havenoelle = 1;
+			other.havenoelle = true;
 	}
 }
 
@@ -25,7 +25,7 @@ if (global.flag[915] >= 1.5 && global.flag[916] == 0) {
 	
 	if (instance_exists(obj_city_parallaxStreet)) {
 		with (obj_city_parallaxStreet)
-			nocars = 1;
+			nocars = true;
 	}
 	
 	if (room == room_dw_city_traffic_1) {
@@ -42,7 +42,7 @@ if (global.flag[915] >= 1.5 && global.flag[916] == 0) {
 if (global.flag[915] >= 1.75 && global.flag[916] == 0) {
 	if (instance_exists(obj_city_parallaxStreet)) {
 		with (obj_city_parallaxStreet)
-			nocars = 1;
+			nocars = true;
 	}
 	
 	if (room == room_dw_city_traffic_2) {
@@ -83,10 +83,10 @@ if (global.flag[915] >= 1.75 && global.flag[916] == 0) {
 		}
 		
 		with (obj_sprite_part_parallax_inverted)
-			dontdraw = 1;
+			dontdraw = true;
 		
 		with (obj_sprite_part_parallax_example)
-			dontdraw = 1;
+			dontdraw = true;
 		
 		var lay_id = layer_get_id("CarnivalSprites");
 		var spr_id = layer_sprite_get_id(lay_id, "graphic_58FD8107");
@@ -121,17 +121,17 @@ if (phase == 2) {
 		
 		if (instance_exists(obj_sprite_part_parallax_inverted)) {
 			with (obj_sprite_part_parallax_inverted)
-				dontdraw = 1;
+				dontdraw = true;
 		}
 		
 		if (instance_exists(obj_sprite_part_parallax_example)) {
 			with (obj_sprite_part_parallax_example)
-				dontdraw = 1;
+				dontdraw = true;
 		}
 		
 		if (instance_exists(obj_cybercity_bg_carbridge)) {
 			with (obj_cybercity_bg_carbridge)
-				dontdraw = 1;
+				dontdraw = true;
 		}
 		
 		lid = layer_get_id("TILES_Sidewalk_Animated");
@@ -361,7 +361,7 @@ if (phase == 3) {
 			}
 		}
 		
-		obj_controller_dining3.weird = 1;
+		obj_controller_dining3.weird = true;
 		
 		with (obj_readable_room1)
 			instance_destroy();
@@ -494,6 +494,6 @@ if (phase != 3) {
 
 encountercheck = 0;
 lastphase = global.flag[915];
-phasechange = 0;
+phasechange = false;
 init = 0;
 failstate = global.flag[916];

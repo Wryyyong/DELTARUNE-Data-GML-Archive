@@ -1,2 +1,2 @@
 siner = 0;
-dontdraw = 0;
+dontdraw = false;

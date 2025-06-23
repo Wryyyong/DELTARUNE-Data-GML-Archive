@@ -56,7 +56,7 @@ if (hitType == 3) {
 			bouncenoise = 1;
 		
 		bouncesLeft--;
-		bouncing = 1;
+		bouncing = true;
 		bounceHeight = 128;
 		bounceTime = 1;
 		bounceCurrent = 0;
@@ -75,7 +75,7 @@ if (hitType == 3) {
 			bounceProgress--;
 			
 			if (bouncesLeft < 0) {
-				bouncing = 0;
+				bouncing = false;
 				bounceCurrent = 0;
 			}
 		}
@@ -88,7 +88,7 @@ if ((ystart - bounceCurrent) > (master.y - bulletHitHeight) && (cutOff / sprite_
 	for (var i = 0; i < master.partySize; i++) {
 		if (master.bulletsApplyToAll || i == 0) {
 			if (abs(angle_difference(spin, _cupChar[i].spin)) < bulletCollisionAngle) {
-				debugHitThisFrame = 1;
+				debugHitThisFrame = true;
 				
 				switch (hitType) {
 					case 0:
@@ -134,7 +134,7 @@ if ((ystart - bounceCurrent) > (master.y - bulletHitHeight) && (cutOff / sprite_
 							snd_pitch(snd_play(snd_booster), myPitch);
 							riseSpeedBoost += other.boostAmount;
 							theScore++;
-							tutorialRide = 0;
+							tutorialRide = false;
 							myPitch *= 1.05946;
 						}
 						
@@ -176,7 +176,7 @@ if ((ystart - bounceCurrent) > (master.y - bulletHitHeight) && (cutOff / sprite_
 }
 
 if (eatMe && hitType == 5) {
-	var _col = collision_point(x, y, obj_markercup, 0, 0);
+	var _col = collision_point(x, y, obj_markercup, false, false);
 	
 	if (_col != -4 && _col.sprite_index == spr_teacup_susie_tea)
 		instance_destroy();

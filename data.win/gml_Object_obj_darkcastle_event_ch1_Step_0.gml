@@ -60,7 +60,7 @@ if (con < 40) {
 	}
 	
 	if (con == 6) {
-		if (instance_exists(wr) == 0) {
+		if (instance_exists(wr) == false) {
 			global.fe = 9;
 			global.fc = 1;
 			global.typer = 30;
@@ -85,7 +85,7 @@ if (con < 40) {
 	}
 	
 	if (con == 8) {
-		if (instance_exists(wr) == 0) {
+		if (instance_exists(wr) == false) {
 			r = scr_dark_marker_ch1(495, 310, spr_ralsei_hood_ch1);
 			
 			with (r)
@@ -141,7 +141,7 @@ if (con < 40) {
 	}
 	
 	if (con == 22) {
-		room_persistent = true;
+		room_persistent = 1;
 		con = 24;
 		alarm[4] = 2;
 	}
@@ -156,7 +156,7 @@ if (con < 40) {
 	
 	if (con == 27) {
 		global.plot = 21;
-		room_persistent = false;
+		room_persistent = 0;
 		con = 28;
 		alarm[4] = 60;
 	}
@@ -583,8 +583,8 @@ if (con < 40) {
 	
 	if (con == 75) {
 		if (global.plot == 22) {
-			if (instance_exists(obj_battlecontroller_ch1) == 0) {
-				if (instance_exists(obj_endbattle_ch1) == 0)
+			if (instance_exists(obj_battlecontroller_ch1) == false) {
+				if (instance_exists(obj_endbattle_ch1) == false)
 					con = 76;
 			}
 			
@@ -599,7 +599,7 @@ if (con < 40) {
 		s = scr_dark_marker_ch1(global.cinstance[0].x, global.cinstance[0].y, spr_susieu_dark_ch1);
 		
 		with (obj_mainchara_ch1)
-			visible = false;
+			visible = 0;
 		
 		with (global.cinstance[0])
 			instance_destroy();
@@ -846,7 +846,7 @@ if (con < 40) {
 		scr_losechar_ch1();
 		scr_getchar_ch1(3);
 		global.facing = 1;
-		obj_mainchara_ch1.visible = true;
+		obj_mainchara_ch1.visible = 1;
 		obj_mainchara_ch1.cutscene = 0;
 		
 		with (k)

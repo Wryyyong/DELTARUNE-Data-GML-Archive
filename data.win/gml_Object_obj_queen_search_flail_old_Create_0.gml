@@ -1,6 +1,6 @@
 scr_bullet_init();
 timer = 10;
-destroyonhit = 0;
+destroyonhit = false;
 image_speed = 0;
 impact = 0;
 direction = point_direction(obj_growtangle.x, obj_growtangle.y, x, y);

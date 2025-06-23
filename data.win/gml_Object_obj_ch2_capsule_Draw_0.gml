@@ -1,4 +1,4 @@
-if (con == 0 && visible == true) {
+if (con == 0 && visible == 1) {
 	draw_self();
 	repeattimer--;
 	

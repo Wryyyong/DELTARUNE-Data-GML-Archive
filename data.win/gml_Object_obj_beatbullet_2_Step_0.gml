@@ -1,35 +1,35 @@
-var _shouldActivate = 0;
+var _shouldActivate = false;
 
 with (obj_mainchara) {
-	_shouldActivate = 0;
+	_shouldActivate = false;
 	
 	if (battlemode == 1)
-		_shouldActivate = 1;
+		_shouldActivate = true;
 }
 
 shouldActivate = _shouldActivate;
 
-if (shouldActivate == 1 && framesAway > frames)
-	readyToGo = 1;
+if (shouldActivate == true && framesAway > frames)
+	readyToGo = true;
 
-if (snd_is_playing(global.currentsong[1]) && inSync == 1) {
+if (snd_is_playing(global.currentsong[1]) && inSync == true) {
 	var _prevBeats = beats;
 	beats = audio_sound_get_track_position(global.currentsong[1]) / spb;
 	
 	if (beats < _prevBeats) {
 		targetBeat -= beatMax;
-		forgiveLoop = 1;
+		forgiveLoop = true;
 	}
 } else {
-	inSync = 0;
+	inSync = false;
 	beats += bpf;
 }
 
 if (abs(beats - beatsPrev) > 3) {
 	if (!forgiveLoop)
-		inSync = 0;
+		inSync = false;
 	else
-		forgiveLoop = 0;
+		forgiveLoop = false;
 }
 
 beatsPrev = beats;
@@ -52,7 +52,7 @@ if (image_alpha >= 1) {
 	if (follow != -4)
 		x = follow.x + targetX;
 	
-	active = 0;
+	active = false;
 }
 
 if (framesAway < (frames + fadeInSpeed) && readyToGo)
@@ -73,10 +73,10 @@ if (framesAway < frames) {
 		}
 		
 		image_alpha = 0;
-		readyToGo = 0;
+		readyToGo = false;
 		
 		if (shouldActivate)
-			readyToGo = 1;
+			readyToGo = true;
 		
 		if (looping != 0)
 			targetBeat += looping;

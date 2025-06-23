@@ -20,7 +20,7 @@ if (swatchbc.red_count > swatchbc.blue_count && lidOff) {
 		lidSpeed += 0.685;
 		
 		if (platterLid.y >= ystart) {
-			lidOff = 0;
+			lidOff = false;
 			platterLid.y = y;
 			timer = -20;
 		}
@@ -30,7 +30,7 @@ if (swatchbc.red_count > swatchbc.blue_count && lidOff) {
 } else if (!lidOff) {
 	if (timer >= 0) {
 		if (!opened)
-			opened = 1;
+			opened = true;
 		
 		lidLerp = 1 - (abs(timer - 20) / 20);
 		lidOffset = -1 * lidLerp * (lidLerp - 2);

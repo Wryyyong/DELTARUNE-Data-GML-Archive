@@ -20,4 +20,4 @@ shotqueue[0] = 0;
 shotqueue[1] = 1;
 shotqueue[2] = 2;
 shotindex = 0;
-bigshot = 0;
+bigshot = false;

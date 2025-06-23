@@ -8,7 +8,7 @@ if (global.plot < 5) {
 	con = 1;
 	
 	with (obj_mainchara_ch1)
-		visible = false;
+		visible = 0;
 	
 	k = scr_marker_ch1(290, 198, spr_krisu_ch1);
 	s = scr_marker_ch1(310, 190, spr_susieu_ch1);

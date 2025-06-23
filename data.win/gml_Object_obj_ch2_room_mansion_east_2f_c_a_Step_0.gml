@@ -1,4 +1,4 @@
-if (dothis == 1) {
+if (dothis == true) {
 	saucerCount = 0;
 	
 	with (obj_saucer) {

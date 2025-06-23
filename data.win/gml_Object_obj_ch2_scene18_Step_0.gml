@@ -9,10 +9,10 @@ if (con == 1) {
 	cutscene_master.save_object[0] = id;
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	with (obj_caterpillarchara)
-		visible = false;
+		visible = 0;
 	
 	kr = 0;
 	kr_actor = instance_create(243, 225, obj_actor);
@@ -142,7 +142,7 @@ if (con == 5 && customcon == 0) {
 	c_addxy(0, 12);
 	c_imagespeed(0.25);
 	c_wait(50);
-	c_var_instance(id, "susie_heal", 1);
+	c_var_instance(id, "susie_heal", true);
 	c_imagespeed(0);
 	c_wait(15);
 	c_waitcustom();
@@ -199,7 +199,7 @@ if (con == 7) {
 if (con == 8 && customcon == 1) {
 	con = 9;
 	customcon = 0;
-	c_var_instance(id, "berdly_door_open", 1);
+	c_var_instance(id, "berdly_door_open", true);
 	c_soundplay(snd_dooropen);
 	c_sel(be);
 	c_visible(1);
@@ -211,7 +211,7 @@ if (con == 9) {
 	c_sel(be);
 	c_walk_wait("d", 8, 10);
 	c_facing("r");
-	c_var_instance(id, "berdly_door_close", 1);
+	c_var_instance(id, "berdly_door_close", true);
 	c_soundplay(snd_doorclose);
 	c_sel(be);
 	c_speaker("berdly");
@@ -269,14 +269,14 @@ if (susie_heal) {
 		heal_beam.image_alpha -= 0.25;
 		
 		if (heal_beam.image_alpha <= 0) {
-			susie_heal = 0;
+			susie_heal = false;
 			instance_destroy(heal_beam);
 		}
 	}
 }
 
 if (berdly_door_open) {
-	berdly_door_open = 0;
+	berdly_door_open = false;
 	
 	with (obj_mansion_door) {
 		if (x > 770 && x < 800 && y > 150)
@@ -285,7 +285,7 @@ if (berdly_door_open) {
 }
 
 if (berdly_door_close) {
-	berdly_door_close = 0;
+	berdly_door_close = false;
 	
 	with (obj_mansion_door) {
 		if (x > 770 && x < 800 && y > 150)

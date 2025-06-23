@@ -270,7 +270,7 @@ if (global.monster[myself] == 1) {
 	}
 	
 	if (talked == 1 && global.mnfight == 1) {
-		if (instance_exists(obj_writer) == 0) {
+		if (instance_exists(obj_writer) == false) {
 			with (obj_face)
 				instance_destroy();
 			
@@ -348,7 +348,7 @@ if (attackcon < 92 && attackcon > 0) {
 		}
 	}
 	
-	if (attackcon == 8 && instance_exists(obj_writer) == 0) {
+	if (attackcon == 8 && instance_exists(obj_writer) == false) {
 		with (obj_face)
 			instance_destroy();
 		
@@ -378,7 +378,7 @@ if (attackcon < 92 && attackcon > 0) {
 		}
 	}
 	
-	if (attackcon == 11 && instance_exists(obj_writer) == 0) {
+	if (attackcon == 11 && instance_exists(obj_writer) == false) {
 		b1 = instance_create(xx + 440, obj_heart.y + 8, obj_ralseibullet);
 		
 		with (b1) {
@@ -399,7 +399,7 @@ if (attackcon < 92 && attackcon > 0) {
 		attackcon = 90;
 	}
 	
-	if (attackcon == 90 && instance_exists(obj_writer) == 0) {
+	if (attackcon == 90 && instance_exists(obj_writer) == false) {
 		global.fc = 2;
 		global.fe = 0;
 		global.typer = 45;
@@ -416,7 +416,7 @@ if (attackcon < 92 && attackcon > 0) {
 	if (attackcon == 91) {
 		global.turntimer = 999;
 		
-		if (instance_exists(obj_writer) == 0) {
+		if (instance_exists(obj_writer) == false) {
 			dummyhp = global.monsterhp[0];
 			myhp = global.monsterhp[1];
 			global.turntimer = 0;
@@ -456,7 +456,7 @@ if (global.myfight == 3) {
 	
 	if (actcon == 10) {
 		with (global.charinstance[0])
-			visible = false;
+			visible = 0;
 		
 		k = scr_dark_marker(global.charinstance[0].x, global.charinstance[0].y, spr_kris_hug);
 		
@@ -538,7 +538,7 @@ if (global.myfight == 3) {
 		with (k)
 			instance_destroy();
 		
-		global.charinstance[0].visible = true;
+		global.charinstance[0].visible = 1;
 		actcon = 1;
 		
 		if (won == 1) {

@@ -7,3 +7,7 @@ darkamt = 0;
 dmgnoise = 0;
 instance_create_ch1(x + 10, y + 10, obj_grazebox_ch1);
 boundaryup = 0;
+disableslow = 0;
+
+if (button2_h_ch1())
+	disableslow = 1;

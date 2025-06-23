@@ -6,7 +6,7 @@ if (con == -1) {
 	scr_maincharacters_actors();
 	
 	with (obj_npc_king)
-		visible = false;
+		visible = 0;
 	
 	qu = actor_count + 2;
 	qu_actor = instance_create(camerax() - 100, 182, obj_actor);
@@ -100,11 +100,11 @@ if (con == 1) {
 	c_sprite(spr_king_sulk_drink);
 	c_autowalk(0);
 	c_imagespeed(0.25);
-	c_var_instance(id, "king_drink", 1);
+	c_var_instance(id, "king_drink", true);
 	c_speaker("king");
 	c_msgsetloc(0, "\\EA* DO NOT SPEAK ILL OF THE ROYAL WATER BOTTLE!/%", "obj_ch2_room_dungeon_2f_ee_slash_Step_0_gml_150_0");
 	c_talk_wait();
-	c_var_instance(id, "king_drink", 0);
+	c_var_instance(id, "king_drink", false);
 	c_sel(qu);
 	c_sprite(spr_queen_wine_left);
 	c_sel(ki);
@@ -297,7 +297,7 @@ if (con == 50 && !i_ex(obj_cutscene_master)) {
 	global.flag[320] = 1;
 	
 	with (obj_npc_king)
-		visible = true;
+		visible = 1;
 	
 	instance_destroy();
 }

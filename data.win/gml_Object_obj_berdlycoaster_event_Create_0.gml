@@ -13,7 +13,7 @@ for (i = 0; i < 20; i++) {
 	coasterVisible[i] = 1;
 	coasterImageIndex[i] = 0;
 	coasterRecruitID[i] = 0;
-	coasterCarVisible[i] = 1;
+	coasterCarVisible[i] = true;
 }
 
 coasterSprite[0] = spr_cutscene_26_berdly_left;

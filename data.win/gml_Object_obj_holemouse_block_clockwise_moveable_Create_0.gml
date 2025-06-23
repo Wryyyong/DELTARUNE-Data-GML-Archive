@@ -1,4 +1,4 @@
-pushable = 1;
+pushable = true;
 image_speed = 0;
 xpos = x;
 ypos = y;
@@ -15,4 +15,4 @@ flashtimer = 0;
 flashalpha = 0;
 
 if (room == room_dw_city_mice2)
-	pushable = 0;
+	pushable = false;

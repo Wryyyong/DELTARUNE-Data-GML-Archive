@@ -1,7 +1,7 @@
 con = -1;
 customcon = 0;
-steal_susie = 0;
-steal_icee = 0;
+steal_susie = false;
+steal_icee = false;
 
 with (obj_mainchara)
 	bg = 1;
@@ -33,7 +33,7 @@ if (global.chapter != 2 || global.flag[319] > 0) {
 		instance_destroy(obj_caterpillarchara);
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	blackall = scr_marker(-10, -10, spr_pixel_white);
 	blackall.image_xscale = 999;
@@ -41,8 +41,8 @@ if (global.chapter != 2 || global.flag[319] > 0) {
 	blackall.depth = 100;
 	blackall.image_blend = c_black;
 	blackall.image_alpha = 1;
-	fadeout = 0;
-	rudebuster = 0;
+	fadeout = false;
+	rudebuster = false;
 	rudebuster_timer = 0;
 	wirecon = 0;
 	werewire1 = scr_dark_marker(575, cameray() - (sprite_get_height(spr_werewire_static) * 2), spr_werewire_static);
@@ -50,6 +50,6 @@ if (global.chapter != 2 || global.flag[319] > 0) {
 	werewire1.image_xscale = -2;
 	werewire2 = scr_dark_marker(705, cameray() - (sprite_get_height(spr_werewire_static) * 2), spr_werewire_static);
 	werewire2.image_speed = 0;
-	sparecon = 0;
-	disable_face = 1;
+	sparecon = false;
+	disable_face = true;
 }

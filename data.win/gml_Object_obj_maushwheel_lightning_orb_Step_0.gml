@@ -36,7 +36,7 @@ if (timer == 24) {
 	new_bullet = instance_create(x + lengthdir_x(8, randoffset - 120), y + lengthdir_y(8, randoffset - 120), obj_mauswheel_lightning_orb_ball);
 	scr_bullet_inherit(new_bullet);
 	new_bullet.source = id;
-	active = 0;
+	active = false;
 	visible = false;
 	mask_index = spr_nothing;
 	scr_lerpvar_instance(obj_mauswheel_enemy.id, "image_speed", obj_mauswheel_enemy.image_speed, 0.5, 8);

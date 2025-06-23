@@ -3,9 +3,9 @@ saucerCount = 0;
 complete = 0;
 
 if (global.flag[139] == 0) {
-	dothis = 1;
+	dothis = true;
 } else {
-	dothis = 0;
+	dothis = false;
 	
 	with (obj_saucer) {
 		my_new = instance_create(x, y, obj_saucer);

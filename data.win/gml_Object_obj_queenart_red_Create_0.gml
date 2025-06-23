@@ -1,15 +1,15 @@
 myinteract = 0;
 image_speed = 0;
 skip = 0;
-flippable = 1;
-flip = 0;
+flippable = true;
+flip = false;
 flipcon = 0;
-flipped = 0;
+flipped = false;
 flipfactor = 0.8;
-isswitch = 0;
-switchflipped = 0;
+isswitch = false;
+switchflipped = false;
 extflag = 0;
-decorative = 0;
+decorative = false;
 dontshine = 1;
 alphaer = 0;
 imagespeed = 0;
@@ -32,12 +32,12 @@ type = 1;
 movetype = 0;
 trackpos = 0;
 shine = -4;
-shine_init = 0;
+shine_init = false;
 
 if (room == room_dw_mansion_fire_paintings) {
 	if (x == 820 && y == 960) {
 		extflag = "treasureswitch";
-		isswitch = 1;
+		isswitch = true;
 		dontshine = global.flag[398];
 	}
 	
@@ -46,7 +46,7 @@ if (room == room_dw_mansion_fire_paintings) {
 		spriteindex1 = spr_queenFirePainting;
 		spriteindex2 = spr_queenart_mona_middlepoint;
 		sprite_index = spriteindex1;
-		isswitch = 1;
+		isswitch = true;
 		dontshine = global.flag[399];
 		
 		if (global.flag[399] == 1)

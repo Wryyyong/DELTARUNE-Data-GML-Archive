@@ -26,13 +26,13 @@ if (global.interact == 0 && event == 0) {
 		iy = y + 2;
 	}
 	
-	if (collision_rectangle(ix, iy, ix + 15, iy + 15, obj_solidblock_ch1, 0, 1))
+	if (collision_rectangle(ix, iy, ix + 15, iy + 15, obj_solidblock_ch1, false, true))
 		confirm = 0;
 	
-	if (collision_rectangle(ix, iy, ix + 15, iy + 15, obj_interactablesolid_ch1, 0, 1))
+	if (collision_rectangle(ix, iy, ix + 15, iy + 15, obj_interactablesolid_ch1, false, true))
 		confirm = 0;
 	
-	if (collision_rectangle(ix, iy, ix + 15, iy + 15, obj_solidenemy_ch1, 0, 1))
+	if (collision_rectangle(ix, iy, ix + 15, iy + 15, obj_solidenemy_ch1, false, true))
 		confirm = 0;
 	
 	snd_play_ch1(snd_noise_ch1);

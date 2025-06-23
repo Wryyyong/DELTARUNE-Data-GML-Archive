@@ -13,7 +13,7 @@ draw_set_colour(#00C000);
 draw_set_alpha(0.25);
 
 for (i = 0; i < size; i++)
-	draw_rectangle((left - size) + i, (top - size) + i, (right + size) - i, (bottom + size) - i, true);
+	draw_rectangle((left - size) + i, (top - size) + i, (right + size) - i, (bottom + size) - i, 1);
 
 draw_set_alpha(1);
 draw_set_colour(colo);

@@ -1,6 +1,6 @@
 con = -1;
 customcon = 0;
-noellejoin = 0;
+noellejoin = false;
 leavecon = 0;
 leaveleftattempt = 0;
 leaverightattempt = 0;

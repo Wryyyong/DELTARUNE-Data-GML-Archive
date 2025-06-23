@@ -1,4 +1,4 @@
-destroyoffscreen = 1;
+destroyoffscreen = true;
 tolerance = 80;
 deshspeed = 0;
 con = 0;

@@ -42,7 +42,7 @@ if (menu == 0) {
 	menuc[3] = 0;
 	menuc[4] = 0;
 	
-	if (instance_exists(obj_writer_ch1) == 0) {
+	if (instance_exists(obj_writer_ch1) == false) {
 		global.typer = 6;
 		global.msg[0] = scr_84_get_lang_string_ch1("obj_shop2_slash_Draw_0_gml_70_0");
 		
@@ -104,7 +104,7 @@ if (menu == 1 || menu == 2) {
 	if (menu == 1) {
 		menumax = 4;
 		
-		if (instance_exists(obj_writer_ch1) == 0) {
+		if (instance_exists(obj_writer_ch1) == false) {
 			if (sidemessage == 0)
 				global.msg[0] = scr_84_get_lang_string_ch1("obj_shop2_slash_Draw_0_gml_124_0");
 			
@@ -249,7 +249,7 @@ if (menu == 3) {
 	draw_text(80, 380, string_hash_to_newline(scr_84_get_lang_string_ch1("obj_shop2_slash_Draw_0_gml_197_0")));
 	draw_text(80, 420, string_hash_to_newline(scr_84_get_lang_string_ch1("obj_shop2_slash_Draw_0_gml_198_0")));
 	
-	if (instance_exists(obj_writer_ch1) == 0) {
+	if (instance_exists(obj_writer_ch1) == false) {
 		global.msg[0] = scr_84_get_lang_string_ch1("obj_shop2_slash_Draw_0_gml_202_0");
 		instance_create_ch1(440, 260, obj_writer_ch1);
 	}
@@ -289,7 +289,7 @@ if (menu == 10) {
 	draw_text(80, 340, string_hash_to_newline(scr_84_get_lang_string_ch1("obj_shop2_slash_Draw_0_gml_238_0")));
 	draw_text(80, 380, string_hash_to_newline(scr_84_get_lang_string_ch1("obj_shop2_slash_Draw_0_gml_239_0")));
 	
-	if (instance_exists(obj_writer_ch1) == 0) {
+	if (instance_exists(obj_writer_ch1) == false) {
 		if (sidemessage == 0)
 			global.msg[0] = scr_84_get_lang_string_ch1("obj_shop2_slash_Draw_0_gml_243_0");
 		
@@ -371,7 +371,7 @@ if (menu == 10) {
 }
 
 if (menu == 11 || menu == 12 || menu == 13) {
-	if (instance_exists(obj_writer_ch1) == 0) {
+	if (instance_exists(obj_writer_ch1) == false) {
 		if (sidemessage2 == 0 && menu == 11)
 			global.msg[0] = scr_84_get_lang_string_ch1("obj_shop2_slash_Draw_0_gml_305_0");
 		
@@ -423,7 +423,7 @@ if (menu == 4) {
 	if (sell == 0)
 		menu = 0;
 	
-	if (instance_exists(obj_writer_ch1) == 0 && selling == 0) {
+	if (instance_exists(obj_writer_ch1) == false && selling == 0) {
 		if (sell == 1) {
 		}
 		
@@ -493,7 +493,7 @@ if (menu == 4) {
 		selling = 1;
 	}
 	
-	if (selling == 1 && instance_exists(obj_writer_ch1) == 0) {
+	if (selling == 1 && instance_exists(obj_writer_ch1) == false) {
 		if (sell == 2) {
 			selling = 2;
 			event_user(1);

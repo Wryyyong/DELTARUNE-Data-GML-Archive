@@ -1,13 +1,13 @@
 if (type == 0 && !init) {
-	init = 1;
+	init = true;
 	character_sprite = spr_krisr_dark;
 	actor = scr_dark_marker(0, 0, spr_krisr_dark);
 	actor.image_speed = 0;
-	actor.visible = false;
+	actor.visible = 0;
 }
 
 if (type == 1 && !init) {
-	init = 1;
+	init = true;
 	default_sprite_front = spam_car ? spr_sneo_car_front : spr_susie_coaster_front;
 	default_sprite_back = spam_car ? spr_sneo_car_back : spr_susie_coaster_back;
 	hurt_sprite_front = spr_susie_coaster_hurt_front;
@@ -16,13 +16,13 @@ if (type == 1 && !init) {
 	character_sprite = spr_susie_walk_right_dw;
 	actor = scr_dark_marker(0, 0, spr_susie_walk_right_dw);
 	actor.image_speed = 0;
-	actor.visible = false;
+	actor.visible = 0;
 	coaster_offset_x = -20;
 	coaster_offset_y = 55;
 }
 
 if (type == 2 && !init) {
-	init = 1;
+	init = true;
 	default_sprite_front = spam_car ? spr_sneo_car_front : spr_ralsei_coaster_front;
 	default_sprite_back = spam_car ? spr_sneo_car_back : spr_ralsei_coaster_back;
 	hurt_sprite_front = spr_ralsei_coaster_hurt_front;
@@ -31,13 +31,13 @@ if (type == 2 && !init) {
 	character_sprite = spr_ralsei_walk_right;
 	actor = scr_dark_marker(0, 0, spr_ralsei_walk_right);
 	actor.image_speed = 0;
-	actor.visible = false;
+	actor.visible = 0;
 	coaster_offset_x = -30;
 	coaster_offset_y = 45;
 }
 
 if (type == 3 && !init) {
-	init = 1;
+	init = true;
 	default_sprite_front = spr_berdly_coaster_front;
 	default_sprite_back = spr_berdly_coaster_back;
 	hurt_sprite_front = spr_berdly_coaster_hurt_front;
@@ -46,19 +46,19 @@ if (type == 3 && !init) {
 	character_sprite = spr_berdly_walk_left_dw;
 	actor = scr_dark_marker(0, 0, spr_berdly_walk_left_dw);
 	actor.image_speed = 0;
-	actor.visible = false;
+	actor.visible = 0;
 	coaster_offset_x = -65;
 	coaster_offset_y = 30;
 }
 
 if (type == 4 && !init) {
-	init = 1;
+	init = true;
 	default_sprite_front = spr_noelle_coaster_front;
 	default_sprite_back = -1;
 	character_sprite = spr_noelle_walk_left_dw;
 	actor = scr_dark_marker(0, 0, spr_noelle_walk_left_dw);
 	actor.image_speed = 0;
-	actor.visible = false;
+	actor.visible = 0;
 	coaster_offset_x = -65;
 	coaster_offset_y = 45;
 }

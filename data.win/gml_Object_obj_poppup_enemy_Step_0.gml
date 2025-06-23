@@ -53,7 +53,7 @@ if (global.monster[myself] == 1) {
 				dialogText = stringsetloc("Click Here! Click Here!&Click Here! Click Here!", "obj_poppup_enemy_slash_Step_0_gml_30_0");
 			
 			if (global.monsterstatus[myself] == 1 && !becameTired) {
-				becameTired = 1;
+				becameTired = true;
 				dialogText = stringsetloc("...NEMMUY...", "obj_poppup_enemy_slash_Step_0_gml_35_0");
 			}
 		}
@@ -62,8 +62,8 @@ if (global.monster[myself] == 1) {
 			dialogText = stringsetloc("NEED...&LOOK...&ME...", "obj_poppup_enemy_slash_Step_0_gml_41_0");
 		
 		if (global.mercymod[myself] >= global.mercymax[myself] && !becameSpareable) {
-			becameSpareable = 1;
-			avoiding = 0;
+			becameSpareable = true;
+			avoiding = false;
 			dialogText = stringsetloc("...HAPPI...", "obj_poppup_enemy_slash_Step_0_gml_48_0");
 		}
 		
@@ -175,12 +175,12 @@ if (global.myfight == 3) {
 	
 	if (acting == 2 && actcon == 0) {
 		if (avoiding) {
-			avoiding = 0;
+			avoiding = false;
 			idlesprite = spr_poppup_idle;
 		}
 		
 		if (scr_monsterpop() == 3) {
-			staticOwner = 1;
+			staticOwner = true;
 			actcon = 10;
 			msgsetloc(0, "* You just kept clicking and clicking on ads!!/%", "obj_poppup_enemy_slash_Step_0_gml_192_0");
 		} else {
@@ -203,7 +203,7 @@ if (global.myfight == 3) {
 	if (actcon == 10 && !instance_exists(obj_writer)) {
 		if (staticPoppup < 21) {
 			staticPoppup++;
-			cloning = 1;
+			cloning = true;
 			snd_stop(snd_acquire_lancer);
 			snd_play(snd_acquire_lancer);
 			overload = instance_create(x, y, obj_poppup_overload);
@@ -271,10 +271,10 @@ if (global.myfight == 3) {
 			with (obj_poppup_enemy)
 				alarm[6] = 1;
 		} else {
-			cloning = 1;
+			cloning = true;
 			snd_play(snd_acquire_lancer);
 			newpopupid = scr_monster_add(31, obj_poppup_enemy);
-			global.monsterinstance[newpopupid].cloning = 1;
+			global.monsterinstance[newpopupid].cloning = true;
 			global.monsterinstance[newpopupid].x = x;
 			global.monsterinstance[newpopupid].y = y;
 			global.monsterinstance[newpopupid].siner = siner;
@@ -320,8 +320,8 @@ if (global.myfight == 3) {
 	}
 	
 	if (actcon == 7 && !instance_exists(obj_writer)) {
-		cloning = 0;
-		global.monsterinstance[newpopupid].cloning = 0;
+		cloning = false;
+		global.monsterinstance[newpopupid].cloning = false;
 		actcon = 1;
 		msgsetloc(0, "* Huh...!? That made another one!?/%", "obj_poppup_enemy_slash_Step_0_gml_298_0");
 		scr_battletext_default();
@@ -330,7 +330,7 @@ if (global.myfight == 3) {
 	if (acting == 3 && actcon == 0) {
 		blockAds = 5;
 		blocked = 0;
-		blockTimer = 0;
+		blockTimer = false;
 		popupscreated = 0;
 		msgsetsubloc(0, "* Press ~1 repeatedly to block the ads!!/%", scr_get_input_name(6), "obj_poppup_enemy_slash_Step_0_gml_309_0");
 		scr_battletext_default();
@@ -344,7 +344,7 @@ if (global.myfight == 3) {
 	if (actcon == 20.5 && !instance_exists(obj_writer)) {
 		if (poppupwait == 1) {
 			poppupwait = 0;
-		} else if (blockTimer == 1 && popupscreated < 10) {
+		} else if (blockTimer == true && popupscreated < 10) {
 			var randomX = random_range(camerax() + 190, camerax() + 450);
 			var randomY = random_range(cameray() + 70, cameray() + 230);
 			ads[popupscreated] = instance_create(randomX, randomY, obj_poppup_ad);
@@ -355,8 +355,8 @@ if (global.myfight == 3) {
 		if (button3_p() && blockbuffer == 0) {
 			blockbuffer = 2;
 			
-			if (blockTimer == 0) {
-				blockTimer = 1;
+			if (blockTimer == false) {
+				blockTimer = true;
 				alarm[4] = 75;
 			}
 			
@@ -425,7 +425,7 @@ if (global.myfight == 3) {
 	if (actcon == 30 && !instance_exists(obj_writer)) {
 		if (!avoiding) {
 			with (obj_poppup_enemy) {
-				avoiding = 1;
+				avoiding = true;
 				idlesprite = spr_poppup_shrivel_idle;
 			}
 		}

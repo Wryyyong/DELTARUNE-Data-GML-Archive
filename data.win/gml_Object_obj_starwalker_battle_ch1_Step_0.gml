@@ -1,5 +1,5 @@
 if (walkcon == 1) {
-	visible = false;
+	visible = 0;
 	wings = scr_dark_marker_ch1(x + 92, y + 74, spr_starwalker_wings_ch1);
 	wings.image_index = image_index;
 	

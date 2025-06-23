@@ -27,8 +27,8 @@ if (global.monster[myself] == 1) {
 	if (scr_isphase("enemytalk") && talked == 0) {
 		global.typer = 50;
 		
-		if (checkreact == 1) {
-			checkreact = 0;
+		if (checkreact == true) {
+			checkreact = false;
 			msgsetloc(0, "\\M2Boss^1! Don't listen to&that^1! That's the wrong&ACT!^1! The wrong ACT!^1!/%", "obj_dojo_spareenemy_slash_Step_0_gml_19_0");
 		} else if (sparecon == 1) {
 			msgsetloc(0, "Ohhhh, boss,&you're sparing&me!?/%", "obj_dojo_spareenemy_slash_Step_0_gml_23_0");
@@ -52,7 +52,7 @@ if (global.monster[myself] == 1) {
 				sparecon = 0;
 			} else if (global.mercymod[myself] > 0) {
 				scr_mercyadd(myself, -global.mercymod[myself]);
-				shaved = 0;
+				shaved = false;
 				msgsetloc(0, "\\M1* Jigsaw Joe's stubble regrew!/%", "obj_dojo_spareenemy_slash_Step_0_gml_51_0");
 				scr_battletext_default();
 				sparecon = -1;
@@ -170,7 +170,7 @@ if (global.myfight == 3) {
 	if (acting == 1 && actcon == 0) {
 		actcon = 1;
 		msgsetloc(0, "* JIGSAW JOE - Beat him up to earn his life savings!/%", "obj_dojo_spareenemy_slash_Step_0_gml_177_0");
-		checkreact = 1;
+		checkreact = true;
 		scr_battletext_default();
 	}
 	

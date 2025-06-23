@@ -98,7 +98,7 @@ if (global.monster[myself] == 1) {
 				}
 				
 				siner = 0;
-				visible = false;
+				visible = 0;
 				turns += 1;
 			}
 			
@@ -320,7 +320,7 @@ if (global.myfight == 3) {
 		global.msg[0] = stringsetloc("* You bowed to K. ROUND./%", "obj_checkers_enemy_slash_Step_0_gml_296_0");
 		
 		with (obj_herokris)
-			visible = false;
+			visible = 0;
 		
 		global.faceaction[0] = 0;
 		global.charaction[0] = 0;
@@ -339,7 +339,7 @@ if (global.myfight == 3) {
 	}
 	
 	if (actcon == 20 && !instance_exists(obj_writer)) {
-		visible = false;
+		visible = 0;
 		bowcheck = scr_dark_marker(x, y, spr_checkers_bow);
 		
 		with (bowcheck)
@@ -407,10 +407,10 @@ if (global.myfight == 3) {
 		with (bowcheck)
 			instance_destroy();
 		
-		visible = true;
+		visible = 1;
 		
 		with (obj_herokris)
-			visible = true;
+			visible = 1;
 		
 		actcon = 1;
 	}
@@ -421,10 +421,10 @@ if (global.myfight == 3) {
 			global.msg[0] = stringsetloc("* You and Ralsei bowed./%", "obj_checkers_enemy_slash_Step_0_gml_398_0");
 			
 			with (obj_herokris)
-				visible = false;
+				visible = 0;
 			
 			with (obj_heroralsei)
-				visible = false;
+				visible = 0;
 			
 			global.faceaction[0] = 0;
 			global.charaction[0] = 0;
@@ -455,7 +455,7 @@ if (global.myfight == 3) {
 	}
 	
 	if (actcon == 30 && !instance_exists(obj_writer)) {
-		visible = false;
+		visible = 0;
 		bowcheck = scr_dark_marker(x, y, spr_checkers_bow);
 		
 		with (bowcheck)
@@ -491,13 +491,13 @@ if (global.myfight == 3) {
 		with (bowcheck)
 			instance_destroy();
 		
-		visible = true;
+		visible = 1;
 		
 		with (obj_heroralsei)
-			visible = true;
+			visible = 1;
 		
 		with (obj_herokris)
-			visible = true;
+			visible = 1;
 		
 		actcon = 1;
 	}
@@ -520,17 +520,17 @@ if (global.myfight == 3) {
 				actcon = 90;
 				instance_create(x, y, obj_throwtarget);
 				throwsus = instance_create(obj_herosusie.x, obj_herosusie.y, obj_throwralsei);
-				visible = false;
+				visible = 0;
 				global.faceaction[1] = 0;
 				global.charaction[1] = 0;
 				global.faceaction[2] = 0;
 				global.charaction[2] = 0;
 				
 				with (obj_herosusie)
-					visible = false;
+					visible = 0;
 				
 				with (obj_heroralsei)
-					visible = false;
+					visible = 0;
 				
 				snd_play(snd_grab);
 			} else {
@@ -589,10 +589,10 @@ if (global.myfight == 3) {
 		alarm[4] = 30;
 		
 		with (obj_herosusie)
-			visible = false;
+			visible = 0;
 		
 		with (obj_heroralsei)
-			visible = false;
+			visible = 0;
 		
 		thrown = 1;
 		trsus = scr_dark_marker(obj_herosusie.x, obj_herosusie.y, spr_susieb_throwralseiready);
@@ -611,7 +611,7 @@ if (global.myfight == 3) {
 		actcon = 0;
 	
 	if (actcon == 50) {
-		visible = false;
+		visible = 0;
 		snd_free_all();
 		animtest = instance_create(x, y, obj_checker_animtest);
 		animtest.sprite_index = spr_smallchecker_transform3;

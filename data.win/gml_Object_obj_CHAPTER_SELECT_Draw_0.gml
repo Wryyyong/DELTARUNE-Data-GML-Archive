@@ -1,3 +1,11 @@
+if (global.is_console) {
+	if (chapter_is_loading) {
+		draw_set_font(fnt_mainbig);
+		draw_set_halign(fa_center);
+		draw_text(320, 250, "LOADING...");
+	}
+}
+
 if (!audio_group_is_loaded(1))
 	exit;
 
@@ -15,14 +23,14 @@ if (timer < 20)
 
 if (con == "init") {
 	if (timer == 1)
-		loop = audio_play_sound(AUDIO_DRONE, 15, true);
+		loop = audio_play_sound(AUDIO_DRONE, 15, 1);
 	
 	if (timer == 15)
 		con = "start";
 }
 
 if (con == "start") {
-	file_found = 0;
+	file_found = false;
 	
 	if (ossafe_file_exists("dr.ini")) {
 		ossafe_ini_open("dr.ini");
@@ -36,7 +44,7 @@ if (con == "start") {
 			highestCompletedChapter = i;
 		
 		if (highestCompletedChapter > 0)
-			file_found = 1;
+			file_found = true;
 	}
 	
 	show_debug_message("highestCompletedChapter:" + string(highestCompletedChapter));
@@ -48,12 +56,12 @@ if (con == "start") {
 			highestUncompletedChapter = i;
 		
 		if (highestUncompletedChapter > 0)
-			file_found = 1;
+			file_found = true;
 	}
 	
 	show_debug_message("highestUncompletedChapter:" + string(highestUncompletedChapter));
 	
-	if (file_found == 0) {
+	if (file_found == false) {
 		con = "nofile";
 		fade = fademax;
 		timer = 0;
@@ -97,25 +105,25 @@ if (con == "nofile") {
 	draw_text_transformed(xx, (((20 * scale) + yy) - fadescaled) + (mspace * 1), no, scale, scale, 0);
 	
 	if (mpos == 0)
-		draw_sprite_ext(spr_heart, 0, xx - ((string_width(yes) / 2) * scale) - (13 * scale), (((20 * scale) + yy) - fadescaled) + (mspace * mpos) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
+		draw_sprite_ext(spr_heart_launcher, 0, xx - ((string_width(yes) / 2) * scale) - (13 * scale), (((20 * scale) + yy) - fadescaled) + (mspace * mpos) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
 	
 	if (mpos == 1)
-		draw_sprite_ext(spr_heart, 0, xx - ((string_width(no) / 2) * scale) - (13 * scale), (((20 * scale) + yy) - fadescaled) + (mspace * mpos) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
+		draw_sprite_ext(spr_heart_launcher, 0, xx - ((string_width(no) / 2) * scale) - (13 * scale), (((20 * scale) + yy) - fadescaled) + (mspace * mpos) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
 	
 	if (up_p()) {
 		mpos--;
-		move_noise = 1;
+		move_noise = true;
 	}
 	
 	if (down_p()) {
 		mpos++;
-		move_noise = 1;
+		move_noise = true;
 	}
 	
 	mpos = clamp(mpos, 0, 1);
 	
 	if (button1_p() && timer > 10) {
-		select_noise = 1;
+		select_noise = true;
 		
 		switch (mpos) {
 			case 0:
@@ -185,25 +193,25 @@ if (con == "startNextChapter") {
 	draw_text_transformed(xx, (yy - fadescaled) + (mspace * 2), select_text, scale, scale, 0);
 	
 	if (mpos == 0)
-		draw_sprite_ext(spr_heart, 0, xx - ((string_width(stringset2) / 2) * scale) - (13 * scale), (yy - fadescaled) + (mspace * 1) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
+		draw_sprite_ext(spr_heart_launcher, 0, xx - ((string_width(stringset2) / 2) * scale) - (13 * scale), (yy - fadescaled) + (mspace * 1) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
 	
 	if (mpos == 1)
-		draw_sprite_ext(spr_heart, 0, xx - ((string_width(select_text) / 2) * scale) - (13 * scale), (yy - fadescaled) + (mspace * 2) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
+		draw_sprite_ext(spr_heart_launcher, 0, xx - ((string_width(select_text) / 2) * scale) - (13 * scale), (yy - fadescaled) + (mspace * 2) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
 	
 	if (up_p()) {
 		mpos--;
-		move_noise = 1;
+		move_noise = true;
 	}
 	
 	if (down_p()) {
 		mpos++;
-		move_noise = 1;
+		move_noise = true;
 	}
 	
 	mpos = clamp(mpos, 0, 1);
 	
 	if (button1_p() && timer > 10) {
-		select_noise = 1;
+		select_noise = true;
 		
 		switch (mpos) {
 			case 0:
@@ -261,26 +269,26 @@ if (con == "continueChapter") {
 	draw_text_transformed(xx, (yy - fadescaled) + (mspace * 2), no, scale, scale, 0);
 	
 	if (mpos == 0)
-		draw_sprite_ext(spr_heart, 0, xx - ((string_width(yes) / 2) * scale) - (13 * scale), (yy - fadescaled) + (mspace * 1) + (mspace * mpos) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
+		draw_sprite_ext(spr_heart_launcher, 0, xx - ((string_width(yes) / 2) * scale) - (13 * scale), (yy - fadescaled) + (mspace * 1) + (mspace * mpos) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
 	
 	if (mpos == 1)
-		draw_sprite_ext(spr_heart, 0, xx - ((string_width(no) / 2) * scale) - (13 * scale), (yy - fadescaled) + (mspace * 1) + (mspace * mpos) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
+		draw_sprite_ext(spr_heart_launcher, 0, xx - ((string_width(no) / 2) * scale) - (13 * scale), (yy - fadescaled) + (mspace * 1) + (mspace * mpos) + (4 * scale), scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
 	
 	if (up_p()) {
 		mpos--;
-		move_noise = 1;
+		move_noise = true;
 	}
 	
 	if (down_p()) {
 		mpos++;
-		move_noise = 1;
+		move_noise = true;
 	}
 	
 	mpos = clamp(mpos, 0, 1);
 	
 	if (button1_p() && timer > 10) {
 		timer = 0;
-		select_noise = 1;
+		select_noise = true;
 		
 		switch (mpos) {
 			case 0:
@@ -323,7 +331,7 @@ if (con == "chapterselect") {
 	draw_set_halign(fa_center);
 	
 	if (up_p()) {
-		move_noise = 1;
+		move_noise = true;
 		mpos--;
 		
 		if (mpos > (latestAvailableChapter - 1))
@@ -331,7 +339,7 @@ if (con == "chapterselect") {
 	}
 	
 	if (down_p()) {
-		move_noise = 1;
+		move_noise = true;
 		mpos++;
 		
 		if (mpos > (latestAvailableChapter - 1))
@@ -378,7 +386,7 @@ if (con == "chapterselect") {
 		heart_xpos = 130 * scale;
 	}
 	
-	draw_sprite_ext(spr_heart, 0, heart_xpos, heart_ypos, scale / 2, scale / 2, 1, c_white, (fademax - fade) / fademax);
+	draw_sprite_ext(spr_heart_launcher, 0, heart_xpos, heart_ypos, scale / 2, scale / 2, 1, c_white, (fademax - fade) / fademax);
 	
 	if (!console) {
 		var mycolor = c_white;
@@ -394,7 +402,7 @@ if (con == "chapterselect") {
 	}
 	
 	if (button1_p() && timer > 12) {
-		select_noise = 1;
+		select_noise = true;
 		timer = 0;
 		
 		if (mpos == 7) {
@@ -425,12 +433,12 @@ if (con == "chapterselect") {
 	mspace = 30 * scale;
 	
 	if (left_p()) {
-		move_noise = 1;
+		move_noise = true;
 		confirm_choice_index = ((confirm_choice_index - 1) < 0) ? 1 : 0;
 	}
 	
 	if (right_p()) {
-		move_noise = 1;
+		move_noise = true;
 		confirm_choice_index = ((confirm_choice_index + 1) > 1) ? 0 : 1;
 	}
 	
@@ -440,7 +448,7 @@ if (con == "chapterselect") {
 		heart_xpos = (106 * scale) + (confirm_choice_index * 95 * scale);
 	
 	var heart_ypos = yy + (7 * scale) + (mpos * 30 * scale);
-	draw_sprite_ext(spr_heart, 0, heart_xpos, heart_ypos, scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
+	draw_sprite_ext(spr_heart_launcher, 0, heart_xpos, heart_ypos, scale / 2, scale / 2, 0, c_white, (fademax - fade) / fademax);
 	var max_options = 7;
 	
 	for (var i = 0; i < max_options; i++) {
@@ -500,7 +508,7 @@ if (con == "chapterselect") {
 	
 	if (button1_p() && timer > 12) {
 		timer = 0;
-		select_noise = 1;
+		select_noise = true;
 		
 		if (confirm_choice_index == 0)
 			con = "gameload";
@@ -510,7 +518,7 @@ if (con == "chapterselect") {
 	
 	if (button2_p() && timer > 12) {
 		timer = 0;
-		select_noise = 1;
+		select_noise = true;
 		con = "chapterselect";
 	}
 }
@@ -527,17 +535,18 @@ if (con == "gameload") {
 		
 		switch (chaptertoload) {
 			case 1:
-				audio_play_sound(AUDIO_APPEARANCE, 50, false);
+				audio_play_sound(AUDIO_APPEARANCE, 50, 0);
 				break;
 			
 			case 2:
-				audio_play_sound(snd_queen_bitcrushlaugh, 50, false);
+				audio_play_sound(snd_queen_bitcrushlaugh, 50, 0);
 				break;
 		}
 		
 		chaptertoload_temp = chaptertoload;
 		chaptertoload = 0;
 		alarm[2] = 60;
+		alarm[3] = 50;
 	}
 	
 	draw_sprite_ext(spr_aftereffect, 0, room_width / 2, yy, xscale, yscale, 0, c_white, fadeout);
@@ -548,11 +557,11 @@ if (con == "gameload") {
 }
 
 if (move_noise) {
-	move_noise = 0;
-	audio_play_sound(snd_menumove, 50, false);
+	move_noise = false;
+	audio_play_sound(snd_menumove, 50, 0);
 }
 
 if (select_noise) {
-	select_noise = 0;
-	audio_play_sound(snd_select, 50, false);
+	select_noise = false;
+	audio_play_sound(snd_select, 50, 0);
 }

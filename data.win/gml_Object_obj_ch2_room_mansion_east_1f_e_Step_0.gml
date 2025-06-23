@@ -9,7 +9,7 @@ if (hacker != -4) {
 		
 		if (pause_timer >= 60) {
 			pause_timer = 0;
-			hacker_init_path = 1;
+			hacker_init_path = true;
 			
 			with (hacker)
 				path_start(path_hacker_loop, 2, path_action_reverse, 1);
@@ -25,7 +25,7 @@ if (hacker != -4) {
 				pause_timer = 0;
 				hacker.path_speed = 2;
 				hacker.image_index = 0;
-				hacker_can_pause = 0;
+				hacker_can_pause = false;
 			}
 		}
 	}
@@ -35,7 +35,7 @@ if (hacker != -4) {
 		
 		if (pause_timer >= 15) {
 			pause_timer = 0;
-			hacker_can_pause = 1;
+			hacker_can_pause = true;
 		}
 	}
 	
@@ -70,12 +70,12 @@ if (hacker != -4) {
 			currentspeed = path_speed;
 			path_speed = 0;
 			image_index = 0;
-			pathpause = 1;
+			pathpause = true;
 		}
 		
 		if (myinteract == 0 && pathpause) {
 			path_speed = currentspeed;
-			pathpause = 0;
+			pathpause = false;
 		}
 	}
 }
@@ -83,8 +83,8 @@ if (hacker != -4) {
 if (con == 1) {
 	con = -1;
 	global.flag[339] = 1;
-	layer_set_visible("TILES_Secret", 0);
-	layer_set_visible("TILES_Secret_BG", 0);
+	layer_set_visible("TILES_Secret", false);
+	layer_set_visible("TILES_Secret_BG", false);
 	
 	if (i_ex(exitcollider))
 		instance_destroy(exitcollider);

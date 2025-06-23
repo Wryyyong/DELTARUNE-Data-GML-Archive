@@ -7,7 +7,7 @@ if (global.plot >= 85 && global.plot < 90) {
 		scr_makecaterpillar(obj_mainchara.x + 60, obj_mainchara.y + 1000, 4, 0);
 		
 		with (obj_caterpillarchara)
-			visible = false;
+			visible = 0;
 		
 		cutscene_master = scr_cutscene_make();
 		scr_maincharacters_actors();
@@ -24,7 +24,7 @@ if (global.plot >= 85 && global.plot < 90) {
 	}
 	
 	if (realign) {
-		realign = 0;
+		realign = false;
 		var xpos = queencar.x + 82;
 		var ypos = queencar.y;
 		
@@ -59,7 +59,7 @@ if (global.plot >= 85 && global.plot < 90) {
 		c_pannable(1);
 		c_panobj(kr_actor, 15);
 		c_wait(16);
-		c_var_instance(id, "realign", 1);
+		c_var_instance(id, "realign", true);
 		c_wait(5);
 		c_pannable(0);
 		c_wait(15);
@@ -84,8 +84,8 @@ if (global.plot >= 85 && global.plot < 90) {
 	
 	if (con == 4 && queencar.x >= 3540) {
 		if (!queencar.pause_x_move) {
-			queencar.pause_x_move = 1;
-			queencar.pause_auto_talk = 1;
+			queencar.pause_x_move = true;
+			queencar.pause_auto_talk = true;
 			layer_hspeed("BG_Coaster_Railings", -4);
 			layer_hspeed("BG_Coaster_Railings_Top", -4);
 			layer_hspeed("BG_Bridge_Lining", -4);
@@ -112,7 +112,7 @@ if (global.plot >= 85 && global.plot < 90) {
 			if (talk_timer == 5) {
 				car_convo = 2;
 				alarm[1] = 30;
-				queen_beam.visible = true;
+				queen_beam.visible = 1;
 				snd_play(snd_item);
 			}
 		}
@@ -149,15 +149,15 @@ if (global.plot >= 85 && global.plot < 90) {
 		}
 		
 		if (crank_volume) {
-			crank_volume = 0;
+			crank_volume = false;
 			snd_volume(global.currentsong[1], 1, 15);
 		}
 		
 		if (car_convo == 99 && !d_ex()) {
-			queen_beam.visible = false;
+			queen_beam.visible = 0;
 			con = 5;
-			queencar.pause_x_move = 0;
-			shift_road = 0;
+			queencar.pause_x_move = false;
+			shift_road = false;
 			layer_hspeed("BG_Coaster_Railings", 0);
 			layer_hspeed("BG_Coaster_Railings_Top", 0);
 			layer_hspeed("BG_Bridge_Lining", 0);
@@ -166,8 +166,8 @@ if (global.plot >= 85 && global.plot < 90) {
 	}
 	
 	if (con == 5 && queencar.x >= 3590) {
-		queencar.pause_x_move = 1;
-		queencar.pause_y_move = 1;
+		queencar.pause_x_move = true;
+		queencar.pause_y_move = true;
 		
 		if (queencar.y > 180)
 			queencar.y -= 2;
@@ -220,7 +220,7 @@ if (global.plot >= 85 && global.plot < 90) {
 		c_msgsetloc(0, "\\EC* What's..^1. wrong with it?/%", "obj_ch2_city_car_b_slash_Step_0_gml_263_0");
 		c_talk_wait();
 		c_soundplay(snd_badexplosion);
-		c_var_instance(id, "explosion", 1);
+		c_var_instance(id, "explosion", true);
 		c_var_instance(queencar, "visible", 0);
 		c_sel(kr);
 		c_autowalk(0);
@@ -322,7 +322,7 @@ if (global.plot >= 85 && global.plot < 90) {
 		global.facing = 0;
 		
 		with (obj_ch2_room_city_traffic_jam)
-			release_hor_jam = 1;
+			release_hor_jam = true;
 		
 		if (i_ex(queencar))
 			instance_destroy(queencar);
@@ -332,7 +332,7 @@ if (global.plot >= 85 && global.plot < 90) {
 		queencar.x += 5;
 		
 		if (queencar.x <= 400)
-			release_car = 0;
+			release_car = false;
 	}
 	
 	if (explosion) {
@@ -347,17 +347,17 @@ if (global.plot >= 85 && global.plot < 90) {
 			with (explosion_marker)
 				scr_depth();
 		} else {
-			var finish = 0;
+			var finish = false;
 			
 			with (obj_marker) {
 				if (sprite_index == spr_realisticexplosion && image_index >= 16) {
-					finish = 1;
+					finish = true;
 					instance_destroy();
 				}
 			}
 			
 			if (finish) {
-				explosion = 0;
+				explosion = false;
 				explodetimer = 0;
 			}
 		}

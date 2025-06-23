@@ -1,1 +1,1 @@
-flash_white = 0;
+flash_white = false;

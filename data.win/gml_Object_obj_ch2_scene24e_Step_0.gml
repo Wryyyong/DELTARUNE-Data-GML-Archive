@@ -25,7 +25,7 @@ if (con == 1) {
 		with (obj_mainchara) {
 			x = 245;
 			y = 750;
-			visible = false;
+			visible = 0;
 		}
 		
 		scr_losechar();
@@ -35,7 +35,7 @@ if (con == 1) {
 		scr_makecaterpillar(obj_mainchara.x + 120, obj_mainchara.y - 6, 3, 1);
 		
 		with (obj_caterpillarchara)
-			visible = false;
+			visible = 0;
 		
 		cutscene_master = scr_cutscene_make();
 		scr_maincharacters_actors();
@@ -189,7 +189,7 @@ if (con == 10 && !d_ex()) {
 	
 	if (i_ex(obj_caterpillarchara)) {
 		with (obj_caterpillarchara)
-			visible = false;
+			visible = 0;
 	}
 	
 	c_actortokris();

@@ -65,7 +65,7 @@ if (con == 20) {
 	sw_actor.sprite_index = spr_sweet_idle;
 	c_sel(sw);
 	c_autowalk(0);
-	nisesweet.visible = false;
+	nisesweet.visible = 0;
 	hg = 6;
 	hg_actor = instance_create(2200, cameray() - 80, obj_actor);
 	hg_actor.y = cameray() - 800;
@@ -319,7 +319,7 @@ if (tempcon == 0 && customcon == 1) {
 
 if (con == 23 && customcon == 1) {
 	with (obj_actor)
-		visible = false;
+		visible = 0;
 	
 	con = 29;
 	alarm[0] = 30;
@@ -355,11 +355,11 @@ if (con == 23 && customcon == 1) {
 }
 
 if (con == 30 && i_ex(obj_battlecontroller)) {
-	var battle_end = 0;
+	var battle_end = false;
 	
 	with (obj_battlecontroller) {
 		if (intro == 2)
-			battle_end = 1;
+			battle_end = true;
 	}
 	
 	if (battle_end) {
@@ -395,13 +395,13 @@ if (con == 32) {
 		scr_depth();
 	
 	with (obj_actor)
-		visible = true;
+		visible = 1;
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	with (obj_caterpillarchara)
-		visible = false;
+		visible = 0;
 	
 	snd_free(global.batmusic[0]);
 	
@@ -431,13 +431,13 @@ if (con == 34 && !i_ex(obj_battlecontroller)) {
 	global.interact = 1;
 	
 	with (obj_actor)
-		visible = true;
+		visible = 1;
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	with (obj_caterpillarchara)
-		visible = false;
+		visible = 0;
 	
 	c_mus2("initloop", "music_guys_intro.ogg", 0);
 	c_waitcustom_end();

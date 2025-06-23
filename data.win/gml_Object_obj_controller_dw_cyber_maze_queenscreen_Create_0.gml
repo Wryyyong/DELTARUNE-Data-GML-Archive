@@ -14,4 +14,4 @@ spawned = 0;
 hat = -1;
 hatinit = 0;
 hatflyaway = 0;
-spawn7 = 0;
+spawn7 = false;

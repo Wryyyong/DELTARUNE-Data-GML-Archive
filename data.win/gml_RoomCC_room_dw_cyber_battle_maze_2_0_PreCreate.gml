@@ -1,7 +1,7 @@
 endY = 400;
-centerY = 1;
+centerY = true;
 uniqueBulletPattern = 7;
 riseSpeedReverse = 25;
-scoreboardExists = 1;
+scoreboardExists = true;
 scoreboardGoal = 16;
 camTargetHeightReverse = 140;

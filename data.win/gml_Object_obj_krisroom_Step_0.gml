@@ -1,6 +1,6 @@
 if (global.chapter == 1) {
 	if (con > 0 && con < 50) {
-		if (con == 1 && instance_exists(obj_dialoguer) == 0) {
+		if (con == 1 && instance_exists(obj_dialoguer) == false) {
 			with (t) {
 				image_index = 0;
 				image_speed = 0.25;
@@ -88,7 +88,7 @@ if (global.chapter == 1) {
 			con = 20;
 		}
 		
-		if (con == 20 && instance_exists(obj_dialoguer) == 0) {
+		if (con == 20 && instance_exists(obj_dialoguer) == false) {
 			with (t) {
 				image_index = 0;
 				sprite_index = spr_toriel_d;
@@ -176,7 +176,14 @@ if (global.chapter == 1) {
 		if (con == 50 && !d_ex()) {
 			_remfilechoice = global.filechoice;
 			global.filechoice += 3;
-			scr_save();
+			var is_valid = scr_save();
+			
+			if (!is_valid) {
+				var error_message = instance_create(0, 0, obj_savedata_error);
+				error_message.type = "auto";
+				error_message.error_type = "save_failed";
+			}
+			
 			global.filechoice = _remfilechoice;
 			mus_volume(global.currentsong[1], 0, 100);
 			fade = instance_create(0, 0, obj_fadeout);
@@ -303,7 +310,7 @@ if (global.chapter == 2) {
 		with (obj_marker)
 			instance_destroy();
 		
-		show_border = 1;
+		show_border = true;
 		cutscene_master = scr_cutscene_make();
 		tor = 0;
 		tor_actor = instance_create(151, 207, obj_actor);

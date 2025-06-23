@@ -6,7 +6,7 @@ if (con == 0) {
 			con = 1;
 	} else {
 		if (!show_queen)
-			show_queen = 1;
+			show_queen = true;
 		
 		if (show_queen) {
 			timer++;
@@ -19,12 +19,12 @@ if (con == 0) {
 			
 			if (timer == 50) {
 				queen_sprite = spr_queen_wireframe;
-				queen_animate = 0;
+				queen_animate = false;
 			}
 			
 			if (timer == 80) {
 				queen_sprite = spr_queen_wireframe_laugh;
-				queen_animate = 1;
+				queen_animate = true;
 				snd_play(snd_queen_bitcrushlaugh);
 			}
 			

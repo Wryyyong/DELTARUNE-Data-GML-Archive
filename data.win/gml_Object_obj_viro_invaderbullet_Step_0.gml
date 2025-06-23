@@ -8,7 +8,7 @@ if (active && y > ((obj_growtangle.y + (obj_growtangle.sprite_height / 2)) - 16)
 	sprite_index = spr_virovirokun_invaderbullet_impact;
 }
 
-var _inst = collision_rectangle(x - 5, y - 3, x + 5, y + 13, obj_omawaroid_policecar, 0, 1);
+var _inst = collision_rectangle(x - 5, y - 3, x + 5, y + 13, obj_omawaroid_policecar, 0, true);
 
 if (_inst != -4) {
 	d = instance_create(other.x, other.y, obj_omawaroid_explosion);

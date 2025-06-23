@@ -7,7 +7,7 @@ if (EVENT == 0) {
 
 var CANCELMENU = 0;
 
-if (EVENT == 70 && instance_exists(obj_writer) == 0) {
+if (EVENT == 70 && instance_exists(obj_writer) == false) {
 	JA_XOFF = -12;
 	JA_YOFF = 0;
 	
@@ -48,7 +48,7 @@ if (EVENT == 71) {
 		
 		if (FN_3 == "GASTER" || FN_3 == "がすたー" || FN_3 == "ガスター") {
 			snd_free_all();
-			game_restart();
+			game_restart_true();
 		}
 		
 		if (CHOICE.backout == 1) {

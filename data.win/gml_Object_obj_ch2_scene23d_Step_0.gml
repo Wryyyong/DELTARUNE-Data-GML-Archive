@@ -63,7 +63,7 @@ if (con == 1) {
 	c_facenext("susie", "K");
 	c_msgnextloc("\\EK* Maybe..^1. maybe someday we could.../%", "obj_ch2_scene23d_slash_Step_0_gml_94_0");
 	c_talk_wait();
-	c_var_instance(id, "release_berdly", 1);
+	c_var_instance(id, "release_berdly", true);
 	c_wait(30);
 	c_mus("free_all");
 	c_mus2("initplay", "berdly_descend.ogg", 0);
@@ -97,7 +97,7 @@ if (con == 1) {
 	c_talk_wait();
 	c_sel(su);
 	c_facing("r");
-	c_var_instance(id, "hide_berdly", 1);
+	c_var_instance(id, "hide_berdly", true);
 	c_sel(be);
 	c_setxy(380, 230);
 	c_autowalk(1);
@@ -322,12 +322,12 @@ if (con == 50 && !i_ex(obj_cutscene_master)) {
 }
 
 if (release_berdly) {
-	release_berdly = 0;
+	release_berdly = false;
 	berdly_glide = instance_create(-100, -100, obj_berdly_rose);
 }
 
 if (hide_berdly) {
-	hide_berdly = 0;
+	hide_berdly = false;
 	
 	with (berdly_glide)
 		instance_destroy();

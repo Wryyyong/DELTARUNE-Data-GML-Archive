@@ -20,4 +20,4 @@ if (global.flag[382] == 1) {
 	}
 }
 
-tablespawn = 0;
+tablespawn = false;

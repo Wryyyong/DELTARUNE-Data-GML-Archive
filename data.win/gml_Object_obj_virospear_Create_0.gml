@@ -1,4 +1,4 @@
-destroyoffscreen = 1;
+destroyoffscreen = true;
 tolerance = 32;
 
 if (instance_exists(obj_mainchara))

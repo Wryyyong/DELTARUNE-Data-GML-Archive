@@ -4,6 +4,6 @@ if (!loop) {
 	else
 		sprite_index = spr_berdlyb_super_jump_loop;
 	
-	loop = 1;
+	loop = true;
 	image_index = 0;
 }

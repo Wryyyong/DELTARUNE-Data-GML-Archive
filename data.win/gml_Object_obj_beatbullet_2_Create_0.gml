@@ -1,4 +1,4 @@
-destroyoffscreen = 0;
+destroyoffscreen = false;
 tolerance = 0;
 fadeInSpeed = 8;
 image_xscale = 2;
@@ -11,5 +11,5 @@ beatsPrev = 0;
 lanesEndY = cameray() + 150;
 follow = -4;
 shouldActivate = 0;
-readyToGo = 0;
-forgiveLoop = 0;
+readyToGo = false;
+forgiveLoop = false;

@@ -1,5 +1,5 @@
 if (!init_forcefields) {
-	init_forcefields = 1;
+	init_forcefields = true;
 	
 	if (i_ex(obj_ch2_noellepuzzle_forcefield)) {
 		with (obj_ch2_noellepuzzle_forcefield) {
@@ -15,8 +15,8 @@ if (init == 0) {
 		buttonY[i] = instance_find(obj_ch2_noellepuzzle_key_noelle, i).y - 70;
 	}
 	
-	buttonX = scr_array_sort(buttonX, 1);
-	buttonY = scr_array_sort(buttonY, 1);
+	buttonX = scr_array_sort(buttonX, true);
+	buttonY = scr_array_sort(buttonY, true);
 	init = 1;
 }
 
@@ -204,7 +204,7 @@ if (con == 24 && customcon == 1) {
 	global.fc = 0;
 	c_var_instance(id, "young_noelle", -1);
 	c_waitcustom_end();
-	c_var_instance(id, "wait_ready", 0);
+	c_var_instance(id, "wait_ready", false);
 	c_imagespeed(0.25);
 	c_walkdirect_wait(buttonX[6], buttonY[6], 130);
 	c_halt();
@@ -213,7 +213,7 @@ if (con == 24 && customcon == 1) {
 	c_imagespeed(0.25);
 	c_walkdirect_wait(6500, buttonY[6], 100);
 	c_halt();
-	c_var_instance(id, "wait_ready", 1);
+	c_var_instance(id, "wait_ready", true);
 	c_waitcustom();
 }
 
@@ -222,18 +222,18 @@ if (con == 26 && !d_ex() && customcon == 1) {
 	customcon = 0;
 	global.fc = 0;
 	c_waitcustom_end();
-	c_var_instance(id, "wait_ready", 0);
+	c_var_instance(id, "wait_ready", false);
 	c_imagespeed(0.25);
 	c_walkdirect_wait(buttonX[7], buttonY[7], 100);
 	c_halt();
-	c_var_instance(id, "pause_kris", 1);
+	c_var_instance(id, "pause_kris", true);
 	c_wait(30);
-	c_var_instance(id, "wait_ready", 1);
+	c_var_instance(id, "wait_ready", true);
 	c_waitcustom();
 }
 
 if (pause_kris) {
-	pause_kris = 0;
+	pause_kris = false;
 	global.interact = 1;
 }
 
@@ -251,8 +251,8 @@ if (con == 33 && !d_ex() && customcon == 1 && wait_ready) {
 if (con == 34 && !d_ex() && wait_ready) {
 	con = 35;
 	c_waitcustom_end();
-	c_var_instance(id, "wait_ready", 0);
-	c_var_instance(id, "auto_continue", 0);
+	c_var_instance(id, "wait_ready", false);
+	c_var_instance(id, "auto_continue", false);
 	c_sel(no);
 	c_wait(15);
 	c_autowalk(1);
@@ -346,7 +346,7 @@ if (custom_delay > 0) {
 }
 
 if (allow_move) {
-	allow_move = 0;
+	allow_move = false;
 	global.interact = !global.interact;
 	
 	if (global.interact == 1) {
@@ -364,7 +364,7 @@ if (young_noelle != 0) {
 
 if (text_con == 0) {
 	text_con = 1;
-	auto_continue = 1;
+	auto_continue = true;
 	scr_speaker("noelle");
 	msgsetloc(0, "* ...when I said this city makes my head spin.../", "obj_ch2_city_noelle_monologue_slash_Step_0_gml_470_0");
 	msgnextloc("* I didn't mean in a bad way... you know?/", "obj_ch2_city_noelle_monologue_slash_Step_0_gml_471_0");

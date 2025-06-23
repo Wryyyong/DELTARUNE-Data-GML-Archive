@@ -85,7 +85,7 @@ if (type == 2) {
 	
 	fade = 0;
 	active = 0;
-	clear_traffic = 1;
+	clear_traffic = true;
 	
 	if (room == room_dw_city_traffic_4 && global.plot == 85) {
 		with (obj_ch2_city_car_b)

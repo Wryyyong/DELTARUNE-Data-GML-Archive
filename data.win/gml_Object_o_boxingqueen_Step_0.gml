@@ -1105,7 +1105,7 @@ if (state == 3) {
 						global.typer = 50;
 						queenbubble = scr_enemyblcon(camerax() + 428, cameray() + 388, 7);
 						talktimer = 0;
-						talking = 1;
+						talking = true;
 						
 						with (queenbubble) {
 							depth = obj_ch2_scene10.qu_actor.depth - 1;
@@ -2007,7 +2007,7 @@ if (state == 3) {
 						global.typer = 50;
 						queenbubble = scr_enemyblcon(camerax() + 428, cameray() + 388, 7);
 						talktimer = 0;
-						talking = 1;
+						talking = true;
 						
 						with (queenbubble) {
 							depth = obj_ch2_scene10.qu_actor.depth - 1;
@@ -2532,7 +2532,7 @@ if (state == 3) {
 				if (x < 320) {
 					path = path_add();
 					path_set_kind(path, 1);
-					path_set_closed(path, 0);
+					path_set_closed(path, false);
 					path_add_point(path, x, y, 100);
 					path_add_point(path, 320, 300, 100);
 					path_add_point(path, 580, y, 100);
@@ -2540,7 +2540,7 @@ if (state == 3) {
 				} else {
 					path = path_add();
 					path_set_kind(path, 1);
-					path_set_closed(path, 0);
+					path_set_closed(path, false);
 					path_add_point(path, x, y, 100);
 					path_add_point(path, 320, 300, 100);
 					path_add_point(path, 60, y, 100);
@@ -3421,16 +3421,16 @@ if (state == 3) {
 					}
 					
 					if (i_ex(o_boxingqueen))
-						o_boxingqueen.visible = false;
+						o_boxingqueen.visible = 0;
 					
 					if (i_ex(o_boxingcontroller))
-						o_boxingcontroller.visible = false;
+						o_boxingcontroller.visible = 0;
 					
 					if (i_ex(obj_3d_bg_effect))
-						obj_3d_bg_effect.visible = false;
+						obj_3d_bg_effect.visible = 0;
 					
 					if (i_ex(obj_bg_square))
-						obj_bg_square.visible = false;
+						obj_bg_square.visible = 0;
 					
 					with (obj_boxingqueen_rocket_punch_idle)
 						instance_destroy();

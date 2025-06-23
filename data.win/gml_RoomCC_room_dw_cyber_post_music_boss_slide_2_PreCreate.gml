@@ -1,3 +1,3 @@
 targetY = room_height - 480;
-useTargetY = 1;
+useTargetY = true;
 camID = 2;

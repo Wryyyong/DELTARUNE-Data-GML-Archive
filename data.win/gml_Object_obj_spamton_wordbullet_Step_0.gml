@@ -20,7 +20,7 @@ if (type == 1 && x < mouthx) {
 		if (abs(__diff) > 10) {
 			fauxdirection -= (sign(__diff) * 10);
 		} else {
-			tracked = 1;
+			tracked = true;
 			fauxdirection = __targetdir;
 		}
 	}

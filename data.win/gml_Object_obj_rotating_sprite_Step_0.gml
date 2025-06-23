@@ -19,13 +19,13 @@ if (x != (o_boxingcontroller.x + 38) && y != (o_boxingcontroller.y - 96)) {
 	y = o_boxingcontroller.y - 96;
 	path = path_add();
 	path_set_kind(path, 1);
-	path_set_closed(path, 1);
+	path_set_closed(path, true);
 	path_add_point(path, 368, 160, 100);
 	path_add_point(path, 304, 184, 100);
 	path_add_point(path, 272, 184, 100);
 	path_add_point(path, 208, 160, 100);
 	path_add_point(path, 272, 136, 100);
 	path_add_point(path, 304, 136, 100);
-	path_start(path, 4, path_action_continue, 0);
+	path_start(path, 4, path_action_continue, false);
 	path_position = path_pos;
 }

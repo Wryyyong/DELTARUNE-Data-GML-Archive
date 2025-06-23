@@ -67,12 +67,12 @@ if (lerpstate == 2) {
 	
 	if (lerptimer == 4) {
 		with (obj_coaster)
-			visible = true;
+			visible = 1;
 	}
 	
 	if (lerptimer > 4) {
 		with (obj_coaster)
-			visible = true;
+			visible = 1;
 		
 		with (obj_heroparent)
 			instance_destroy();

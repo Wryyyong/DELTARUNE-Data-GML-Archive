@@ -1,11 +1,11 @@
 southcon = 0;
-weird = 0;
+weird = false;
 con = 0;
 
 if (global.flag[915] == 7 && global.flag[916] == 0) {
 	global.flag[346] = 1;
 	global.flag[340] = 1;
-	weird = 1;
+	weird = true;
 	scr_losechar();
 	scr_getchar(2);
 	scr_getchar(3);
@@ -27,7 +27,7 @@ if (global.flag[915] == 7 && global.flag[916] == 0) {
 if (global.chapter != 2) {
 	instance_destroy();
 } else if (global.flag[340] == 1) {
-	layer_set_visible("TILES_Secret", 0);
+	layer_set_visible("TILES_Secret", false);
 } else {
 	southcollider = instance_create(839, 720, obj_solidblock);
 	southcollider.image_xscale = 4;

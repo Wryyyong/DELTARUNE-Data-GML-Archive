@@ -1,6 +1,6 @@
 con = -1;
 customcon = 0;
-cantrigger = 1;
+cantrigger = true;
 torieldoor = scr_marker(153, 141, spr_lw_krishouse_door);
 
 with (torieldoor)

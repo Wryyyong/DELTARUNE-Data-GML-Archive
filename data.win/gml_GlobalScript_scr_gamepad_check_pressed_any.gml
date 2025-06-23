@@ -2,13 +2,13 @@ function scr_gamepad_check_pressed_any() {
 	var button_pressed;
 	
 	if (!i_ex(obj_gamecontroller)) {
-		return 0;
+		return false;
 	} else {
-		button_pressed = 0;
+		button_pressed = false;
 		
 		for (var i = 0; i < 10; i += 1) {
 			if (gamepad_button_check_pressed(obj_gamecontroller.gamepad_id, global.input_g[i])) {
-				button_pressed = 1;
+				button_pressed = true;
 				break;
 			}
 		}

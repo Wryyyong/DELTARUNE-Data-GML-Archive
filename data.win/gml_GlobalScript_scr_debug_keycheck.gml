@@ -1,6 +1,6 @@
 function scr_debug_keycheck(arg0) {
 	var key = arg0;
-	var is_pressed = 0;
+	var is_pressed = false;
 	
 	if (global.is_console || obj_gamecontroller.gamepad_active) {
 		var alt_key = noone;
@@ -41,13 +41,13 @@ function scr_debug_keycheck(arg0) {
 		
 		if (gamepad_button_check(obj_gamecontroller.gamepad_id, gp_shoulderrb)) {
 			if (gamepad_button_check_pressed(obj_gamecontroller.gamepad_id, alt_key))
-				is_pressed = 1;
+				is_pressed = true;
 		}
 	}
 	
 	if (!is_pressed && !global.is_console) {
 		if (keyboard_check_pressed(arg0))
-			is_pressed = 1;
+			is_pressed = true;
 	}
 	
 	return is_pressed;

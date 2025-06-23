@@ -1,11 +1,11 @@
 function scr_texttype() {
-	var font_set = 1;
+	var font_set = true;
 	var extra_ja_vspace = 0;
 	textscale = 1;
 	
 	switch (global.typer) {
 		case 0:
-			font_set = 0;
+			font_set = false;
 			break;
 		
 		case 1:
@@ -66,7 +66,7 @@ function scr_texttype() {
 			break;
 		
 		case 16:
-			font_set = 0;
+			font_set = false;
 			break;
 		
 		case 17:
@@ -293,7 +293,7 @@ function scr_texttype() {
 			break;
 		
 		default:
-			font_set = 0;
+			font_set = false;
 			break;
 	}
 	

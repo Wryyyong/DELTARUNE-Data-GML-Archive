@@ -5,17 +5,13 @@ if (con == 1) {
 		notallcharactersaresafe = 0;
 		
 		with (obj_mainchara) {
-			if (place_meeting(x, y, obj_solidblock) || place_meeting(x, y, obj_bridgeSwappable)) {
-				scr_debug_print("kris isn't safe");
+			if (place_meeting(x, y, obj_solidblock) || place_meeting(x, y, obj_bridgeSwappable))
 				other.notallcharactersaresafe++;
-			}
 		}
 		
 		with (obj_caterpillarchara) {
-			if (place_meeting(x, y, obj_solidblock) || place_meeting(x, y, obj_bridgeSwappable)) {
-				scr_debug_print("ralsei isn't safe");
+			if (place_meeting(x, y, obj_solidblock) || place_meeting(x, y, obj_bridgeSwappable))
 				other.notallcharactersaresafe++;
-			}
 		}
 		
 		if (notallcharactersaresafe == 0)
@@ -28,7 +24,6 @@ if (con == 1) {
 }
 
 if (con == 2) {
-	scr_debug_print("con=2");
 	cutscene_master = scr_cutscene_make();
 	scr_maincharacters_actors();
 	con++;
@@ -94,7 +89,7 @@ if (con == 3) {
 	panpoint = scr_dark_marker(mtx, mty, kr_actor.sprite_index);
 	
 	with (panpoint)
-		visible = false;
+		visible = 0;
 	
 	c_pannable(1);
 	c_sel(kr);

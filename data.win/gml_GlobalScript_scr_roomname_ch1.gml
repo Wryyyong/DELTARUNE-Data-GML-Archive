@@ -4,61 +4,61 @@ function scr_roomname_ch1(arg0) {
 	if (arg0 == 0)
 		roomname = "---";
 	
-	if (arg0 == 282)
+	if (arg0 == 283)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_3_0");
 	
-	if (arg0 == 315)
+	if (arg0 == 316)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_4_0");
 	
-	if (arg0 == 320)
+	if (arg0 == 321)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_5_0");
 	
-	if (arg0 == 325)
+	if (arg0 == 326)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_6_0");
 	
-	if (arg0 == 329)
+	if (arg0 == 330)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_7_0");
 	
-	if (arg0 == 339)
+	if (arg0 == 340)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_8_0");
 	
-	if (arg0 == 348)
+	if (arg0 == 349)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_9_0");
 	
-	if (arg0 == 351)
+	if (arg0 == 352)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_10_0");
 	
-	if (arg0 == 353)
+	if (arg0 == 354)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_11_0");
 	
-	if (arg0 == 362)
+	if (arg0 == 363)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_12_0");
 	
-	if (arg0 == 370)
+	if (arg0 == 371)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_13_0");
 	
-	if (arg0 == 376)
+	if (arg0 == 377)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_14_0");
 	
-	if (arg0 == 377)
+	if (arg0 == 378)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_15_0");
 	
-	if (arg0 == 387)
+	if (arg0 == 388)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_16_0");
 	
-	if (arg0 == 394)
+	if (arg0 == 395)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_17_0");
 	
-	if (arg0 == 403)
+	if (arg0 == 404)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_18_0");
 	
-	if (arg0 == 406)
+	if (arg0 == 407)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_19_0");
 	
-	if (arg0 == 391)
+	if (arg0 == 392)
 		roomname = scr_84_get_lang_string_ch1("scr_roomname_slash_scr_roomname_gml_20_0");
 	
-	if (arg0 == 336) {
+	if (arg0 == 337) {
 		if (global.lang == "en")
 			roomname = "Field - Maze of Death";
 		

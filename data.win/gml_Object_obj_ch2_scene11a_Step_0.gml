@@ -29,11 +29,11 @@ if (obj_mainchara.x > 440 && obj_mainchara.y < 300 && con == -1) {
 	c_stickto(qu_actor, 100);
 	c_visible(0);
 	capsule1 = instance_create(963, cameray() - 200, obj_ch2_capsule);
-	capsule1.visible = false;
+	capsule1.visible = 0;
 	capsule2 = instance_create(729, cameray() - 200, obj_ch2_capsule);
-	capsule2.visible = false;
+	capsule2.visible = 0;
 	capsule3 = instance_create(649, cameray() - 200, obj_ch2_capsule);
-	capsule3.visible = false;
+	capsule3.visible = 0;
 }
 
 if (auto_text && customcon == 1) {
@@ -96,9 +96,9 @@ if (auto_text && customcon == 1) {
 		alarm[1] = 30;
 		coaster_entry.depth = 5010;
 		coaster_entry_hood.depth = 5000;
-		coaster_kris.visible = true;
-		coaster_susie.visible = true;
-		coaster_ralsei.visible = true;
+		coaster_kris.visible = 1;
+		coaster_susie.visible = 1;
+		coaster_ralsei.visible = 1;
 	}
 	
 	if (auto_con == 1) {
@@ -118,7 +118,7 @@ if (auto_text && customcon == 1) {
 		alarm[1] = 75;
 		
 		with (obj_ch2_scene11a_bg)
-			fountain_active = 1;
+			fountain_active = true;
 		
 		if (!shortened) {
 			scr_speaker("ralsei");
@@ -154,7 +154,7 @@ if (auto_text && customcon == 1) {
 	
 	if (auto_con == 9 && !d_ex() && pan_timer >= 350) {
 		auto_con = 99;
-		auto_text = 0;
+		auto_text = false;
 		pan_timer = 0;
 		customcon = 0;
 		con = 2;
@@ -177,7 +177,7 @@ if (con == 1) {
 	c_wait(50);
 	c_pannable(1);
 	c_pan(650, 0, 350);
-	c_var_instance(id, "auto_text", 1);
+	c_var_instance(id, "auto_text", true);
 	c_waitcustom();
 }
 
@@ -193,8 +193,8 @@ if (con == 2 && customcon == 0) {
 	c_var_instance(coaster_susie, "siner_add0", 0.08);
 	c_var_instance(coaster_ralsei, "siner_add0", 0.09);
 	c_wait(5);
-	c_var_instance(id, "looptrack", 1);
-	c_var_instance(id, "loopcity", 1);
+	c_var_instance(id, "looptrack", true);
+	c_var_instance(id, "loopcity", true);
 	c_wait(46);
 	
 	if (shortened) {
@@ -279,7 +279,7 @@ if (con == 2 && customcon == 0) {
 		c_wait(10);
 		c_var_instance(coaster_susie, "character_sprite", spr_susie_sheeh);
 		c_var_instance(coaster_noelle, "character_sprite", spr_cutscene_23b_noelle_blush);
-		c_var_instance(coaster_noelle, "animate", 0);
+		c_var_instance(coaster_noelle, "animate", false);
 		c_var_lerp_instance(coaster_noelle, "x", 1890, 1490, 20);
 		c_wait(12);
 		c_var_instance(coaster_noelle, "siner_add0", 0.1);
@@ -311,7 +311,7 @@ if (con == 2 && customcon == 0) {
 		c_talk_wait();
 		c_mus("free");
 		c_var_instance(coaster_berdly, "character_sprite", spr_berdly_smug_point_animated);
-		c_var_instance(coaster_berdly, "animate", 1);
+		c_var_instance(coaster_berdly, "animate", true);
 		c_var_lerp_instance(coaster_berdly, "x", 1890, 1490, 15);
 		c_wait(10);
 		c_soundplay(snd_impact);
@@ -355,7 +355,7 @@ if (con == 5) {
 	c_msgnextloc("\\E1* (I Did Not Ask Him I Did Not Ask Him I Did Not Ask Him)/%", "obj_ch2_scene11a_slash_Step_0_gml_445_0");
 	c_talk_wait();
 	c_var_instance(coaster_berdly, "character_sprite", spr_berdly_smug_point_animated);
-	c_var_instance(coaster_berdly, "animate", 1);
+	c_var_instance(coaster_berdly, "animate", true);
 	c_var_instance(coaster_susie, "character_sprite", spr_susie_walk_right_dw_unhappy);
 	c_speaker("berdly");
 	c_msgsetloc(0, "\\E1* That's LORD Berdly to you simpletons!!/%", "obj_ch2_scene11a_slash_Step_0_gml_452_0");
@@ -369,17 +369,17 @@ if (con == 5) {
 	c_msgnextloc("\\EM* (I Have No Damn Clue Just Go With It)/%", "obj_ch2_scene11a_slash_Step_0_gml_462_0");
 	c_talk_wait();
 	c_var_instance(coaster_berdly, "character_sprite", spr_berdly_walk_right_dw);
-	c_var_instance(coaster_berdly, "animate", 0);
+	c_var_instance(coaster_berdly, "animate", false);
 	c_speaker("berdly");
 	c_msgsetloc(0, "\\EE* You see^1, thanks to our WONDROUS Queen.../%", "obj_ch2_scene11a_slash_Step_0_gml_469_0");
 	c_talk_wait();
 	c_var_instance(coaster_berdly, "character_sprite", spr_berdly_smug_point_animated);
-	c_var_instance(coaster_berdly, "animate", 1);
+	c_var_instance(coaster_berdly, "animate", true);
 	c_speaker("berdly");
 	c_msgsetloc(0, "\\E2* WE..^1. will soon RULE the WORLD!/%", "obj_ch2_scene11a_slash_Step_0_gml_476_0");
 	c_talk_wait();
 	c_var_instance(coaster_berdly, "character_sprite", spr_berdly_walk_down_dw);
-	c_var_instance(coaster_berdly, "animate", 0);
+	c_var_instance(coaster_berdly, "animate", false);
 	c_speaker("berdly");
 	c_msgsetloc(0, "\\EJ* And turn this Land of Fools..^1. into a Smartopia./", "obj_ch2_scene11a_slash_Step_0_gml_483_0");
 	c_msgnextloc("\\EK* A true Scientocracy^1, where the Geniuses of the world^1,/", "obj_ch2_scene11a_slash_Step_0_gml_484_0");
@@ -390,7 +390,7 @@ if (con == 5) {
 	c_msgsetloc(0, "\\E7* No longer held back by protozoans like YOU!/%", "obj_ch2_scene11a_slash_Step_0_gml_491_0");
 	c_talk_wait();
 	c_var_instance(coaster_berdly, "character_sprite", spr_berdly_smug_point_animated);
-	c_var_instance(coaster_berdly, "animate", 1);
+	c_var_instance(coaster_berdly, "animate", true);
 	c_speaker("berdly");
 	c_msgsetloc(0, "\\E1* And the key to that? Is US. Noelle and I./", "obj_ch2_scene11a_slash_Step_0_gml_498_0");
 	c_msgnextloc("\\EE* Our power..^1. The \"Light Nerd's\" power.../%", "obj_ch2_scene11a_slash_Step_0_gml_499_0");
@@ -402,7 +402,7 @@ if (con == 5) {
 	c_talk_wait();
 	c_var_instance(coaster_ralsei, "character_sprite", spr_ralsei_walk_right);
 	c_var_instance(coaster_berdly, "character_sprite", spr_berdly_walk_right_dw);
-	c_var_instance(coaster_berdly, "animate", 0);
+	c_var_instance(coaster_berdly, "animate", false);
 	c_wait(10);
 	c_speaker("berdly");
 	c_msgsetloc(0, "\\EI* Um^1, NO. Queen said \"Light Nerds.\"/%", "obj_ch2_scene11a_slash_Step_0_gml_518_0");
@@ -429,13 +429,13 @@ if (con == 5) {
 	c_msgsetloc(0, "\\EE* Berdly^1, Queen's just manipulating you!!/%", "obj_ch2_scene11a_slash_Step_0_gml_551_0");
 	c_talk_wait();
 	c_var_instance(coaster_berdly, "character_sprite", spr_berdly_smug_point_animated);
-	c_var_instance(coaster_berdly, "animate", 1);
+	c_var_instance(coaster_berdly, "animate", true);
 	c_wait(10);
 	c_speaker("berdly");
 	c_msgsetloc(0, "\\E6* Heh..^1. that's what she SAID you'd say to me!/%", "obj_ch2_scene11a_slash_Step_0_gml_560_0");
 	c_talk_wait();
 	c_var_instance(coaster_berdly, "character_sprite", spr_berdly_walk_left_dw);
-	c_var_instance(coaster_berdly, "animate", 0);
+	c_var_instance(coaster_berdly, "animate", false);
 	c_sel(qu);
 	c_soundplay(snd_queen_laugh_0);
 	c_sprite(spr_queen_chair_ohoho_1);
@@ -454,7 +454,7 @@ if (con == 5) {
 	c_sprite(spr_queen_chair_flame_side);
 	c_wait(10);
 	c_var_instance(coaster_berdly, "character_sprite", spr_berdly_smug_point_animated);
-	c_var_instance(coaster_berdly, "animate", 1);
+	c_var_instance(coaster_berdly, "animate", true);
 	c_msc(1109);
 	c_talk_wait();
 }
@@ -465,7 +465,7 @@ if (con == 10) {
 	c_var_instance(coaster_berdly, "character_sprite", spr_berdly_haliberd);
 	c_var_instance(coaster_berdly, "character_offset_x", -52);
 	c_var_instance(coaster_berdly, "character_offset_y", -25);
-	c_var_instance(coaster_berdly, "animate", 1);
+	c_var_instance(coaster_berdly, "animate", true);
 	c_wait(12);
 	c_soundplay(snd_weaponpull);
 	c_wait(28);
@@ -540,7 +540,7 @@ if (con == 14) {
 	coaster_berdly.character_sprite = spr_berdlyb_shocked;
 	coaster_berdly.character_offset_x = 5;
 	coaster_berdly.character_offset_y = 3;
-	c_var_instance(coaster_berdly, "animate", 0);
+	c_var_instance(coaster_berdly, "animate", false);
 	c_var_instance(coaster_kris, "siner_add0", 0.1);
 	c_var_instance(coaster_susie, "siner_add0", 0.08);
 	c_var_instance(coaster_ralsei, "siner_add0", 0.09);
@@ -616,7 +616,7 @@ if (con == 18) {
 	c_var_instance(coaster_ralsei, "character_sprite", spr_ralsei_hurt_overworld);
 	c_var_instance(coaster_entry, "visible", 0);
 	c_var_instance(coaster_entry_hood, "visible", 0);
-	c_var_instance(id, "stoplooptrack", 1);
+	c_var_instance(id, "stoplooptrack", true);
 	c_var_lerp_instance(coaster_kris, "x", 1220, 1650, 40);
 	c_var_instance(coaster_kris, "siner_add0", 0);
 	c_var_lerp_instance(coaster_susie, "x", 1220, 1650, 40);
@@ -632,7 +632,7 @@ if (con == 18) {
 	c_wait(60);
 	c_var_instance(blackall, "x", 0);
 	c_var_lerp_instance(blackall, "image_alpha", 0, 1, 80);
-	c_var_instance(id, "hide_border", 1);
+	c_var_instance(id, "hide_border", true);
 	c_wait(60);
 	c_soundplay(snd_impact);
 	c_wait(120);
@@ -648,18 +648,18 @@ if (con == 50 && !i_ex(obj_cutscene_master)) {
 }
 
 if (loopcity) {
-	loopcity = 0;
+	loopcity = false;
 	
 	if (i_ex(obj_ch2_scene11a_bg)) {
 		with (obj_ch2_scene11a_bg) {
-			parallax = 0;
-			looping = 1;
+			parallax = false;
+			looping = true;
 		}
 	}
 }
 
 if (looptrack) {
-	looptrack = 0;
+	looptrack = false;
 	
 	if (i_ex(obj_ch2_scene11a_bg)) {
 		with (obj_ch2_scene11a_bg) {
@@ -674,7 +674,7 @@ if (looptrack) {
 }
 
 if (stoplooptrack) {
-	stoplooptrack = 0;
+	stoplooptrack = false;
 	
 	if (i_ex(obj_ch2_scene11a_bg)) {
 		with (obj_ch2_scene11a_bg) {
@@ -696,11 +696,11 @@ if (explosion > 0) {
 		explosion_marker.image_yscale = 2.65;
 		explosion_marker.depth = be_actor.depth + 100;
 	} else {
-		var finish = 0;
+		var finish = false;
 		
 		with (explosion_marker) {
 			if (sprite_index == spr_realisticexplosion && image_index >= 16) {
-				finish = 1;
+				finish = true;
 				instance_destroy();
 			}
 		}

@@ -56,7 +56,7 @@ if (con == 11) {
 		with (obj_mainchara) {
 			x = other.ball.x;
 			y = other.ball.y;
-			visible = false;
+			visible = 0;
 		}
 		
 		letterCount = 0;
@@ -74,7 +74,7 @@ if (con == 11) {
 			instance_destroy();
 		
 		with (obj_mainchara)
-			visible = true;
+			visible = 1;
 		
 		global.interact = 0;
 		failcount++;
@@ -106,10 +106,10 @@ if (con == 21) {
 		
 		if (timer == 60) {
 			victorySprite = spr_keyboard_puzzle_icee_hacked;
-			hacked = 1;
+			hacked = true;
 			image_timer = 1;
 		} else if (timer == 80) {
-			hacked = 0;
+			hacked = false;
 			image_timer = -0.25;
 			victorySprite = spr_keyboard_puzzle_icee_hacked_2;
 		}
@@ -168,7 +168,6 @@ if (con == 23) {
 		if (timer == 60) {
 			victorySprite = spr_keyboard_puzzle_bluecheck;
 			global.interact = 0;
-			show_debug_message("yep");
 			checkscreen = instance_create(monitorx + 40, 80, obj_queenscreen);
 			checkscreen.extflag = 4;
 			checkscreen.image_index = 10;

@@ -1,4 +1,4 @@
-isswitch = 1;
+isswitch = true;
 dontshine = global.flag[396];
-flippable = 0;
+flippable = false;
 extflag = "b";

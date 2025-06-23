@@ -1,10 +1,10 @@
 function scr_weaken_party() {
-	var _writedamage = 0;
+	var _writedamage = false;
 	
-	if (argument_count == 1 && argument[0] == 1)
-		_writedamage = 1;
+	if (argument_count == 1 && argument[0] == true)
+		_writedamage = true;
 	
-	var _didhit = 0;
+	var _didhit = false;
 	
 	if (_writedamage) {
 		with (obj_dmgwriter) {
@@ -33,7 +33,7 @@ function scr_weaken_party() {
 			dmgwriter.damage = __hpdiff;
 			
 			if (__hpdiff > 0)
-				_didhit = 1;
+				_didhit = true;
 		}
 		
 		if (global.hp[_chartarget] > 0)

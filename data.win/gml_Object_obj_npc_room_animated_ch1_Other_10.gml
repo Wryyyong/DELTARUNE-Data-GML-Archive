@@ -20,7 +20,7 @@ if (room == room_dark1_ch1) {
 		global.msg[0] = scr_84_get_lang_string_ch1("obj_npc_room_animated_slash_Other_10_gml_20_0");
 	
 	with (obj_npc_room_animated_ch1)
-		visible = false;
+		visible = 0;
 	
 	global.flag[10] = 1;
 }

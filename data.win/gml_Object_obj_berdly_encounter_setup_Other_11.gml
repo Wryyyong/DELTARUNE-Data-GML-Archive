@@ -19,13 +19,13 @@ if (global.flag[9] == 1)
 scr_encountersetup(global.encounterno);
 
 with (obj_mainchara)
-	visible = false;
+	visible = 0;
 
 with (global.cinstance[0])
-	visible = false;
+	visible = 0;
 
 with (global.cinstance[1])
-	visible = false;
+	visible = 0;
 
 with (obj_mainchara)
 	fun = 0;

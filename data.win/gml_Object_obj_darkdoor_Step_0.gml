@@ -23,7 +23,7 @@ if (con > 0 && con < 40) {
 		con = 4.5;
 	}
 	
-	if (con == 4.5 && instance_exists(obj_dialoguer) == 0) {
+	if (con == 4.5 && instance_exists(obj_dialoguer) == false) {
 		snd_play(snd_locker);
 		image_index = 1;
 		con = 5.5;
@@ -77,7 +77,7 @@ if (con > 0 && con < 40) {
 		con = 12;
 	}
 	
-	if (con == 12 && instance_exists(obj_dialoguer) == 0) {
+	if (con == 12 && instance_exists(obj_dialoguer) == false) {
 		with (s)
 			sprite_index = spr_susieu;
 		
@@ -94,7 +94,7 @@ if (con > 0 && con < 40) {
 		con = 15;
 	}
 	
-	if (con == 15 && instance_exists(obj_dialoguer) == 0) {
+	if (con == 15 && instance_exists(obj_dialoguer) == false) {
 		with (k) {
 			vspeed = 0.5;
 			image_speed = 0.1;
@@ -121,7 +121,7 @@ if (con > 0 && con < 40) {
 		con = 18;
 	}
 	
-	if (con == 18 && instance_exists(obj_dialoguer) == 0) {
+	if (con == 18 && instance_exists(obj_dialoguer) == false) {
 		with (s)
 			sprite_index = spr_susieu;
 		
@@ -138,7 +138,7 @@ if (con > 0 && con < 40) {
 		con = 21;
 	}
 	
-	if (con == 21 && instance_exists(obj_dialoguer) == 0) {
+	if (con == 21 && instance_exists(obj_dialoguer) == false) {
 		with (s) {
 			sprite_index = spr_susieu;
 			vspeed = -0.5;
@@ -210,7 +210,7 @@ if (con >= 40) {
 			scr_depth();
 		
 		with (obj_mainchara)
-			visible = false;
+			visible = 0;
 		
 		with (s)
 			sprite_index = spr_susier;
@@ -361,7 +361,7 @@ if (con >= 40) {
 	
 	if (con == 66) {
 		with (k)
-			visible = false;
+			visible = 0;
 		
 		with (s) {
 			sprite_index = spr_susie_krisshoulder_r;
@@ -421,7 +421,7 @@ if (con >= 40) {
 	
 	if (con == 73 && !d_ex()) {
 		with (k) {
-			visible = true;
+			visible = 1;
 			sprite_index = spr_krisd;
 		}
 		
@@ -445,7 +445,7 @@ if (con >= 40) {
 		global.interact = 0;
 		
 		with (obj_mainchara)
-			visible = true;
+			visible = 1;
 		
 		with (k)
 			instance_destroy();

@@ -291,8 +291,8 @@ if ((obj_queen_enemy.shieldhp / obj_queen_enemy.shieldmaxhp) <= (obj_queen_enemy
 
 draw_set_alpha(shieldalpha * 0.8);
 draw_set_color(c_lime);
-draw_triangle(queenhandx, queenhandy, x + 81, shieldpiece_y[0] + 2, x + 81, shieldpiece_y[shieldsize - 1] + y + 33, 1);
-draw_triangle_colour(queenhandx, queenhandy, x + 81, shieldpiece_y[0] + 2, x + 81, shieldpiece_y[shieldsize - 1] + y + 33, 0, 65280, 65280, 0);
+draw_triangle(queenhandx, queenhandy, x + 81, shieldpiece_y[0] + 2, x + 81, shieldpiece_y[shieldsize - 1] + y + 33, true);
+draw_triangle_colour(queenhandx, queenhandy, x + 81, shieldpiece_y[0] + 2, x + 81, shieldpiece_y[shieldsize - 1] + y + 33, 0, 65280, 65280, false);
 
 for (i = 0; i < 10; i++) {
 	shieldpiece_x[i] = x + 40;

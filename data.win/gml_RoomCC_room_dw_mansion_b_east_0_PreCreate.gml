@@ -1,2 +1,2 @@
 targetY = 0;
-useTargetY = 1;
+useTargetY = true;

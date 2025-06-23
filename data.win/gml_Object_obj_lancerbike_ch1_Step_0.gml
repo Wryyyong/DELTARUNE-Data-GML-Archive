@@ -203,7 +203,7 @@ if (racecon == 1) {
 		sy = s.y;
 		s_moveup = 1;
 	} else if (instance_exists(obj_susieenemy_ch1)) {
-		s = 1606;
+		s = 1610;
 		sy = s.y;
 		s_moveup = 1;
 	}
@@ -299,7 +299,7 @@ if (endcon == 1) {
 	global.turntimer = 2;
 	
 	with (obj_lancerboss_ch1) {
-		visible = true;
+		visible = 1;
 		
 		if (turns >= 4) {
 			con = 1;
@@ -310,7 +310,7 @@ if (endcon == 1) {
 	}
 	
 	with (obj_lancerboss3_ch1)
-		visible = true;
+		visible = 1;
 	
 	instance_destroy();
 }

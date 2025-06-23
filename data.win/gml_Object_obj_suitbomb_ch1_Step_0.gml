@@ -11,7 +11,7 @@ if (con == 0) {
 	if (type == 3)
 		sprite_index = spr_bomb_club_ch1;
 	
-	visible = true;
+	visible = 1;
 	con = 1;
 }
 

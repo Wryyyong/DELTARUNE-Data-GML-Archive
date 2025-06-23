@@ -3740,7 +3740,7 @@ function scr_text(arg0) {
 				msgnextloc("* Originally a smith by trade^1, he began writing history.../", "scr_text_slash_scr_text_gml_3973_0");
 				msgnextloc("* And made a turn into telling stories^1,/", "scr_text_slash_scr_text_gml_3974_0");
 				msgnextloc("* As a means to entertain his children./", "scr_text_slash_scr_text_gml_3975_0");
-				msgnextloc("* That such a story^1, created for a such a simple purpose^1,/", "scr_text_slash_scr_text_gml_3976_0");
+				msgnextloc("* That such a story^1, created for such a simple purpose^1,/", "scr_text_slash_scr_text_gml_3976_0");
 				msgnextloc("* Could blossom into such a large^1, wonderful^1, world-changing thing.../", "scr_text_slash_scr_text_gml_3977_0");
 				msgnextloc("* That is the majesty of words^1, Kris./", "scr_text_slash_scr_text_gml_3978_0");
 				msgnextloc("* .../", "scr_text_slash_scr_text_gml_3979_0");
@@ -3885,7 +3885,7 @@ function scr_text(arg0) {
 					msgsetloc(0, "* ..^1. Fine^1! FINE^1! FINE!!^1! Wanna talk to someone else!? Here!/", "scr_text_slash_scr_text_gml_4129_0");
 					msgnextloc("* .../", "scr_text_slash_scr_text_gml_4130_0");
 					msgnextloc("* ..^1. Oh my^1, someone's here to see me?/", "scr_text_slash_scr_text_gml_4131_0");
-					var visitedyest = 1;
+					var visitedyest = true;
 					
 					if (visitedyest) {
 						msgnextloc("* ..^1. It's you again^1, is it^1, darling?/", "scr_text_slash_scr_text_gml_4137_0");
@@ -4137,7 +4137,7 @@ function scr_text(arg0) {
 			}
 			
 			if (global.choice == 1) {
-				var capntalked = 0;
+				var capntalked = false;
 				
 				with (obj_npc_room_animated) {
 					if (sprite_index == spr_npc_hatguy)
@@ -4283,10 +4283,10 @@ function scr_text(arg0) {
 		
 		case 1078:
 			if (global.choice == 0) {
-				var hasroom = 0;
+				var hasroom = false;
 				
 				if (scr_itemcheck_inventory_and_pocket(0))
-					hasroom = 1;
+					hasroom = true;
 				
 				var canBuy = hasroom && global.gold >= 100;
 				
@@ -5523,7 +5523,7 @@ function scr_text(arg0) {
 			global.choicemsg[2] = stringsetloc(" ", "scr_text_slash_scr_text_gml_5917_0");
 			global.choicemsg[3] = stringsetloc(" ", "scr_text_slash_scr_text_gml_5918_0");
 			instance_create(0, 0, obj_moneydisplay);
-			var capntalked = 0;
+			var capntalked = false;
 			
 			with (obj_npc_room_animated) {
 				if (sprite_index == spr_npc_hatguy)
@@ -5587,7 +5587,7 @@ function scr_text(arg0) {
 			global.choicemsg[2] = stringsetloc("Don't Buy", "scr_text_slash_scr_text_gml_5988_0");
 			global.choicemsg[3] = stringsetloc(" ", "scr_text_slash_scr_text_gml_5989_0");
 			instance_create(0, 0, obj_moneydisplay);
-			var kktalked = 0;
+			var kktalked = false;
 			
 			with (obj_npc_room_animated) {
 				if (sprite_index == spr_npc_kk)
@@ -6332,7 +6332,7 @@ function scr_text(arg0) {
 				
 				if (scr_sideb_get_phase() > 0) {
 					with (obj_controller_dw_city_big_2)
-						weird_prompt = 1;
+						weird_prompt = true;
 				}
 			}
 			
@@ -6423,17 +6423,17 @@ function scr_text(arg0) {
 			
 			if (global.choice == 0) {
 				with (obj_shortcut_door)
-					door_destination = 166;
+					door_destination = 167;
 			}
 			
 			if (global.choice == 1) {
 				with (obj_shortcut_door)
-					door_destination = 93;
+					door_destination = 94;
 			}
 			
 			if (global.choice == 2) {
 				with (obj_shortcut_door)
-					door_destination = 119;
+					door_destination = 120;
 			}
 			
 			if (global.choice == 3) {
@@ -7090,7 +7090,7 @@ function scr_text(arg0) {
 					
 					if (i_ex(obj_npc_castle_cliff)) {
 						with (obj_npc_castle_cliff)
-							remove_shine = 1;
+							remove_shine = true;
 					}
 				} else {
 					scr_speaker("no_name");

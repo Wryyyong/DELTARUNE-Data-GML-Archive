@@ -11,7 +11,7 @@ if (songplay == 1) {
 
 if (songplay == 0) {
 	with (obj_mainchara_ch1)
-		visible = false;
+		visible = 0;
 	
 	songplay = 1;
 }

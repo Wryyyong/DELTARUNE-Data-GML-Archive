@@ -42,7 +42,7 @@ if (menu == 0) {
 	menuc[3] = 0;
 	menuc[4] = 0;
 	
-	if (instance_exists(obj_writer) == 0) {
+	if (instance_exists(obj_writer) == false) {
 		global.typer = 6;
 		global.msg[0] = stringsetloc("\\E0* Anything else?", "obj_shop2_slash_Draw_0_gml_70_0");
 		
@@ -104,7 +104,7 @@ if (menu == 1 || menu == 2) {
 	if (menu == 1) {
 		menumax = 4;
 		
-		if (instance_exists(obj_writer) == 0) {
+		if (instance_exists(obj_writer) == false) {
 			if (sidemessage == 0)
 				global.msg[0] = stringsetloc("\\E0What&shalt&thou buy?", "obj_shop2_slash_Draw_0_gml_124_0");
 			
@@ -244,7 +244,7 @@ if (menu == 3) {
 	draw_text(80, 380, string_hash_to_newline(stringsetloc("The King's Son", "obj_shop2_slash_Draw_0_gml_197_0")));
 	draw_text(80, 420, string_hash_to_newline(stringsetloc("Exit", "obj_shop2_slash_Draw_0_gml_198_0")));
 	
-	if (instance_exists(obj_writer) == 0) {
+	if (instance_exists(obj_writer) == false) {
 		global.msg[0] = stringsetloc("\\E5Ah^1, what is&thine&Intereste?", "obj_shop2_slash_Draw_0_gml_202_0");
 		instance_create(440, 260, obj_writer);
 	}
@@ -284,7 +284,7 @@ if (menu == 10) {
 	draw_text(80, 340, string_hash_to_newline(stringsetloc("Selleth Armor", "obj_shop2_slash_Draw_0_gml_238_0")));
 	draw_text(80, 380, string_hash_to_newline(stringsetloc("Returnst", "obj_shop2_slash_Draw_0_gml_239_0")));
 	
-	if (instance_exists(obj_writer) == 0) {
+	if (instance_exists(obj_writer) == false) {
 		if (sidemessage == 0)
 			global.msg[0] = stringsetloc("\\E0Showeth&me your&treasure!", "obj_shop2_slash_Draw_0_gml_243_0");
 		
@@ -366,7 +366,7 @@ if (menu == 10) {
 }
 
 if (menu == 11 || menu == 12 || menu == 13) {
-	if (instance_exists(obj_writer) == 0) {
+	if (instance_exists(obj_writer) == false) {
 		if (sidemessage2 == 0 && menu == 11)
 			global.msg[0] = stringsetloc("\\E0What ITEM&shalt thou&proffer?", "obj_shop2_slash_Draw_0_gml_305_0");
 		
@@ -413,7 +413,7 @@ if (menu == 4) {
 	if (sell == 0)
 		menu = 0;
 	
-	if (instance_exists(obj_writer) == 0 && selling == 0) {
+	if (instance_exists(obj_writer) == false && selling == 0) {
 		if (sell == 1) {
 		}
 		
@@ -483,7 +483,7 @@ if (menu == 4) {
 		selling = 1;
 	}
 	
-	if (selling == 1 && instance_exists(obj_writer) == 0) {
+	if (selling == 1 && instance_exists(obj_writer) == false) {
 		if (sell == 2) {
 			selling = 2;
 			event_user(1);

@@ -330,7 +330,7 @@ if (room == room_schooldoor) {
 		c_msgnextloc("\\EQ* (It would mean a lot to me...!)/%", "obj_ch2_lw_cutscenes_short_slash_Step_0_gml_379_0");
 		c_talk_wait();
 		
-		if (noelle_chalk == 1) {
+		if (noelle_chalk == true) {
 			c_wait(30);
 			c_facing("l");
 			c_speaker("noelle");
@@ -444,7 +444,7 @@ if (room == room_schooldoor) {
 	
 	if (con == 2 && !instance_exists(obj_cutscene_master)) {
 		with (obj_actor)
-			visible = false;
+			visible = 0;
 		
 		instance_create(0, 0, obj_dw_transition);
 		
@@ -455,7 +455,7 @@ if (room == room_schooldoor) {
 		scr_losechar();
 		scr_getchar(2);
 		
-		if (noelle_chalk == 1)
+		if (noelle_chalk == true)
 			scr_itemget(23);
 		
 		instance_destroy();

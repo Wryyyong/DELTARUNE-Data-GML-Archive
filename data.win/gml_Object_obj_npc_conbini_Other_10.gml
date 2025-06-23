@@ -2,7 +2,7 @@ global.typer = 5;
 global.fc = 0;
 global.fc = 0;
 global.msc = 0;
-interacting = 1;
+interacting = true;
 global.msc = 1153;
 scr_text(global.msc);
 talked++;

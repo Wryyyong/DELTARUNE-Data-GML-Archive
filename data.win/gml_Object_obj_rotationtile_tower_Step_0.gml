@@ -195,9 +195,9 @@ if (init == 0) {
 	}
 	
 	with (obj_marker)
-		visible = false;
+		visible = 0;
 	
-	visible = true;
+	visible = 1;
 	init = 1;
 }
 
@@ -263,7 +263,7 @@ if (keyboard_check_pressed(ord("F")))
 
 if (phase == 3.5) {
 	failure = 1;
-	hole.closed = 1;
+	hole.closed = true;
 	
 	if (i_ex(obj_holemouse))
 		snd_play(snd_mouse);
@@ -285,7 +285,7 @@ if (phase == 3.5) {
 
 if (phase == 4) {
 	gravity = 1.5;
-	hole.closed = 1;
+	hole.closed = true;
 	
 	if (failure == 1) {
 		x = lx + random_range(-2, 2);
@@ -325,7 +325,7 @@ for (i = 0; i <= tilemax; i++) {
 
 if (i_ex(tile[0])) {
 	if (tile[0].__con == 0)
-		moving = 0;
+		moving = false;
 	else
-		moving = 1;
+		moving = true;
 }

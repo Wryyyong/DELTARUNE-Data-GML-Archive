@@ -1,5 +1,5 @@
 endY = 320;
-camFollow = 1;
+camFollow = true;
 mode = 1;
 camFollowAfter = 0;
 startOffset = 1000;
@@ -11,4 +11,4 @@ spinSpeed = 10;
 riseSpeedReverse = 4;
 riseSpeed = 12;
 camTargetHeightNormal = 389;
-fadeOutOthers = 1;
+fadeOutOthers = true;

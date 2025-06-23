@@ -10,10 +10,10 @@ if (con == 1) {
 	cutscene_master = scr_cutscene_make();
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	with (obj_caterpillarchara)
-		visible = false;
+		visible = 0;
 	
 	kr = 0;
 	kr_actor = instance_create(300, 500, obj_actor);

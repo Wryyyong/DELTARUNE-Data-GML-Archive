@@ -3,7 +3,7 @@ havenoelle = 0;
 if (instance_exists(obj_caterpillarchara)) {
 	with (obj_caterpillarchara) {
 		if (name == "noelle")
-			other.havenoelle = 1;
+			other.havenoelle = true;
 	}
 }
 

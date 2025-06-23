@@ -44,7 +44,7 @@ if (countdown > 0) {
 	if (countdown == 0) {
 		speed = 0;
 		active = 0;
-		spawning = 0;
+		spawning = false;
 		image_speed = 1/3;
 	}
 }
@@ -64,14 +64,14 @@ if (!spawning && spawnVirus == 1) {
 if (!active || image_alpha < 0.8)
 	exit;
 
-infecttarget = collision_rectangle(x - 14, y - 5, x + 14, y + 5, obj_collidebullet, 0, 1);
+infecttarget = collision_rectangle(x - 14, y - 5, x + 14, y + 5, obj_collidebullet, false, true);
 
 if (infecttarget != -4) {
 	if (infecttarget.object_index == obj_omawaroid_vaccine && infecttarget.image_alpha > 0.5) {
 		active = 0;
 		spawnVirus = 0;
 		sprite_index = spr_virovirokun_needle;
-		spawning = 0;
+		spawning = false;
 		image_speed = 2/3;
 		depth--;
 		speed = 0;
@@ -82,8 +82,8 @@ if (infecttarget != -4) {
 		infecttarget.speed = 0;
 	} else if (infecttarget.object_index == obj_virovirokun_virus) {
 		exit;
-	} else if (infecttarget.active == 1 && (infecttarget.object_index != obj_viro_needle || (infecttarget.direction == 0 && direction != 0))) {
-		spawning = 0;
+	} else if (infecttarget.active == true && (infecttarget.object_index != obj_viro_needle || (infecttarget.direction == 0 && direction != 0))) {
+		spawning = false;
 		image_speed = 2/3;
 		active = 0;
 		spawnVirus = 1;

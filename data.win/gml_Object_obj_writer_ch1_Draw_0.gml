@@ -439,7 +439,7 @@ for (n = 1; n < pos; n += 1) {
 		
 		if (nextchar == "*") {
 			wx = round(wx);
-			var _sprite = scr_getbuttonsprite_ch1(nextchar2, 1);
+			var _sprite = scr_getbuttonsprite_ch1(nextchar2, true);
 			draw_sprite_ext(_sprite, 0, wx + 2, wy + 2, 2, 2, 0, c_white, 1);
 		}
 		
@@ -598,14 +598,14 @@ for (n = 1; n < pos; n += 1) {
 		
 		if (nextchar == "C") {
 			if (nextchar2 == "1") {
-				if (instance_exists(obj_choicer_old_ch1) == 0)
+				if (instance_exists(obj_choicer_old_ch1) == false)
 					choicer = instance_create_ch1(0, 0, obj_choicer_old_ch1);
 				
 				halt = 5;
 			}
 			
 			if (nextchar2 == "2" || nextchar2 == "3" || nextchar2 == "4") {
-				if (instance_exists(obj_choicer_neo_ch1) == 0) {
+				if (instance_exists(obj_choicer_neo_ch1) == false) {
 					choicer = instance_create_ch1(0, 0, obj_choicer_neo_ch1);
 					choicer.choicetotal = real(nextchar2) - 1;
 				}

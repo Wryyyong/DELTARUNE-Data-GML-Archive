@@ -1,5 +1,5 @@
-if (active == 0 && (x != mouse_x || y != mouse_y)) {
-	active = 1;
+if (active == false && (x != mouse_x || y != mouse_y)) {
+	active = true;
 	
 	if (!useSprite)
 		cursor_sprite = spr_poppup_mouse;

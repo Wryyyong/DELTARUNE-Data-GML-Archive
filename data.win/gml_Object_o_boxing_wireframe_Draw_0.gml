@@ -24,11 +24,11 @@ o_boxingcontroller_janky_y = o_boxingcontroller.y;
 o_boxingcontroller_sprite_index = o_boxingcontroller.sprite_index;
 o_boxingcontroller_image_index = o_boxingcontroller.image_index;
 
-if (o_boxingcontroller.disable_queen_blocking == 0 && o_boxingqueen.health_count < (o_boxingqueen.health_count_max * 0.5) && o_boxingqueen_janky_sprite_index == 2131 && o_boxingqueen_janky_image_index < 2)
-	o_boxingqueen_janky_sprite_index = 2146;
+if (o_boxingcontroller.disable_queen_blocking == 0 && o_boxingqueen.health_count < (o_boxingqueen.health_count_max * 0.5) && o_boxingqueen_janky_sprite_index == 2134 && o_boxingqueen_janky_image_index < 2)
+	o_boxingqueen_janky_sprite_index = 2149;
 
-if (o_boxingcontroller.disable_queen_blocking == 0 && o_boxingqueen.health_count < (o_boxingqueen.health_count_max * 0.5) && o_boxingqueen_janky_sprite_index == 2132)
-	o_boxingqueen_janky_sprite_index = 2146;
+if (o_boxingcontroller.disable_queen_blocking == 0 && o_boxingqueen.health_count < (o_boxingqueen.health_count_max * 0.5) && o_boxingqueen_janky_sprite_index == 2135)
+	o_boxingqueen_janky_sprite_index = 2149;
 
 if (pacifist_state <= 0 && introcon == 1)
 	pacifist_timer++;
@@ -40,18 +40,18 @@ if (surface_exists(surface)) {
 	surface_set_target(surface);
 	
 	if (hidebg == 0)
-		draw_background(2207, 0, 0);
+		draw_background(2210, 0, 0);
 	
 	if (hidebg == 1) {
 		draw_set_color(c_black);
-		draw_rectangle(-1000, -1000, 1000, 1000, false);
+		draw_rectangle(-1000, -1000, 1000, 1000, 0);
 	}
 	
 	if (o_boxingqueen.sprite_index == spr_bqueen_hurt_effect_wireframe)
-		o_boxingqueen_janky_sprite_index = 2141;
+		o_boxingqueen_janky_sprite_index = 2144;
 	
 	if (o_boxingqueen.sprite_index == spr_bqueen_headless_wireframe)
-		o_boxingqueen_janky_sprite_index = 2147;
+		o_boxingqueen_janky_sprite_index = 2150;
 	
 	if (!instance_exists(obj_vector_explosion_big)) {
 		if (o_boxingqueen.drawflip == 0 && o_boxingcontroller.dead < 2)
@@ -60,7 +60,7 @@ if (surface_exists(surface)) {
 		if (o_boxingqueen.drawflip == 1 && o_boxingcontroller.dead < 2)
 			draw_sprite_ext(o_boxingqueen_janky_sprite_index, o_boxingqueen_janky_image_index, o_boxingqueen_janky_x / 2, ((o_boxingqueen_janky_y / 2) - 4) + 14, -1, 1, 0, c_white, 1);
 		
-		d3d_set_fog(true, c_white, 0, 0);
+		d3d_set_fog(1, c_white, 0, 0);
 		
 		if (o_boxingqueen.drawflip == 0 && instance_exists(o_afterimage))
 			draw_sprite_ext(o_boxingqueen_janky_sprite_index, o_boxingqueen_janky_image_index, o_boxingqueen_janky_x / 2, ((o_boxingqueen_janky_y / 2) - 4) + 14, image_xscale * 1, 1, 0, c_white, 1);
@@ -68,7 +68,7 @@ if (surface_exists(surface)) {
 		if (o_boxingqueen.drawflip == 1 && instance_exists(o_afterimage))
 			draw_sprite_ext(o_boxingqueen_janky_sprite_index, o_boxingqueen_janky_image_index, o_boxingqueen_janky_x / 2, ((o_boxingqueen_janky_y / 2) - 4) + 14, image_xscale * -1, 1, 0, c_white, 1);
 		
-		d3d_set_fog(false, c_white, 0, 0);
+		d3d_set_fog(0, c_white, 0, 0);
 		
 		if (o_boxingcontroller.drawflip == 0 && o_boxingcontroller.dead == 0)
 			draw_sprite_ext(o_boxingcontroller_sprite_index, o_boxingcontroller_image_index, o_boxingcontroller_janky_x / 2, (o_boxingcontroller_janky_y / 2) + 14, 1, 1, 0, c_white, 1);
@@ -158,7 +158,7 @@ if (surface_exists(surface)) {
 			global.typer = 50;
 			queenbubble = scr_enemyblcon(camerax() + 428, cameray() + 388, 7);
 			talktimer = 0;
-			talking = 1;
+			talking = true;
 			
 			with (queenbubble) {
 				depth = obj_ch2_scene10.qu_actor.depth - 1;
@@ -172,7 +172,7 @@ if (surface_exists(surface)) {
 		}
 	}
 	
-	if ((o_boxingqueen_janky_sprite_index == 2146 && o_boxingcontroller.dead == 0 && o_boxingcontroller.arcade_times_blocked > 2) || (o_boxingqueen_janky_sprite_index == 2145 && o_boxingcontroller.dead == 0 && o_boxingcontroller.arcade_times_blocked > 2) || zx_timer > 0) {
+	if ((o_boxingqueen_janky_sprite_index == 2149 && o_boxingcontroller.dead == 0 && o_boxingcontroller.arcade_times_blocked > 2) || (o_boxingqueen_janky_sprite_index == 2148 && o_boxingcontroller.dead == 0 && o_boxingcontroller.arcade_times_blocked > 2) || zx_timer > 0) {
 		if (zx_state == 0) {
 			draw_set_color(c_black);
 			
@@ -186,12 +186,12 @@ if (surface_exists(surface)) {
 			
 			if (o_boxingqueen.drawflip == 0) {
 				draw_text_ext((o_boxingqueen_janky_x / 2) + 38, (o_boxingqueen_janky_y / 2) - 100, "X", 100, 100);
-				draw_rectangle_color(((o_boxingqueen_janky_x / 2) + 42) - 10, (o_boxingqueen_janky_y / 2) - 100 - 1, (o_boxingqueen_janky_x / 2) + 42 + 4, ((o_boxingqueen_janky_y / 2) - 100) + 16, c_lime, c_lime, c_lime, c_lime, 1);
+				draw_rectangle_color(((o_boxingqueen_janky_x / 2) + 42) - 10, (o_boxingqueen_janky_y / 2) - 100 - 1, (o_boxingqueen_janky_x / 2) + 42 + 4, ((o_boxingqueen_janky_y / 2) - 100) + 16, c_lime, c_lime, c_lime, c_lime, true);
 			}
 			
 			if (o_boxingqueen.drawflip == 1) {
 				draw_text_ext((o_boxingqueen_janky_x / 2) - 39, (o_boxingqueen_janky_y / 2) - 100, "Z", 100, 100);
-				draw_rectangle_color((o_boxingqueen_janky_x / 2) - 42 - 4, (o_boxingqueen_janky_y / 2) - 100 - 1, ((o_boxingqueen_janky_x / 2) - 42) + 10, ((o_boxingqueen_janky_y / 2) - 100) + 16, c_lime, c_lime, c_lime, c_lime, 1);
+				draw_rectangle_color((o_boxingqueen_janky_x / 2) - 42 - 4, (o_boxingqueen_janky_y / 2) - 100 - 1, ((o_boxingqueen_janky_x / 2) - 42) + 10, ((o_boxingqueen_janky_y / 2) - 100) + 16, c_lime, c_lime, c_lime, c_lime, true);
 			}
 			
 			zx_timer++;
@@ -215,12 +215,12 @@ if (surface_exists(surface)) {
 			
 			if (o_boxingqueen.drawflip == 0) {
 				draw_text_ext((o_boxingqueen_janky_x / 2) + 38, (o_boxingqueen_janky_y / 2) - 100, "X", 100, 100);
-				draw_rectangle_color(((o_boxingqueen_janky_x / 2) + 42) - 10, (o_boxingqueen_janky_y / 2) - 100 - 1, (o_boxingqueen_janky_x / 2) + 42 + 4, ((o_boxingqueen_janky_y / 2) - 100) + 16, c_white, c_white, c_white, c_white, 1);
+				draw_rectangle_color(((o_boxingqueen_janky_x / 2) + 42) - 10, (o_boxingqueen_janky_y / 2) - 100 - 1, (o_boxingqueen_janky_x / 2) + 42 + 4, ((o_boxingqueen_janky_y / 2) - 100) + 16, c_white, c_white, c_white, c_white, true);
 			}
 			
 			if (o_boxingqueen.drawflip == 1) {
 				draw_text_ext((o_boxingqueen_janky_x / 2) - 39, (o_boxingqueen_janky_y / 2) - 100, "Z", 100, 100);
-				draw_rectangle_color((o_boxingqueen_janky_x / 2) - 42 - 4, (o_boxingqueen_janky_y / 2) - 100 - 1, ((o_boxingqueen_janky_x / 2) - 42) + 10, ((o_boxingqueen_janky_y / 2) - 100) + 16, c_white, c_white, c_white, c_white, 1);
+				draw_rectangle_color((o_boxingqueen_janky_x / 2) - 42 - 4, (o_boxingqueen_janky_y / 2) - 100 - 1, ((o_boxingqueen_janky_x / 2) - 42) + 10, ((o_boxingqueen_janky_y / 2) - 100) + 16, c_white, c_white, c_white, c_white, true);
 			}
 			
 			zx_timer++;
@@ -346,7 +346,7 @@ if (o_boxingcontroller.dead == 4 || o_boxingcontroller.dead == 5) {
 				global.typer = 50;
 				susieballoon1 = scr_enemyblcon(obj_ch2_scene10.su_actor.x + 0, obj_ch2_scene10.su_actor.y + 20, 10);
 				talktimer = 0;
-				talking = 1;
+				talking = true;
 				
 				with (susieballoon1)
 					depth = obj_ch2_scene10.su_actor.depth - 1;
@@ -365,7 +365,7 @@ if (o_boxingcontroller.dead == 4 || o_boxingcontroller.dead == 5) {
 			global.typer = 50;
 			susieballoon2 = scr_enemyblcon(obj_ch2_scene10.su_actor.x + 0, obj_ch2_scene10.su_actor.y + 20, 10);
 			talktimer = 0;
-			talking = 1;
+			talking = true;
 			
 			with (susieballoon2)
 				depth = obj_ch2_scene10.su_actor.depth - 1;

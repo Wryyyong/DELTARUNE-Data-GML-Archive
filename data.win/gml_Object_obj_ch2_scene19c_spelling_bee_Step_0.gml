@@ -1,6 +1,6 @@
 if (sb_con == 1) {
 	if (update_word) {
-		update_word = 0;
+		update_word = false;
 		sb_word_previous = sb_word_current;
 		
 		if (!noelle_lose) {
@@ -24,12 +24,12 @@ if (sb_con == 1) {
 	}
 	
 	if (noelle_spell) {
-		noelle_spell = 0;
+		noelle_spell = false;
 		alarm[0] = random_range(5, 10);
 	}
 	
 	if (berdly_spell) {
-		berdly_spell = 0;
+		berdly_spell = false;
 		alarm[1] = noelle_lose ? 15 : random_range(10, 15);
 	}
 	
@@ -37,8 +37,8 @@ if (sb_con == 1) {
 		if (text_alpha > 0) {
 			text_alpha -= 0.05;
 		} else {
-			noelle_finish = 0;
-			berdly_finish = 0;
+			noelle_finish = false;
+			berdly_finish = false;
 			alarm[2] = noelle_lose ? 60 : 30;
 		}
 	}
@@ -47,7 +47,7 @@ if (sb_con == 1) {
 		if (text_alpha > 0) {
 			text_alpha -= 0.05;
 		} else {
-			berdly_finish = 0;
+			berdly_finish = false;
 			sb_con = 99;
 			
 			if (i_ex(obj_ch2_scene19c)) {
@@ -60,7 +60,7 @@ if (sb_con == 1) {
 
 if (berdly_smart) {
 	if (berdly_show_word) {
-		berdly_show_word = 0;
+		berdly_show_word = false;
 		berdly_word_previous = berdly_word_current;
 		
 		while (berdly_word_current == berdly_word_previous)

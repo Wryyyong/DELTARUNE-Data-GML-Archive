@@ -115,10 +115,10 @@ if (con == 8 && !d_ex_ch1()) {
 	with (r)
 		fun = 0;
 	
-	visible = false;
+	visible = 0;
 	
 	with (s)
-		visible = false;
+		visible = 0;
 	
 	lnpc = instance_create_ch1(x, y, obj_npc_facing_ch1);
 	
@@ -203,8 +203,8 @@ if (con == 15 && global.interact == 0) {
 		
 		con = 11;
 		alarm[4] = 60;
-		s.visible = true;
-		visible = true;
+		s.visible = 1;
+		visible = 1;
 		sprite_index = spr_lancer_rt_ch1;
 		
 		with (s)

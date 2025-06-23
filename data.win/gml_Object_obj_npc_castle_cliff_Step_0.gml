@@ -1,6 +1,6 @@
 if (con == 1 && !d_ex() && i_ex(obj_npc_room)) {
 	if (!sfx) {
-		sfx = 1;
+		sfx = true;
 		snd_play(snd_hypnosis);
 	}
 	
@@ -30,7 +30,7 @@ if (con == 1 && !d_ex() && i_ex(obj_npc_room)) {
 }
 
 if (remove_shine) {
-	remove_shine = 0;
+	remove_shine = false;
 	
 	if (shine != -4) {
 		with (shine)

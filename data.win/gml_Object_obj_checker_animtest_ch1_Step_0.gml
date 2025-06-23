@@ -29,10 +29,10 @@ if (type == 0) {
 		k = scr_dark_marker_ch1(0, obj_mainchara_ch1.y, spr_krisr_dark_ch1);
 		
 		with (obj_caterpillarchara_ch1)
-			visible = false;
+			visible = 0;
 		
 		with (obj_mainchara_ch1)
-			visible = false;
+			visible = 0;
 		
 		with (obj_marker_ch1) {
 			hspeed = 5;
@@ -169,7 +169,7 @@ if (type == 0) {
 			scr_halt_ch1();
 		
 		obj_mainchara_ch1.x = k.x;
-		obj_mainchara_ch1.visible = true;
+		obj_mainchara_ch1.visible = 1;
 		obj_mainchara_ch1.cutscene = 1;
 		
 		with (l)
@@ -372,7 +372,7 @@ if (type == 0) {
 	}
 	
 	if (con == 22) {
-		visible = false;
+		visible = 0;
 		type = 2;
 		con = 0;
 		victimer = 0;
@@ -595,13 +595,13 @@ if (type == 2) {
 	
 	if (con == 7.2 && !d_ex_ch1()) {
 		with (global.cinstance[0])
-			visible = false;
+			visible = 0;
 		
 		with (global.cinstance[1])
-			visible = false;
+			visible = 0;
 		
 		with (obj_mainchara_ch1)
-			visible = false;
+			visible = 0;
 		
 		r = scr_dark_marker_ch1(global.cinstance[0].x, global.cinstance[0].y, spr_ralseil_ch1);
 		s = scr_dark_marker_ch1(global.cinstance[1].x, global.cinstance[1].y, spr_susier_dark_ch1);

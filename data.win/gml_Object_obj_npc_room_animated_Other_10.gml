@@ -8,7 +8,9 @@ global.fc = 0;
 global.fe = 0;
 global.interact = 1;
 global.msg[0] = stringsetloc("* The pain itself is reason why./%", "obj_npc_room_animated_slash_Other_10_gml_8_0");
-global.msg[0] = stringset("* [NO TEXT] (obj_npc_room_animated)/%");
+
+if (scr_debug())
+	global.msg[0] = stringset("* [NO TEXT] (obj_npc_room_animated)/%");
 
 if (room == room_town_mid) {
 	if (sprite_index == spr_npc_icemascot2) {
@@ -281,7 +283,7 @@ if (room == room_dw_cyber_musical_door) {
 			if (i_ex(obj_npc_musical_door)) {
 				with (obj_npc_musical_door) {
 					if (!sold_out) {
-						sold_out = 1;
+						sold_out = true;
 						sold_out_talk = 0;
 					}
 				}

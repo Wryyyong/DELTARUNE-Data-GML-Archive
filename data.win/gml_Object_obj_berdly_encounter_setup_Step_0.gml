@@ -20,13 +20,13 @@ if (fightcon == 2) {
 			snd_volume(global.currentsong[1], 0, 20);
 		
 		with (obj_mainchara)
-			visible = false;
+			visible = 0;
 		
 		with (global.cinstance[0])
-			visible = false;
+			visible = 0;
 		
 		with (global.cinstance[1])
-			visible = false;
+			visible = 0;
 		
 		with (obj_mainchara)
 			fun = 0;

@@ -1,5 +1,5 @@
 freeze = 0;
-mouseSpawn = 0;
+mouseSpawn = false;
 freezespawn = -1;
 hasbegun = 0;
 

@@ -40,14 +40,14 @@ if (active == 1) {
 		waitbuffer = 30;
 	}
 	
-	if (mouseSpawn == 1 && plat[currentPlatform - 1].tilecon == 0) {
+	if (mouseSpawn == true && plat[currentPlatform - 1].tilecon == 0) {
 		with (plat[currentPlatform - 1]) {
 			hole.mousecreate = 1;
 			hole.gentimer = 20;
 		}
 		
 		freezespawn = 60;
-		mouseSpawn = 0;
+		mouseSpawn = false;
 	}
 	
 	freezespawn--;

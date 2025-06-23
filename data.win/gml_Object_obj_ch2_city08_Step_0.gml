@@ -23,14 +23,14 @@ if (weird == 0) {
 		c_imagespeed(0.25);
 		c_stickto(qu_actor, 100);
 		capsule1 = instance_create(963, 460, obj_ch2_capsule);
-		capsule1.visible = false;
+		capsule1.visible = 0;
 		capsule2 = instance_create(764, 460, obj_ch2_capsule);
-		capsule2.visible = false;
+		capsule2.visible = 0;
 		capsule2.main = 1;
 		capsule3 = instance_create(664, 460, obj_ch2_capsule);
-		capsule3.visible = false;
+		capsule3.visible = 0;
 		capsule4 = instance_create(864, 460, obj_ch2_capsule);
-		capsule4.visible = false;
+		capsule4.visible = 0;
 	}
 	
 	if (con == 1) {
@@ -321,7 +321,7 @@ if (weird == 0) {
 		c_soundplay(snd_queen_laugh_0);
 		c_sprite(spr_queen_chair_ohoho_1);
 		c_imagespeed(0.1);
-		c_var_instance(id, "circle_zoom_start", 1);
+		c_var_instance(id, "circle_zoom_start", true);
 		c_wait(10);
 		c_soundplay(snd_circle_zoom);
 		c_wait(70);
@@ -340,7 +340,7 @@ if (weird == 0) {
 	}
 }
 
-if (weird == 1) {
+if (weird == true) {
 	if (con == -1) {
 		ralsei = instance_create(858, 196, obj_marker);
 		ralsei.sprite_index = spr_ralsei_walk_up;
@@ -501,7 +501,7 @@ if (circle_zoom_start) {
 		circle_zoom = instance_create(qu_actor.x + 50, qu_actor.y + 40, obj_circlezoom);
 	
 	if (circle_zoom_timer >= 60) {
-		circle_zoom_start = 0;
+		circle_zoom_start = false;
 		
 		with (circle_zoom)
 			finish = 1;

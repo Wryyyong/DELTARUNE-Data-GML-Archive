@@ -6,7 +6,7 @@ if (loaded) {
 	
 	if (!alpha_set) {
 		fadespeed = 0.08;
-		alpha_set = 1;
+		alpha_set = true;
 		save_ready++;
 	}
 	

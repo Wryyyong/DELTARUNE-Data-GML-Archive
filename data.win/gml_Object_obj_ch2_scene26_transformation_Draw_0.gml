@@ -12,7 +12,7 @@ if (image_play) {
 		image_index++;
 		
 		if (image_index == max_index)
-			image_play = 0;
+			image_play = false;
 	}
 }
 
@@ -21,7 +21,7 @@ draw_self();
 if (screen_fade < 1) {
 	draw_set_color(c_white);
 	draw_set_alpha(1 - screen_fade);
-	draw_rectangle(camerax(), cameray(), camerax() + 640, cameray() + 480, false);
+	draw_rectangle(camerax(), cameray(), camerax() + 640, cameray() + 480, 0);
 	draw_set_alpha(1);
 	exit;
 }

@@ -36,7 +36,7 @@ if (disableplot > 0) {
 
 if (global.chapter == 2) {
 	if (room == room_dw_cyber_musical_door) {
-		visible = false;
+		visible = 0;
 		instance_create(x + (sprite_width / 2), y, obj_beatbullet_wall);
 	}
 	

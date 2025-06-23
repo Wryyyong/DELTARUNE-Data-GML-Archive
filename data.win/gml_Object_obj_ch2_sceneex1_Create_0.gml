@@ -1,7 +1,7 @@
 con = -1;
 customcon = 0;
 su_actor = -1;
-disable_face = 0;
+disable_face = false;
 
 if (global.chapter != 2 || global.flag[309] == 9) {
 	instance_destroy();

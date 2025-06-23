@@ -4,7 +4,7 @@ inactivetimer = 0;
 lancertimer = 0;
 reminder = 0;
 lancercon = 0;
-lancertalking = 0;
+lancertalking = false;
 talktimer = 0;
 talkinterval = 1;
 talkstart = 0;
@@ -34,7 +34,7 @@ if (global.chapter != 2 || global.plot >= 100) {
 	talktube = instance_create(437, 150, obj_npc_sign);
 	talktube.sprite_index = spr_dw_mansion_room_kris_talk_tube;
 	talktube.image_speed = 0;
-	talktube.visible = false;
+	talktube.visible = 0;
 	queen_monitor_frame = scr_dark_marker(142, 24, spr_dw_mansion_monitor_frame);
 	
 	with (queen_monitor_frame)
@@ -45,11 +45,11 @@ if (global.chapter != 2 || global.plot >= 100) {
 	var computer = instance_create(130, 24, obj_npc_room);
 	computer.sprite_index = spr_dw_mansion_room_kris_monitor;
 	computer.depth = queen_monitor.depth + 100;
-	lancer_typing_start = 0;
-	lancer_typing_stop = 0;
-	monitor_on = 0;
-	overload = 0;
-	open_capsule = 0;
+	lancer_typing_start = false;
+	lancer_typing_stop = false;
+	monitor_on = false;
+	overload = false;
+	open_capsule = false;
 	cage_collider_bottom = instance_create(cagetop.x + 12, (cagetop.y + (sprite_get_height(spr_cutscene_17b_capsule_top) * 2)) - 4, obj_soliddark);
 	cage_collider_bottom.image_yscale = 0.1;
 	cage_collider_bottom.image_xscale = 1.4;

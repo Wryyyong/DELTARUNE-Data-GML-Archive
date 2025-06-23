@@ -45,7 +45,7 @@ if (con == 2)
 
 if (con >= 5) {
 	draw_set_color(c_black);
-	draw_ellipse((x + 20) - 10, y + 20 + 15, x + 20 + 10, y + 20 + 20, 0);
+	draw_ellipse((x + 20) - 10, y + 20 + 15, x + 20 + 10, y + 20 + 20, false);
 	
 	if (customSprite == spr_holemouse) {
 		draw_sprite_ext(spr_holemouse_tail, timer / 2, x + 20, y + 20 + fakeY, 2, 2, prevdir, c_white, image_alpha);

@@ -148,7 +148,7 @@ if (global.myfight == 3) {
 	
 	if (actingral == 1 && actconral == 1 && !i_ex(obj_writer)) {
 		if (!trappedText) {
-			trappedText = 1;
+			trappedText = true;
 			global.actsimulral[myself][0] = 1;
 			msgsetloc(0, "* Ralsei started putting peanut butter on a spoon and put it in a trap!!/%", "obj_mauswheel_enemy_slash_Step_0_gml_202_0");
 			scr_mercyadd(myself, 5);
@@ -170,7 +170,7 @@ if (global.myfight == 3) {
 		basket = instance_create(obj_herosusie.x - 5, cameray() - 100, obj_maus_basket_susie);
 		
 		with (obj_herosusie)
-			visible = false;
+			visible = 0;
 		
 		nise_susie = scr_dark_marker(obj_herosusie.x + 16, obj_herosusie.y - 1, spr_susie_shock_r);
 		nise_susie.depth = obj_herosusie.depth;
@@ -213,7 +213,7 @@ if (global.myfight == 3) {
 	}
 	
 	if (actcon == 12) {
-		trappingX = 0;
+		trappingX = false;
 		
 		with (obj_writer)
 			instance_destroy();
@@ -336,12 +336,12 @@ if (global.myfight == 3) {
 		if (remove) {
 			if (i_ex(obj_maus_enemy)) {
 				with (obj_maus_enemy)
-					tasque_joined = 1;
+					tasque_joined = true;
 			}
 			
 			global.monstermakey[myself] = y - 15;
 			global.monstermakex[myself] = tasquemarker.x;
-			newtasque = scr_monster_change(myself, 32, 446);
+			newtasque = scr_monster_change(myself, 32, 448);
 			
 			with (tasquemarker)
 				instance_destroy();
@@ -357,7 +357,7 @@ if (global.myfight == 3) {
 				instance_destroy();
 			
 			with (obj_herosusie)
-				visible = true;
+				visible = 1;
 		}
 	}
 	

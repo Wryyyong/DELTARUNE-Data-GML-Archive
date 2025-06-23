@@ -9,11 +9,11 @@ if (instance_exists(obj_sneo_bulletcontroller))
 
 grazepoints = 4;
 steptimer = 0;
-stepping = 1;
+stepping = true;
 pushback = 0;
 advancespeed = 3;
 image_speed = 0;
-mouthopen = 0;
+mouthopen = false;
 destroyonhit = 0;
 introtimer = 0;
 intro = 0;

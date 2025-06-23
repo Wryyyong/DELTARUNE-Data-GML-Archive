@@ -28,7 +28,7 @@ if (checkPress) {
 		alarm[0] = 15;
 		controller.finalString += myString;
 		controller.buttonx = x;
-		down = 1;
+		down = true;
 		
 		if (i_ex(obj_ch2_noellepuzzle_screen)) {
 			with (obj_ch2_noellepuzzle_screen) {

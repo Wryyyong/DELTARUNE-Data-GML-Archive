@@ -18,7 +18,7 @@ if (keyboard_check(vk_enter) && active == 1 && scr_debug_ch1()) {
 	}
 	
 	if (attack == 2) {
-		visible = false;
+		visible = 0;
 		chainking = instance_create_ch1(x, y, obj_chainking_ch1);
 		chainking.type = 1;
 		chainking.subtype = 0;
@@ -46,7 +46,7 @@ if (keyboard_check(vk_enter) && active == 1 && scr_debug_ch1()) {
 	}
 	
 	if (attack == 5) {
-		visible = false;
+		visible = 0;
 		chainking = instance_create_ch1(x, y, obj_chainking_ch1);
 		chainking.type = 1;
 		chainking.subtype = 1;
@@ -56,7 +56,7 @@ if (keyboard_check(vk_enter) && active == 1 && scr_debug_ch1()) {
 	}
 	
 	if (attack == 6) {
-		visible = false;
+		visible = 0;
 		timeruse = 0;
 		chainking = instance_create_ch1(x, y, obj_chainking_ch1);
 		chainking.type = 2;
@@ -95,7 +95,7 @@ if (keyboard_check(vk_enter) && active == 1 && scr_debug_ch1()) {
 	}
 	
 	if (attack == 10) {
-		visible = false;
+		visible = 0;
 		chainking = instance_create_ch1(x, y, obj_chainking_ch1);
 		chainking.type = 1;
 		chainking.subtype = 2;
@@ -105,7 +105,7 @@ if (keyboard_check(vk_enter) && active == 1 && scr_debug_ch1()) {
 	}
 	
 	if (attack == 11) {
-		visible = false;
+		visible = 0;
 		timeruse = 0;
 		chainking = instance_create_ch1(x, y, obj_chainking_ch1);
 		chainking.type = 2;

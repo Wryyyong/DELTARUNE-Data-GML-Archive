@@ -42,11 +42,11 @@ if (instance_exists(obj_heart)) {
 		if (global.is_console || obj_gamecontroller.gamepad_active) {
 			if (global.lang == "en") {
 				draw_set_alpha((sin(input_timer / 8) * 0.1) + 0.8);
-				draw_sprite_ext(scr_getbuttonsprite(global.input_g[4], 0), 0, obj_heart.x + 26, obj_heart.y - 26, 2, 2, 0, c_white, 1);
+				draw_sprite_ext(scr_getbuttonsprite(global.input_g[4], false), 0, obj_heart.x + 26, obj_heart.y - 26, 2, 2, 0, c_white, 1);
 				draw_text(obj_heart.x - 30, obj_heart.y - 20, presstext);
 			} else {
 				draw_set_alpha((sin(input_timer / 8) * 0.1) + 0.8);
-				draw_sprite_ext(scr_getbuttonsprite(global.input_g[4], 0), 0, obj_heart.x - 26, obj_heart.y - 32, 2, 2, 0, c_white, 1);
+				draw_sprite_ext(scr_getbuttonsprite(global.input_g[4], false), 0, obj_heart.x - 26, obj_heart.y - 32, 2, 2, 0, c_white, 1);
 				draw_text(obj_heart.x + 8, obj_heart.y - 26, presstext);
 			}
 		} else {

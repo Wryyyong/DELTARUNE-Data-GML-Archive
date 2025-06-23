@@ -111,13 +111,13 @@ TWOBUFFER = 0;
 THREAT = 0;
 TEMPMESSAGE = " ";
 MESSAGETIMER = 0;
-version_text = "1.07";
+version_text = "1.08";
 
 if (os_type == os_switch)
-	version_text = "1.03b";
+	version_text = "1.04";
 
 if (os_type == os_ps4)
-	version_text = "1.03";
+	version_text = "1.04";
 
 for (i = 0; i < 3; i += 1)
 	FILE[i] = 0;
@@ -236,4 +236,4 @@ if (ossafe_file_exists("dr.ini")) {
 MENU_NO = INITMENU;
 depth = 5;
 jamod = 0;
-input_enabled = 1;
+input_enabled = true;

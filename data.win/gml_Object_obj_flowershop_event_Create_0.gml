@@ -32,7 +32,7 @@ if (room == room_flowershop_1f) {
 }
 
 if (room == room_flowershop_2f) {
-	visible = false;
+	visible = 0;
 	
 	if (global.entrance == 1) {
 		global.entrance = 0;

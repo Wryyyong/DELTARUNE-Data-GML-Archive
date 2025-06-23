@@ -21,7 +21,7 @@ if (con == 0) {
 	}
 }
 
-if (weird == 1) {
+if (weird == true) {
 	if (con == 1) {
 		global.interact = 1;
 		cutscene_master = scr_cutscene_make();
@@ -48,7 +48,7 @@ if (weird == 1) {
 		c_wait(15);
 		c_fadeout(15);
 		c_wait(30);
-		c_var_instance(id, "noface", 1);
+		c_var_instance(id, "noface", true);
 		c_speaker("noelle");
 		c_msgsetloc(0, "* Isn't it a good thing?/", "obj_controller_city_mice3_slash_Step_0_gml_74_0_b");
 		c_msgnextloc("* I'm solving things by myself. Taking new things for myself. Defeating enemies by myself./", "obj_controller_city_mice3_slash_Step_0_gml_75_0_b");
@@ -65,7 +65,7 @@ if (weird == 1) {
 		c_msgnextloc("* As long as I..^1. just do what they say./", "obj_controller_city_mice3_slash_Step_0_gml_86_0");
 		c_msgnextloc("* As long as I.../%", "obj_controller_city_mice3_slash_Step_0_gml_87_0");
 		c_talk_wait();
-		c_var_instance(id, "noface", 0);
+		c_var_instance(id, "noface", false);
 		c_wait(15);
 		c_soundplay(snd_icespell);
 		c_var_instance(id, "solve", 1);
@@ -100,17 +100,17 @@ if (weird == 1) {
 		scr_tempsave();
 	}
 	
-	if (noface == 1)
+	if (noface == true)
 		global.fc = 0;
 	
 	if (solve == 1) {
-		layer_set_visible(layer_get_id("BG_Tiles_HiddenPath"), 1);
-		layer_set_visible(layer_get_id("BG_Tiles_HiddenPath_Sidewalk"), 1);
+		layer_set_visible(layer_get_id("BG_Tiles_HiddenPath"), true);
+		layer_set_visible(layer_get_id("BG_Tiles_HiddenPath_Sidewalk"), true);
 		
 		with (fakeWall)
 			instance_destroy();
 		
-		drawshine = 0;
+		drawshine = false;
 		
 		with (obj_rotationtile_tower)
 			y = room_height + 480;
@@ -125,7 +125,7 @@ if (weird == 1) {
 	}
 }
 
-if (weird == 0) {
+if (weird == false) {
 	if (con == 1) {
 		noExit = instance_create(40, 0, obj_solidblocksized);
 		noExit.image_xscale = 2;
@@ -270,8 +270,8 @@ if (weird == 0) {
 		if (i_ex(obj_cybercity_mousesign) && !d_ex()) {
 			with (obj_cybercity_mousesign) {
 				if (!fade_in) {
-					start = 1;
-					fade_in = 1;
+					start = true;
+					fade_in = true;
 				}
 			}
 		}
@@ -299,8 +299,8 @@ if (weird == 0) {
 	}
 	
 	if (con == 12 && !d_ex()) {
-		if (obj_mouseTowerTrigger.rotate == 1) {
-			if (towerinit == 0) {
+		if (obj_mouseTowerTrigger.rotate == true) {
+			if (towerinit == false) {
 				with (obj_rotationtile_tower)
 					freeze = 0;
 				
@@ -309,7 +309,7 @@ if (weird == 0) {
 					plat[currentPlatform - 1].falltimer = 0;
 				}
 				
-				towerinit = 1;
+				towerinit = true;
 			}
 		}
 		
@@ -504,7 +504,7 @@ if (weird == 0) {
 			
 			solve = 1;
 			obj_mouseTowerTrigger.blocked = 1;
-			obj_mouseTowerTrigger.rotate = 0;
+			obj_mouseTowerTrigger.rotate = false;
 			
 			if (i_ex(monologue)) {
 				with (monologue)
@@ -512,8 +512,8 @@ if (weird == 0) {
 			}
 			
 			obj_dw_city_mice3Fence.image_index = 1;
-			layer_set_visible(layer_get_id("BG_Tiles_HiddenPath"), 1);
-			layer_set_visible(layer_get_id("BG_Tiles_HiddenPath_Sidewalk"), 1);
+			layer_set_visible(layer_get_id("BG_Tiles_HiddenPath"), true);
+			layer_set_visible(layer_get_id("BG_Tiles_HiddenPath_Sidewalk"), true);
 			
 			with (fakeWall)
 				instance_destroy();
@@ -823,6 +823,16 @@ if (weird == 0) {
 		}
 	}
 	
+	if (con == 39) {
+		if (instance_exists(obj_musicer_city)) {
+			with (obj_musicer_city)
+				instance_destroy();
+		}
+		
+		instance_create(x, y, obj_musicer_city);
+		con++;
+	}
+	
 	if (con == 38 && !d_ex()) {
 		snd_free_all();
 		global.facing = 0;
@@ -831,7 +841,7 @@ if (weird == 0) {
 			scr_caterpillar_interpolate();
 		
 		global.flag[7] = 0;
-		obj_mouseTowerTrigger.rotate = 0;
+		obj_mouseTowerTrigger.rotate = false;
 		global.interact = 0;
 		global.flag[379] = 1;
 		global.plot = 78;
@@ -842,12 +852,6 @@ if (weird == 0) {
 		with (forcefield)
 			instance_destroy();
 		
-		if (instance_exists(obj_musicer_city)) {
-			with (obj_musicer_city)
-				instance_destroy();
-		}
-		
-		instance_create(x, y, obj_musicer_city);
 		con++;
 		tempsave = instance_create(480, 40, obj_savepoint);
 		scr_tempsave();

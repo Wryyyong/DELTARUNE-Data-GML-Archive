@@ -30,14 +30,14 @@ if (i_ex(obj_debug_windows))
 if (main_focus) {
 	if (mouse_check_button_pressed(mb_left) && mousebuffer < 0) {
 		mouse_held = 0;
-		obj_check = collision_rectangle(x - 2, y - 2, x + 2, y + 2, all, 0, 1);
+		obj_check = collision_rectangle(x - 2, y - 2, x + 2, y + 2, all, false, true);
 		
 		if (obj_check != -4) {
 			visiblecheck = 0;
 			
 			if (show_invisible == 1)
 				visiblecheck = 1;
-			else if (obj_check.visible == true)
+			else if (obj_check.visible == 1)
 				visiblecheck = 1;
 			
 			if (visiblecheck == 1 && obj_check.image_alpha > 0)
@@ -47,14 +47,14 @@ if (main_focus) {
 		}
 		
 		if (instance_exists(obj_actor)) {
-			obj_check = collision_rectangle(x - 2, y - 2, x + 2, y + 2, obj_actor, 0, 1);
+			obj_check = collision_rectangle(x - 2, y - 2, x + 2, y + 2, obj_actor, false, true);
 			
 			if (obj_check != -4) {
 				visiblecheck = 0;
 				
 				if (show_invisible == 1)
 					visiblecheck = 1;
-				else if (obj_check.visible == true)
+				else if (obj_check.visible == 1)
 					visiblecheck = 1;
 				
 				if (visiblecheck == 1 && obj_check.image_alpha > 0)
@@ -149,7 +149,7 @@ if (show_all_object_xy == 1) {
 			
 			if (show_invisible == 1)
 				visiblecheck = 1;
-			else if (findo.visible == true)
+			else if (findo.visible == 1)
 				visiblecheck = 1;
 			
 			if (visiblecheck == 1 && findo.sprite_index != -1) {
@@ -166,18 +166,18 @@ if (show_all_object_xy == 1) {
 					foy -= findo.ystart;
 				}
 				
-				draw_info = 1;
+				draw_info = true;
 				
 				if (findo.object_index == object_index)
-					draw_info = 0;
+					draw_info = false;
 				
 				if (findo.object_index == obj_overworldheart)
-					draw_info = 0;
+					draw_info = false;
 				
 				if (findo.object_index == obj_grazebox)
-					draw_info = 0;
+					draw_info = false;
 				
-				if (draw_info == 1) {
+				if (draw_info == true) {
 					draw_set_color(c_black);
 					draw_rectangle(findo.x - 4, findo.y - 32, findo.x + 80, findo.y, false);
 					draw_set_font(fnt_main);
@@ -242,7 +242,7 @@ if (!old_right_click) {
 if (i_ex(selected_object)) {
 	so = selected_object;
 	
-	if (object_get_parent(so.object_index) == 390) {
+	if (object_get_parent(so.object_index) == 392) {
 		if (enable_mouse_wheel) {
 			if (mouse_wheel_up() || mouse_wheel_down()) {
 				with (so) {

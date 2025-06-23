@@ -1,14 +1,14 @@
 if (global.flag[379] == 0) {
 	timer++;
-	left = 0;
-	right = 0;
-	down = 0;
+	left = false;
+	right = false;
+	down = false;
 	
 	if (instance_exists(obj_masterPlatformController))
 		controlled = obj_masterPlatformController.plat[obj_masterPlatformController.currentPlatform - 1];
 	
 	if (myinteract == 3) {
-		if (i_ex(mydialoguer) == 0) {
+		if (i_ex(mydialoguer) == false) {
 			global.interact = 0;
 			myinteract = 0;
 			
@@ -17,7 +17,7 @@ if (global.flag[379] == 0) {
 		}
 	}
 	
-	if (rotate == 1 && blocked == 0) {
+	if (rotate == true && blocked == 0) {
 		global.interact = 1;
 		
 		if (!instance_exists(obj_holemouse) && i_ex(controlled)) {
@@ -54,16 +54,16 @@ if (global.flag[379] == 0) {
 	
 	if (i_ex(controlled)) {
 		if (controlled.move == 1)
-			right = 1;
+			right = true;
 		
 		if (controlled.move == -1)
-			left = 1;
+			left = true;
 	}
 	
 	if (instance_exists(obj_holemouse_generator)) {
 		with (obj_holemouse_generator) {
 			if (gentimer > 0)
-				other.down = 1;
+				other.down = true;
 		}
 	}
 }

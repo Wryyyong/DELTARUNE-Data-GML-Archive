@@ -1,4 +1,4 @@
-creator = 846;
+creator = 849;
 creator_x = creator.x + (creator.sprite_width / 2);
 creator_y = creator.y + (creator.sprite_height / 2);
 depth = creator.depth - 1;
@@ -10,5 +10,5 @@ sparkle_timer = 0;
 image_xscale = 2;
 image_yscale = 2;
 blend_timer = -0.6;
-wait = 1;
+wait = true;
 alarm[0] = 1;

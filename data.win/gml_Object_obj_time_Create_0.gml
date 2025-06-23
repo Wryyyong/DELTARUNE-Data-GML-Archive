@@ -16,14 +16,14 @@ if (global.is_console) {
 		instance_create(0, 0, obj_border_controller);
 }
 
-paused = 0;
-pausing = 0;
+paused = false;
+pausing = false;
 screenshot = -1;
 gif_recording = 0;
 gif_timer = 0;
-loaded = 0;
-border_fade_out = 0;
-border_fade_in = 0;
+loaded = false;
+border_fade_out = false;
+border_fade_in = false;
 border_alpha = 1;
 border_fade_value = 0.025;
 _border_image = border_line_1080;
@@ -47,7 +47,7 @@ if (instance_number(obj_time) > 1) {
 	
 	if (os_type == os_switch) {
 		switch_controller_support_set_defaults();
-		switch_controller_support_set_singleplayer_only(1);
+		switch_controller_support_set_singleplayer_only(true);
 		switch_controller_set_supported_styles(7);
 	}
 	

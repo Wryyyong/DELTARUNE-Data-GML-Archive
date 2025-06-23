@@ -133,14 +133,14 @@ if (con == 1) {
 
 if (customcon == 1 && con == 2) {
 	drawdoor = 1;
-	visible = true;
+	visible = 1;
 	customcon = 2;
 	c_waitcustom_end();
 }
 
 if (con == 2 && !instance_exists(obj_cutscene_master)) {
 	with (obj_actor)
-		visible = false;
+		visible = 0;
 	
 	scr_losechar();
 	scr_getchar(2);
@@ -153,7 +153,7 @@ if (con == 2 && !instance_exists(obj_cutscene_master)) {
 	with (trans) {
 		finaly = 60;
 		skiprunback = 1;
-		nextroom = 83;
+		nextroom = 84;
 	}
 	
 	con = 3;

@@ -10,7 +10,7 @@ if (timer < 0) {
 		exit;
 	
 	draw_set_color(#B5E61D);
-	draw_circle(laserx, lasery - ((timer + 10) * 25), 20, 0);
+	draw_circle(laserx, lasery - ((timer + 10) * 25), 20, false);
 }
 
 if (timer > 0)
@@ -35,7 +35,7 @@ if (trailstart > 0 && trailend < 640) {
 
 if (timer >= 40) {
 	if (timer >= 40 && timer < 41) {
-		d = instance_exists(obj_shake) ? 191 : instance_create(0, 0, obj_shake);
+		d = instance_exists(obj_shake) ? 193 : instance_create(0, 0, obj_shake);
 		d.shakex = ceil(2);
 		d.shakey = ceil(2);
 		d.permashake = 1;

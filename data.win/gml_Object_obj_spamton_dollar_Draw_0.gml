@@ -2,7 +2,7 @@ if (image_alpha < 1 && obj_spamton_attack_mode.state <= 2) {
 	image_alpha += 0.1;
 } else if (obj_spamton_attack_mode.state > 2) {
 	image_alpha -= 0.1;
-	active = 0;
+	active = false;
 	
 	if (image_alpha <= 0)
 		instance_destroy();

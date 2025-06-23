@@ -6,5 +6,5 @@ looping_bg.width = 720;
 looping_bg.depth = depth;
 looping_bg.x_scale = 1;
 looping_bg.y_scale = 1;
-auto_scroll_start = 0;
-auto_scroll_stop = 0;
+auto_scroll_start = false;
+auto_scroll_stop = false;

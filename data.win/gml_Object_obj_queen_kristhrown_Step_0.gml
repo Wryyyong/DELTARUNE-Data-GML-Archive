@@ -24,13 +24,13 @@ if (con == 10) {
 		}
 		
 		with (obj_herokris)
-			visible = true;
+			visible = 1;
 		
 		if (obj_queen_throwkris.throwXcon == 0) {
 			with (obj_herosusie)
-				visible = true;
+				visible = 1;
 			
-			visible = false;
+			visible = 0;
 			
 			with (obj_queen_throwkris)
 				instance_destroy();

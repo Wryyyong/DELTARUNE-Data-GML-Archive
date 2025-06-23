@@ -1,6 +1,6 @@
 if (scr_debug()) {
 	if (quicksaved != 2)
-		scr_84_debug(0);
+		scr_84_debug(false);
 	
 	if (gif_recording) {
 		draw_set_color(c_red);

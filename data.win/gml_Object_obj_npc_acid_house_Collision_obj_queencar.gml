@@ -1,5 +1,5 @@
 if (!bumped) {
-	bumped = 1;
+	bumped = true;
 	snd_play(snd_bell);
 	house_sprite.image_index = 1;
 	global.flag[458]++;

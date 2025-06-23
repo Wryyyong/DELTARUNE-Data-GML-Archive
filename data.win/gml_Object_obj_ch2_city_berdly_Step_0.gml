@@ -326,15 +326,15 @@ if (con == 3 && !d_ex() && customcon == 1) {
 	global.flag[9] = 1;
 	
 	with (obj_actor)
-		visible = false;
+		visible = 0;
 }
 
 if (con == 5 && i_ex(obj_battlecontroller)) {
-	var battle_end = 0;
+	var battle_end = false;
 	
 	with (obj_battlecontroller) {
 		if (intro == 2)
-			battle_end = 1;
+			battle_end = true;
 	}
 	
 	if (battle_end) {
@@ -406,7 +406,7 @@ if (con == 7) {
 	}
 	
 	with (obj_actor)
-		visible = true;
+		visible = 1;
 	
 	if (i_ex(obj_monsterparent)) {
 		with (obj_monsterparent)

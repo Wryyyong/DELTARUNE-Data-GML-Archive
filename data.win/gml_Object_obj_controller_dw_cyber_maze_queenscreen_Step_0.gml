@@ -134,13 +134,13 @@ if (i_ex(obj_battleback)) {
 	safe_delete(werewire4);
 	safe_delete(werewire5);
 	safe_delete(werewire6);
-	spawn7 = 1;
+	spawn7 = true;
 }
 
 if (global.entrance == 2 || global.flag[528] == 1)
-	spawn7 = 1;
+	spawn7 = true;
 
-if (spawned == 0 && spawn7 == 1) {
+if (spawned == 0 && spawn7 == true) {
 	werewire7 = instance_create(2000, 362, obj_solidblock);
 	
 	with (werewire7) {
@@ -155,7 +155,7 @@ if (spawned == 0 && spawn7 == 1) {
 	spawned = 1;
 }
 
-if (!i_ex(hintscreen) && global.flag[351] == 1) {
+if (!i_ex(hintscreen) && global.flag[351] == true) {
 	hintscreen = instance_create(1100, 952, obj_queenscreen);
 	hintscreen.image_xscale = 2;
 	hintscreen.image_yscale = 2;

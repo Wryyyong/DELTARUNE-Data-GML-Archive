@@ -24,7 +24,7 @@ with (bullet) {
 	active = 1;
 	target = 3;
 	damage = 15;
-	visible = false;
+	visible = 0;
 	image_blend = c_red;
 	image_alpha = 1;
 	image_xscale = 2;

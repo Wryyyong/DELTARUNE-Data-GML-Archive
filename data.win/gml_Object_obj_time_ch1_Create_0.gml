@@ -4,13 +4,13 @@ axis_value = 0.4;
 fullscreen_toggle = 0;
 window_center_toggle = 0;
 screenshot_number = 0;
-border_fade_out = 0;
-border_fade_in = 0;
+border_fade_out = false;
+border_fade_in = false;
 border_alpha = 1;
 border_fade_value = 0.025;
-loaded = 0;
-paused = 0;
-pausing = 0;
+loaded = false;
+paused = false;
+pausing = false;
 screenshot = -1;
 
 if (instance_number(obj_time_ch1) > 1) {
@@ -32,7 +32,7 @@ if (instance_number(obj_time_ch1) > 1) {
 	
 	if (os_type == os_switch) {
 		switch_controller_support_set_defaults();
-		switch_controller_support_set_singleplayer_only(1);
+		switch_controller_support_set_singleplayer_only(true);
 		switch_controller_set_supported_styles(7);
 	}
 	

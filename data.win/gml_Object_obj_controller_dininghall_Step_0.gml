@@ -27,11 +27,11 @@ if (con == 0) {
 	con++;
 }
 
-if (tablespawn == 1) {
+if (tablespawn == true) {
 	instance_create(166, 320, obj_saucer_dining3Spawner);
 	instance_create(270, 320, obj_saucer_dining3Spawner);
 	instance_create(374, 320, obj_saucer_dining3Spawner);
-	tablespawn = 0;
+	tablespawn = false;
 }
 
 if (con == 2) {
@@ -108,7 +108,7 @@ if (con == 3) {
 	c_sprite(spr_susie_dw_landed);
 	c_var_lerp_instance(dog, "x", memx, 704, 16);
 	c_wait(6);
-	c_var_instance(id, "tablespawn", 1);
+	c_var_instance(id, "tablespawn", true);
 	c_wait(6);
 	c_sel(ra);
 	c_facing("r");

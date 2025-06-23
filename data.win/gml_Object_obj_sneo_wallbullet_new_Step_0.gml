@@ -25,7 +25,7 @@ if (wallcontroller > -1) {
 }
 
 if (sprite_index == spr_sneo_crew) {
-	hitshot = collision_rectangle(x - 18, y - 22, x + 19, y + 22, obj_yheart_shot, 1, 0);
+	hitshot = collision_rectangle(x - 18, y - 22, x + 19, y + 22, obj_yheart_shot, true, false);
 	
 	if (hitshot != -4) {
 		if (destroyable == 0 && hitshot.big == 1) {

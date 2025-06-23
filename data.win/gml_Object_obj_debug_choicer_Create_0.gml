@@ -1,5 +1,5 @@
 depth = 5000;
-fileExists = 0;
+fileExists = false;
 q = "Question Prompt?";
 c1 = "#yes";
 c2 = "#no";

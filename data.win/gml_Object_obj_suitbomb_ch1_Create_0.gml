@@ -1,4 +1,4 @@
-visible = false;
+visible = 0;
 type = choose(0, 1, 2, 3);
 y = -80;
 image_xscale = 2;

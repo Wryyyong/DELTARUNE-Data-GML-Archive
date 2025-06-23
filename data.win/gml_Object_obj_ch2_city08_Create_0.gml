@@ -1,19 +1,19 @@
 con = -1;
 customcon = 0;
-weird = 0;
+weird = false;
 
 if (global.flag[915] == 6 && global.flag[916] == 0)
-	weird = 1;
+	weird = true;
 
 drawx = 0;
-cityscape_parallax = 1;
-circle_zoom_start = 0;
+cityscape_parallax = true;
+circle_zoom_start = false;
 circle_zoom = -1;
 circle_zoom_timer = 0;
 
 if (global.chapter != 2 || global.plot >= 99) {
 	con = 999;
-} else if (weird == 0) {
+} else if (weird == false) {
 	scr_losechar();
 	safe_delete(obj_caterpillarchara);
 	scr_getchar(2);

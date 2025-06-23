@@ -1,6 +1,6 @@
 hspeed = irandom_range(-4.5, -4);
-cleanup = 0;
-crash = 0;
+cleanup = false;
+crash = false;
 cleanup_timer = 30;
 explosion = -1;
 image_xscale = 2;

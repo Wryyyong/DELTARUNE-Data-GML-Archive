@@ -1,2 +1,2 @@
 with (obj_npc_room)
-	visible = true;
+	visible = 1;

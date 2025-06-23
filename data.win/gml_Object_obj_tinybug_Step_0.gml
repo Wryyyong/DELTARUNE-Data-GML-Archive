@@ -12,7 +12,7 @@ hspeed += random_range(-0.5, 0.5);
 vspeed += random_range(-0.5, 0.5);
 image_angle += random_range(10, -10);
 
-if (place_meeting(x, y, obj_solidblock) || (place_meeting(x, y, obj_bug_treasure_chest) && getdepth == 1)) {
+if (place_meeting(x, y, obj_solidblock) || (place_meeting(x, y, obj_bug_treasure_chest) && getdepth == true)) {
 	x = remx;
 	y = remy;
 }
@@ -29,4 +29,4 @@ if (image_alpha < 0.05)
 	instance_destroy();
 
 if (y <= (starty - 20) || timer > 10)
-	getdepth = 1;
+	getdepth = true;

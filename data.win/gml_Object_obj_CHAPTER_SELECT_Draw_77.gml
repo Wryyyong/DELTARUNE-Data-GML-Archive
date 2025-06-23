@@ -9,14 +9,14 @@ if (os_type == os_switch || os_type == os_ps4) {
 	global.window_yofs = yy;
 	
 	if (os_type == os_switch && wh == 720)
-		texture_set_interpolation(1);
+		texture_set_interpolation(true);
 	else
-		texture_set_interpolation(0);
+		texture_set_interpolation(false);
 	
-	draw_enable_alphablend(0);
+	draw_enable_alphablend(false);
 	draw_surface_ext(application_surface, xx, yy, global.window_scale, global.window_scale, 0, c_white, 1);
-	draw_enable_alphablend(1);
-	texture_set_interpolation(0);
+	draw_enable_alphablend(true);
+	texture_set_interpolation(false);
 } else {
 	global.window_xofs = 0;
 	global.window_yofs = 0;

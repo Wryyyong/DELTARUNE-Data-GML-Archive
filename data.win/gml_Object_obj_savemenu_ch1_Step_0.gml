@@ -1,6 +1,20 @@
 buffer -= 1;
 
 if (coord == 2 && buffer < 0) {
+	if (save_data_error) {
+		if (!instance_exists(obj_savedata_error)) {
+			save_data_error = false;
+			global.interact = 0;
+			
+			with (obj_mainchara_ch1)
+				onebuffer = 3;
+			
+			instance_destroy();
+		}
+		
+		exit;
+	}
+	
 	if (button1_p_ch1()) {
 		coord = 99;
 		endme = 1;
@@ -19,26 +33,32 @@ if (coord < 2) {
 if (coord == 0 && buffer < 0) {
 	if (button1_p_ch1()) {
 		snd_play_ch1(snd_save_ch1);
-		script_execute(scr_save_ch1);
+		var is_valid = script_execute(scr_save_ch1);
 		coord = 2;
 		buffer = 3;
 		
-		if (d == 2) {
-			name = global.truename;
-			love = global.llv;
+		if (is_valid) {
+			if (d == 2) {
+				name = global.truename;
+				love = global.llv;
+			}
+			
+			scr_roomname_ch1(room);
+			level = global.lv;
+			time = global.time;
+			minutes = floor(time / 1800);
+			seconds = round(((time / 1800) - minutes) * 60);
+			
+			if (seconds == 60)
+				seconds = 59;
+			
+			if (seconds < 10)
+				seconds = "0" + string(seconds);
+		} else {
+			save_data_error = true;
+			var error_message = instance_create(0, 0, obj_savedata_error);
+			error_message.error_type = "save_failed";
 		}
-		
-		scr_roomname_ch1(room);
-		level = global.lv;
-		time = global.time;
-		minutes = floor(time / 1800);
-		seconds = round(((time / 1800) - minutes) * 60);
-		
-		if (seconds == 60)
-			seconds = 59;
-		
-		if (seconds < 10)
-			seconds = "0" + string(seconds);
 	}
 }
 

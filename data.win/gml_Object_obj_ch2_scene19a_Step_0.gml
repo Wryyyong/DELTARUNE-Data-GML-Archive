@@ -8,7 +8,7 @@ if (obj_mainchara.x >= 20 && con == -1) {
 	global.interact = 1;
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	global.facing = 0;
 	cutscene_master = scr_cutscene_make();

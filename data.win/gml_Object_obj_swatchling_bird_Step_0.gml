@@ -9,7 +9,7 @@ if (init == 0) {
 		image_alpha = 1;
 		target_speed = speed;
 		speed = 1;
-		platterspawn = 0;
+		platterspawn = false;
 		
 		if (fixed_angle) {
 			var targetdir = point_direction(x, y, obj_heart.x + 10, obj_heart.y + 10);

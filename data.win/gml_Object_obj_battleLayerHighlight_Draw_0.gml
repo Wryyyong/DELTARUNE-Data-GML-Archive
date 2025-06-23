@@ -5,7 +5,7 @@ if (state == 0) {
 	var lay_id = layer_get_id("TILES_BATTLEBORDER");
 	var map_id = layer_tilemap_get_id(lay_id);
 	draw_tilemap(map_id, 0, 0);
-	spr_battleborder = sprite_create_from_surface(surf, 0, 0, room_width, room_height, true, false, 0, 0);
+	spr_battleborder = sprite_create_from_surface(surf, 0, 0, room_width, room_height, 1, 0, 0, 0);
 	surface_reset_target();
 	surface_free(surf);
 	state = 1;
@@ -24,7 +24,7 @@ if (room == room_dw_mansion_east_2f_transformed_new) {
 		var lay_id = layer_get_id("TILES_BATTLEBORDER");
 		var map_id = layer_tilemap_get_id(lay_id);
 		draw_tilemap(map_id, 0, 0);
-		spr_border_none = sprite_create_from_surface(surf, 0, 0, room_width, room_height, true, false, 0, 0);
+		spr_border_none = sprite_create_from_surface(surf, 0, 0, room_width, room_height, 1, 0, 0, 0);
 		surface_reset_target();
 		surface_free(surf);
 		surf = surface_create(room_width, room_height);
@@ -33,7 +33,7 @@ if (room == room_dw_mansion_east_2f_transformed_new) {
 		lay_id = layer_get_id("TILES_BATTLEBORDER_LEFT");
 		map_id = layer_tilemap_get_id(lay_id);
 		draw_tilemap(map_id, 0, 0);
-		spr_border_left = sprite_create_from_surface(surf, 0, 0, room_width, room_height, true, false, 0, 0);
+		spr_border_left = sprite_create_from_surface(surf, 0, 0, room_width, room_height, 1, 0, 0, 0);
 		surface_reset_target();
 		surface_free(surf);
 		surf = surface_create(room_width, room_height);
@@ -42,7 +42,7 @@ if (room == room_dw_mansion_east_2f_transformed_new) {
 		lay_id = layer_get_id("TILES_BATTLEBORDER_RIGHT");
 		map_id = layer_tilemap_get_id(lay_id);
 		draw_tilemap(map_id, 0, 0);
-		spr_border_right = sprite_create_from_surface(surf, 0, 0, room_width, room_height, true, false, 0, 0);
+		spr_border_right = sprite_create_from_surface(surf, 0, 0, room_width, room_height, 1, 0, 0, 0);
 		surface_reset_target();
 		surface_free(surf);
 		surf = surface_create(room_width, room_height);
@@ -51,7 +51,7 @@ if (room == room_dw_mansion_east_2f_transformed_new) {
 		lay_id = layer_get_id("TILES_BATTLEBORDER_BOTH");
 		map_id = layer_tilemap_get_id(lay_id);
 		draw_tilemap(map_id, 0, 0);
-		spr_border_both = sprite_create_from_surface(surf, 0, 0, room_width, room_height, true, false, 0, 0);
+		spr_border_both = sprite_create_from_surface(surf, 0, 0, room_width, room_height, 1, 0, 0, 0);
 		surface_reset_target();
 		surface_free(surf);
 		state = 11;

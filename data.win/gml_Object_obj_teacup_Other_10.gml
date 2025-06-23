@@ -52,7 +52,7 @@ if (state == 1) {
 		var _jumpInDuration = jumpInDuration;
 		var _rollSprites = [spr_kris_fall_ball, spr_kris_fall_ball, spr_susie_dw_fall_ball, spr_ralsei_teacup_enter];
 		var _rideToRide = rideToRide;
-		_rideToRide = 1;
+		_rideToRide = true;
 		
 		with (_character) {
 			var _spr = sprite_index;

@@ -1,9 +1,9 @@
 timer++;
 
 if (x < (camerax() + 640))
-	sink = 1;
+	sink = true;
 
-if (sink == 1) {
+if (sink == true) {
 	if ((timer % 4) == 0)
 		progress += 1;
 }

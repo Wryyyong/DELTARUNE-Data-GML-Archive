@@ -15,7 +15,7 @@ if (is_active) {
 			if (obj_mainchara.x <= 2320 && obj_mainchara.x > 1080) {
 				if (i_ex(obj_cyber_shadowMaker_fireworks)) {
 					if (!obj_cyber_shadowMaker_fireworks.is_active)
-						obj_cyber_shadowMaker_fireworks.is_active = 1;
+						obj_cyber_shadowMaker_fireworks.is_active = true;
 				}
 				
 				spawn = (time % 40) == 0;
@@ -24,8 +24,8 @@ if (is_active) {
 			} else {
 				if (i_ex(obj_cyber_shadowMaker_fireworks)) {
 					if (obj_cyber_shadowMaker_fireworks.is_active) {
-						obj_cyber_shadowMaker_fireworks.is_active = 0;
-						obj_cyber_shadowMaker_fireworks.inactive_cleanup = 1;
+						obj_cyber_shadowMaker_fireworks.is_active = false;
+						obj_cyber_shadowMaker_fireworks.inactive_cleanup = true;
 					}
 				}
 				

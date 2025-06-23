@@ -1,13 +1,25 @@
-if (state == 0) {
-	if (image_xscale < 1) {
-		image_xscale += 0.2;
-		image_yscale += 0.2;
-	}
+if (state == -1) {
+	timer += (timer + 1);
+	image_xscale = lerp(2, 0.5, timer / 30);
+	image_yscale = lerp(0, 2, timer / 30);
 	
-	if (image_xscale >= 1) {
+	if (timer >= 30) {
+		state = 0;
+		timer = 0;
+	}
+}
+
+if (state == 0) {
+	timer += (timer + 1);
+	image_xscale = lerp(0.5, 1, timer / 15);
+	image_yscale = lerp(2, 1, timer / 15);
+	
+	if (timer >= 15) {
+		timer = -10;
 		state = 1;
 		image_index = 1;
-		timer = -10;
+		image_xscale = 1;
+		image_yscale = 1;
 	}
 }
 
@@ -52,13 +64,13 @@ if (state == 2) {
 		d.target = target;
 		d.parentwindow = self;
 		state = 3;
-	} else if (search == 2) {
+	} else if (search == 3) {
 		d = instance_create(x, y + 10, obj_queen_search_bdog);
 		d.damage = damage;
 		d.target = target;
 		d.parentwindow = self;
 		state = 3;
-	} else if (search == 3) {
+	} else if (search == 4) {
 		d = instance_create(x, y, obj_queen_search_image);
 		d.parentwindow = self;
 		state = 3;

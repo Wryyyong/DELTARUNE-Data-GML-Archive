@@ -1,6 +1,6 @@
 con = -1;
 customcon = 0;
-shortened = 0;
+shortened = false;
 dogcone1 = scr_dark_marker(487, 75, spr_cone_alley);
 
 with (dogcone1)
@@ -26,7 +26,7 @@ if (global.chapter != 2 || global.plot >= 79) {
 	instance_destroy();
 } else if (scr_sideb_get_phase() == 0) {
 	if (global.tempflag[30] == 1)
-		shortened = 1;
+		shortened = true;
 }
 
 if (global.flag[915] > 5 && global.flag[916] == 0) {

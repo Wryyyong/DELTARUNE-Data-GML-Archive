@@ -28,7 +28,7 @@ frameRate = game_get_speed(gamespeed_fps);
 tileLayer = layer_get_id("TILES");
 spriteLayer = layer_get_id("SPRITES_SlideTransition");
 soundTimeStep = 0;
-fadingOut = 0;
+fadingOut = false;
 fadeToWhite = 0;
 fpb = frameRate * bps;
 scr_slidebeatbullet(0, fpb, 4);

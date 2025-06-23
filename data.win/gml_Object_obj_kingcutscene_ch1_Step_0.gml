@@ -32,12 +32,12 @@ if (con < 76) {
 		part = 1;
 		
 		with (obj_mainchara_ch1) {
-			visible = false;
+			visible = 0;
 			cutscene = 1;
 		}
 		
 		with (obj_caterpillarchara_ch1)
-			visible = false;
+			visible = 0;
 		
 		con = 1;
 		k = scr_dark_marker_ch1(-20, 200, spr_krisr_dark_ch1);
@@ -246,7 +246,7 @@ if (con < 76) {
 	
 	if (con == 15) {
 		with (l)
-			visible = false;
+			visible = 0;
 		
 		with (king) {
 			hspeed = 0;
@@ -635,7 +635,7 @@ if (con < 76) {
 				sprite_index = spr_lancer_l_unhappy_ch1;
 				vspeed = 10;
 				hspeed = -4;
-				visible = true;
+				visible = 1;
 			}
 			
 			con = 55;
@@ -711,13 +711,13 @@ if (con < 76) {
 		snd_play_ch1(snd_laz_c_ch1);
 		
 		with (k)
-			scr_anim_ch1(3816, 0.25);
+			scr_anim_ch1(3819, 0.25);
 		
 		with (s)
-			scr_anim_ch1(3842, 0.25);
+			scr_anim_ch1(3845, 0.25);
 		
 		with (r)
-			scr_anim_ch1(3857, 0.25);
+			scr_anim_ch1(3860, 0.25);
 		
 		con = 61;
 		alarm[4] = 30;
@@ -840,31 +840,31 @@ if (con < 76) {
 		scr_caterpillar_facing_ch1(1);
 		
 		with (obj_mainchara_ch1) {
-			visible = true;
+			visible = 1;
 			sprite_index = spr_krisb_idle_ch1;
 			fun = 1;
 		}
 		
 		with (global.cinstance[0]) {
-			visible = true;
+			visible = 1;
 			sprite_index = spr_susieb_idle_serious_ch1;
 			fun = 1;
 		}
 		
 		with (global.cinstance[1]) {
-			visible = true;
+			visible = 1;
 			sprite_index = spr_ralseib_idle_ch1;
 			fun = 1;
 		}
 		
 		with (k)
-			visible = false;
+			visible = 0;
 		
 		with (r)
-			visible = false;
+			visible = 0;
 		
 		with (s)
-			visible = false;
+			visible = 0;
 		
 		global.flag[9] = 1;
 		global.batmusic[0] = snd_init_ch1("kingboss.ogg");
@@ -891,7 +891,7 @@ if (con < 76) {
 	
 	if (con == 72) {
 		with (king)
-			visible = false;
+			visible = 0;
 		
 		con = 73;
 		alarm[4] = 15;
@@ -900,7 +900,7 @@ if (con < 76) {
 	if (con == 74) {
 		if (!instance_exists(obj_battlecontroller_ch1)) {
 			with (king)
-				visible = true;
+				visible = 1;
 			
 			king.remkingx = remkingx;
 			king.remkingy = remkingy;
@@ -944,18 +944,18 @@ if (con >= 76 && con < 150) {
 			part = 1;
 		} else {
 			with (k)
-				visible = true;
+				visible = 1;
 			
 			with (s)
-				visible = true;
+				visible = 1;
 			
 			with (r)
-				visible = true;
+				visible = 1;
 			
-			obj_mainchara_ch1.visible = false;
+			obj_mainchara_ch1.visible = 0;
 			
 			with (obj_caterpillarchara_ch1)
-				visible = false;
+				visible = 0;
 			
 			k.sprite_index = spr_krisb_idle_ch1;
 			s.sprite_index = spr_susieb_idle_serious_ch1;
@@ -988,7 +988,7 @@ if (con >= 76 && con < 150) {
 		snd_play_ch1(snd_heavyswing_ch1);
 		
 		with (king)
-			scr_anim_ch1(4120, 0.1);
+			scr_anim_ch1(4123, 0.1);
 		
 		con = 82;
 		alarm[4] = 50;
@@ -1194,7 +1194,7 @@ if (con >= 76 && con < 150) {
 	
 	if (con == 110) {
 		with (r) {
-			scr_anim_ch1(3864, 0.25);
+			scr_anim_ch1(3867, 0.25);
 			x -= 10;
 			y -= 10;
 		}
@@ -1388,7 +1388,7 @@ if (con >= 76 && con < 150) {
 		k.disto = disto;
 		
 		with (k) {
-			scr_anim_ch1(3826, 0.5);
+			scr_anim_ch1(3829, 0.5);
 			move_towards_point(s.x + 60, s.y + 10, disto);
 		}
 		
@@ -1587,7 +1587,7 @@ if (con >= 150 && con < 250) {
 	}
 	
 	if (con == 156 && !d_ex_ch1()) {
-		k.visible = false;
+		k.visible = 0;
 		
 		with (king) {
 			sprite_index = spr_king_liftkris_ch1;
@@ -1672,7 +1672,7 @@ if (con >= 150 && con < 250) {
 			with (k2)
 				instance_destroy();
 			
-			k.visible = true;
+			k.visible = 1;
 			con = 164;
 			alarm[4] = 30;
 		}
@@ -3155,13 +3155,13 @@ if (con >= 700) {
 		con = 701;
 		
 		with (obj_caterpillarchara_ch1)
-			visible = false;
+			visible = 0;
 		
 		with (obj_mainchara_ch1)
-			visible = false;
+			visible = 0;
 		
 		with (obj_npc_facing_ch1)
-			visible = false;
+			visible = 0;
 		
 		s = scr_dark_marker_ch1(obj_caterpillarchara_ch1.x, obj_caterpillarchara_ch1.y, spr_susiel_dark_eyes_ch1);
 		

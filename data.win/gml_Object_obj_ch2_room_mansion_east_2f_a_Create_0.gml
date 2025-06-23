@@ -1,14 +1,14 @@
 con = 0;
 key = -1;
 dooropen = -1;
-keyfloat = 0;
+keyfloat = false;
 floattimer = 0;
-keysparkle = 0;
+keysparkle = false;
 sparkletimer = 0;
-fadeplatters = 0;
+fadeplatters = false;
 keyXPos = 0;
 keyYPos = 0;
-make_forcefield = 0;
+make_forcefield = false;
 forcefield = -4;
 
 if (global.chapter != 2) {

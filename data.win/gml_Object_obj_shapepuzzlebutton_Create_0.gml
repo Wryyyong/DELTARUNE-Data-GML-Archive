@@ -1,4 +1,4 @@
-active = 0;
+active = false;
 moveAmount = 10;
 holdDelayMax = 3;
 holdDelay = 0;
@@ -23,7 +23,7 @@ with (myPiece) {
 	image_yscale = 2;
 	
 	if (room == room_dw_mansion_darkbulb_2 && image_index == 5)
-		other.troublePiece = 1;
+		other.troublePiece = true;
 	
 	var _loopcount;
 	

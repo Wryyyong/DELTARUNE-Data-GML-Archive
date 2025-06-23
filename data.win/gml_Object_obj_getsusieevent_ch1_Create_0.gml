@@ -11,7 +11,7 @@ if (global.plot >= 38) {
 	door.image_xscale = 2;
 	door.image_yscale = 2;
 	instance_create_ch1(520, 260, obj_npc_sign_ch1);
-	visible = false;
+	visible = 0;
 	
 	if (global.plot == 38)
 		rcon = 1;
@@ -30,7 +30,7 @@ if (global.plot >= 38) {
 con = 1;
 
 if (global.plot >= 37) {
-	visible = false;
+	visible = 0;
 	con = -1;
 }
 

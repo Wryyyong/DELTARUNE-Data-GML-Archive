@@ -10,5 +10,5 @@ with (c) {
 
 if (i_ex(obj_cyber_shadowMaker_fireworks)) {
 	with (obj_cyber_shadowMaker_fireworks)
-		fade_in = 1;
+		fade_in = true;
 }

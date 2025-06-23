@@ -12,7 +12,7 @@ for (var __i = 0; __i < __numlayers; __i++) {
 		var __lang = string_copy(__name, __pos + 6, 2);
 		
 		if (__lang != global.lang) {
-			layer_set_visible(__layer_id, 0);
+			layer_set_visible(__layer_id, false);
 			continue;
 		}
 	}

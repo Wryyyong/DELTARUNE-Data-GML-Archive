@@ -1,7 +1,7 @@
-if (flippable == 1)
-	flip = 1;
+if (flippable == true)
+	flip = true;
 
-if (isswitch == 1) {
+if (isswitch == true) {
 	if (room == room_dw_mansion_east_2f_transformed_new) {
 		if (extflag == "a") {
 			if (global.flag[395] == 0) {
@@ -13,7 +13,7 @@ if (isswitch == 1) {
 					instance_destroy(shine);
 			}
 			
-			isswitch = 0;
+			isswitch = false;
 		}
 		
 		if (extflag == "b") {
@@ -26,7 +26,7 @@ if (isswitch == 1) {
 					instance_destroy(shine);
 			}
 			
-			isswitch = 0;
+			isswitch = false;
 		}
 	}
 	
@@ -37,12 +37,12 @@ if (isswitch == 1) {
 			with (obj_queenart_mona) {
 				if (extflag == "treasure") {
 					treasure = instance_create(x + (sprite_width / 2), y, obj_queenart_red);
-					treasure.flippable = 0;
+					treasure.flippable = false;
 					treasure.extflag = "treasure";
-					treasure.isswitch = 1;
+					treasure.isswitch = true;
 					treasure.sprite_index = spr_queenart_mona_middlepoint;
 					treasure.spriteindex2 = spr_queenart_treasure_middlepoint;
-					treasure.flip = 1;
+					treasure.flip = true;
 					instance_destroy();
 				}
 			}
@@ -55,8 +55,8 @@ if (isswitch == 1) {
 			if (shine != -4)
 				instance_destroy(shine);
 			
-			skip = 1;
-			isswitch = 0;
+			skip = true;
+			isswitch = false;
 			extflag = 0;
 			global.flag[398] = 1;
 			dontshine = 1;
@@ -87,11 +87,11 @@ if (isswitch == 1) {
 		if (extflag == "fireswitch" && global.flag[399] == 0) {
 			global.flag[399] = 1;
 			dontshine = 1;
-			isswitch = 0;
-			decor = 0;
+			isswitch = false;
+			decor = false;
 			con = 0;
 			flipcon = 0;
-			flip = 1;
+			flip = true;
 			instance_create(x, y, obj_shake);
 			
 			with (shine)
@@ -100,7 +100,7 @@ if (isswitch == 1) {
 			with (obj_queenart_mona) {
 				if (extflag == "exitblocker") {
 					decor = instance_create(x, y, obj_queenart_red);
-					decor.decorative = 1;
+					decor.decorative = true;
 					decor.sprite_index = spr_queenart_red;
 					decor.spriteindex2 = spr_queenart_red;
 					decor.extflag = "decor";

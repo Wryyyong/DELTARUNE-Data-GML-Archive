@@ -3,7 +3,7 @@ bg_y_pos_alt = ((cameray() - 200) * 0.92) + 680;
 bg_x_pos = camerax() * 0.95;
 
 if (!sprite_init) {
-	sprite_init = 1;
+	sprite_init = true;
 	ground_height = sprite_get_height(spr_bg_cyber_parallax_ground);
 	sky_height = sprite_get_height(spr_cyber_starry_sky_white);
 	starry_sky_height = sprite_get_height(spr_cyber_starry_sky);

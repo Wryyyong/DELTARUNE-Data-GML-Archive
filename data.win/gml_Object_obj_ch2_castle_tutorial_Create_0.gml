@@ -1,4 +1,4 @@
-layer_set_visible("TILES_Checkboard", 0);
+layer_set_visible("TILES_Checkboard", false);
 
 if (global.chapter == 2 && global.plot >= 9) {
 	var coody = instance_create(772, 194, obj_npc_room);
@@ -16,7 +16,7 @@ if (global.chapter == 2 && global.plot >= 9) {
 		scr_depth();
 	
 	if (global.plot >= 200) {
-		layer_set_visible("TILES_Checkboard", 1);
+		layer_set_visible("TILES_Checkboard", true);
 		var mannequin = instance_create(834, 150, obj_npc_room);
 		mannequin.sprite_index = spr_mannequin_ralsei;
 		

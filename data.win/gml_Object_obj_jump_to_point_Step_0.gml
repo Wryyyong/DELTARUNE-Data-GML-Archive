@@ -34,7 +34,7 @@ if (i_ex(target)) {
 		y = endy;
 		scr_depth();
 		y = remy;
-		target.visible = false;
+		target.visible = 0;
 		falseendx = endx;
 		falseendy = endy;
 		
@@ -128,7 +128,7 @@ if (i_ex(target)) {
 		}
 		
 		if (usespritestimer >= 5) {
-			target.visible = true;
+			target.visible = 1;
 			instance_destroy();
 		}
 	}

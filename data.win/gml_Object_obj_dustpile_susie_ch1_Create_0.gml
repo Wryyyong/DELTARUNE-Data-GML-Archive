@@ -11,5 +11,5 @@ if (global.plot >= 14) {
 	partysus = instance_create_ch1(500, 500, obj_caterpillarchara_ch1);
 	
 	with (partysus)
-		visible = false;
+		visible = 0;
 }

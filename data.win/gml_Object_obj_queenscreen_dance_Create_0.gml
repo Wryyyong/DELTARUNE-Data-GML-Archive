@@ -12,4 +12,4 @@ extspawnflag = 0;
 init = 0;
 count = 30;
 dance_con = 0;
-dance_active = 1;
+dance_active = true;

@@ -76,21 +76,21 @@ if (TYPE > 0) {
 			dy = -1;
 		
 		if (dx != 0 && XMAX > 0) {
-			var found = 0;
+			var found = false;
 			
 			do {
 				CURX = (CURX + (XMAX + 1) + dx) % (XMAX + 1);
 				var ccc = NAME[CURX][CURY];
 				
 				if (ccc != " " && ccc != "　" && ccc != ">" && ccc != "<")
-					found = 1;
+					found = true;
 			} until (found);
 		} else if (dy != 0 && YMAX > 0) {
-			var found = 0;
+			var found = false;
 			
 			do {
 				CURY = (CURY + (YMAX + 1) + dy) % (YMAX + 1);
-				var move = 1;
+				var move = true;
 				var ccc = "";
 				
 				while (move) {
@@ -101,11 +101,11 @@ if (TYPE > 0) {
 					else if (ccc == "<")
 						CURX -= 1;
 					else
-						move = 0;
+						move = false;
 				}
 				
 				if (ccc != " " && ccc != "　")
-					found = 1;
+					found = true;
 			} until (found);
 		}
 	}

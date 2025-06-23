@@ -1,10 +1,10 @@
 if (scr_queen_buffercheck()) {
-	buffering = 1;
+	buffering = true;
 	image_blend = c_gray;
 	draw_self();
 	exit;
 } else if (buffering && !scr_queen_buffercheck()) {
-	buffering = 0;
+	buffering = false;
 	image_blend = c_white;
 }
 

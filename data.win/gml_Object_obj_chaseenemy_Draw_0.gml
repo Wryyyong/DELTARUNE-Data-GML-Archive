@@ -5,7 +5,7 @@ if (drawoffscreen == 0) {
 	if (!scr_onscreen_tolerance(id, tolerance))
 		dodraw = 0;
 } else {
-	dodraw = 1;
+	dodraw = true;
 }
 
 if (dodraw) {

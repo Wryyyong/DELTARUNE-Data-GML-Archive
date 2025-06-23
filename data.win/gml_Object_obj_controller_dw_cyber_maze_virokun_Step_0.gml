@@ -1,6 +1,6 @@
-if (viro == 1) {
+if (viro == true) {
 	if (!instance_exists(obj_chaseenemy)) {
-		viro = 0;
+		viro = false;
 		global.flag[391] = 1;
 	}
 }

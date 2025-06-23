@@ -8,10 +8,10 @@ if (con == 1) {
 	c[1] = ral;
 	
 	with (obj_caterpillarchara_ch1)
-		visible = false;
+		visible = 0;
 	
 	with (obj_mainchara_ch1)
-		visible = false;
+		visible = 0;
 	
 	with (ral) {
 		hspeed = 4;
@@ -473,7 +473,7 @@ if (con == 55) {
 	obj_mainchara_ch1.y = k.y;
 	
 	with (obj_mainchara_ch1)
-		visible = true;
+		visible = 1;
 	
 	scr_unmarkify_caterpillar_ch1();
 	scr_caterpillar_facing_ch1(1);

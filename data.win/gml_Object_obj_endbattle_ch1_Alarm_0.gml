@@ -2,11 +2,11 @@ with (obj_mainchara_ch1) {
 	if (global.specialbattle != 3)
 		cutscene = 0;
 	
-	visible = true;
+	visible = 1;
 }
 
 with (obj_caterpillarchara_ch1)
-	visible = true;
+	visible = 1;
 
 if (global.specialbattle == 0 || global.specialbattle == 3) {
 	for (i = 0; i < (count + 1); i += 1) {

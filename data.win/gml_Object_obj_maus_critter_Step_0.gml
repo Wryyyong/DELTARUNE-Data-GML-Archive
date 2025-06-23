@@ -5,7 +5,7 @@ if (init == 0) {
 	depth -= 2;
 	
 	if (big)
-		stuck = 1;
+		stuck = true;
 }
 
 if (init == 2) {
@@ -21,7 +21,7 @@ if (big && alarm[0] == -1) {
 	
 	if (stuck && speed > 2) {
 		sprite_index = spr_maus_critter_big;
-		stuck = 0;
+		stuck = false;
 	}
 }
 

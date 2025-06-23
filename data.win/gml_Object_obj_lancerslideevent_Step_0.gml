@@ -20,7 +20,7 @@ enum e__VW {
 
 if (con == 1) {
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	k = scr_dark_marker(0, obj_mainchara.y, spr_krisr_dark);
 	
@@ -86,7 +86,7 @@ if (con == 8) {
 	
 	with (obj_mainchara) {
 		cutscene = 1;
-		visible = true;
+		visible = 1;
 		vspeed = 20;
 		fun = 1;
 		sprite_index = spr_krisd_slide;

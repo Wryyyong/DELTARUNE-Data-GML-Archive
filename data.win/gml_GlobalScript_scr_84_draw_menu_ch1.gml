@@ -13,11 +13,11 @@ function scr_84_draw_menu_ch1(arg0, arg1, arg2, arg3, arg4, arg5, arg6) {
 		var type = ds_list_find_value(array, i);
 		var item = ds_list_find_value(array, i + 1);
 		var name = ds_list_find_value(array, i + 2);
-		var selected = 0;
+		var selected = false;
 		var prefix = "  ";
 		
 		if (ndx == selection_indices[func_depth])
-			selected = 1;
+			selected = true;
 		
 		if (selected) {
 			prefix = "> ";

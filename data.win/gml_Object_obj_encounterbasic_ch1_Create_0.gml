@@ -6,13 +6,13 @@ if (global.flag[9] == 1)
 scr_encountersetup_ch1(global.encounterno);
 
 with (obj_mainchara_ch1)
-	visible = false;
+	visible = 0;
 
 with (global.cinstance[0])
-	visible = false;
+	visible = 0;
 
 with (global.cinstance[1])
-	visible = false;
+	visible = 0;
 
 count = 0;
 c[0] = scr_dark_marker_ch1(obj_mainchara_ch1.x, obj_mainchara_ch1.y, spr_krisr_dark_ch1);

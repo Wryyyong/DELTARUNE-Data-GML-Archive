@@ -34,7 +34,7 @@ if (release) {
 	}
 	
 	if (y_pos <= 95)
-		release = 0;
+		release = false;
 }
 
 if (release_normal) {
@@ -51,7 +51,7 @@ if (release_normal) {
 	y_pos = clamp(y_pos - 10, 95, view_hport[0] + 100);
 	
 	if (y_pos <= 95)
-		release_normal = 0;
+		release_normal = false;
 }
 
 if (leave) {
@@ -61,55 +61,55 @@ if (leave) {
 	y_pos = clamp(y_pos + 10, 95, view_hport[0] + 100);
 	
 	if (y_pos >= (view_hport[0] + 100)) {
-		leave = 0;
+		leave = false;
 		instance_destroy();
 	}
 }
 
 if (su_struggle) {
-	su_struggle = 0;
+	su_struggle = false;
 	su_sprite = spr_cutscene_27_susie_struggle;
-	su_animate = 1;
+	su_animate = true;
 }
 
 if (su_shocked) {
-	su_shocked = 0;
+	su_shocked = false;
 	su_sprite = spr_cutscene_27_susie_surprise;
-	su_animate = 0;
+	su_animate = false;
 }
 
 if (su_look_left) {
-	su_look_left = 0;
+	su_look_left = false;
 	su_sprite = spr_cutscene_27_susie_look_left;
-	su_animate = 0;
+	su_animate = false;
 }
 
 if (su_look_right) {
-	su_look_right = 0;
+	su_look_right = false;
 	su_sprite = spr_cutscene_27_susie_look_right;
-	su_animate = 0;
+	su_animate = false;
 }
 
 if (su_concerned) {
-	su_concerned = 0;
+	su_concerned = false;
 	su_sprite = spr_cutscene_27_susie_concerned;
-	su_animate = 0;
+	su_animate = false;
 }
 
 if (su_grin_1 || su_grin_2) {
 	su_anim_index = su_grin_2 ? 1 : 0;
-	su_grin_1 = 0;
-	su_grin_2 = 0;
+	su_grin_1 = false;
+	su_grin_2 = false;
 	su_sprite = spr_cutscene_27_susie_grin;
-	su_animate = 0;
+	su_animate = false;
 }
 
 if (su_squint_1 || su_squint_2) {
 	su_anim_index = su_squint_2 ? 1 : 0;
-	su_squint_1 = 0;
-	su_squint_2 = 0;
+	su_squint_1 = false;
+	su_squint_2 = false;
 	su_sprite = spr_cutscene_27_susie_squint;
-	su_animate = 0;
+	su_animate = false;
 }
 
 if (su_animate) {
@@ -120,45 +120,45 @@ if (su_animate) {
 }
 
 if (ra_struggle) {
-	ra_struggle = 0;
+	ra_struggle = false;
 	ra_sprite = spr_cutscene_27_ralsei_struggle;
-	ra_animate = 1;
+	ra_animate = true;
 }
 
 if (ra_huh) {
-	ra_huh = 0;
+	ra_huh = false;
 	ra_sprite = spr_cutscene_27_ralsei_huh;
-	ra_animate = 0;
+	ra_animate = false;
 }
 
 if (ra_look) {
-	ra_look = 0;
+	ra_look = false;
 	ra_sprite = spr_cutscene_27_ralsei_look;
-	ra_animate = 0;
+	ra_animate = false;
 }
 
 if (ra_smile) {
-	ra_smile = 0;
+	ra_smile = false;
 	ra_sprite = spr_cutscene_27_ralsei_smile;
-	ra_animate = 0;
+	ra_animate = false;
 }
 
 if (ra_scared) {
-	ra_scared = 0;
+	ra_scared = false;
 	ra_sprite = spr_cutscene_27_ralsei_scared;
-	ra_animate = 0;
+	ra_animate = false;
 }
 
 if (ra_stern) {
-	ra_stern = 0;
+	ra_stern = false;
 	ra_sprite = spr_cutscene_27_ralsei_stern;
-	ra_animate = 0;
+	ra_animate = false;
 }
 
 if (ra_mu) {
-	ra_mu = 0;
+	ra_mu = false;
 	ra_sprite = spr_cutscene_27_ralsei_mu;
-	ra_animate = 0;
+	ra_animate = false;
 }
 
 if (ra_animate) {

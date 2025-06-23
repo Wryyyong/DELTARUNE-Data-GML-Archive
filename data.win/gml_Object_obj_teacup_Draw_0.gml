@@ -57,7 +57,7 @@ surface_reset_target();
 draw_surface(shadowSurf, bbox_left, bbox_top);
 
 if (room == room_dw_cyber_battle_maze_1) {
-	if (drawtutorialarrows == 1)
+	if (drawtutorialarrows == true)
 		drawtutorialarrows_alpha = lerp(drawtutorialarrows_alpha, 1, 0.15);
 	else
 		drawtutorialarrows_alpha = lerp(drawtutorialarrows_alpha, 0, 0.35);
@@ -70,7 +70,7 @@ draw_set_color(c_red);
 
 if (cupCharExists) {
 	if (debugHitThisFrame) {
-		draw_circle(20, y, 64, 0);
-		debugHitThisFrame = 0;
+		draw_circle(20, y, 64, false);
+		debugHitThisFrame = false;
 	}
 }

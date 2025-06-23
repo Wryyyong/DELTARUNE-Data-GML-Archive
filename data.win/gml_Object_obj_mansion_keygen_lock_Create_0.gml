@@ -7,4 +7,4 @@ fade_timer = 0;
 if (global.flag[309] >= 4)
 	instance_destroy();
 
-unlocked = 0;
+unlocked = false;

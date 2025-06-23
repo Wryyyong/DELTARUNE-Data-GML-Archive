@@ -48,7 +48,7 @@ if (con == 1) {
 	c_msgsetloc(0, "\\EE* Kris^1, Susan..^1. Glad to see you arrive unwounded./", "obj_ch2_room_mansion_3f_slash_Step_0_gml_50_0");
 	c_msgnextloc("\\E6* Now^1, let us hasten!/%", "obj_ch2_room_mansion_3f_slash_Step_0_gml_51_0");
 	c_talk_wait();
-	c_var_instance(id, "hide_entrance", 1);
+	c_var_instance(id, "hide_entrance", true);
 	c_sel(be);
 	c_walk_wait("l", 6, 12);
 	c_walk_wait("u", 6, 6);
@@ -98,14 +98,14 @@ if (con == 1) {
 	c_talk_wait();
 	c_sel(be);
 	c_walkdirect(607, 102, 10);
-	c_var_instance(id, "berdly_exit", 1);
+	c_var_instance(id, "berdly_exit", true);
 	c_sel(su);
 	c_walk_wait("r", 4, 16);
 	c_facing("u");
 	c_autowalk(0);
 	c_imagespeed(0.25);
 	c_walkdirect(606, 91, 10);
-	c_var_instance(id, "susie_exit", 1);
+	c_var_instance(id, "susie_exit", true);
 	c_wait(40);
 	c_sel(be);
 	c_visible(0);
@@ -136,7 +136,7 @@ if (con == 50 && !d_ex() && customcon == 1) {
 	scr_makecaterpillar(kr_actor.x + 40, kr_actor.y - 7, 3, 0);
 	
 	with (obj_caterpillarchara)
-		visible = false;
+		visible = 0;
 }
 
 if (con == 51) {
@@ -171,7 +171,7 @@ if (berdly_exit) {
 		color_blend = merge_color(c_white, make_color_hsv(0, 0, 0), shadow);
 	
 	if (berdly_shadow >= 1)
-		berdly_exit = 0;
+		berdly_exit = false;
 }
 
 if (susie_exit) {
@@ -182,11 +182,11 @@ if (susie_exit) {
 		color_blend = merge_color(c_white, make_color_hsv(0, 0, 0), shadow);
 	
 	if (susie_shadow >= 1)
-		susie_exit = 0;
+		susie_exit = false;
 }
 
 if (hide_entrance) {
-	hide_entrance = 0;
+	hide_entrance = false;
 	layer_set_visible("Tiles_ExitBlock", 1);
 	var exit_collider = instance_create(240, 360, obj_soliddark);
 	exit_collider.image_xscale = 2;

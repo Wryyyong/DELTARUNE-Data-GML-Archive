@@ -45,4 +45,4 @@ if (global.plot == 0)
 skipped = 0;
 skiptimer = 0;
 room_speed = 15;
-draw_screen = 1;
+draw_screen = true;

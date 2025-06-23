@@ -27,7 +27,7 @@ surface_set_target(surf);
 draw_clear(c_black);
 draw_set_blend_mode(bm_subtract);
 draw_set_color(c_white);
-draw_circle(x, y, radius, 0);
+draw_circle(x, y, radius, false);
 surface_reset_target();
 draw_set_blend_mode(bm_normal);
 

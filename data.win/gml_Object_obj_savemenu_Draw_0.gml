@@ -87,7 +87,7 @@ if (menuno == 0) {
 	if (overwrite == 0) {
 		draw_set_color(c_black);
 		draw_set_alpha(0.8);
-		draw_rectangle(xx - 10, yy - 10, xx + 640 + 10, yy + 480 + 10, false);
+		draw_rectangle(xx - 10, yy - 10, xx + 640 + 10, yy + 480 + 10, 0);
 		draw_set_alpha(1);
 	}
 	
@@ -198,27 +198,35 @@ if (menuno == 0) {
 				menuno = 2;
 				global.filechoice = mpos;
 				snd_play(snd_save);
-				scr_save();
-				saved = 1;
-				xcoord = 2;
-				buffer = 3;
+				var is_valid = scr_save();
 				
-				if (d == 2) {
-					name = global.truename;
-					love = global.llv;
+				if (is_valid) {
+					menuno = 2;
+					saved = 1;
+					xcoord = 2;
+					buffer = 3;
+					
+					if (d == 2) {
+						name = global.truename;
+						love = global.llv;
+					}
+					
+					scr_roomname(room);
+					level = global.lv;
+					time = global.time;
+					minutes = floor(time / 1800);
+					seconds = round(((time / 1800) - minutes) * 60);
+					
+					if (seconds == 60)
+						seconds = 59;
+					
+					if (seconds < 10)
+						seconds = "0" + string(seconds);
+				} else {
+					save_data_error = true;
+					var error_message = instance_create(0, 0, obj_savedata_error);
+					error_message.error_type = "save_failed";
 				}
-				
-				scr_roomname(room);
-				level = global.lv;
-				time = global.time;
-				minutes = floor(time / 1800);
-				seconds = round(((time / 1800) - minutes) * 60);
-				
-				if (seconds == 60)
-					seconds = 59;
-				
-				if (seconds < 10)
-					seconds = "0" + string(seconds);
 			}
 		}
 		
@@ -233,7 +241,7 @@ if (menuno == 0) {
 	if (overwrite == 1) {
 		draw_set_color(c_black);
 		draw_set_alpha(0.8);
-		draw_rectangle(xx - 10, yy - 10, xx + 640 + 10, yy + 480 + 10, false);
+		draw_rectangle(xx - 10, yy - 10, xx + 640 + 10, yy + 480 + 10, 0);
 		draw_set_alpha(1);
 		saved = 2;
 		scr_darkbox_black(camerax() + 10, cameray() + 100, (camerax() + 640) - 10, (cameray() + 480) - 100);
@@ -305,31 +313,41 @@ if (menuno == 0) {
 			draw_sprite(heartsprite, 0, ((xx + 350) - 32) + 4, yy + 300 + 24 + (string_height(returntxt) / 4));
 		
 		if (button1_p() && buffer < 0) {
+			if (save_data_error)
+				exit;
+			
 			if (overcoord == 0) {
 				menuno = 2;
 				global.filechoice = mpos;
 				snd_play(snd_save);
-				script_execute(scr_save);
-				saved = 1;
-				xcoord = 2;
-				buffer = 3;
+				var is_valid = script_execute(scr_save);
 				
-				if (d == 2) {
-					name = global.truename;
-					love = global.llv;
+				if (is_valid) {
+					saved = 1;
+					xcoord = 2;
+					buffer = 3;
+					
+					if (d == 2) {
+						name = global.truename;
+						love = global.llv;
+					}
+					
+					scr_roomname(room);
+					level = global.lv;
+					time = global.time;
+					minutes = floor(time / 1800);
+					seconds = round(((time / 1800) - minutes) * 60);
+					
+					if (seconds == 60)
+						seconds = 59;
+					
+					if (seconds < 10)
+						seconds = "0" + string(seconds);
+				} else {
+					save_data_error = true;
+					var error_message = instance_create(0, 0, obj_savedata_error);
+					error_message.error_type = "save_failed";
 				}
-				
-				scr_roomname(room);
-				level = global.lv;
-				time = global.time;
-				minutes = floor(time / 1800);
-				seconds = round(((time / 1800) - minutes) * 60);
-				
-				if (seconds == 60)
-					seconds = 59;
-				
-				if (seconds < 10)
-					seconds = "0" + string(seconds);
 			} else {
 				overwrite = 0;
 				buffer = 3;
@@ -338,6 +356,9 @@ if (menuno == 0) {
 		}
 		
 		if (button2_p() && buffer < 0) {
+			if (save_data_error)
+				exit;
+			
 			overwrite = 0;
 			buffer = 3;
 			saved = 0;
@@ -347,9 +368,23 @@ if (menuno == 0) {
 	if (overwrite == 0.5)
 		overwrite = 1;
 } else if (menuno == 2) {
+	if (save_data_error) {
+		if (!instance_exists(obj_savedata_error)) {
+			save_data_error = false;
+			global.interact = 0;
+			
+			with (obj_mainchara)
+				onebuffer = 3;
+			
+			instance_destroy();
+		}
+		
+		exit;
+	}
+	
 	draw_set_color(c_black);
 	draw_set_alpha(0.8);
-	draw_rectangle(xx - 10, yy - 10, xx + 640 + 10, yy + 480 + 10, false);
+	draw_rectangle(xx - 10, yy - 10, xx + 640 + 10, yy + 480 + 10, 0);
 	draw_set_alpha(1);
 	var yoff = 0;
 	var wmod = 28;

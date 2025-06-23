@@ -14,11 +14,11 @@ if (sign_sprite == scr_84_get_sprite("spr_city_mice_sign_02") && global.plot >= 
 if (sign_sprite == scr_84_get_sprite("spr_city_mice_sign_03") && global.plot >= 78)
 	instance_destroy();
 
-start = 0;
+start = false;
 sign_alpha = 0;
-fade_in = 0;
-fade_out = 0;
-finish = 0;
+fade_in = false;
+fade_out = false;
+finish = false;
 fade_counter = 0;
 layer_amount = 4;
 current_index = 0;

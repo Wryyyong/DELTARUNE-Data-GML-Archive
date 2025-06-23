@@ -1,2 +1,2 @@
 event_inherited();
-eggplant = 0;
+eggplant = false;

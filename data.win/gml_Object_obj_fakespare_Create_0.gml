@@ -8,4 +8,4 @@ snd_stop(snd_spare);
 snd_play(snd_spare);
 reverse = 0;
 reversespeed = 2;
-first_pass = 0;
+first_pass = false;

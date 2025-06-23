@@ -304,15 +304,20 @@ function scr_load() {
 	ossafe_file_text_close(myfileid);
 	global.lastsavedtime = global.time;
 	global.lastsavedlv = global.lv;
-	scr_tempsave();
-	audio_group_set_gain(1, global.flag[15], 0);
-	audio_set_master_gain(0, global.flag[17]);
-	__loadedroom = global.currentroom;
-	debug_message(string(__loadedroom));
-	debug_message(string(232));
+	var is_valid = scr_tempsave();
 	
-	if (scr_dogcheck())
-		__loadedroom = choose(232, 0);
+	if (is_valid) {
+		audio_group_set_gain(1, global.flag[15], 0);
+		audio_set_master_gain(0, global.flag[17]);
+		__loadedroom = global.currentroom;
+		debug_message(string(__loadedroom));
+		debug_message(string(233));
+		
+		if (scr_dogcheck())
+			__loadedroom = choose(233, 1);
+		
+		room_goto(__loadedroom);
+	}
 	
-	room_goto(__loadedroom);
+	return is_valid;
 }

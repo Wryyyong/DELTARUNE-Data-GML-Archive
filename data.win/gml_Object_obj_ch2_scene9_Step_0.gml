@@ -19,22 +19,22 @@ if (con == 99 && obj_mainchara.x >= 540) {
 	qu = actor_count + 2;
 	qu_actor = instance_create(725, 273, obj_actor_queenchair);
 	scr_actor_setup_nofacing(qu, qu_actor, "queen");
-	qu_actor.visible = false;
+	qu_actor.visible = 0;
 	qu_actor.shadow = 0;
 	qu_actor.auto_depth = 0;
 	qu_actor.depth = 1000300;
 	
 	with (qu_actor)
-		fakeshadow.visible = false;
+		fakeshadow.visible = 0;
 	
 	qu_flame = actor_count + 8;
 	qu_flame_actor = scr_dark_marker(qu_actor.x, cameray() + view_hport[0] + 200, spr_queen_chair_flame);
-	qu_flame_actor.visible = false;
+	qu_flame_actor.visible = 0;
 	qu_flame_actor.auto_depth = 0;
 	qu_flame_actor.depth = qu_actor.depth + 100;
 	ca = actor_count + 3;
 	ca_actor = instance_create(camerax() + 900, no_actor.y - 46, obj_ch2_capsule);
-	ca_actor.visible = false;
+	ca_actor.visible = 0;
 	scr_actor_setup_nofacing(ca, ca_actor, "capsule");
 	npc1 = actor_count + 4;
 	npc1_actor = scr_dark_marker(npc1_o.x, npc1_o.y, spr_plugboy_cower);

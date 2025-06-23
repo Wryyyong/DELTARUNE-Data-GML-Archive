@@ -1,5 +1,5 @@
 if (timer >= lifetime) {
-	active = 0;
+	active = false;
 	image_alpha -= 0.1;
 	
 	if (image_alpha <= 0)

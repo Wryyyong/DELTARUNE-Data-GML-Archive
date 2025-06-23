@@ -40,7 +40,7 @@ if (con == 1) {
 	image_speed = 0;
 	
 	with (obj_mainchara_ch1)
-		visible = false;
+		visible = 0;
 	
 	with (obj_mainchara_ch1)
 		cutscene = 1;
@@ -698,14 +698,14 @@ if (con == 50 && !d_ex_ch1()) {
 	x = global.monstermakex[0];
 	y = global.monstermakey[0];
 	instance_create_ch1(0, 0, obj_battlecontroller_ch1);
-	visible = false;
+	visible = 0;
 	hk = instance_create_ch1(__view_get(e__VW.XView, 0) + 640, __view_get(e__VW.YView, 0) - 20, obj_herokris_ch1);
 	
 	with (hk)
-		visible = false;
+		visible = 0;
 	
 	with (obj_mainchara_ch1)
-		visible = false;
+		visible = 0;
 }
 
 if (con == 53) {
@@ -716,7 +716,7 @@ if (con == 53) {
 		image_index = 5;
 	}
 	
-	visible = true;
+	visible = 1;
 	sprite_index = spr_lancer_battle_hurt_ch1;
 	global.fighting = 0;
 	

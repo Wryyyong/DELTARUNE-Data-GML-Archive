@@ -31,17 +31,17 @@ if (global.flag[317] == 0) {
 	dogc.image_yscale = 1;
 	dogc.depthcancel = 1;
 	dogc.depth = dogd.depth + 10;
-	repeatalarm = 0;
+	repeatalarm = false;
 	pausetimer = 0;
 	undyneinteract = instance_create(154, 143, obj_npc_sign);
-	undyneinteract.visible = false;
+	undyneinteract.visible = 0;
 	undynesideinteract = instance_create(154, 120, obj_npc_sign);
-	undynesideinteract.visible = false;
+	undynesideinteract.visible = 0;
 	undynedesk = scr_marker(128, 97, spr_undyne_police_table);
 	deskchairless = scr_marker(128, 97, spr_lw_police_table_broken_chairless);
 	deskchairless.depthcancel = 1;
 	deskchairless.depth = 98260;
-	deskchairless.visible = false;
+	deskchairless.visible = 0;
 	undynecollider = instance_create(129, 131, obj_solidblock);
 	undynecollider.image_xscale = 3.5;
 	undynecollider.image_yscale = 1.5;
@@ -58,10 +58,10 @@ if (global.flag[317] == 0) {
 	keycon = -1;
 	kriscon = -1;
 	napstablook = instance_create(92, 84, obj_npc_napstablook_cop);
-	soundalarm = 0;
+	soundalarm = false;
 	napstacon = 0;
 	timer = 0;
-	undyne_slam = 0;
+	undyne_slam = false;
 	undyne_slam_timer = 0;
 	jail_collider = instance_create(179, 77, obj_soliddark);
 	jail_collider.image_xscale = 2;
@@ -113,6 +113,6 @@ if (global.flag[317] == 0) {
 		alarm[1] = 1;
 	}
 	
-	undyne_slam = 0;
+	undyne_slam = false;
 	undyne_slam_timer = 0;
 }

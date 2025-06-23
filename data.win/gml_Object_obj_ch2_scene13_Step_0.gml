@@ -8,7 +8,7 @@ if (con == 1) {
 	con = 2;
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	global.facing = 0;
 	cutscene_master = scr_cutscene_make();
@@ -337,7 +337,7 @@ if (wineglasscon == 1) {
 		var _xoff = (sin(0.5235987755982988 * i) * 50) + 10;
 		var _yoff = cos(0.5235987755982988 * i) * -15;
 		var _shard = instance_create(glass_marker.x + _xoff, glass_marker.y + 142 + _yoff, obj_particle_effect);
-		_shard.destroyoffscreen = 1;
+		_shard.destroyoffscreen = true;
 		_shard.sprite_index = spr_cutscene_13_broken_shards;
 		_shard.image_speed = 0;
 		_shard.image_index = i;
@@ -590,11 +590,11 @@ if (con == 50 && !i_ex(obj_cutscene_master)) {
 	con = 55;
 	global.interact = 0;
 	global.facing = 0;
-	statuenpc.visible = true;
-	noellebox.visible = true;
+	statuenpc.visible = 1;
+	noellebox.visible = 1;
 	
 	with (obj_caterpillarchara)
-		visible = false;
+		visible = 0;
 	
 	snd_free_all();
 	alarm[1] = 1;
@@ -602,7 +602,7 @@ if (con == 50 && !i_ex(obj_cutscene_master)) {
 
 if (con == 55 && !noellelost && (obj_mainchara.x != 1100 || obj_mainchara.y != 233)) {
 	noellebox.image_speed = 0.25;
-	noellelost = 1;
+	noellelost = true;
 }
 
 if (con == 20) {
@@ -624,7 +624,7 @@ if (con == 20) {
 	c_wait(5);
 	c_sprite(spr_cutscene_13_noelle_trip_2);
 	c_waitcustom();
-	noellebox.visible = false;
+	noellebox.visible = 0;
 }
 
 if (con == 21 && customcon == 1 && !d_ex() && global.interact == 0) {
@@ -678,10 +678,10 @@ if (con == 60 && !i_ex(obj_cutscene_master)) {
 	global.plot = 75;
 	
 	with (obj_caterpillarchara)
-		visible = true;
+		visible = 1;
 }
 
-if (noellelost == 1) {
+if (noellelost == true) {
 	with (noellebox)
 		scr_depth();
 	
@@ -689,7 +689,7 @@ if (noellelost == 1) {
 	noellebox.y = scr_movetowards(noellebox.y, 159, 2);
 	
 	if (noellebox.x >= 1215) {
-		noellelost = 0;
+		noellelost = false;
 		con = 20;
 	}
 }

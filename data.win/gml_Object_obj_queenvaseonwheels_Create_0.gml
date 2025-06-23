@@ -40,7 +40,7 @@ x = xx + shift;
 going = "left";
 tellspeed = 0;
 startX = x;
-active = 1;
+active = true;
 
 if (global.flag[544] != 0 && type == 0) {
 	with (mySwatch)

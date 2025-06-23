@@ -1,5 +1,5 @@
 if (myinteract == 3) {
-	if (instance_exists(mydialoguer) == 0) {
+	if (instance_exists(mydialoguer) == false) {
 		if (egcon == 1)
 			egcon = 2;
 		

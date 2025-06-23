@@ -1,5 +1,5 @@
 with (obj_king_boss_ch1) {
-	visible = true;
+	visible = 1;
 	active = 1;
 }
 

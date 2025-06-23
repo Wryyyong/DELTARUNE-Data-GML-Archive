@@ -24,7 +24,7 @@ if (loop == 1) {
 y += falsevspeed;
 
 if (bighitbox == 1) {
-	hitshot = collision_rectangle(x, y, x + sprite_width, y + sprite_height, obj_yheart_shot, 1, 0);
+	hitshot = collision_rectangle(x, y, x + sprite_width, y + sprite_height, obj_yheart_shot, true, false);
 	
 	if (hitshot != -4)
 		event_user(0);

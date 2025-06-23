@@ -41,7 +41,7 @@ if (con == 2) {
 		instance_destroy();
 	
 	audio_stop_all();
-	audio_play_sound(snd_break2, 50, false);
+	audio_play_sound(snd_break2, 50, 0);
 	con = 3;
 	timer = 0;
 	remy = obj_mainchara.y;

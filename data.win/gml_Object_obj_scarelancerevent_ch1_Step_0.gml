@@ -24,14 +24,14 @@ if (con == 1) {
 		global.facing = 1;
 		
 		with (obj_caterpillarchara_ch1)
-			visible = false;
+			visible = 0;
 		
 		s = scr_dark_marker_ch1(global.cinstance[1].x, global.cinstance[1].y, spr_susier_dark_ch1);
 		r = scr_dark_marker_ch1(global.cinstance[0].x, global.cinstance[0].y, spr_ralseir_ch1);
 		k = scr_dark_marker_ch1(obj_mainchara_ch1.x, obj_mainchara_ch1.y, spr_krisr_dark_ch1);
 		
 		with (obj_mainchara_ch1)
-			visible = false;
+			visible = 0;
 		
 		with (s) {
 			scr_depth_ch1();
@@ -200,7 +200,7 @@ if (con == 16) {
 	with (s)
 		scr_halt_ch1();
 	
-	visible = false;
+	visible = 0;
 	
 	with (s)
 		sprite_index = spr_susie_grablancer_ch1;
@@ -223,7 +223,7 @@ if (con == 17.1) {
 }
 
 if (con == 18) {
-	visible = false;
+	visible = 0;
 	global.fe = 3;
 	global.msg[0] = scr_84_get_lang_string_ch1("obj_scarelancerevent_slash_Step_0_gml_215_0");
 	con = 19;
@@ -301,7 +301,7 @@ if (con == 28 && d_ex_ch1() == 0) {
 		image_speed = 0;
 	}
 	
-	visible = true;
+	visible = 1;
 	y -= 14;
 	snd_play_ch1(snd_noise_ch1);
 	hspeed = 8;
@@ -381,10 +381,10 @@ if (con == 36) {
 	}
 	
 	with (obj_caterpillarchara_ch1)
-		visible = true;
+		visible = 1;
 	
 	with (obj_mainchara_ch1)
-		visible = true;
+		visible = 1;
 	
 	with (s)
 		instance_destroy();
@@ -434,13 +434,13 @@ if (con == 37 && d_ex_ch1() == 0) {
 
 if (con == 39) {
 	with (cc[0])
-		visible = false;
+		visible = 0;
 	
 	with (cc[1])
-		visible = false;
+		visible = 0;
 	
 	with (cc[2])
-		visible = false;
+		visible = 0;
 	
 	con = 40;
 	alarm[4] = 15;

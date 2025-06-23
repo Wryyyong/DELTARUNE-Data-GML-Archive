@@ -32,7 +32,7 @@ if (con == 4) {
 		big_square.image_alpha = clamp01(shine_timer / 20);
 	} else {
 		draw_set_color(c_white);
-		draw_rectangle(camerax(), cameray(), camerax() + 640, cameray() + 480, false);
+		draw_rectangle(camerax(), cameray(), camerax() + 640, cameray() + 480, 0);
 	}
 	
 	shine_timer++;
@@ -43,7 +43,7 @@ if (con == 4) {
 
 if (con >= 5 || (con == 4 && shine_timer >= 40)) {
 	draw_set_color(c_white);
-	draw_rectangle(camerax(), cameray(), camerax() + 640, cameray() + 480, false);
+	draw_rectangle(camerax(), cameray(), camerax() + 640, cameray() + 480, 0);
 	
 	if (streak_timer == (4 / f)) {
 		line = instance_create(camerax() + 20 + irandom(120), cameray() + 652 + irandom(32), obj_anime_bg_line);

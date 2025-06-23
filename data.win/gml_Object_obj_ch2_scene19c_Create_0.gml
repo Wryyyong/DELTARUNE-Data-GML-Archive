@@ -8,11 +8,11 @@ if (global.chapter != 2 || global.plot >= 115) {
 	nisesusie = instance_create(35, 200, obj_npc_sign);
 	nisesusie.sprite_index = spr_cutscene_18_susie_lancer_carry_walk_right;
 	nisesusie.image_speed = 0;
-	nisesusie.visible = false;
+	nisesusie.visible = 0;
 	niseberdly = instance_create(555, 216, obj_npc_sign);
 	niseberdly.sprite_index = spr_berdly_walk_left_dw;
 	niseberdly.image_speed = 0;
-	niseberdly.visible = false;
+	niseberdly.visible = 0;
 	exitcollider = instance_create(575, 240, obj_soliddark);
 	exitcollider.image_xscale = 2;
 	exitcollider.image_yscale = 2;
@@ -33,10 +33,10 @@ if (global.chapter != 2 || global.plot >= 115) {
 	noelleoutline.image_alpha = 0;
 	noelleoutline.image_speed = 0;
 	noelleoutline.image_index = 0;
-	noelle_lose = 0;
+	noelle_lose = false;
 	sb_controller = instance_create(camerax(), cameray(), obj_ch2_scene19c_spelling_bee);
-	sb_crowd_show = 0;
-	sb_crowd_hide = 0;
+	sb_crowd_show = false;
+	sb_crowd_hide = false;
 	sb_crowd_siner = random(400);
 	sb_crowd = scr_dark_marker(0, 0, spr_cutscene_19c_crowd);
 	
@@ -45,6 +45,6 @@ if (global.chapter != 2 || global.plot >= 115) {
 		depth = 20;
 	}
 	
-	berdly_applause_start = 0;
-	berdly_applause_stop = 0;
+	berdly_applause_start = false;
+	berdly_applause_stop = false;
 }

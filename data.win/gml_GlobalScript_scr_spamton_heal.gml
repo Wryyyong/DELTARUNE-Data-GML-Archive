@@ -10,7 +10,6 @@ function scr_spamton_heal(arg0) {
 		
 		var _hltarget = global.char[i];
 		var _curhp = global.hp[_hltarget];
-		var _healpower;
 		
 		if (arg0 == 0)
 			_healpower = global.maxhp[_hltarget] / 2;
@@ -21,6 +20,7 @@ function scr_spamton_heal(arg0) {
 		else
 			_healpower = 0;
 		
+		var _healpower = ceil(_healpower);
 		scr_heal(i, _healpower);
 		
 		with (global.charinstance[i]) {

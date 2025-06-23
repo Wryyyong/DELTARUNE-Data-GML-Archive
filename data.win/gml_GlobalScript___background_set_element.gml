@@ -32,7 +32,7 @@ function __background_set_element(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7
 	
 	for (var __i = 0; __i < 8; __i++) {
 		__slots[__i] = -1;
-		__isforeground[__i] = 0;
+		__isforeground[__i] = false;
 	}
 	
 	var __slot, __layername;
@@ -48,7 +48,7 @@ function __background_set_element(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7
 			
 			__slot = real(__slotchr);
 			__slots[__slot] = __layerlist[__i];
-			__isforeground[__slot] = 1;
+			__isforeground[__slot] = true;
 		} else if (string_pos(__bgstring, __layername) > 0) {
 			var __slotchr = string_char_at(__layername, __bglen + 1);
 			
@@ -57,7 +57,7 @@ function __background_set_element(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7
 			
 			__slot = real(__slotchr);
 			__slots[__slot] = __layerlist[__i];
-			__isforeground[__slot] = 0;
+			__isforeground[__slot] = false;
 		} else if (string_pos(__colstring, __layername) > 0) {
 			__collayer = __layerlist[__i];
 			layer_depth(__layerlist[__i], __farthestdepth);
@@ -81,7 +81,7 @@ function __background_set_element(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7
 		if (__slots[__i] != -1) {
 			var __depth = 0;
 			
-			if (__isforeground[__i] == 1)
+			if (__isforeground[__i] == true)
 				__depth = __nearestdepth - (__i * __depthinc);
 			else
 				__depth = __farthestdepth - __depthinc - (__slot * __depthinc);
@@ -98,7 +98,7 @@ function __background_set_element(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7
 	if (__bind == -1) {
 		__layername = __colstring;
 		__layerdepth = __farthestdepth;
-	} else if (__fore == 1) {
+	} else if (__fore == true) {
 		__layername = __fgstring + string(__bind);
 		__layerdepth = __nearestdepth - (__bind * __depthinc);
 	} else {

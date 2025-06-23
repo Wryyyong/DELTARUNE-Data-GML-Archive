@@ -1,7 +1,7 @@
 con = -1;
 cutscene_master = noone;
 leaveCounter = 0;
-susiewaiting = 0;
+susiewaiting = false;
 nisesusie = -1;
 susxpos = 0;
 susypos = 0;

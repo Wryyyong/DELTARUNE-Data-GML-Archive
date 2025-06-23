@@ -1,4 +1,4 @@
-if (instance_exists(target) == 0) {
+if (instance_exists(target) == false) {
 	con = 99;
 	instance_destroy();
 }
@@ -30,7 +30,7 @@ if (con == 2) {
 	instance_destroy();
 }
 
-if (instance_exists(target) == 0) {
+if (instance_exists(target) == false) {
 	con = 99;
 	instance_destroy();
 }

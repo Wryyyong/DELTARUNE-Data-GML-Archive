@@ -1,4 +1,4 @@
-saved = 0;
+saved = false;
 swatchfriend = 0;
 swatchLines = 0;
 spawnVaseTrig = 0;

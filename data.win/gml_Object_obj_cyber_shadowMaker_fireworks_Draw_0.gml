@@ -3,27 +3,27 @@ if (is_active || inactive_cleanup) {
 	draw_set_alpha(frontshadOpacity);
 	
 	if (room == room_dw_cyber_maze_fireworks)
-		draw_rectangle(160, 280, 480, 480, false);
+		draw_rectangle(160, 280, 480, 480, 0);
 	
 	if (room == room_dw_cyber_post_music_boss_slide) {
 		if (obj_mainchara.x < 840) {
-			fade_reset = 0;
-			fade_cleanup = 1;
-			fade_in = 0;
+			fade_reset = false;
+			fade_cleanup = true;
+			fade_in = false;
 			frontshadOpacity *= (1 - ((520 / obj_mainchara.x) * 0.25));
 		} else if (!fade_reset) {
-			fade_reset = 1;
-			fade_cleanup = 0;
+			fade_reset = true;
+			fade_cleanup = false;
 			fade_timer = 0;
 		}
 		
-		draw_rectangle(520, 2600, 2720, 2640, false);
+		draw_rectangle(520, 2600, 2720, 2640, 0);
 	}
 	
 	draw_set_color(c_white);
 	draw_set_alpha(1);
 	gpu_set_blendenable(false);
-	gpu_set_colorwriteenable(0, 0, 0, 1);
+	gpu_set_colorwriteenable(false, false, false, true);
 	draw_set_alpha(0);
 	
 	if (room == room_dw_cyber_maze_fireworks) {
@@ -40,9 +40,9 @@ if (is_active || inactive_cleanup) {
 	
 	draw_set_alpha(1);
 	gpu_set_blendenable(true);
-	gpu_set_colorwriteenable(1, 1, 1, 1);
+	gpu_set_colorwriteenable(true, true, true, true);
 	gpu_set_blendmode_ext(7, bm_inv_dest_alpha);
-	gpu_set_alphatestenable(1);
+	gpu_set_alphatestenable(true);
 	draw_sprite_ext(obj_mainchara.sprite_index, obj_mainchara.image_index, obj_mainchara.x, (obj_mainchara.y + (obj_mainchara.sprite_height * obj_mainchara.image_yscale)) - 4, 2, -2, 0, frontShadowColor, frontshadOpacity);
 	
 	if (i_ex(obj_caterpillarchara)) {
@@ -87,6 +87,6 @@ if (is_active || inactive_cleanup) {
 		draw_sprite_ext(hacker_sprite, hacker_index, hacker_x, (hacker_y + (hacker_height * 2)) - 4, 2, -2, 0, frontShadowColor, 1);
 	}
 	
-	gpu_set_alphatestenable(0);
+	gpu_set_alphatestenable(false);
 	gpu_set_blendmode(bm_normal);
 }

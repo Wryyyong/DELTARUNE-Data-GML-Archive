@@ -22,7 +22,7 @@ if (myinteract == 3) {
 }
 
 if (myinteract == 3 && con == 0) {
-	if (i_ex(mydialoguer) == 0) {
+	if (i_ex(mydialoguer) == false) {
 		global.interact = 0;
 		myinteract = 0;
 		

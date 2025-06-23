@@ -82,7 +82,7 @@ if (o_boxingcontroller.health_count > 0 && sub_healthbar_count != -1 && o_boxing
 	draw_set_color(c_white);
 	draw_set_alpha(healthbar_flash / 100);
 	healthbar_flash -= 10;
-	draw_rectangle_colour(120, -30 + topyy, 120 + (o_boxingqueen.health_count / _ratio), -20 + topyy, c_white, c_white, c_white, c_white, 0);
+	draw_rectangle_colour(120, -30 + topyy, 120 + (o_boxingqueen.health_count / _ratio), -20 + topyy, c_white, c_white, c_white, c_white, false);
 	draw_set_alpha(1);
 	o_boxingqueen.health_count_prev_timer -= 1;
 	

@@ -9,17 +9,17 @@ if (image_yscale >= 0.1) {
 	draw_set_color(c_lime);
 	
 	if (appearcon == 2 && sprite_index == spr_queenshield_center_origin) {
-		draw_triangle(queenhandx, queenhandy, x + 46, (y + 3) - (shieldheight * (image_yscale / 4)), x + 45, (y - 3) + (shieldheight * (image_yscale / 3)), 1);
-		draw_triangle_colour(queenhandx, queenhandy, x + 46, (y + 3) - (shieldheight * (image_yscale / 4)), x + 45, (y - 3) + (shieldheight * (image_yscale / 3)), 0, 65280, 65280, 0);
+		draw_triangle(queenhandx, queenhandy, x + 46, (y + 3) - (shieldheight * (image_yscale / 4)), x + 45, (y - 3) + (shieldheight * (image_yscale / 3)), true);
+		draw_triangle_colour(queenhandx, queenhandy, x + 46, (y + 3) - (shieldheight * (image_yscale / 4)), x + 45, (y - 3) + (shieldheight * (image_yscale / 3)), 0, 65280, 65280, false);
 	} else if (appearcon == 2) {
-		draw_triangle(queenhandx, queenhandy, x + 81, y + 63, x + 81, (y - 14 - 3) + (shieldheight * image_yscale), 1);
-		draw_triangle_colour(queenhandx, queenhandy, x + 81, y + 63, x + 81, (y - 14 - 3) + (shieldheight * image_yscale), 0, 65280, 65280, 0);
+		draw_triangle(queenhandx, queenhandy, x + 81, y + 63, x + 81, (y - 14 - 3) + (shieldheight * image_yscale), true);
+		draw_triangle_colour(queenhandx, queenhandy, x + 81, y + 63, x + 81, (y - 14 - 3) + (shieldheight * image_yscale), 0, 65280, 65280, false);
 	} else if (sprite_index != spr_queenshield) {
-		draw_triangle(queenhandx, queenhandy, x + 46, (y + 3) - (shieldheight * (image_yscale / 3)), x + 45, (y - 3) + (shieldheight * (image_yscale / 2)), 1);
-		draw_triangle_colour(queenhandx, queenhandy, x + 46, (y + 3) - (shieldheight * (image_yscale / 3)), x + 45, (y - 3) + (shieldheight * (image_yscale / 2)), 0, 65280, 65280, 0);
+		draw_triangle(queenhandx, queenhandy, x + 46, (y + 3) - (shieldheight * (image_yscale / 3)), x + 45, (y - 3) + (shieldheight * (image_yscale / 2)), true);
+		draw_triangle_colour(queenhandx, queenhandy, x + 46, (y + 3) - (shieldheight * (image_yscale / 3)), x + 45, (y - 3) + (shieldheight * (image_yscale / 2)), 0, 65280, 65280, false);
 	} else {
-		draw_triangle(queenhandx, queenhandy, x + 79, y + 49, x + 79, (y - 3) + (shieldheight * image_yscale), 1);
-		draw_triangle_colour(queenhandx, queenhandy, x + 79, y + 49, x + 79, (y - 3) + (shieldheight * image_yscale), 0, 65280, 65280, 0);
+		draw_triangle(queenhandx, queenhandy, x + 79, y + 49, x + 79, (y - 3) + (shieldheight * image_yscale), true);
+		draw_triangle_colour(queenhandx, queenhandy, x + 79, y + 49, x + 79, (y - 3) + (shieldheight * image_yscale), 0, 65280, 65280, false);
 	}
 	
 	draw_set_alpha(1);

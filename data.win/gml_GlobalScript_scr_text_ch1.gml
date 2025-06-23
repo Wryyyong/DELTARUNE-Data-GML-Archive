@@ -2952,22 +2952,22 @@ function scr_text_ch1(arg0) {
 			
 			if (global.choice == 0) {
 				with (obj_shortcut_door_ch1)
-					door_destination = 341;
+					door_destination = 342;
 			}
 			
 			if (global.choice == 1) {
 				with (obj_shortcut_door_ch1)
-					door_destination = 353;
+					door_destination = 354;
 			}
 			
 			if (global.choice == 2) {
 				with (obj_shortcut_door_ch1)
-					door_destination = 362;
+					door_destination = 363;
 			}
 			
 			if (global.choice == 3) {
 				with (obj_shortcut_door_ch1)
-					door_destination = 377;
+					door_destination = 378;
 			}
 			
 			with (obj_shortcut_door_ch1) {

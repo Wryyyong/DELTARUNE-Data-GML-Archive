@@ -69,10 +69,10 @@ if (con == 10) {
 			vspeed = 0;
 		}
 		
-		draw_kris = 0;
+		draw_kris = false;
 		
 		with (obj_mainchara) {
-			visible = true;
+			visible = 1;
 			fun = 1;
 			sprite_index = spr_kris_dw_landed;
 			image_speed = 0;
@@ -113,7 +113,7 @@ if (con == 14) {
 		sneo_fall_timer++;
 		
 		if (sneo_fall_timer == 15) {
-			sneo_fall_sfx = 1;
+			sneo_fall_sfx = true;
 			snd_play_x(snd_swing, 1, 0.5);
 		}
 	}
@@ -208,18 +208,18 @@ if (con == 17 && !i_ex(obj_cutscene_master)) {
 	alarm[0] = 120;
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	savekrisx = obj_mainchara.x;
 	savekrisy = obj_mainchara.y;
-	draw_fountain = 0;
+	draw_fountain = false;
 	
 	if (i_ex(obj_darkfountain)) {
 		with (obj_darkfountain)
 			adjust = 3;
 	}
 	
-	if (scr_debug() && debug_skip_battle == 1) {
+	if (scr_debug() && debug_skip_battle == true) {
 		con = 21;
 		exit;
 	}

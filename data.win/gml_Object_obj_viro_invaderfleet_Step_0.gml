@@ -81,7 +81,7 @@ if (timer >= moveinterval) {
 		timer = 0;
 }
 
-var force_shot = 0;
+var force_shot = false;
 var force_target = 0;
 var temp_move = movedirection;
 
@@ -89,7 +89,7 @@ if (shottimer < ((fleetsize == 1) ? 12 : 16) && bigshot) {
 	for (mv = 0; mv < fleetsize; mv++) {
 		if (i_ex(boys[mv])) {
 			if (abs((boys[mv].x + ((temp_move / moveinterval) * 16)) - obj_heart.x) < 4) {
-				force_shot = 1;
+				force_shot = true;
 				force_target = mv;
 				break;
 			}

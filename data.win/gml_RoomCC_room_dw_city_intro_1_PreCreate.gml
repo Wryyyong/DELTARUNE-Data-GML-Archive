@@ -1,1 +1,1 @@
-eggplant = 1;
+eggplant = true;

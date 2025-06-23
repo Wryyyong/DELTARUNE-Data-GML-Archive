@@ -7,15 +7,15 @@ if (mybuffer > 2) {
 			snd_play(snd_wing);
 			
 			with (obj_shapepuzzle)
-				inUse = 0;
+				inUse = false;
 			
-			active = 0;
+			active = false;
 			image_index = 0;
 			global.interact = obj_shapepuzzle.goalHit;
 			global.facing = 0;
 			
 			with (myPiece)
-				active = 0;
+				active = false;
 			
 			exit;
 		}
@@ -36,7 +36,7 @@ if (mybuffer > 2) {
 			}
 			
 			with (obj_shapepuzzle)
-				goalCheck = 1;
+				goalCheck = true;
 		}
 		
 		var _moveH = right_h() - left_h();
@@ -82,7 +82,7 @@ if (mybuffer > 2) {
 				}
 				
 				with (obj_shapepuzzle)
-					goalCheck = 1;
+					goalCheck = true;
 			}
 		}
 	} else if (obj_shapepuzzle.goalHit) {
@@ -98,7 +98,7 @@ if (mybuffer > 2) {
 		if (berdly_taunt_timer >= 15) {
 			image_index = 0;
 			bird = -1;
-			active = 0;
+			active = false;
 			global.facing = 0;
 			scr_speaker("berdly");
 			msgsetloc(0, "\\EB* Kris!^1 Stop taunting me with that appealing blue shape!/", "obj_shapepuzzlebutton_slash_Step_0_gml_101_0");
@@ -110,7 +110,7 @@ if (mybuffer > 2) {
 	}
 	
 	if (bird == -1 && !instance_exists(obj_dialoguer)) {
-		active = 1;
+		active = true;
 		global.facing = 2;
 		bird = 0;
 	}

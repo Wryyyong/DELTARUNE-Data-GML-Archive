@@ -206,11 +206,24 @@ if (type == 0 || type == 9 || type == 8) {
 		
 		if (made == 1)
 			made = 3;
+	} else if (special == 99) {
+		d = instance_create(xx, yy, obj_queen_search_window_bday);
+		
+		if (made == -2)
+			d.search = 3;
+		else
+			d.search = 4;
+		
+		d.damage = damage;
+		d.target = target;
+		
+		if (made == 1)
+			made = 3;
 	} else if ((special % 2) == 0) {
 		d = instance_create(xx, yy, obj_queen_search_window);
 		
 		if (made > 0)
-			d.quick = 1;
+			d.quick = true;
 		
 		if (made == side || made > 0)
 			d.search = 1;
@@ -223,7 +236,7 @@ if (type == 0 || type == 9 || type == 8) {
 		d = instance_create(xx, yy, obj_queen_search_window);
 		
 		if (made > 0)
-			d.quick = 1;
+			d.quick = true;
 		
 		if (made == side || made > 0 || bufferattack)
 			d.search = 2;
@@ -239,7 +252,7 @@ if (type == 0 || type == 9 || type == 8) {
 	
 	if (special < 2 && made < 3) {
 		made = 3;
-		d.firsttime = 1;
+		d.firsttime = true;
 		btimer = -30;
 	} else {
 		made++;
@@ -823,7 +836,7 @@ if (type == 0 || type == 9 || type == 8) {
 		}
 		
 		d = instance_create(xx, yy, obj_queen_search_window);
-		d.quick = 1;
+		d.quick = true;
 		d.search = 2;
 		d.damage = damage;
 		d.target = target;
@@ -935,6 +948,5 @@ if (type == 0 || type == 9 || type == 8) {
 		dtimer = 0;
 	}
 } else if (init == 1) {
-	scr_debug_print("Queen doesn't have an attack with an ID of " + string(type) + " yet.");
 	init = 2;
 }

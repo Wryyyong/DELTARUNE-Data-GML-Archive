@@ -2,7 +2,7 @@ if (!text_finish) {
 	if (text_alpha < 1) {
 		text_alpha += 0.05;
 	} else {
-		text_finish = 1;
+		text_finish = true;
 		alarm[0] = 30;
 	}
 }

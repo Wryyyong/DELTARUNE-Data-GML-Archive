@@ -19,13 +19,13 @@ enum e__VW {
 }
 
 if (!init) {
-	init = 1;
+	init = true;
 	start_angle = ((direction + 180) % 360) + 15;
 	
 	if (middespawn) {
 		psuedo_speed = speed;
 		speed = 0;
-		active = 0;
+		active = false;
 		start_depth = depth;
 		depth = obj_growtangle.depth + 1;
 		fader = -3;
@@ -42,7 +42,7 @@ if (middespawn) {
 if (spindir != 0) {
 	if (depth != start_depth && traveldistance >= (maxdistance / 2)) {
 		depth = start_depth;
-		active = 1;
+		active = true;
 	}
 	
 	var _progress = traveldistance / maxdistance;

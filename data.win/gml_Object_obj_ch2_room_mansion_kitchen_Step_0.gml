@@ -92,22 +92,22 @@ if (global.flag[362] == 0) {
 	if (con == 2.2) {
 		if (timer == 0) {
 			with (mouse_a)
-				visible = false;
+				visible = 0;
 			
 			with (mouse_b)
-				visible = false;
+				visible = 0;
 			
 			with (mouse_c)
-				visible = false;
+				visible = 0;
 			
 			with (cheese_a)
-				visible = false;
+				visible = 0;
 			
 			with (cheese_b)
-				visible = false;
+				visible = 0;
 			
 			with (cheese_c)
-				visible = false;
+				visible = 0;
 			
 			if (mauswheel == -4) {
 				mauswheel = scr_dark_marker(20, 160, spr_mauswheel_idle);
@@ -152,17 +152,17 @@ if (global.flag[362] == 0) {
 		
 		with (cheese_a) {
 			image_index = 1;
-			visible = true;
+			visible = 1;
 		}
 		
 		with (cheese_b) {
 			image_index = 1;
-			visible = true;
+			visible = 1;
 		}
 		
 		with (cheese_c) {
 			image_index = 1;
-			visible = true;
+			visible = 1;
 		}
 	}
 }

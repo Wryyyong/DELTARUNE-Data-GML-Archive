@@ -32,7 +32,7 @@ if (t >= 1 && explode == 0) {
 	
 	if (point_distance(x, y, cx, cy) <= 40) {
 		final_bolt = chosen_bolt;
-		visible = false;
+		visible = 0;
 		explode = 1;
 		t = 1;
 	}

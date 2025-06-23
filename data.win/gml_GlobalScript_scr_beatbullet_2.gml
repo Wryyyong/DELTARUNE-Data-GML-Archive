@@ -15,7 +15,7 @@ function scr_beatbullet_2() {
 	if (argument_count > 9)
 		_fadeInFrames = argument[9];
 	
-	var _horizontal = 0;
+	var _horizontal = false;
 	
 	if (argument_count > 10)
 		_horizontal = argument[10];
@@ -60,14 +60,14 @@ function scr_beatbullet_2() {
 			else
 				targetBeat = (ceil(beats / looping) * looping) + _targetBeat + _loopOffset;
 			
-			inSync = 1;
+			inSync = true;
 		} else {
 			beatMax = 9999;
 			loopOffset = _loopOffset;
 			looping = argument[5];
 			beatLoop = _targetBeat;
 			targetBeat = _targetBeat + loopOffset;
-			inSync = 0;
+			inSync = false;
 		}
 	}
 	

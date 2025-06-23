@@ -43,8 +43,8 @@ bg = bg_fountain1;
 draw_background_tiled_ext(bg, 0 - siner, 0 - siner, 2, 2, colcol, 0.7 * eyebody);
 draw_background_tiled_ext(bg, -240 + hscroll, 0 + siner, 2, 2, colcol, 0.3 * eyebody);
 draw_set_color(c_black);
-draw_rectangle(0, 0, (room_width / 2) - (sprite_width / 2), 280, false);
-draw_rectangle((room_width / 2) + (sprite_width / 2), 0, 999, 280, false);
+draw_rectangle(0, 0, (room_width / 2) - (sprite_width / 2), 280, 0);
+draw_rectangle((room_width / 2) + (sprite_width / 2), 0, 999, 280, 0);
 draw_sprite_ext(sprite_index, 0, (room_width / 2) - (sprite_width / 2), 0 - ((bgsiner * 280) / 7), 2, 2, 0, colcol, 1);
 draw_sprite_ext(sprite_index, 0, (room_width / 2) - (sprite_width / 2), 280 - ((bgsiner * 280) / 7), 2, 2, 0, colcol, 1);
 draw_sprite_ext(sprite_index, 0, ((room_width / 2) - (sprite_width / 2)) + (sin(siner / 16) * 12), 0 - ((bgsiner * 280) / 7), 2, 2, 0, colcol, 0.5);
@@ -55,4 +55,4 @@ draw_sprite_ext(spr_fountainbottom, 0, (room_width / 2) - (sprite_width / 2), -8
 draw_sprite_ext(spr_fountainbottom, 0, (room_width / 2) - (sprite_width / 2), -4 + (sin(siner / 16) * 4), 2, 2, 0, colcol, 0.5);
 draw_sprite_ext(spr_fountainbottom, 0, (room_width / 2) - (sprite_width / 2), 0, 2, 2, 0, colcol, 1);
 draw_set_color(nowcolor);
-draw_rectangle(0, 280, 640, 480, false);
+draw_rectangle(0, 280, 640, 480, 0);

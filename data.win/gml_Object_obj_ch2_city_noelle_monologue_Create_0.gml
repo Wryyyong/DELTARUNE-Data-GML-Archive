@@ -1,22 +1,22 @@
 con = 0;
 customcon = 0;
-auto_text = 0;
+auto_text = false;
 auto_con = -1;
-allow_move = 0;
+allow_move = false;
 cutscene_master = obj_sneo_friedpipis;
 custom_delay = 0;
 no_silhouette = 0;
 young_noelle = 0;
-auto_continue = 0;
+auto_continue = false;
 msgtimer = 0;
 buttonIndex = 0;
 buttonX[0] = 0;
 buttonY[0] = 0;
 init = 0;
 noendx = 0;
-init_forcefields = 0;
+init_forcefields = false;
 text_con = -1;
-pause_kris = 0;
+pause_kris = false;
 
 if (global.plot < 94) {
 	if (global.flag[7] == 1)

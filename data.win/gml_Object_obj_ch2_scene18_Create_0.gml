@@ -4,13 +4,13 @@ lancerfade = 0;
 fadetimer = 0;
 krisdoor = -1;
 berdlydoor = -1;
-krisdoor_open = 0;
+krisdoor_open = false;
 krisdoor_open_timer = 0;
-susie_heal = 0;
+susie_heal = false;
 heal_timer = 0;
 heal_beam = -1;
-berdly_door_open = 0;
-berdly_door_close = 0;
+berdly_door_open = false;
+berdly_door_close = false;
 
 if (global.chapter != 2) {
 	con = -1;

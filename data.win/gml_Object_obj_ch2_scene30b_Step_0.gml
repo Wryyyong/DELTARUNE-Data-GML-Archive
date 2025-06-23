@@ -241,9 +241,9 @@ if (con == 3 && !i_ex(obj_cutscene_master)) {
 	global.interact = 0;
 	global.facing = 0;
 	global.plot = 210;
-	susienpc.visible = true;
-	torielnpc.visible = true;
-	krisexplore = 1;
+	susienpc.visible = 1;
+	torielnpc.visible = 1;
+	krisexplore = true;
 	con = 0;
 }
 
@@ -251,7 +251,7 @@ if (krisexplore) {
 	if (obj_mainchara.y < 100 && obj_mainchara.x < 170) {
 		global.interact = 1;
 		global.facing = 0;
-		krisexplore = 0;
+		krisexplore = false;
 		con = 10;
 		obj_mainchara.y = 104;
 	}
@@ -259,7 +259,7 @@ if (krisexplore) {
 	if (obj_mainchara.y < 160 && obj_mainchara.x > 568) {
 		global.interact = 1;
 		global.facing = 3;
-		krisexplore = 0;
+		krisexplore = false;
 		con = 11;
 		obj_mainchara.x = 568;
 	}
@@ -286,5 +286,5 @@ if (con == 50 && !d_ex()) {
 	con = 0;
 	global.interact = 0;
 	global.facing = 0;
-	krisexplore = 1;
+	krisexplore = true;
 }

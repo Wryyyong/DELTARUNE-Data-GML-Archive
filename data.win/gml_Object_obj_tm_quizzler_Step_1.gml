@@ -1,8 +1,8 @@
-canrepeat = 0;
+canrepeat = false;
 
 if (global.encounterno == 89 && global.inv > 0 && hit == 0) {
 	controller.special = -4;
-	hit = 1;
+	hit = true;
 }
 
 if (init == 0 || restart) {
@@ -24,7 +24,7 @@ if (init == 0 || restart) {
 	
 	tm = global.monsterinstance[creator];
 	init = 1;
-	restart = 0;
+	restart = false;
 	
 	for (i = 0; i < turns; i++) {
 		if (tm != -4 && tm.lastQuizLetter != -1) {
@@ -58,7 +58,7 @@ if (state == 0) {
 		animator.targetx = obj_growtangle.x + 100;
 		animator.targety = obj_growtangle.y;
 		state = 1;
-		animator.quizloop = 1;
+		animator.quizloop = true;
 		currentturn = 0;
 		timer = turnspeed + 10;
 	} else if (timer <= 0) {
@@ -113,7 +113,7 @@ if (state == 0) {
 		animator.state = 1;
 	
 	if (timer <= 0) {
-		animator.zapping = 1;
+		animator.zapping = true;
 		var xx = obj_growtangle.x + 1;
 		var yy = obj_growtangle.y;
 		var zaptime = (difficulty >= 4) ? clamp(turnspeed - 20, 10, 20) : 20;

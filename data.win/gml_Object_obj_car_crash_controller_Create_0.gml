@@ -1,2 +1,2 @@
-release_car = 1;
+release_car = true;
 release_rate = 90;

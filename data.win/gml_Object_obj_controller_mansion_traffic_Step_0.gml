@@ -1,4 +1,4 @@
-if (obj_mainchara.x >= 1246 && !i_ex(carGen) && victory == 0) {
+if (obj_mainchara.x >= 1246 && !i_ex(carGen) && victory == false) {
 	carGen = instance_create(1241, 120, obj_traffic_car_generator);
 	carGen.image_xscale = 2;
 	carGen.image_yscale = 2;
@@ -19,7 +19,7 @@ if (obj_mainchara.x < 1246 && i_ex(carGen)) {
 		instance_destroy();
 }
 
-if (victory == 1) {
+if (victory == true) {
 	if (instance_exists(obj_traffic_car)) {
 		with (obj_traffic_car) {
 			animsiner = 0;

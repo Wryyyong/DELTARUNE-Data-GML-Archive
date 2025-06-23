@@ -49,7 +49,7 @@ if (ripple_effect == 0 && flashtimer >= (flashspeed / 2)) {
 		ripple.sprite_index = spr_rouxls_ripple;
 		ripple.image_blend = #E3FF67;
 		ripple.yrate *= 5;
-		ripple.use_pivot = 1;
+		ripple.use_pivot = true;
 		ripple.maxsize = clamp(1 - ((y - 90) / 45), 0.1, 2);
 		ripple.image_speed = 0;
 		ripple.image_index = (obj_ch2_scene21_loop.thrash.part[0] == 2) ? 1 : 0;
@@ -90,7 +90,7 @@ if (effecttimer >= effectPause) {
 		d.image_blend = #BBBBFF;
 		
 		if (i == _thinindex)
-			d.thin = 1;
+			d.thin = true;
 	}
 	
 	if (effectPause > 4)

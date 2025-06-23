@@ -19,7 +19,7 @@ enum e__VW {
 }
 
 if (!init) {
-	init = 1;
+	init = true;
 	start_angle = ((direction + 180) % 360) + 15;
 }
 

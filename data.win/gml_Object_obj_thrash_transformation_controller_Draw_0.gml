@@ -18,9 +18,9 @@ enum e__VW {
 	SurfaceID
 }
 
-d3d_set_fog(true, c_black, 0, 0);
+d3d_set_fog(1, c_black, 0, 0);
 draw_self();
-d3d_set_fog(false, c_black, 0, 0);
+d3d_set_fog(0, c_black, 0, 0);
 draw_set_halign(fa_center);
 
 if (instance_exists(obj_thrash_transformation_original) && obj_thrash_transformation_original.state == 1)
@@ -33,12 +33,12 @@ if (text_state == 1)
 	timer--;
 
 if (timer >= (32 / f) && timer <= (38 / f)) {
-	shouler_l.visible = true;
+	shouler_l.visible = 1;
 	shouler_l.x -= 9;
 	shouler_l.y -= 9;
 	shouler_l.image_xscale += 0.2;
 	shouler_l.image_yscale += 0.2;
-	shouler_r.visible = true;
+	shouler_r.visible = 1;
 	shouler_r.x += 9;
 	shouler_r.y -= 9;
 	shouler_r.image_xscale += 0.2;
@@ -59,10 +59,10 @@ if (timer == (60 / f)) {
 if (timer >= (62 / f) && timer <= (82 / f)) {
 	arm_l.image_xscale += 0.2;
 	arm_l.image_yscale += 0.2;
-	arm_l.visible = true;
+	arm_l.visible = 1;
 	arm_r.image_xscale += 0.2;
 	arm_r.image_yscale += 0.2;
-	arm_r.visible = true;
+	arm_r.visible = 1;
 }
 
 if (timer == (84 / f)) {
@@ -76,10 +76,10 @@ if (timer == (86 / f))
 if (timer >= (92 / f) && timer <= (98 / f)) {
 	leg_l.image_xscale += 0.6;
 	leg_l.image_yscale += 0.6;
-	leg_l.visible = true;
+	leg_l.visible = 1;
 	leg_r.image_xscale += 0.6;
 	leg_r.image_yscale += 0.6;
-	leg_r.visible = true;
+	leg_r.visible = 1;
 }
 
 if (timer == (100 / f)) {

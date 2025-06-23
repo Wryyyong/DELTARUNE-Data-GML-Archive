@@ -73,7 +73,7 @@ if (con == 6) {
 
 if (con == 8) {
 	with (r)
-		visible = false;
+		visible = 0;
 	
 	con = 20;
 }

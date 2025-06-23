@@ -51,7 +51,7 @@ if (global.flag[319] == 0) {
 		c_mus("free_all");
 		c_mus2("initloop", "noelle_normal.ogg", 0);
 		c_msgside("bottom");
-		c_var_instance(id, "disable_face", 1);
+		c_var_instance(id, "disable_face", true);
 		c_speaker("noelle");
 		c_msgsetloc(0, "\\E1* What a strange moon.../", "obj_ch2_scene23b_slash_Step_0_gml_59_0");
 		c_msgnextloc("\\E5* It's like nothing I've ever seen before./", "obj_ch2_scene23b_slash_Step_0_gml_60_0");
@@ -89,7 +89,7 @@ if (global.flag[319] == 0) {
 		c_speaker("noelle");
 		c_msgsetloc(0, "\\EE* H-Hey^1, you can't capture someone who's already captured!!/%", "obj_ch2_scene23b_slash_Step_0_gml_114_0");
 		c_talk_wait();
-		c_var_instance(id, "rudebuster", 1);
+		c_var_instance(id, "rudebuster", true);
 		c_wait(10);
 		c_autowalk(0);
 		c_sprite(spr_cutscene_23b_noelle_kneel_peak);
@@ -418,7 +418,7 @@ if (global.flag[319] == 0) {
 		c_walk("r", 2, 45);
 		c_wait(13);
 		c_mus2("volume", 0, 30);
-		c_var_instance(id, "fadeout", 1);
+		c_var_instance(id, "fadeout", true);
 		c_wait(31);
 		c_mus("free_all");
 		c_actortokris();
@@ -440,7 +440,7 @@ if (global.flag[319] == 0) {
 		}
 		
 		if (rudebuster_timer == 16) {
-			rudebuster = 0;
+			rudebuster = false;
 			rudebusteranim = instance_create(camerax() - 60, room_height / 2, obj_rudebuster_bolt);
 			rudebusteranim.target = werewire1;
 		}
@@ -474,17 +474,17 @@ if (global.flag[319] == 0) {
 		blackall.image_alpha = clamp(blackall.image_alpha + 0.033, 0, 1);
 		
 		if (blackall.image_alpha >= 1)
-			fadeout = 0;
+			fadeout = false;
 	}
 	
 	if (disable_face) {
-		disable_face = 0;
+		disable_face = false;
 		global.fc = 0;
 	}
 }
 
 if (steal_susie && !d_ex()) {
-	steal_susie = 0;
+	steal_susie = false;
 	global.flag[393] = 1;
 	snd_play(snd_item);
 	
@@ -493,7 +493,7 @@ if (steal_susie && !d_ex()) {
 }
 
 if (steal_icee && !d_ex()) {
-	steal_icee = 0;
+	steal_icee = false;
 	global.flag[394] = 1;
 	snd_play(snd_item);
 	

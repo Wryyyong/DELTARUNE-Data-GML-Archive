@@ -1,4 +1,4 @@
-destroyoffscreen = 0;
+destroyoffscreen = false;
 tolerance = 40;
 image_xscale = 2;
 image_yscale = 2;

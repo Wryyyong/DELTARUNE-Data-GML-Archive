@@ -575,7 +575,7 @@ if (EVENT == 65.5) {
 	}
 }
 
-if (EVENT == 66.5 && instance_exists(obj_writer) == 0) {
+if (EVENT == 66.5 && instance_exists(obj_writer) == false) {
 	with (obj_writer)
 		instance_destroy();
 	
@@ -597,7 +597,7 @@ if (EVENT == 67) {
 		global.name = CHOICE.NAMESTRING;
 		
 		if (global.name == "GASTER")
-			game_restart();
+			game_restart_true();
 	} else {
 		EVENT = 68;
 		alarm[4] = 26;
@@ -624,7 +624,7 @@ if (EVENT == 69) {
 	EVENT = 70;
 }
 
-if (EVENT == 70 && instance_exists(obj_writer) == 0) {
+if (EVENT == 70 && instance_exists(obj_writer) == false) {
 	with (obj_writer)
 		instance_destroy();
 	

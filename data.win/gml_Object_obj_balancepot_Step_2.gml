@@ -25,11 +25,11 @@ image_xscale = 2;
 image_yscale = 2;
 
 if (falling == -2) {
-	visible = false;
+	visible = 0;
 	
 	if (obj_mainchara.y >= 240 && global.interact == 0) {
 		y = __view_get(e__VW.YView, 0) - 80;
-		visible = true;
+		visible = 1;
 		falling = -1;
 	}
 }

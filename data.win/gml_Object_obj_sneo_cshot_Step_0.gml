@@ -47,6 +47,6 @@ if (!hitfreeze && angle_speed != target_speed)
 	angle_speed = scr_movetowards(angle_speed, target_speed, 2);
 
 if (hit) {
-	hit = 0;
+	hit = false;
 	image_blend = c_white;
 }

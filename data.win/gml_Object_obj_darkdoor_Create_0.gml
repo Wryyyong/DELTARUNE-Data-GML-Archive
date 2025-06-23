@@ -9,7 +9,7 @@ if (global.chapter == 1) {
 		con = 1;
 		
 		with (obj_mainchara)
-			visible = false;
+			visible = 0;
 		
 		k = scr_marker(290, 198, spr_krisu);
 		s = scr_marker(310, 190, spr_susieu);

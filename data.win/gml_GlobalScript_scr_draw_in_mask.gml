@@ -3,7 +3,7 @@ function scr_draw_set_mask(arg0) {
 		exit;
 	
 	gpu_set_blendenable(false);
-	gpu_set_colorwriteenable(0, 0, 0, 1);
+	gpu_set_colorwriteenable(false, false, false, true);
 	draw_set_alpha(0);
 	
 	if (arg0) {
@@ -15,8 +15,8 @@ function scr_draw_set_mask(arg0) {
 function scr_draw_in_mask_begin() {
 	draw_set_alpha(1);
 	gpu_set_blendenable(true);
-	gpu_set_colorwriteenable(1, 1, 1, 1);
+	gpu_set_colorwriteenable(true, true, true, true);
 	gpu_set_blendmode_ext(7, bm_inv_dest_alpha);
-	gpu_set_alphatestenable(1);
+	gpu_set_alphatestenable(true);
 	gpu_set_alphatestref(1);
 }

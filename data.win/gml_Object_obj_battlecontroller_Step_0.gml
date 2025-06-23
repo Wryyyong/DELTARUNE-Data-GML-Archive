@@ -104,7 +104,7 @@ if (victory == 1 && victoried == 0) {
 if (victoried == 1) {
 	victortimer += 1;
 	
-	if (i_ex(lastbattlewriter) == 0 && victortimer >= 10) {
+	if (i_ex(lastbattlewriter) == false && victortimer >= 10) {
 		intro = 2;
 		
 		if (bp <= 0)
@@ -984,8 +984,6 @@ if (scr_debug()) {
 			
 			with (o_boxinghud)
 				sub_healthbar_count = 0;
-			
-			scr_debug_print("GIGA QUEEN AT 1 HP");
 		} else {
 			scr_wincombat();
 		}
@@ -995,17 +993,13 @@ if (scr_debug()) {
 		scr_weaken_enemies();
 	
 	if (scr_debug_keycheck(vk_f8))
-		scr_weaken_party(1);
+		scr_weaken_party(true);
 	
-	if (scr_debug_keycheck(vk_f9)) {
+	if (scr_debug_keycheck(vk_f9))
 		global.tension = 0;
-		scr_debug_print("TP set to 0%");
-	}
 	
-	if (scr_debug_keycheck(vk_f10)) {
+	if (scr_debug_keycheck(vk_f10))
 		global.tension = 250;
-		scr_debug_print("TP maxed out!!");
-	}
 	
 	if (scr_debug_keycheck(ord("M")) && !instance_exists(obj_queen_enemy) && !instance_exists(obj_spamton_neo_enemy)) {
 		if (audio_is_playing(global.batmusic[1])) {

@@ -1,6 +1,6 @@
 timer++;
 
-if (fade == 1) {
+if (fade == true) {
 	image_alpha *= 0.9;
 	image_xscale *= 0.8;
 	image_yscale *= 0.8;

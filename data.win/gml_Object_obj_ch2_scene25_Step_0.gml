@@ -252,10 +252,10 @@ if (con == 10 && customcon == 1) {
 		global.tempflag[31] = 1;
 	
 	with (qu_actor)
-		visible = false;
+		visible = 0;
 	
 	with (qu_flame_actor)
-		visible = false;
+		visible = 0;
 	
 	var queen_marker = scr_dark_marker(qu_actor.x, qu_actor.y, qu_actor.sprite_index);
 	berdly_wire.visible = false;
@@ -273,15 +273,15 @@ if (con == 10 && customcon == 1) {
 }
 
 if (con == 20 && i_ex(obj_battlecontroller)) {
-	var battle_end = 0;
+	var battle_end = false;
 	
 	if (obj_battlecontroller.intro == 2)
-		battle_end = 1;
+		battle_end = true;
 	
 	if (instance_exists(obj_queen_enemy) && obj_queen_enemy.endcon == 4 && obj_queen_enemy.endtimer == 1)
-		battle_end = 1;
+		battle_end = true;
 	
-	if (battle_end == 1) {
+	if (battle_end == true) {
 		con = 21;
 		alarm[0] = 15;
 		berdly_full_spare = obj_queen_enemy.defeat_cutscene_version;
@@ -289,7 +289,7 @@ if (con == 20 && i_ex(obj_battlecontroller)) {
 		if (!berdly_full_spare)
 			alarm[0] = 30;
 		
-		global.flag[457] = (berdly_full_spare == 1) ? 1 : 0;
+		global.flag[457] = (berdly_full_spare == true) ? 1 : 0;
 		berdlynpc.sprite_index = (global.flag[457] == 1) ? spr_berdly_hurt_kneel : spr_berdly_hurt_kneel_burnt;
 	}
 }
@@ -304,7 +304,7 @@ if (con == 22) {
 		qu_actor.y = 150;
 	}
 	
-	qu_actor.visible = true;
+	qu_actor.visible = 1;
 	qu_flame_actor.visible = berdly_full_spare == false;
 	
 	if (berdly_full_spare) {
@@ -313,16 +313,16 @@ if (con == 22) {
 		
 		con = 24;
 		customcon = 0;
-		kr_actor.visible = true;
+		kr_actor.visible = 1;
 		kr_actor.x = 657;
 		kr_actor.y = 115;
 		kr_actor.sprite_index = spr_krisr_dark;
-		su_actor.visible = true;
+		su_actor.visible = 1;
 		su_actor.x = 655;
 		su_actor.y = 155;
 		su_actor.sprite_index = spr_susier_dark_eyes;
 		su_actor.image_index = 0;
-		ra_actor.visible = true;
+		ra_actor.visible = 1;
 		ra_actor.x = 660;
 		ra_actor.y = 222;
 		ra_actor.depth = su_actor.depth - 1;
@@ -353,18 +353,18 @@ if (con == 22) {
 		if (i_ex(obj_berdlyplug_enemy))
 			instance_destroy(obj_berdlyplug_enemy);
 		
-		kr_actor.visible = true;
+		kr_actor.visible = 1;
 		kr_actor.x = 705;
 		kr_actor.y = 125;
 		kr_actor.sprite_index = spr_krisr_dark;
 		kr_actor.image_speed = 0;
-		su_actor.visible = true;
+		su_actor.visible = 1;
 		su_actor.x = 735;
 		su_actor.y = 165;
 		su_actor.sprite_index = spr_susie_walk_right_dw_unhappy;
 		su_actor.image_index = 0;
 		su_actor.image_speed = 0;
-		ra_actor.visible = true;
+		ra_actor.visible = 1;
 		ra_actor.x = 690;
 		ra_actor.y = 215;
 		ra_actor.sprite_index = spr_ralsei_walk_right_unhappy;
@@ -376,9 +376,9 @@ if (con == 22) {
 	} else {
 		con = 24;
 		customcon = 0;
-		kr_actor.visible = false;
-		su_actor.visible = false;
-		ra_actor.visible = false;
+		kr_actor.visible = 0;
+		su_actor.visible = 0;
+		ra_actor.visible = 0;
 		
 		with (obj_battlecontroller)
 			instance_destroy();
@@ -406,9 +406,9 @@ if ((con == 24 && global.fighting == 0 && berdly_full_spare) || (con == 24 && !i
 	global.facing = 0;
 	
 	if (!berdly_full_spare) {
-		kr_actor.visible = true;
-		su_actor.visible = true;
-		ra_actor.visible = true;
+		kr_actor.visible = 1;
+		su_actor.visible = 1;
+		ra_actor.visible = 1;
 		kr_actor.sprite_index = spr_krisr_dark;
 		kr_actor.x = obj_herokris.x;
 		kr_actor.y = obj_herokris.y;
@@ -488,7 +488,7 @@ if ((con == 24 && global.fighting == 0 && berdly_full_spare) || (con == 24 && !i
 		c_sprite(spr_queen_chair_2);
 		c_wait_talk();
 		c_sprite(spr_queen_raise_glass);
-		c_var_lerp_instance(573, "gravity", 0, -2.5, 15);
+		c_var_lerp_instance(576, "gravity", 0, -2.5, 15);
 		c_wait(30);
 		c_sel(kr);
 		c_autowalk(0);
@@ -866,7 +866,7 @@ if ((con == 24 && global.fighting == 0 && berdly_full_spare) || (con == 24 && !i
 	c_speaker("ralsei");
 	c_msgsetloc(0, "\\EK* Okay./%", "obj_ch2_scene25_slash_Step_0_gml_659_0");
 	c_talk_wait();
-	c_var_instance(id, "berdly_npc_realign", 1);
+	c_var_instance(id, "berdly_npc_realign", true);
 	c_wait(5);
 	c_var_instance(berdlynpc, "visible", 1);
 	c_wait(5);
@@ -893,13 +893,13 @@ if (con == 60 && !i_ex(obj_cutscene_master)) {
 	with (obj_caterpillarchara) {
 		if (name == "susie") {
 			follow = 0;
-			visible = false;
+			visible = 0;
 		}
 	}
 }
 
 if (con > 0 && berdly_npc_realign) {
-	berdly_npc_realign = 0;
+	berdly_npc_realign = false;
 	berdlynpc.x = be_actor.x;
 	berdlynpc.y = be_actor.y;
 }

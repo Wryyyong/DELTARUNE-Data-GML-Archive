@@ -11,7 +11,7 @@ repeat (reverse ? reversespeed : 1) {
 	
 	if (reverse) {
 		if (t == 0)
-			first_pass = 0;
+			first_pass = false;
 		else
 			first_pass = !first_pass;
 	}
@@ -132,8 +132,8 @@ repeat (reverse ? reversespeed : 1) {
 			}
 		}
 		
-		first_pass = 0;
-		reverse = 1;
+		first_pass = false;
+		reverse = true;
 		t++;
 	}
 	

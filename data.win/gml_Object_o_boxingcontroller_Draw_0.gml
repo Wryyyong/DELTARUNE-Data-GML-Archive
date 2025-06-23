@@ -4,7 +4,7 @@ if (instance_exists(obj_thrash_intro) || instance_exists(obj_thrash_transformati
 if (jumping == 1) {
 	draw_set_color(c_black);
 	ht = (basey - y) / 8;
-	draw_ellipse(basex - 62 - (ht * 2), basey - 40 - (ht / 2), basex + 38 + (ht * 2), basey + (ht / 2), 0);
+	draw_ellipse(basex - 62 - (ht * 2), basey - 40 - (ht / 2), basex + 38 + (ht * 2), basey + (ht / 2), false);
 }
 
 var sword_slash = 0;
@@ -30,24 +30,24 @@ if (drawflip == 0) {
 	
 	if (laserpunchfadetimer > 0) {
 		laserpunchfadetimer--;
-		d3d_set_fog(true, c_white, 0, 0);
+		d3d_set_fog(1, c_white, 0, 0);
 		
 		if (sword_slash == 0 && wireframe_boxing == 0)
 			draw_sprite_ext(headsprite, image_index, x, y, image_xscale, image_yscale, 0, image_blend, laserpunchfadetimer / 10);
 		
-		d3d_set_fog(false, c_white, 0, 0);
+		d3d_set_fog(0, c_white, 0, 0);
 	}
 	
 	if (color_fade_alpha > 0) {
 		c_extra = make_colour_rgb(255, 90, 195);
 		color_fade_alpha -= 0.1;
-		d3d_set_fog(true, c_extra, 0, 0);
+		d3d_set_fog(1, c_extra, 0, 0);
 		draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, 0, image_blend, color_fade_alpha);
 		
 		if (sword_slash == 0 && wireframe_boxing == 0)
 			draw_sprite_ext(headsprite, image_index, x, y, image_xscale, image_yscale, 0, image_blend, color_fade_alpha);
 		
-		d3d_set_fog(false, c_extra, 0, 0);
+		d3d_set_fog(0, c_extra, 0, 0);
 	}
 	
 	if (turboactive > 0) {
@@ -63,12 +63,12 @@ if (drawflip == 0) {
 		if (turbo_fade_alpha < 0)
 			turbo_fade_state = 0;
 		
-		d3d_set_fog(true, c_white, 0, 0);
+		d3d_set_fog(1, c_white, 0, 0);
 		draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, 0, image_blend, turbo_fade_alpha);
 		
 		if (sword_slash == 0 && wireframe_boxing == 0) {
 			if (draw_sprite_ext(headsprite, image_index, x, y, image_xscale, image_yscale, 0, image_blend, turbo_fade_alpha))
-				d3d_set_fog(false, c_white, 0, 0);
+				d3d_set_fog(0, c_white, 0, 0);
 		}
 	}
 	
@@ -85,12 +85,12 @@ if (drawflip == 0) {
 		if (sword_fade_alpha < 0)
 			sword_fade_state = 0;
 		
-		d3d_set_fog(true, c_white, 0, 0);
+		d3d_set_fog(1, c_white, 0, 0);
 		
 		if (sword_slash == 0 && wireframe_boxing == 0)
 			draw_sprite_ext(headsprite, image_index, x, y, image_xscale, image_yscale, 0, image_blend, sword_fade_alpha);
 		
-		d3d_set_fog(false, c_white, 0, 0);
+		d3d_set_fog(0, c_white, 0, 0);
 	}
 } else {
 	draw_sprite_ext(sprite_index, image_index, x, y, -image_xscale, image_yscale, 0, image_blend, image_alpha);
@@ -106,13 +106,13 @@ if (drawflip == 0) {
 	if (color_fade_alpha > 0) {
 		c_extra = make_colour_rgb(255, 90, 195);
 		color_fade_alpha -= 0.1;
-		d3d_set_fog(true, c_extra, 0, 0);
+		d3d_set_fog(1, c_extra, 0, 0);
 		draw_sprite_ext(sprite_index, image_index, x, y, -image_xscale, image_yscale, 0, image_blend, color_fade_alpha);
 		
 		if (sword_slash == 0 && wireframe_boxing == 0)
 			draw_sprite_ext(headsprite, image_index, x, y, -image_xscale, image_yscale, 0, image_blend, color_fade_alpha);
 		
-		d3d_set_fog(false, c_extra, 0, 0);
+		d3d_set_fog(0, c_extra, 0, 0);
 	}
 	
 	if (turboactive > 0) {
@@ -128,13 +128,13 @@ if (drawflip == 0) {
 		if (turbo_fade_alpha < 0)
 			turbo_fade_state = 0;
 		
-		d3d_set_fog(true, c_white, 0, 0);
+		d3d_set_fog(1, c_white, 0, 0);
 		draw_sprite_ext(sprite_index, image_index, x, y, -image_xscale, image_yscale, 0, image_blend, turbo_fade_alpha);
 		
 		if (sword_slash == 0 && wireframe_boxing == 0)
 			draw_sprite_ext(headsprite, image_index, x, y, -image_xscale, image_yscale, 0, image_blend, turbo_fade_alpha);
 		
-		d3d_set_fog(false, c_white, 0, 0);
+		d3d_set_fog(0, c_white, 0, 0);
 	}
 	
 	if (swordactive > 0) {
@@ -150,12 +150,12 @@ if (drawflip == 0) {
 		if (sword_fade_alpha < 0)
 			sword_fade_state = 0;
 		
-		d3d_set_fog(true, c_white, 0, 0);
+		d3d_set_fog(1, c_white, 0, 0);
 		
 		if (sword_slash == 0 && wireframe_boxing == 0)
 			draw_sprite_ext(headsprite, image_index, x, y, -image_xscale, image_yscale, 0, image_blend, sword_fade_alpha);
 		
-		d3d_set_fog(false, c_white, 0, 0);
+		d3d_set_fog(0, c_white, 0, 0);
 	}
 }
 
@@ -429,4 +429,4 @@ if (specialcon == 8 && wireframe_boxing == 0) {
 	}
 }
 
-d3d_set_fog(false, c_white, 0, 0);
+d3d_set_fog(0, c_white, 0, 0);

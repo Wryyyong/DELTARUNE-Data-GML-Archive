@@ -10,7 +10,7 @@ failurecount = 0;
 revengeNoelle = 0;
 revengecon = 0;
 ignoreHardWork = 0;
-weirdRoute = 0;
+weirdRoute = false;
 noelleWaitCheck = 0;
 fakeStep = 0;
 noelleWaiting = 0;
@@ -25,5 +25,5 @@ if (global.flag[383] == 1) {
 	instance_destroy();
 }
 
-weird_prompt = 0;
+weird_prompt = false;
 myinteract = 0;

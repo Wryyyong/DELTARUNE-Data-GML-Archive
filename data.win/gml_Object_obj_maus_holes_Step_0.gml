@@ -46,7 +46,7 @@ if (timer <= 0 && mausqueue > 0) {
 		d.grazepoints = grazepoints;
 		
 		if (bigmaus) {
-			d.big = 1;
+			d.big = true;
 			d.sprite_index = spr_maus_critter_stuck;
 			d.alarm[0] = 22;
 			bigmaus--;

@@ -5,7 +5,7 @@ with (obj_battlecontroller_ch1)
 
 with (obj_kingcutscene_ch1) {
 	with (king)
-		visible = true;
+		visible = 1;
 }
 
 if (global.flag[247] == 0) {

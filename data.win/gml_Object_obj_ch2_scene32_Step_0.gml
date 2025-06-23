@@ -14,7 +14,7 @@ if (con == -1) {
 	scr_actor_setup(to, to_actor, "toriel");
 	to_actor.sprite_index = spr_toriel_l;
 	torread = scr_marker(422, 106, spr_cutscene_32_toriel_pj_chair_read);
-	torread.visible = false;
+	torread.visible = 0;
 	torsleep = scr_marker(422, 103, spr_cutscene_32_toriel_pj_chair_sleep);
 	torsleep.image_alpha = 0;
 	torsleep.image_speed = 0.15;
@@ -29,9 +29,9 @@ if (con == -1) {
 	susleep.image_speed = 0.05;
 	susleep.image_alpha = 0;
 	susleep.depth = 4900;
-	align_susie = 0;
+	align_susie = false;
 	tv = scr_marker(474, 86, spr_cutscene_32_tv_cooking);
-	tv.visible = false;
+	tv.visible = 0;
 	tvstatic2 = scr_marker(474, 86, spr_cutscene_32_tv_static);
 	tvstatic2.image_alpha = 0;
 	tvstatic2.image_speed = 0.15;
@@ -53,15 +53,15 @@ if (con == -1) {
 	darkcouch.image_alpha = 0;
 	darkcouch.depth = 5000;
 	beam = scr_marker(413, 1, spr_cutscene_32_beam_form);
-	beam.visible = false;
+	beam.visible = 0;
 	beamunder = scr_marker(420, 156, spr_cutscene_32_beam_under_glow);
-	beamunder.visible = false;
+	beamunder.visible = 0;
 	
 	with (beamunder)
 		scr_depth();
 	
 	crater = scr_marker(430, 165, spr_cutscene_32_crater);
-	crater.visible = false;
+	crater.visible = 0;
 	
 	with (crater)
 		scr_depth();
@@ -75,7 +75,7 @@ if (con == -1) {
 	room_flash.depth = 900000;
 	room_flash.image_alpha = 0;
 	fountainkris = instance_create(500, 240, obj_kris_fountain);
-	fadebg = 0;
+	fadebg = false;
 	
 	if (debug_skip == 1) {
 		con = 10;
@@ -358,9 +358,6 @@ if (con == 5 && !d_ex()) {
 }
 
 if ((con == 10 && !d_ex()) || scr_cutscene_loaded()) {
-	global.filechoice += 3;
-	scr_save();
-	global.filechoice -= 3;
 	susie_snore = 0;
 	con = 40;
 	
@@ -410,7 +407,10 @@ if ((con == 10 && !d_ex()) || scr_cutscene_loaded()) {
 		c_mus("free");
 		c_wait(110);
 		c_var_instance(id, "susie_snore", 1);
-		c_var_instance(id, "end_game", 1);
+		
+		if (os_type != os_ps4)
+			c_var_instance(id, "end_game", true);
+		
 		c_speaker("no_name");
 		c_msgsetloc(0, "* (... Susie fell asleep.)/%", "obj_ch2_scene32_slash_Step_0_gml_530_0");
 		c_talk_wait();
@@ -430,13 +430,13 @@ if ((con == 10 && !d_ex()) || scr_cutscene_loaded()) {
 		c_setxy(141, 114);
 		c_imageindex(0);
 		c_imagespeed(0);
-		c_var_instance(id, "disable_face", 1);
+		c_var_instance(id, "disable_face", true);
 		c_speaker("toriel");
 		c_msgsetloc(0, "* Officer...? Officer...?/%", "obj_ch2_scene32_slash_Step_0_gml_557_0");
 		c_talk_wait();
 		c_panspeed_wait(-2, 0, 120);
 		c_wait(30);
-		c_var_instance(id, "disable_face", 1);
+		c_var_instance(id, "disable_face", true);
 		c_speaker("toriel");
 		c_msgsetloc(0, "* Thank goodness^1, I finally got through.../", "obj_ch2_scene32_slash_Step_0_gml_567_0");
 		c_msgnextloc("* I thought I saw someone prowling around outside.../", "obj_ch2_scene32_slash_Step_0_gml_568_0");
@@ -493,7 +493,7 @@ if ((con == 10 && !d_ex()) || scr_cutscene_loaded()) {
 	}
 	
 	var object_dim = debug_skip ? pamt : (pamt * 2);
-	c_var_instance(id, "align_susie", 1);
+	c_var_instance(id, "align_susie", true);
 	c_var_lerp_instance(tv, "image_alpha", 1, 0, object_dim);
 	c_var_lerp_instance(torread, "image_alpha", 1, 0, object_dim);
 	c_var_lerp_instance(torsleep, "image_alpha", 0, 1, object_dim);
@@ -502,9 +502,9 @@ if ((con == 10 && !d_ex()) || scr_cutscene_loaded()) {
 	c_var_lerp_instance(krissleep, "image_alpha", 0, 1, object_dim);
 	c_var_lerp_instance(susleep, "image_alpha", 0, 1, object_dim);
 	c_var_lerp_instance(su_actor, "image_alpha", 1, 0, object_dim);
-	c_var_instance(id, "hide_border", 1);
+	c_var_instance(id, "hide_border", true);
 	c_wait(object_dim);
-	c_var_instance(id, "removefg", 1);
+	c_var_instance(id, "removefg", true);
 	c_wait(pamt * 10);
 	c_sel(kr);
 	c_autowalk(0);
@@ -553,7 +553,7 @@ if ((con == 10 && !d_ex()) || scr_cutscene_loaded()) {
 	c_imageindex(15);
 	c_walkdirect(430, 167, 2);
 	c_soundplay(snd_grab);
-	c_instance(460, 177, 365);
+	c_instance(460, 177, 367);
 	c_wait(45);
 	c_imagespeed(0);
 	c_imageindex(15);
@@ -577,7 +577,7 @@ if ((con == 10 && !d_ex()) || scr_cutscene_loaded()) {
 	c_wait(pamt * 3);
 	c_fadeout(3);
 	c_wait(10);
-	c_var_instance(id, "show_door_open", 1);
+	c_var_instance(id, "show_door_open", true);
 	c_sprite(spr_cutscene_32_kris_touch_door);
 	c_setxy(573, 140);
 	c_fadein(3);
@@ -661,19 +661,23 @@ if ((con == 10 && !d_ex()) || scr_cutscene_loaded()) {
 	c_var_instance(tvstatic, "depth", 5);
 	c_var_lerp_instance(tvstatic, "image_alpha", 0, 1, 180);
 	c_wait(240);
+	
+	if (os_type == os_ps4)
+		c_var_instance(id, "end_game", true);
+	
 	c_var_lerp_instance(tvsmile, "image_alpha", 0, 1, 180);
-	c_var_instance(id, "fade_out_deep", 1);
+	c_var_instance(id, "fade_out_deep", true);
 	c_mus2("initloop", "tv_noise.ogg", 0);
 	c_mus2("volume", 0, 0);
 	c_mus2("volume", 1, 180);
 	c_wait(360);
 	c_var_instance(tvstatic, "image_alpha", 0);
 	c_var_instance(tvsmile, "image_alpha", 0);
-	c_var_instance(id, "return_title", 1);
+	c_var_instance(id, "return_title", true);
 }
 
 if (fade_out_deep) {
-	fade_out_deep = 0;
+	fade_out_deep = false;
 	
 	if (i_ex(obj_kris_fountain)) {
 		with (obj_kris_fountain) {
@@ -697,8 +701,8 @@ if (return_title) {
 	}
 }
 
-if (removefg == 1) {
-	removefg = 0;
+if (removefg == true) {
+	removefg = false;
 	
 	if (layer_exists("Compatibility_Tiles_Depth_10000"))
 		layer_destroy("Compatibility_Tiles_Depth_10000");
@@ -720,17 +724,17 @@ if (con == 60 && !i_ex(obj_cutscene_master)) {
 }
 
 if (disable_face) {
-	disable_face = 0;
+	disable_face = false;
 	global.fc = 0;
 }
 
 if (enable_face) {
-	enable_face = 0;
+	enable_face = false;
 	global.fc = 1;
 }
 
 if (footsteps) {
-	footsteps = 0;
+	footsteps = false;
 	var steps = snd_play(snd_step1);
 	audio_sound_gain(steps, footsteps_volume, 0);
 	alarm[1] = 30;
@@ -754,7 +758,7 @@ if (susie_snore > 0) {
 }
 
 if (show_door_open) {
-	show_door_open = 0;
+	show_door_open = false;
 	var door_open = scr_marker(588, 98, spr_cutscene_32_door_open);
 	
 	with (door_open) {
@@ -764,14 +768,21 @@ if (show_door_open) {
 }
 
 if (align_susie) {
-	align_susie = 0;
+	align_susie = false;
 	susleep.image_index = su_actor.image_index;
 }
 
 if (end_game) {
-	end_game = 0;
+	end_game = false;
 	_remfilechoice = global.filechoice;
 	global.filechoice += 3;
-	scr_save();
+	var is_valid = scr_save();
+	
+	if (!is_valid) {
+		var error_message = instance_create(0, 0, obj_savedata_error);
+		error_message.type = "auto";
+		error_message.error_type = "save_failed";
+	}
+	
 	global.filechoice = _remfilechoice;
 }

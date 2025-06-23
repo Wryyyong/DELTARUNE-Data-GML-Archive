@@ -30,7 +30,7 @@ if (con == 1) {
 	
 	with (obj_mainchara_ch1) {
 		cutscene = 1;
-		visible = false;
+		visible = 0;
 	}
 	
 	k = scr_dark_marker_ch1(obj_mainchara_ch1.x, obj_mainchara_ch1.y, spr_krisb_defeat_ch1);
@@ -177,7 +177,7 @@ if (con == 9 && !d_ex_ch1()) {
 	global.facing = 0;
 	
 	with (obj_mainchara_ch1)
-		visible = true;
+		visible = 1;
 	
 	global.interact = 0;
 	con = 10;
@@ -493,7 +493,7 @@ if (con == 300) {
 	
 	with (obj_mainchara_ch1) {
 		cutscene = 1;
-		visible = false;
+		visible = 0;
 	}
 	
 	obj_mainchara_ch1.x = 680;

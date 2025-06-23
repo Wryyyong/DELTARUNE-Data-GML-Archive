@@ -4,7 +4,7 @@ siner++;
 
 if (room == room_dw_city_postbaseball_1) {
 	if (!sprite_init) {
-		sprite_init = 1;
+		sprite_init = true;
 		ground_height = sprite_get_height(spr_bg_cyber_parallax_ground);
 		sky_height = sprite_get_height(spr_cyber_starry_sky_white);
 		starry_sky_height = sprite_get_height(spr_cyber_starry_sky);
@@ -27,7 +27,7 @@ if (room == room_dw_city_postbaseball_1) {
 	scr_draw_sprite_tiled_area(spr_cyber_starry_stars_3, 0, dark_star_x_pos - (camerax() * 0.025), dark_star_y_pos, dark_star_x_pos + 20, dark_star_y_pos, x + room_width, dark_star_y_pos + (stars_height * 2), 1, 1, c_white, 0.7 + staralpha);
 } else {
 	if (!sprite_init) {
-		sprite_init = 1;
+		sprite_init = true;
 		ground_height = sprite_get_height(spr_bg_cyber_parallax_ground);
 		sky_height = sprite_get_height(spr_cyber_starry_sky_white);
 		starry_sky_height = sprite_get_height(spr_cyber_starry_sky);

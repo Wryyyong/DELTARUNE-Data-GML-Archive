@@ -1,7 +1,7 @@
 if (dir == 0)
-	horizontal = 0;
+	horizontal = false;
 else
-	horizontal = 1;
+	horizontal = true;
 
 if (instance_exists(obj_MovingPlat_dw_cyber_music_final)) {
 	xx = obj_MovingPlat_dw_cyber_music_final.x;
@@ -25,9 +25,9 @@ if (init == 0) {
 		dir = "down";
 	
 	if (dir != "down")
-		horizontal = 1;
+		horizontal = true;
 	else
-		horizontal = 0;
+		horizontal = false;
 	
 	if (dir == "left")
 		image_angle = -90;
@@ -46,7 +46,7 @@ if (con == 0) {
 	timer++;
 	image_alpha *= 1.5;
 	
-	if (timer == 16 && horizontal == 1) {
+	if (timer == 16 && horizontal == true) {
 		if (dir == "down")
 			scr_move_to_point_over_time(x, 400, traveltime);
 		

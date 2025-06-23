@@ -8,12 +8,12 @@ init = 0;
 frozensprite = 0;
 speedboost = 0;
 encountertype = 0;
-noellepresent = 0;
+noellepresent = false;
 
 if (instance_exists(obj_caterpillarchara)) {
 	with (obj_caterpillarchara) {
 		if (name == "noelle")
-			other.noellepresent = 1;
+			other.noellepresent = true;
 	}
 }
 
@@ -38,7 +38,7 @@ if (room == room_dw_city_roadblock) {
 	
 	sprite_index = spr_poppup_peeking;
 	
-	if (noellepresent == 1)
+	if (noellepresent == true)
 		instance_destroy();
 }
 
@@ -65,7 +65,7 @@ if (room == room_dw_city_split) {
 		if (global.flag[916] != 0)
 			instance_destroy();
 		
-		if (noellepresent == 0)
+		if (noellepresent == false)
 			instance_destroy();
 	} else {
 		sprite_index = spr_poppup_peeking;

@@ -1,12 +1,12 @@
-if (snd_is_playing(global.currentsong[1]) && inSync == 1) {
+if (snd_is_playing(global.currentsong[1]) && inSync == true) {
 	beats = audio_sound_get_track_position(global.currentsong[1]) / spb;
 } else {
-	inSync = 0;
+	inSync = false;
 	beats += bpf;
 }
 
 if (abs(beats - beatsPrev) > 3)
-	inSync = 0;
+	inSync = false;
 
 beatsPrev = beats;
 framesAway = (targetBeat - beats) / bpf;

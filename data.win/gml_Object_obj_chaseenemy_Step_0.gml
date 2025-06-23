@@ -462,13 +462,13 @@ if (frozen == 0) {
 		mcx = (obj_mainchara.bbox_left + obj_mainchara.bbox_right) / 2;
 		mcy = obj_mainchara.bbox_bottom;
 		
-		if (collision_line(viewpointx, viewpointy, mcx, mcy, obj_solidblock, true, true) > 0)
+		if (collision_line(viewpointx, viewpointy, mcx, mcy, obj_solidblock, 1, 1) > 0)
 			viewblocked = 1;
 		
-		if (collision_line(viewpointx, viewpointy, mcx, mcy, obj_interactablesolid, true, false) > 0)
+		if (collision_line(viewpointx, viewpointy, mcx, mcy, obj_interactablesolid, 1, 0) > 0)
 			viewblocked = 1;
 		
-		if (collision_line(viewpointx, viewpointy, mcx, mcy, obj_solidenemy, true, false) > 0)
+		if (collision_line(viewpointx, viewpointy, mcx, mcy, obj_solidenemy, 1, 0) > 0)
 			viewblocked = 1;
 	}
 	

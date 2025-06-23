@@ -6,7 +6,7 @@ if (float == 1) {
 if (shadow == 1) {
 	fakeshadow.x = x;
 	fakeshadow.y = (y + sprite_height) - fakeshadow.sprite_height;
-	fakeshadow.visible = true;
+	fakeshadow.visible = 1;
 	fakeshadow.sprite_index = sprite_index;
 	fakeshadow.image_index = image_index;
 	fakeshadow.image_blend = c_black;

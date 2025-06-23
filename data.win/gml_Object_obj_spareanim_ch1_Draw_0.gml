@@ -1,23 +1,23 @@
 if (t >= 6 && t <= 26) {
 	afterimage += 1;
-	d3d_set_fog_ch1(1, 16777215, 0, 1);
+	d3d_set_fog_ch1(true, 16777215, 0, 1);
 	draw_sprite_ext(sprite_index, image_index, x + (afterimage * 4), y, image_xscale, image_yscale, 0, image_blend, 0.7 - (afterimage / 25));
 	draw_sprite_ext(sprite_index, image_index, x + (afterimage * 8), y, image_xscale, image_yscale, 0, image_blend, 0.4 - (afterimage / 30));
-	d3d_set_fog_ch1(0, 0, 0, 0);
+	d3d_set_fog_ch1(false, 0, 0, 0);
 }
 
 if (t < 6) {
 	if (t < 5)
 		draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, 0, image_blend, 1 - (neotone / 4));
 	
-	d3d_set_fog_ch1(1, 16777215, 0, 1);
+	d3d_set_fog_ch1(true, 16777215, 0, 1);
 	maxwhite = t / 5;
 	
 	if (maxwhite > 1)
 		maxwhite = 1;
 	
 	draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, 0, image_blend, maxwhite - (tone / 5));
-	d3d_set_fog_ch1(0, 0, 0, 0);
+	d3d_set_fog_ch1(false, 0, 0, 0);
 }
 
 if (t >= 1 && t <= 5) {

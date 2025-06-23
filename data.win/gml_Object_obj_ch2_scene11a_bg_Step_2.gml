@@ -6,7 +6,7 @@ if (parallax) {
 }
 
 if (looping) {
-	looping = 0;
+	looping = false;
 	cityscape_bg_1.x_speed = -0.5;
 	cityscape_bg_2.x_speed = -1;
 	

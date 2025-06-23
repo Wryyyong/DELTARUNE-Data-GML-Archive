@@ -2,7 +2,7 @@ con = -1;
 customcon = 0;
 timer = 0;
 forceend2 = 0;
-shortened = 0;
+shortened = false;
 
 if (scr_sideb_get_phase() >= 3) {
 	instance_destroy();
@@ -28,7 +28,7 @@ if (scr_sideb_get_phase() >= 3) {
 	}
 	
 	if (global.tempflag[31] == 1)
-		shortened = 1;
+		shortened = true;
 	
 	berdlynpc = instance_create(895, 228, obj_npc_sign);
 	berdlynpc.sprite_index = (global.flag[457] == 1) ? spr_berdly_hurt_kneel : spr_berdly_hurt_kneel_burnt;
@@ -36,7 +36,7 @@ if (scr_sideb_get_phase() >= 3) {
 	with (berdlynpc)
 		scr_depth();
 	
-	berdlynpc.visible = false;
-	berdly_npc_realign = 0;
-	berdly_full_spare = 0;
+	berdlynpc.visible = 0;
+	berdly_npc_realign = false;
+	berdly_full_spare = false;
 }

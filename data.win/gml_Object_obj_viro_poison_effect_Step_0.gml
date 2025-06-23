@@ -2,7 +2,7 @@ timer++;
 var progress = scr_ease_out(timer / growtime, 2);
 radius = lerp(minradius, maxradius, progress);
 
-if (collision_circle(x, y, radius, obj_viro_needle, 0, 1)) {
+if (collision_circle(x, y, radius, obj_viro_needle, false, true)) {
 	with (obj_viro_needle) {
 		if (active == 0 || countdown > 0)
 			continue;
@@ -13,7 +13,7 @@ if (collision_circle(x, y, radius, obj_viro_needle, 0, 1)) {
 			countdown = 1;
 			flash = 4;
 			spawnVirus = 1;
-			spawning = 0;
+			spawning = false;
 			d = instance_create(x, y, obj_animation_dx);
 			d.sprite_index = spr_viro_poison_effect_big;
 			d.image_angle = irandom(3) * 90;

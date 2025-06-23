@@ -1,6 +1,6 @@
 if (i_ex(obj_readable_room1)) {
 	with (obj_readable_room1) {
-		if (visible == true) {
+		if (visible == 1) {
 			image_speed = 0.25;
 			
 			if (direction >= 136 && direction <= 225)

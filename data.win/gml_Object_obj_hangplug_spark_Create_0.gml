@@ -1,4 +1,4 @@
-destroyoffscreen = 1;
+destroyoffscreen = true;
 tolerance = 80;
 scaler = 0.25;
 timer = 0;
@@ -20,7 +20,7 @@ exist_timer = 0;
 active = 1;
 sparkid = 0;
 fallAmount = 160;
-bounce = 1;
+bounce = true;
 scr_depth();
 left = 0;
 right = 0;

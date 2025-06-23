@@ -20,7 +20,7 @@ if (con == 0 && y >= (ystart - vspeed)) {
 		lit.waitamount = litwaittime;
 		
 		if (i == 3) {
-			lit.visible = false;
+			lit.visible = 0;
 			lit.moveberd = 1;
 		}
 	}

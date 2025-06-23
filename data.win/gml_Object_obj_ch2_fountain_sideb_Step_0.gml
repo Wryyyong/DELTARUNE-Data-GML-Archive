@@ -31,10 +31,10 @@ if (con == 8) {
 				vspeed = 0;
 			}
 			
-			draw_kris = 0;
+			draw_kris = false;
 			
 			with (obj_mainchara) {
-				visible = true;
+				visible = 1;
 				fun = 1;
 				sprite_index = spr_kris_dw_landed;
 				image_speed = 0;

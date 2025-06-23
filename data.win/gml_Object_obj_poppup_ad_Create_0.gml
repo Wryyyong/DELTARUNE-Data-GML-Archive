@@ -10,4 +10,4 @@ timer = 0;
 mock = 0;
 mocktimer = 0;
 scalespeed = 1;
-slow = 0;
+slow = false;

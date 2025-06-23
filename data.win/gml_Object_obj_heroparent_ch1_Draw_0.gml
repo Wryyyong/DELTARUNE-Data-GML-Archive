@@ -211,9 +211,9 @@ if (specdraw == 0) {
 	
 	if (flash == 1) {
 		fsiner += 1;
-		d3d_set_fog_ch1(1, 16777215, 0, 1);
+		d3d_set_fog_ch1(true, 16777215, 0, 1);
 		draw_sprite_ext(thissprite, index, x, y, 2, 2, 0, image_blend, (-cos(fsiner / 5) * 0.4) + 0.6);
-		d3d_set_fog_ch1(0, 0, 0, 0);
+		d3d_set_fog_ch1(false, 0, 0, 0);
 	}
 }
 

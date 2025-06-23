@@ -47,7 +47,7 @@ if (instance_exists(obj_mainchara_ch1)) {
 }
 
 if (keyboard_check_pressed(vk_backspace) && beatcon == 89898 && scr_debug_ch1()) {
-	visible = false;
+	visible = 0;
 	beatcon = 1;
 	beattimer = 0;
 	
@@ -210,12 +210,12 @@ if (beatcon == 0) {
 
 if (instance_exists(shadow)) {
 	if (attackcon == -1)
-		shadow.visible = false;
+		shadow.visible = 0;
 	else
-		shadow.visible = true;
+		shadow.visible = 1;
 	
 	if (mazemode == 1)
-		shadow.visible = false;
+		shadow.visible = 0;
 	
 	shadow.x = x;
 	shadow.y = shadowy;

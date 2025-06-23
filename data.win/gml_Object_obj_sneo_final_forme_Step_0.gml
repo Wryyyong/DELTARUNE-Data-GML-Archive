@@ -27,7 +27,7 @@ if (state < 2) {
 		}
 		
 		steptimer -= pi;
-		d = instance_exists(obj_shake) ? 191 : instance_create(0, 0, obj_shake);
+		d = instance_exists(obj_shake) ? 193 : instance_create(0, 0, obj_shake);
 		d.shakex = ceil(2);
 		d.shakey = ceil(2);
 		snd_play(snd_screenshake);
@@ -75,6 +75,8 @@ if (state < 2) {
 			snd_pitch(snd_sneo_overpower, 0.1);
 			snd_pitch_time(snd_sneo_overpower, 1, 90);
 			snd_volume(snd_sneo_overpower, 0.75, 0);
+			wreck = instance_create(x, y, obj_wreckpausespew);
+			wreck.depth = depth - 1;
 		}
 		
 		effecttimer++;
@@ -100,6 +102,9 @@ if (state < 2) {
 		state++;
 		formtimer = 45;
 	} else if (state == 1 && formtimer >= 45) {
+		with (obj_wreckpausespew)
+			image_index = 1;
+		
 		with (obj_sneo_dollar)
 			fade = 1;
 		
@@ -119,7 +124,7 @@ if (state < 2) {
 	image_index = 5;
 	formtimer = 0;
 	steptimer = pi - steptimer;
-	obj_sneo_final_forme_hitbox.destroyable = 0;
+	obj_sneo_final_forme_hitbox.destroyable = false;
 	global.turntimer = 360;
 } else if (state == 3) {
 	if (movecon == 0) {
@@ -226,7 +231,7 @@ if (state < 2) {
 	if ((formtimer % 5) == 0 && formtimer >= 30 && formtimer <= 65) {
 		var _hearthurt = snd_play(snd_hurt1);
 		snd_pitch(_hearthurt, random_range(1.4, 2));
-		d = instance_exists(obj_shake) ? 191 : instance_create(0, 0, obj_shake);
+		d = instance_exists(obj_shake) ? 193 : instance_create(0, 0, obj_shake);
 		d.shakex = ceil(1);
 		d.shakey = ceil(1);
 		
@@ -265,9 +270,11 @@ if (state < 2) {
 		fakeheart.y = y + mouthy;
 		fakeheart.state = 2;
 		image_index = 5;
-		scr_debug_print("spitting heart");
 	}
 } else if (state == 12) {
+	with (obj_wreckpausespew)
+		image_index = 1;
+	
 	if (movetimer < 1) {
 		movetimer += (1 / moveframes);
 		headoffset_x = lerp(0, -12, movetimer);
@@ -288,7 +295,7 @@ if (state >= 11) {
 	
 	if (steptimer >= pi) {
 		steptimer -= pi;
-		d = instance_exists(obj_shake) ? 191 : instance_create(0, 0, obj_shake);
+		d = instance_exists(obj_shake) ? 193 : instance_create(0, 0, obj_shake);
 		d.shakex = ceil(2);
 		d.shakey = ceil(2);
 		snd_play(snd_screenshake);

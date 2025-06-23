@@ -6,7 +6,7 @@ if (t >= 400) {
 	
 	for (i = 1; i < 12; i += 1) {
 		draw_set_alpha((rs / 16) - (i / 12));
-		draw_rectangle(320 - (i * i) - (rs * i), 0, 320 + (i * i) + (rs * i), 500, false);
+		draw_rectangle(320 - (i * i) - (rs * i), 0, 320 + (i * i) + (rs * i), 500, 0);
 	}
 	
 	draw_set_alpha(1);
@@ -48,7 +48,7 @@ if (t >= 390 && t < 395) {
 	
 	if (soundcon == 1) {
 		soundcon = 2;
-		audio_play_sound(snd_revival, 50, false);
+		audio_play_sound(snd_revival, 50, 0);
 	}
 }
 

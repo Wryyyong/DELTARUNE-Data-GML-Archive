@@ -8,7 +8,7 @@ if (obj_mainchara.x > x && con == -1) {
 	be_actor = instance_create(berdlynpc.x, berdlynpc.y, obj_actor);
 	scr_actor_setup(be, be_actor, "berdly");
 	be_actor.sprite_index = spr_berdly_walk_down_dw;
-	berdlynpc.visible = false;
+	berdlynpc.visible = 0;
 }
 
 if (con == 1) {
@@ -47,7 +47,7 @@ if (con == 11 && !i_ex(obj_cutscene_master)) {
 	con = 20;
 	global.interact = 0;
 	global.facing = 0;
-	berdlynpc.visible = true;
+	berdlynpc.visible = 1;
 	global.plot = 82;
 }
 
@@ -56,7 +56,7 @@ if (con == 20 && obj_mainchara.x > 1440) {
 	global.interact = 1;
 	global.facing = 3;
 	global.plot = 83;
-	berdlynpc.visible = false;
+	berdlynpc.visible = 0;
 	cutscene_master = scr_cutscene_make();
 	scr_maincharacters_actors();
 	qu = 3;

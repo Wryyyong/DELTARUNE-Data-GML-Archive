@@ -5,7 +5,7 @@ if (type == 0) {
 		instancemax = 0;
 		
 		for (var i = 0; i < instance_count; i += 1) {
-			if (instance_id[i] != noone && instance_id[i].depth >= 5000 && instance_id[i].depth <= 100000 && instance_id[i].visible == true && instance_id[i].sprite_index >= 1) {
+			if (instance_id[i] != noone && instance_id[i].depth >= 5000 && instance_id[i].depth <= 100000 && instance_id[i].visible == 1 && instance_id[i].sprite_index >= 1) {
 				listinstance[instancemax] = instance_id[i];
 				instancemax++;
 			}

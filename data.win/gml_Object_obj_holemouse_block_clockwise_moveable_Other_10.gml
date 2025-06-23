@@ -1,4 +1,4 @@
-if (visible == true && pushable == 1) {
+if (visible == true && pushable == true) {
 	if (global.interact == 0) {
 		movedir = global.facing;
 		wd = sprite_width;
@@ -27,13 +27,13 @@ if (visible == true && pushable == 1) {
 			iy = y + 2;
 		}
 		
-		if (collision_rectangle(ix, iy, ix + 15, iy + 15, obj_solidblock, 0, 1))
+		if (collision_rectangle(ix, iy, ix + 15, iy + 15, obj_solidblock, false, true))
 			confirm = 0;
 		
-		if (collision_rectangle(ix, iy, ix + 15, iy + 15, obj_interactablesolid, 0, 1))
+		if (collision_rectangle(ix, iy, ix + 15, iy + 15, obj_interactablesolid, false, true))
 			confirm = 0;
 		
-		if (collision_rectangle(ix, iy, ix + 15, iy + 15, obj_solidenemy, 0, 1))
+		if (collision_rectangle(ix, iy, ix + 15, iy + 15, obj_solidenemy, false, true))
 			confirm = 0;
 		
 		snd_play(snd_noise);

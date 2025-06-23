@@ -7,7 +7,7 @@ if (global.plot >= 55) {
 	con = 1;
 	
 	with (obj_savepoint_ch1)
-		visible = false;
+		visible = 0;
 }
 
 mcon = 0;

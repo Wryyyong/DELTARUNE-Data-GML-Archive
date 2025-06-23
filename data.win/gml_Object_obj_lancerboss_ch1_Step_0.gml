@@ -82,14 +82,14 @@ if (global.monster[myself] == 1) {
 	if (global.mnfight == 2 && attacked == 0) {
 		if (attacks == 0) {
 			bike = instance_create_ch1(x, y, obj_lancerbike_ch1);
-			visible = false;
+			visible = 0;
 			bike.racecon = 1;
 			bike.target = mytarget;
 			bike.damage = global.monsterat[myself] * 5;
 			attacks = 1;
 		} else {
 			bike = instance_create_ch1(x, y, obj_lancerbike_ch1);
-			visible = false;
+			visible = 0;
 			bike.lcon = 1;
 			bike.target = mytarget;
 			bike.damage = global.monsterat[myself] * 5;

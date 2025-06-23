@@ -27,7 +27,7 @@ for (i = 0; i < 8; i += 1) {
 	draw_text(__view_get(e__VW.XView, 0) + (__view_get(e__VW.WView, 0) / 2), (__view_get(e__VW.YView, 0) + (20 * i) + 50) - 8, string_hash_to_newline(line[i]));
 }
 
-if (drawtesters == 1) {
+if (drawtesters == true) {
 	fangamertesting = stringsetloc("-Fangamer Testing-", "obj_credits_2_slash_Draw_0_gml_17_0");
 	trailers = stringsetloc("-Trailers & All Video Editing-", "obj_credits_2_slash_Draw_0_gml_18_0");
 	var spacing = 20;

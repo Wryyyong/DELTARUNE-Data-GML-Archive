@@ -1077,7 +1077,7 @@ for (var i = 0; i < 8; i += 1) {
 			
 			if (smoketimer >= smokethreshold) {
 				var smokey = instance_create(x + 50, y + 80, obj_afterimage_grow);
-				smokey.visible = false;
+				smokey.visible = 0;
 				
 				with (smokey)
 					scr_script_delayed(scr_var, 1, "visible", 1);
@@ -1381,7 +1381,7 @@ for (var i = 0; i < 8; i += 1) {
 		
 		if (funnycheattimer2 >= 10 && image_alpha > 0.6) {
 			var smokey = instance_create(x + 50, y + 80, obj_afterimage_grow);
-			smokey.visible = false;
+			smokey.visible = 0;
 			
 			with (smokey)
 				scr_script_delayed(scr_var, 1, "visible", 1);
@@ -1424,7 +1424,7 @@ if (partmode == 13) {
 	armendy = y + party[1] + partyoff[1] + lengthdir_y(armlength, partrot[1] - 93);
 	partframe[5] = (partsiner[5] / 6) % 3;
 	draw_set_color(c_white);
-	draw_circle(armendx + 120, armendy + 6, 13 + (sin(partrot[0] / 2) * 12), 0);
+	draw_circle(armendx + 120, armendy + 6, 13 + (sin(partrot[0] / 2) * 12), false);
 }
 
 draw_set_color(c_red);

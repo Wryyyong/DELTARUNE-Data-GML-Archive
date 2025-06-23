@@ -1,2 +1,2 @@
-destroyoffscreen = 1;
+destroyoffscreen = true;
 tolerance = 32;

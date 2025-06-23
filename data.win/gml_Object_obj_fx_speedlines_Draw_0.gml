@@ -5,8 +5,8 @@ if (offsetx || offsety) {
 	if (offsety)
 		yoff = y - cameray();
 	
-	offsetx = 0;
-	offsety = 0;
+	offsetx = false;
+	offsety = false;
 }
 
 if (flashframe)

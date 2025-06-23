@@ -32,7 +32,7 @@ if (global.monster[myself] == 1 && defeated == 0) {
 			
 			if (susie_revive_count >= 3) {
 				with (obj_susieandlancer_event_ch1)
-					s.visible = false;
+					s.visible = 0;
 				
 				global.monster[0] = 1;
 				global.monsterinstance[0] = instance_create_ch1(global.monstermakex[0], global.monstermakey[0], global.monsterinstancetype[0]);
@@ -157,14 +157,14 @@ if (global.monster[myself] == 1 && defeated == 0) {
 		if (attack_qual == 1) {
 			if (attacks == 0) {
 				bike = instance_create_ch1(x, y, obj_lancerbike_ch1);
-				visible = false;
+				visible = 0;
 				bike.racecon = 1;
 				bike.target = mytarget;
 				bike.damage = global.monsterat[myself] * 5;
 				attacks = 1;
 			} else {
 				bike = instance_create_ch1(x, y, obj_lancerbike_ch1);
-				visible = false;
+				visible = 0;
 				bike.lcon = 1;
 				bike.target = mytarget;
 				bike.damage = global.monsterat[myself] * 5;
@@ -355,14 +355,14 @@ if (global.myfight == 3) {
 	}
 	
 	if (actcon == 20 && !instance_exists(obj_writer_ch1)) {
-		visible = false;
+		visible = 0;
 		
 		with (obj_susieenemy_ch1)
-			visible = false;
+			visible = 0;
 		
 		if (scr_monsterpop_ch1() == 1) {
 			with (obj_susieandlancer_event_ch1)
-				s.visible = false;
+				s.visible = 0;
 		}
 		
 		blocklan = scr_dark_marker_ch1(x, y, spr_lancerbike_earcover_ch1);
@@ -379,14 +379,14 @@ if (global.myfight == 3) {
 		with (blocklan)
 			instance_destroy();
 		
-		visible = true;
+		visible = 1;
 		
 		with (obj_susieenemy_ch1)
-			visible = true;
+			visible = 1;
 		
 		if (scr_monsterpop_ch1() == 1) {
 			with (obj_susieandlancer_event_ch1)
-				s.visible = true;
+				s.visible = 1;
 		}
 		
 		actcon = 1;
@@ -449,7 +449,7 @@ if (con == 4 && !instance_exists(obj_writer_ch1)) {
 
 if (con == 6) {
 	with (obj_susieandlancer_event_ch1)
-		l.visible = true;
+		l.visible = 1;
 	
 	with (obj_monsterparent_ch1)
 		scr_monsterdefeat_ch1();

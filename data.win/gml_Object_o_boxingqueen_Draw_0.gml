@@ -87,7 +87,7 @@ if (drawflip == 0) {
 
 if (global.bmenuno == 12 && global.bmenucoord[0][global.charturn] == 3) {
 	fsiner++;
-	d3d_set_fog(true, c_white, 0, 0);
+	d3d_set_fog(1, c_white, 0, 0);
 	
 	if (drawflip == 0)
 		draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, 0, c_white, (-cos(fsiner / 5) * 0.4) + 0.6);
@@ -95,7 +95,7 @@ if (global.bmenuno == 12 && global.bmenucoord[0][global.charturn] == 3) {
 	if (drawflip == 1)
 		draw_sprite_ext(sprite_index, image_index, x, y, -2, image_yscale, 0, c_white, (-cos(fsiner / 5) * 0.4) + 0.6);
 	
-	d3d_set_fog(false, c_white, 0, 0);
+	d3d_set_fog(0, c_white, 0, 0);
 }
 
 draw_set_halign(fa_left);

@@ -12,5 +12,5 @@ if (!rotated) {
 	image_xscale = 2;
 	image_yscale = 2;
 	active = 1;
-	rotated = 1;
+	rotated = true;
 }

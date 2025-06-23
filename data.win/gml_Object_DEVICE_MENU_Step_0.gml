@@ -127,7 +127,7 @@ if (MENU_NO == 1 || MENU_NO == 4 || MENU_NO == 6 || MENU_NO == 7 || MENU_NO == 1
 			}
 			
 			if (MENU_NO == 4) {
-				var temp_comment_is_interesting = 0;
+				var temp_comment_is_interesting = false;
 				
 				if (TYPE == 0) {
 					TEMPCOMMENT = stringsetloc("IT CONFORMED TO THE REFLECTION.", "DEVICE_MENU_slash_Step_0_gml_74_0");
@@ -135,7 +135,7 @@ if (MENU_NO == 1 || MENU_NO == 4 || MENU_NO == 6 || MENU_NO == 7 || MENU_NO == 1
 					if (NAME[0] == NAME[1] && NAME[1] == NAME[2]) {
 						if (TIME[0] == TIME[1] && TIME[1] == TIME[2]) {
 							if (PLACE[0] == PLACE[1] && PLACE[1] == PLACE[2]) {
-								temp_comment_is_interesting = 1;
+								temp_comment_is_interesting = true;
 								TEMPCOMMENT = stringsetloc("WHAT AN INTERESTING BEHAVIOR.", "DEVICE_MENU_slash_Step_0_gml_77_0");
 							}
 						}
@@ -497,7 +497,7 @@ if (MENU_NO == 0 || MENU_NO == 10) {
 		}
 		
 		if (MENUCOORD[M] == 7) {
-			input_enabled = 0;
+			input_enabled = false;
 			SELNOISE = 1;
 			snd_free_all();
 			alarm[0] = 30;

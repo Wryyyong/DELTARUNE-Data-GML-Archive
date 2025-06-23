@@ -4,7 +4,7 @@ if (con == 0 && global.interact == 0 && susiestart == 1) {
 	
 	with (obj_caterpillarchara) {
 		if (name == "susie") {
-			visible = false;
+			visible = 0;
 			bossid.caterpillarid = id;
 			bossid.susid = instance_create(x, y, obj_actor);
 			
@@ -96,7 +96,7 @@ if (con == 2) {
 			with (susid)
 				instance_destroy();
 			
-			caterpillarid.visible = true;
+			caterpillarid.visible = 1;
 			con = 0;
 			instance_destroy();
 		}

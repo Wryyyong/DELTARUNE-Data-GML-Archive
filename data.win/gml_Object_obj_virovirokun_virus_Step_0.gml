@@ -1,5 +1,5 @@
 event_inherited();
-infecttarget = collision_rectangle(x - 12, y - 12, x + 12, y + 12, obj_omawaroid_vaccine, 0, 1);
+infecttarget = collision_rectangle(x - 12, y - 12, x + 12, y + 12, obj_omawaroid_vaccine, false, true);
 
 if (infecttarget != -4) {
 	d = instance_create(x, y, obj_animation_dx);

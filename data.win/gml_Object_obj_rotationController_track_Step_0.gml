@@ -7,11 +7,11 @@ if (timer < 999)
 if (mytimer > 0)
 	mytimer--;
 
-left = 0;
-right = 0;
-down = 0;
+left = false;
+right = false;
+down = false;
 
-if (rotate == 1) {
+if (rotate == true) {
 	global.interact = 1;
 	
 	if (down_p() && controlled.moving == 0 && !d_ex() && mytimer <= 0 && !i_ex(obj_holemouse) && buffer < 0) {
@@ -21,7 +21,7 @@ if (rotate == 1) {
 		with (obj_holemouse_generator) {
 			cooldown = 10;
 			other.controlled.move = 0;
-			other.down = 1;
+			other.down = true;
 			mousecreate = 1;
 			gentimer = 20;
 		}
@@ -43,28 +43,28 @@ if (rotate == 1) {
 		controlled.move = 0;
 	
 	if ((left_h() && right_h()) || (!left_h() && !right_h())) {
-		left = 0;
-		right = 0;
+		left = false;
+		right = false;
 		controlled.move = 0;
 	}
 	
 	if ((button1_p() || button2_p()) && timer > 1 && mytimer <= 0 && !i_ex(obj_holemouse) && !d_ex() && buffer < 0) {
 		buffer = 3;
-		rotate = 0;
+		rotate = false;
 		controlled.move = 0;
 		global.interact = 0;
 	}
 }
 
 if (controlled.move == 1)
-	right = 1;
+	right = true;
 
 if (controlled.move == -1)
-	left = 1;
+	left = true;
 
 controlled.image_index = rotate;
 
 with (obj_holemouse_generator) {
 	if (gentimer > 0)
-		other.down = 1;
+		other.down = true;
 }

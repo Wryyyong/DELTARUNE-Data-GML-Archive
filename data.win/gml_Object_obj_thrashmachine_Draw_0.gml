@@ -29,7 +29,7 @@ if (launch) {
 	}
 }
 
-var _flash = 0;
+var _flash = false;
 var _do_flash = rim_flash > 0 || body_flash > 0;
 var _rim_color = merge_color(c_black, c_white, rim_flash);
 var _flash_color = merge_color(c_black, c_white, body_flash);

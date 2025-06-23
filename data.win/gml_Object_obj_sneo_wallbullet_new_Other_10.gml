@@ -12,7 +12,7 @@ if (destroyable == 1) {
 			if (wallnumber == other.wallnumber) {
 				snd_play_pitch(snd_bomb, 1.1 + random(0.2));
 				var _cut = scr_afterimage_cut();
-				_cut.flash = 1;
+				_cut.flash = true;
 				instance_destroy();
 			}
 		}

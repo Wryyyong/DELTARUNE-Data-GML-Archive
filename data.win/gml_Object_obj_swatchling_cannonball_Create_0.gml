@@ -23,4 +23,4 @@ bullettype = 0;
 if (obj_swatchling_battle_controller.red_count > 0)
 	bullettype = 1;
 
-heart_found = 0;
+heart_found = false;

@@ -7,7 +7,7 @@ if (instance_exists(obj_mainchara_ch1)) {
 		lo = snd_play_ch1(snd_wing_ch1);
 		snd_pitch_ch1(lo, 0.8);
 		con = 1;
-		visible = true;
+		visible = 1;
 		rabbick = instance_create_ch1(x, y, obj_chaseenemy_ch1);
 		rabbick.vspeed = 16;
 	}

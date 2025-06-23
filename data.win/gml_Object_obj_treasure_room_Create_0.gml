@@ -122,7 +122,7 @@ if (room == room_dw_castle_west_cliff || room == room_dw_mansion_b_east_transfor
 	
 	if (qualify == 0) {
 		instance_destroy();
-		visible = false;
+		visible = 0;
 	}
 }
 

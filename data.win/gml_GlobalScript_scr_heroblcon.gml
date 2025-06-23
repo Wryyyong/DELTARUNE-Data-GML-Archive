@@ -36,6 +36,6 @@ function scr_heroblcon(arg0) {
 		heroballoon.side = -1;
 		return heroballoon;
 	} else {
-		return 0;
+		return false;
 	}
 }

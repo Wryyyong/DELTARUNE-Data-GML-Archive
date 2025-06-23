@@ -105,7 +105,7 @@ if (con > 2) {
 		con = 18;
 	}
 	
-	if (con == 18 && instance_exists(obj_writer_ch1) == 0) {
+	if (con == 18 && instance_exists(obj_writer_ch1) == false) {
 		global.fc = 0;
 		hspeed = 20;
 		con = 19;
@@ -132,7 +132,7 @@ if (con > 2) {
 		con = 31;
 	}
 	
-	if (con == 31 && instance_exists(obj_writer_ch1) == 0) {
+	if (con == 31 && instance_exists(obj_writer_ch1) == false) {
 		depth = 0;
 		x = __view_get(e__VW.XView, 0) + 640;
 		hspeed = -20;
@@ -159,7 +159,7 @@ if (con > 2) {
 		con = 34;
 	}
 	
-	if (con == 34 && instance_exists(obj_writer_ch1) == 0) {
+	if (con == 34 && instance_exists(obj_writer_ch1) == false) {
 		npc = instance_create_ch1(1740, 1080, obj_npc_room_ch1);
 		global.fc = 0;
 		hspeed = 20;

@@ -6,7 +6,7 @@ if (con == 0) {
 	if (timer == 10) {
 		con = 1;
 		timer = 0;
-		path_start(path, 10, path_action_stop, 0);
+		path_start(path, 10, path_action_stop, false);
 	}
 }
 

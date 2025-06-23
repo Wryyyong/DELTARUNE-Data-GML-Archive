@@ -119,7 +119,7 @@ if (global.fe == 9)
 
 if (global.fe == 0) {
 	if (pause_music) {
-		pause_music = 0;
+		pause_music = false;
 		snd_resume(global.currentsong[1]);
 	}
 }
@@ -191,7 +191,7 @@ if (menu == 0) {
 	menuc[3] = 0;
 	menuc[4] = 0;
 	
-	if (instance_exists(obj_writer) == 0) {
+	if (instance_exists(obj_writer) == false) {
 		scr_speaker("spamton");
 		msgsetloc(0, "* HURRY UP AND BUY!", "obj_shop_ch2_spamton_slash_Draw_0_gml_272_0");
 		
@@ -273,7 +273,7 @@ if (menu == 1 || menu == 2) {
 	if (menu == 1) {
 		menumax = 4;
 		
-		if (instance_exists(obj_writer) == 0) {
+		if (instance_exists(obj_writer) == false) {
 			if (sidemessage == 0)
 				msgsetloc(0, "\\E0DEALS SO&GOOD I'LL&[$!$$]&MYSELF!", "obj_shop_ch2_spamton_slash_Draw_0_gml_352_0");
 			
@@ -447,7 +447,7 @@ if (menu == 3) {
 	draw_text(80, 380, stringsetloc("FEAR", "obj_shop_ch2_spamton_slash_Draw_0_gml_462_0"));
 	draw_text(80, 420, stringsetloc("EXIT AND BUY MORE!!!", "obj_shop_ch2_spamton_slash_Draw_0_gml_464_0"));
 	
-	if (instance_exists(obj_writer) == 0) {
+	if (instance_exists(obj_writer) == false) {
 		global.msg[0] = stringsetloc("\\E0LET'S MAKE&A DEAL.", "obj_shop_ch2_spamton_slash_Draw_0_gml_469_0");
 		instance_create(440, 260, obj_writer);
 	}
@@ -488,7 +488,7 @@ if (menu == 10) {
 	draw_text(80, 380, string_hash_to_newline(stringsetloc("Sell Pocket Items", "obj_shop_ch2_spamton_slash_Draw_0_gml_506_0")));
 	draw_text(80, 420, string_hash_to_newline(stringsetloc("Return", "obj_shop_ch2_spamton_slash_Draw_0_gml_507_0")));
 	
-	if (instance_exists(obj_writer) == 0) {
+	if (instance_exists(obj_writer) == false) {
 		if (sidemessage == 0)
 			msgsetloc(0, " ", "obj_shop_ch2_spamton_slash_Draw_0_gml_511_0");
 		
@@ -599,7 +599,7 @@ if (menu == 10) {
 }
 
 if (menu == 11 || menu == 12 || menu == 13) {
-	if (instance_exists(obj_writer) == 0) {
+	if (instance_exists(obj_writer) == false) {
 		if (sidemessage2 == 0 && menu == 11)
 			msgsetloc(0, " ", "obj_shop_ch2_spamton_slash_Draw_0_gml_598_0");
 		
@@ -646,7 +646,7 @@ if (menu == 4) {
 	if (sell == 0)
 		menu = 0;
 	
-	if (instance_exists(obj_writer) == 0 && selling == 0) {
+	if (instance_exists(obj_writer) == false && selling == 0) {
 		selling = 1;
 		
 		if (sell == 1) {
@@ -791,7 +791,7 @@ if (menu == 4) {
 		sell = 11;
 	}
 	
-	if (selling == 1 && instance_exists(obj_writer) == 0) {
+	if (selling == 1 && instance_exists(obj_writer) == false) {
 		if (sell == 2) {
 			selling = 2;
 			event_user(1);

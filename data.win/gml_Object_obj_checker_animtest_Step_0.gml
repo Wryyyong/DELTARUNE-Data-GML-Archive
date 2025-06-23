@@ -29,10 +29,10 @@ if (type == 0) {
 		k = scr_dark_marker(0, obj_mainchara.y, spr_krisr_dark);
 		
 		with (obj_caterpillarchara)
-			visible = false;
+			visible = 0;
 		
 		with (obj_mainchara)
-			visible = false;
+			visible = 0;
 		
 		with (obj_marker) {
 			hspeed = 5;
@@ -169,7 +169,7 @@ if (type == 0) {
 			scr_halt();
 		
 		obj_mainchara.x = k.x;
-		obj_mainchara.visible = true;
+		obj_mainchara.visible = 1;
 		obj_mainchara.cutscene = 1;
 		
 		with (l)
@@ -372,7 +372,7 @@ if (type == 0) {
 	}
 	
 	if (con == 22) {
-		visible = false;
+		visible = 0;
 		type = 2;
 		con = 0;
 		victimer = 0;
@@ -595,13 +595,13 @@ if (type == 2) {
 	
 	if (con == 7.2 && !d_ex()) {
 		with (global.cinstance[0])
-			visible = false;
+			visible = 0;
 		
 		with (global.cinstance[1])
-			visible = false;
+			visible = 0;
 		
 		with (obj_mainchara)
-			visible = false;
+			visible = 0;
 		
 		r = scr_dark_marker(global.cinstance[0].x, global.cinstance[0].y, spr_ralseil);
 		s = scr_dark_marker(global.cinstance[1].x, global.cinstance[1].y, spr_susier_dark);

@@ -1,4 +1,4 @@
-if (nointeract == 0) {
+if (nointeract == false) {
 	if (other.lifetimer > 20) {
 		if (room == room_dw_city_mice && con == 1) {
 			with (other) {

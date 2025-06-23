@@ -1,2 +1,2 @@
 activecon = 0;
-visible = false;
+visible = 0;

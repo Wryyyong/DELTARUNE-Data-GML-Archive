@@ -8,6 +8,6 @@ var layersprites = [spr_cyber_coaster_bg_fountain, spr_cyber_coaster_bg_cityscap
 for (var i = 0; i < array_length_1d(layersprites); i++) {
 	var tracks = layer_create(1000500 - (i * 100), "BG_Layer_" + string(i));
 	var layerid = layer_background_create(tracks, layersprites[i]);
-	layer_background_htiled(layerid, 1);
+	layer_background_htiled(layerid, true);
 	layer_hspeed(tracks, -((0.1 * array_length_1d(layersprites)) + (0.5 * i)));
 }

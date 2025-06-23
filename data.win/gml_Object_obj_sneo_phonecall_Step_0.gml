@@ -30,7 +30,7 @@ if (talking) {
 		with (obj_writer)
 			instance_destroy();
 		
-		talking = 0;
+		talking = false;
 		talktimer = -10;
 		state++;
 	}
@@ -96,14 +96,14 @@ if (talktimer < 0) {
 		sneo.partmode = 7;
 	}
 	
-	writeline = 1;
+	writeline = true;
 } else if (state == 3) {
 	if (obj_spamton_neo_enemy.difficulty == 3) {
 		state = 5;
 	} else {
 		msgsetloc(0, "WHAT? ARE&YOU SERIOUS!?", "obj_sneo_phonecall_slash_Step_0_gml_136_0");
 		sneo.partmode = 7;
-		writeline = 1;
+		writeline = true;
 	}
 } else if (state == 4) {
 	state = 5;
@@ -120,7 +120,7 @@ if (talktimer < 0) {
 		}
 		
 		textboxdistance = 40;
-		writeline = 1;
+		writeline = true;
 	} else {
 		state = 6;
 	}
@@ -138,7 +138,7 @@ if (talktimer < 0) {
 }
 
 if (writeline) {
-	writeline = 0;
+	writeline = false;
 	
 	with (obj_spamton_neo_enemy) {
 		global.typer = 72;
@@ -146,5 +146,5 @@ if (writeline) {
 	}
 	
 	talktimer = 0;
-	talking = 1;
+	talking = true;
 }

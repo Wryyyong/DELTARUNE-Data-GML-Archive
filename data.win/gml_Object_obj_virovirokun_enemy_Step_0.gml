@@ -28,7 +28,7 @@ if (global.monster[myself] == 1) {
 		global.typer = 50;
 		
 		if (!omawaroid_battle_init) {
-			omawaroid_battle_init = 1;
+			omawaroid_battle_init = true;
 			omawaroid_battle = i_ex(obj_omawaroid_enemy);
 		}
 		
@@ -168,7 +168,7 @@ if (global.myfight == 3) {
 				msgsetloc(0, "* Everyone treated the enemy with tender loving care!! All the enemies felt great!!/%", "obj_virovirokun_enemy_slash_Step_0_gml_179_0");
 			} else {
 				if (scr_sideb_get_phase() < 2) {
-					noelle_fall = 1;
+					noelle_fall = true;
 					noelle_fall_timer = 0;
 					
 					with (object_index)
@@ -342,7 +342,7 @@ if (global.myfight == 3) {
 		
 		if (noelle_fall_timer == 1) {
 			with (obj_heronoelle) {
-				visible = true;
+				visible = 1;
 				image_alpha = 0;
 			}
 			
@@ -379,7 +379,7 @@ if (global.myfight == 3) {
 		}
 		
 		if (noelle_fall_timer > 80) {
-			noelle_fall = 0;
+			noelle_fall = false;
 			noelle_fall_timer = 0;
 		}
 	}

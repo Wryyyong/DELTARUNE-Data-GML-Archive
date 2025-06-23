@@ -46,13 +46,13 @@ if (global.plot < 150) {
 	
 	if (con == 1) {
 		con = 10;
-		swanboat.pause_x_move = 1;
-		swanboat.pause_y_move = 1;
-		swanboat.pause_auto_talk = 1;
+		swanboat.pause_x_move = true;
+		swanboat.pause_y_move = true;
+		swanboat.pause_auto_talk = true;
 		
 		if (i_ex(obj_ch2_scene21_loop_vfx)) {
 			with (obj_ch2_scene21_loop_vfx)
-				auto_scroll_start = 1;
+				auto_scroll_start = true;
 		}
 		
 		global.interact = 1;
@@ -67,9 +67,7 @@ if (global.plot < 150) {
 		c_speaker("ralsei");
 		c_msgsetloc(0, "\\EB* Kris..^1. hey^1, Kris./%", "obj_ch2_scene21_loop_slash_Step_0_gml_130_0");
 		c_talk_wait();
-		global.flag[307] = 1;
-		var choicetext = (global.flag[307] == 1) ? 1111 : 1113;
-		c_msc(choicetext);
+		c_msc(1111);
 		c_talk_wait();
 	}
 	
@@ -216,15 +214,15 @@ if (global.plot < 150) {
 		
 		if (i_ex(obj_ch2_scene21_loop_vfx)) {
 			with (obj_ch2_scene21_loop_vfx)
-				auto_scroll_stop = 1;
+				auto_scroll_stop = true;
 		}
 	}
 	
-	if (con == 200 && obj_ch2_scene21_loop_vfx.auto_scroll_stop == 0) {
+	if (con == 200 && obj_ch2_scene21_loop_vfx.auto_scroll_stop == false) {
 		con = 300;
-		inside_tunnel = 0;
-		remove_shadow = 1;
-		shift_islands = 1;
+		inside_tunnel = false;
+		remove_shadow = true;
+		shift_islands = true;
 		
 		with (swanboat)
 			scr_move_to_point_over_time(775, 110, 245);
@@ -237,8 +235,8 @@ if (global.plot < 150) {
 		shift_islands_timer++;
 		
 		if (shift_islands_timer >= 245) {
-			shift_islands = 0;
-			shiftacid = 0;
+			shift_islands = false;
+			shiftacid = false;
 			
 			if (!rouxls_island)
 				con = 30;
@@ -248,20 +246,20 @@ if (global.plot < 150) {
 	if (con == 30) {
 		con = 31;
 		global.flag[326] = 1;
-		layer_set_visible("TILES_Mansion_Hide_1", 1);
-		layer_set_visible("TILES_Mansion_Hide_2", 1);
-		rouxls_island = 1;
-		swanboat.pause_x_move = 1;
-		swanboat.pause_y_move = 1;
-		swanboat.pause_auto_talk = 1;
-		loopacid = 0;
+		layer_set_visible("TILES_Mansion_Hide_1", true);
+		layer_set_visible("TILES_Mansion_Hide_2", true);
+		rouxls_island = true;
+		swanboat.pause_x_move = true;
+		swanboat.pause_y_move = true;
+		swanboat.pause_auto_talk = true;
+		loopacid = false;
 		thrash = instance_create(1285, 159, obj_thrashmachine);
 		thrash.s = 3;
 		thrash.drawfeet = 0;
 		thrash.animate = 0;
-		thrash.visible = false;
+		thrash.visible = 0;
 		thrash.depth = 835000;
-		thrash.draw_puddle = 1;
+		thrash.draw_puddle = true;
 		puddle = instance_create(thrash.x + 1, thrash.y + 74, obj_marker);
 		puddle.sprite_index = spr_rouxls_puddle;
 		puddle.image_xscale = 2;
@@ -269,15 +267,15 @@ if (global.plot < 150) {
 		puddle.depth = thrash.depth + 1;
 		puddle.image_speed = 0;
 		puddle.image_index = (thrash.part[0] == 2) ? 2 : 0;
-		puddle.visible = false;
+		puddle.visible = 0;
 		var rouxls_ypos = (global.flag[221] == 3) ? (thrash.y + 45) : (thrash.y + 19);
 		
 		if (global.flag[221] == 2)
 			rouxls_ypos = thrash.y + 29;
 		
 		rouxls = instance_create(thrash.x - 1, rouxls_ypos, obj_ch2_rouxls_boat);
-		rouxls.visible = false;
-		rouxls.boatfront.visible = false;
+		rouxls.visible = 0;
+		rouxls.boatfront.visible = 0;
 		rouxls.depth = 830000;
 		
 		with (obj_gradientglow)
@@ -325,7 +323,7 @@ if (global.plot < 150) {
 		}
 		
 		if (rouxls_appear_timer >= 60) {
-			release_rouxls = 0;
+			release_rouxls = false;
 			
 			if (!snd_is_playing(global.currentsong[1])) {
 				global.currentsong[0] = snd_init("ruruskaado.ogg");
@@ -342,7 +340,7 @@ if (global.plot < 150) {
 		c_waitcustom_end();
 		c_var_lerp_instance(blackall, "image_alpha", 0.75, 0, 10);
 		c_wait(10);
-		c_var_instance(id, "release_rouxls", 1);
+		c_var_instance(id, "release_rouxls", true);
 		c_wait(30);
 		c_var_instance(rouxls, "visible", 1);
 		c_var_instance(rouxls.boatfront, "visible", 1);
@@ -442,9 +440,9 @@ if (global.plot < 150) {
 		con = 39;
 		alarm[0] = 30;
 		snd_free_all();
-		rouxls.visible = false;
-		thrash.visible = false;
-		puddle.visible = false;
+		rouxls.visible = 0;
+		thrash.visible = 0;
+		puddle.visible = 0;
 		global.batmusic[0] = snd_init("rouxls_battle.ogg");
 		global.specialbattle = 1;
 		encounterflag = 546;
@@ -463,15 +461,15 @@ if (global.plot < 150) {
 		swanboat.depth = swan_depth;
 		
 		with (obj_actor)
-			visible = false;
+			visible = 0;
 	}
 	
 	if (con == 40 && i_ex(obj_battlecontroller)) {
-		var battle_end = 0;
+		var battle_end = false;
 		
 		with (obj_battlecontroller) {
 			if (intro == 2)
-				battle_end = 1;
+				battle_end = true;
 		}
 		
 		if (battle_end) {
@@ -501,23 +499,23 @@ if (global.plot < 150) {
 		instance_destroy(swan_cover);
 		
 		with (obj_actor)
-			visible = true;
+			visible = 1;
 		
 		with (obj_thrashmachine) {
-			if (visible == true)
+			if (visible == 1)
 				instance_destroy();
 			else
-				visible = true;
+				visible = 1;
 		}
 		
 		with (obj_marker) {
-			if (sprite_index == spr_rouxls_puddle && visible == true)
+			if (sprite_index == spr_rouxls_puddle && visible == 1)
 				instance_destroy();
 		}
 		
-		rouxls.visible = true;
-		thrash.visible = true;
-		puddle.visible = true;
+		rouxls.visible = 1;
+		thrash.visible = 1;
+		puddle.visible = 1;
 		snd_free(global.batmusic[0]);
 		snd_volume(global.currentsong[1], 0, 0);
 		snd_resume(global.currentsong[1]);
@@ -537,7 +535,7 @@ if (global.plot < 150) {
 	}
 	
 	if (rouxls_power_up) {
-		rouxls_power_up = 0;
+		rouxls_power_up = false;
 		
 		if (!i_ex(obj_power_up_fx_rouxls)) {
 			d = scr_following_afterimage(obj_power_up_fx_rouxls, rouxls);
@@ -546,7 +544,7 @@ if (global.plot < 150) {
 	}
 	
 	if (rouxls_power_up_cancel) {
-		rouxls_power_up_cancel = 0;
+		rouxls_power_up_cancel = false;
 		
 		if (i_ex(obj_power_up_fx_rouxls))
 			instance_destroy(obj_power_up_fx_rouxls);
@@ -558,7 +556,17 @@ if (global.plot < 150) {
 		customcon = 0;
 		c_waitcustom_end();
 		
-		if (global.flag[435] >= 2) {
+		if (global.flag[50] == 1) {
+			c_speaker("rouxls");
+			c_msgsetloc(0, "\\E4* So thou hath beateneth The Crappeth out of Me./", "obj_ch2_scene21_loop_slash_Step_0_gml_763_0");
+			c_msgnextloc("\\E3* I supposest that means thou thinkest thoust hath Won?/", "obj_ch2_scene21_loop_slash_Step_0_gml_764_0");
+			c_facenext("ralsei", 20);
+			c_msgnextloc("\\EK* Umm..^1. morally^1, no^1.&* Physically..^1. yes./", "obj_ch2_scene21_loop_slash_Step_0_gml_766_0");
+			c_facenext("rouxls", 1);
+			c_msgnextloc("\\E1* Well shivereth my timbereth^1, you little Bimbo!/", "obj_ch2_scene21_loop_slash_Step_0_gml_768_0");
+			c_msgnextloc("\\E2* For in a battle of TRUE Powere^1, Rouxls..^1. shall RULE!/%", "obj_ch2_scene21_loop_slash_Step_0_gml_769_0");
+			c_talk_wait();
+		} else if (global.flag[435] >= 2) {
 			if (global.flag[435] == 2) {
 				c_speaker("rouxls");
 				c_msgsetloc(0, "\\E2* Ah...^1. Ahh^1, ha ha ha...!/", "obj_ch2_scene21_loop_slash_Step_0_gml_730_0");
@@ -622,7 +630,7 @@ if (global.plot < 150) {
 		c_sel(ra);
 		c_sprite(spr_ralsei_hurt_overworld);
 		c_wait(10);
-		c_var_instance(id, "rouxls_power_up", 1);
+		c_var_instance(id, "rouxls_power_up", true);
 		c_mus2("loopsfx", 131, 0);
 		c_mus2("loopsfxvolume", 0, 0);
 		c_mus2("loopsfxvolume", 0.7, 30);
@@ -640,7 +648,7 @@ if (global.plot < 150) {
 		c_wait(30);
 		c_mus("stop");
 		c_mus("loopsfxstop");
-		c_var_instance(id, "rouxls_power_up_cancel", 1);
+		c_var_instance(id, "rouxls_power_up_cancel", true);
 		c_var_instance(rouxls, "con", 1);
 		c_wait(45);
 		c_msgside("bottom");
@@ -655,7 +663,7 @@ if (global.plot < 150) {
 		c_wait(10);
 		c_wait(40);
 		c_soundplay(snd_badexplosion);
-		c_var_instance(id, "explosion", 1);
+		c_var_instance(id, "explosion", true);
 		c_var_instance(simcity, "flyaway", 1);
 		c_wait(60);
 		c_speaker("rouxls");
@@ -685,7 +693,7 @@ if (global.plot < 150) {
 		con = 51;
 		alarm[0] = 20;
 		rouxls.depth = 10000;
-		adjust_actors = 0;
+		adjust_actors = false;
 		
 		with (swanboat)
 			scr_move_to_point_over_time(800, 100, 20);
@@ -694,13 +702,13 @@ if (global.plot < 150) {
 	if (con == 52) {
 		con = 53;
 		alarm[0] = 30;
-		swanboat.pause_x_move = 0;
+		swanboat.pause_x_move = false;
 	}
 	
 	if (con == 54 && swanboat.x >= 1244) {
 		con = 55;
 		alarm[0] = 20;
-		swanboat.pause_x_move = 1;
+		swanboat.pause_x_move = true;
 		
 		with (swanboat)
 			scr_move_to_point_over_time(1284, 140, 20);
@@ -708,19 +716,19 @@ if (global.plot < 150) {
 	
 	if (con == 56) {
 		con = 57;
-		swanboat.pause_x_move = 0;
+		swanboat.pause_x_move = false;
 	}
 	
 	if (con == 57 && swanboat.x >= 1745) {
 		con = 99;
-		take_photo = 1;
-		swanboat.pause_x_move = 1;
-		swanboat.pause_y_move = 1;
+		take_photo = true;
+		swanboat.pause_x_move = true;
+		swanboat.pause_y_move = true;
 		swanboat.con = 99;
 		swanboat.active = 0;
 		
 		with (obj_caterpillarchara)
-			visible = false;
+			visible = 0;
 		
 		cutscene_master = scr_cutscene_make();
 		scr_maincharacters_actors();
@@ -850,7 +858,7 @@ if (global.plot < 150) {
 		}
 		
 		if (photocon == 10 && !d_ex()) {
-			take_photo = 0;
+			take_photo = false;
 			photocon = -1;
 			con = 58;
 			c_actortokris();
@@ -862,8 +870,8 @@ if (global.plot < 150) {
 	if (con == 58 && !i_ex(obj_cutscene_master)) {
 		con = 59;
 		alarm[0] = 60;
-		swanboat.pause_x_move = 0;
-		swanboat.pause_y_move = 1;
+		swanboat.pause_x_move = false;
+		swanboat.pause_y_move = true;
 		swanboat.con = 1;
 	}
 	
@@ -878,8 +886,8 @@ if (global.plot < 150) {
 	}
 	
 	if (!swanboat.pause_x_move && swanboat.x >= 2280) {
-		swanboat.pause_x_move = 1;
-		swanboat.pause_y_move = 1;
+		swanboat.pause_x_move = true;
+		swanboat.pause_y_move = true;
 		
 		with (swanboat)
 			scr_move_to_point_over_time(2525, 175, 80);
@@ -891,7 +899,7 @@ if (global.plot < 150) {
 		global.flag[326] = 0;
 		swanboat.con = 99;
 		swanboat.active = 0;
-		swanboat.pause_x_move = 1;
+		swanboat.pause_x_move = true;
 		cutscene_master = scr_cutscene_make();
 		scr_maincharacters_actors();
 		c_wait(10);
@@ -945,8 +953,8 @@ if (global.plot < 150) {
 	}
 	
 	if (remove_island_obj && !d_ex()) {
-		remove_island_obj = 0;
-		set_flags_complete = 1;
+		remove_island_obj = false;
+		set_flags_complete = true;
 		
 		with (obj_queencar_talktrigger)
 			instance_destroy();
@@ -964,48 +972,48 @@ if (global.plot < 150) {
 			with (explosion_marker)
 				scr_depth();
 			
-			finish_thrash = 1;
+			finish_thrash = true;
 			
 			with (thrash) {
 				direction = 90;
 				speed = 10;
 				gravity = 0.1;
-				launch = 1;
-				drawfeet = 1;
+				launch = true;
+				drawfeet = true;
 			}
 		} else {
-			var finish = 0;
+			var finish = false;
 			
 			with (obj_marker) {
 				if (sprite_index == spr_realisticexplosion && image_index >= 16) {
-					finish = 1;
+					finish = true;
 					instance_destroy();
 				}
 			}
 			
 			if (finish) {
-				explosion = 0;
+				explosion = false;
 				explodetimer = 0;
 			}
 		}
 		
 		if (explodetimer == 5) {
-			layer_set_visible("TILES_Island_Path", 0);
-			layer_set_visible("TILES_Island_Path_Animated", 0);
+			layer_set_visible("TILES_Island_Path", false);
+			layer_set_visible("TILES_Island_Path_Animated", false);
 		}
 	}
 	
 	if (finish_thrash) {
 		with (thrash) {
 			xx += 15;
-			launch = 1;
+			launch = true;
 		}
 		
 		with (puddle)
 			x += 15;
 		
 		if (thrash.xx > (camerax() + view_wport[0] + 200)) {
-			finish_thrash = 0;
+			finish_thrash = false;
 			
 			with (thrash)
 				instance_destroy();

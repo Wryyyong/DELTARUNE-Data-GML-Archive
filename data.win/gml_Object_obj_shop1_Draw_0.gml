@@ -105,7 +105,7 @@ if (menu == 0) {
 	menuc[3] = 0;
 	menuc[4] = 0;
 	
-	if (instance_exists(obj_writer) == 0) {
+	if (instance_exists(obj_writer) == false) {
 		global.typer = 6;
 		global.msg[0] = stringsetloc("\\E0* Take your time..^1.&* Ain't like it's&better spent.", "obj_shop1_slash_Draw_0_gml_98_0");
 		
@@ -170,7 +170,7 @@ if (menu == 1 || menu == 2) {
 	if (menu == 1) {
 		menumax = 4;
 		
-		if (instance_exists(obj_writer) == 0) {
+		if (instance_exists(obj_writer) == false) {
 			if (sidemessage == 0)
 				global.msg[0] = stringsetloc("\\E0What do&you like&to buy?", "obj_shop1_slash_Draw_0_gml_148_0");
 			
@@ -339,7 +339,7 @@ if (menu == 3) {
 	draw_set_color(c_white);
 	draw_text(80, 420, string_hash_to_newline(stringsetloc("Exit", "obj_shop1_slash_Draw_0_gml_240_0")));
 	
-	if (instance_exists(obj_writer) == 0) {
+	if (instance_exists(obj_writer) == false) {
 		global.msg[0] = stringsetloc("\\E0Don't have&anything&better&to do.", "obj_shop1_slash_Draw_0_gml_255_0");
 		instance_create(440, 260, obj_writer);
 	}
@@ -380,7 +380,7 @@ if (menu == 10) {
 	draw_text(80, 380, string_hash_to_newline(stringsetloc("Sell Pocket Items", "obj_shop1_slash_Draw_0_gml_292_0")));
 	draw_text(80, 420, string_hash_to_newline(stringsetloc("Return", "obj_shop1_slash_Draw_0_gml_293_0")));
 	
-	if (instance_exists(obj_writer) == 0) {
+	if (instance_exists(obj_writer) == false) {
 		if (sidemessage == 0)
 			global.msg[0] = stringsetloc("\\E0What kind&of junk&you got?", "obj_shop1_slash_Draw_0_gml_285_0");
 		
@@ -491,7 +491,7 @@ if (menu == 10) {
 }
 
 if (menu == 11 || menu == 12 || menu == 13 || menu == 14) {
-	if (instance_exists(obj_writer) == 0) {
+	if (instance_exists(obj_writer) == false) {
 		if (sidemessage2 == 0 && (menu == 11 || menu == 14))
 			global.msg[0] = stringsetloc("\\E0Alright,&give me&an ITEM.", "obj_shop1_slash_Draw_0_gml_347_0");
 		
@@ -538,7 +538,7 @@ if (menu == 4) {
 	if (sell == 0)
 		menu = 0;
 	
-	if (instance_exists(obj_writer) == 0 && selling == 0) {
+	if (instance_exists(obj_writer) == false && selling == 0) {
 		if (sell == 1) {
 		}
 		
@@ -637,7 +637,7 @@ if (menu == 4) {
 		
 		if (sell == 10) {
 			scr_keyitemcheck(13);
-			var show_jevil = 0;
+			var show_jevil = false;
 			
 			if (global.plot < 200) {
 				if (global.flag[312] == 0) {
@@ -655,13 +655,13 @@ if (menu == 4) {
 						msgnextloc("\\E0* As you find stronger treasure^1, I'm sure you'll have little reason to return here./", "obj_shop1_slash_Draw_0_gml_574_0");
 						msgnextloc("\\E2* But if you have some time^1, I'll offer you a biscuit and a hint!/%", "obj_shop1_slash_Draw_0_gml_575_0");
 					} else if (global.flag[241] >= 6 || global.flag[460] == 1) {
-						show_jevil = 1;
+						show_jevil = true;
 						msgsetloc(0, "\\E1* So we are here now^1, in a new world./", "obj_shop1_slash_Draw_0_gml_582_0");
 						msgnextloc("\\E2* And right off the heels of defeating that clown..^1. Incredible./", "obj_shop1_slash_Draw_0_gml_583_0");
 					}
 				} else if (global.flag[241] >= 6 || global.flag[460] == 1) {
 					if (global.flag[954] == 0) {
-						show_jevil = 1;
+						show_jevil = true;
 						msgsetloc(0, "\\E1* Ah^1, yes^1, that's right^1. It didn't occur to me until just now^1, but.../", "obj_shop1_slash_Draw_0_gml_601_0_b");
 						msgnextloc("\\E2* You three defeated that clown last time^1, didn't you^1?/", "obj_shop1_slash_Draw_0_gml_602_0_b");
 					} else {
@@ -688,7 +688,7 @@ if (menu == 4) {
 				if (show_jevil) {
 					global.flag[954] = 1;
 					scr_keyitemremove(13);
-					took_crystal = 1;
+					took_crystal = true;
 					msgnextloc("\\E1* ..^1. Oh? What's that? It seems like he gave something to you./", "obj_shop1_slash_Draw_0_gml_584_0");
 					msgnextloc("\\E0* That's right..^1. You must not have noticed it./", "obj_shop1_slash_Draw_0_gml_585_0");
 					msgnextloc("\\E3* That Crystal..^1. It's nearly invisible^1, but you've been holding it this whole time./", "obj_shop1_slash_Draw_0_gml_586_0");
@@ -703,7 +703,7 @@ if (menu == 4) {
 					msgnextloc("\\E2* I'm sure I can stitch together something incredible for you.../%", "obj_shop1_slash_Draw_0_gml_595_0");
 				}
 			} else {
-				var normal_post_plot = 0;
+				var normal_post_plot = false;
 				
 				if (global.flag[309] < 9) {
 					if (global.flag[954] == 1 && global.flag[961] == 0) {
@@ -727,7 +727,7 @@ if (menu == 4) {
 						msgnextloc("\\E0* As you find stronger treasure^1, I'm sure you'll have little reason to return here./", "obj_shop1_slash_Draw_0_gml_574_0");
 						msgnextloc("\\E2* But if you have some time^1, I'll offer you a biscuit and a hint!/%", "obj_shop1_slash_Draw_0_gml_575_0");
 					} else {
-						normal_post_plot = 1;
+						normal_post_plot = true;
 					}
 				} else if (global.flag[954] == 1) {
 					if (global.flag[353] == 0) {
@@ -740,7 +740,7 @@ if (menu == 4) {
 						msgnextloc("\\E0* Or^1, is it fortunate? Because of that^1, you found a new Crystal./", "obj_shop1_slash_Draw_0_gml_606_0");
 						msgnextloc("\\E2* Here^1, let me hold onto that for you. Ha ha ha!/%", "obj_shop1_slash_Draw_0_gml_607_0");
 						scr_keyitemremove(13);
-						took_crystal = 1;
+						took_crystal = true;
 					} else if (global.flag[353] == 1) {
 						global.flag[353] = 2;
 						scr_speaker("seam");
@@ -788,7 +788,7 @@ if (menu == 4) {
 						msgnextloc("\\E0* Didn't you defeat him? Didn't you defeat Jevil?/", "obj_shop1_slash_Draw_0_gml_641_0_b");
 						msgnextloc("\\E2* Here^1, I'll take that Crystal. Now^1, you have collected 2 of them^1! Huzzah!/%", "obj_shop1_slash_Draw_0_gml_642_0");
 					} else if (global.flag[312] == 1 && !haveit) {
-						normal_post_plot = 1;
+						normal_post_plot = true;
 					}
 					
 					if (global.flag[312] == 0)
@@ -796,7 +796,7 @@ if (menu == 4) {
 					
 					if (haveit == 1) {
 						scr_keyitemremove(13);
-						took_crystal = 1;
+						took_crystal = true;
 					}
 				}
 				
@@ -832,9 +832,9 @@ if (menu == 4) {
 		selling = 1;
 	}
 	
-	if (selling == 1 && instance_exists(obj_writer) == 0) {
+	if (selling == 1 && instance_exists(obj_writer) == false) {
 		if (took_crystal) {
-			took_crystal = 0;
+			took_crystal = false;
 			snd_play(snd_item);
 		}
 		

@@ -94,7 +94,7 @@ battleheart.y = y + 40;
 if (battlemode == 4) {
 	draw_set_color(c_lime);
 	draw_set_alpha(0.5);
-	draw_rectangle(x + 12, y + 40, x + 27, y + 49, false);
+	draw_rectangle(x + 12, y + 40, x + 27, y + 49, 0);
 	draw_line(x + 12, y + 49, x + 19, y + 57);
 	draw_line(x + 26, y + 49, x + 19, y + 57);
 	draw_set_alpha(1);

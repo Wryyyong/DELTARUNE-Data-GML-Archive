@@ -8,6 +8,6 @@ with (obj_saucer) {
 if (count == 6) {
 	with (obj_saucer) {
 		if (mode == 2)
-			activated = 1;
+			activated = true;
 	}
 }

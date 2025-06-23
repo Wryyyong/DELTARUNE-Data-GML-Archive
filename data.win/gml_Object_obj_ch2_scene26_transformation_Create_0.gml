@@ -1,5 +1,5 @@
 max_index = 0;
-image_play = 0;
+image_play = false;
 image_blend = c_black;
 image_speed = 0;
 timer = 0;

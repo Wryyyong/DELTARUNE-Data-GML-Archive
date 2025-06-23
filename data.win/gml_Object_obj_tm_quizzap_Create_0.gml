@@ -5,4 +5,4 @@ xx = x;
 yy = y;
 active = 0;
 image_alpha = 0;
-rotated = 0;
+rotated = false;

@@ -41,7 +41,7 @@ if (obj_mainchara.x > (x - 60) && con == -1) {
 	boxhead = scr_dark_marker(camerax() + 1000, 120, spr_cutscene_13_noelle_box_antlers);
 	ralsei_ball = scr_dark_marker(camerax() + 1000, 120, spr_cutscene_15_ralsei_ball);
 	
-	if (havewalker == 1) {
+	if (havewalker == true) {
 		starwalker = scr_dark_marker(camerax() - 500, 239, spr_npc_originalstarwalker);
 		cutscene_master.save_object[4] = starwalker;
 	}
@@ -124,7 +124,7 @@ if (con == 1) {
 	c_var_lerp_instance(ralsei_ball, "y", 264, 145, 5);
 	c_wait(5);
 	c_var_instance(ralsei_ball, "visible", 0);
-	c_var_instance(id, "hit_bottles", 1);
+	c_var_instance(id, "hit_bottles", true);
 	c_sel(no);
 	c_sprite(spr_cutscene_13_noelle_box_walk_down);
 	c_halt();
@@ -268,10 +268,10 @@ if (con == 1) {
 	c_imagespeed(0.25);
 	c_delaycmd(20, "sprite", spr_cutscene_15_susie_heal_loop);
 	c_wait(30);
-	c_var_instance(id, "susie_heal", 1);
+	c_var_instance(id, "susie_heal", true);
 	c_wait(40);
 	c_soundplay(snd_spellcast);
-	c_var_instance(id, "heal_effect", 1);
+	c_var_instance(id, "heal_effect", true);
 	c_sel(su);
 	c_arg_objectxy(su_actor, 39, 21);
 	c_setxy(x, y);
@@ -391,7 +391,7 @@ if (con == 10) {
 	c_wait(5);
 	c_sel(ra);
 	c_imagespeed(0);
-	c_var_instance(id, "box_remove_effect", 1);
+	c_var_instance(id, "box_remove_effect", true);
 	c_sel(no);
 	c_shakeobj();
 	c_sprite(spr_noelle_shocked_dw);
@@ -674,7 +674,7 @@ if (con == 40) {
 	global.flag[307] = 4;
 	con = 2;
 	alarm[0] = 30;
-	berdlygift = 1;
+	berdlygift = true;
 	c_pannable(1);
 	c_pan(1074, 0, 40);
 	c_sel(be);
@@ -721,7 +721,7 @@ if (con == 40) {
 	c_speaker("berdly");
 	c_msgsetloc(0, "\\E3* H..^1. huh...?/%", "obj_ch2_city07_slash_Step_0_gml_1017_0");
 	c_talk_wait();
-	c_var_instance(id, "present_transform", 1);
+	c_var_instance(id, "present_transform", true);
 	c_soundplay(snd_spearrise);
 	c_wait(5);
 	c_sel(gi);
@@ -1038,7 +1038,7 @@ if (con == 9) {
 	con = 49;
 	alarm[0] = 30;
 	
-	if (berdlygift == 1) {
+	if (berdlygift == true) {
 		c_sel(be);
 		c_walkdirect_wait(1410, 215, 30);
 		c_speaker("berdly");
@@ -1052,7 +1052,7 @@ if (con == 9) {
 		c_talk_wait();
 	}
 	
-	if (havewalker == 1) {
+	if (havewalker == true) {
 		c_pannable(1);
 		c_panspeed(-5, 0, 15);
 		var starXPos = berdlygift ? 1005 : 1054;
@@ -1079,7 +1079,7 @@ if (con == 60 && !i_ex(obj_cutscene_master)) {
 	global.plot = 95;
 	global.interact = 0;
 	global.facing = 0;
-	explore = 1;
+	explore = true;
 	scr_makecaterpillar(su_actor.x, su_actor.y, 2, 0);
 	scr_makecaterpillar(no_actor.x, no_actor.y, 4, 1);
 	scr_makecaterpillar(ra_actor.x, ra_actor.y, 3, 2);
@@ -1138,11 +1138,11 @@ if (hit_bottles) {
 		with (explosion_marker)
 			scr_depth();
 	} else {
-		var finish = 0;
+		var finish = false;
 		
 		with (obj_marker) {
 			if (sprite_index == spr_realisticexplosion && image_index >= 16) {
-				finish = 1;
+				finish = true;
 				instance_destroy();
 			}
 		}
@@ -1158,7 +1158,7 @@ if (hit_bottles) {
 	}
 	
 	if (hit_timer >= 30)
-		hit_bottles = 0;
+		hit_bottles = false;
 }
 
 if (susie_heal) {
@@ -1174,13 +1174,13 @@ if (susie_heal) {
 	heal_beam.x += 2;
 	
 	if (heal_beam.x >= 1310) {
-		susie_heal = 0;
+		susie_heal = false;
 		instance_destroy(heal_beam);
 	}
 }
 
 if (heal_effect) {
-	heal_effect = 0;
+	heal_effect = false;
 	healamt = instance_create(kr_actor.x, kr_actor.y, obj_dmgwriter);
 	
 	with (healamt) {
@@ -1205,7 +1205,7 @@ if (box_remove_effect) {
 	}
 	
 	if (box_remove_timer >= 5) {
-		box_remove_effect = 0;
+		box_remove_effect = false;
 		
 		with (fx)
 			instance_destroy();
@@ -1213,7 +1213,7 @@ if (box_remove_effect) {
 }
 
 if (present_transform) {
-	present_transform = 0;
+	present_transform = false;
 	
 	if (gi_actor != -4) {
 		with (gi_actor)

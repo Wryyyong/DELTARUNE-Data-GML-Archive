@@ -92,7 +92,7 @@ if (leapmode == 0) {
 			global.turntimer = -1;
 			
 			with (obj_checkers_enemy_ch1)
-				visible = true;
+				visible = 1;
 			
 			instance_destroy();
 		}
@@ -114,7 +114,7 @@ if (leapmode == 1) {
 			global.turntimer = -1;
 			
 			with (obj_checkers_enemy_ch1)
-				visible = true;
+				visible = 1;
 			
 			instance_destroy();
 		}
@@ -314,7 +314,7 @@ if (leapmode == 2) {
 			instance_destroy();
 			
 			with (obj_checkers_enemy_ch1)
-				visible = true;
+				visible = 1;
 		}
 	}
 }
@@ -389,7 +389,7 @@ if (leapmode == 3) {
 			instance_destroy();
 			
 			with (obj_checkers_enemy_ch1)
-				visible = true;
+				visible = 1;
 		}
 	}
 }
@@ -451,7 +451,7 @@ if (leapmode == 4) {
 			global.turntimer = -1;
 			
 			with (obj_checkers_enemy_ch1)
-				visible = true;
+				visible = 1;
 			
 			instance_destroy();
 		}

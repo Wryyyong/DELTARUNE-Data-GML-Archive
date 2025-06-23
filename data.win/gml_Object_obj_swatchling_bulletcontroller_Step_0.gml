@@ -86,7 +86,7 @@ if (type == 5 && sameattacker < 2 && obj_swatchling_battle_controller.red_count 
 		var _shockwave = !_bounce && obj_swatchling_battle_controller.red_count > 0;
 		
 		if (sameattack > 1)
-			_bounce = 0;
+			_bounce = false;
 		
 		var _combo = _shockwave || _bounce;
 		xx = (sameattacker || _shockwave) ? (minx - 120) : (maxx + 120);
@@ -123,7 +123,7 @@ if (type == 5 && sameattacker < 2 && obj_swatchling_battle_controller.red_count 
 		d.target = target;
 		d.grazepoints = 4;
 		d.childgraze = 4;
-		global.monsterinstance[creator].visible = false;
+		global.monsterinstance[creator].visible = 0;
 		
 		if (sameattack > 1)
 			d.trackplayer = -1;

@@ -6,7 +6,7 @@ if (instance_exists(obj_MovingPlat_dw_cyber_music_final)) {
 	lx = (((xx + 330) - 38) + 2) - 4;
 }
 
-if (active == 1)
+if (active == true)
 	timer++;
 
 if (timer == 45) {

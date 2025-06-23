@@ -1,5 +1,5 @@
 event_inherited();
-canttalk = 0;
+canttalk = false;
 disableflag = 0;
 disableplot = 0;
 stayVisible = 0;

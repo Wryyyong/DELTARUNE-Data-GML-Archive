@@ -1,7 +1,7 @@
 if (active == 1) {
 	spelltimer += 1;
 	
-	if (spelltimer >= global.spelldelay && instance_exists(spellwriter) == 0) {
+	if (spelltimer >= global.spelldelay && instance_exists(spellwriter) == false) {
 		if (char >= 3 || spelltotal == 1) {
 			scr_attackphase_ch1();
 			

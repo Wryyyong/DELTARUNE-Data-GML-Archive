@@ -20,7 +20,7 @@ enum e__VW {
 
 if (con > 0) {
 	if (con == 2) {
-		persistent = true;
+		persistent = 1;
 		__view_set(e__VW.Object, 0, -4);
 		
 		with (k) {
@@ -40,7 +40,7 @@ if (con > 0) {
 		con = 3;
 	}
 	
-	if (con == 3 && instance_exists(obj_dialoguer_ch1) == 0) {
+	if (con == 3 && instance_exists(obj_dialoguer_ch1) == false) {
 		mus_play_ch1(global.currentsong[0]);
 		alarm[5] = 20;
 		
@@ -119,10 +119,10 @@ if (con > 0) {
 		cty = c.y - t.y;
 		
 		with (t)
-			visible = false;
+			visible = 0;
 		
 		with (k)
-			visible = false;
+			visible = 0;
 	}
 	
 	if (con == 13) {
@@ -193,7 +193,7 @@ if (con > 0) {
 		__view_set(e__VW.Object, 0, -4);
 		
 		with (obj_mainchara_ch1) {
-			visible = false;
+			visible = 0;
 			cutscene = 1;
 		}
 		
@@ -292,7 +292,7 @@ if (con > 0) {
 		__view_set(e__VW.Object, 0, -4);
 		
 		with (obj_mainchara_ch1) {
-			visible = false;
+			visible = 0;
 			cutscene = 1;
 		}
 		
@@ -335,7 +335,7 @@ if (con > 0) {
 		__view_set(e__VW.Object, 0, -4);
 		
 		with (obj_mainchara_ch1) {
-			visible = false;
+			visible = 0;
 			cutscene = 1;
 		}
 		
@@ -415,7 +415,7 @@ if (con > 0) {
 		__view_set(e__VW.Object, 0, -4);
 		
 		with (obj_mainchara_ch1) {
-			visible = false;
+			visible = 0;
 			cutscene = 1;
 		}
 		
@@ -478,7 +478,7 @@ if (con > 0) {
 		
 		with (k) {
 			depth = 50000;
-			visible = true;
+			visible = 1;
 			image_speed = 0.2;
 			sprite_index = spr_krisr_ch1;
 			hspeed = 1;
@@ -487,7 +487,7 @@ if (con > 0) {
 		with (t) {
 			image_speed = 0.2;
 			depth = 50000;
-			visible = true;
+			visible = 1;
 			sprite_index = spr_toriel_l_ch1;
 			hspeed = -1;
 		}
@@ -558,7 +558,7 @@ if (con > 0) {
 	
 	if (con == 49) {
 		with (k)
-			visible = false;
+			visible = 0;
 		
 		with (t)
 			sprite_index = spr_toriel_handhold_r_ch1;
@@ -592,7 +592,7 @@ if (con > 0) {
 			fadespeed = 0.03;
 		
 		con = 56;
-		persistent = false;
+		persistent = 0;
 		alarm[4] = 40;
 	}
 	

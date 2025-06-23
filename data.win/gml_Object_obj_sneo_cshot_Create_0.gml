@@ -15,5 +15,5 @@ weakpoint.barrier = self;
 weakpoint.depth = depth - 1;
 destroyonhit = 0;
 hitfreeze = 0;
-hit = 0;
+hit = false;
 movementstyle = 0;

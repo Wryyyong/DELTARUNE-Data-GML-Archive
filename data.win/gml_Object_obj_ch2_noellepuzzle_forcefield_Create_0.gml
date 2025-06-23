@@ -14,5 +14,5 @@ f = 2;
 sold = 0;
 black_override = 0;
 stayVisible = 0;
-fadeout = 0;
+fadeout = false;
 scr_depth();

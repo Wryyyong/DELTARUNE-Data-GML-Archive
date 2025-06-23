@@ -281,5 +281,5 @@ function scr_gamestart_ch1() {
 	}
 	
 	global.currentroom = 0;
-	global.disable_border = 0;
+	global.disable_border = false;
 }

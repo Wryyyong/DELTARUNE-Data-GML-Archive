@@ -38,7 +38,7 @@ if (copy_sprite) {
 } else if (target_char.sprite_index == target_char.lsprite) {
 	sprite_index = lsprite;
 } else if (target_char.sprite_index == target_char.rsprite || target_char.sprite_index == spr_noelle_walk_face_up_dw) {
-	obj_silhouette_base.outline = 1;
+	obj_silhouette_base.outline = true;
 	sprite_index = rsprite;
 } else {
 	sprite_index = target_char.sprite_index;
@@ -46,11 +46,11 @@ if (copy_sprite) {
 
 depth = 4000;
 gpu_set_blendenable(false);
-gpu_set_colorwriteenable(0, 0, 0, 1);
+gpu_set_colorwriteenable(false, false, false, true);
 draw_set_alpha(0);
 draw_rectangle(0, 0, room_width, room_height, false);
 draw_set_alpha(1);
-gpu_set_alphatestenable(1);
+gpu_set_alphatestenable(true);
 gpu_set_blendenable(true);
 
 if (instance_number(obj_silhouette_cover) > 0) {
@@ -71,9 +71,9 @@ if (outline) {
 	draw_sprite_ext(sprite_index, target_char.image_index, target_char.x, target_char.y, target_char.image_xscale, target_char.image_yscale, 0, c_black, 1);
 }
 
-gpu_set_colorwriteenable(1, 1, 1, 1);
+gpu_set_colorwriteenable(true, true, true, true);
 gpu_set_blendmode_ext(7, bm_inv_dest_alpha);
-gpu_set_alphatestenable(1);
+gpu_set_alphatestenable(true);
 d3d_set_fog(true, color, 0, 1);
 
 if (outline) {
@@ -87,5 +87,5 @@ if (outline) {
 
 draw_sprite_ext(sprite_index, target_char.image_index, target_char.x, target_char.y, target_char.image_xscale, target_char.image_yscale, 0, c_black, 0.5);
 d3d_set_fog(false, c_black, 0, 0);
-gpu_set_alphatestenable(0);
+gpu_set_alphatestenable(false);
 gpu_set_blendmode(bm_normal);

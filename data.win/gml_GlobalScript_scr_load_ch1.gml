@@ -11,11 +11,10 @@ function scr_load_ch1() {
 	myfileid = ossafe_file_text_open_read_ch1(file);
 	
 	if (instance_exists(obj_loadscreen_ch1))
-		obj_loadscreen_ch1.save_loaded = 1;
+		obj_loadscreen_ch1.save_loaded = true;
 	
 	global.truename = ossafe_file_text_read_string_ch1(myfileid);
 	ossafe_file_text_readln_ch1(myfileid);
-	show_debug_message("*** loaded global.truename : " + string(global.truename));
 	
 	if (global.is_console) {
 		var othername_list = scr_ds_list_read_ch1(myfileid);
@@ -306,12 +305,9 @@ function scr_load_ch1() {
 		global.flag[279] = 1;
 		var room_index = global.currentroom;
 		var room_offset = room_index;
-		show_debug_message("trying to load : " + string(room_get_name(room_index)));
 		
-		if (room_index < 280) {
-			room_offset = 280 + room_index;
-			show_debug_message("offset added : " + string(room_get_name(room_offset)));
-		}
+		if (room_index < 281)
+			room_offset = 281 + room_index;
 		
 		global.currentroom = room_offset;
 	}
@@ -319,7 +315,7 @@ function scr_load_ch1() {
 	__loadedroom = global.currentroom;
 	
 	if (scr_dogcheck_ch1())
-		__loadedroom = 411;
+		__loadedroom = 412;
 	
 	room_goto(__loadedroom);
 	global.currentroom = __loadedroom;

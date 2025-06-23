@@ -7,10 +7,10 @@ if (con == 1) {
 	if (swan == 0) {
 		active = 1;
 		con = 2;
-		obj_mainchara.visible = false;
+		obj_mainchara.visible = 0;
 		
 		with (obj_caterpillarchara)
-			visible = false;
+			visible = 0;
 	}
 	
 	if (swan == 1) {
@@ -144,7 +144,7 @@ if (con == 2) {
 					msgsetloc(0, "\\EM* Now, we have to think of some way to distract Queen.../%", "obj_queencar_slash_Step_0_gml_147_0");
 					
 					with (obj_ch2_scene21)
-						queen_heckle = 1;
+						queen_heckle = true;
 				}
 				
 				if (talkcon == 2) {
@@ -153,12 +153,12 @@ if (con == 2) {
 					msgsetloc(0, "\\EM* What are these..^1. Little houses?/%", "obj_queencar_slash_Step_0_gml_155_0");
 					
 					with (obj_ch2_scene21)
-						queen_heckle = 1;
+						queen_heckle = true;
 				}
 				
 				if (talkcon == 3) {
 					with (obj_ch2_scene21)
-						queen_heckle = 1;
+						queen_heckle = true;
 				}
 			}
 			

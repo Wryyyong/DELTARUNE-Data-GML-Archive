@@ -1,1 +1,1 @@
-update_word = 1;
+update_word = true;

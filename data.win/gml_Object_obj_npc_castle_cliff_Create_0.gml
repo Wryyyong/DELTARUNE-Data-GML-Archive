@@ -9,9 +9,9 @@ siner1 = 0;
 siner_add1 = 0.2;
 siner_amplitude1 = 5;
 siner_direction1 = 90;
-sfx = 0;
+sfx = false;
 shine = -4;
-remove_shine = 0;
+remove_shine = false;
 
 if (global.plot >= 10) {
 	if (scr_armorcheck_equipped_party(7) == 0 && scr_armorcheck_inventory(7) == 0 && scr_weaponcheck_inventory(7) == 0 && global.charweapon[2] != 7) {
@@ -24,7 +24,7 @@ if (global.plot >= 10) {
 	var show_shine = global.tempflag[36] == 1 || global.tempflag[36] == 2;
 	
 	if (show_shine && global.plot >= 200 && global.flag[309] < 9)
-		show_shine = 0;
+		show_shine = false;
 	
 	var hole = scr_marker(281, 200, spr_darkwest_hole);
 	

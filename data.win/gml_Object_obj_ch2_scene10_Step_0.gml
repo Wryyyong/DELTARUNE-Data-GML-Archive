@@ -12,10 +12,10 @@ if (con == 1) {
 	cutscene_master = scr_cutscene_make();
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	with (obj_caterpillarchara)
-		visible = false;
+		visible = 0;
 	
 	kr = 0;
 	kr_actor = instance_create(obj_mainchara.x - 100, obj_mainchara.y - 16, obj_actor);
@@ -72,7 +72,7 @@ if (con == 1) {
 	c_sel(ar);
 	c_autowalk(0);
 	c_visible(0);
-	c_var_instance(id, "pause_music", 1);
+	c_var_instance(id, "pause_music", true);
 	c_wait(25);
 	c_mus2("initloop", "queen.ogg", 0);
 	c_wait(5);
@@ -498,16 +498,16 @@ if (con == 4) {
 	cutscene_master = scr_cutscene_make();
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	with (su_npc)
-		visible = false;
+		visible = 0;
 	
 	with (ra_npc)
-		visible = false;
+		visible = 0;
 	
 	with (qu_npc)
-		visible = false;
+		visible = 0;
 	
 	kr = 0;
 	kr_actor = instance_create(obj_mainchara.x, obj_mainchara.y, obj_actor);
@@ -703,13 +703,13 @@ if (con == 10) {
 	cutscene_master = scr_cutscene_make();
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	with (global.cinstance[0])
-		visible = false;
+		visible = 0;
 	
 	with (global.cinstance[1])
-		visible = false;
+		visible = 0;
 	
 	kr = 0;
 	kr_actor = instance_create(261, 143, obj_actor);
@@ -921,13 +921,13 @@ if (con == 20) {
 	con = 9;
 	
 	with (obj_mainchara)
-		visible = false;
+		visible = 0;
 	
 	with (global.cinstance[0])
-		visible = false;
+		visible = 0;
 	
 	with (global.cinstance[1])
-		visible = false;
+		visible = 0;
 	
 	ra_actor = instance_create(ra_x_save, ra_y_save, obj_marker);
 	ra_actor.sprite_index = spr_cutscene_10_ralsei_splat;
@@ -1025,6 +1025,6 @@ if (con == 14 && customcon == 0) {
 }
 
 if (pause_music) {
-	pause_music = 0;
+	pause_music = false;
 	snd_free_all();
 }

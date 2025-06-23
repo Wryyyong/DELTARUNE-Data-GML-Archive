@@ -712,9 +712,9 @@ if (global.interact == 5) {
 				var _border = border_options[selected_border];
 				
 				if (_border == border_options[2])
-					scr_enable_screen_border(0);
+					scr_enable_screen_border(false);
 				else
-					scr_enable_screen_border(1);
+					scr_enable_screen_border(true);
 				
 				global.screen_border_id = border_options[selected_border];
 				check_border = 0;

@@ -54,10 +54,10 @@ if (con == 4) {
 	
 	with (obj_mainchara) {
 		if (place_meeting(x, y, obj_traffic_road_trigger))
-			other.triggered = 1;
+			other.triggered = true;
 	}
 	
-	if (global.flag[420] == 1 && triggered == 1) {
+	if (global.flag[420] == 1 && triggered == true) {
 		scr_tempsave();
 		realral.x = npcral.x;
 		realral.y = npcral.y;

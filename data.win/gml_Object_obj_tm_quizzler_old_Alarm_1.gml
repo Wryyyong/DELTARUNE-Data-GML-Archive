@@ -1,8 +1,8 @@
 animator.state = 3;
 
 if (dojo) {
-	animator.quizloop = 1;
-	restart = 1;
+	animator.quizloop = true;
+	restart = true;
 	state = 0;
 	timer = 0;
 	

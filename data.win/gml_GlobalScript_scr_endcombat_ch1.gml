@@ -25,10 +25,10 @@ function scr_endcombat_ch1() {
 			scr_pan_to_obj_ch1(obj_mainchara_ch1, 30);
 			
 			with (obj_mainchara_ch1)
-				visible = true;
+				visible = 1;
 			
 			with (obj_caterpillarchara_ch1)
-				visible = true;
+				visible = 1;
 		}
 		
 		instance_create_ch1(0, 0, obj_endbattle_ch1);

@@ -22,7 +22,7 @@ if (global.interact == 0) {
 			}
 			
 			with (obj_starwalker_overworld_ch1) {
-				visible = false;
+				visible = 0;
 				beatcon = 1;
 				beattimer = 0;
 				

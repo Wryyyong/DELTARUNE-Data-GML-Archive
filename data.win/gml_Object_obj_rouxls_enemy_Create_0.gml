@@ -1,6 +1,7 @@
 scr_enemy_object_init();
 var tensionbonus = (global.flag[458] / 7) * global.maxtension * 0.3;
 scr_tensionheal(tensionbonus);
+global.temptension[0] = tensionbonus;
 talkmax = 90;
 image_speed = 0.16666666666666666;
 idlesprite = spr_rurus_pirate;
@@ -70,10 +71,10 @@ if (room != room_dw_mansion_acid_tunnel_loop_rouxls) {
 
 if (!scr_debug() || room == room_dw_mansion_acid_tunnel_loop_rouxls) {
 	with (obj_simtown_landmaker)
-		visible = false;
+		visible = 0;
 	
 	with (obj_simtown_acidmaker)
-		visible = false;
+		visible = 0;
 }
 
 if (!i_ex(obj_rouxls_simtown))

@@ -35,11 +35,11 @@ if (con == 1) {
 
 if (!d_ex()) {
 	with (puzboy)
-		fade = 1;
+		fade = true;
 	
 	if (i_ex(obj_tutorial_bullet)) {
 		with (obj_tutorial_bullet)
-			fade = 1;
+			fade = true;
 	}
 	
 	growtangle.growcon = 3;

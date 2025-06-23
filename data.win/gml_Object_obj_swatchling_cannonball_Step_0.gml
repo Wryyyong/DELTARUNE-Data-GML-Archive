@@ -1,7 +1,7 @@
 if (!heart_found && instance_exists(obj_heart)) {
 	if (instance_exists(obj_heart)) {
 		nexttarget = obj_heart.x;
-		heart_found = 1;
+		heart_found = true;
 	}
 }
 
@@ -11,7 +11,7 @@ if (phase == 0) {
 	if (trackplayer == 0) {
 		if (instance_exists(obj_heart)) {
 			nexttarget = obj_heart.x;
-			heart_found = 1;
+			heart_found = true;
 		}
 	}
 	
@@ -68,7 +68,7 @@ if (phase == 0) {
 				if (timer < 0)
 					timer = 0;
 				
-				opened = 1;
+				opened = true;
 			}
 		} else if (spawnbullets) {
 			for (i = 0; i < 4; i++) {

@@ -3,7 +3,7 @@ alarm[1] = 40;
 scr_mercyadd(myself, 100);
 snd_play_pitch(snd_damage, 1.5);
 image_speed = 0;
-shaved = 1;
+shaved = true;
 global.flag[20] = 0;
 sparedsprite = spr_npc_puzzlepiece_shaved_frown;
 hurtsprite = spr_npc_puzzlepiece_shock2_shaved;

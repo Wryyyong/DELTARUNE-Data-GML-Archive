@@ -11,7 +11,7 @@ if (con == 1) {
 	
 	with (obj_npc_mansion_room) {
 		if (sprite_index == spr_dw_mansion_room_kris_talk_tube)
-			visible = false;
+			visible = 0;
 	}
 	
 	cutscene_master = scr_cutscene_make();
@@ -125,14 +125,14 @@ if (lancercon == 1 && global.interact == 0) {
 	
 	if ((talktimer % talkinterval) == 0 && !lancertalking) {
 		talkstart = talktimer;
-		lancertalking = 1;
+		lancertalking = true;
 	}
 	
 	if (lancertalking) {
 		snd_play(snd_txtlan);
 		
 		if (talktimer >= (talkstart + 5)) {
-			lancertalking = 0;
+			lancertalking = false;
 			talkinterval = choose(90, 150, 240);
 		}
 	}
@@ -318,7 +318,7 @@ if (con == 11) {
 	c_sel(la);
 	c_walk_wait("u", 10, 12);
 	c_wait(5);
-	c_var_instance(id, "monitor_on", 1);
+	c_var_instance(id, "monitor_on", true);
 	c_soundplay(snd_spearappear);
 	c_wait(30);
 	c_facing("d");
@@ -338,31 +338,31 @@ if (con == 11) {
 	c_imagespeed(0.25);
 	c_autowalk(0);
 	c_walk("r", 5, 20);
-	c_var_instance(id, "lancer_typing_start", 1);
+	c_var_instance(id, "lancer_typing_start", true);
 	c_speaker("lancer");
 	c_msgsetloc(0, "* Item request: Shovel./%", "obj_ch2_scene17b_slash_Step_0_gml_479_0");
 	c_talk();
 	c_wait(20);
-	c_var_instance(id, "lancer_typing_stop", 1);
+	c_var_instance(id, "lancer_typing_stop", true);
 	c_waittalk();
 	c_imagespeed(0.25);
 	c_autowalk(0);
 	c_walk("l", 5, 20);
-	c_var_instance(id, "lancer_typing_start", 1);
+	c_var_instance(id, "lancer_typing_start", true);
 	c_speaker("lancer");
 	c_msgsetloc(0, "\\E3* Quantity: Let's say..^1. 999./%", "obj_ch2_scene17b_slash_Step_0_gml_487_0");
 	c_talk();
 	c_wait(20);
-	c_var_instance(id, "lancer_typing_stop", 1);
+	c_var_instance(id, "lancer_typing_stop", true);
 	c_waittalk();
 	c_soundplay(snd_jump);
 	c_jump(220, 143, 10, 10);
 	c_sprite(spr_lancer_ut);
 	c_autowalk(1);
 	c_soundplay(snd_error);
-	c_var_instance(id, "overload", 1);
+	c_var_instance(id, "overload", true);
 	c_wait(15);
-	c_var_instance(id, "open_capsule", 1);
+	c_var_instance(id, "open_capsule", true);
 	c_soundplay(snd_spearappear);
 	c_wait(20);
 	c_soundplay(snd_impact);
@@ -411,38 +411,38 @@ if ((con == 0 && obj_mainchara.x <= 260) || obj_mainchara.x >= 360)
 	instance_destroy();
 
 if (lancer_typing_start) {
-	lancer_typing_start = 0;
+	lancer_typing_start = false;
 	
 	if (i_ex(obj_ch2_scene17b_lancer_type)) {
 		with (obj_ch2_scene17b_lancer_type)
-			typing = 1;
+			typing = true;
 	}
 }
 
 if (lancer_typing_stop) {
-	lancer_typing_stop = 0;
+	lancer_typing_stop = false;
 	
 	if (i_ex(obj_ch2_scene17b_lancer_type)) {
 		with (obj_ch2_scene17b_lancer_type)
-			typing = 0;
+			typing = false;
 	}
 }
 
 if (monitor_on) {
-	monitor_on = 0;
+	monitor_on = false;
 	
 	if (i_ex(obj_ch2_scene17b_lancer_type)) {
 		with (obj_ch2_scene17b_lancer_type)
-			monitor_on = 1;
+			monitor_on = true;
 	}
 }
 
 if (overload) {
-	overload = 0;
+	overload = false;
 	
 	if (i_ex(obj_ch2_scene17b_lancer_type)) {
 		with (obj_ch2_scene17b_lancer_type)
-			overload = 1;
+			overload = true;
 	}
 }
 
@@ -454,7 +454,7 @@ if (open_capsule) {
 		image_speed = 0.25;
 	
 	if (cagetop.image_index >= 5) {
-		open_capsule = 0;
+		open_capsule = false;
 		
 		with (cagetop) {
 			image_speed = 0;

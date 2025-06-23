@@ -176,7 +176,7 @@ if (global.myfight == 3) {
 		global.msg[0] = stringsetloc("* Ralsei sang a soft and entrancing lullaby!/%", "obj_ponman_enemy_slash_Step_0_gml_134_0");
 		
 		with (obj_heroralsei)
-			visible = false;
+			visible = 0;
 		
 		ralsing = scr_dark_marker(obj_heroralsei.x, obj_heroralsei.y, spr_ralseib_sing);
 		
@@ -215,12 +215,12 @@ if (global.myfight == 3) {
 			actcon = 11;
 	}
 	
-	if (actcon == 11 && instance_exists(obj_writer) == 0) {
+	if (actcon == 11 && instance_exists(obj_writer) == false) {
 		with (ralsing)
 			instance_destroy();
 		
 		with (obj_heroralsei)
-			visible = true;
+			visible = 1;
 		
 		snd_stop(singy);
 		snd_resume(global.batmusic[1]);

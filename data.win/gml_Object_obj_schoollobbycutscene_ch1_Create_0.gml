@@ -13,7 +13,7 @@ if (global.plot < 2) {
 	alarm[5] = 2;
 	
 	with (obj_mainchara_ch1)
-		visible = false;
+		visible = 0;
 	
 	t = scr_marker_ch1(460, 360, spr_toriel_handhold_u_ch1);
 	
@@ -32,7 +32,7 @@ if (global.plot == 3) {
 	type = 2;
 	
 	with (obj_mainchara_ch1) {
-		visible = false;
+		visible = 0;
 		x = obj_markerB_ch1.x;
 		y = obj_markerB_ch1.y;
 	}

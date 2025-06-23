@@ -114,7 +114,7 @@ if (MyTurn == 1) {
 	
 	if (global.is_console || obj_gamecontroller.gamepad_active) {
 		var button_offset = (global.lang == "en") ? 0 : -122;
-		draw_sprite_ext(scr_getbuttonsprite(global.input_g[4], 0), 0, base_xpos + 233 + button_offset, base_ypos + 391, 2, 2, 0, c_white, 1);
+		draw_sprite_ext(scr_getbuttonsprite(global.input_g[4], false), 0, base_xpos + 233 + button_offset, base_ypos + 391, 2, 2, 0, c_white, 1);
 		
 		if (global.lang == "en") {
 			draw_text(base_xpos + 66, base_ypos + 387, stringsetloc("* Claim with", "obj_rouxls_simtown_slash_Draw_0_gml_103_0"));

@@ -16,8 +16,10 @@ if (myinteract == 3) {
 		image_speed = 0.334;
 	}
 	
-	if (i_ex(mydialoguer) == 0) {
-		global.interact = 0;
+	if (i_ex(mydialoguer) == false) {
+		if (!instance_exists(obj_fusionmenu))
+			global.interact = 0;
+		
 		myinteract = 0;
 		
 		with (obj_mainchara)

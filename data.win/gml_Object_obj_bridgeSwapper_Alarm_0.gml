@@ -31,7 +31,7 @@ if (swapped == 0) {
 		extflag = "triggered";
 		
 		if (instance_exists(obj_controller_dw_mansion_bridges_funny))
-			obj_controller_dw_mansion_bridges_funny.saved = 1;
+			obj_controller_dw_mansion_bridges_funny.saved = true;
 	}
 	
 	swapped = 1;

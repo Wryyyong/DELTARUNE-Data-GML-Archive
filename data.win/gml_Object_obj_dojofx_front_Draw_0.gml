@@ -44,7 +44,7 @@ if (global.fighting == 1) {
 				var lightHeight = 280;
 				draw_sprite_pos(spr_whitegradientdown_40, 0, myx[i], myy[i] - lightHeight, myx[i], myy[i] - lightHeight, (myx[i] - (width[i] / 2)) + 2, myy[i] - 2, myx[i] + (width[i] / 2), myy[i] - 2, 0.25);
 				draw_set_color(c_gray);
-				draw_ellipse(myx[i] - (width[i] / 2), myy[i] + 4, myx[i] + (width[i] / 2), myy[i] - 10, 0);
+				draw_ellipse(myx[i] - (width[i] / 2), myy[i] + 4, myx[i] + (width[i] / 2), myy[i] - 10, false);
 			}
 		}
 	}

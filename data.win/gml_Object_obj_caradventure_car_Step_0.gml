@@ -28,11 +28,11 @@ if (active) {
 		hspeed = 0;
 	
 	__view_set(e__VW.XView, 0, __view_get(e__VW.XView, 0) + hspeed);
-	var canmove = 1;
+	var canmove = true;
 	
 	if (room == room_dw_city_traffic_4) {
 		if (x < 1080)
-			canmove = 0;
+			canmove = false;
 	}
 	
 	if (canmove) {
@@ -289,7 +289,7 @@ if (active) {
 			}
 		}
 		
-		finish_convo = 1;
+		finish_convo = true;
 	}
 } else {
 	hspeed = 0;

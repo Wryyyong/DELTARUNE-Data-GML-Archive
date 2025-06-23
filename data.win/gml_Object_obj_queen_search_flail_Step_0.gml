@@ -2,7 +2,7 @@ flip = 1;
 
 if (broken > 0) {
 	if (broken == 1) {
-		direction = scr_getlaunchdirection(18, 628 - x, 0.75, 1);
+		direction = scr_getlaunchdirection(18, 631 - x, 0.75, 1);
 		speed = 18;
 		gravity = 0.75;
 		var chaindirection = point_direction(xstart, ystart, x, y);
@@ -74,7 +74,7 @@ if (timer >= 400 && impact == 0) {
 		rotate_speed = 40;
 	
 	scr_orbitaroundpoint_dx(xstart, ystart, min((lengthtimer * 2) + _chainlength, maxchainlength), (rotateposition * 8 * flip) + direction);
-	d = instance_exists(obj_shake) ? 191 : instance_create(0, 0, obj_shake);
+	d = instance_exists(obj_shake) ? 193 : instance_create(0, 0, obj_shake);
 	d.shakex = ceil(2);
 	d.shakey = ceil(2);
 	snd_play(snd_screenshake);

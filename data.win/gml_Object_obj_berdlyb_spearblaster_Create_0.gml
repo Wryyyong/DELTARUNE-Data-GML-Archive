@@ -6,4 +6,4 @@ if (scr_sideb_get_phase() > 0)
 	sprite_index = spr_berdlyb_super_jump_serious;
 
 con = 0;
-loop = 0;
+loop = false;

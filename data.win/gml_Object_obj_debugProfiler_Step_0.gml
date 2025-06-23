@@ -79,10 +79,10 @@ if (keyboard_check(vk_shift) && keyboard_check(vk_control) && keyboard_check_pre
 if (keyboard_check(vk_shift) && keyboard_check(vk_control) && keyboard_check_pressed(ord("T"))) {
 	snd_play_pitch(snd_bump, 0.8);
 	
-	if (cutsceneshow == 1)
-		cutsceneshow = 0;
+	if (cutsceneshow == true)
+		cutsceneshow = false;
 	else
-		cutsceneshow = 1;
+		cutsceneshow = true;
 	
 	scr_debug_print("cutsceneshow = " + string(cutsceneshow));
 }

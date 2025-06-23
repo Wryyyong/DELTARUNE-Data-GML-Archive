@@ -37,7 +37,7 @@ function scr_gameover() {
 	if (global.flag[35] == 0) {
 		audio_stop_all();
 		snd_play(snd_hurt1);
-		global.screenshot = sprite_create_from_surface(application_surface, 0, 0, __view_get(e__VW.WView, 0), __view_get(e__VW.HView, 0), false, false, 0, 0);
+		global.screenshot = sprite_create_from_surface(application_surface, 0, 0, __view_get(e__VW.WView, 0), __view_get(e__VW.HView, 0), 0, 0, 0, 0);
 		snd_free_all();
 		room_goto(room_gameover);
 	}

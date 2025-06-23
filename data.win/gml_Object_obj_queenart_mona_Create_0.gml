@@ -37,11 +37,11 @@ if (room == room_dw_mansion_fire_paintings) {
 			treasure = instance_create(x + (sprite_width / 2), y, obj_queenart_red);
 			treasure.spriteindex2 = spr_queenart_treasure_middlepoint;
 			treasure.sprite_index = treasure.spriteindex2;
-			treasure.flippable = 0;
+			treasure.flippable = false;
 			treasure.extflag = "treasure";
-			treasure.isswitch = 1;
+			treasure.isswitch = true;
 			treasure.spriteindex1 = spr_queenart_mona_middlepoint;
-			treasure.flipped = 1;
+			treasure.flipped = true;
 			instance_destroy();
 		}
 	}

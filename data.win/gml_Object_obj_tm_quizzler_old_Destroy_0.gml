@@ -1,1 +1,1 @@
-global.monsterinstance[creator].visible = true;
+global.monsterinstance[creator].visible = 1;

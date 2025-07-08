@@ -248,4 +248,5 @@ function scr_set_vhs_ini_value(arg0) {
 	var iniwrite = ossafe_ini_open("dr.ini");
 	ini_write_real("VHS", "watched", arg0);
 	ossafe_ini_close();
+	ossafe_savedata_save();
 }

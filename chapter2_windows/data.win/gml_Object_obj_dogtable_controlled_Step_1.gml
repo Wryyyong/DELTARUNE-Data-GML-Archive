@@ -106,3 +106,19 @@ if (global.interact != 0)
 
 if (global.interact == 0)
 	vertState = 0;
+
+if (!collided && room == room_dw_mansion_dininghall) {
+	if (y <= 194) {
+		y = 194;
+		collided = true;
+		vertState = 1;
+		global.interact = 1;
+		scr_debug_print("collision happened");
+		
+		with (obj_controller_dininghall)
+			con = 2;
+		
+		hsp = 0;
+		vspeed = 0;
+	}
+}

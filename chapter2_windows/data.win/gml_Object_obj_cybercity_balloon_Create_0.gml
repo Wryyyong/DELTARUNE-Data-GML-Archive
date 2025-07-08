@@ -9,6 +9,7 @@ breakable = 0;
 attached = 0;
 attachedobj = obj_city_cyberballoon_mouse;
 balloonid = -1;
+mylerpfall = -4;
 
 if (room == room_dw_city_postbaseball_3) {
 	sprite_index = spr_bg_city_balloon_carrier;

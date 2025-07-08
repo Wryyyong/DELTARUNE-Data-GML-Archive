@@ -70,7 +70,7 @@ if (active) {
 		}
 	}
 	
-	if (con == 2) {
+	if (con == 2 && obj_board_camera.con == 0 && obj_board_camera.shift == "none") {
 		con = -1;
 		
 		with (grabdaddy)
@@ -98,12 +98,12 @@ if (active) {
 				scr_lerpvar("y", y, (y - 32) + 4, movetime, 2, "out");
 			}
 			
-			with (grabdaddy) {
-				scr_var_delay("fun", 0, movetime + waittime + 4);
-				scr_var_delay("grab", 0, movetime + waittime + 4);
-				scr_var_delay("canfreemove", 1, movetime + waittime + 4);
-			}
-			
+			trig = movetime + waittime + 4;
+			trigtime = 0;
+			dofun = 0;
+			dograb = 0;
+			docanfreemove = 1;
+			resetcon = 1;
 			scr_delay_var("con", 10, movetime + waittime);
 			scr_doom(coin, movetime + waittime + 5);
 		}
@@ -117,13 +117,12 @@ if (active) {
 				image_blend = #FFECBD;
 			
 			dirt = scr_board_marker(x, y, 2406, 0, 999999, 2);
-			
-			with (grabdaddy) {
-				scr_var_delay("fun", 0, movetime + waittime + 4);
-				scr_var_delay("grab", 0, movetime + waittime + 4);
-				scr_var_delay("canfreemove", 1, movetime + waittime + 4);
-			}
-			
+			trig = movetime + waittime + 4;
+			trigtime = 0;
+			dofun = 0;
+			dograb = 0;
+			docanfreemove = 1;
+			resetcon = 1;
 			scr_delay_var("con", 10, movetime + waittime);
 		}
 		
@@ -208,7 +207,7 @@ if (active) {
 			safe_delete(coin);
 			destroy = true;
 		} else {
-			instance_destroy();
+			destroy = true;
 		}
 	}
 	
@@ -235,10 +234,37 @@ if (active) {
 			newGrass.potsprite = potsprite;
 			newGrass.puzzleid = puzzleid;
 			newGrass.infinite = infinite;
+		} else {
+			x = room_width * 2;
+			con = 31;
 		}
-		
-		instance_destroy();
 	}
 } else if (room != room_dw_puzzlecloset_1) {
 	instance_destroy();
+}
+
+if (resetcon == 1) {
+	if (obj_board_camera.con != 0 || obj_board_camera.shift != "none" || !instance_exists(grabdaddy)) {
+		resetcon = -1;
+		exit;
+	}
+	
+	if (global.interact == 0 && !d_ex() && !bw_ex())
+		trigtime++;
+	
+	if (trigtime >= trig) {
+		if (dofun != -1)
+			grabdaddy.fun = dofun;
+		
+		if (dograb != -1)
+			grabdaddy.grab = dograb;
+		
+		if (docanfreemove != -1)
+			grabdaddy.canfreemove = docanfreemove;
+		
+		dofun = -1;
+		dograb = -1;
+		docanfreemove = -1;
+		resetcon = 0;
+	}
 }

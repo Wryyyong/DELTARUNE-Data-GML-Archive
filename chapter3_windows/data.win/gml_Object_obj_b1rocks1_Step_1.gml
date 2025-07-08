@@ -15,6 +15,7 @@ if (npcwalk == 2) {
 		ralsei.visible = false;
 		splatmarker = instance_create(round(ralsei.x / 2) * 2, round(ralsei.y / 2) * 2, obj_board_splattered_ralsei);
 		splatmarker.splatside = splatside;
+		ralseiwashit = 1;
 		var ratalk = stringsetloc("Oops.", "obj_b1rocks1_slash_Step_1_gml_19_0");
 		scr_couchtalk(ratalk, "ralsei", 2, 60);
 		npcwalk = 3;

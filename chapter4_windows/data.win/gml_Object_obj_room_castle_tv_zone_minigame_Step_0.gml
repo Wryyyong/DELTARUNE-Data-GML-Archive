@@ -14,6 +14,7 @@ if (maus_action == 1) {
 	c_wait_if(id, "maus_transform", "=", false);
 	c_customfunc(function() {
 		mike_controller = instance_create(0, 0, obj_mike_controller);
+		mike_controller.hand_wait = 15;
 		
 		with (obj_mike_hand) {
 			visible = 0;

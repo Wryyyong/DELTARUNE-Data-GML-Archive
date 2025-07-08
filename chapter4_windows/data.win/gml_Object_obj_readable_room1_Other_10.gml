@@ -2977,7 +2977,7 @@ if (room == room_lw_noellehouse_noelle) {
 				msgnextloc("\\E8* Faha^1, if you can get my mom to let me go grimdark?/%", "obj_readable_room1_slash_Other_10_gml_3815_0");
 			} else {
 				scr_speaker("no_name");
-				msgsetloc(0, "* (It's Noelle's bed. Under is a rock CD with a photo of Noelle in dark makeup.)/%", "obj_readable_room1_slash_Other_10_gml_3819_0");
+				msgsetloc(0, "* (It's Noelle's bed. Under it is a rock CD with a photo of Noelle in dark makeup.)/%", "obj_readable_room1_slash_Other_10_gml_3819_0");
 			}
 		}
 	}
@@ -3118,7 +3118,7 @@ if (room == room_lw_noellehouse_dess) {
 	
 	if (x > 240 && x < 280 && y > 130 && y < 150) {
 		scr_speaker("no_name");
-		msgsetloc(0, "* Rollerblades^1, wiffle bat. Looking at these things make your head hurt./%", "obj_readable_room1_slash_Other_10_gml_4011_0");
+		msgsetloc(0, "* Rollerblades^1, wiffle bat. Looking at these things makes your head hurt./%", "obj_readable_room1_slash_Other_10_gml_4011_0");
 	}
 	
 	if (x > 240 && x < 280 && y > 160 && y < 170) {

@@ -10,6 +10,11 @@ with (obj_face)
 with (obj_writer)
 	prevent_mash_buffer = 3;
 
+if (!(global.is_console || onSteamDeck())) {
+	if (audio_get_recorder_count() == 0 && global.right_click_mic == 0)
+		global.right_click_mic = 2;
+}
+
 if (phase == 0 && canclick) {
 	global.msgno = 0;
 	

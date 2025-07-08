@@ -179,3 +179,17 @@ if (type == 5) {
 
 myxcenter = x + 20;
 myycenter = y + 20;
+
+if (room == room_dw_teevie_susiezilla) {
+	if (sprite_index == spr_susiezilla_house) {
+		if (myhealth == 0) {
+			brokemefail++;
+			
+			if (brokemefail > 3) {
+				scr_marker_ext(x, y, sprite_index, 2, 2, 0, image_index, image_blend, depth);
+				instance_destroy();
+				exit;
+			}
+		}
+	}
+}

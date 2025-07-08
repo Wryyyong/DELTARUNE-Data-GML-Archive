@@ -1,14 +1,14 @@
 split_screen_timer++;
+split_screen_offset = lerp(0, 340, split_screen_timer / 30);
 
-if (split_screen_timer == 1)
-	scr_lerpvar("split_screen_offset", 0, 340, 30);
-
-if (split_screen_timer == 60) {
+if (split_screen_timer > 30) {
 	instance_destroy();
 	exit;
 }
 
-draw_set_color(c_black);
-ossafe_fill_rectangle(camerax() - split_screen_offset, cameray(), (camerax() - split_screen_offset) + (view_wport[0] / 2), cameray() + view_hport[0]);
-ossafe_fill_rectangle(camerax() + (view_wport[0] / 2) + split_screen_offset, cameray(), camerax() + view_wport[0] + split_screen_offset, cameray() + view_hport[0]);
-draw_set_color(c_white);
+var cx = camera_get_view_x(view_camera[0]);
+var cy = camera_get_view_y(view_camera[0]);
+draw_set_color(c_red);
+var off = clamp(split_screen_offset, 0, 340);
+draw_sprite_ext(spr_pxwhite, 0, cx - off, cy, 320, 480, 0, c_black, 1);
+draw_sprite_ext(spr_pxwhite, 0, cx + 320 + off, cy, 320, 480, 0, c_black, 1);

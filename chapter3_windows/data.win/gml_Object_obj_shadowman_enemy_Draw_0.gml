@@ -1,6 +1,6 @@
 firstframe++;
 
-if (firstframe == 1)
+if (firstframe == 1 && room != room_dw_teevie_large_01)
 	exit;
 
 if (image_alpha == 0 && i_ex(obj_tenna_board4_enemy))

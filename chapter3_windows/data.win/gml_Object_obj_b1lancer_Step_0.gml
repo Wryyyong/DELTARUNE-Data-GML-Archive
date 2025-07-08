@@ -208,7 +208,7 @@ if (active == 1) {
 	if (susiewalkcon == 0 && obj_board_camera.con == 0 && visit > 0)
 		susiewalkcon = 1;
 	
-	if (con == 0 && obj_board_camera.con == 0) {
+	if (con == 0 && obj_board_camera.con == 0 && obj_board_camera.shift == "none") {
 		var triggered = 0;
 		var mytrigger = "lancercactus";
 		
@@ -303,7 +303,7 @@ if (active == 1) {
 	if (con == 20.1) {
 		pctime++;
 		
-		if (pctime == 10)
+		if (pctime >= 10)
 			con = 21;
 	}
 	
@@ -320,49 +320,62 @@ if (active == 1) {
 		}
 	}
 	
-	if (con == 30 && scr_board_checklocation("susie", 256, 224, 2) && button.pressed) {
-		pot1 = instance_create_board(11, 3, 1409);
-		pot2 = instance_create_board(11, 4, 1409);
-		pot3 = instance_create_board(5, 7, 1409);
-		pot4 = instance_create_board(6, 7, 1409);
-		instance_create_board(11, 3, 283);
-		instance_create_board(11, 4, 283);
-		instance_create_board(5, 7, 283);
-		instance_create_board(6, 7, 283);
-		solvetimer = 0;
-		con = 30.1;
+	if (con == 30 && obj_board_lancerswitch.pressed) {
+		var __proceed = true;
+		
+		with (obj_board_trigger) {
+			if (extflag == "potspawnchecker") {
+				if (place_meeting(x, y, obj_mainchara_board))
+					__proceed = false;
+			}
+		}
+		
+		if (__proceed) {
+			pot1 = instance_create_board(11, 3, 1409);
+			pot2 = instance_create_board(11, 4, 1409);
+			pot3 = instance_create_board(5, 7, 1409);
+			pot4 = instance_create_board(6, 7, 1409);
+			instance_create_board(11, 3, 283);
+			instance_create_board(11, 4, 283);
+			instance_create_board(5, 7, 283);
+			instance_create_board(6, 7, 283);
+			solvetimer = 0;
+			con = 30.1;
+		}
 	}
 	
 	if (con == 30.1) {
-		solvetimer++;
-		
-		if (solvetimer == 1)
-			susie.facing = 3;
-		
-		if (solvetimer == 30) {
-			help = false;
-			solved = 1;
-			var susiesolvestring = stringsetloc("Hm...", "obj_b1lancer_slash_Step_0_gml_358_0");
-			scr_couchtalk(susiesolvestring, "susie", 2, 60);
-		}
-		
-		var a = 30;
-		var b = 90;
-		
-		if (between(solvetimer, a + 5, b)) {
-			if (button3_h())
-				solvetimer = b - 1;
-		}
-		
-		if (between(solvetimer, a, b)) {
-			if (button1_p())
-				solvetimer = b - 1;
-		}
-		
-		if (solvetimer == 90) {
-			timer = 0;
-			con = 31;
-			solvetimer = 0;
+		if (scr_board_checklocation("susie", 256, 224, 6)) {
+			solvetimer++;
+			
+			if (solvetimer == 1)
+				susie.facing = 3;
+			
+			if (solvetimer == 30) {
+				help = false;
+				solved = 1;
+				var susiesolvestring = stringsetloc("Hm...", "obj_b1lancer_slash_Step_0_gml_358_0");
+				scr_couchtalk(susiesolvestring, "susie", 2, 60);
+			}
+			
+			var a = 30;
+			var b = 90;
+			
+			if (between(solvetimer, a + 5, b)) {
+				if (button3_h())
+					solvetimer = b - 1;
+			}
+			
+			if (between(solvetimer, a, b)) {
+				if (button1_p())
+					solvetimer = b - 1;
+			}
+			
+			if (solvetimer == 90) {
+				timer = 0;
+				con = 31;
+				solvetimer = 0;
+			}
 		}
 	}
 	

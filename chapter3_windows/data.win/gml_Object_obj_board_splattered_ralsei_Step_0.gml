@@ -16,6 +16,17 @@ if (x <= 128) {
 }
 
 if (stuck == false) {
+	var kris = -4;
+	var susie = -4;
+	
+	with (obj_mainchara_board) {
+		if (name == "kris")
+			kris = id;
+		
+		if (name == "susie")
+			susie = id;
+	}
+	
 	if (place_meeting(x, y, kris) || place_meeting(x, y, susie)) {
 		if (splatside == 1)
 			x += 4;
@@ -26,8 +37,14 @@ if (stuck == false) {
 
 if (obj_board_camera.con != 0 || instance_exists(obj_gameover_minigame)) {
 	scr_play_recording("ralsei", "0W");
-	ralsei.x = x;
-	ralsei.y = y;
-	ralsei.visible = true;
+	
+	with (obj_mainchara_board) {
+		if (name == "ralsei") {
+			x = other.x;
+			y = other.y;
+			visible = true;
+		}
+	}
+	
 	instance_destroy();
 }

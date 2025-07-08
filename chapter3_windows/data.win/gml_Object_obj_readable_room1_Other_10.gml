@@ -1,3 +1,4 @@
+var stayer = 0;
 myinteract = 3;
 global.msc = 0;
 global.typer = 5;
@@ -2349,6 +2350,7 @@ if (room == room_dw_ranking_a) {
 	} else if (extflag == "door_band") {
 		global.msc = 1347;
 		scr_text(global.msc);
+		stayer = 4;
 	} else if (extflag == "door_susiezilla") {
 		global.msc = 1353;
 		scr_text(global.msc);
@@ -2452,8 +2454,12 @@ if (room == room_dw_teevie_chef) {
 	}
 }
 
-if (skip == 0)
+if (skip == 0) {
 	mydialoguer = instance_create(0, 0, obj_dialoguer);
+	
+	with (mydialoguer)
+		stay = stayer;
+}
 
 read += 1;
 

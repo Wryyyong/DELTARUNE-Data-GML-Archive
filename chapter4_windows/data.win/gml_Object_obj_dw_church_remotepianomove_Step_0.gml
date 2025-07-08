@@ -94,19 +94,18 @@ if (con >= 1 && con < 2) {
 				
 				if (name == "susie") {
 					var pos2 = [other.x + 36, other.y - 10];
-					var jumpmarker = scr_marker_ext(x, y, 66, 2, 2, 0.25, 0, 16777215, obj_mainchara.depth);
+					var jumpmarker = scr_marker_ext(x, y, 66, 2, 2, 0.25, 0, 16777215, 30050);
 					
 					with (jumpmarker) {
-						depth = 1000;
 						scr_jump_to_point(pos2[0], pos2[1], jumpstrength, 16);
 						scr_doom(self, 16);
 					}
 				} else {
 					var pos2 = [other.x + 4, other.y - 6];
-					var jumpmarker = scr_marker_ext(x, y, 351, 2, 2, 0.25, 0, 16777215, obj_mainchara.depth);
+					var jumpmarker = scr_marker_ext(x, y, 351, 2, 2, 0.25, 0, 16777215, 30050);
 					
 					with (jumpmarker) {
-						depth = 1000;
+						depth = 30050;
 						scr_jump_to_point(pos2[0], pos2[1], jumpstrength, 16);
 						scr_doom(self, 16);
 					}
@@ -116,10 +115,9 @@ if (con >= 1 && con < 2) {
 			with (kris) {
 				visible = 0;
 				image_alpha = 0;
-				var jumpmarker = scr_marker_ext(x, y, 4185, 2, 2, 0.25, 0, 16777215, obj_mainchara.depth);
+				var jumpmarker = scr_marker_ext(x, y, 4185, 2, 2, 0.25, 0, 16777215, 30050);
 				
 				with (jumpmarker) {
-					depth = 1000;
 					scr_jump_to_point(pos[0], pos[1], jumpstrength, 16);
 					scr_doom(self, 16);
 				}

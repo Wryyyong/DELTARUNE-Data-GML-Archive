@@ -11,8 +11,8 @@ var save_point_top = instance_create(470, 314, obj_savepoint);
 with (save_point_top)
 	scr_depth();
 
-remove_statue = function() {
-	global.flag[1694] = clamp(global.flag[1694] + 1, 0, array_length(statue_list));
+remove_statue = function(arg0) {
+	global.flag[1694] |= 1 << arg0;
 };
 
 statue_list = [];
@@ -33,6 +33,7 @@ for (var i = 0; i < array_length(layerarray); i++) {
 			with (statue_cat_tall)
 				sprite_index = spr_statue_cat_tall;
 			
+			statue_cat_tall.bit_index = layer_sprite_get_speed(elements[j]);
 			statue_cat_tall.init("statue_cat_tall", remove_statue);
 			statue_list[array_length(statue_list)] = statue_cat_tall;
 			
@@ -60,7 +61,11 @@ show_convo = function(arg0) {
 	}
 };
 
-if (global.flag[1694] > 0) {
-	for (var i = 0; i < global.flag[1694]; i++)
-		statue_list[i].clean_up();
+var remembered_flag = global.flag[1694];
+
+if (remembered_flag > 0) {
+	for (var i = 0; i < array_length(statue_list); i++) {
+		if (((remembered_flag >> statue_list[i].bit_index) & 1) != 0 || remembered_flag < 8)
+			statue_list[i].clean_up();
+	}
 }

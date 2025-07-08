@@ -1,3 +1,6 @@
+if (timer < 2)
+	exit;
+
 var alphaset = 0;
 
 if (timer < 10)

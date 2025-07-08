@@ -43,7 +43,14 @@ if (_video_status == 0) {
 		}
 	}
 	
-	if (video_get_position() >= (video_get_duration() - 150)) {
+	if (scr_is_switch_os()) {
+		video_position += 1;
+	} else {
+		target_duration = video_get_duration() - 150;
+		video_position = video_get_position();
+	}
+	
+	if (video_position >= target_duration) {
 		if (!i_ex(obj_ch3_couch_video_screenshot)) {
 			var _screenshot = instance_create(0, 0, obj_ch3_couch_video_screenshot);
 			_screenshot.depth = depth - 10;

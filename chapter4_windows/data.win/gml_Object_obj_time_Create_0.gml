@@ -6,8 +6,8 @@ gamepad_id = 0;
 axis_value = 0.4;
 fullscreen_toggle = 0;
 quicksaved = 0;
-dorecord = 0;
 window_center_toggle = 0;
+isfullscreen = 0;
 
 if (global.is_console) {
 	if (!instance_exists(obj_gamecontroller))
@@ -31,27 +31,25 @@ _border_image = border_line_1080;
 if (instance_number(obj_time) > 1) {
 	instance_destroy();
 } else {
-	display_height = display_get_height();
-	display_width = display_get_width();
+	ini_open("true_config.ini");
+	var fullscreen_option = ini_read_real("SCREEN", "FULLSCREEN", 0);
+	ini_close();
+	var display_height = display_get_height();
+	var display_width = display_get_width();
 	window_size_multiplier = 1;
 	
-	for (_ww = 2; _ww < 6; _ww += 1) {
+	for (var _ww = 2; _ww < 12; _ww += 1) {
 		if (display_width > (640 * _ww) && display_height > (480 * _ww))
 			window_size_multiplier = _ww;
 	}
 	
-	if (window_size_multiplier > 1) {
+	if (window_size_multiplier > 1 && !fullscreen_option) {
 		window_set_size(640 * window_size_multiplier, 480 * window_size_multiplier);
 		alarm[2] = 1;
 	}
 	
-	ini_open("true_config.ini");
-	var fullscreen_option = ini_read_real("SCREEN", "FULLSCREEN", 0);
-	
 	if (fullscreen_option == 1 && !window_get_fullscreen())
 		alarm[1] = 1;
-	
-	ini_close();
 	
 	if (scr_is_switch_os()) {
 		switch_controller_support_set_defaults();

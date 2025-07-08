@@ -25,6 +25,7 @@ if (con == 1) {
 	}
 	
 	kris = instance_create(135, 78, obj_homealone_dess_closet_kris);
+	kris.visible = false;
 	kris.depth = obj_homealone_heart.depth - 20;
 	pile_marker = scr_marker(closet.x + 1, closet.y + 68, spr_noellehouse_dess_closet_pile);
 	pile_marker.depth = kris.depth - 100;
@@ -104,6 +105,7 @@ if (close_closet) {
 
 if (closet_fadein) {
 	closet_fadein = false;
+	kris.visible = true;
 	
 	with (closet) {
 		kris_active = false;

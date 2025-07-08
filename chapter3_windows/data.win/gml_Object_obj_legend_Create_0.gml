@@ -26,3 +26,4 @@ if (global.plot == 20)
 
 skipped = 0;
 skiptimer = 0;
+subsubcon = 0;

@@ -527,7 +527,7 @@ if (room == room_dw_city_postbaseball_3) {
 			
 			with (balloon[0]) {
 				event_user(0);
-				scr_lerpvar("y", y, other.ballremy[0], 15, 2, "out");
+				mylerpfall = scr_lerpvar("y", y, 60, 15, 2, "out");
 			}
 			
 			balloondestroyed[0] = 0;

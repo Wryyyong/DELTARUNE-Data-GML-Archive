@@ -1,7 +1,8 @@
-var count = 0;
+var cx = camerax();
+var cy = cameray();
 
 if (nohouses == 1) {
-	signx = lerp(signx, camerax() + 320, 0.16666666666666666);
+	signx = lerp(signx, cx + 320, 0.16666666666666666);
 	timer++;
 	
 	if (timer == 15 || timer == 30 || timer == 37)
@@ -11,7 +12,7 @@ if (nohouses == 1) {
 		scr_lerpvar("signy", signy, -120, 30, 3, "in");
 		
 		if (!i_ex(obj_dw_points_get_display)) {
-			with (instance_create(camerax() + 320, signy + 140, obj_dw_points_get_display)) {
+			with (instance_create(cx + 320, signy + 140, obj_dw_points_get_display)) {
 				depth = other.depth - 1;
 				
 				if (global.interact == 0)

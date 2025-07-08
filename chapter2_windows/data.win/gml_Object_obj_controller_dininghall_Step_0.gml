@@ -10,10 +10,8 @@ if (con == 0) {
 	}
 	
 	with (obj_saucer) {
-		if (i_ex(collider)) {
-			with (collider)
-				instance_destroy();
-		}
+		with (collider)
+			instance_destroy();
 	}
 	
 	with (obj_caterpillarchara)
@@ -35,6 +33,9 @@ if (tablespawn == true) {
 }
 
 if (con == 2) {
+	scr_debug_print("Con 2");
+	global.interact = 1;
+	
 	for (var i = 0; i < 3; i++) {
 		shade = instance_create(166 + (i * 104), 364, obj_marker);
 		shade.sprite_index = spr_saucershadow;
@@ -44,31 +45,25 @@ if (con == 2) {
 		shade.depth = 890000;
 	}
 	
-	with (obj_caterpillarchara)
-		visible = false;
-	
-	with (obj_mainchara)
-		visible = false;
-	
-	global.interact = 1;
-	cutscene_master = scr_cutscene_make();
-	scr_maincharacters_actors();
-	
-	with (obj_dogtable_controlled)
-		drawtype = 1;
-	
-	dog = remdog;
-	memx = dog.x;
-	memy = dog.y;
-	cutscene_master.save_object[0] = dog;
 	con++;
 }
 
 if (con == 3) {
-	con = -999;
-	c_soundplay(snd_impact);
-	c_var_instance(dog, "x", memx);
-	c_var_instance(dog, "y", memy);
+	show_debug_message_concat("before cutscene make");
+	
+	with (obj_camera_advanced)
+		instance_destroy();
+	
+	scr_cutscene_make();
+	show_debug_message_concat("after cutscene make");
+	scr_maincharacters_actors();
+	show_debug_message_concat("after actors make");
+	snd_play(snd_impact);
+	dogtable.drawtype = 1;
+	dog = dogtable;
+	memx = dog.x;
+	memy = dog.y;
+	con = 4;
 	c_shake();
 	c_var_instance(dog, "depth", 890000);
 	c_sel(kr);
@@ -112,12 +107,15 @@ if (con == 3) {
 	c_wait(6);
 	c_sel(ra);
 	c_facing("r");
+	c_addxy(4, -6);
 	c_autowalk(1);
 	c_sel(kr);
 	c_facing("u");
+	c_addxy(10, 4);
 	c_autowalk(1);
 	c_sel(su);
 	c_facing("d");
+	c_addxy(8, 0);
 	c_autowalk(1);
 	c_wait(15);
 	c_sel(su);
@@ -145,11 +143,10 @@ if (con == 3) {
 	c_facing("d");
 	c_actortokris();
 	c_actortocaterpillar();
-	c_var_instance(id, "con", 4);
 	c_terminatekillactors();
 }
 
-if (con == 4) {
+if (con == 4 && !instance_exists(obj_cutscene_master)) {
 	with (obj_dogtable_controlled)
 		instance_destroy();
 	
@@ -162,6 +159,13 @@ if (con == 4) {
 	global.flag[7] = 0;
 	global.interact = 0;
 	global.flag[382] = 1;
-	alarm[0] = 1;
 	con++;
+}
+
+if (scr_debug()) {
+	if (gamepad_button_check(0, gp_stickl) || gamepad_button_check(1, gp_stickl) || gamepad_button_check(2, gp_stickl)) {
+		global.interact = 0;
+		global.flag[382] = 0;
+		room_restart();
+	}
 }

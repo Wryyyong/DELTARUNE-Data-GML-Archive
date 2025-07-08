@@ -220,6 +220,19 @@ function scr_damage() {
 				hpdiff = 5;
 			
 			dmgwriter = instance_create(__targx, __targy, obj_dmgwriter);
+			
+			if (i_ex(obj_mike_attack_controller)) {
+				dmgwriter.x = obj_heart.x;
+				dmgwriter.y = obj_heart.y;
+				dmgwriter.xstart = dmgwriter.x;
+				dmgwriter.ystart = dmgwriter.y;
+				
+				if (global.char[1] != 0 && global.char[2] != 0)
+					doomtype = target;
+				
+				dmgwriter.depth = obj_heart.depth - 1000;
+			}
+			
 			dmgwriter.damage = hpdiff;
 			dmgwriter.type = doomtype;
 			

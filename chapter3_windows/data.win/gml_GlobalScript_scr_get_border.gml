@@ -11,8 +11,10 @@ function scr_get_border(arg0) {
 		if (global.plot >= 120)
 			_border_image = border_dw_green_room;
 		
-		if (global.plot >= 122)
-			_border_image = border_dw_tv_black;
+		if (global.plot >= 122) {
+			if (arg0 == 131)
+				_border_image = border_dw_tv_black;
+		}
 		
 		if (global.plot >= 160)
 			_border_image = border_dw_green_room;
@@ -53,7 +55,7 @@ function scr_get_border(arg0) {
 		if (arg0 == 98 || arg0 == 103)
 			_border_image = border_dw_tv_black;
 		
-		if (arg0 == 194 || arg0 == 169 || arg0 == 96 || arg0 == 226)
+		if (arg0 == 194 || arg0 == 169 || arg0 == 96 || arg0 == 226 || arg0 == 241 || arg0 == 166)
 			_border_image = border_dw_blue_stars;
 		
 		if (arg0 == 193 || arg0 == 125 || arg0 == 112 || arg0 == 141)

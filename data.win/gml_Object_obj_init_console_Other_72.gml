@@ -163,10 +163,29 @@ if (ds_map_find_value(async_load, "id") == global.savedata_async_id) {
 			}
 		} else if (_load_state == UnknownEnum.Value_2) {
 			if (scr_is_switch_os()) {
-				_pending_titles[array_length(_pending_titles)] = new scr_pending_save_data(_pending_title, global.savedata);
-				load_default_settings();
-				audio_group_load(0);
-				_parent.trigger_event("load_prompt", _pending_titles);
+				if (ossafe_file_exists("dr.ini"))
+					array_insert(_pending_titles, 0, new scr_pending_save_data(_pending_title, global.savedata));
+				
+				var adjusted_list = [];
+				
+				for (var i = 0; i < array_length(_demo_titles); i++) {
+					if (_demo_titles[i] == _pending_title)
+						continue;
+					
+					adjusted_list[array_length(adjusted_list)] = _demo_titles[i];
+				}
+				
+				_demo_titles = adjusted_list;
+				var prev_title = ossafe_savedata_title_exists(_demo_titles);
+				
+				if (prev_title != "n/a") {
+					_load_state = UnknownEnum.Value_2;
+					_pending_title = prev_title;
+				} else {
+					load_default_settings();
+					audio_group_load(0);
+					_parent.trigger_event("load_prompt", _pending_titles);
+				}
 			}
 			
 			if (os_type == os_ps4 || os_type == os_ps5) {
@@ -210,8 +229,6 @@ if (ds_map_find_value(async_load, "id") == global.savedata_async_id) {
 			
 			if (scr_is_switch_os())
 				switch_save_data_commit();
-			
-			show_debug_message("-- ASYNC SAVE EVENT: " + string(global.savedata_debuginfo));
 		}
 		
 		buffer_delete(global.savedata_buffer);

@@ -5,7 +5,7 @@ function scr_get_supported_demo_titles() {
 	var titles = [];
 	
 	if (scr_is_switch_os())
-		titles = [new scr_switch_title("n/a", new scr_save_data_file("DELTARUNESaveData", "deltarune_ch1.sav")), new scr_switch_title("n/a", new scr_save_data_file("DELTARUNE", "deltarune_ch1.sav")), new scr_switch_title("n/a", new scr_save_data_file("DELTARUNESaveData", "deltarune_ch1.sav")), new scr_switch_title("n/a", new scr_save_data_file("DELTARUNE", "deltarune_ch1.sav"))];
+		titles = [new scr_switch_title("n/a", new scr_save_data_file("DELTARUNESaveData", "deltarune_ch1.sav")), new scr_switch_title("n/a", new scr_save_data_file("DELTARUNESaveData", "deltarune_ch1.sav"))];
 	else if (os_type == os_ps4 || os_type == os_ps5)
 		titles = [new scr_ps4_title("n/a", "n/a", new scr_save_data_file("DELTARUNESaveData", "deltarune_ch1.sav")), new scr_ps4_title("n/a", "n/a", new scr_save_data_file("DELTARUNE", "deltarune_ch1.sav")), new scr_ps4_title("n/a", "n/a", new scr_save_data_file("DELTARUNESaveData", "deltarune_ch1.sav")), new scr_ps4_title("n/a", "n/a", new scr_save_data_file("DELTARUNE", "deltarune_ch1.sav")), new scr_ps4_title("n/a", "n/a", new scr_save_data_file("DELTARUNESaveData", "deltarune_ch1.sav")), new scr_ps4_title("n/a", "n/a", new scr_save_data_file("DELTARUNE", "deltarune_ch1.sav"))];
 	
@@ -91,6 +91,45 @@ function scr_get_app_title(arg0) {
 			
 			if (global.lang == "ja")
 				product_title = "PlayStation~4版『DELTARUNE』の#";
+		}
+	}
+	
+	return product_title;
+}
+
+function scr_get_app_title_choice_text(arg0) {
+	var product_title = "N/A";
+	
+	if (scr_is_demo_title(arg0)) {
+		if (scr_is_switch_os()) {
+			if (arg0.app_id == "n/a") {
+				product_title = "DELTARUNE Chapter 1&2 [2021 demo]";
+				
+				if (global.lang == "ja")
+					product_title = "『DELTARUNE Chapter 1&2』（2021年）";
+			} else if (arg0.app_id == "n/a") {
+				product_title = "DELTARUNE Chapter 1&2 Demo [2025 demo]";
+				
+				if (global.lang == "ja")
+					product_title = "『DELTARUNE Chapter 1&2 体験版』（2025年）";
+			}
+		} else {
+			product_title = "DELTARUNE Chapter 1&2 [Demo]";
+			
+			if (global.lang == "ja")
+				product_title = "体験版『DELTARUNE Chapter 1&2』";
+		}
+	} else if (scr_is_full_title(arg0)) {
+		if (scr_is_switch_os()) {
+			product_title = "DELTARUNE [Nintendo Switch]";
+			
+			if (global.lang == "ja")
+				product_title = "『DELTARUNE』（Nintendo Switch版）";
+		} else {
+			product_title = "DELTARUNE [PlayStation~4]";
+			
+			if (global.lang == "ja")
+				product_title = "PlayStation~4版『DELTARUNE』";
 		}
 	}
 	

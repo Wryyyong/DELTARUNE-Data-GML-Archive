@@ -47,6 +47,9 @@ if (global.plot < 140) {
 		visible = 0;
 	
 	var retry_screen = instance_create(0, 0, obj_gameover_retry);
+	
+	if (os_type == os_ps4 || os_type == os_ps5)
+		retry_screen.split_screen_timer = -3;
 }
 
 cheerloop = 0;

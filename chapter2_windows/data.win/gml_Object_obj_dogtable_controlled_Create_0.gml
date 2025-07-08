@@ -24,3 +24,4 @@ suspr = spr_susie_walk_down_dw;
 raspr = spr_ralsei_walk_down;
 drawtype = 0;
 drawcustom = 0;
+collided = 0;

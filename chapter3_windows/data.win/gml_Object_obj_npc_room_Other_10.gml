@@ -1591,7 +1591,7 @@ if (room == room_dw_teevie_preview) {
 		} else {
 			scr_speaker("no_name");
 			msgsetloc(0, "* Ooo la la. The purple worlds^1, you think they give the creeps./", "obj_npc_room_slash_Other_10_gml_2030_0");
-			msgnextloc("* Tsk..^1. You have seen not but that tempered by light./", "obj_npc_room_slash_Other_10_gml_2031_0");
+			msgnextloc("* Tsk..^1. You have seen naught but that tempered by light./", "obj_npc_room_slash_Other_10_gml_2031_0");
 			msgnextloc("* You should thank Tenna for brightening everything up./%", "obj_npc_room_slash_Other_10_gml_2032_0_b");
 		}
 	}

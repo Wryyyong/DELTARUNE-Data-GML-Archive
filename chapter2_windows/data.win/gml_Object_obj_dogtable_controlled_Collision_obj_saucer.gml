@@ -20,7 +20,7 @@ with (other) {
 if (room == 1201)
 	vspeed *= 0.75;
 
-if (instance_number(obj_saucer) == (targ - 1) && i_ex(obj_controller_dining3)) {
+if (instance_number(obj_saucer) == (targ - 1) && instance_exists(obj_controller_dining3)) {
 	vertState = 1;
 	global.interact = 1;
 }

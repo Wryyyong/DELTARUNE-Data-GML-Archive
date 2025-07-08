@@ -706,7 +706,7 @@ function scr_weaponinfo(arg0) {
 			weaponchar4temp = 0;
 			weaponicontemp = 1;
 			weaponabilityicontemp = 7;
-			weaponabilitytemp = "$ +5%";
+			weaponabilitytemp = stringsetloc("$ +5%", "scr_weaponinfo_slash_scr_weaponinfo_gml_716_0");
 			value = 999;
 			break;
 		
@@ -729,7 +729,7 @@ function scr_weaponinfo(arg0) {
 			weaponchar4temp = 0;
 			weaponicontemp = 2;
 			weaponabilityicontemp = 13;
-			weaponabilitytemp = "Vampire";
+			weaponabilitytemp = stringsetloc("Vampire", "scr_weaponinfo_slash_scr_weaponinfo_gml_739_0");
 			value = 1234;
 			break;
 	}

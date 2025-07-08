@@ -6,6 +6,9 @@ if (global.chapter == 3 && i_ex(obj_susiezilla_gamecontroller))
 if (global.chapter == 3 && normalsprite == spr_gameshow_drowningRalsei_ralsei_origin_edit)
 	scale = 1;
 
+if (i_ex(obj_tenna_enemy))
+	d3d_set_fog(false, c_black, 0, 1);
+
 if (hurt == 1 && state != 8 && global.hp[global.char[myself]] > 0) {
 	if (global.faceaction[myself] != 4) {
 		specdraw = 1;
@@ -21,6 +24,7 @@ if (hurt == 1 && state != 8 && global.hp[global.char[myself]] > 0) {
 if (specdraw == 0 && state != 8) {
 	sprite_index = thissprite;
 	image_index = index;
+	image_blend = c_white;
 	draw_sprite_ext(thissprite, index, x, y, scale, scale, 0, image_blend, image_alpha);
 	
 	if (flash == 1) {

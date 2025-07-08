@@ -6,6 +6,11 @@ if (scr_debug()) {
 	}
 }
 
+if (!(global.is_console || onSteamDeck())) {
+	if (audio_get_recorder_count() == 0 && global.right_click_mic == 0)
+		global.right_click_mic = 2;
+}
+
 if (phase == 0 && global.use_mic && !global.right_click_mic) {
 	var mx = 100;
 	var my = 0;
@@ -408,6 +413,11 @@ if (phase == 0.1) {
 		}
 	} else {
 		with (main_text.mywriter) {
+			if (global.flag[10] == 1 && button3_h()) {
+				other.timer = 9999;
+				pos = string_length(mystring) + 2;
+			}
+			
 			if (pos >= (string_length(mystring) + 2)) {
 				other.timer += 1;
 				
@@ -1482,6 +1492,11 @@ if (phase == 3) {
 	if (wave == 2) {
 		if (instance_number(obj_writer) > 0) {
 			with (main_text.mywriter) {
+				if (global.flag[10] == 1 && button3_h()) {
+					other.timer = 9999;
+					pos = string_length(mystring) + 2;
+				}
+				
 				if (pos >= (string_length(mystring) + 2)) {
 					with (obj_mike_battle)
 						talking = false;

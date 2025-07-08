@@ -20,3 +20,10 @@ var _format = video_get_format();
 
 if (_format == 1)
 	videochromasampler = shader_get_sampler_index(shd_video_yuv, "v_chroma");
+
+target_duration = 0;
+
+if (scr_is_switch_os())
+	target_duration = 1224;
+
+video_position = 0;

@@ -152,22 +152,12 @@ if (cursor_con == 1) {
 	if ((i_ex(obj_tenna_zoom) && obj_tenna_zoom.con >= 2) || (i_ex(obj_tenna_enemy) && obj_tenna_enemy.stopshoot == 1)) {
 	} else if ((button3_h() == 1 || button1_h() == 1) && cursor_shoottimer > 0 && shooting_enabled == true) {
 		cursor_shoottimer = -3;
-		
-		if (global.hp[1] > 0 || (i_ex(obj_tenna_enemy) && obj_tenna_enemy.keep_em_alive == true)) {
-			inst = instance_create(obj_herokris.x + 27 + 34, obj_herokris.y + 33 + 12, obj_shadowman_sharpshoot_heart);
-			inst.depth = obj_heroralsei.depth - 10;
-		}
-		
-		if ((global.hp[2] > 0 && i_ex(obj_herosusie)) || (i_ex(obj_tenna_enemy) && obj_tenna_enemy.keep_em_alive == true)) {
-			inst = instance_create(obj_herosusie.x + 27 + 49, obj_herosusie.y + 42, obj_shadowman_sharpshoot_heart);
-			inst.depth = obj_heroralsei.depth - 10;
-		}
-		
-		if ((global.hp[3] > 0 && i_ex(obj_heroralsei)) || (i_ex(obj_tenna_enemy) && obj_tenna_enemy.keep_em_alive == true)) {
-			inst = instance_create(obj_heroralsei.x + 47 + 32, (obj_heroralsei.y + 50) - 3, obj_shadowman_sharpshoot_heart);
-			inst.depth = obj_heroralsei.depth - 10;
-		}
-		
+		inst = instance_create(obj_herokris.x + 27 + 34, obj_herokris.y + 33 + 12, obj_shadowman_sharpshoot_heart);
+		inst.depth = obj_heroralsei.depth - 10;
+		inst = instance_create(obj_herosusie.x + 27 + 49, obj_herosusie.y + 42, obj_shadowman_sharpshoot_heart);
+		inst.depth = obj_heroralsei.depth - 10;
+		inst = instance_create(obj_heroralsei.x + 47 + 32, (obj_heroralsei.y + 50) - 3, obj_shadowman_sharpshoot_heart);
+		inst.depth = obj_heroralsei.depth - 10;
 		snd_play_x(snd_noise, 0.2, 1.1 + random(0.2));
 	}
 	

@@ -24,6 +24,7 @@ _restart_room = false;
 _launch_data = scr_init_launch_parameters();
 _pending_titles = [];
 _pending_title = -4;
+_load_type = UnknownEnum.Value_0;
 
 init = function() {
 	var max_chapter = UnknownEnum.Value_7;
@@ -92,18 +93,29 @@ change_state = function(arg0, arg1) {
 				clean_up();
 			
 			_pending_titles = arg1;
-			_pending_title = _pending_titles[0];
-			var adjusted_list = [];
 			
-			for (var i = 0; i < array_length(_pending_titles); i++) {
-				if (_pending_titles[i] == _pending_title)
-					continue;
-				
-				adjusted_list[array_length(adjusted_list)] = _pending_titles[i];
+			if (scr_is_switch_os()) {
+				if (array_length(_pending_titles) > 1)
+					_load_type = UnknownEnum.Value_1;
 			}
 			
-			_pending_titles = adjusted_list;
-			create_load_prompt_screen(_pending_title.title);
+			if (_load_type == UnknownEnum.Value_0) {
+				_pending_title = _pending_titles[0];
+				var adjusted_list = [];
+				
+				for (var i = 0; i < array_length(_pending_titles); i++) {
+					if (_pending_titles[i] == _pending_title)
+						continue;
+					
+					adjusted_list[array_length(adjusted_list)] = _pending_titles[i];
+				}
+				
+				_pending_titles = adjusted_list;
+				create_load_prompt_screen(_pending_title.title);
+			} else {
+				create_load_prompt_multiple_screen(_pending_titles);
+			}
+			
 			break;
 		
 		case UnknownEnum.Value_6:
@@ -187,6 +199,28 @@ create_load_prompt_screen = function(arg0) {
 	start_screen.fade_in();
 };
 
+create_load_prompt_multiple_screen = function(arg0) {
+	var load_text = "Multiple DELTARUNE Save Files found.\nWould you like to import one of these?\n(This will only be asked once.)\n \n ";
+	
+	if (global.lang == "ja")
+		load_text = "複数の『DELTARUNE』セーブデータが存在します。\nどれか1つを取り込みますか？\n（この確認は一度しか行いません）\n \n ";
+	
+	var choices = [];
+	
+	for (var i = 0; i < array_length(arg0); i++) {
+		var prev_title = arg0[i];
+		var title_choice = scr_get_app_title_choice_text(prev_title.title);
+		var new_choice = new create_choice(title_choice, prev_title);
+		choices[array_length(choices)] = new_choice;
+	}
+	
+	var do_not_text = (global.lang == "en") ? "Do Not Import" : "取り込まない";
+	choices[array_length(choices)] = new create_choice(do_not_text, UnknownEnum.Value_1);
+	var start_screen = instance_create(0, 0, obj_screen_start);
+	start_screen.init(id, load_text, choices, 0, -32);
+	start_screen.fade_in();
+};
+
 create_load_deny_confirm_screen = function() {
 	var deny_text = (global.lang == "en") ? "Proceed without importing?" : "取り込まずに進めますか？";
 	var yes_text = (global.lang == "en") ? "Yes" : "はい";
@@ -219,11 +253,25 @@ trigger_event = function(arg0, arg1) {
 				
 				with (obj_init_console)
 					convert_loaded_file();
-			} else if (array_length(_pending_titles) > 0) {
-				change_state(UnknownEnum.Value_0);
-				trigger_event("load_prompt", _pending_titles);
+			} else if (event_value == UnknownEnum.Value_1) {
+				if (_load_type == UnknownEnum.Value_0) {
+					if (array_length(_pending_titles) > 0) {
+						change_state(UnknownEnum.Value_0);
+						trigger_event("load_prompt", _pending_titles);
+					} else {
+						change_state(UnknownEnum.Value_6);
+					}
+				} else {
+					change_state(UnknownEnum.Value_6);
+				}
 			} else {
-				change_state(UnknownEnum.Value_6);
+				_pending_title = event_value;
+				global.savedata = _pending_title.save_data;
+				_restart_room = true;
+				change_state(UnknownEnum.Value_0);
+				
+				with (obj_init_console)
+					convert_loaded_file();
 			}
 			
 			break;
@@ -308,7 +356,6 @@ show_transition = function() {
 launch_game = function(arg0) {
 	audio_stop_all();
 	var chapstring = string(_target_chapter);
-	show_debug_message("Attempting to launch Chapter " + string(arg0));
 	var parameters = get_chapter_switch_parameters();
 	
 	if (scr_is_switch_os()) {

@@ -2,6 +2,7 @@ if (!variable_global_exists("mic_sensitivity"))
 	global.mic_sensitivity = global.flag[1701];
 
 __usable = true;
+audio_record = -4;
 instance_create_depth(0, 0, depth - 6, obj_mike_hand);
 battle_active = false;
 

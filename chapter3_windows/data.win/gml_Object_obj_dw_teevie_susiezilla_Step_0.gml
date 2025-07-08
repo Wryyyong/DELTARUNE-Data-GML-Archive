@@ -1,4 +1,6 @@
 depth = 5000;
+var cx = camerax();
+var cy = cameray();
 
 if (init == 0) {
 	with (obj_caterpillarchara) {
@@ -9,21 +11,27 @@ if (init == 0) {
 	}
 }
 
-if (sukcon == 0 && !killmove) {
-	with (obj_mainchara) {
-		var xloc = x + 18;
-		var yloc = y + 60;
-		var radius = 120;
+if (sukcon == 0) {
+	if (global.interact == 0) {
+		var _target = -4;
 		
-		if (i_ex(collision_rectangle(xloc - radius, yloc - (radius / 2), xloc + radius, yloc + (radius / 2), obj_susiezilla_house_single, 0, 0)))
-			other.sukcon = 1;
+		with (obj_mainchara) {
+			var xloc = x + 18;
+			var yloc = y + 60;
+			var radius = 120;
+			_target = collision_rectangle(xloc - radius, yloc - (radius / 2), xloc + radius, yloc + (radius / 2), obj_susiezilla_house_single, 0, 0);
+		}
+		
+		if (instance_exists(_target)) {
+			if (_target.myhealth > 0)
+				sukcon = 1;
+		} else if (susie.follow == false) {
+			sukcon = 4;
+		}
 	}
 }
 
 if (sukcon == 1) {
-	if (killmove)
-		sukcon = 0;
-	
 	susie.follow = false;
 	susie.fun = 1;
 	targ = instance_nearest(susie.x, susie.y, obj_susiezilla_house_single);
@@ -34,31 +42,65 @@ if (sukcon == 1) {
 	if (side == 1)
 		targx = (targ.x + 36) - 8;
 	
-	walktime = round(point_distance(susie.x, susie.y, targ.x, targ.y) / 8);
-	
-	if (walktime < 1)
-		walktime = 1;
-	
-	with (susie) {
-		if (x > targx)
-			sprite_index = spr_susie_walk_left_dw;
-		else
-			sprite_index = spr_susie_walk_right_dw;
-		
-		image_speed = 0.25;
-		scr_lerpvar("x", x, targx, other.walktime);
-		scr_lerpvar("y", y, targy, other.walktime);
-	}
-	
-	sukcon = -1;
-	scr_delay_var("sukcon", 2, walktime + 1);
+	suwalktarg.x = targx;
+	suwalktarg.y = targy;
+	sustart.x = susie.x;
+	sustart.y = susie.y;
+	walktime = scr_returnwait(susie.x, susie.y, suwalktarg.x, suwalktarg.y, 8);
+	sukcon = 1.5;
+	timer2 = 0;
 	suktimer = 0;
 }
 
+if (sukcon == 1.5) {
+	if (global.interact == 0) {
+		timer2++;
+		susie.x = lerp(sustart.x, suwalktarg.x, timer2 / walktime);
+		susie.y = lerp(sustart.y, suwalktarg.y, timer2 / walktime);
+		var facing = point_direction(susie.x, susie.y, suwalktarg.x, suwalktarg.y);
+		
+		with (susie) {
+			facing += 90;
+			
+			if (facing > 360)
+				facing -= 360;
+			
+			facing = round(facing / 90);
+			
+			if (facing == 4)
+				facing = 0;
+			
+			switch (facing) {
+				case 0:
+					sprite_index = spr_susie_walk_down_dw;
+					break;
+				
+				case 1:
+					sprite_index = spr_susie_walk_right_dw;
+					break;
+				
+				case 2:
+					sprite_index = spr_susie_walk_up_dw;
+					break;
+				
+				case 3:
+					sprite_index = spr_susie_walk_left_dw;
+					break;
+			}
+			
+			image_index += 0.25;
+		}
+		
+		if (timer2 >= walktime) {
+			setxy(suwalktarg.x, suwalktarg.y, susie);
+			timer2 = 0;
+			sukcon = 2;
+			suktimer = 0;
+		}
+	}
+}
+
 if (sukcon == 2) {
-	if (killmove)
-		sukcon = 0;
-	
 	suktimer++;
 	
 	if (suktimer == 1) {
@@ -118,104 +160,104 @@ if (sukcon == 2) {
 if (sukcon == 3) {
 	targ = -4;
 	targ = instance_nearest(susie.x, susie.y, obj_susiezilla_house_single);
-	var targx, targy;
 	
-	if (i_ex(targ)) {
-		targx = targ.x - 36 - 18;
-		targy = targ.y - 62;
+	if (instance_exists(targ)) {
+		var targx = targ.x - 36 - 18;
+		var targy = targ.y - 62;
 		
 		if (susie.x > targ.x)
 			targx = (targ.x + 36) - 8;
+		
+		suwalktarg.x = targx;
+		suwalktarg.y = targy;
+		sustart.x = susie.x;
+		sustart.y = susie.y;
+		walktime = scr_returnwait(susie.x, susie.y, suwalktarg.x, suwalktarg.y, 8);
 	}
 	
-	if (!i_ex(targ))
+	if (!instance_exists(targ))
 		walktime = 99;
-	else
-		walktime = round(point_distance(susie.x, susie.y, targx, targy) / 8);
+	else if (targ.x < cx || targ.x > (cx + 640))
+		walktime = 99;
 	
-	var toolong = 90;
+	timer2 = 0;
+	suktimer = 0;
 	
-	if (walktime > 90) {
+	if (walktime > 20)
 		sukcon = 4;
-	} else {
-		if (walktime < 1)
-			walktime = 1;
-		
-		with (susie) {
-			if (x > targx)
-				sprite_index = spr_susie_walk_left_dw;
-			else
-				sprite_index = spr_susie_walk_right_dw;
-			
-			image_speed = 0.25;
-			scr_lerpvar("x", x, targx, other.walktime);
-			scr_lerpvar("y", y, targy, other.walktime);
-		}
-		
-		sukcon = -1;
-		scr_delay_var("sukcon", 2, walktime + 1);
-		suktimer = 0;
-	}
+	else
+		sukcon = 1.5;
 }
 
 if (sukcon == 4) {
-	with (susie) {
-		if (point_distance(x, y, obj_mainchara.x, obj_mainchara.y) > 64) {
-			if (x < obj_mainchara.x)
-				sprite_index = spr_susie_walk_right_dw;
-			else
-				sprite_index = spr_susie_walk_left_dw;
+	if (global.interact == 0) {
+		with (susie) {
+			var _s = {
+				x: x + 18,
+				y: y + 82
+			};
+			var _k = {
+				x: obj_mainchara.x + 18,
+				y: obj_mainchara.y + 70
+			};
 			
-			image_speed = 0.25;
-			move_towards_point(obj_mainchara.x, obj_mainchara.y - 16, 8);
-		} else {
-			speed = 0;
-			follow = true;
-			fun = false;
-			scr_caterpillar_interpolate();
-			other.sukcon = 0;
+			if (point_distance(_s.x, _s.y, _k.x, _k.y) > 64) {
+				var _x = x;
+				var _y = y;
+				var dir = point_direction(_s.x, _s.y, _k.x, _k.y);
+				x += lengthdir_x(8, dir);
+				y += lengthdir_y(8, dir);
+				var facing = dir;
+				facing += 90;
+				
+				if (facing > 360)
+					facing -= 360;
+				
+				facing = round(facing / 90);
+				
+				if (facing == 4)
+					facing = 0;
+				
+				switch (facing) {
+					case 0:
+						sprite_index = spr_susie_walk_down_dw;
+						break;
+					
+					case 1:
+						sprite_index = spr_susie_walk_right_dw;
+						break;
+					
+					case 2:
+						sprite_index = spr_susie_walk_up_dw;
+						break;
+					
+					case 3:
+						sprite_index = spr_susie_walk_left_dw;
+						break;
+				}
+				
+				image_index += 0.25;
+			} else {
+				follow = true;
+				fun = false;
+				scr_caterpillar_interpolate();
+				other.sukcon = 0;
+			}
 		}
-	}
-}
-
-if (killmove) {
-	with (obj_npc_PAspeaker)
-		instance_destroy();
-	
-	with (obj_lerpvar) {
-		if (target == other.susie) {
-			debug_print("lerpkilled:" + string(id));
-			instance_destroy();
-		}
-	}
-	
-	susie.speed = 0;
-	
-	if (fighthappened == false) {
-		if (i_ex(obj_battleback))
-			fighthappened = true;
-	}
-	
-	if (fighthappened == true && !i_ex(obj_battleback)) {
-		fighthappened = false;
-		killmove = 0;
 	}
 }
 
 if (nohouses == 0) {
 	if (!i_ex(obj_susiezilla_house_single)) {
 		snd_play(snd_won);
-		scr_confetti_ext(camerax() - 10, cameray() + 300, 15, 40, 20, 192, 356, 2);
-		scr_confetti_ext(camerax() + 640 + 10, cameray() + 300, 165, 40, 20, 192, 356, 2);
+		scr_confetti_ext(cx - 10, cy + 300, 15, 40, 20, 192, 356, 2);
+		scr_confetti_ext(cx + 640 + 10, cy + 300, 165, 40, 20, 192, 356, 2);
 		nohouses = 1;
-		signx = camerax() + 320;
+		signx = cx + 320;
 		
 		with (scr_lerpvar("signy", -400, 60, 40, -3, "out"))
 			respectglobalinteract = true;
 		
 		timer = 0;
 	}
-}
-
-if (nohouses == 1) {
 }

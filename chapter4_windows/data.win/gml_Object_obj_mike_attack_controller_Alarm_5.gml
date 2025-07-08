@@ -6,4 +6,7 @@ with (obj_heroparent) {
 	}
 }
 
+with (global.charinstance[star])
+	tu = 0;
+
 scr_healitemspell(160 - (min(pet_current[star], 3) * 40));

@@ -35,7 +35,6 @@ function scr_gamestart_chapter_override() {
 		global.flag[9] = 1;
 		global.flag[10] = 1;
 		global.flag[16] = 0.85;
-		global.flag[17] = 0.6;
 		global.flag[20] = 0;
 		global.flag[21] = 0;
 		global.flag[31] = 1;

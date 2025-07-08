@@ -27,3 +27,4 @@ skipped = 0;
 skiptimer = 0;
 draw_screen = true;
 skip_buffer = 10;
+subsubcon = 0;

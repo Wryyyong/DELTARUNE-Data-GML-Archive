@@ -18,7 +18,7 @@ _register_display = false;
 _register_text = [];
 _prompt_text = [];
 
-init = function(arg0, arg1, arg2 = [], arg3 = 0) {
+init = function(arg0, arg1, arg2 = [], arg3 = 0, arg4 = 0) {
 	_parent = arg0;
 	_text = arg1;
 	
@@ -32,9 +32,10 @@ init = function(arg0, arg1, arg2 = [], arg3 = 0) {
 	
 	for (var i = 0; i < array_length(arg2); i++) {
 		var choice_data = arg2[i];
-		var choice = instance_create(280 + arg3, 260 + (i * 40), obj_ui_choice);
+		var choice = instance_create(280 + arg3, 260 + (i * 40) + arg4, obj_ui_choice);
 		choice.init(id, choice_data.choice_text, choice_data.choice_value);
 		choice.set_alpha(0);
+		choice.align_center();
 		choice.y -= 40;
 		_choices[array_length(_choices)] = choice;
 	}

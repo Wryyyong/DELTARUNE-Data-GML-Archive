@@ -809,12 +809,10 @@ if (breakglass) {
 			DEATHCHECK = false;
 		
 		if (!DEATHCHECK) {
-			if (x > (cx + 640 + 20)) {
-				show_debug_message_concat("killdoffscreen");
+			if (x > (cx + 640 + 20))
 				instance_destroy();
-			} else {
+			else
 				DEATHCHECK = true;
-			}
 		}
 		
 		if (x > (act.x + 40)) {

@@ -56,11 +56,30 @@ if (draw_screen) {
 		if (yoff <= -260) {
 			contimer += 1;
 			
-			if (contimer >= 40) {
-				with (obj_switchAsyncHelper)
-					docheck = false;
+			if (subsubcon == 0) {
+				var dopause = false;
 				
-				audio_pause_sound(global.currentsong[1]);
+				if (os_type == os_ps4 || os_type == os_ps5) {
+					var trackpos = audio_sound_get_track_position(global.currentsong[1]);
+					var beginSil = 17.934;
+					var endSil = 19.612;
+					
+					if (trackpos >= beginSil && trackpos <= endSil) {
+						scr_debug_print(string("trackpos=" + string(trackpos)));
+						dopause = true;
+					}
+				} else if (contimer >= 40) {
+					dopause = true;
+				}
+				
+				if (dopause) {
+					subsubcon = 1;
+					
+					with (obj_switchAsyncHelper)
+						docheck = false;
+					
+					audio_pause_sound(global.currentsong[1]);
+				}
 			}
 			
 			if (contimer == 100) {

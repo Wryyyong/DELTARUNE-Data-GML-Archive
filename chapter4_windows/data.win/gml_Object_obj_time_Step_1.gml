@@ -176,7 +176,7 @@ if (gamepad_check_timer >= 90) {
 
 if (obj_gamecontroller.gamepad_active == 1 && quicksaved != 2) {
 	for (var i = 0; i < 4; i += 1) {
-		if (sunkus_kb_check(global.input_k[i]) || gamepad_button_check(obj_gamecontroller.gamepad_id, global.input_g[i]) || scr_gamepad_axis_check(obj_gamecontroller.gamepad_id, i)) {
+		if (sunkus_kb_check(global.input_k[i]) || (i_ex(obj_gamecontroller) && (gamepad_button_check(obj_gamecontroller.gamepad_id, global.input_g[i]) || scr_gamepad_axis_check(obj_gamecontroller.gamepad_id, i)))) {
 			if (global.input_held[i] == 0)
 				global.input_pressed[i] = 1;
 			

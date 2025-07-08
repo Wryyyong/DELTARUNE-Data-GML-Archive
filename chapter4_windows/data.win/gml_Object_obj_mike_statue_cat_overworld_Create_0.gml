@@ -2,6 +2,7 @@ image_speed = 0;
 statue_active = true;
 con = 0;
 callback = -4;
+bit_index = 1;
 statue = instance_create(x, y, obj_mike_statue_cat);
 statue_block = instance_create(x + 10, y + 80, obj_solidblockDark);
 statue_readable = instance_create(x + 8, y + 70, obj_readable_room1);
@@ -38,7 +39,7 @@ clean_up = function() {
 		instance_destroy();
 	
 	if (callback != -4)
-		callback();
+		callback(bit_index);
 	
 	instance_destroy();
 };

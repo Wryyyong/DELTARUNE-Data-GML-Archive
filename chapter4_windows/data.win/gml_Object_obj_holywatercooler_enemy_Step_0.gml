@@ -490,7 +490,7 @@ if (global.myfight == 3) {
 		if (acting == 4 && actcon == 0) {
 			chatcount++;
 			acttalked = true;
-			var chatstring = stringsetloc("* Everyone chat around the Watercooler!/", "obj_holywatercooler_enemy_slash_Step_0_gml_417_0");
+			var chatstring = stringsetloc("* Everyone chatted around the Watercooler!/", "obj_holywatercooler_enemy_slash_Step_0_gml_417_0");
 			acting = 0.6;
 			
 			if (chatcount == 1) {

@@ -45,18 +45,15 @@ if (con == 1) {
 	
 	if (button3_h() == 1 && shoottimer > 0 && ammo > 0 && stopshooting == false) {
 		shoottimer = -3;
+		instance_create(obj_herokris.x + 27 + 34, obj_herokris.y + 33 + 12, obj_shadowman_sharpshoot_heart);
+		ammo -= 1;
 		
-		if (global.hp[1] > 0) {
-			instance_create(obj_herokris.x + 27 + 34, obj_herokris.y + 33 + 12, obj_shadowman_sharpshoot_heart);
-			ammo -= 1;
-		}
-		
-		if (global.hp[2] > 0 && i_ex(obj_herosusie)) {
+		if (i_ex(obj_herosusie)) {
 			instance_create(obj_herosusie.x + 27 + 49, obj_herosusie.y + 42, obj_shadowman_sharpshoot_heart);
 			ammo -= 1;
 		}
 		
-		if (global.hp[3] > 0 && i_ex(obj_heroralsei)) {
+		if (i_ex(obj_heroralsei)) {
 			instance_create(obj_heroralsei.x + 47 + 32, (obj_heroralsei.y + 50) - 3, obj_shadowman_sharpshoot_heart);
 			ammo -= 1;
 		}

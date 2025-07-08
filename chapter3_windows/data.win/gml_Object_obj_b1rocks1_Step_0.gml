@@ -457,3 +457,16 @@ if (active == 1) {
 	safe_delete(grabmarker);
 	grabmarker = 0;
 }
+
+if (!active && ralseiwashit == 1) {
+	if (!instance_exists(obj_board_splattered_ralsei)) {
+		ralseiwashit = 2;
+		
+		with (obj_mainchara_board) {
+			if (name == "ralsei") {
+				visible = true;
+				iframes = 0;
+			}
+		}
+	}
+}

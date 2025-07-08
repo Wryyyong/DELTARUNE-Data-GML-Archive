@@ -47,7 +47,7 @@ if (mode == 2) {
 		
 		sprite_index = spr_bg_city_balloon_carrier;
 		
-		if (speed == 0)
+		if (!instance_exists(mylerpfall))
 			y += (sin(siner / 16) * 0.5);
 		
 		if (y <= 60) {
@@ -67,6 +67,9 @@ if (breakable == 1) {
 	
 	if (place_meeting(x, y, obj_forcefield))
 		broken = 1;
+	
+	if (x == 626 && siner < 10)
+		broken = 0;
 	
 	if (broken) {
 		if (attached) {

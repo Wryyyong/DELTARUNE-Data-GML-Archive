@@ -47,24 +47,56 @@ if (mic_reload < 0) {
 }
 
 if (act != 0) {
-	if (selected < array_length(mic_name)) {
-		var _n = ds_map_find_value(mic_name[selected], "name");
-		_n = string_replace(_n, "Microphone ", "");
-		_n = string_replace(_n, "(", "");
-		_n = string_replace(_n, ")", "");
-		var shortened = false;
+	if (selected < array_length(mic_name) || global.right_click_mic != 0) {
+		var _n;
 		
-		while (string_width(_n) > 600) {
-			_n = string_copy(_n, 1, string_length(_n) - 1);
-			shortened = true;
+		if (global.right_click_mic == 0 && selected < array_length(mic_name)) {
+			_n = ds_map_find_value(mic_name[selected], "name");
+			_n = string_replace(_n, "Microphone ", "");
+			_n = string_replace(_n, "(", "");
+			_n = string_replace(_n, ")", "");
+			var shortened = false;
+			
+			while (string_width(_n) > 600) {
+				_n = string_copy(_n, 1, string_length(_n) - 1);
+				shortened = true;
+			}
+			
+			if (shortened)
+				_n = _n + "...";
+		} else if (global.right_click_mic == 1) {
+			_n = get_right_click_mic_string();
+			
+			if (global.lang == "ja")
+				_n = string_copy(_n, 0, 8);
+			else
+				_n = string_copy(_n, 0, 17);
+		} else if (global.right_click_mic == 2) {
+			var inputname = scr_get_input_name(5);
+			_n = inputname;
+			
+			if (obj_gamecontroller.gamepad_active) {
+				var xoffset = 0;
+				
+				if (global.lang == "ja") {
+					inputname = " ";
+					xoffset = -18;
+				} else {
+					inputname = " ";
+				}
+				
+				_n = "";
+				var _sprite = scr_getbuttonsprite(global.input_g[5], false);
+				draw_sprite_ext(_sprite, 0, camerax() + mx + 190 + xoffset, (cameray() + mheight + my) - 46, 1, 1, 0, c_gray, 1);
+			}
 		}
-		
-		if (shortened)
-			_n = _n + "...";
 		
 		draw_set_colour(c_gray);
 		draw_set_font(scr_84_get_font("main"));
-		draw_text(camerax() + mx + 48, (cameray() + mheight + my) - 48, stringsetloc("* Current Microphone:  ", "obj_micmenu_slash_Draw_0_gml_53_0") + string(_n));
+		var micstr = stringsetloc("* Current Microphone:  ", "obj_micmenu_slash_Draw_0_gml_53_0");
+		draw_text(camerax() + mx + 48, (cameray() + mheight + my) - 48, micstr);
+		draw_set_font(fnt_ja_main);
+		draw_text((camerax() + mx + 48 + string_width(micstr)) - 16, (cameray() + mheight + my) - 48, string(_n));
 		draw_set_font(scr_84_get_font("mainbig"));
 		draw_set_colour(c_white);
 	}
@@ -123,7 +155,7 @@ if (act == 0) {
 					if (global.lang == "ja")
 						_str = " ";
 					else
-						_str = "   ";
+						_str = " ";
 					
 					draw_sprite(spr_sparestar, 0, camerax() + mx + 46, (cameray() + my + myy + 32 + (i * 30)) - (menu_y * 30));
 				} else {
@@ -135,7 +167,7 @@ if (act == 0) {
 				if (global.lang == "ja")
 					_str = " ";
 				else
-					_str = "   ";
+					_str = " ";
 				
 				draw_sprite(spr_sparestar, 0, camerax() + mx + 46, (cameray() + my + myy + 32 + (i * 30)) - (menu_y * 30));
 			} else if (i == (menu_max - 2) && global.right_click_mic == 2) {
@@ -144,7 +176,7 @@ if (act == 0) {
 				if (global.lang == "ja")
 					_str = " ";
 				else
-					_str = "   ";
+					_str = " ";
 				
 				draw_sprite(spr_sparestar, 0, camerax() + mx + 46, (cameray() + my + myy + 32 + (i * 30)) - (menu_y * 30));
 			} else {
@@ -152,16 +184,22 @@ if (act == 0) {
 			}
 			
 			if (i == (menu_max - 1)) {
+				draw_set_font(scr_84_get_font("mainbig"));
+				
 				if (i == current)
 					draw_sprite(spr_heart_centered, 0, camerax() + mx + 32, (cameray() + my + myy + 56 + (i * 30)) - (menu_y * 30));
 				
 				draw_text(camerax() + mx + 48, (cameray() + my + myy + 40 + (i * 30)) - (menu_y * 30), string(_str) + stringsetloc("Done", "obj_micmenu_slash_Draw_0_gml_116_0"));
 			} else if (i == (menu_max - 3) && is_pc) {
+				draw_set_font(fnt_ja_mainbig);
+				
 				if (i == current)
 					draw_sprite(spr_heart_centered, 0, camerax() + mx + 32, (cameray() + my + myy + 40 + (i * 30)) - (menu_y * 30));
 				
-				draw_text(camerax() + mx + 48, (cameray() + my + myy + 24 + (i * 30)) - (menu_y * 30), string(_str) + stringsetloc("Mouse Right-Click [Not Recommended]", "obj_micmenu_slash_Draw_0_gml_141_0"));
+				draw_text(camerax() + mx + 48, (cameray() + my + myy + 24 + (i * 30)) - (menu_y * 30), string(_str) + get_right_click_mic_string());
 			} else if (i == (menu_max - 2) && is_pc) {
+				draw_set_font(fnt_ja_mainbig);
+				
 				if (i == current)
 					draw_sprite(spr_heart_centered, 0, camerax() + mx + 32, (cameray() + my + myy + 40 + (i * 30)) - (menu_y * 30));
 				
@@ -171,7 +209,7 @@ if (act == 0) {
 					if (global.lang == "ja")
 						inputname = " ";
 					else
-						inputname = "    ";
+						inputname = " ";
 					
 					var _sprite = scr_getbuttonsprite(global.input_g[5], false);
 					var xoffset = 0;
@@ -182,8 +220,9 @@ if (act == 0) {
 					draw_sprite_ext(_sprite, 0, camerax() + mx + 46 + xoffset, (cameray() + my + myy + 27 + (i * 30)) - (menu_y * 30), 2, 2, 0, c_white, 1);
 				}
 				
-				draw_text(camerax() + mx + 48, (cameray() + my + myy + 24 + (i * 30)) - (menu_y * 30), string(_str) + stringsetsubloc("~1 [Also Not Recommended]", inputname, "obj_micmenu_slash_Draw_0_gml_172_0"));
+				draw_text(camerax() + mx + 48, (cameray() + my + myy + 24 + (i * 30)) - (menu_y * 30), string(_str) + get_x_click_mic_string(inputname));
 			} else {
+				draw_set_font(fnt_ja_mainbig);
 				var _n;
 				
 				if (mic_on[i]) {

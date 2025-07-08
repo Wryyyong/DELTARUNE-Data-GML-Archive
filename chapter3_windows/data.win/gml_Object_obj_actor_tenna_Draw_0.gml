@@ -849,7 +849,7 @@ if (drawtype == 0) {
 	if (dropshadow) {
 		d3d_set_fog(true, c_black, 0, 1);
 		draw_sprite_pos(sprite_index, image_index, x1 + dropdist, y1 + dropdist, x2 + dropdist, y2 + dropdist, x3 + dropdist, y3 + dropdist, x4 + dropdist, y4 + dropdist, 1);
-		d3d_set_fog(false, c_white, 0, 0);
+		d3d_set_fog(false, c_black, 0, 0);
 	}
 	
 	if (i_ex(obj_shadowman_sharpshoot_target) && threepartmode == true && !i_ex(obj_tenna_enemy)) {

@@ -13,12 +13,17 @@ _alpha = 1;
 _scale = 2;
 _color = 16777215;
 _font = (global.lang == "en") ? 2 : 1;
+_centered = false;
 
 init = function(arg0, arg1, arg2) {
 	_parent = arg0;
 	_text = arg1;
 	_value = arg2;
 	_init = true;
+};
+
+align_center = function() {
+	_centered = true;
 };
 
 set_font = function(arg0) {

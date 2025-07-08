@@ -158,6 +158,9 @@ if (act == 0) {
 				global.right_click_mic = 0;
 			else
 				global.right_click_mic = 1;
+			
+			if (mic_max == 2 && global.right_click_mic == 0)
+				global.right_click_mic = 2;
 		} else if (current == (menu_max - 2) && is_pc) {
 			buffer = 1;
 			
@@ -165,6 +168,9 @@ if (act == 0) {
 				global.right_click_mic = 0;
 			else
 				global.right_click_mic = 2;
+			
+			if (mic_max == 2 && global.right_click_mic == 0)
+				global.right_click_mic = 1;
 		} else {
 			selected = current;
 			global.right_click_mic = false;

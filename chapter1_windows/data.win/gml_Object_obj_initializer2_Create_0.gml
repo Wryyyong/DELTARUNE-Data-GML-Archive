@@ -53,13 +53,13 @@ global.savedata_async_id = -1;
 global.savedata_async_load = false;
 global.savedata_error = false;
 global.savedata_debuginfo = "";
-global.version = "1.36";
+global.version = "1.37";
 
 if (scr_is_switch_os())
-	global.version = "1.24";
+	global.version = "1.25";
 
 if (os_type == os_ps4 || os_type == os_ps5)
-	global.version = "1.24";
+	global.version = "1.25";
 
 old_savedata_check = false;
 

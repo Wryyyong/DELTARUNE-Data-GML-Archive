@@ -43,3 +43,11 @@ i = 0;
 option[i++] = stringsetloc("Select Microphone", "obj_micmenu_slash_Create_0_gml_39_0");
 option[i++] = stringsetloc("Adjust Sensitivity", "obj_micmenu_slash_Create_0_gml_40_0");
 option[i++] = stringsetloc("Done", "obj_micmenu_slash_Create_0_gml_41_0");
+
+get_right_click_mic_string = function() {
+	return stringsetloc("Mouse Right-Click [Not Recommended]", "obj_micmenu_slash_Draw_0_gml_141_0");
+};
+
+get_x_click_mic_string = function(arg0) {
+	return stringsetsubloc("~1 [Also Not Recommended]", arg0, "obj_micmenu_slash_Draw_0_gml_172_0");
+};

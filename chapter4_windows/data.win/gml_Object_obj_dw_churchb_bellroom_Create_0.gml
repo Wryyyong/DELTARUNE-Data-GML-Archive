@@ -1,4 +1,8 @@
 scr_musicer("second_church.ogg");
+
+if (!instance_exists(obj_hsv_shifter))
+	instance_create(0, 0, obj_hsv_shifter);
+
 timer = 0;
 con = 0;
 init = 0;

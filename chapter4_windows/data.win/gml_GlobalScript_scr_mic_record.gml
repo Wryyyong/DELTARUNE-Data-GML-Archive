@@ -28,8 +28,11 @@ function scr_mic_record() {
 
 function mic_reset() {
 	if (global.use_mic) {
-		audio_stop_recording(audio_record);
-		buffer_delete(audio_buffer);
+		if (audio_record != -4) {
+			audio_stop_recording(audio_record);
+			buffer_delete(audio_buffer);
+		}
+		
 		audio_record = audio_start_recording(global.microphone);
 		audio_buffer = buffer_create(9600, buffer_fixed, 2);
 	}

@@ -884,7 +884,7 @@ if (con == 54 && !i_ex(obj_cutscene_master)) {
 	
 	with (fall_trigger[1]) {
 		image_xscale = 11;
-		image_yscale = 4.2;
+		image_yscale = 4.1;
 	}
 	
 	fall_trigger[2] = instance_create(110, 148, obj_trigger);

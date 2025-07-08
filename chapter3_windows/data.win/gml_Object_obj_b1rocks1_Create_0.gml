@@ -34,3 +34,5 @@ rastart = 0;
 splatside = 0;
 sulazy = 0;
 ralseihitwhine = 0;
+splatmarker = -4;
+ralseiwashit = -1;

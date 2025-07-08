@@ -1,3 +1,8 @@
+if (scr_debug()) {
+	if (keyboard_check(ord("P")) || gamepad_button_check(0, gp_face4) || gamepad_button_check(1, gp_face4))
+		global.flag[382] = 0;
+}
+
 if (scr_sideb_get_phase() == 3)
 	instance_destroy();
 

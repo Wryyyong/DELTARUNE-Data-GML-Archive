@@ -1,5 +1,5 @@
 function scr_cutscene_master_commands_initialize() {
-	for (i = 0; i < 800; i++) {
+	for (var i = 0; i < 800; i++) {
 		command[i] = "terminate";
 		command_actor[i] = 99999999;
 		command_arg1[i] = 0;

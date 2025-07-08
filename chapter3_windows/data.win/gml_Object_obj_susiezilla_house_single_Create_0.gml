@@ -42,3 +42,5 @@ if (room == room_dw_teevie_susiezilla) {
 	solidmade = 0;
 	scr_depth();
 }
+
+brokemefail = 0;

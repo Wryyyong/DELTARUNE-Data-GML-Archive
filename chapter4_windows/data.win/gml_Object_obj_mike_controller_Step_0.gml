@@ -368,7 +368,7 @@ if ((type == 2 || type == 4 || type == 5 || type >= 7) && global.interact != 5) 
 		y = lerp(y, y_target, 0.3);
 	}
 	
-	if (scr_mouse_leftclick() && instance_number(obj_micmenu) == 0 && !i_ex(obj_dialoguer) && hand_wait < 0 && hand_type == 0 && instance_number(obj_battleblcon) == 0 && (instance_number(obj_mike_attack_controller) == 0 || !obj_mike_attack_controller.talking)) {
+	if (scr_mouse_leftclick() && instance_number(obj_micmenu) == 0 && !i_ex(obj_dialoguer) && global.interact != 1 && hand_wait < 0 && hand_type == 0 && instance_number(obj_battleblcon) == 0 && (instance_number(obj_mike_attack_controller) == 0 || !obj_mike_attack_controller.talking)) {
 		hand_wait = hand_anim;
 		
 		with (instance_create(mx + lengthdir_x(16, point_direction(x, y, mx, my)), my + lengthdir_y(16, point_direction(x, y, mx, my)), obj_hand_collision))

@@ -74,7 +74,7 @@ with (bellint) {
 			
 			if (global.flag[23] == 0) {
 				scr_speaker("no_name");
-				msgsetloc(0, "* It's too slippery to climb..^1. If only you had something help you climb./%", "obj_dw_church_waterfallroom_slash_Step_0_gml_101_0");
+				msgsetloc(0, "* It's too slippery to climb..^1. If only you had something to help you climb./%", "obj_dw_church_waterfallroom_slash_Step_0_gml_101_0");
 				d_make();
 				myinteract = 999;
 			} else {
